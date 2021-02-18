@@ -194,6 +194,10 @@ As a response the `native-client` will send a `ServerResponse`, which can be dec
 to the [rust implementation](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/responses.rs#L286)
 for further details.
 
+Example projects using the binary API include:
+* [BTC-BC](https://github.com/sgeisler/btcbc-rs/): Bitcoin transaction transmission via Nym, client and service provider
+written in Rust 
+
 #### Receiving messages
 
 When another peap sends a message to you, all extraneous information is stripped and you just get the message. So if an app sends the following message:
