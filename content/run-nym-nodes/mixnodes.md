@@ -4,7 +4,6 @@ weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong anonymity for internet users."
 ---
 
-
 {{% notice info %}}
 The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 {{% /notice %}}
@@ -13,7 +12,7 @@ To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `ta
 
 ### Upgrading from an earlier version
 
-If you have already been running a node on the Nym network v0.8.1, you can use the `upgrade` command to upgrade your configs in place. 
+If you have already been running a node on the Nym network v0.8.1, you can use the `upgrade` command to upgrade your configs in place.
 
 ```shell
 ./nym-mixnode upgrade --id your-node-id --current-version 0.8.1
@@ -25,7 +24,6 @@ If you are participating in the Nym incentives program, you can enter your Liqui
 ./nym-mixnode upgrade --id your-node-id --current-version 0.8.1 --incentives-address YOURADDRESSHERE
 ```
 
-
 ### Initialize a mixnode
 
 If you are new to Nym, here's how you initialize a mixnode:
@@ -34,13 +32,13 @@ If you are new to Nym, here's how you initialize a mixnode:
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity
 ```
 
-To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node *must* be able to send TCP data using *both* IPv4 and IPv6 (as other nodes you talk to may use either protocol). The above command gets your IP automatically using an external service `$(curl ifconfig.me)`. Enter it manually if you don't have `curl` installed.
+To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The above command gets your IP automatically using an external service `$(curl ifconfig.me)`. Enter it manually if you don't have `curl` installed.
 
-The `--location` flag is optional but helps us debug the testnet. 
+The `--location` flag is optional but helps us debug the testnet.
 
 You can pick any `--id` you want.
 
-When you run `init`, configuration files are created at `~/.nym/mixnodes/<your-id>/`. 
+When you run `init`, configuration files are created at `~/.nym/mixnodes/<your-id>/`.
 
 The `init` command will refuse to destroy existing mixnode keys.
 
@@ -54,8 +52,7 @@ If you are participating in the Nym incentives program, you can enter your Liqui
 
 `./nym-mixnode run --id winston-smithnode`
 
-
-You should see a nice clean startup: 
+You should see a nice clean startup:
 
 ```
      | '_ \| | | | '_ \ _ \
@@ -63,9 +60,9 @@ You should see a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.9.2)
+             (mixnode - version {{< param stable >}} )
 
-    
+
 Starting mixnode winston-smithnode...
 
 Directory server [presence]: https://testnet-validator1.nymtech.net
@@ -82,7 +79,7 @@ Public key: HHWAJ1zwpbb1uPLCvoTCUrtyUEuW9KKbUUnz3EUF1Xd9
  2020-05-05T16:01:08.136 INFO  nym_mixnode::node > Finished nym mixnode startup procedure - it should now be able to receive mix traffic!
 ```
 
-If everything worked, you'll see your node running at https://testnet-explorer.nymtech.net. 
+If everything worked, you'll see your node running at https://testnet-explorer.nymtech.net.
 
 Note that your node's public key is displayed during startup, you can use it to identify your node in the list.
 
@@ -99,20 +96,20 @@ Have a look at the saved configuration files to see more configuration options.
 You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
 
 ```
-cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files" 
+cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"
 ```
 
-You'll get back the hard and soft limits, something like this: 
+You'll get back the hard and soft limits, something like this:
 
-```Max open files            1024               1024               files```
+`Max open files 1024 1024 files`
 
-If either value is 1024, you must raise the limit. To do so, execute this as root: 
+If either value is 1024, you must raise the limit. To do so, execute this as root:
 
 ```
 echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 ```
 
-Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"`  again to make sure the limit has changed to 65535.
+Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` again to make sure the limit has changed to 65535.
 
 Changing the `DefaultLimitNOFILE` and rebooting should be all you need to do. But if you want to know what it is that you just did, read on.
 
@@ -130,14 +127,13 @@ Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too
 
 This means that the operating system is preventing network connections from being made. Raise your `ulimit`.
 
-
 ### Making a systemd startup script
 
 Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
 
 ```
 [Unit]
-Description=Nym Mixnode (0.9.2)
+Description=Nym Mixnode ({{< param stable >}} )
 
 [Service]
 User=nym
@@ -152,11 +148,11 @@ StartLimitBurst=10
 WantedBy=multi-user.target
 ```
 
-Put the above file onto your system at `/etc/systemd/system/nym-mixnode.service`. 
+Put the above file onto your system at `/etc/systemd/system/nym-mixnode.service`.
 
 Change the path in `ExecStart` to point at your mixnode binary (`nym-mixnode`), and the `User` so it is the user you are running as.
 
-If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this: 
+If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this:
 
 `ExecStart=/home/jetpanther/nym/target/release/nym-mixnode run --id your-id`. Basically, you want the full `/path/to/nym-mixnode run --id whatever-your-node-id-is`
 
@@ -166,17 +162,17 @@ Then run:
 systemctl enable nym-mixnode.service
 ```
 
-Start your node: 
+Start your node:
 
 ```
 service nym-mixnode start
 ```
 
-This will cause your node to start at system boot time. If you restart your machine, the node will come back up automatically. 
+This will cause your node to start at system boot time. If you restart your machine, the node will come back up automatically.
 
-You can also do `service nym-mixnode stop` or `service nym-mixnode restart`. 
+You can also do `service nym-mixnode stop` or `service nym-mixnode restart`.
 
-Note: if you make any changes to your systemd script after you've enabled it, you will need to run: 
+Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
 
 ```
 systemctl daemon-reload
@@ -184,16 +180,15 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
-
 ### Checking that your node is mixing correctly
 
 Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-explorer.nymtech.net).
 
-The Nym network will periodically send two test packets through your node (one IPv4, one IPv6), to ensure that it's up and mixing. In the current version, this determines your node reputation over time (and if you're participating in the incentives program, it will set your node's reputation score). 
+The Nym network will periodically send two test packets through your node (one IPv4, one IPv6), to ensure that it's up and mixing. In the current version, this determines your node reputation over time (and if you're participating in the incentives program, it will set your node's reputation score).
 
 If your node is not mixing correctly, you will notice that its status is not green. Ensure that your node handles both IPv4 and IPv6 traffic, and that its public `--host` is set correctly. If you're running on cloud infrastructure, you may need to explicitly set the `--announce-host` (see below).
 
-Nodes join the active mixing set once they have achieved a reputation score of 100 or above. 
+Nodes join the active mixing set once they have achieved a reputation score of 100 or above.
 
 ### Viewing command help
 
@@ -209,18 +204,17 @@ Subcommand help is also available, e.g.:
 ./nym-mixnode upgrade --help
 ```
 
-
 ### Node registration and de-registration
 
-When your node starts up, it notifies the rest of the Nym network that it is up and ready to mix traffic. Token rewards will start as soon as registration has taken place. But if your node isn't mixing properly, you'll start to incur reputation penalties. 
+When your node starts up, it notifies the rest of the Nym network that it is up and ready to mix traffic. Token rewards will start as soon as registration has taken place. But if your node isn't mixing properly, you'll start to incur reputation penalties.
 
-If you run your node in a console window, it will register when it starts up, and un-register automatically when you hit `ctrl-c` to stop it. When your node is unregistered, it will not gain reputation, but it won't lose any either. 
+If you run your node in a console window, it will register when it starts up, and un-register automatically when you hit `ctrl-c` to stop it. When your node is unregistered, it will not gain reputation, but it won't lose any either.
 
 If you kill it, though (`kill <process-number>`), the un-registration will not happen and you will incur reputation penalties. So, use `ctrl-c` instead.
 
-Most people will want to run their mixnodes as a systemd service instead of in a console. Systemd scripts by default send `KillSignal=SIGTERM`, which kills the process non-gracefully, so that the un-registration doesn't happen. 
+Most people will want to run their mixnodes as a systemd service instead of in a console. Systemd scripts by default send `KillSignal=SIGTERM`, which kills the process non-gracefully, so that the un-registration doesn't happen.
 
-You **must** use `KillSignal=SIGINT` in your systemd scripts, under the `[Service]` block. This allows the un-registration code to run whenever your service is stopped. 
+You **must** use `KillSignal=SIGINT` in your systemd scripts, under the `[Service]` block. This allows the un-registration code to run whenever your service is stopped.
 
 #### Manual unregister
 
@@ -256,14 +250,12 @@ The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 -
 
 This will bind the mixnode to the available host `10.126.5.7`, but announce the mixnode's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
-
-
 ### Mixnode Hardware Specs
 
-For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput. So don't bother provisioning a beastly server with many cores. 
+For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput. So don't bother provisioning a beastly server with many cores.
 
-* Processors: 2 cores are fine. Get the fastest CPUs you can afford. 
-* RAM: Memory requirements are very low - typically a mixnode may use only a few hundred MB of RAM. 
-* Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
+- Processors: 2 cores are fine. Get the fastest CPUs you can afford.
+- RAM: Memory requirements are very low - typically a mixnode may use only a few hundred MB of RAM.
+- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
 
 This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.

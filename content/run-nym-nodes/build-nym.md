@@ -12,8 +12,8 @@ Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimen
 
 Prerequisites:
 
-* on Debian/Ubuntu: `sudo apt install pkg-config build-essential libssl-dev curl jq`. 
-* Rust **1.47 or later**, with `cargo`. Stable works. 
+- on Debian/Ubuntu: `sudo apt install pkg-config build-essential libssl-dev curl jq`.
+- Rust **1.47 or later**, with `cargo`. Stable works.
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
 
@@ -30,9 +30,11 @@ git pull # in case you've checked it out before
 #
 # Note: the default branch you clone from Github, `develop`, is guaranteed to be
 # broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.9.2` in order to join the testnet.
+# `git checkout tags/v{{< param stable >}}` in order to join the testnet.
 #
-git checkout tags/v0.9.2
+
+
+git checkout tags/v{{< param stable >}} 
 cargo build --release
 ```
 

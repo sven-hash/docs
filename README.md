@@ -10,7 +10,7 @@ Contributions to our documentation are very welcome. Please shoot us a pull requ
 
 Requirements:
 
-* Hugo (get it from https://gohugo.io/getting-started/installing/)
+- Hugo (get it from https://gohugo.io/getting-started/installing/)
 
 Clone the docs from Github and `cd docs`.
 
