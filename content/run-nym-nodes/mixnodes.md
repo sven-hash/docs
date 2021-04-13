@@ -74,6 +74,8 @@ Then enter the **@nymchan_help_chat** channel on Telegram and talk to the bot to
 /claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 ```
 
+This proves to the bot that your username owns the mixnode. 
+
 Next, go to the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/) and create a Nym address. It will look something like `hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. Be sure to write down your mnemonic!
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens: 
