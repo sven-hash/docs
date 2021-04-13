@@ -43,7 +43,7 @@ Testnet Finney, which works with version 0.10.x of the Nym mixnode, introduces t
 
 To claim your mixnode, run the `sign` command, and provide your Telegram username:
 
-```
+```shell
 ./nym-mixnode sign --id winston-smithnode --text @your-telegram-username
 
 
