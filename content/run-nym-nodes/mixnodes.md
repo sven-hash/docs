@@ -37,10 +37,8 @@ When you run `init`, configuration files are created at `~/.nym/mixnodes/<your-i
 
 The `init` command will refuse to destroy existing mixnode keys.
 
-If you are participating in the Nym incentives program, you can enter your Liquid or Ethereum address to receive your NYMPH tokens during `init` by using the `--incentives--address` flag:
-
 ```shell
-./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity --incentives-address YOURADDRESSHERE
+./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity
 ```
 
 ### Claim your mixnode in Telegram so you can get tokens
