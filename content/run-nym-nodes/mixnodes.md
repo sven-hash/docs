@@ -37,10 +37,6 @@ When you run `init`, configuration files are created at `~/.nym/mixnodes/<your-i
 
 The `init` command will refuse to destroy existing mixnode keys.
 
-```shell
-./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity
-```
-
 ### Claim your mixnode in Telegram so you can get tokens
 
 Testnet Finney, which works with version 0.10.x of the Nym mixnode, introduces the concept of "mixnode bonding". Each mixnode operator needs to get tokens, and bond them in our blockchain, in order to enter Testnet Finney. 
