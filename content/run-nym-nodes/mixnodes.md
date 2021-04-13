@@ -110,7 +110,7 @@ Directory server [metrics]: http://testnet-metrics.nymtech.net:8080
 Listening for incoming packets on <your-ip>:1789
 Announcing the following socket address: <your-ip>:1789
 
-To bond your mixnode you will need to provide the following:
+To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will need to provide the following:
     Identity key: 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz
     Sphinx key: 6T6PpSAzaiHMKJQPKPABXzppxLtUDB3TB4ChM16t3oYP
     Host: <your-ip>:1789
