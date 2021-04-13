@@ -13,18 +13,11 @@ To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `ta
 
 ### Upgrading from an earlier version
 
-If you have already been running a node on the Nym network v0.8.1, you can use the `upgrade` command to upgrade your configs in place. 
+If you have already been running a node on the Nym network v0.9.2, you can use the `upgrade` command to upgrade your configs in place. 
 
 ```shell
-nym-mixnode upgrade --id your-node-id --current-version 0.8.1
+nym-mixnode upgrade --id your-node-id 
 ```
-
-If you are participating in the Nym incentives program, you can enter your Liquid or Ethereum address to receive your NYMPH tokens during `upgrade` by using the `--incentives flag`:
-
-```shell
-nym-mixnode upgrade --id your-node-id --current-version 0.8.1 --incentives-address YOURADDRESSHERE
-```
-
 
 ### Initialize a mixnode
 
@@ -50,6 +43,54 @@ If you are participating in the Nym incentives program, you can enter your Liqui
 nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity --incentives-address YOURADDRESSHERE
 ```
 
+### Claim your mixnode in Telegram so you can get tokens
+
+Testnet Finney, which works with version 0.10.x of the Nym mixnode, introduces the concept of "mixnode bonding". Each mixnode operator needs to get tokens, and bond them in our blockchain, in order to enter Testnet Finney. 
+
+To claim your mixnode, run the `sign` command, and provide your Telegram username:
+
+```
+./nym-mixnode sign --id foomp --text @your-telegram-username
+
+
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 0.10.0)
+
+    
+Signing the text "@your-telegram-username" using your mixnode's Ed25519 identity key...
+
+Signature is: 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
+
+You can claim your mixnode in Telegram by talking to our bot. To do so:
+
+* go to the '@nymchan_help_chat' channel
+* copy the following line of text, and paste it into the channel
+
+/claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
+```
+
+Then enter the **@nymchan_help_chat** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key: 
+
+```
+/claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
+```
+
+Next, go to the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/) and create a Nym address. It will look something like `hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. Be sure to write down your mnemonic!
+
+Once you have a Nym testnet address, ask the Telegram bot for tokens: 
+
+```
+/faucet hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt # your address goes here!
+```
+
+The bot will send you tokens so that you can bond your mixnode. First, you'll need to run it.
+
+
 ### Run the mixnode
 
 `nym-mixnode run --id winston-smithnode`
@@ -63,28 +104,31 @@ You should see a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.9.2)
+             (mixnode - version 0.10.0)
 
     
 Starting mixnode winston-smithnode...
 
-Directory server [presence]: https://testnet-validator1.nymtech.net
-Directory server [metrics]: https://metrics.nymtech.net
-Listening for incoming packets on 167.70.75.75:1789
-Announcing the following socket address: 167.70.75.75:1789
-Public key: HHWAJ1zwpbb1uPLCvoTCUrtyUEuW9KKbUUnz3EUF1Xd9
+Directory server [presence]: http://testnet-finney-validator.nymtech.net:1317
+Directory server [metrics]: http://testnet-metrics.nymtech.net:8080
+Listening for incoming packets on <your-ip>:1789
+Announcing the following socket address: <your-ip>:1789
 
- 2020-05-05T16:01:07.802 INFO  nym_mixnode::node > Starting nym mixnode
- 2020-05-05T16:01:08.135 INFO  nym_mixnode::node > Starting packet forwarder...
- 2020-05-05T16:01:08.136 INFO  nym_mixnode::node > Starting metrics reporter...
- 2020-05-05T16:01:08.136 INFO  nym_mixnode::node > Starting socket listener...
- 2020-05-05T16:01:08.136 INFO  nym_mixnode::node > Starting presence notifier...
- 2020-05-05T16:01:08.136 INFO  nym_mixnode::node > Finished nym mixnode startup procedure - it should now be able to receive mix traffic!
+To bond your mixnode you will need to provide the following:
+    Identity key: 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz
+    Sphinx key: 6T6PpSAzaiHMKJQPKPABXzppxLtUDB3TB4ChM16t3oYP
+    Host: <your-ip>:1789
+    Layer: 3
+    Location: [physical location of your node's server]
+    Version: 0.10.0
+    
 ```
 
-If everything worked, you'll see your node running at https://testnet-explorer.nymtech.net. 
+Once the tokens arrive, go back to the web wallet and fill in the mixnode bonding form, using your mixnode's info. 
 
-Note that your node's public key is displayed during startup, you can use it to identify your node in the list.
+If everything worked, you'll see your node running at https://testnet-finny-explorer.nymtech.net. 
+
+Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
 Keep reading to find our more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
 
