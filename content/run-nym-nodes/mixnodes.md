@@ -24,7 +24,7 @@ nym-mixnode upgrade --id your-node-id
 If you are new to Nym, here's how you initialize a mixnode:
 
 ```shell
-nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity
+./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity
 ```
 
 To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node *must* be able to send TCP data using *both* IPv4 and IPv6 (as other nodes you talk to may use either protocol). The above command gets your IP automatically using an external service `$(curl ifconfig.me)`. Enter it manually if you don't have `curl` installed.
@@ -40,7 +40,7 @@ The `init` command will refuse to destroy existing mixnode keys.
 If you are participating in the Nym incentives program, you can enter your Liquid or Ethereum address to receive your NYMPH tokens during `init` by using the `--incentives--address` flag:
 
 ```shell
-nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity --incentives-address YOURADDRESSHERE
+./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity --incentives-address YOURADDRESSHERE
 ```
 
 ### Claim your mixnode in Telegram so you can get tokens
@@ -93,7 +93,7 @@ The bot will send you tokens so that you can bond your mixnode. First, you'll ne
 
 ### Run the mixnode
 
-`nym-mixnode run --id winston-smithnode`
+`./nym-mixnode run --id winston-smithnode`
 
 
 You should see a nice clean startup: 
@@ -244,13 +244,13 @@ Nodes join the active mixing set once they have achieved a reputation score of 1
 See all available options by running:
 
 ```
-nym-mixnode --help
+./nym-mixnode --help
 ```
 
 Subcommand help is also available, e.g.:
 
 ```
-nym-mixnode upgrade --help
+./nym-mixnode upgrade --help
 ```
 
 
@@ -273,7 +273,7 @@ Sometimes it's useful to move your node between servers. But the network won't a
 If it's set up properly, your node should automatically unregister when you stop it. But in case it doesn't, you can unregister it manually:
 
 ```
-nym-mixnode unregister --id mix090  # substitute your node id here.
+./nym-mixnode unregister --id mix090  # substitute your node id here.
 ```
 
 This takes your node out of the network. Reputation monitoring stops. You can then move your node between servers and restart it. Registration will happen automatically when you run it again.
