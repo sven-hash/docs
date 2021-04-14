@@ -16,7 +16,7 @@ To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `ta
 If you have already been running a node on the Nym network v0.9.2, you can use the `upgrade` command to upgrade your configs in place. 
 
 ```shell
-nym-mixnode upgrade --id your-node-id
+./nym-mixnode upgrade --id your-node-id
 ```
 
 ### Initialize a mixnode
