@@ -16,7 +16,7 @@ To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `ta
 If you have already been running a node on the Nym network v0.9.2, you can use the `upgrade` command to upgrade your configs in place. 
 
 ```shell
-nym-mixnode upgrade --id your-node-id 
+nym-mixnode upgrade --id your-node-id
 ```
 
 ### Initialize a mixnode
@@ -177,11 +177,11 @@ Although it's not totally necessary, it's useful to have the mixnode automatical
 
 ```
 [Unit]
-Description=Nym Mixnode (0.9.2)
+Description=Nym Mixnode (0.10.0)
 
 [Service]
 User=nym
-ExecStart=/home/nym/nym-mixnode run --id mix090
+ExecStart=/home/nym/nym-mixnode run --id mix0100
 KillSignal=SIGINT # gracefully kill the process when stopping the service. Allows node to unregister cleanly.
 Restart=on-failure
 RestartSec=30
