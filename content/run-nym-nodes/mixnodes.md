@@ -122,7 +122,7 @@ To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will ne
 
 Once the tokens arrive, go back to the web wallet and fill in the mixnode bonding form, using your mixnode's info. 
 
-If everything worked, you'll see your node running at https://testnet-finny-explorer.nymtech.net. 
+If everything worked, you'll see your node running at https://testnet-finney-explorer.nymtech.net. 
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
