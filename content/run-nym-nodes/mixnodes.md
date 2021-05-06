@@ -134,43 +134,6 @@ If you run into trouble, please ask for help in the channel **nymtech.friends#ge
 
 Have a look at the saved configuration files to see more configuration options.
 
-### Set the ulimit
-
-You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
-
-```
-cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files" 
-```
-
-You'll get back the hard and soft limits, something like this: 
-
-```Max open files            1024               1024               files```
-
-If either value is 1024, you must raise the limit. To do so, execute this as root: 
-
-```
-echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
-```
-
-Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"`  again to make sure the limit has changed to 65535.
-
-Changing the `DefaultLimitNOFILE` and rebooting should be all you need to do. But if you want to know what it is that you just did, read on.
-
-Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
-
-`ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
-
-#### Symptoms of ulimit problems
-
-If you see any references to `Too many open files` in your logs:
-
-```
-Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
-```
-
-This means that the operating system is preventing network connections from being made. Raise your `ulimit`.
-
-
 ### Making a systemd startup script
 
 Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
@@ -181,8 +144,9 @@ Description=Nym Mixnode (0.10.0)
 
 [Service]
 User=nym
+LimitNOFILE=65536
 ExecStart=/home/nym/nym-mixnode run --id mix0100
-KillSignal=SIGINT # gracefully kill the process when stopping the service. Allows node to unregister cleanly.
+KillSignal=SIGINT 
 Restart=on-failure
 RestartSec=30
 StartLimitInterval=350
@@ -224,16 +188,56 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
+### Set the ulimit
+If you are not running nym-mixnode with systemd as above with `LimitNOFILE=65536` then you will run into issues.
+You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
+
+```
+grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits 
+```
+
+You'll get back the hard and soft limits, something like this: 
+
+```Max open files            65536                65536                files     ```
+
+This means you're good and your node will not encounter any `ulimit` related issues. 
+
+However;
+
+If either value is 1024, you must raise the limit. To do so, either edit the systemd service file and add `LimitNOFILE=65536` and reload the daemon:
+```systemctl daemon-reload``` as root
+
+or execute this as root for system-wide setting of `ulimit`: 
+
+```
+echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
+```
+
+Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"`  again to make sure the limit has changed to 65535.
+
+Changing the `DefaultLimitNOFILE` and rebooting should be all you need to do. But if you want to know what it is that you just did, read on.
+
+Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
+
+`ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
+
+#### Symptoms of ulimit problems
+
+If you see any references to `Too many open files` in your logs:
+
+```
+Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
+```
+
+This means that the operating system is preventing network connections from being made. Raise your `ulimit`.
+
+
 
 ### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-explorer.nymtech.net).
+Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/).
 
-The Nym network will periodically send two test packets through your node (one IPv4, one IPv6), to ensure that it's up and mixing. In the current version, this determines your node reputation over time (and if you're participating in the incentives program, it will set your node's reputation score). 
-
-If your node is not mixing correctly, you will notice that its status is not green. Ensure that your node handles both IPv4 and IPv6 traffic, and that its public `--host` is set correctly. If you're running on cloud infrastructure, you may need to explicitly set the `--announce-host` (see below).
-
-Nodes join the active mixing set once they have achieved a reputation score of 100 or above. 
+For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
 ### Viewing command help
 
@@ -248,31 +252,6 @@ Subcommand help is also available, e.g.:
 ```
 ./nym-mixnode upgrade --help
 ```
-
-
-### Node registration and de-registration
-
-When your node starts up, it notifies the rest of the Nym network that it is up and ready to mix traffic. Token rewards will start as soon as registration has taken place. But if your node isn't mixing properly, you'll start to incur reputation penalties. 
-
-If you run your node in a console window, it will register when it starts up, and un-register automatically when you hit `ctrl-c` to stop it. When your node is unregistered, it will not gain reputation, but it won't lose any either. 
-
-If you kill it, though (`kill <process-number>`), the un-registration will not happen and you will incur reputation penalties. So, use `ctrl-c` instead.
-
-Most people will want to run their mixnodes as a systemd service instead of in a console. Systemd scripts by default send `KillSignal=SIGTERM`, which kills the process non-gracefully, so that the un-registration doesn't happen. 
-
-You **must** use `KillSignal=SIGINT` in your systemd scripts, under the `[Service]` block. This allows the un-registration code to run whenever your service is stopped. 
-
-#### Manual unregister
-
-Sometimes it's useful to move your node between servers. But the network won't allow you to start 2 nodes with the same keys in different locations.
-
-If it's set up properly, your node should automatically unregister when you stop it. But in case it doesn't, you can unregister it manually:
-
-```
-./nym-mixnode unregister --id mix090  # substitute your node id here.
-```
-
-This takes your node out of the network. Reputation monitoring stops. You can then move your node between servers and restart it. Registration will happen automatically when you run it again.
 
 ### Virtual IPs, Google, AWS, and all that
 
