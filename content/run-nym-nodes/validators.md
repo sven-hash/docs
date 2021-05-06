@@ -25,7 +25,7 @@ git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout $WASMD_VERSION
 mkdir build
-go build -o build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=$WASMD_VERSION -X github.com/cosmos/cosmos-sdk/version.Commit=1920f80d181adbeaedac1eeea1c1c6e1704d3e49 -X github.com/CosmWasm/wasmd/app.Bech32Prefix=$BECH32_PREFIX} -X 'github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger'" -trimpath ./cmd/wasmd  # noqa line-length
+go build -o build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=$WASMD_VERSION -X github.com/cosmos/cosmos-sdk/version.Commit=1920f80d181adbeaedac1eeea1c1c6e1704d3e49 -X github.com/CosmWasm/wasmd/app.Bech32Prefix={$BECH32_PREFIX} -X 'github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger'" -trimpath ./cmd/wasmd  # noqa line-length
 ```
 
 At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running it: 
@@ -188,7 +188,7 @@ Once your validator starts, it will start requesting blocks from other validator
 ```
 PUB_KEY=$(/home/nym/nymd tendermint show-validator) # e.g. halvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
 MONIKER="nym-secondary"                             # whatever you called your validator during "init"
-FROM_ACCOUNT="nym-admin"                            # your keychain name
+FROM_ACCOUNT="nymd-admin"                            # your keychain name
 
 nymd tx staking create-validator \
   --amount=10000000stake \
@@ -241,3 +241,20 @@ certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-to
 will get you a working HTTPS encrypted nginx proxy in front of the API. 
 
 In the next testnet we will be focusing more on validator TLS, sentry nodes etc. 
+
+### Unjailing your validator
+
+If for some reason your validator gets jailed, you can fix it with following:
+
+```
+
+nymd tx slashing unjail \
+  --broadcast-mode=block \
+  --from=nymd-admin \
+  --chain-id=testnet-finney \
+  --gas=auto \ 
+  --gas-adjustment=1.4 \
+  --fees=7000uhal
+```
+
+Where `--from=` needs to be edited to match your keys name you had used in the earlier step while creating the admin user keys.
