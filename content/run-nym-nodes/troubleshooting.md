@@ -101,6 +101,14 @@ bob@nym:~$ hostname -I
 * The second **ipv4** is your local ip that you have to use for ```--host``` 
 * And the 3rd one should confirm if your machine has **ipv6** available. 
 
+### Ok, I have the network stuff straight, but the log still claims "Since startup mixed 0 packets!"
+
+This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Go to <https://web-wallet-finney.nymtech.net/>, unbond your node, and bond it again. The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
+
+Make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the "host" field must contain the port information:
+
+- correct host: 34.12.3.43:1789
+- wrong host: 34.12.3.43
 
 ## How can I make sure my node works from my local machine if I'm behind NAT and have no fixed IP address ?
 
