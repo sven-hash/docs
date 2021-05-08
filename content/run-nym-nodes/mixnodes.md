@@ -178,6 +178,8 @@ Although it's not totally necessary, it's useful to have the mixnode automatical
 ```
 [Unit]
 Description=Nym Mixnode (0.10.0)
+StartLimitInterval=350
+StartLimitBurst=10
 
 [Service]
 User=nym
@@ -185,8 +187,6 @@ ExecStart=/home/nym/nym-mixnode run --id mix0100
 KillSignal=SIGINT # gracefully kill the process when stopping the service. Allows node to unregister cleanly.
 Restart=on-failure
 RestartSec=30
-StartLimitInterval=350
-StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target
