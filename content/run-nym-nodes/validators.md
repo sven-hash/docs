@@ -126,6 +126,8 @@ And if you wish to add a human-readable moniker to your node:
 
 - `moniker = "yourname"`
 
+Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit. 
+
 
 #### app.toml setup
 
@@ -205,6 +207,8 @@ firewall-cmd --add-port=${port}
 firewall-cmd --add-port=${port} --permanent
 done
 ```
+
+>If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.  
 
 Start the validator:
 
@@ -302,7 +306,7 @@ Which should return:
 
 #### Configuration
 
-Proxying your validator's port 26657 to nginx port 80 can then be done with the following:
+Proxying your validator's port `26657` to nginx port `80` can then be done with the following:
 
 ```sh
 server {
