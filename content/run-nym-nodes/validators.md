@@ -37,7 +37,7 @@ At this point, you will have a copy of the `nymd` binary in your `build/` direct
 
 You should see `nymd` help text print out.
 
-Both `nymd` the `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute Nym smart contracts.
+Both the `nymd` and `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute Nym smart contracts.
 
 > If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.** To locate these files on your local system run:
 ```sh
