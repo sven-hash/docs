@@ -126,7 +126,7 @@ And if you wish to add a human-readable moniker to your node:
 
 - `moniker = "yourname"`
 
-Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit. 
+Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
 
 
 #### app.toml setup
@@ -202,7 +202,7 @@ File at /path/to/.nymd/config/genesis.json is a valid genesis file
 Before starting the validator, we will need to open the firewall ports (adapt if not using `firewalld`):
 
 ```sh
-for port in 1317/tcp 9090/tcp 26656/tcp 22/tcp 26660/tcp 80/tcp; do
+for port in 1317/tcp 9090/tcp 26656/tcp 22/tcp 26660/tcp 80/tcp 443/tcp; do
 firewall-cmd --add-port=${port}
 firewall-cmd --add-port=${port} --permanent
 done
