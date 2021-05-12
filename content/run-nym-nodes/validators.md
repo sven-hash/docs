@@ -283,7 +283,7 @@ journalctl -f           # to monitor system logs showing the service start
 
 ### Install and configure nginx for HTTPS
 #### Setup
-[Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security. 
+[Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
 
 Install `nginx` and enable "Nginx Full" in your firewall.
 
@@ -308,7 +308,7 @@ Which should return:
 
 #### Configuration
 
-Proxying your validator's port `26657` to nginx port `80` can then be done with the following:
+Proxying your validator's port `26657` to nginx port `80` can then be done by including the following in `/etc/nginx/conf.d/validator.conf`:
 
 ```sh
 server {
@@ -354,20 +354,20 @@ nymd tx slashing unjail \
 
 As part of the execution of the validator, it will be able to get some rewards.
 
-With this command, we can query
+With this command, we can query our outstanding rewards:
 
 ```sh
 nymd query distribution validator-outstanding-rewards <halvaloperaddress>
 
 ```
 
-Using the values obtained from previous command, you can withdraw all rewards with:
+Using the values obtained from the previous command, you can withdraw all rewards with:
 
 ```sh
 nymd tx distribution withdraw-rewards <halvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-finney" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000uhal
 ```
 
-If you want to check your current balances, check them with:
+You can check your current balances with:
 
 ```sh
 nymd query bank balances hal<address>
@@ -394,4 +394,4 @@ nymd tx staking delegate <halvaloperaddress> <amount>stake--from ${FROM_ACCOUNT}
 
 NOTE: The value to be used instead of the `<amount>stake` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
 
-Remember to replace `halvaloper` with your validator address and `nym-admin` with the user you created during initialization.
+Also remember to replace `halvaloper` with your validator address and `nym-admin` with the user you created during initialization.
