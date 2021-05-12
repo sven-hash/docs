@@ -283,6 +283,8 @@ journalctl -f           # to monitor system logs showing the service start
 
 ### Install and configure nginx for HTTPS
 #### Setup
+[Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security. 
+
 Install `nginx` and enable "Nginx Full" in your firewall.
 
 Check nginx is running via systemctl:
