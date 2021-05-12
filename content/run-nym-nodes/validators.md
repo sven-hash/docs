@@ -304,7 +304,7 @@ Which should return:
 
 Proxying your validator's port 26657 to nginx port 80 can then be done with the following:
 
-```json
+```sh
 server {
   listen 80;
   listen [::]:80;
