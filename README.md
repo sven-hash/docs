@@ -4,7 +4,7 @@ Documentation for the Nym privacy platform v0.10.0. Docs can be viewed at https:
 
 ## Contributing
 
-Contributions to our documentation are very welcome. Please shoot us a pull request if you can see a way that they can be improved.
+Contributions to our documentation are very welcome. Please shoot us a pull request against the `develop` branch if you can see a way that they can be improved.
 
 ## Building
 
