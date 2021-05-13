@@ -11,6 +11,7 @@ Validators also provide privacy-enhanced credentials based on the testimony of a
 The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermint](https://tendermint.com), with a [CosmWasm](https://cosmwasm.com) smart contract controlling the directory service, node bonding, and delegated mixnet staking.
 
 ### Building the Nym validator
+
 #### Prerequisites
 
 - `Go >= v1.15`
@@ -72,6 +73,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 #### Building your validator
+
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
 ```sh
@@ -95,11 +97,14 @@ You should see `nymd` help text print out.
 Both the `nymd` and `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute Nym smart contracts.
 
 > If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.** To locate these files on your local system run:
+
 ```sh
 WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}
 ```
+
 This will output something like:
+
 ```sh
 '/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
 ```
@@ -124,9 +129,7 @@ Upload both `nymd` and `libwasmvm.so` to your validator machine. If you attempt 
 ./nymd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
 ```
 
-
 You'll need to set `LD_LIBRARY_PATH` in your user's `~/.bashrc` file, and add that to our path. Replace `/home/youruser/path/to/nym/binaries` in the command below to the locations of `nymd` and `libwasmvm.so` and run it. If you have compiled these on the server, they will be in the `build/` folder:
-
 
 ```sh
 NYM_BINARIES=/home/youruser/path/to/nym/binaries
@@ -135,7 +138,7 @@ echo 'export PATH=$PATH:'${NYM_BINARIES} >> ~/.bashrc
 source ~/.bashrc
 ```
 
- Test everything worked:
+Test everything worked:
 
 ```sh
 nymd
@@ -182,7 +185,6 @@ And if you wish to add a human-readable moniker to your node:
 - `moniker = "yourname"`
 
 Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
-
 
 #### app.toml setup
 
@@ -246,13 +248,14 @@ Everything should now be ready to go. You've got the validator set up, all chang
 ```sh
 nymd validate-genesis
 ```
+
 If this check passes, you should receive the following output:
 
 ```sh
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
->If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
+> If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
 
 Before starting the validator, we will need to open the firewall ports (adapt if not using `firewalld`):
 
@@ -265,7 +268,7 @@ done
 
 Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
->If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.  
+> If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.
 
 Start the validator:
 
@@ -309,6 +312,7 @@ nymd tx staking edit-validator   --chain-id=testnet-finney   --moniker=${MONIKER
 With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact~
 
 ### Automating your validator with systemd
+
 You will most likely want to automate your validator restarting if your server reboots. Below is a systemd unit file to place at `/etc/systemd/system/nymd.service`:
 
 ```ini
@@ -339,7 +343,9 @@ journalctl -f           # to monitor system logs showing the service start
 ```
 
 ### Installing and configuring nginx for HTTPS
+
 #### Setup
+
 [Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
 
 Install `nginx` and enable "Nginx Full" in your firewall.
@@ -351,6 +357,7 @@ systemctl status nginx
 ```
 
 Which should return:
+
 ```sh
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)

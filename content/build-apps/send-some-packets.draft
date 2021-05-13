@@ -18,7 +18,7 @@ This quickstart demonstrates how you can use Nym from webassembly-capable browse
 
 Install [npm](https://www.npmjs.com/get-npm) for your platform. Then, from the top-level `nym` directory:
 
-```
+```sh
 cd clients/webassembly/js-example
 npm install
 npm run start
@@ -105,7 +105,7 @@ Nothing too thrilling here - we define user interface controls with ids `sender`
 
 We're depending on the `@nymproject/nym-client-wasm` npm package in `package.json`:
 
-```
+```json
   "dependencies": {
     "@nymproject/nym-client-wasm": "^0.7.4"
   }

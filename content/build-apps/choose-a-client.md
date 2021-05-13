@@ -12,27 +12,27 @@ A large proportion of the Nym mixnet's functionality is implemented client-side,
 
 1. determining network topology - what mixnodes exist, what their keys are, etc.
 2. registering with a gateway
-2. authenticating to a gateway
-3. receiving and decrypting messages from the gateway
-4. creation of layer-encrypted Sphinx packets
+3. authenticating to a gateway
+4. receiving and decrypting messages from the gateway
+5. creation of layer-encrypted Sphinx packets
 6. sending Sphinx packets with real messages
-7. sending Sphinx packet *cover traffic* when no real messages are being sent
+7. sending Sphinx packet _cover traffic_ when no real messages are being sent
 
 In the next few sections we will discuss how to integrate Nym clients into your apps.
 
 ## Types of Nym clients
 
-At present, there are three Nym clients: 
+At present, there are three Nym clients:
 
-* the native client
-* the [webassembly](https://webassembly.org/) client
-* the SOCKS5 client
+- the native client
+- the [webassembly](https://webassembly.org/) client
+- the SOCKS5 client
 
-You need to choose which one you want incorporate into your app. Which one you use will depend largely on your preferred programming style and the purpose of your app. 
+You need to choose which one you want incorporate into your app. Which one you use will depend largely on your preferred programming style and the purpose of your app.
 
 ### The websocket client
 
-Your first option is the websocket client (`nym-client`). This is a compiled program that can run on Linux, Mac OS X, and Windows machines. It runs as a persistent process on a desktop or server machine. You can connect to it from any language that supports websockets. 
+Your first option is the websocket client (`nym-client`). This is a compiled program that can run on Linux, Mac OS X, and Windows machines. It runs as a persistent process on a desktop or server machine. You can connect to it from any language that supports websockets.
 
 ### The webassembly client
 
@@ -40,8 +40,8 @@ If you're working in JavaScript, or building an [edge computing](https://en.wiki
 
 ### The SOCKS5 client
 
-This client is useful for allowing existing applications to use the Nym mixnet without any code changes. All that's necessary is that they can use the SOCKS5 proxy protocol (which many applications can - crypto wallets, browsers, chat applications etc). It's less flexible as a way of writing custom applications than the other clients. 
+This client is useful for allowing existing applications to use the Nym mixnet without any code changes. All that's necessary is that they can use the SOCKS5 proxy protocol (which many applications can - crypto wallets, browsers, chat applications etc). It's less flexible as a way of writing custom applications than the other clients.
 
 ### Commonalities between clients
 
-All Nym client packages present basically the same capabilities to the privacy application developer. They need to run as a persistent process in order to stay connected and ready to receive any incoming messages from their gateway nodes. They register and authenticate to gateways, and encrypt Sphinx packets. 
+All Nym client packages present basically the same capabilities to the privacy application developer. They need to run as a persistent process in order to stay connected and ready to receive any incoming messages from their gateway nodes. They register and authenticate to gateways, and encrypt Sphinx packets.

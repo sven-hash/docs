@@ -12,8 +12,8 @@ Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimen
 
 Prerequisites:
 
-* on Debian/Ubuntu: `sudo apt install pkg-config build-essential libssl-dev curl jq`. 
-* Rust **1.47 or later**, with `cargo`. Stable works. 
+- on Debian/Ubuntu: `sudo apt install pkg-config build-essential libssl-dev curl jq`.
+- Rust **1.47 or later**, with `cargo`. Stable works.
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
 
