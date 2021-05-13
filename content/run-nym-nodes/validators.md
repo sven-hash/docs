@@ -15,7 +15,7 @@ The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermin
 
 - `Go >= v1.15`
 
-`Go` can be installed via the following commands (forked from [here](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
+`Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
 
 ```sh
 # First remove any existing old Go installation
@@ -263,7 +263,7 @@ firewall-cmd --add-port=${port} --permanent
 done
 ```
 
-Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html). 
+Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
 >If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.  
 
