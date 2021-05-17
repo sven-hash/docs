@@ -11,12 +11,67 @@ Validators also provide privacy-enhanced credentials based on the testimony of a
 The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermint](https://tendermint.com), with a [CosmWasm](https://cosmwasm.com) smart contract controlling the directory service, node bonding, and delegated mixnet staking.
 
 ### Building the Nym validator
-
-Prerequisites:
+#### Prerequisites
 
 - `Go >= v1.15`
+
+`Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
+
+```sh
+# First remove any existing old Go installation
+sudo rm -rf /usr/local/go
+
+# Install correct Go version
+curl https://dl.google.com/go/correct.go.version.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+
+# Update environment variables to include go
+cat <<'EOF' >>$HOME/.profile
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GO111MODULE=on
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+EOF
+source $HOME/.profile
+
+```
+
+Remember to replace `correct.go.version` with the version of your choice from the Go releases page. For example:
+
+`correct.go.version.linux-amd64.tar.gz => go1.15.7.linux-amd64.tar.gz`
+
+Verify `Go` is installed with:
+
+```sh
+go version
+# Should return: go version go1.15.7 linux/amd64
+```
+
 - `gcc`
 
+`gcc` can be installed with:
+
+```sh
+sudo apt install build-essential
+# Optional additional manual pages can be installed with:
+sudo apt-get install manpages-dev
+```
+
+Verify `gcc` is installed with:
+
+```sh
+gcc --version
+```
+
+Which should return something like:
+
+```sh
+gcc (Ubuntu 7.4.0-1ubuntu1~18.04) 7.4.0
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+#### Building your validator
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
 ```sh
@@ -88,7 +143,7 @@ nymd
 
 This should return the regular `nymd` help text.
 
-### Initialize your validator
+### Initializing your validator
 
 Prerequisites:
 
@@ -136,7 +191,7 @@ In the file `$HOME/.nymd/config/app.toml`, set the following values:
 1. `minimum-gas-prices = "0.025uhal"`
 1. `enable = true` in the `[api]` section to get the API server running
 
-### Set up your validator's admin user:
+### Setting up your validator's admin user:
 
 You'll need an admin account to be in charge of your validator. Set that up with:
 
@@ -184,7 +239,7 @@ Type in your keychain **password**, not the mnemonic, when asked. The output sho
 hal1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 ```
 
-### Start your validator
+### Starting your validator
 
 Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
 
@@ -207,6 +262,8 @@ firewall-cmd --add-port=${port}
 firewall-cmd --add-port=${port} --permanent
 done
 ```
+
+Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
 >If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.  
 
@@ -281,7 +338,7 @@ systemctl start nymd    # to actually start the service
 journalctl -f           # to monitor system logs showing the service start
 ```
 
-### Install and configure nginx for HTTPS
+### Installing and configuring nginx for HTTPS
 #### Setup
 [Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
 
