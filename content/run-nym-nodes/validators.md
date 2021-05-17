@@ -254,14 +254,15 @@ File at /path/to/.nymd/config/genesis.json is a valid genesis file
 
 >If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
 
-Before starting the validator, we will need to open the firewall ports (adapt if not using `firewalld`):
-
-```sh
-for port in 1317/tcp 9090/tcp 26656/tcp 22/tcp 26660/tcp 80/tcp 443/tcp; do
-firewall-cmd --add-port=${port}
-firewall-cmd --add-port=${port} --permanent
-done
-```
+CHANGE TO UFW
+# Before starting the validator, we will need to open the firewall ports (adapt if not using `firewalld`):
+#
+# ```sh
+# for port in 1317/tcp 9090/tcp 26656/tcp 22/tcp 26660/tcp 80/tcp 443/tcp; do
+# firewall-cmd --add-port=${port}
+# firewall-cmd --add-port=${port} --permanent
+# done
+# ```
 
 Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
@@ -342,7 +343,11 @@ journalctl -f           # to monitor system logs showing the service start
 #### Setup
 [Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
 
-Install `nginx` and enable "Nginx Full" in your firewall.
+Install `nginx` and allow the 'Nginx Full' rule in your firewall:
+
+```sh
+sudo ufw allow 'Nginx Full'
+```
 
 Check nginx is running via systemctl:
 
@@ -365,19 +370,19 @@ Which should return:
 
 #### Configuration
 
-Proxying your validator's port `26657` to nginx port `80` can then be done by including the following in `/etc/nginx/conf.d/validator.conf`:
+Proxying your validator's port `26657` to nginx port `80` can then be done by creating a file with the following at `/etc/nginx/conf.d/validator.conf`:
 
 ```sh
 server {
   listen 80;
   listen [::]:80;
-  server_name {{ domain }};
+  server_name "{{ domain }}";
 
   location / {
     proxy_pass http://127.0.0.1:26657;
-    proxy_set_headerX-Real-IP $remote_addr;
-    proxy_set_headerHost $host;
-    proxy_set_headerX-Real-IP $remote_addr;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
   }
 }
 ```
@@ -388,6 +393,8 @@ Followed by:
 sudo apt install certbot nginx python3
 certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
 ```
+
+> If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-certbot-nginx`
 
 These commands will get you an HTTPS encrypted nginx proxy in front of the API.
 
