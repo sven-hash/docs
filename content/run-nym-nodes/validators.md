@@ -177,6 +177,8 @@ Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics t
 - `prometheus = true`
 - `prometheus_listen_addr = ":26660"`
 
+> Remember to enable metrics in the 'Configure Prometheus metrics' section below as well.
+
 And if you wish to add a human-readable moniker to your node:
 
 - `moniker = "yourname"`
@@ -254,13 +256,15 @@ File at /path/to/.nymd/config/genesis.json is a valid genesis file
 
 >If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
 
-Before starting the validator, we will need to open the firewall ports (adapt if not using `firewalld`):
+Before starting the validator, we will need to open the firewall ports:
 
 ```sh
-for port in 1317/tcp 9090/tcp 26656/tcp 22/tcp 26660/tcp 80/tcp 443/tcp; do
-firewall-cmd --add-port=${port}
-firewall-cmd --add-port=${port} --permanent
-done
+# if ufw is not already installed:
+sudo apt install ufw
+sudo ufw enable
+sudo ufw allow 1317,26656,26660,22,80,443/tcp
+# to check everything worked
+sudo ufw status
 ```
 
 Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
@@ -342,7 +346,11 @@ journalctl -f           # to monitor system logs showing the service start
 #### Setup
 [Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
 
-Install `nginx` and enable "Nginx Full" in your firewall.
+Install `nginx` and allow the 'Nginx Full' rule in your firewall:
+
+```sh
+sudo ufw allow 'Nginx Full'
+```
 
 Check nginx is running via systemctl:
 
@@ -365,19 +373,19 @@ Which should return:
 
 #### Configuration
 
-Proxying your validator's port `26657` to nginx port `80` can then be done by including the following in `/etc/nginx/conf.d/validator.conf`:
+Proxying your validator's port `26657` to nginx port `80` can then be done by creating a file with the following at `/etc/nginx/conf.d/validator.conf`:
 
 ```sh
 server {
   listen 80;
   listen [::]:80;
-  server_name {{ domain }};
+  server_name "{{ domain }}";
 
   location / {
     proxy_pass http://127.0.0.1:26657;
     proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_headerHost $host;
-    proxy_set_headerX-Real-IP $remote_addr;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
   }
 }
 ```
@@ -389,9 +397,62 @@ sudo apt install certbot nginx python3
 certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
 ```
 
+> If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-certbot-nginx`
+
 These commands will get you an HTTPS encrypted nginx proxy in front of the API.
 
 In the next testnet we will be focusing more on things such as validator TLS and sentry nodes.
+
+### [Optional] Configure Prometheus metrics
+
+Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
+
+```sh
+echo 'export OTEL_EXPORTER_PROMETHEUS_PORT=9464' >> $HOME/.bashrc
+source ~/.bashrc
+sed -i '/\[telemetry\]/{:a;n;/enabled/s/false/true/;Ta}' $HOME/.nymd/config/app.toml
+sed -i "s/prometheus-retention-time = 0/prometheus-retention-time = 60/g" $HOME/.nymd/config/app.toml
+sudo ufw allow 9464
+echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
+```
+
+Your validator's metrics will be available to you at the returned 'Metrics URL', and look something like this:
+
+```sh
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 6.7969e-05
+go_gc_duration_seconds{quantile="0.25"} 7.864e-05
+go_gc_duration_seconds{quantile="0.5"} 8.4591e-05
+go_gc_duration_seconds{quantile="0.75"} 0.000115919
+go_gc_duration_seconds{quantile="1"} 0.001137591
+go_gc_duration_seconds_sum 0.356555301
+go_gc_duration_seconds_count 2448
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 668
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.15.7"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 1.62622216e+08
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 2.09341707264e+11
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 5.612319e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 2.828263344e+09
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 0.03357798610671518
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 1.3884192e+07
+```
 
 ### Unjailing your validator
 
