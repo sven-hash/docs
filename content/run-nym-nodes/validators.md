@@ -37,7 +37,7 @@ source $HOME/.profile
 
 Remember to replace `correct.go.version` with the version of your choice from the Go releases page. For example:
 
-`correct.go.version.linux-amd64.tar.gz => go1.15.7.linux-amd64.tar.gz`
+`correct.go.version.linux-amd64.tar.gz` becomes `go1.15.7.linux-amd64.tar.gz`
 
 Verify `Go` is installed with:
 
@@ -158,7 +158,7 @@ nymd init yourname --chain-id testnet-finney
 
 At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with Nym's [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
 
-You can use the following command to download the one for Finney with:
+You can use the following command to download the one for Finney:
 
 ```sh
 wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/finney/genesis.json
