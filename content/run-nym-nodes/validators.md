@@ -177,6 +177,8 @@ Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics t
 - `prometheus = true`
 - `prometheus_listen_addr = ":26660"`
 
+> Remember to enable metrics in the 'Configure Prometheus metrics' section below as well.
+
 And if you wish to add a human-readable moniker to your node:
 
 - `moniker = "yourname"`
@@ -400,6 +402,57 @@ certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-to
 These commands will get you an HTTPS encrypted nginx proxy in front of the API.
 
 In the next testnet we will be focusing more on things such as validator TLS and sentry nodes.
+
+### [Optional] Configure Prometheus metrics
+
+Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
+
+```sh
+echo 'export OTEL_EXPORTER_PROMETHEUS_PORT=9464' >> $HOME/.bashrc
+source ~/.bashrc
+sed -i '/\[telemetry\]/{:a;n;/enabled/s/false/true/;Ta}' $HOME/.nymd/config/app.toml
+sed -i "s/prometheus-retention-time = 0/prometheus-retention-time = 60/g" $HOME/.nymd/config/app.toml
+sudo ufw allow 9464
+echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
+```
+
+Your validator's metrics will be available to you at the returned 'Metrics URL', and look something like this:
+
+```json
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 6.7969e-05
+go_gc_duration_seconds{quantile="0.25"} 7.864e-05
+go_gc_duration_seconds{quantile="0.5"} 8.4591e-05
+go_gc_duration_seconds{quantile="0.75"} 0.000115919
+go_gc_duration_seconds{quantile="1"} 0.001137591
+go_gc_duration_seconds_sum 0.356555301
+go_gc_duration_seconds_count 2448
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 668
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.15.7"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 1.62622216e+08
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 2.09341707264e+11
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 5.612319e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 2.828263344e+09
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 0.03357798610671518
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 1.3884192e+07
+```
 
 ### Unjailing your validator
 
