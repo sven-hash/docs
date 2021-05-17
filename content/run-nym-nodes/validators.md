@@ -254,15 +254,16 @@ File at /path/to/.nymd/config/genesis.json is a valid genesis file
 
 >If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
 
-CHANGE TO UFW
-# Before starting the validator, we will need to open the firewall ports (adapt if not using `firewalld`):
-#
-# ```sh
-# for port in 1317/tcp 9090/tcp 26656/tcp 22/tcp 26660/tcp 80/tcp 443/tcp; do
-# firewall-cmd --add-port=${port}
-# firewall-cmd --add-port=${port} --permanent
-# done
-# ```
+Before starting the validator, we will need to open the firewall ports:
+
+```sh
+# if ufw is not already installed:
+sudo apt install ufw
+sudo ufw enable
+sudo ufw allow 1317,26656,26660,22,80,443/tcp
+# to check everything worked
+sudo ufw status
+```
 
 Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
