@@ -418,7 +418,7 @@ echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
 
 Your validator's metrics will be available to you at the returned 'Metrics URL', and look something like this:
 
-```json
+```sh
 # HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
 # TYPE go_gc_duration_seconds summary
 go_gc_duration_seconds{quantile="0"} 6.7969e-05
