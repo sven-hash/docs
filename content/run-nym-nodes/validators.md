@@ -258,8 +258,9 @@ If this check passes, you should receive the following output:
 ```sh
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
-
->If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
+{{% notice info %}}
+If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
+{{% /notice %}}
 
 Before starting the validator, we will need to open the firewall ports:
 
@@ -401,14 +402,15 @@ Followed by:
 sudo apt install certbot nginx python3
 certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
 ```
-
-> If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-certbot-nginx`
+{{% notice info %}}
+If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-certbot-nginx`
+{{% /notice %}}
 
 These commands will get you an HTTPS encrypted nginx proxy in front of the API.
 
 In the next testnet we will be focusing more on things such as validator TLS and sentry nodes.
 
-## [Optional] Configure Prometheus metrics
+## Configure Prometheus metrics (optional)
 
 Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
 
