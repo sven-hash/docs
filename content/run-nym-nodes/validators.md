@@ -4,14 +4,19 @@ weight: 30
 description: "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities."
 ---
 
+
 Nym validators secure the network with a staking token, defending the network from Sybil attacks.
 
 Validators also provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities. Nym validators use a [signature scheme](https://en.wikipedia.org/wiki/Digital_signature) called [Coconut](https://arxiv.org/abs/1802.07344) to issue credentials. This allows privacy apps to generate anonymous resource claims through decentralised authorities, then use them with Service Providers.
 
 The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermint](https://tendermint.com), with a [CosmWasm](https://cosmwasm.com) smart contract controlling the directory service, node bonding, and delegated mixnet staking.
 
-### Building the Nym validator
-#### Prerequisites
+
+{{< table_of_contents >}}
+
+## Building the Nym validator
+
+### Prerequisites
 
 - `Go >= v1.15`
 
@@ -71,7 +76,7 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-#### Building your validator
+### Building your validator
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
 ```sh
@@ -143,7 +148,7 @@ nymd
 
 This should return the regular `nymd` help text.
 
-### Initializing your validator
+## Initializing your validator
 
 Prerequisites:
 
@@ -164,7 +169,7 @@ You can use the following command to download the one for Finney:
 wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/finney/genesis.json
 ```
 
-#### config.toml setup
+### config.toml setup
 
 Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in `$HOME/.nymd/config/config.toml` to match the information below:
 
@@ -186,14 +191,14 @@ And if you wish to add a human-readable moniker to your node:
 Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
 
 
-#### app.toml setup
+### app.toml setup
 
 In the file `$HOME/.nymd/config/app.toml`, set the following values:
 
 1. `minimum-gas-prices = "0.025uhal"`
 1. `enable = true` in the `[api]` section to get the API server running
 
-### Setting up your validator's admin user:
+## Setting up your validator's admin user:
 
 You'll need an admin account to be in charge of your validator. Set that up with:
 
@@ -241,7 +246,7 @@ Type in your keychain **password**, not the mnemonic, when asked. The output sho
 hal1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 ```
 
-### Starting your validator
+## Starting your validator
 
 Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
 
@@ -312,7 +317,7 @@ nymd tx staking edit-validator   --chain-id=testnet-finney   --moniker=${MONIKER
 
 With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact~
 
-### Automating your validator with systemd
+## Automating your validator with systemd
 You will most likely want to automate your validator restarting if your server reboots. Below is a systemd unit file to place at `/etc/systemd/system/nymd.service`:
 
 ```ini
@@ -342,8 +347,8 @@ systemctl start nymd    # to actually start the service
 journalctl -f           # to monitor system logs showing the service start
 ```
 
-### Installing and configuring nginx for HTTPS
-#### Setup
+## Installing and configuring nginx for HTTPS
+### Setup
 [Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
 
 Install `nginx` and allow the 'Nginx Full' rule in your firewall:
@@ -371,7 +376,7 @@ Which should return:
            └─2380 nginx: worker process
 ```
 
-#### Configuration
+### Configuration
 
 Proxying your validator's port `26657` to nginx port `80` can then be done by creating a file with the following at `/etc/nginx/conf.d/validator.conf`:
 
@@ -403,7 +408,7 @@ These commands will get you an HTTPS encrypted nginx proxy in front of the API.
 
 In the next testnet we will be focusing more on things such as validator TLS and sentry nodes.
 
-### [Optional] Configure Prometheus metrics
+## [Optional] Configure Prometheus metrics
 
 Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
 
@@ -454,7 +459,7 @@ go_memstats_gc_cpu_fraction 0.03357798610671518
 go_memstats_gc_sys_bytes 1.3884192e+07
 ```
 
-### Unjailing your validator
+## Unjailing your validator
 
 If, for some reason, your validator gets jailed, you can fix it with the following command:
 
@@ -468,7 +473,7 @@ nymd tx slashing unjail \
   --fees=7000uhal
 ```
 
-### Day 2 operations with your validator
+## Day 2 operations with your validator
 
 As part of the execution of the validator, it will be able to get some rewards.
 
