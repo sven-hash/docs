@@ -283,3 +283,37 @@ For the moment, we haven't put a great amount of effort into optimizing concurre
 - Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
 
 This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
+
+### Mixnode Metrics
+
+We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`.
+
+#### `/report` endpoint
+
+```sh
+curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
+```
+
+Returns the most recent test report, and looks something like this:
+
+```sh
+{"pubKey":"3wbvb6snDfXscqNLVAoquEhHPiHvPyJMHEcw8VEnuXz1","owner":"hal1k8r8g69m2528uwzu3hsglp7h0h39zf6u405wz5","mostRecentIPV4":true,"last5MinutesIPV4":100,"lastHourIPV4":100,"lastDayIPV4":100,"mostRecentIPV6":true,"last5MinutesIPV6":100,"lastHourIPV6":100,"lastDayIPV6":100}
+```
+
+There serveral metrics of interest here regarding your mixnode's uptime and package-mixing capabilities:
+- `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
+- `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
+- `lastHourIPV4`: returns IPv4 connectivity as a percentage over the last hour.
+- `lastDayIPV4`: returns IPv4 connectivity as a percentage over the 24 hours.
+- `mostRecentIPV6`: returns a `bool` for whether the most recent IPv6 connectivity test was successful.
+- `last5MinutesIPV6`: returns IPv6 connectivity as a percentage over the last five minutes.
+- `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
+- `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
+
+#### `/history` endpoint
+
+```sh
+curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
+```
+
+Returns all previous test reports as described in `/report`. 
