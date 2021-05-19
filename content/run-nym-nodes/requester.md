@@ -16,13 +16,24 @@ The nym-network-requester is NOT an open proxy. It ships with a file called `all
 
 You can run the requester yourself, by taking the following steps.
 
-On your server, build Nym. Then run the following commands from the top-level `nym` directory:
+First of all, choose which gateway to connect to. At the time of writing there are two gateways on the testnet, both run by Nym. They can be found in the 'Gateways' [section of the explorer](https://testnet-finney-explorer.nymtech.net/nym/gate-list).
 
-1. `target/release/nym-client init --gateway DiYR9o8KgeQ81woKPYVAu4LNaAEg8SWkiufDCahNnPov --id nym-network-requester-client`
-2. `target/release/nym-client run --id nym-network-requester-client`
-3. `target/release/nym-network-requester run`
+Next, run following commands from the top-level `nym` directory you built previously, including the gateway of your choice:
 
-This will start up a Nym client, and the nym-network-requester requester will attach to it.
+```sh
+# Initialize then run your Nym client in a new screen (adapt as necessary for `tmux` or `nohup`)
+screen -S nym-client
+./target/release/nym-client init --gateway <GATEWAY_ADDRESS> --id nym-network-requester-client
+./target/release/nym-client run --id nym-network-requester-client
+# exit screen with Ctrl+a / d
+
+# Initialize your network-requester in a new screen
+screen -S requester
+./target/release/nym-network-requester
+# exit screen with Ctrl+a / d
+```
+
+The `nym-network-requester` will attach to the already running `nym-client`.
 
 Make a note of the address of the client when it starts up:
 
@@ -42,7 +53,9 @@ If you want, you can just use the domains in the default `allowed.list`, by runn
 
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
-**IMPORTANT: If you change your allowed.list, make sure you restart nym-network-requester to pick up the new allowed request list.**
+{{% notice info %}}
+If you change your allowed.list, make sure you restart nym-network-requester to pick up the new allowed request list
+{{% /notice %}}
 
 ## Adding URLs for other clients
 
