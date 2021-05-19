@@ -169,7 +169,7 @@ You can use the following command to download the one for Finney:
 wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/finney/genesis.json
 ```
 
-### config.toml setup
+### `config.toml` configuration
 
 Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in `$HOME/.nymd/config/config.toml` to match the information below:
 
@@ -182,7 +182,7 @@ Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics t
 - `prometheus = true`
 - `prometheus_listen_addr = ":26660"`
 
-> Remember to enable metrics in the 'Configure Prometheus metrics' section below as well.
+> Remember to enable metrics in the 'Configuring Prometheus metrics' section below as well.
 
 And if you wish to add a human-readable moniker to your node:
 
@@ -191,14 +191,14 @@ And if you wish to add a human-readable moniker to your node:
 Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
 
 
-### app.toml setup
+### `app.toml` configuration
 
 In the file `$HOME/.nymd/config/app.toml`, set the following values:
 
 1. `minimum-gas-prices = "0.025uhal"`
 1. `enable = true` in the `[api]` section to get the API server running
 
-## Setting up your validator's admin user:
+## Setting up your validator's admin user
 
 You'll need an admin account to be in charge of your validator. Set that up with:
 
@@ -410,7 +410,7 @@ These commands will get you an HTTPS encrypted nginx proxy in front of the API.
 
 In the next testnet we will be focusing more on things such as validator TLS and sentry nodes.
 
-## Configure Prometheus metrics (optional)
+## Configuring Prometheus metrics (optional)
 
 Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
 
