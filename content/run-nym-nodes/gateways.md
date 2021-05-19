@@ -101,4 +101,7 @@ Clients ledger is stored at: "~/.nym/gateways/supergateway/data/client_ledger.sl
  > Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
 ```
 
-We are currently running only one gateway, and it's going to become a bottleneck in the network. If you are interested in running a gateway for the network, please let us know.
+
+{{% notice info %}}
+We are currently running only two gateways, and they're going to become a bottleneck in the network. If you are interested in running a gateway for the network, please let us know.
+{{% /notice %}}
