@@ -6,17 +6,17 @@ description: "Nym ensures network privacy using layer encrypted Sphinx packets a
 
 When you send data across the internet, it can be recorded by a wide range of observers: your ISP, internet infrastructure providers, large tech companies, and governments.
 
-Even if the *content* of a network request is encrypted, observers can still see that data was transmitted, its size, frequency of transmission, and gather metadata from unencrypted parts of the data (such as IP routing information). Adversaries may then combine all the leaked information to probabilistically de-anonymize users.
+Even if the _content_ of a network request is encrypted, observers can still see that data was transmitted, its size, frequency of transmission, and gather metadata from unencrypted parts of the data (such as IP routing information). Adversaries may then combine all the leaked information to probabilistically de-anonymize users.
 
 Claudia's lightning talk from Dappcon 2019 in Berlin gives a general overview of network privacy.
 
 {{< youtube 5A378jgYXSc >}}
 
-The Nym mixnet provides very strong security guarantees against this sort of surveillance. It *packetizes* and *mixes* together IP traffic from many users inside a *mixnet*: a decentralized system composed of many *mixnodes*.
+The Nym mixnet provides very strong security guarantees against this sort of surveillance. It _packetizes_ and _mixes_ together IP traffic from many users inside a _mixnet_: a decentralized system composed of many _mixnodes_.
 
 A mixnet can be used to secure blockchain or non-blockchain systems. Things like crypto-currency wallets are a natural fit for mixnets; but so are non-blockchain things like chat systems, or systems for which you want wide usage but strong privacy guarantees for users, such as coronavirus tracking apps.
 
-If you're into comparisons, the Nym mixnet is conceptually similar to other systems such as Tor, but provides improved protections against end-to-end timing attacks which can de-anonymize users. When Tor was first fielded, in 2002, those kinds of attacks were regarded as science fiction. But the future is now here. 
+If you're into comparisons, the Nym mixnet is conceptually similar to other systems such as Tor, but provides improved protections against end-to-end timing attacks which can de-anonymize users. When Tor was first fielded, in 2002, those kinds of attacks were regarded as science fiction. But the future is now here.
 
 ## Loopix, the Nym mixnet
 
@@ -30,15 +30,14 @@ There is a very non-technical introduction to mixnets in the blog post [A Simple
 
 Assume a God-like adversary who can watch every packet on the network, record everything, and analyze everything in real-time. Is it possible to have private communications in such an environment? Intuitively, the answer is no: the adversary can watch every packet as it travels through the network, and progressively identify users with a high degree of success using probabilistic techniques.
 
-The Nym mixnet solves this problem by *mixing* messages inside network nodes which are opaque to the adversary. Each packet is layer encrypted, and binary-padded so that it's indistinguishable from all other packets. Incoming packets are "mixed" with all other messages inside the node. That is, the node strips one layer of packet encryption, and adds a small random transmission delay, so that messages are not emitted in the same order as which they arrived.
+The Nym mixnet solves this problem by _mixing_ messages inside network nodes which are opaque to the adversary. Each packet is layer encrypted, and binary-padded so that it's indistinguishable from all other packets. Incoming packets are "mixed" with all other messages inside the node. That is, the node strips one layer of packet encryption, and adds a small random transmission delay, so that messages are not emitted in the same order as which they arrived.
 
 Next, the message is sent to another mix node, decrypted and mixed again, then to a third mixnode for further mixing. Finally, the message is delivered to its destination gateway.
 
 As long as there's enough traffic flowing through the nodes, even an adversary who can record the whole internet will not be able to trace the packet flow through the system.
 
-The Nym mixnet mitigates against packet-dropping attacks by malicious nodes, and ensures quality-of-service, via *loop* traffic. Clients send messages which *loop* back to themselves. This allows clients to assure themselves that messages are being delivered properly. It also provides *cover traffic* to ensure that enough messages are going through the system to provide privacy.
+The Nym mixnet mitigates against packet-dropping attacks by malicious nodes, and ensures quality-of-service, via _loop_ traffic. Clients send messages which _loop_ back to themselves. This allows clients to assure themselves that messages are being delivered properly. It also provides _cover traffic_ to ensure that enough messages are going through the system to provide privacy.
 
 Privacy Enhanced Applications (Peaps) that need to defend against network-level monitoring can use the Nym mixnet.
 
 The end result is that adversaries are unable to monitor Privacy Enhanced Applications (Peaps) using Nym even if they can record all internet traffic. The adversary can tell that a user's Peap has connected to the mixnet; beyond that, it's impossible to say whether they are doing encrypted chat, file transfer, or interacting with another Peap.
-

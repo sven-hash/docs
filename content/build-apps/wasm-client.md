@@ -4,13 +4,13 @@ weight: 45
 description: "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users"
 ---
 
-The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network. 
+The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 
-You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) from NPM from its package page, or 
+You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) from NPM from its package page, or
 
 ```
 npm i @nymproject/nym-client-wasm
-``` 
+```
 
 The `nym-client-wasm` package allows easy creation of Sphinx packets from within mobile apps and browser-based client-side apps (including Electron or similar). Browser extensions should also work.
 
@@ -22,14 +22,13 @@ There are two example applications located in the directory `clients/webassembly
 
 ### Initializing a new Nym identity
 
-The main methods you'll use from the NPM package are: 
+The main methods you'll use from the NPM package are:
 
 ```js
 let identity = new Identity();
 ```
 
 This generates a new Nym identity, consisting of a public/private keypair and a Nym gateway address.
-
 
 ### Constructing a Nym client
 
@@ -39,7 +38,7 @@ let client = new Client(directoryUrl, identity, authToken);
 
 This returns a nym Client which connects to a Nym gateway via websocket. All communication with the Nym network happens through this client.
 
-The `directoryUrl` of the Nym testnet is `http://testnet-validator1.nymtech.net:8081`. Use that if you want to connect to the running testnet. 
+The `directoryUrl` of the Nym testnet is `http://testnet-validator1.nymtech.net:8081`. Use that if you want to connect to the running testnet.
 
 ### Running the Nym client
 
@@ -47,7 +46,7 @@ The `directoryUrl` of the Nym testnet is `http://testnet-validator1.nymtech.net:
 client.start();
 ```
 
-This will cause the client to retrieve a network topology from the defined `directoryUrl`, and connect to its gateway via websocket. Cover traffic is not yet sent, but message sends should work after client start. 
+This will cause the client to retrieve a network topology from the defined `directoryUrl`, and connect to its gateway via websocket. Cover traffic is not yet sent, but message sends should work after client start.
 
 ### Sending messages
 
@@ -56,14 +55,13 @@ client.sendMessage(message, recipient) {
 ```
 
 Sends a message up the websocket to this client's Nym gateway.
- 
+
 NOTE: the webassembly client currently does not implement chunking. Messages over ~1KB will cause a panic. This will be fixed in a future version.
- 
+
 `message` must be a string at the moment. Binary `Blob` and `ArrayBuffer`
-will be supported soon. 
+will be supported soon.
 
 `recipient` is a Nym address as a string.
-
 
 ### Getting the client's address
 
@@ -75,7 +73,7 @@ client.formatAsRecipient();
 
 ### SURBs
 
-Anonymous replies using surbs don't yet work in the webassembly client. They should be available in the next release (0.11.0).
+Anonymous replies using surbs don't yet work in the webassembly client. They should be available in the next release ({{< param stable >}} ).
 
 ### JSON
 

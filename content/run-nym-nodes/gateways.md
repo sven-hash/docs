@@ -36,9 +36,9 @@ $ ./nym-gateway
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.10.0)
+             (gateway - version {{< param stable >}} )
 
-    
+
 usage: --help to see available options.
 ```
 
@@ -54,8 +54,7 @@ The `init` command sets up the gateway. You **must** supply 3 parameters:
 
 Example:
 
-`./nym-gateway init --clients-host 82.32.45.6 --mix-host 82.32.45.6 --id supergateway` starts up a gateway node with default options, running on `82.32.45.6`. Note that you need to use an internet-addressable host ip. Gateways **must** also be capable of addressing IPv6. 
-
+`./nym-gateway init --clients-host 82.32.45.6 --mix-host 82.32.45.6 --id supergateway` starts up a gateway node with default options, running on `82.32.45.6`. Note that you need to use an internet-addressable host ip. Gateways **must** also be capable of addressing IPv6.
 
 #### Running a gateway
 
@@ -65,8 +64,7 @@ Example:
 
 `./nym-gateway run --id supergateway`
 
-Results in: 
-
+Results in:
 
 ```
 
@@ -76,9 +74,9 @@ Results in:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.10.0)
+             (gateway - version {{< param stable >}} )
 
-    
+
 Starting gateway supergateway...
 Public key: DFvUKggcDZcqKqemK8C1KXNmBvJasp1A3ZRFdETVV9eX
 
@@ -95,12 +93,15 @@ Clients ledger is stored at: "~/.nym/gateways/supergateway/data/client_ledger.sl
  2020-05-26T18:40:19.071 INFO  nym_gateway::node > Starting mix socket listener...
  2020-05-26T18:40:19.071 INFO  nym_gateway::node > Starting client [web]socket listener...
  2020-05-26T18:40:19.072 INFO  nym_gateway::node > Starting presence notifier...
- 2020-05-26T18:40:19.072 INFO  nym_gateway::node::mixnet_handling::receiver::listener 
+ 2020-05-26T18:40:19.072 INFO  nym_gateway::node::mixnet_handling::receiver::listener
  > Starting mixnet listener at 127.0.0.1:1789
- 2020-05-26T18:40:19.072 INFO  nym_gateway::node::client_handling::websocket::listener 
+ 2020-05-26T18:40:19.072 INFO  nym_gateway::node::client_handling::websocket::listener
  > Starting websocket listener at 127.0.0.1:9000
- 2020-05-26T18:40:19.081 INFO  nym_gateway::node                                       
+ 2020-05-26T18:40:19.081 INFO  nym_gateway::node
  > Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
 ```
 
-We are currently running only one gateway, and it's going to become a bottleneck in the network. If you are interested in running a gateway for the network, please let us know. 
+
+{{% notice info %}}
+We are currently running only two gateways, and they're going to become a bottleneck in the network. If you are interested in running a gateway for the network, please let us know.
+{{% /notice %}}

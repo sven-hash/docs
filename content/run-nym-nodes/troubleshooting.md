@@ -17,7 +17,7 @@ description: "This page will help you find answers to common issues with setting
 
 ## How can I tell my node is up and running and mixing traffic?
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-finney-explorer.nymtech.net/) and enter your **identity key**.
+First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-finney-explorer.nymtech.net/) and enter your **identity key**, and you should see your node.
 
 If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
 
@@ -109,6 +109,11 @@ or address:
 ```
 curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
 ```
+
+### Check with testnet API
+
+We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes documentation]( REFERENCE )
+
 
 ## Why is my node not mixing any packets?
 
@@ -312,6 +317,10 @@ bob@nym:~$ tree /home/nym/.nym/mixnodes/
 {{% notice info %}}
 If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://testnet-finney-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
 {{% /notice %}}
+
+## I keep seeing `Connection to <IP>:1789 seems to be dead` messages. Is this normal?
+
+Yes, this is normal at the moment, and is **nothing to do with your mixnode**! It is simply a warning that your node is unable to connect to other peoples' mixnodes for some reason, most likely because they are offline or poorly configured.
 
 ## I keep seeing ERROR or WARN messages in my node logs. Why is that ?
 
