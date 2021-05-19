@@ -12,6 +12,7 @@ defaultContentLanguageInSubdir= true
   # editURL = "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
   description = "Nym Documentation for mixnodes, coconut credentials, validators, and privacy-related systems."
   author = "Nym Team"
+  stable = "0.9.2"
   showVisitedLinks = false
   disableBreadcrumb = false
   disableInlineCopyToClipBoard = true
