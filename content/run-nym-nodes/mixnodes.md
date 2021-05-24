@@ -234,7 +234,7 @@ This means that the operating system is preventing network connections from bein
 
 ### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/).
+Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru). 
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
@@ -316,4 +316,4 @@ There serveral metrics of interest here regarding your mixnode's uptime and pack
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
 ```
 
-Returns all previous test reports as described in `/report`. 
+Returns all previous test reports as described in `/report`.
