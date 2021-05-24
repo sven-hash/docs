@@ -17,7 +17,7 @@ description: "This page will help you find answers to common issues with setting
 
 ## How can I tell my node is up and running and mixing traffic?
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-finney-explorer.nymtech.net/) and enter your **identity key**, and you should see your node.
+First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-finney-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
 
