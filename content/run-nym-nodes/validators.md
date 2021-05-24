@@ -18,6 +18,20 @@ The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermin
 
 ### Prerequisites
 
+- `git`
+
+```sh
+sudo apt update
+sudo apt install git
+```
+
+Verify `git` is installed with:
+
+```sh
+git version
+# Should return: git version X.Y.Z
+```
+
 - `Go >= v1.15`
 
 `Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
@@ -324,6 +338,8 @@ You will most likely want to automate your validator restarting if your server r
 ```ini
 [Unit]
 Description=Nymd (0.10.0)
+StartLimitInterval=350
+StartLimitBurst=10
 
 [Service]
 User=nym                                                          # change to your user
@@ -332,8 +348,6 @@ Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nym/binaries" # change to co
 ExecStart=/home/youruser/path/to/nym/binaries/nymd start          # change to correct path
 Restart=on-failure
 RestartSec=30
-StartLimitInterval=350
-StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target

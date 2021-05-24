@@ -139,7 +139,13 @@ Although it's not totally necessary, it's useful to have the mixnode automatical
 
 ```
 [Unit]
+<<<<<<< HEAD
 Description=Nym Mixnode ({{< param stable >}} )
+=======
+Description=Nym Mixnode (0.10.0)
+StartLimitInterval=350
+StartLimitBurst=10
+>>>>>>> 1aa56511ab48fd253747b0795b2c1332459c1ed9
 
 [Service]
 User=nym
@@ -148,8 +154,6 @@ ExecStart=/home/nym/nym-mixnode run --id mix0100
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
-StartLimitInterval=350
-StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target
