@@ -143,7 +143,7 @@ In order to easily identify your node via human-readable information later on in
 ./nym-mixnode describe --id winston-smithnode
 ```
 
-Which will output something like this: 
+Which will output something like this:
 
 ```sh
 
@@ -172,7 +172,6 @@ Although it's not totally necessary, it's useful to have the mixnode automatical
 Description=Nym Mixnode ({{< param stable >}} )
 StartLimitInterval=350
 StartLimitBurst=10
->>>>>>> 1aa56511ab48fd253747b0795b2c1332459c1ed9
 
 [Service]
 User=nym
