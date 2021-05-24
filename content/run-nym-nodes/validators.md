@@ -18,6 +18,20 @@ The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermin
 
 ### Prerequisites
 
+- `git`
+
+```sh
+sudo apt update
+sudo apt install git
+```
+
+Verify `git` is installed with:
+
+```sh
+git version
+# Should return: git version X.Y.Z
+```
+
 - `Go >= v1.15`
 
 `Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
