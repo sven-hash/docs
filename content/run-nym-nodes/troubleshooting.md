@@ -180,6 +180,7 @@ Will return all of the ip addresses of your host. This output should look someth
 bob@nym:~$ hostname -I
 88.36.11.23 172.18.0.1 2a01:28:ca:102::1:641
 ```
+
 * The first **ipv4** is the public ip you need to use for the ```--announce-host``` flag.
 * The second **ipv4** is the local ip you need to use for the ```--host``` flag.
 * The 3rd output should confirm if your machine has ipv6 available.
@@ -263,6 +264,16 @@ sudo systemctl status nym-mixnode
 Now your node should be mixing all the time, and restart if you reboot your server!
 
 Anytime you change your `systemd` service file you need to `sudo systemctl daemon-reload` in order to restart the service.
+
+
+## Network configuration seems fine but log still claims `Since startup mixed 0 packets!`
+
+This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Go to <https://web-wallet-finney.nymtech.net/>, unbond your node, and bond it again. The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
+
+Make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the `host` field must contain the port information:
+
+- correct host:  `34.12.3.43:1789`
+- incorrect host:`34.12.3.43`
 
 ## Can I use a port other than 1789 ?
 
