@@ -23,7 +23,7 @@ If you have already been running a node on the Nym network v0.9.2, you can use t
 If you are new to Nym, here's how you initialize a mixnode:
 
 ```shell
-./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --location YourCity
+./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) 
 ```
 
 To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The above command gets your IP automatically using an external service `$(curl ifconfig.me)`. Enter it manually if you don't have `curl` installed.
@@ -238,7 +238,7 @@ This means that the operating system is preventing network connections from bein
 
 ### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru). 
+Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
