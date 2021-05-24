@@ -324,6 +324,8 @@ You will most likely want to automate your validator restarting if your server r
 ```ini
 [Unit]
 Description=Nymd (0.10.0)
+StartLimitInterval=350
+StartLimitBurst=10
 
 [Service]
 User=nym                                                          # change to your user
@@ -332,8 +334,6 @@ Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nym/binaries" # change to co
 ExecStart=/home/youruser/path/to/nym/binaries/nymd start          # change to correct path
 Restart=on-failure
 RestartSec=30
-StartLimitInterval=350
-StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target
