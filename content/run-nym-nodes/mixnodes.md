@@ -10,7 +10,10 @@ The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) 
 
 To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `target/release` directory up to your server (or compile it on the server).
 
-### Upgrading from an earlier version
+{{< table_of_contents >}}
+
+
+## Upgrading your mixnode from an earlier version
 
 If you have already been running a node on the Nym network v0.9.2, you can use the `upgrade` command to upgrade your configs in place.
 
@@ -18,17 +21,15 @@ If you have already been running a node on the Nym network v0.9.2, you can use t
 ./nym-mixnode upgrade --id your-node-id
 ```
 
-### Initialize a mixnode
+## Initialize your mixnode
 
 If you are new to Nym, here's how you initialize a mixnode:
 
 ```shell
-./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) 
+./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
 ```
 
 To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The above command gets your IP automatically using an external service `$(curl ifconfig.me)`. Enter it manually if you don't have `curl` installed.
-
-The `--location` flag is optional but helps us debug the testnet.
 
 You can pick any `--id` you want.
 
@@ -36,7 +37,7 @@ When you run `init`, configuration files are created at `~/.nym/mixnodes/<your-i
 
 The `init` command will refuse to destroy existing mixnode keys.
 
-### Claim your mixnode in Telegram so you can get tokens
+## Claim your mixnode in Telegram to recieve tokens
 
 Testnet Finney, which works with version 0.10.x of the Nym mixnode, introduces the concept of "mixnode bonding". Each mixnode operator needs to get tokens, and bond them in our blockchain, in order to enter Testnet Finney.
 
@@ -86,12 +87,12 @@ Once you have a Nym testnet address, ask the Telegram bot for tokens:
 The bot will send you tokens so that you can bond your mixnode. First, you'll need to run it.
 
 
-### Run the mixnode
+## Run your mixnode
 
 `./nym-mixnode run --id winston-smithnode`
 
 
-You should see a nice clean startup:
+Should return a nice clean startup:
 
 ```
      | '_ \| | | | '_ \ _ \
@@ -99,7 +100,7 @@ You should see a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.10.0)
+            (mixnode - version {{< param stable >}} )
 
 
 Starting mixnode winston-smithnode...
@@ -115,7 +116,8 @@ To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will ne
     Host: <your-ip>:1789
     Layer: 3
     Location: [physical location of your node's server]
-    Version: 0.10.0
+    Version: {{< param stable >}}
+
 
 ```
 
@@ -133,16 +135,41 @@ If you run into trouble, please ask for help in the channel **nymtech.friends#ge
 
 Have a look at the saved configuration files to see more configuration options.
 
-### Making a systemd startup script
+## Describe your mixnode (optional)
+
+In order to easily identify your node via human-readable information later on in the development of the testnet when delegated staking is implemented, you can `describe` your mixnode with the following command:
+
+```sh
+./nym-mixnode describe --id winston-smithnode
+```
+
+Which will output something like this: 
+
+```sh
+
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 0.10.1)
+
+
+name: winston-smithnode
+description: nym-mixnode hosted on Linode VPS in <location> with the following specs: <specs>.
+link, e.g. https://mixnode.yourdomain.com: mixnode.mydomain.net
+```
+
+This information will be shown in a (not yet built) mixnode page in in the Network Explorer, and help people make delegated staking decisions.
+
+## Making a systemd startup script
 
 Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
 
 ```
 [Unit]
-<<<<<<< HEAD
 Description=Nym Mixnode ({{< param stable >}} )
-=======
-Description=Nym Mixnode (0.10.0)
 StartLimitInterval=350
 StartLimitBurst=10
 >>>>>>> 1aa56511ab48fd253747b0795b2c1332459c1ed9
@@ -191,7 +218,7 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
-### Set the ulimit
+## Set the ulimit
 If you are not running nym-mixnode with systemd as above with `LimitNOFILE=65536` then you will run into issues.
 You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
 
@@ -224,7 +251,7 @@ Linux machines limit how many open files a user is allowed to have. This is call
 
 `ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
 
-#### Symptoms of ulimit problems
+### Symptoms of ulimit problems
 
 If you see any references to `Too many open files` in your logs:
 
@@ -236,13 +263,13 @@ This means that the operating system is preventing network connections from bein
 
 
 
-### Checking that your node is mixing correctly
+## Checking that your node is mixing correctly
 
 Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
-### Viewing command help
+## Viewing command help
 
 See all available options by running:
 
@@ -256,7 +283,7 @@ Subcommand help is also available, e.g.:
 ./nym-mixnode upgrade --help
 ```
 
-### Virtual IPs, Google, AWS, and all that
+## Virtual IPs, Google, AWS, and all that
 
 On some services (e.g. AWS, Google), the machine's available bind address is not the same as the public IP address. In this case, bind `--host` to the local machine address returned by `ifconfig`, but also specify `--announce-host` with the public IP. Please make sure that you pass the correct, routable `--announce-host`.
 
@@ -278,7 +305,7 @@ The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 -
 
 This will bind the mixnode to the available host `10.126.5.7`, but announce the mixnode's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
-### Mixnode Hardware Specs
+## Mixnode Hardware Specs
 
 For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput. So don't bother provisioning a beastly server with many cores.
 
@@ -288,11 +315,11 @@ For the moment, we haven't put a great amount of effort into optimizing concurre
 
 This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
 
-### Mixnode Metrics
+## Mixnode Metrics
 
 We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`.
 
-#### `/report` endpoint
+### `/report` endpoint
 
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
@@ -314,7 +341,7 @@ There serveral metrics of interest here regarding your mixnode's uptime and pack
 - `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
 - `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
 
-#### `/history` endpoint
+### `/history` endpoint
 
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
