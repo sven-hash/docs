@@ -282,12 +282,12 @@ Before starting the validator, we will need to open the firewall ports:
 # if ufw is not already installed:
 sudo apt install ufw
 sudo ufw enable
-sudo ufw allow 1317,26656,26660,22,80,443/tcp
+sudo ufw allow 1317,26656,26660,22,80,443,8000,1790/tcp
 # to check everything worked
 sudo ufw status
 ```
 
-Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
+Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. `8000` and `1790` are for VerLoc, our node location system, and the rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
 >If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.  
 
