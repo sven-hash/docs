@@ -329,6 +329,11 @@ bob@nym:~$ tree /home/nym/.nym/mixnodes/
 If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://testnet-finney-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
 {{% /notice %}}
 
+## What is `verloc` and do I have to configure my mixnode to implement it?
+`verloc` is short for _verifiable location_. Mixnodes and gateways now measure speed-of-light distances to each other, in an attempt to verify how far apart they are. In later releases, this will allow us to algorithmically verify node locations in a non-fakeable and trustworthy manner.
+
+You don't have to do any additional configuration for your node to implement this, it is a passive process that runs in the background of the mixnet from version `0.10.1` onwards. 
+
 ## I keep seeing `Connection to <IP>:1789 seems to be dead` messages. Is this normal?
 
 Yes, this is normal at the moment, and is **nothing to do with your mixnode**! It is simply a warning that your node is unable to connect to other peoples' mixnodes for some reason, most likely because they are offline or poorly configured.
