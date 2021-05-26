@@ -21,6 +21,8 @@ If you have already been running a node on the Nym network v0.9.2 or v0.10.0, gr
 
 Once you've upgraded, **make sure to unbond and then rebond your node** via the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/)!
 
+Once you have rebonded your node with 100 HALs (this is currently a hardcoded amount for the testnet), the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface. 
+
 ## Initialize your mixnode
 
 If you are new to Nym, here's how you initialize a mixnode:
