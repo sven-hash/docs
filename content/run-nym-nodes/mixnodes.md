@@ -18,11 +18,13 @@ The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) 
 
 ## Upgrading your mixnode from an earlier version
 
-If you have already been running a node on the Nym network v0.9.2 or v0.10.0, make sure to grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
+If you have already been running a node on the Nym network v0.9.2 or v0.10.0, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
 
 ```shell
 ./nym-mixnode upgrade --id your-node-id
 ```
+
+Once you've upgraded, **make sure to unbond and then rebond your node** via the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/)!
 
 ## Initialize your mixnode
 
@@ -79,7 +81,7 @@ Then enter the **@nymchan_help_chat** channel on Telegram and talk to the bot to
 
 This proves to the bot that your username owns the mixnode.
 
-Next, go to the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/) and create a Nym address. It will look something like `hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. Be sure to write down your mnemonic!
+Next, go to the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/) and create a Nym address. It will look something like `hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens:
 
@@ -97,7 +99,7 @@ The bot will send you tokens so that you can bond your mixnode. First, you'll ne
 
 Should return a nice clean startup:
 
-```
+```shell
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
