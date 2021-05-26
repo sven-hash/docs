@@ -4,13 +4,15 @@ weight: 37
 description: "Run a requester proxy for the benefit of the community."
 ---
 
-{{% notice info %}}
-The `nym-network-requester` was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-{{% /notice %}}
+{{< lastmodified >}}
 
 If you have access to a server, you can run the nym-network-requester, which allows Nym users to make outbound network requests from your server.
 
 The nym-network-requester is NOT an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets.
+
+{{% notice info %}}
+The `nym-network-requester` was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+{{% /notice %}}
 
 ## Running nym-network-requester
 
