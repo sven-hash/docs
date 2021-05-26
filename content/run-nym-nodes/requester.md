@@ -14,8 +14,6 @@ The nym-network-requester is NOT an open proxy. It ships with a file called `all
 The `nym-network-requester` was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 {{% /notice %}}
 
-{{< table_of_contents >}}
-
 ## Running nym-network-requester
 
 You can run the requester yourself, by taking the following steps.
