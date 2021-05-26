@@ -5,22 +5,17 @@ description: "Mixnodes accept Sphinx packets, shuffle packets together, and forw
 ---
 {{< lastmodified >}}
 
-
-To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `target/release` directory up to your server (or compile it on the server).
-
-
 {{% notice info %}}
-The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym gateway was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 {{% /notice %}}
 
 {{< table_of_contents >}}
-
 
 ## Upgrading your mixnode from an earlier version
 
 If you have already been running a node on the Nym network v0.9.2 or v0.10.0, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
 
-```shell
+```sh
 ./nym-mixnode upgrade --id your-node-id
 ```
 
@@ -30,7 +25,7 @@ Once you've upgraded, **make sure to unbond and then rebond your node** via the 
 
 If you are new to Nym, here's how you initialize a mixnode:
 
-```shell
+```sh
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
 ```
 
@@ -58,10 +53,10 @@ To claim your mixnode, run the `sign` command, and provide your Telegram usernam
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version {{< param stable >}} )
+             (mixnode - version {{< param gatewaystable >}})
 
 
-Signing the text "@your-telegram-username" using your mixnode's Ed25519 identity key...
+Signing the text "@your-telegram-username" using your mixnode\'s Ed25519 identity key...
 
 Signature is: 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 
@@ -94,8 +89,9 @@ The bot will send you tokens so that you can bond your mixnode. First, you'll ne
 
 ## Run your mixnode
 
-`./nym-mixnode run --id winston-smithnode`
-
+```sh
+./nym-mixnode run --id winston-smithnode
+```
 
 Should return a nice clean startup:
 
@@ -105,7 +101,7 @@ Should return a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-            (mixnode - version {{< param stable >}} )
+            (mixnode - version {{< param gatewaystable >}})
 
 
 Starting mixnode winston-smithnode...
@@ -120,8 +116,8 @@ To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will ne
     Sphinx key: 6T6PpSAzaiHMKJQPKPABXzppxLtUDB3TB4ChM16t3oYP
     Host: <your-ip>:1789
     Layer: 3
-    Location: [physical location of your node's server]
-    Version: {{< param stable >}}
+    Location: [physical location of your node\'s server]
+    Version: {{< param gatewaystable >}}
 
 
 ```
@@ -139,6 +135,29 @@ If you run into trouble, please ask for help in the channel **nymtech.friends#ge
 {{% /notice %}}
 
 Have a look at the saved configuration files to see more configuration options.
+
+## Configure your firewall
+
+The following commands will allow you to set up a firewall using `ufw`.
+
+```sh
+# check if you have ufw installed
+ufw version
+# if it is not installed, install with
+sudo apt install ufw -y
+# enable ufw
+sudo ufw enable
+# check the status of the firewall
+sudo ufw status
+```
+
+Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections:
+
+```sh
+sudo ufw allow 1789,22,80,443/tcp
+# check the status of the firewall
+sudo ufw status
+```
 
 ## Describe your mixnode (optional)
 
@@ -168,13 +187,13 @@ link, e.g. https://mixnode.yourdomain.com: mixnode.mydomain.net
 
 This information will be shown in a (not yet built) mixnode page in in the Network Explorer, and help people make delegated staking decisions.
 
-## Making a systemd startup script
+## Automating your mixnode with systemd
 
 Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
 
 ```
 [Unit]
-Description=Nym Mixnode ({{< param stable >}} )
+Description=Nym Mixnode ({{< param gatewaystable >}})
 StartLimitInterval=350
 StartLimitBurst=10
 
