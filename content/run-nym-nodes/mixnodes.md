@@ -55,7 +55,7 @@ To claim your mixnode, run the `sign` command, and provide your Telegram usernam
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version {{< param gatewaystable >}})
+             (mixnode - version {{< param mixnodestable >}})
 
 
 Signing the text "@your-telegram-username" using your mixnode\'s Ed25519 identity key...
@@ -103,7 +103,7 @@ Should return a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-            (mixnode - version {{< param gatewaystable >}})
+            (mixnode - version {{< param mixnodestable >}})
 
 
 Starting mixnode winston-smithnode...
@@ -119,7 +119,7 @@ To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will ne
     Host: <your-ip>:1789
     Layer: 3
     Location: [physical location of your node\'s server]
-    Version: {{< param gatewaystable >}}
+    Version: {{< param mixnodestable >}}
 
 
 ```
@@ -179,7 +179,7 @@ Which will output something like this:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.10.1)
+             (mixnode - version {{< param mixnodestable >}})
 
 
 name: winston-smithnode
@@ -195,7 +195,7 @@ Although it's not totally necessary, it's useful to have the mixnode automatical
 
 ```
 [Unit]
-Description=Nym Mixnode ({{< param gatewaystable >}})
+Description=Nym Mixnode ({{< param mixnodestable >}})
 StartLimitInterval=350
 StartLimitBurst=10
 
