@@ -4,7 +4,7 @@ weight: 40
 description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
 ---
 
-### Gateways
+{{< lastmodified >}}
 
 {{% notice info %}}
 The Nym gateway was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.

@@ -23,7 +23,7 @@ hugo
 Alternately, to start a webserver, run:
 
 ```
-hugo server -D
+hugo -D  serve --enableGitInfo
 ```
 
 This will start up an HTTP server. View docs at http://localhost:1313/docs/.

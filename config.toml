@@ -21,8 +21,12 @@ defaultContentLanguageInSubdir= true
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "green"
   enableGitInfo = true
-  # lastmod = ["lastmod", ":git", "date", "publishDate"]
 
+[frontmatter]
+  date = ["date", "publishDate", "lastmod"]
+  # expiryDate = ["expiryDate"]
+  lastmod = [":git", "lastmod", "date", "publishDate"]
+  publishDate = ["publishDate", "date"]
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]

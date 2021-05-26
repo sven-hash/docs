@@ -4,14 +4,9 @@ weight: 42
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
 ---
 
-
-
-
-
+{{< lastmodified >}}
 
 {{< table_of_contents >}}
-
-
 
 <a name="ismixing" />
 
@@ -332,7 +327,7 @@ If you `cat` the `public_sphinx.pem key`, the output will be different from the 
 ## What is `verloc` and do I have to configure my mixnode to implement it?
 `verloc` is short for _verifiable location_. Mixnodes and gateways now measure speed-of-light distances to each other, in an attempt to verify how far apart they are. In later releases, this will allow us to algorithmically verify node locations in a non-fakeable and trustworthy manner.
 
-You don't have to do any additional configuration for your node to implement this, it is a passive process that runs in the background of the mixnet from version `0.10.1` onwards. 
+You don't have to do any additional configuration for your node to implement this, it is a passive process that runs in the background of the mixnet from version `0.10.1` onwards.
 
 ## I keep seeing `Connection to <IP>:1789 seems to be dead` messages. Is this normal?
 

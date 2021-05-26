@@ -3,15 +3,15 @@ title: "Mixnodes"
 weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
-
-Last modified:
 {{< lastmodified >}}
+
+
+To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `target/release` directory up to your server (or compile it on the server).
+
 
 {{% notice info %}}
 The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 {{% /notice %}}
-
-To join the Nym testnet as a mixnode, copy the `nym-mixnode` binary from the `target/release` directory up to your server (or compile it on the server).
 
 {{< table_of_contents >}}
 
