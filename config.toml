@@ -20,6 +20,9 @@ defaultContentLanguageInSubdir= true
   disableNextPrev = false
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "green"
+  enableGitInfo = true
+  lastmod = ["lastmod", ":git", "date", "publishDate"]
+
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
