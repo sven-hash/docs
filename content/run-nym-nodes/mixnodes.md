@@ -21,7 +21,7 @@ If you have already been running a node on the Nym network v0.9.2 or v0.10.0, gr
 ./nym-mixnode upgrade --id your-node-id
 ```
 
-Once you've upgraded, make sure to unbond and then rebond your node via the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/)!
+Once you've upgraded, **make sure to unbond and then rebond your node** via the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/)!
 
 ## Initialize your mixnode
 
