@@ -153,10 +153,10 @@ sudo ufw enable
 sudo ufw status
 ```
 
-Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections:
+Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
 
 ```sh
-sudo ufw allow 1789,22,80,443/tcp
+sudo ufw allow 1789,1790,8000,22,80,443/tcp
 # check the status of the firewall
 sudo ufw status
 ```
