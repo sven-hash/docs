@@ -130,7 +130,7 @@ If everything worked, you'll see your node running at https://testnet-finney-exp
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
-Keep reading to find our more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
+Keep reading to find out more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
 
 {{% notice info %}}
 If you run into trouble, please ask for help in the channel **nymtech.friends#general** on [KeyBase](https://keybase.io).

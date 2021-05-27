@@ -14,7 +14,7 @@ The [Nym platform](https://github.com/nymtech/nym) includes mixnodes, validators
 
 The mixnodes provide network security for network content _and_ metadata, making it impossible to see who is communicating with who.
 
-Validators secure the network with proof-of-stake Sybil defences, determine which nodes are included within the network, and work together to create Coconut threshold credentials which provide anonymous access to data and resources.
+Validators secure the network with proof-of-stake Sybil defenses, determine which nodes are included within the network, and work together to create Coconut threshold credentials which provide anonymous access to data and resources.
 
 Gateway nodes act as message storage for clients which may go offline and come back online again, and defend against denial of service attacks.
 
