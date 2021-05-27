@@ -98,7 +98,7 @@ The HTML user interface is simple, ugly, and effective (if you have UI skills an
 </html>
 ```
 
-Nothing too thrilling here - we define user interface controls with ids `sender`, `recipient`, `message`  and `send-button`, then load our JavaScript.
+Nothing too thrilling here - we define user interface controls with ids `sender`, `recipient`, `message` and `send-button`, then load our JavaScript.
 
 
 ## JavaScript
