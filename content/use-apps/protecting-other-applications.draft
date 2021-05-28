@@ -14,9 +14,9 @@ The Nym SOCKS5 proxy, though, does something quite interesting and different. Ra
 
 1. takes a TCP data stream in, e.g. a request from a crypto wallet
 1. chops up the TCP stream into multiple Sphinx packets, assigning sequence numbers to them, while leaving the TCP connection open for more data
-1. sends the Sphinx packets through the mixnet to a nym-network-requester. Packets are shuffled and mixed as they transit the mixnet. 
+1. sends the Sphinx packets through the mixnet to a nym-network-requester. Packets are shuffled and mixed as they transit the mixnet.
 1. nym-network-requester reassembles the original TCP stream using the sequence numbers, and makes the intended request.
 1. nym-network-requester then does the whole process in reverse, chopping up the response into Sphinx packets and sending it back through the mixnet to the crypto wallet.
 1. The crypto wallet receives its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy.
 
-In order for this to work, nym-network-requester needs to be available to take the request. As soon as we have a community member running a publicly-available nym-network-requester, we'll document its address in our Quickstart. 
+In order for this to work, nym-network-requester needs to be available to take the request. As soon as we have a community member running a publicly-available nym-network-requester, we'll document its address in our Quickstart.

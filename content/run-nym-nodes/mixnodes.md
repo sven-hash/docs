@@ -3,6 +3,7 @@ title: "Mixnodes"
 weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
+
 {{< lastmodified >}}
 
 {{% notice info %}}
@@ -87,7 +88,6 @@ Once you have a Nym testnet address, ask the Telegram bot for tokens:
 ```
 
 The bot will send you tokens so that you can bond your mixnode. First, you'll need to run it.
-
 
 ## Run your mixnode
 
@@ -244,6 +244,7 @@ systemctl daemon-reload
 This lets your operating system know it's ok to reload the service configuration.
 
 ## Set the ulimit
+
 If you are not running nym-mixnode with systemd as above with `LimitNOFILE=65536` then you will run into issues.
 You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
 
@@ -253,14 +254,16 @@ grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |h
 
 You'll get back the hard and soft limits, something like this:
 
-```Max open files            65536                65536                files     ```
+```console
+Max open files            65536                65536                files
+```
 
 This means you're good and your node will not encounter any `ulimit` related issues.
 
 However;
 
 If either value is 1024, you must raise the limit. To do so, either edit the systemd service file and add `LimitNOFILE=65536` and reload the daemon:
-```systemctl daemon-reload``` as root
+`systemctl daemon-reload` as root
 
 or execute this as root for system-wide setting of `ulimit`:
 
@@ -268,7 +271,7 @@ or execute this as root for system-wide setting of `ulimit`:
 echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 ```
 
-Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"`  again to make sure the limit has changed to 65535.
+Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` again to make sure the limit has changed to 65535.
 
 Changing the `DefaultLimitNOFILE` and rebooting should be all you need to do. But if you want to know what it is that you just did, read on.
 
@@ -285,8 +288,6 @@ Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too
 ```
 
 This means that the operating system is preventing network connections from being made. Raise your `ulimit`.
-
-
 
 ## Checking that your node is mixing correctly
 
@@ -357,6 +358,7 @@ Returns the most recent test report, and looks something like this:
 ```
 
 There serveral metrics of interest here regarding your mixnode's uptime and package-mixing capabilities:
+
 - `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
 - `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
 - `lastHourIPV4`: returns IPv4 connectivity as a percentage over the last hour.

@@ -3,6 +3,7 @@ title: "Run Nym Nodes"
 weight: 15
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
 ---
+
 {{< lastmodified >}}
 
 ### Installing pre-built binaries
