@@ -3,6 +3,7 @@ title: "Mixnodes"
 weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
+
 {{< lastmodified >}}
 
 {{% notice info %}}
@@ -87,7 +88,6 @@ Once you have a Nym testnet address, ask the Telegram bot for tokens:
 ```
 
 The bot will send you tokens so that you can bond your mixnode. First, you'll need to run it.
-
 
 ## Run your mixnode
 
@@ -254,6 +254,8 @@ grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |h
 
 You'll get back the hard and soft limits, something like this:
 
+
+
 ```
 Max open files            65536                65536                files
 ```
@@ -288,8 +290,6 @@ Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too
 ```
 
 This means that the operating system is preventing network connections from being made. Raise your `ulimit`.
-
-
 
 ## Checking that your node is mixing correctly
 
@@ -360,6 +360,7 @@ Returns the most recent test report, and looks something like this:
 ```
 
 There serveral metrics of interest here regarding your mixnode's uptime and package-mixing capabilities:
+
 - `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
 - `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
 - `lastHourIPV4`: returns IPv4 connectivity as a percentage over the last hour.

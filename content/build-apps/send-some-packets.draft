@@ -9,7 +9,7 @@ Before we start, the obligatory immature cryptography warning.
 {{% notice warning %}}
 Please, don't depend on our code for strong privacy (yet). We are still at an early stage.{{% /notice %}}
 
-Having said that, we are aiming to bring very strong privacy guarantees to users and service providers, and you want to see how it works. So let's dance. 
+Having said that, we are aiming to bring very strong privacy guarantees to users and service providers, and you want to see how it works. So let's dance.
 
 This quickstart demonstrates how you can use Nym from webassembly-capable browser or mobile apps. Other languages are supported via a Rust client which exposes a websocket to give you the same functionality as what we explain here - so if you want to write a Nym app in any server-side language (Python, JavaScript, C#, Java, Scala, etc) you can do that. See the [Build Privacy Applications](/docs/build-peapps) section of the docs for more information.
 
@@ -24,7 +24,7 @@ npm install
 npm run start
 ```
 
-This will install the [Nym webassembly client](https://www.npmjs.com/package/@nymproject/nym-client-wasm) and start a local webserver on [http://localhost:8001](http://localhost:8001). 
+This will install the [Nym webassembly client](https://www.npmjs.com/package/@nymproject/nym-client-wasm) and start a local webserver on [http://localhost:8001](http://localhost:8001).
 
 It's a simple chat interface, allowing you to enter a recipient address and send a message. We'll try it out in a moment, but before we do, it makes sense to talk about addressing, and the concept of Nym identities, so you can understand what an address is.
 
@@ -40,7 +40,7 @@ Note that there's an `@` in the middle. Your address will be different, but it w
 
 In my example, everything before the `@`, i.e. **71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj** is the public key of our Nym identity.
 
-Everything after the `@`, i.e. **FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm** is the public key of a Nym gateway where messages will be received for this identity. 
+Everything after the `@`, i.e. **FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm** is the public key of a Nym gateway where messages will be received for this identity.
 
 ## Sending mixnet messages using JavaScript and WebAssembly
 
@@ -52,7 +52,7 @@ The message in the *Message* field is wrapped up in Sphinx layer encryption, mix
 
 To create and send to another identity, open up another browser tab at [http://localhost:8001](http://localhost:8001). Copy the *Sender* from one of your browser windows into the *Recipient* of the other, and you'll be able to send information back and forth.
 
-Now let's look at the code. 
+Now let's look at the code.
 
 ## User interface
 
@@ -122,7 +122,7 @@ import {
 } from "nym-client-wasm/client"
 ```
 
-An `Identity` is a cryptographic identity containing a public/private keypair, and a gateway address. 
+An `Identity` is a cryptographic identity containing a public/private keypair, and a gateway address.
 
 The `Client` is a network wrapper which talks to a Nym gateway server over a websocket.
 
@@ -151,7 +151,7 @@ async function main() {
 }
 ```
 
-It's not complex, but let's take it piece by piece. 
+It's not complex, but let's take it piece by piece.
 
 ```javascript
 let directory = "https://qa-directory.nymtech.net";    // 1
@@ -161,9 +161,9 @@ let nymClient = new Client(directory, identity, null); // 3
 
 In line 1, the variable `directory` is a URL pointing at a Nym network instance (in this case, our QA network). The Nym directory holds IP address and public key info for Nym mixnodes, validators, and gateways. See the mixnet docs for more on this.
 
-Line 2 creates a new `Identity` object. 
+Line 2 creates a new `Identity` object.
 
-Line 3 initializes a new Nym `Client` using the given directory and identity. The third parameter, `authToken`, is null. 
+Line 3 initializes a new Nym `Client` using the given directory and identity. The third parameter, `authToken`, is null.
 
 At this point, we've got a `nymClient` instance. When we tell the client to `start()`, it will connect to the Nym gateway via a websocket. But if we connect right now, we won't see anything in our application. We need to wire the client to our user interface.
 
@@ -178,7 +178,7 @@ nymClient.onText = displayReceived;
 nymClient.onErrorResponse = (event) => alert("Received invalid gateway response", event.data);
 ```
 
-Clicking the *Send* button should send our message. 
+Clicking the *Send* button should send our message.
 
 ```js
 const sendButton = document.querySelector('#send-button');
@@ -197,7 +197,7 @@ At this point, a lot of things happen.
 
 1. The `nymClient` talks to the defined `directory` and asks it for a list of currently running gateways, mixnodes, and validators. We call this the network *topology*.
 2. Once it has the network topology in hand, `nymClient` connects to the first gateway it finds, via a websocket connection.
-3. As noted previously, our `nymClient` was initialized without an authentication token. So it registers an account on the gateway, and gets back an authentication token in response. In a real application, we'd save that authtoken so we could use it to talk to the gateway later. 
+3. As noted previously, our `nymClient` was initialized without an authentication token. So it registers an account on the gateway, and gets back an authentication token in response. In a real application, we'd save that authtoken so we could use it to talk to the gateway later.
 
 
 Now that `nymClient` is registered, we can send messages over the mixnet.
@@ -219,9 +219,9 @@ function sendMessageTo(nymClient) {
 
 The interesting line here is `nymClient.sendMessage(message, recipient)`. The client takes the `message` and the `recipient` from the user interface and calls `sendMessage`. The Nym client JavaScript talks to a webassembly binary which does layer encryption of a Sphinx packet. The client then sends this encrypted binary blob up the websocket connection to the Nym gateway.
 
-The gateway translates to/from IPv4/IPv6 if necessary, and forwards the Sphinx packet to the mixnet. The packet then traverses the mixnet through multiple *hops*, with one layer of encryption being stripped each time. 
+The gateway translates to/from IPv4/IPv6 if necessary, and forwards the Sphinx packet to the mixnet. The packet then traverses the mixnet through multiple *hops*, with one layer of encryption being stripped each time.
 
-After exiting the mixnet, still encrypted in Sphinx, the packet reaches the destination gateway. If the recipient that the packet is addressed to is currently online, the packet will be delivered immediately. If the recipient is offline, the packet will be stored until the user comes online, and then delivered. 
+After exiting the mixnet, still encrypted in Sphinx, the packet reaches the destination gateway. If the recipient that the packet is addressed to is currently online, the packet will be delivered immediately. If the recipient is offline, the packet will be stored until the user comes online, and then delivered.
 
 #### Sphinx packet creation
 
@@ -238,7 +238,7 @@ Clients create Sphinx packets. These packets are a bit complicated, but for now 
 
 Anonymous replies are possible using **S**ingle **U**se **R**eply **B**locks, or SURBs. They don't yet exist in the WebAssembly client, but should be available in the next release.
 
-Why would you want SURBs? It's useful to be able to reply to someone without necessarily knowing who they are. Keep in mind, recipients are not necessarily people: they can be privacy-respecting Service Providers, or people. SURBs allow Service Providers to respond to users without knowing who they are. 
+Why would you want SURBs? It's useful to be able to reply to someone without necessarily knowing who they are. Keep in mind, recipients are not necessarily people: they can be privacy-respecting Service Providers, or people. SURBs allow Service Providers to respond to users without knowing who they are.
 
 ### JSON
 
