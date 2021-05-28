@@ -193,7 +193,7 @@ This information will be shown in a (not yet built) mixnode page in in the Netwo
 
 Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
 
-```
+```ini
 [Unit]
 Description=Nym Mixnode ({{< param mixnodestable >}})
 StartLimitInterval=350
@@ -221,13 +221,13 @@ If you have built nym on your server, and your username is `jetpanther`, then th
 
 Then run:
 
-```
+```sh
 systemctl enable nym-mixnode.service
 ```
 
 Start your node:
 
-```
+```sh
 service nym-mixnode start
 ```
 
@@ -237,38 +237,41 @@ You can also do `service nym-mixnode stop` or `service nym-mixnode restart`.
 
 Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
 
-```
+```sh
 systemctl daemon-reload
 ```
 
 This lets your operating system know it's ok to reload the service configuration.
 
-## Set the ulimit
+### Set the ulimit
+
 If you are not running nym-mixnode with systemd as above with `LimitNOFILE=65536` then you will run into issues.
 You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
 
-```
+```sh
 grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
 ```
 
 You'll get back the hard and soft limits, something like this:
 
-```Max open files            65536                65536                files     ```
+```
+Max open files            65536                65536                files
+```
 
 This means you're good and your node will not encounter any `ulimit` related issues.
 
 However;
 
 If either value is 1024, you must raise the limit. To do so, either edit the systemd service file and add `LimitNOFILE=65536` and reload the daemon:
-```systemctl daemon-reload``` as root
+`systemctl daemon-reload` as root
 
 or execute this as root for system-wide setting of `ulimit`:
 
-```
+```sh
 echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 ```
 
-Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"`  again to make sure the limit has changed to 65535.
+Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` again to make sure the limit has changed to 65535.
 
 Changing the `DefaultLimitNOFILE` and rebooting should be all you need to do. But if you want to know what it is that you just did, read on.
 
@@ -298,13 +301,13 @@ For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-node
 
 See all available options by running:
 
-```
+```sh
 ./nym-mixnode --help
 ```
 
 Subcommand help is also available, e.g.:
 
-```
+```sh
 ./nym-mixnode upgrade --help
 ```
 

@@ -15,7 +15,7 @@ If the pre-built binaries don't work or are unavailable for your system, you wil
 
 ### Building Nym
 
-The Nym platform has two main codebases:
+Nym has two main codebases:
 
 - the Nym platform ([build instructions](build-nym)), written in Rust. This contains all of our code _except_ for the validators.
 - the Nym validators ([build instructions](validators)), written in Go.
