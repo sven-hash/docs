@@ -43,6 +43,7 @@ $ ./nym-gateway
              (gateway - version {{< param gatewaystable >}})
 
 
+
 usage: --help to see available options.
 ```
 

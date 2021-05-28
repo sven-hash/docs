@@ -25,6 +25,7 @@ $ ./nym-client
              (client - version {{< param stable >}} )
 
 
+
 usage: --help to see available options.
 ```
 
@@ -90,33 +91,35 @@ import asyncio
 import json
 import websockets
 
-self_address_request = json.dumps({
-    "type": "selfAddress"
-})
+self_address_request = json.dumps({"type": "selfAddress"})
+
 
 async def send_text():
     message = "Hello Nym!"
 
     uri = "ws://localhost:1977"
-    async with websockets.connect(uri) as websocket: # 1
+    async with websockets.connect(uri) as websocket:  # 1
         await websocket.send(self_address_request)
         self_address = json.loads(await websocket.recv())
         print("our address is: {}".format(self_address["address"]))
 
-        text_send = json.dumps({ # 2
-            "type": "send",
-            "message": message,
-            "recipient": self_address["address"]
-        })
+        text_send = json.dumps(
+            {  # 2
+                "type": "send",
+                "message": message,
+                "recipient": self_address["address"],
+            }
+        )
 
         print("sending '{}' over the mix network...".format(message))
-        await websocket.send(text_send) # 3
-        msg_send_confirmation = json.loads(await websocket.recv()) # 4
+        await websocket.send(text_send)  # 3
+        msg_send_confirmation = json.loads(await websocket.recv())  # 4
         assert msg_send_confirmation["type"], "send"
 
         print("waiting to receive a message from the mix network...")
-        received_message = await websocket.recv() # 5
+        received_message = await websocket.recv()  # 5
         print("received {} from the mix network!".format(received_message))
+
 
 asyncio.get_event_loop().run_until_complete(send_text())
 ```
@@ -173,7 +176,7 @@ This provides an easy way for the receiving chat to then turn around and send a 
 }
 ```
 
-If that fits your security model, good. However, it may be the case that you want to send anonymous replies using Single Use Reply Blocks, or _surbs_. These will be available in the next version of Nym ({{< param stable >}} ).
+If that fits your security model, good. However, it may be the case that you want to send anonymous replies using Single Use Reply Blocks, or _surbs_. These will be available in the next version of Nym (0.11.0).
 
 #### Sending binary data
 
@@ -210,6 +213,7 @@ async def send_file():
         with open("received_file", "wb") as output_file:
             print("writing the file back to the disk!")
             output_file.write(received_data)
+
 
 asyncio.get_event_loop().run_until_complete(send_file())
 ```
