@@ -302,7 +302,7 @@ username        hard nofile 4096
 ## Example soft limit for max opened files
 username        soft nofile 4096
 
-Then reboot your server and restart your mixnode. 
+Then reboot your server and restart your mixnode.
 
 ## Checking that your node is mixing correctly
 
@@ -397,7 +397,7 @@ Returns all previous test reports as described in `/report`.
 curl <YOUR_NODE_IP>:8000/description
 ```
 
-Returns the description of your node set with the `describe` command. See 'Describe your mixnode'( {{< ref "./mixnodes.md#describe-your-mixnode-optional" >}} ) above for more information on this.
+Returns the description of your node set with the `describe` command. See ['Describe your mixnode']( {{< ref "#describe-your-mixnode-optional" >}} ) above for more information on this.
 
 ### `/verloc`
 
