@@ -245,27 +245,45 @@ This lets your operating system know it's ok to reload the service configuration
 
 ### Set the ulimit
 
-If you are not running nym-mixnode with systemd as above with `LimitNOFILE=65536` then you will run into issues.
-You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
+Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
+
+`ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
+
+If you see errors such as:
+
+```
+Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
+```
+
+This means that the operating system is preventing network connections from being made.
+
+#### Set the ulimit via `systemd` service file
+
+Query the `ulimit` of your mixnode with:
 
 ```sh
 grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
 ```
 
-You'll get back the hard and soft limits, something like this:
-
-
+You'll get back the hard and soft limits, which looks something like this:
 
 ```
 Max open files            65536                65536                files
 ```
 
-This means you're good and your node will not encounter any `ulimit` related issues.
+If your output is **the same as above**, your node will not encounter any `ulimit` related issues.
 
-However;
+However if either value is `1024`, you must raise the limit via the systemd service file. Add the line:
 
-If either value is 1024, you must raise the limit. To do so, either edit the systemd service file and add `LimitNOFILE=65536` and reload the daemon:
-`systemctl daemon-reload` as root
+```sh
+LimitNOFILE=65536
+```
+
+Reload the daemon:
+
+```sh
+systemctl daemon-reload
+```
 
 or execute this as root for system-wide setting of `ulimit`:
 
@@ -273,23 +291,18 @@ or execute this as root for system-wide setting of `ulimit`:
 echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 ```
 
-Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` again to make sure the limit has changed to 65535.
+Reboot your machine and restart your node. When it comes back, use `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` to make sure the limit has changed to 65535.
 
-Changing the `DefaultLimitNOFILE` and rebooting should be all you need to do. But if you want to know what it is that you just did, read on.
+#### Set the ulimit on `non-systemd` based distributions
 
-Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
+Edit `etc/security/conf` and add the following lines:
 
-`ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
+## Example hard limit for max opened files
+username        hard nofile 4096
+## Example soft limit for max opened files
+username        soft nofile 4096
 
-### Symptoms of ulimit problems
-
-If you see any references to `Too many open files` in your logs:
-
-```
-Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
-```
-
-This means that the operating system is preventing network connections from being made. Raise your `ulimit`.
+Then reboot your server and restart your mixnode. 
 
 ## Checking that your node is mixing correctly
 
