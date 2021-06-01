@@ -25,6 +25,7 @@ Additional details can be obtained via various methods after you connect to your
 ```sh
 sudo ss -s -t | grep 1789 # if you have specified a different port in your mixnode config, change accordingly
 ```
+
 This command should return a lot of data containing `ESTAB`. This command should work on every unix based system.
 
 #### List open files and reliant processes with `lsof`
@@ -109,10 +110,10 @@ curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq -r '.[]
 
 We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation]( {{< ref "./mixnodes.md#mixnode-metrics" >}} ).
 
-
 ## Why is my node not mixing any packets?
 
 If you are still unable to see your node on the [dashboard](https://testnet-finney-explorer.nymtech.net/), or your node is declaring it has not mixed any packets, there are several potential issues:
+
 - The firewall on your host machine is not configured properly.
 - You provided incorrect information when bonding your node via the [web wallet](web-wallet-finney.nymtech.net)
 - You are running your mixnode from a VPS without IPv6 support.
@@ -121,7 +122,7 @@ If you are still unable to see your node on the [dashboard](https://testnet-finn
 - Your mixnode is not running at all, it has either exited / panicked or you closed the session without making the node persistent.
 
 {{% notice info %}}
-Your mixnode **must speak both IPv4 and IPv6** in order to cooperate with other nodes and route traffic. This is a common reason behind many errors we are seeing among node operators, so check with your provider that your VPS is able to do this!   
+Your mixnode **must speak both IPv4 and IPv6** in order to cooperate with other nodes and route traffic. This is a common reason behind many errors we are seeing among node operators, so check with your provider that your VPS is able to do this!
 {{% /notice %}}
 
 ### Incorrectly configured firewall
@@ -153,7 +154,7 @@ Check that you have provided the correct information when bonding your mixnode i
 
 ### Missing `announce-host` flag
 
-On certain cloud providers such as AWS and Google Cloud, you need to do some additional configuration of your firewall and use ```--host``` with your **local ip** and ```--announce-host``` with the **public ip** of your mixnode host.
+On certain cloud providers such as AWS and Google Cloud, you need to do some additional configuration of your firewall and use `--host` with your **local ip** and `--announce-host` with the **public ip** of your mixnode host.
 
 ### No IPv6 connectivity
 
@@ -164,11 +165,13 @@ To get all ip addresses of your host, try following commands:
 ```sh
 hostname -i
 ```
+
 Will return your **local ip** address.
 
 ```sh
 hostname -I
 ```
+
 Will return all of the ip addresses of your host. This output should look something like this:
 
 ```sh
@@ -176,9 +179,9 @@ bob@nym:~$ hostname -I
 88.36.11.23 172.18.0.1 2a01:28:ca:102::1:641
 ```
 
-* The first **ipv4** is the public ip you need to use for the ```--announce-host``` flag.
-* The second **ipv4** is the local ip you need to use for the ```--host``` flag.
-* The 3rd output should confirm if your machine has ipv6 available.
+- The first **ipv4** is the public ip you need to use for the `--announce-host` flag.
+- The second **ipv4** is the local ip you need to use for the `--host` flag.
+- The 3rd output should confirm if your machine has ipv6 available.
 
 ### Running on a local machine behind NAT with no fixed IP address
 
@@ -186,7 +189,7 @@ Your ISP has to be IPv6 ready if you want to run a mixnode on your local machine
 
 Before you begin, check if you have IPv6 [here](https://test-ipv6.cz/). If not, then don't waste your time to run a node which won't ever be able to mix any packet due to this limitation. Call your ISP and ask for IPv6, there is a plenty of it for everyone!
 
-If all goes well and you have IPv6 available, then you will need to ```init``` the mixnode with an extra flag, ```--announce-host```. You will also need to edit your `config.toml` file each time your IPv4 address changes, that could be a few days or a few weeks.
+If all goes well and you have IPv6 available, then you will need to `init` the mixnode with an extra flag, `--announce-host`. You will also need to edit your `config.toml` file each time your IPv4 address changes, that could be a few days or a few weeks.
 
 Additional configuration on your router might also be needed to allow traffic in and out to port 1789 and IPv6 support.
 
@@ -202,16 +205,6 @@ Here is a sample of the `init` command to create the mixnode config.
 
 Make sure you check if your node is really mixing. You will need a bit of luck to set this up from your home behind NAT.
 
-### `tokio runtime worker` error
-
-If you are running into issues with an error including the following:
-
-```sh
-thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address"
-```
-
-Then you need to `--announce-host <public ip>` and ``--host <local ip>` on startup. This issue arises because of your use of a provider like AWS or Google Cloud, and the fact that your VPS' available bind address is not the same as the public IP address (see [Virtual IPs, Google, AWS, and all that]( {{< ref "./mixnodes.md#virtual-ips-google-aws-and-all-that" >}} ) for more information on this issue).  
-
 ### Accidentally killing your node process on exiting session
 
 When you close your current terminal session, you need to make sure you don't kill the mixnode process! There are multiple ways on how to make it persistent even after exiting your ssh session, the easiest solution is to use `nohup`, and the more elegant solution is to run the node with `systemd`.
@@ -225,6 +218,7 @@ nohup ./nym-mixnode run --id NYM # where `--id NYM` is the id you set during the
 ```
 
 #### Running your mixnode as a background process with `systemd`
+
 The most reliable and elegant solution is to create a `systemd.service` file and run the nym-mixnode with `systemctl` command.
 
 Create a file with `nano` at `/etc/systemd/system/nym-mixnode.service` containing the following:
@@ -260,36 +254,69 @@ Now your node should be mixing all the time, and restart if you reboot your serv
 
 Anytime you change your `systemd` service file you need to `sudo systemctl daemon-reload` in order to restart the service.
 
+### Network configuration seems fine but log still claims `Since startup mixed 0 packets!`
 
-## Network configuration seems fine but log still claims `Since startup mixed 0 packets!`
+This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node via the [web wallet])(https://web-wallet-finney.nymtech.net/). The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
 
-This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Go to <https://web-wallet-finney.nymtech.net/>, unbond your node, and bond it again. The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
+Also make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the `host` field must contain the _port_ on which your mixnode will listen:
 
-Make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the `host` field must contain the port information:
-
-- correct host:  `34.12.3.43:1789`
+- correct host: `34.12.3.43:1789`
 - incorrect host:`34.12.3.43`
+
+## Common errors and warnings
+
+Most of the `ERROR` and `WARN` messages in your node logs are benign - as long as your node outputs `since startup mixed X packets!` in your logs (and this number increases over time), your node is mixing packets. If you want to be sure, check the Nym [dashboard](https://testnet-finney-explorer.nymtech.net/) or see other ways on how to check if your node is mixing properly as outlined in the section **How can I tell my node is up and running and mixing traffic?** above.
+
+More specific errors and warnings are covered below.
+
+### `tokio runtime worker` error
+
+If you are running into issues with an error including the following:
+
+```sh
+thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address" }'
+```
+
+Then you need to `--announce-host <public ip>` and ``--host <local ip>` on startup. This issue arises because of your use of a provider like AWS or Google Cloud, and the fact that your VPS' available bind address is not the same as the public IP address (see [Virtual IPs, Google, AWS, and all that]( {{< ref "./mixnodes.md#virtual-ips-google-aws-and-all-that" >}} ) for more information on this issue).
+
+### `rocket::launch` warnings
+These warnings are not an issue, please ignore them. Rocket is a web framework for rust which we are using to provide mixnodes with `/verloc` and `/description` http APIs.
+
+Find more information about this in the [Mixnodes metrics documentation]( {{< ref "./mixnodes.md#mixnode-metrics" >}} ).
+
+Rocket runs on port 8000 by default. If you wish to change which port it uses, check how to do so in the [docs](https://api.rocket.rs/master/rocket/config/struct.Config.html#method.release_default).
+
+### `failed to receive reply to our echo packet within 1.5s. Stopping the test`
+
+This relates to the VerLoc implementation that appeared in `0.10.1`, which has a particularly high log sensitivity. This warning means that the echo packet sent to the mixnode was received, but not sent back. _This will not affect the rate of rewards or performance metrics of your mixnode in the testnet at this point._
+
+### `Connection to <IP>:1789 seems to be dead`
+
+This warning is normal at the moment, and is _nothing to do with your mixnode!_ It is simply a warning that your node is unable to connect to other peoples' mixnodes for some reason, most likely because they are offline or poorly configured.
 
 ## Can I use a port other than 1789 ?
 
 Yes! Here is what you will need to do:
 
-Let's say you would like to use port `1337` for your mixnode. First you need to open the new port:
+Assuming you would like to use port `1337` for your mixnode, you need to open the new port (and close the old one):
 
 ```sh
 sudo ufw allow 1337
+sudo ufw deny 1789
 ```
 
-Now you need to edit the mixnode's config.
+And then edit the mixnode's config.
 
 {{% notice info %}}
 If you want to change the port for an already running node, you need to stop the process before editing your config file.
 {{% /notice %}}
 
 Assuming your node name is `nym`, the config file is located at `~/.nym/mixnodes/nym/config/config.toml`.
+
 ```
 nano ~/.nym/mixnodes/nym/config/config.toml
 ```
+
 You will need to edit two parts of the file. `announce_address` and `listening_address` in the config.toml file. Simply replace `:1789` (the default port) with `:1337` (your new port) after your IP address.
 
 Finally, restart your node. You should see if the mixnode is using the port you have changed in the config.toml file right after you run the node.
@@ -325,22 +352,10 @@ If you `cat` the `public_sphinx.pem key`, the output will be different from the 
 {{% /notice %}}
 
 ## What is `verloc` and do I have to configure my mixnode to implement it?
+
 `verloc` is short for _verifiable location_. Mixnodes and gateways now measure speed-of-light distances to each other, in an attempt to verify how far apart they are. In later releases, this will allow us to algorithmically verify node locations in a non-fakeable and trustworthy manner.
 
 You don't have to do any additional configuration for your node to implement this, it is a passive process that runs in the background of the mixnet from version `0.10.1` onwards.
-
-## I keep seeing `Connection to <IP>:1789 seems to be dead` messages. Is this normal?
-
-Yes, this is normal at the moment, and is **nothing to do with your mixnode**! It is simply a warning that your node is unable to connect to other peoples' mixnodes for some reason, most likely because they are offline or poorly configured.
-
-## I keep seeing ERROR or WARN messages in my node logs. Why is that ?
-
-I have seen quite a few errors from community members in our [Telegram help chat](https://t.me/nymchan_help_chat).
-
-Most of them are benign. Usually you will encounter errors when your nodes tries to estabilish a connection with a "dead" node, that is misconfigured(most likely its firewall is).
-
-As long as your node outputs `since startup mixed 1337 packets!` in your logs, you should be fine. If you want to be sure, check the Nym [dashboard](https://testnet-finney-explorer.nymtech.net/) or see other ways on how to check if your node is really mixing, mentioned in section **How can I tell my node is up and running and mixing traffic?** in this wiki.
-
 
 ## Where can I get more help?
 

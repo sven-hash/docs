@@ -13,7 +13,7 @@ Most of the time, when we build system security, we think of _who_ questions:
 - Has Alice identified herself (authentication)?
 - Is Alice allowed to take a specific action (authorisation)?
 
-Coconut fundamentally changes these questions. Rather than asking _who_ a user is, it allows application designers to ask different questions, mostly centred around questions of _rights_:
+Coconut fundamentally changes these questions. Rather than asking _who_ a user is, it allows application designers to ask different questions, mostly centered around questions of _rights_:
 
 - Does the entity taking this action have a right to do X?
 

@@ -3,6 +3,7 @@ title: "Mixnodes"
 weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
+
 {{< lastmodified >}}
 
 {{% notice info %}}
@@ -88,7 +89,6 @@ Once you have a Nym testnet address, ask the Telegram bot for tokens:
 
 The bot will send you tokens so that you can bond your mixnode. First, you'll need to run it.
 
-
 ## Run your mixnode
 
 ```sh
@@ -130,7 +130,7 @@ If everything worked, you'll see your node running at https://testnet-finney-exp
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
-Keep reading to find our more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
+Keep reading to find out more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
 
 {{% notice info %}}
 If you run into trouble, please ask for help in the channel **nymtech.friends#general** on [KeyBase](https://keybase.io).
@@ -193,7 +193,7 @@ This information will be shown in a (not yet built) mixnode page in in the Netwo
 
 Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
 
-```
+```ini
 [Unit]
 Description=Nym Mixnode ({{< param mixnodestable >}})
 StartLimitInterval=350
@@ -221,13 +221,13 @@ If you have built nym on your server, and your username is `jetpanther`, then th
 
 Then run:
 
-```
+```sh
 systemctl enable nym-mixnode.service
 ```
 
 Start your node:
 
-```
+```sh
 service nym-mixnode start
 ```
 
@@ -237,56 +237,72 @@ You can also do `service nym-mixnode stop` or `service nym-mixnode restart`.
 
 Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
 
-```
+```sh
 systemctl daemon-reload
 ```
 
 This lets your operating system know it's ok to reload the service configuration.
 
-## Set the ulimit
-If you are not running nym-mixnode with systemd as above with `LimitNOFILE=65536` then you will run into issues.
-You **must** set your ulimit well above 1024 or your node won't work properly in the testnet. To test the `ulimit` of your mixnode:
-
-```
-grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
-```
-
-You'll get back the hard and soft limits, something like this:
-
-```Max open files            65536                65536                files     ```
-
-This means you're good and your node will not encounter any `ulimit` related issues.
-
-However;
-
-If either value is 1024, you must raise the limit. To do so, either edit the systemd service file and add `LimitNOFILE=65536` and reload the daemon:
-```systemctl daemon-reload``` as root
-
-or execute this as root for system-wide setting of `ulimit`:
-
-```
-echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
-```
-
-Reboot your machine and restart your node. When it comes back, do `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"`  again to make sure the limit has changed to 65535.
-
-Changing the `DefaultLimitNOFILE` and rebooting should be all you need to do. But if you want to know what it is that you just did, read on.
+### Set the ulimit
 
 Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
 
 `ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
 
-### Symptoms of ulimit problems
-
-If you see any references to `Too many open files` in your logs:
+If you see errors such as:
 
 ```
 Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
 ```
 
-This means that the operating system is preventing network connections from being made. Raise your `ulimit`.
+This means that the operating system is preventing network connections from being made.
 
+#### Set the ulimit via `systemd` service file
 
+Query the `ulimit` of your mixnode with:
+
+```sh
+grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
+```
+
+You'll get back the hard and soft limits, which looks something like this:
+
+```
+Max open files            65536                65536                files
+```
+
+If your output is **the same as above**, your node will not encounter any `ulimit` related issues.
+
+However if either value is `1024`, you must raise the limit via the systemd service file. Add the line:
+
+```sh
+LimitNOFILE=65536
+```
+
+Reload the daemon:
+
+```sh
+systemctl daemon-reload
+```
+
+or execute this as root for system-wide setting of `ulimit`:
+
+```sh
+echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
+```
+
+Reboot your machine and restart your node. When it comes back, use `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` to make sure the limit has changed to 65535.
+
+#### Set the ulimit on `non-systemd` based distributions
+
+Edit `etc/security/conf` and add the following lines:
+
+## Example hard limit for max opened files
+username        hard nofile 4096
+## Example soft limit for max opened files
+username        soft nofile 4096
+
+Then reboot your server and restart your mixnode. 
 
 ## Checking that your node is mixing correctly
 
@@ -298,13 +314,13 @@ For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-node
 
 See all available options by running:
 
-```
+```sh
 ./nym-mixnode --help
 ```
 
 Subcommand help is also available, e.g.:
 
-```
+```sh
 ./nym-mixnode upgrade --help
 ```
 
@@ -342,9 +358,9 @@ This will change when we get a chance to start doing performance optimizations i
 
 ## Mixnode Metrics
 
-We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`.
+We currently have an API set up returning our metrics tests of the network. There are 4 endpoints to ping for information about your mixnode, `report`, `history`, `description` and `verloc`.
 
-### `/report` endpoint
+### `/report`
 
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
@@ -357,6 +373,7 @@ Returns the most recent test report, and looks something like this:
 ```
 
 There serveral metrics of interest here regarding your mixnode's uptime and package-mixing capabilities:
+
 - `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
 - `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
 - `lastHourIPV4`: returns IPv4 connectivity as a percentage over the last hour.
@@ -366,10 +383,30 @@ There serveral metrics of interest here regarding your mixnode's uptime and pack
 - `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
 - `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
 
-### `/history` endpoint
+### `/history`
 
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
 ```
 
 Returns all previous test reports as described in `/report`.
+
+### `/description`
+
+```sh
+curl <YOUR_NODE_IP>:8000/description
+```
+
+Returns the description of your node set with the `describe` command. See 'Describe your mixnode'( {{< ref "./mixnodes.md#describe-your-mixnode-optional" >}} ) above for more information on this.
+
+### `/verloc`
+
+```sh
+curl <YOUR_NODE_IP>:8000/verloc
+```
+
+Returns the verloc information of your node, which is updated every 12 hours.
+
+{{% notice info %}}
+Remember to add which endpoint you want to query. `<your-node-ip>:8000` will return nothing if used with `curl` and return an error if used in your browser.
+{{% /notice %}}

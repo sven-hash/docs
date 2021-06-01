@@ -10,7 +10,7 @@ If you want to do mixnet development without connecting to our testnet, sometime
 
 You can start up a full mix network, including mixnodes, and a gateway on your local machine fairly easily.
 
-First, download, build and run the [Nym directory server](https://github.com/nymtech/nym-directory). This step will soon go away, as the directory server is about to be retired in the {{< param stable >}}  release. But for now it's necessary. 
+First, download, build and run the [Nym directory server](https://github.com/nymtech/nym-directory). This step will soon go away, as the directory server is about to be retired in the {{< param stable >}}  release. But for now it's necessary.
 
 {{% notice warning %}}
 The local network **must** be able to access a directory server running on `localhost`! Make sure you install and run the directory server.
@@ -24,7 +24,7 @@ By default, this will start up a 1x3 mixnet: a layered topology 1 mixnode wide a
 
 You should see presence requests (a series of POST requests) hitting the directory server in its console window, telling you that (a) the directory server is receiving requests, and (b) the mixnodes are letting the directory know they're alive.
 
-Starting a Nym client will cause Sphinx packets to travel from the client to the gateway, and get routed to their Nym destination address. 
+Starting a Nym client will cause Sphinx packets to travel from the client to the gateway, and get routed to their Nym destination address.
 
 `client => Gateway => Mixnode1 => Mixnode2 => Mixnode3 => Gateway => loop back to the client`
 
@@ -52,7 +52,7 @@ Packets always travel forwards through mixnet layers, and layers cannot be skipp
 
 From here, you can start experimenting with running the `nym-client`, sending packets through the mixnet.
 
-Init the client: 
+Init the client:
 
 ` ./nym-client init --id winston-smithnode --directory http://localhost:8080`
 
