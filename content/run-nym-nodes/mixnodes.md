@@ -384,7 +384,7 @@ Returns all previous test reports as described in `/report`.
 curl <YOUR_NODE_IP>:8000/description
 ```
 
-Returns the description of your node set with the `describe` command. See ref Describe your mixnode (optional) above for more information on this.
+Returns the description of your node set with the `describe` command. See 'Describe your mixnode'( {{< ref "./mixnodes.md#describe-your-mixnode-optional" >}} ) above for more information on this.
 
 ### `/verloc`
 
@@ -395,8 +395,5 @@ curl <YOUR_NODE_IP>:8000/verloc
 Returns the verloc information of your node, which is updated every 12 hours.
 
 {{% notice info %}}
-Remember to add which endpoint you want to query! `<your-node-ip>:8000` will return nothing if used with `curl` and return a Rocket error in your browser. 
+Remember to add which endpoint you want to query. `<your-node-ip>:8000` will return nothing if used with `curl` and return an error if used in your browser.
 {{% /notice %}}
-
-
-curl <your-node-ip>:8000/description  or with their browser, just make them go to http://<your-node-ip>:8000/description
