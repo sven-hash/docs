@@ -345,9 +345,9 @@ This will change when we get a chance to start doing performance optimizations i
 
 ## Mixnode Metrics
 
-We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`.
+We currently have an API set up returning our metrics tests of the network. There are 4 endpoints to ping for information about your mixnode, `report`, `history`, `description` and `verloc`.
 
-### `/report` endpoint
+### `/report`
 
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
@@ -370,10 +370,33 @@ There serveral metrics of interest here regarding your mixnode's uptime and pack
 - `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
 - `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
 
-### `/history` endpoint
+### `/history`
 
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
 ```
 
 Returns all previous test reports as described in `/report`.
+
+### `/description`
+
+```sh
+curl <YOUR_NODE_IP>:8000/description
+```
+
+Returns the description of your node set with the `describe` command. See ref Describe your mixnode (optional) above for more information on this.
+
+### `/verloc`
+
+```sh
+curl <YOUR_NODE_IP>:8000/verloc
+```
+
+Returns the verloc information of your node, which is updated every 12 hours.
+
+{{% notice info %}}
+Remember to add which endpoint you want to query! `<your-node-ip>:8000` will return nothing if used with `curl` and return a Rocket error in your browser. 
+{{% /notice %}}
+
+
+curl <your-node-ip>:8000/description  or with their browser, just make them go to http://<your-node-ip>:8000/description
