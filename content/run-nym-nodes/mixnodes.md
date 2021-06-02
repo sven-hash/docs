@@ -361,7 +361,7 @@ This will change when we get a chance to start doing performance optimizations i
 We currently have an API set up returning our metrics tests of the network. There are 4 endpoints to ping for information about your mixnode, `report`, `history`, `description` and `verloc`.
 
 ### `/report`
-
+ 
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
 ```
