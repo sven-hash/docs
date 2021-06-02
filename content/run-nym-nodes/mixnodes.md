@@ -4,8 +4,6 @@ weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
 
-{{< lastmodified >}}
-
 {{% notice info %}}
 The Nym gateway was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 {{% /notice %}}
@@ -361,7 +359,7 @@ This will change when we get a chance to start doing performance optimizations i
 We currently have an API set up returning our metrics tests of the network. There are 4 endpoints to ping for information about your mixnode, `report`, `history`, `description` and `verloc`.
 
 ### `/report`
- 
+
 ```sh
 curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
 ```

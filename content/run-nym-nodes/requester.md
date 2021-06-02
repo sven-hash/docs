@@ -4,8 +4,6 @@ weight: 37
 description: "Run a requester proxy for the benefit of the community."
 ---
 
-{{< lastmodified >}}
-
 {{% notice info %}}
 The `nym-network-requester` was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 {{% /notice %}}
