@@ -295,10 +295,12 @@ Reboot your machine and restart your node. When it comes back, use `cat /proc/$(
 
 Edit `etc/security/conf` and add the following lines:
 
+```sh
 ## Example hard limit for max opened files
 username        hard nofile 4096
 ## Example soft limit for max opened files
 username        soft nofile 4096
+```
 
 Then reboot your server and restart your mixnode.
 
