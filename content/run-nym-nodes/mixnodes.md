@@ -30,13 +30,25 @@ If you are new to Nym, here's how you initialize a mixnode:
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
 ```
 
-To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The above command gets your IP automatically using an external service `$(curl ifconfig.me)`. Enter it manually if you don't have `curl` installed.
+To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service.
+
+You can install `curl` with:
+
+```sh
+sudo apt-get install curl
+```
+
+Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
 You can pick any `--id` you want.
 
-When you run `init`, configuration files are created at `~/.nym/mixnodes/<your-id>/`.
-
 The `init` command will refuse to destroy existing mixnode keys.
+
+During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
+
+{{% notice info %}}
+If you do update anything in your `config.toml` file, remember to restart your mixnode process for the changes to take effect. 
+{{% /notice %}}
 
 ## Claim your mixnode in Telegram to recieve tokens
 
@@ -95,7 +107,7 @@ The bot will send you tokens so that you can bond your mixnode. First, you'll ne
 
 Should return a nice clean startup:
 
-```shell
+```sh
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
@@ -116,9 +128,8 @@ To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will ne
     Sphinx key: 6T6PpSAzaiHMKJQPKPABXzppxLtUDB3TB4ChM16t3oYP
     Host: <your-ip>:1789
     Layer: 3
-    Location: [physical location of your node\'s server]
+    Location: [physical location of your node's server]
     Version: {{< param mixnodestable >}}
-
 
 ```
 
