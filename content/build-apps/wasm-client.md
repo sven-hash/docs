@@ -6,9 +6,9 @@ description: "How to integrate the Nym webassembly client into your own applicat
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 
-You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) from NPM from its package page, or
+You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) via `npm` from its package page, or with:
 
-`sh
+```sh
 npm i @nymproject/nym-client-wasm
 ```
 
