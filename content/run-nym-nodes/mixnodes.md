@@ -10,6 +10,13 @@ The Nym gateway was built in the [building nym](/docs/run-nym-nodes/build-nym/) 
 
 {{< table_of_contents >}}
 
+## Running a mixnode for the first time
+
+The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+After your build is finished, nym-mixnode binary will be located in `nym/target/release/` directory. You may then move or copy it to a different place. 
+
+Alternativly, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases)
+
 ## Upgrading your mixnode from an earlier version
 
 If you have already been running a node on the Nym network v0.9.2 or v0.10.0, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
