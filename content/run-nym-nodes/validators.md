@@ -177,7 +177,7 @@ nymd init yourname --chain-id testnet-finney
 
 At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with Nym's [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
 
-You can use the following command to download the one for Finney:
+You can use the following command to download the one for {{< param testnetName >}}:
 
 ```sh
 wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/finney/genesis.json

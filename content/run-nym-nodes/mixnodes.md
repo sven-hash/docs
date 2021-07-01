@@ -14,7 +14,7 @@ The Nym gateway was built in the [building nym](/docs/run-nym-nodes/build-nym/) 
 
 After your build is finished, the `ym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
 
-Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases). 
+Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
 ## Upgrading your mixnode from an earlier version
 
@@ -24,9 +24,9 @@ If you have already been running a node on the Nym network v0.9.2 or v0.10.0, gr
 ./nym-mixnode upgrade --id your-node-id
 ```
 
-Once you've upgraded, **make sure to unbond and then rebond your node** via the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
+Once you've upgraded, **make sure to unbond and then rebond your node** via the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-finney.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
 
-Once you have rebonded your node with 100 HALs (this is currently a hardcoded amount for the testnet), the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface.
+Once you have rebonded your node with 100 PUNK (this is currently a hardcoded amount for the testnet), the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface.
 
 ## Initialize your mixnode
 
@@ -53,12 +53,12 @@ The `init` command will refuse to destroy existing mixnode keys.
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
 
 {{% notice info %}}
-If you do update anything in your `config.toml` file, remember to restart your mixnode process for the changes to take effect. 
+If you do update anything in your `config.toml` file, remember to restart your mixnode process for the changes to take effect.
 {{% /notice %}}
 
 ## Claim your mixnode in Telegram to recieve tokens
 
-Testnet Finney, which works with version 0.10.x of the Nym mixnode, introduces the concept of "mixnode bonding". Each mixnode operator needs to get tokens, and bond them in our blockchain, in order to enter Testnet Finney.
+Testnet {{< param testnetName >}}, which works with version 0.10.x of the Nym mixnode, introduces the concept of "mixnode bonding". Each mixnode operator needs to get tokens, and bond them in our blockchain, in order to enter Testnet {{< param testnetName >}}.
 
 To claim your mixnode, run the `sign` command, and provide your Telegram username:
 
@@ -95,12 +95,12 @@ Then enter the **@nymchan_help_chat** channel on Telegram and talk to the bot to
 
 This proves to the bot that your username owns the mixnode.
 
-Next, go to the [Finney Testnet web wallet](https://web-wallet-finney.nymtech.net/) and create a Nym address. It will look something like `hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
+Next, go to the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-finney.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens:
 
 ```
-/faucet hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt # your address goes here!
+/faucet {{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt # your address goes here!
 ```
 
 The bot will send you tokens so that you can bond your mixnode. First, you'll need to run it.
