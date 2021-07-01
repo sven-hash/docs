@@ -9,23 +9,25 @@ defaultContentLanguageInSubdir= true
 # publishDir = "../nym-www/build/docs/"
 
 [params]
-  # editURL = "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
+  # GENERAL
   description = "Nym Documentation for mixnodes, coconut credentials, validators, and privacy-related systems."
   author = "Nym Team"
-  stable = "0.10.2"
-  mixnodestable = "0.10.2"
-  validatorstable = "0.10.2"
-  gatewaystable = "0.10.2"
-  requesterstable = "0.10.2"
-  # add client stable versions & remove 'stable'
   showVisitedLinks = false
   disableBreadcrumb = false
   disableInlineCopyToClipBoard = true
   disableLanguageSwitchingButton = true
   disableNextPrev = false
-  # Change default color scheme with a variant one. Can be "red", "blue", "green".
-  themeVariant = "green"
+  themeVariant = "green" # Change default color scheme with a variant one. Can be "red", "blue", "green".
   enableGitInfo = true
+  testnetToken = "PUNK"
+
+  # BINARY VERSIONS
+  stable = "0.10.2" # TODO remove after all individual binaries have their own version
+  mixnodestable = "0.10.2"
+  validatorstable = "0.10.2"
+  gatewaystable = "0.10.2"
+  requesterstable = "0.10.2"
+
 
 [frontmatter]
   date = ["date", "publishDate", "lastmod"]
