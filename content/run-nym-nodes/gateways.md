@@ -130,7 +130,7 @@ Public sphinx key: 2Rk7UQ2xqsbQtaTLpRVEzMDrV12xSg54mLsqvq1cTHhs
 
 Public identity key: 3M2seioUjFw8drmTJabP8c8e6Ds9MBhsGwrzAfk2x64L
 
-Validator REST endpoint: http://testnet-finney-validator.nymtech.net:1317
+Validator REST endpoint: http://testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:1317
 Listening for incoming sphinx packets on 194.195.246.82:1789
 Announcing the following socket address for sphinx packets: 194.195.246.82:1789
 Listening for incoming clients packets on 194.195.246.82:9000

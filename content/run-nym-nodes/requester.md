@@ -16,7 +16,7 @@ The nym-network-requester is NOT an open proxy. It ships with a file called `all
 
 You can run the requester yourself, by taking the following steps.
 
-First of all, choose which gateway to connect to. At the time of writing there are two gateways on the testnet, both run by Nym. They can be found in the 'Gateways' [section of the explorer](https://testnet-finney-explorer.nymtech.net/nym/gate-list).
+First of all, choose which gateway to connect to. At the time of writing there are two gateways on the testnet, both run by Nym. They can be found in the 'Gateways' [section of the explorer](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/nym/gate-list).
 
 Next, run following commands from the top-level `nym` directory you built previously, including the gateway of your choice:
 

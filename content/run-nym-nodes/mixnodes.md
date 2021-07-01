@@ -24,7 +24,7 @@ If you have already been running a node on the Nym network v0.9.2 or v0.10.0, gr
 ./nym-mixnode upgrade --id your-node-id
 ```
 
-Once you've upgraded, **make sure to unbond and then rebond your node** via the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-finney.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
+Once you've upgraded, **make sure to unbond and then rebond your node** via the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
 
 Once you have rebonded your node with 100 PUNK (this is currently a hardcoded amount for the testnet), the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface.
 
@@ -95,7 +95,7 @@ Then enter the **@nymchan_help_chat** channel on Telegram and talk to the bot to
 
 This proves to the bot that your username owns the mixnode.
 
-Next, go to the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-finney.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
+Next, go to the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens:
 
@@ -124,12 +124,12 @@ Should return a nice clean startup:
 
 Starting mixnode winston-smithnode...
 
-Directory server [presence]: http://testnet-finney-validator.nymtech.net:1317
+Directory server [presence]: http://testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:1317
 Directory server [metrics]: http://testnet-metrics.nymtech.net:8080
 Listening for incoming packets on <your-ip>:1789
 Announcing the following socket address: <your-ip>:1789
 
-To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will need to provide the following:
+To bond your mixnode, go to https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/.  You will need to provide the following:
     Identity key: 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz
     Sphinx key: 6T6PpSAzaiHMKJQPKPABXzppxLtUDB3TB4ChM16t3oYP
     Host: <your-ip>:1789
@@ -141,7 +141,7 @@ To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will ne
 
 Once the tokens arrive, go back to the web wallet and fill in the mixnode bonding form, using your mixnode's info.
 
-If everything worked, you'll see your node running at https://testnet-finney-explorer.nymtech.net.
+If everything worked, you'll see your node running at https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net.
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
@@ -323,7 +323,7 @@ Then reboot your server and restart your mixnode.
 
 ## Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
@@ -380,13 +380,13 @@ We currently have an API set up returning our metrics tests of the network. Ther
 ### `/report`
 
 ```sh
-curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
+curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
 ```
 
 Returns the most recent test report, and looks something like this:
 
 ```sh
-{"pubKey":"3wbvb6snDfXscqNLVAoquEhHPiHvPyJMHEcw8VEnuXz1","owner":"hal1k8r8g69m2528uwzu3hsglp7h0h39zf6u405wz5","mostRecentIPV4":true,"last5MinutesIPV4":100,"lastHourIPV4":100,"lastDayIPV4":100,"mostRecentIPV6":true,"last5MinutesIPV6":100,"lastHourIPV6":100,"lastDayIPV6":100}
+{"pubKey":"3wbvb6snDfXscqNLVAoquEhHPiHvPyJMHEcw8VEnuXz1","owner":"{{< param bech32Prefix >}}1k8r8g69m2528uwzu3hsglp7h0h39zf6u405wz5","mostRecentIPV4":true,"last5MinutesIPV4":100,"lastHourIPV4":100,"lastDayIPV4":100,"mostRecentIPV6":true,"last5MinutesIPV6":100,"lastHourIPV6":100,"lastDayIPV6":100}
 ```
 
 There serveral metrics of interest here regarding your mixnode's uptime and package-mixing capabilities:
@@ -403,7 +403,7 @@ There serveral metrics of interest here regarding your mixnode's uptime and pack
 ### `/history`
 
 ```sh
-curl https://testnet-finney-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
+curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
 ```
 
 Returns all previous test reports as described in `/report`.

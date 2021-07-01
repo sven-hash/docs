@@ -10,7 +10,7 @@ description: "This page will help you find answers to common issues with setting
 
 ## How can I tell my node is up and running and mixing traffic?
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-finney-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
 
@@ -87,7 +87,7 @@ PORT     STATE SERVICE
 #### Query all nodes and parse with `jq`:
 
 ```sh
-curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq
+curl https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/data/mixnodes.json | jq
 ```
 
 Should return a JSON object of all nodes currently online.
@@ -95,13 +95,13 @@ Should return a JSON object of all nodes currently online.
 This command can be further parsed by various keys, such as location:
 
 ```sh
-curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
+curl https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
 ```
 
 or address:
 
 ```
-curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
+curl https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
 ```
 
 ### Check with testnet API
@@ -110,10 +110,10 @@ We currently have an API set up returning our metrics tests of the network. Ther
 
 ## Why is my node not mixing any packets?
 
-If you are still unable to see your node on the [dashboard](https://testnet-finney-explorer.nymtech.net/), or your node is declaring it has not mixed any packets, there are several potential issues:
+If you are still unable to see your node on the [dashboard](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/), or your node is declaring it has not mixed any packets, there are several potential issues:
 
 - The firewall on your host machine is not configured properly.
-- You provided incorrect information when bonding your node via the [web wallet](web-wallet-finney.nymtech.net)
+- You provided incorrect information when bonding your node via the [web wallet](web-wallet-{{< param testnetNameLowercase >}}.nymtech.net)
 - You are running your mixnode from a VPS without IPv6 support.
 - You did not use the `--announce-host` flag while running the mixnode from your local machine behind NAT.
 - You did not configure your router firewall while running the mixnode from your local machine behind NAT, or you are lacking IPv6 support.
@@ -148,7 +148,7 @@ sudo ufw status
 
 ### Incorrect bonding information
 
-Check that you have provided the correct information when bonding your mixnode in the web wallet [interface](web-wallet-finney.nymtech.net). When in doubt, unbond and then rebond your node!
+Check that you have provided the correct information when bonding your mixnode in the web wallet [interface](web-wallet-{{< param testnetNameLowercase >}}.nymtech.net). When in doubt, unbond and then rebond your node!
 
 ### Missing `announce-host` flag
 
@@ -254,7 +254,7 @@ Anytime you change your `systemd` service file you need to `sudo systemctl daemo
 
 ### Network configuration seems fine but log still claims `Since startup mixed 0 packets!`
 
-This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node via the [web wallet])(https://web-wallet-finney.nymtech.net/). The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
+This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node via the [web wallet])(https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/). The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
 
 Also make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the `host` field must contain the _port_ on which your mixnode will listen:
 
@@ -263,7 +263,7 @@ Also make sure to enter all the information in the web wallet exactly as it appe
 
 ## Common errors and warnings
 
-Most of the `ERROR` and `WARN` messages in your node logs are benign - as long as your node outputs `since startup mixed X packets!` in your logs (and this number increases over time), your node is mixing packets. If you want to be sure, check the Nym [dashboard](https://testnet-finney-explorer.nymtech.net/) or see other ways on how to check if your node is mixing properly as outlined in the section **How can I tell my node is up and running and mixing traffic?** above.
+Most of the `ERROR` and `WARN` messages in your node logs are benign - as long as your node outputs `since startup mixed X packets!` in your logs (and this number increases over time), your node is mixing packets. If you want to be sure, check the Nym [dashboard](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/) or see other ways on how to check if your node is mixing properly as outlined in the section **How can I tell my node is up and running and mixing traffic?** above.
 
 More specific errors and warnings are covered below.
 
@@ -346,7 +346,7 @@ bob@nym:~$ tree /home/nym/.nym/mixnodes/
 ```
 
 {{% notice info %}}
-If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://testnet-finney-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
+If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
 {{% /notice %}}
 
 ## What is `verloc` and do I have to configure my mixnode to implement it?

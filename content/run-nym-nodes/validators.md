@@ -94,7 +94,7 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. Run th
 
 ```sh
 WASMD_VERSION=v0.14.1
-BECH32_PREFIX=hal
+BECH32_PREFIX={{< param bech32Prefix >}}
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
@@ -172,15 +172,15 @@ Prerequisites:
 Choose a name for your validator and use it in place of `yourname` in the following command:
 
 ```sh
-nymd init yourname --chain-id testnet-finney
+nymd init yourname --chain-id testnet-{{< param testnetNameLowercase >}}
 ```
 
-At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with Nym's [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
+At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with Nym's [testnet-{{< param testnetNameLowercase >}} genesis file](https://nymtech.net/testnets/{{< param testnetNameLowercase >}}/genesis.json).
 
 You can use the following command to download the one for {{< param testnetName >}}:
 
 ```sh
-wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/finney/genesis.json
+wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/{{< param testnetNameLowercase >}}/genesis.json
 ```
 
 ### `config.toml` configuration
@@ -188,7 +188,7 @@ wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/finney/gen
 Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in `$HOME/.nymd/config/config.toml` to match the information below:
 
 - `cors_allowed_origins = ["*"]` allows the web wallet to make HTTPS requests to your validator.
-- `persistent_peers = "e7163ea63219504344c669164d083f52434f382b@testnet-finney-validator.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
+- `persistent_peers = "e7163ea63219504344c669164d083f52434f382b@testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
 - `create_empty_blocks = false` may save a bit of space
 
 Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics then the following must also match in the `config.toml`:
@@ -208,7 +208,7 @@ Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentatio
 
 In the file `$HOME/.nymd/config/app.toml`, set the following values:
 
-1. `minimum-gas-prices = "0.025uhal"`
+1. `minimum-gas-prices = "0.025u{{< param bech32Prefix >}}"`
 1. `enable = true` in the `[api]` section to get the API server running
 
 ## Setting up your validator's admin user
@@ -232,8 +232,8 @@ Re-enter keyring passphrase:
 
 - name: nymd-admin
 type: local
-address: hal1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
-pubkey: halpub1addwnpepqdfcf5786qry8g8ef9nad5vnl0rs5cmkcywzrwwvvdye27ktjmqw2ygr2hr
+address: {{< param bech32Prefix >}}1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
+pubkey: {{< param bech32Prefix >}}pub1addwnpepqdfcf5786qry8g8ef9nad5vnl0rs5cmkcywzrwwvvdye27ktjmqw2ygr2hr
 mnemonic: ""
 threshold: 0
 pubkeys: []
@@ -256,7 +256,7 @@ nymd keys show nymd-admin -a
 Type in your keychain **password**, not the mnemonic, when asked. The output should look something like this:
 
 ```sh
-hal1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
+{{< param bech32Prefix >}}1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 ```
 
 ## Starting your validator
@@ -274,7 +274,7 @@ File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
 {{% notice info %}}
-If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
+If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-{{< param testnetNameLowercase >}} genesis file](https://nymtech.net/testnets/{{< param testnetNameLowercase >}}/genesis.json).
 {{% /notice %}}
 
 Before starting the validator, we will need to open the firewall ports:
@@ -301,16 +301,16 @@ nymd start
 Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set:
 
 ```sh
-PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. halvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
+PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. {{< param bech32Prefix >}}valconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
 MONIKER="nym-secondary"                                                       # whatever you called your validator
 FROM_ACCOUNT="nymd-admin"                                                     # your keychain name
 
 nymd tx staking create-validator \
 --amount=10000000stake \
---fees=5000uhal \
+--fees=5000u{{< param bech32Prefix >}} \
 --pubkey="${PUB_KEY}" \
 --moniker=${MONIKER} \
---chain-id=testnet-finney \
+--chain-id=testnet-{{< param testnetNameLowercase >}} \
 --commission-rate="0.10" \
 --commission-max-rate="0.20" \
 --commission-max-change-rate="0.01" \
@@ -318,7 +318,7 @@ nymd tx staking create-validator \
 --gas="auto" \
 --gas-adjustment=1.15 \
 --from=${FROM_ACCOUNT} \
---node https://testnet-finney-validator.nymtech.net:443
+--node https://testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:443
 ```
 
 You'll need `stake` coins for this.
@@ -328,7 +328,7 @@ Note: we are currently working towards building up a closed set of reputable val
 If you want to edit some details for your node you will use a command like this:
 
 ```sh
-nymd tx staking edit-validator   --chain-id=testnet-finney   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000uhal
+nymd tx staking edit-validator   --chain-id=testnet-{{< param testnetNameLowercase >}}   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000u{{< param bech32Prefix >}}
 ```
 
 With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact~
@@ -489,10 +489,10 @@ If, for some reason, your validator gets jailed, you can fix it with the followi
 nymd tx slashing unjail \
   --broadcast-mode=block \
   --from=${FROM_ACCOUNT} \
-  --chain-id=testnet-finney \
+  --chain-id=testnet-{{< param testnetNameLowercase >}} \
   --gas=auto \
   --gas-adjustment=1.4 \
-  --fees=7000uhal
+  --fees=7000u{{< param bech32Prefix >}}
 ```
 
 ## Day 2 operations with your validator
@@ -502,20 +502,20 @@ As part of the execution of the validator, it will be able to get some rewards.
 With this command, we can query our outstanding rewards:
 
 ```sh
-nymd query distribution validator-outstanding-rewards <halvaloperaddress>
+nymd query distribution validator-outstanding-rewards <{{< param bech32Prefix >}}valoperaddress>
 
 ```
 
 Using the values obtained from the previous command, you can withdraw all rewards with:
 
 ```sh
-nymd tx distribution withdraw-rewards <halvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-finney" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000uhal
+nymd tx distribution withdraw-rewards <{{< param bech32Prefix >}}valoperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-{{< param testnetNameLowercase >}}" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000u{{< param bech32Prefix >}}
 ```
 
 You can check your current balances with:
 
 ```sh
-nymd query bank balances hal<address>
+nymd query bank balances {{< param bech32Prefix >}}<address>
 ```
 
 For example:
@@ -525,7 +525,7 @@ balances:
 - amount: "22976200"
 denom: stake
 - amount: "919376"
-denom: uhal
+denom: u{{< param bech32Prefix >}}
 pagination:
 next_key: null
 total: "0"
@@ -534,9 +534,9 @@ total: "0"
 You can, of course, stake back the available balance to your validator with the following command:
 
 ```sh
-nymd tx staking delegate <halvaloperaddress> <amount>stake--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-finney" --gas="auto" --gas-adjustment=1.15 --fees 5000uhal
+nymd tx staking delegate <{{< param bech32Prefix >}}valoperaddress> <amount>stake--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-{{< param testnetNameLowercase >}}" --gas="auto" --gas-adjustment=1.15 --fees 5000u{{< param bech32Prefix >}}
 ```
 
 NOTE: The value to be used instead of the `<amount>stake` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
 
-Also remember to replace `halvaloper` with your validator address and `nym-admin` with the user you created during initialization.
+Also remember to replace `{{< param bech32Prefix >}}valoper` with your validator address and `nym-admin` with the user you created during initialization.
