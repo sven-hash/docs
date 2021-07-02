@@ -4,8 +4,6 @@ weight: 42
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
 ---
 
-{{< lastmodified >}}
-
 {{< table_of_contents >}}
 
 <a name="ismixing" />
@@ -284,7 +282,7 @@ These warnings are not an issue, please ignore them. Rocket is a web framework f
 
 Find more information about this in the [Mixnodes metrics documentation]( {{< ref "./mixnodes.md#mixnode-metrics" >}} ).
 
-Rocket runs on port 8000 by default. If you wish to change which port it uses, check how to do so in the [docs](https://api.rocket.rs/master/rocket/config/struct.Config.html#method.release_default).
+Rocket runs on port `8000` by default. Although at this stage of the testnet we need Rocket to be reachable via this port, in the future customization of the particular port it uses will be possible. 
 
 ### `failed to receive reply to our echo packet within 1.5s. Stopping the test`
 
