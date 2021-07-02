@@ -180,45 +180,21 @@ If that fits your security model, good. However, it may be the case that you wan
 
 #### Sending binary data
 
-You can also send bytes instead of JSON. A Python program to send a file `dummy_file` looks like this:
+*The provided links reference a certain version of Nym, please look for the up-to-date versions of the referenced code
+parts if you have any problems.*
 
-```python
-async def send_file():
-    uri = "ws://localhost:1977"
-    async with websockets.connect(uri) as websocket:
-        await websocket.send(self_address_request)
-        self_address = json.loads(await websocket.recv())
-        print("our address is: {}".format(self_address["address"]))
+You can also send bytes instead of JSON. For that you have to send a binary websocket frame containing a binary encoded
+Nym [`ClientRequest`](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L36).
+For the correct encoding please refer to the [rust reference implementation](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L216)
+as it is likely to change in the future.
 
-        # We receive our address in string format of
-        # OUR_PUB_KEY @ OUR_GATE_PUB_KEY
-        #
-        # Both keys are 32 bytes and we need to encode them as binary
-        # without the '@' sign
-        split_address = self_address["address"].split("@")
-        bin_payload = bytearray(base58.b58decode(split_address[0]))
-        bin_payload += base58.b58decode(split_address[1])
+As a response the `native-client` will send a `ServerResponse`, which can be decoded in a similar manner, please refer
+to the [rust implementation](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/responses.rs#L286)
+for further details.
 
-        with open("dummy_file", "rb") as input_file:
-            read_data = input_file.read()
-            bin_payload += read_data
-
-        print("sending content of 'dummy_file' over the mix network...")
-        await websocket.send(bin_payload)
-        msg_send_confirmation = json.loads(await websocket.recv())
-        assert msg_send_confirmation["type"], "send"
-
-        print("waiting to receive the 'dummy_file' from the mix network...")
-        received_data = await websocket.recv()
-        with open("received_file", "wb") as output_file:
-            print("writing the file back to the disk!")
-            output_file.write(received_data)
-
-
-asyncio.get_event_loop().run_until_complete(send_file())
-```
-
-In order to send binary messages, you format a 64-byte binary array, with the first 32 bytes being the recipient pubkey, and the second 32 bytes being the destination gateway pubkey. The remainder of the payload is the bytes of the binary data you'd like to send.
+Example projects using the binary API include:
+* [BTC-BC](https://github.com/sgeisler/btcbc-rs/): Bitcoin transaction transmission via Nym, client and service provider
+written in Rust
 
 #### Receiving messages
 
