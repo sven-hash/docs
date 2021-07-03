@@ -37,9 +37,8 @@ socks5stable = "0.10.1"
 validatorapistable = "0.10.1"
 
 [frontmatter]
-date = ["date", "publishDate", "lastmod"]
-# expiryDate = ["expiryDate"]
-lastmod = [":git", "lastmod", "date", "publishDate"]
+date = ["date", "publishDate"]
+lastmod = [":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
 
 [outputs]
