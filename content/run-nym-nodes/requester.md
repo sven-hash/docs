@@ -20,7 +20,7 @@ First of all, choose which gateway to connect to. At the time of writing there a
 
 Next, run following commands from the top-level `nym` directory you built previously, including the gateway of your choice:
 
-```sh
+```shell
 # Initialize then run your Nym client in a new screen (adapt as necessary for `tmux` or `nohup`)
 screen -S nym-client
 ./target/release/nym-client init --gateway <GATEWAY_ADDRESS> --id nym-network-requester-client

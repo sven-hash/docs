@@ -20,7 +20,7 @@ Additional details can be obtained via various methods after you connect to your
 
 #### Socket statistics with `ss`
 
-```sh
+```shell
 sudo ss -s -t | grep 1789 # if you have specified a different port in your mixnode config, change accordingly
 ```
 
@@ -28,7 +28,7 @@ This command should return a lot of data containing `ESTAB`. This command should
 
 #### List open files and reliant processes with `lsof`
 
-```sh
+```shell
 # check if lsof is installed:
 lsof -v
 # install if not installed
@@ -39,7 +39,7 @@ sudo lsof -i TCP:1789 # if you have specified a different port in your mixnode c
 
 This command should return something like this:
 
-```sh
+```shell
 nym-mixno 103349 root   53u  IPv6 1333229972      0t0  TCP [2a03:b0c0:3:d0::ff3:f001]:57844->[2a01:4f9:c011:38ae::5]:1789 (ESTABLISHED)
 nym-mixno 103349 root   54u  IPv4 1333229973      0t0  TCP nym:57104->194.5.78.73:1789 (ESTABLISHED)
 nym-mixno 103349 root   55u  IPv4 1333229974      0t0  TCP nym:48130->static.236.109.119.168.clients.your-server.de:1789 (ESTABLISHED)
@@ -49,13 +49,13 @@ nym-mixno 103349 root   57u  IPv6 1333229976      0t0  TCP [2a03:b0c0:3:d0::ff3:
 
 #### Query `systemd` journal with `journalctl`
 
-```sh
+```shell
 sudo journalctl -u nym-mixnode -o cat | grep "Since startup mixed"
 ```
 
 If you have created `nym-mixnode.service` file (i.e. you are running your mixnode via `systemd`) then this command shows you how many packets have you mixed so far, and should return a list of messages like this:
 
-```sh
+```shell
 2021-05-18T12:35:24.057Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 233639 packets!
 2021-05-18T12:38:02.178Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 233739 packets!
 2021-05-18T12:40:32.344Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 233837 packets!
@@ -69,7 +69,7 @@ You can add ` | tail` to the end of the command to watch for new entries in real
 
 #### Scan ports with `nmap`:
 
-```sh
+```shell
 nmap -p 1789 <IP ADDRESS> -Pn
 ```
 
@@ -86,7 +86,7 @@ PORT     STATE SERVICE
 
 #### Query all nodes and parse with `jq`:
 
-```sh
+```shell
 curl https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/data/mixnodes.json | jq
 ```
 
@@ -94,7 +94,7 @@ Should return a JSON object of all nodes currently online.
 
 This command can be further parsed by various keys, such as location:
 
-```sh
+```shell
 curl https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
 ```
 
@@ -127,7 +127,7 @@ Your mixnode **must speak both IPv4 and IPv6** in order to cooperate with other 
 
 The most common reason your mixnode might not be mixing packets is due to a poorly configured firewall. The following commands will allow you to set up a firewall using `ufw`.
 
-```sh
+```shell
 # check if you have ufw installed
 ufw version
 # if it is not installed, install with
@@ -140,7 +140,7 @@ sudo ufw status
 
 Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
 
-```sh
+```shell
 sudo ufw allow 1789,1790,8000,22,80,443/tcp
 # check the status of the firewall
 sudo ufw status
@@ -160,19 +160,19 @@ Make sure that your VPS has IPv6 connectivity available with whatever provider y
 
 To get all ip addresses of your host, try following commands:
 
-```sh
+```shell
 hostname -i
 ```
 
 Will return your **local ip** address.
 
-```sh
+```shell
 hostname -I
 ```
 
 Will return all of the ip addresses of your host. This output should look something like this:
 
-```sh
+```shell
 bob@nym:~$ hostname -I
 88.36.11.23 172.18.0.1 2a01:28:ca:102::1:641
 ```
@@ -211,7 +211,7 @@ When you close your current terminal session, you need to make sure you don't ki
 
 `nohup` is a command with which your terminal is told to ignore the `HUP` or 'hangup' signal. This will stop the mixnode process ending if you kill your session.
 
-```sh
+```shell
 nohup ./nym-mixnode run --id NYM # where `--id NYM` is the id you set during the `init` command.
 ```
 
@@ -221,7 +221,7 @@ The most reliable and elegant solution is to create a `systemd.service` file and
 
 Create a file with `nano` at `/etc/systemd/system/nym-mixnode.service` containing the following:
 
-```sh
+```shell
 [Unit]
 Description=nym mixnode service
 After=network.target
@@ -239,7 +239,7 @@ Restart=on-abort
 WantedBy=multi-user.target
 ```
 
-```sh
+```shell
 # enable the service
 sudo systemctl enable nym-mixnode
 # start the service
@@ -271,7 +271,7 @@ More specific errors and warnings are covered below.
 
 If you are running into issues with an error including the following:
 
-```sh
+```shell
 thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address" }'
 ```
 
@@ -298,7 +298,7 @@ Yes! Here is what you will need to do:
 
 Assuming you would like to use port `1337` for your mixnode, you need to open the new port (and close the old one):
 
-```sh
+```shell
 sudo ufw allow 1337
 sudo ufw deny 1789
 ```

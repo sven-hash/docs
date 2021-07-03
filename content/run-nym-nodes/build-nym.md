@@ -14,7 +14,7 @@ Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimen
 
 - (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`
 
-```sh
+```shell
 sudo apt update
 sudo apt install pkg-config build-essential libssl-dev curl jq
 ```

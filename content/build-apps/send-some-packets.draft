@@ -18,7 +18,7 @@ This quickstart demonstrates how you can use Nym from webassembly-capable browse
 
 Install [npm](https://www.npmjs.com/get-npm) for your platform. Then, from the top-level `nym` directory:
 
-```sh
+```shell
 cd clients/webassembly/js-example
 npm install
 npm run start

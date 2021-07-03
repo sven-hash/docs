@@ -22,13 +22,13 @@ If you would like to run a gateway for the network, please get in touch via **ny
 
 You can check that your binaries are properly compiled with:
 
-```sh
+```shell
 ./nym-gateway
 ```
 
 Which should return:
 
-```sh
+```shell
 $ ./nym-gateway
 
 
@@ -47,7 +47,7 @@ usage: --help to see available options.
 
 To check available configuration options use:
 
-```sh
+```shell
 ./nym-gateway init --help
 ```
 
@@ -59,7 +59,7 @@ In order to initialize your gateway the `id`, `clients-host`, and `mix-host` par
 
 For example, the following command returns a gateway on your current IP with the `id` of `supergateway`:
 
-```sh
+```shell
 root@localhost:~# ./nym-gateway init --clients-host $(curl ifconfig.me) --mix-host $(curl ifconfig.me) --id supergateway
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -152,7 +152,7 @@ Clients ledger is stored at: "/root/.nym/gateways/supergateway/data/client_ledge
 
 Although your gateway is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
-```sh
+```shell
 # check if you have ufw installed
 ufw version
 # if it is not installed, install with
@@ -165,7 +165,7 @@ sudo ufw status
 
 Finally open your gateway's p2p port, as well as ports for ssh and incoming traffic connections:
 
-```sh
+```shell
 sudo ufw allow 1789,22,9000/tcp
 # check the status of the firewall
 sudo ufw status

@@ -20,7 +20,7 @@ Alternatively, you can fetch the binaries from our [releases page](https://githu
 
 If you have already been running a node on the Nym network v0.9.2 or v0.10.0, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
 
-```sh
+```shell
 ./nym-mixnode upgrade --id your-node-id
 ```
 
@@ -32,7 +32,7 @@ Once you have rebonded your node with 100 PUNK (this is currently a hardcoded am
 
 If you are new to Nym, here's how you initialize a mixnode:
 
-```sh
+```shell
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
 ```
 
@@ -40,7 +40,7 @@ To participate in the Nym testnet, `--host` must be publicly routable on the int
 
 You can install `curl` with:
 
-```sh
+```shell
 sudo apt-get install curl
 ```
 
@@ -107,13 +107,13 @@ The bot will send you tokens so that you can bond your mixnode. First, you'll ne
 
 ## Run your mixnode
 
-```sh
+```shell
 ./nym-mixnode run --id winston-smithnode
 ```
 
 Should return a nice clean startup:
 
-```sh
+```shell
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
@@ -157,7 +157,7 @@ Have a look at the saved configuration files to see more configuration options.
 
 The following commands will allow you to set up a firewall using `ufw`.
 
-```sh
+```shell
 # check if you have ufw installed
 ufw version
 # if it is not installed, install with
@@ -170,7 +170,7 @@ sudo ufw status
 
 Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
 
-```sh
+```shell
 sudo ufw allow 1789,1790,8000,22,80,443/tcp
 # check the status of the firewall
 sudo ufw status
@@ -180,13 +180,13 @@ sudo ufw status
 
 In order to easily identify your node via human-readable information later on in the development of the testnet when delegated staking is implemented, you can `describe` your mixnode with the following command:
 
-```sh
+```shell
 ./nym-mixnode describe --id winston-smithnode
 ```
 
 Which will output something like this:
 
-```sh
+```shell
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -236,13 +236,13 @@ If you have built nym on your server, and your username is `jetpanther`, then th
 
 Then run:
 
-```sh
+```shell
 systemctl enable nym-mixnode.service
 ```
 
 Start your node:
 
-```sh
+```shell
 service nym-mixnode start
 ```
 
@@ -252,7 +252,7 @@ You can also do `service nym-mixnode stop` or `service nym-mixnode restart`.
 
 Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
 
-```sh
+```shell
 systemctl daemon-reload
 ```
 
@@ -276,7 +276,7 @@ This means that the operating system is preventing network connections from bein
 
 Query the `ulimit` of your mixnode with:
 
-```sh
+```shell
 grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
 ```
 
@@ -290,19 +290,19 @@ If your output is **the same as above**, your node will not encounter any `ulimi
 
 However if either value is `1024`, you must raise the limit via the systemd service file. Add the line:
 
-```sh
+```shell
 LimitNOFILE=65536
 ```
 
 Reload the daemon:
 
-```sh
+```shell
 systemctl daemon-reload
 ```
 
 or execute this as root for system-wide setting of `ulimit`:
 
-```sh
+```shell
 echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 ```
 
@@ -312,7 +312,7 @@ Reboot your machine and restart your node. When it comes back, use `cat /proc/$(
 
 Edit `etc/security/conf` and add the following lines:
 
-```sh
+```shell
 ## Example hard limit for max opened files
 username        hard nofile 4096
 ## Example soft limit for max opened files
@@ -331,13 +331,13 @@ For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-node
 
 See all available options by running:
 
-```sh
+```shell
 ./nym-mixnode --help
 ```
 
 Subcommand help is also available, e.g.:
 
-```sh
+```shell
 ./nym-mixnode upgrade --help
 ```
 
@@ -379,13 +379,13 @@ We currently have an API set up returning our metrics tests of the network. Ther
 
 ### `/report`
 
-```sh
+```shell
 curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
 ```
 
 Returns the most recent test report, and looks something like this:
 
-```sh
+```shell
 {"pubKey":"3wbvb6snDfXscqNLVAoquEhHPiHvPyJMHEcw8VEnuXz1","owner":"{{< param bech32Prefix >}}1k8r8g69m2528uwzu3hsglp7h0h39zf6u405wz5","mostRecentIPV4":true,"last5MinutesIPV4":100,"lastHourIPV4":100,"lastDayIPV4":100,"mostRecentIPV6":true,"last5MinutesIPV6":100,"lastHourIPV6":100,"lastDayIPV6":100}
 ```
 
@@ -402,7 +402,7 @@ There serveral metrics of interest here regarding your mixnode's uptime and pack
 
 ### `/history`
 
-```sh
+```shell
 curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
 ```
 
@@ -410,7 +410,7 @@ Returns all previous test reports as described in `/report`.
 
 ### `/description`
 
-```sh
+```shell
 curl <YOUR_NODE_IP>:8000/description
 ```
 
@@ -418,7 +418,7 @@ Returns the description of your node set with the `describe` command. See ['Desc
 
 ### `/verloc`
 
-```sh
+```shell
 curl <YOUR_NODE_IP>:8000/verloc
 ```
 

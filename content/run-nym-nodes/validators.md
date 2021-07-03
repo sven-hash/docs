@@ -18,14 +18,14 @@ The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermin
 
 - `git`
 
-```sh
+```shell
 sudo apt update
 sudo apt install git
 ```
 
 Verify `git` is installed with:
 
-```sh
+```shell
 git version
 # Should return: git version X.Y.Z
 ```
@@ -34,7 +34,7 @@ git version
 
 `Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
 
-```sh
+```shell
 # First remove any existing old Go installation
 sudo rm -rf /usr/local/go
 
@@ -58,7 +58,7 @@ Remember to replace `correct.go.version` with the version of your choice from th
 
 Verify `Go` is installed with:
 
-```sh
+```shell
 go version
 # Should return: go version go1.15.7 linux/amd64
 ```
@@ -67,7 +67,7 @@ go version
 
 `gcc` can be installed with:
 
-```sh
+```shell
 sudo apt install build-essential
 # Optional additional manual pages can be installed with:
 sudo apt-get install manpages-dev
@@ -75,13 +75,13 @@ sudo apt-get install manpages-dev
 
 Verify `gcc` is installed with:
 
-```sh
+```shell
 gcc --version
 ```
 
 Which should return something like:
 
-```sh
+```shell
 gcc (Ubuntu 7.4.0-1ubuntu1~18.04) 7.4.0
 Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
@@ -92,7 +92,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
-```sh
+```shell
 WASMD_VERSION=v0.14.1
 BECH32_PREFIX={{< param bech32Prefix >}}
 git clone https://github.com/CosmWasm/wasmd.git
@@ -104,7 +104,7 @@ go build -o build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.co
 
 At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running:
 
-```sh
+```shell
 ./build/nymd
 ```
 
@@ -114,14 +114,14 @@ Both the `nymd` and `libwasmvm.so` shared object library binary have been compil
 
 > If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.** To locate these files on your local system run:
 
-```sh
+```shell
 WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}
 ```
 
 This will output something like:
 
-```sh
+```shell
 '/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
 ```
 
@@ -129,7 +129,7 @@ When you upload your `nymd` binary, you'll need to tell it where `libwasmvm.so` 
 
 Alternatively, you can check out the repository for `nym` at <https://github.com/nymtech/nym> and use the tag for the current release with:
 
-```sh
+```shell
 git clone https://github.com/nymtech/nym.git
 cd nym
 git reset --hard   # in case you made any changes on your branch
@@ -141,13 +141,13 @@ Inside the folder `validator` you will find the precompiled binaries to use.
 
 Upload both `nymd` and `libwasmvm.so` to your validator machine. If you attempt to run `./nymd` on your server, you'll likely see an error if `nymd` can't find `libwasmvm.so`:
 
-```sh
+```shell
 ./nymd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
 ```
 
 You'll need to set `LD_LIBRARY_PATH` in your user's `~/.bashrc` file, and add that to our path. Replace `/home/youruser/path/to/nym/binaries` in the command below to the locations of `nymd` and `libwasmvm.so` and run it. If you have compiled these on the server, they will be in the `build/` folder:
 
-```sh
+```shell
 NYM_BINARIES=/home/youruser/path/to/nym/binaries
 echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYM_BINARIES >> ~/.bashrc
 echo 'export PATH=$PATH:'${NYM_BINARIES} >> ~/.bashrc
@@ -156,7 +156,7 @@ source ~/.bashrc
 
 Test everything worked:
 
-```sh
+```shell
 nymd
 ```
 
@@ -171,7 +171,7 @@ Prerequisites:
 
 Choose a name for your validator and use it in place of `yourname` in the following command:
 
-```sh
+```shell
 nymd init yourname --chain-id testnet-{{< param testnetNameLowercase >}}
 ```
 
@@ -179,7 +179,7 @@ At this point, you have a new validator, with its own genesis file located at `$
 
 You can use the following command to download the one for {{< param testnetName >}}:
 
-```sh
+```shell
 wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/{{< param testnetNameLowercase >}}/genesis.json
 ```
 
@@ -215,7 +215,7 @@ In the file `$HOME/.nymd/config/app.toml`, set the following values:
 
 You'll need an admin account to be in charge of your validator. Set that up with:
 
-```sh
+```shell
 nymd keys add nymd-admin
 ```
 
@@ -223,7 +223,7 @@ This will add keys for your administrator account to your system's keychain.
 
 The command output should look something like:
 
-```sh
+```shell
 $ nymd keys add nymd-admin
 Enter keyring passphrase:
 password must be at least 8 characters
@@ -249,13 +249,13 @@ As the instructions say, remember to **write down your mnemonic**.
 
 You can get the admin account's address with:
 
-```sh
+```shell
 nymd keys show nymd-admin -a
 ```
 
 Type in your keychain **password**, not the mnemonic, when asked. The output should look something like this:
 
-```sh
+```shell
 {{< param bech32Prefix >}}1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 ```
 
@@ -263,13 +263,13 @@ Type in your keychain **password**, not the mnemonic, when asked. The output sho
 
 Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
 
-```sh
+```shell
 nymd validate-genesis
 ```
 
 If this check passes, you should receive the following output:
 
-```sh
+```shell
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
@@ -279,7 +279,7 @@ If this test did not pass, check that you have replaced the contents of `/path/t
 
 Before starting the validator, we will need to open the firewall ports:
 
-```sh
+```shell
 # if ufw is not already installed:
 sudo apt install ufw
 sudo ufw enable
@@ -294,13 +294,13 @@ Ports `22`, `80`, and `443` are for ssh, http, and https connections respectivel
 
 Start the validator:
 
-```sh
+```shell
 nymd start
 ```
 
 Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set:
 
-```sh
+```shell
 PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. {{< param bech32Prefix >}}valconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
 MONIKER="nym-secondary"                                                       # whatever you called your validator
 FROM_ACCOUNT="nymd-admin"                                                     # your keychain name
@@ -327,7 +327,7 @@ Note: we are currently working towards building up a closed set of reputable val
 
 If you want to edit some details for your node you will use a command like this:
 
-```sh
+```shell
 nymd tx staking edit-validator   --chain-id=testnet-{{< param testnetNameLowercase >}}   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000u{{< param bech32Prefix >}}
 ```
 
@@ -357,7 +357,7 @@ WantedBy=multi-user.target
 
 Proceed to start it with:
 
-```sh
+```shell
 systemctl daemon-reload # to pickup the new unit file
 systemctl enable nymd   # to enable the service
 systemctl start nymd    # to actually start the service
@@ -372,19 +372,19 @@ journalctl -f           # to monitor system logs showing the service start
 
 Install `nginx` and allow the 'Nginx Full' rule in your firewall:
 
-```sh
+```shell
 sudo ufw allow 'Nginx Full'
 ```
 
 Check nginx is running via systemctl:
 
-```sh
+```shell
 systemctl status nginx
 ```
 
 Which should return:
 
-```sh
+```shell
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
    Active: active (running) since Fri 2018-04-20 16:08:19 UTC; 3 days ago
@@ -400,7 +400,7 @@ Which should return:
 
 Proxying your validator's port `26657` to nginx port `80` can then be done by creating a file with the following at `/etc/nginx/conf.d/validator.conf`:
 
-```sh
+```shell
 server {
   listen 80;
   listen [::]:80;
@@ -417,7 +417,7 @@ server {
 
 Followed by:
 
-```sh
+```shell
 sudo apt install certbot nginx python3
 certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
 ```
@@ -434,7 +434,7 @@ In the next testnet we will be focusing more on things such as validator TLS and
 
 Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
 
-```sh
+```shell
 echo 'export OTEL_EXPORTER_PROMETHEUS_PORT=9464' >> $HOME/.bashrc
 source ~/.bashrc
 sed -i '/\[telemetry\]/{:a;n;/enabled/s/false/true/;Ta}' $HOME/.nymd/config/app.toml
@@ -445,7 +445,7 @@ echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
 
 Your validator's metrics will be available to you at the returned 'Metrics URL', and look something like this:
 
-```sh
+```shell
 # HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
 # TYPE go_gc_duration_seconds summary
 go_gc_duration_seconds{quantile="0"} 6.7969e-05
@@ -485,7 +485,7 @@ go_memstats_gc_sys_bytes 1.3884192e+07
 
 If, for some reason, your validator gets jailed, you can fix it with the following command:
 
-```sh
+```shell
 nymd tx slashing unjail \
   --broadcast-mode=block \
   --from=${FROM_ACCOUNT} \
@@ -501,20 +501,20 @@ As part of the execution of the validator, it will be able to get some rewards.
 
 With this command, we can query our outstanding rewards:
 
-```sh
+```shell
 nymd query distribution validator-outstanding-rewards <{{< param bech32Prefix >}}valoperaddress>
 
 ```
 
 Using the values obtained from the previous command, you can withdraw all rewards with:
 
-```sh
+```shell
 nymd tx distribution withdraw-rewards <{{< param bech32Prefix >}}valoperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-{{< param testnetNameLowercase >}}" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000u{{< param bech32Prefix >}}
 ```
 
 You can check your current balances with:
 
-```sh
+```shell
 nymd query bank balances {{< param bech32Prefix >}}<address>
 ```
 
@@ -533,7 +533,7 @@ total: "0"
 
 You can, of course, stake back the available balance to your validator with the following command:
 
-```sh
+```shell
 nymd tx staking delegate <{{< param bech32Prefix >}}valoperaddress> <amount>stake--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-{{< param testnetNameLowercase >}}" --gas="auto" --gas-adjustment=1.15 --fees 5000u{{< param bech32Prefix >}}
 ```
 
