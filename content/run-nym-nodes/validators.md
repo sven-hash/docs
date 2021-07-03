@@ -49,7 +49,6 @@ export GO111MODULE=on
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 EOF
 source $HOME/.profile
-
 ```
 
 Remember to replace `correct.go.version` with the version of your choice from the Go releases page. For example:
@@ -134,7 +133,7 @@ git clone https://github.com/nymtech/nym.git
 cd nym
 git reset --hard   # in case you made any changes on your branch
 git pull           # in case you've checked it out before
-git checkout tags/v0.10.0
+git checkout tags/v{{< param validatorstable >}}
 ```
 
 Inside the folder `validator` you will find the precompiled binaries to use.
@@ -339,7 +338,7 @@ You will most likely want to automate your validator restarting if your server r
 
 ```ini
 [Unit]
-Description=Nymd (0.10.0)
+Description=Nymd ({{< param validatorstable >}})
 StartLimitInterval=350
 StartLimitBurst=10
 
