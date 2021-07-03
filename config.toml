@@ -27,6 +27,7 @@ testnetToken = "PUNK"
 bech32Prefix = "punk"
 
 # BINARY VERSIONS
+stable = "0.10.2"
 mixnodestable = "0.10.2"
 validatorstable = "0.10.2"
 gatewaystable = "0.10.1"
