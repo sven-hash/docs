@@ -9,36 +9,38 @@ defaultContentLanguageInSubdir= true
 # publishDir = "../nym-www/build/docs/"
 
 [params]
-  # GENERAL
-  description = "Nym Documentation for mixnodes, coconut credentials, validators, and privacy-related systems."
-  author = "Nym Team"
-  showVisitedLinks = false
-  disableBreadcrumb = false
-  disableInlineCopyToClipBoard = true
-  disableLanguageSwitchingButton = true
-  disableNextPrev = false
-  themeVariant = "green" # Change default color scheme with a variant one. Can be "red", "blue", "green".
-  enableGitInfo = true
+# GENERAL
+description = "Nym Documentation for mixnodes, coconut credentials, validators, and privacy-related systems."
+author = "Nym Team"
+showVisitedLinks = false
+disableBreadcrumb = false
+disableInlineCopyToClipBoard = true
+disableLanguageSwitchingButton = true
+disableNextPrev = false
+themeVariant = "blue" # Change default color scheme with a variant one. Can be "red", "blue", "green".
+enableGitInfo = true
 
-  # TESTNET SPECIFIC VARS
-  testnetName = "Milhon"
-  testnetNameLowercase = "milhon"
-  testnetToken = "PUNK"
-  bech32Prefix = "punk"
+# TESTNET SPECIFIC VARS
+testnetName = "Milhon"
+testnetNameLowercase = "milhon"
+testnetToken = "PUNK"
+bech32Prefix = "punk"
 
-  # BINARY VERSIONS
-  stable = "0.10.2" # TODO remove after all individual binaries have their own version
-  mixnodestable = "0.10.2"
-  validatorstable = "0.10.2"
-  gatewaystable = "0.10.2"
-  requesterstable = "0.10.2"
-
+# BINARY VERSIONS
+stable = "0.10.2" # TODO remove after all individual binaries have their own version
+mixnodestable = "0.10.2"
+validatorstable = "0.10.2"
+gatewaystable = "0.10.1"
+requesterstable = "0.10.2"
+clientstable = "0.10.1"
+socks5stable = "0.10.1"
+validatorapistable = "0.10.1"
 
 [frontmatter]
-  date = ["date", "publishDate", "lastmod"]
-  # expiryDate = ["expiryDate"]
-  lastmod = [":git", "lastmod", "date", "publishDate"]
-  publishDate = ["publishDate", "date"]
+date = ["date", "publishDate", "lastmod"]
+# expiryDate = ["expiryDate"]
+lastmod = [":git", "lastmod", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
