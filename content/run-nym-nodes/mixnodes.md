@@ -114,6 +114,8 @@ The bot will send you tokens so that you can bond your mixnode. First, you'll ne
 Should return a nice clean startup:
 
 ```shell
+
+      _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
