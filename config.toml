@@ -17,7 +17,7 @@ disableBreadcrumb = false
 disableInlineCopyToClipBoard = true
 disableLanguageSwitchingButton = true
 disableNextPrev = false
-themeVariant = "blue" # Change default color scheme with a variant one. Can be "red", "blue", "green".
+themeVariant = "green" # Change default color scheme with a variant one. Can be "red", "blue", "green".
 enableGitInfo = true
 
 # TESTNET SPECIFIC VARS

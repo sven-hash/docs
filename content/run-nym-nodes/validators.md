@@ -502,7 +502,6 @@ With this command, we can query our outstanding rewards:
 
 ```shell
 nymd query distribution validator-outstanding-rewards <{{< param bech32Prefix >}}valoperaddress>
-
 ```
 
 Using the values obtained from the previous command, you can withdraw all rewards with:
