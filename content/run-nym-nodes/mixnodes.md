@@ -89,7 +89,7 @@ You can claim your mixnode in Telegram by talking to our bot. To do so:
 
 Then enter the **@nymchan_help_chat** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key:
 
-```
+```shell
 /claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 ```
 
@@ -99,7 +99,7 @@ Next, go to the [{{< param testnetName >}} Testnet web wallet](https://web-walle
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens:
 
-```
+```shell
 /faucet {{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt # your address goes here!
 ```
 
@@ -266,7 +266,7 @@ Linux machines limit how many open files a user is allowed to have. This is call
 
 If you see errors such as:
 
-```
+```shell
 Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
 ```
 
@@ -282,7 +282,7 @@ grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |h
 
 You'll get back the hard and soft limits, which looks something like this:
 
-```
+```shell
 Max open files            65536                65536                files
 ```
 
@@ -347,7 +347,7 @@ On some services (e.g. AWS, Google), the machine's available bind address is not
 
 For example, on a Google machine, you may see the following output from the `ifconfig` command:
 
-```
+```shell
 ens4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
         inet 10.126.5.7  netmask 255.255.255.255  broadcast 0.0.0.0
         ...

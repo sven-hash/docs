@@ -22,7 +22,7 @@ $ ./nym-client
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version {{< param stable >}} )
+             (client - version {{< param clientstable >}} )
 
 
 

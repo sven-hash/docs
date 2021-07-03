@@ -37,7 +37,7 @@ The `nym-network-requester` will attach to the already running `nym-client`.
 
 Make a note of the address of the client when it starts up:
 
-```
+```shell
  2020-09-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: EzvzfN4baf3ULUbAmExQELUWMQry7qqVDibSyekR31KE.4khUuTUyYTWiLki3SKbxeG2sP3mwgn9ykBhvtyaLfMdN@DiYR9o8KgeQ81woKPYVAu4LNaAEg8SWkiufDCahNnPov
 ```
 
@@ -63,7 +63,7 @@ It would suck if Nym was restricted to only three clients. How can we add suppor
 
 Have a look in your nym-network-requester config directory:
 
-```
+```shell
 ls $HOME/.nym/service-providers/network-requester/
 
 # returns: allowed.list  unknown.list

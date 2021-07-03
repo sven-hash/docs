@@ -112,7 +112,7 @@ Example:
 
 Results in:
 
-```
+```shell
 ./nym-gateway run --id supergateway
 
 
@@ -175,7 +175,7 @@ sudo ufw status
 
 Although it's not totally necessary, it's useful to have the gateway automatically start at system boot time. Here's a systemd service file to do that:
 
-```
+```ini
 [Unit]
 Description=Nym Gateway ({{< param gatewaystable >}})
 StartLimitInterval=350
@@ -203,13 +203,13 @@ If you have built nym on your server, and your username is `jetpanther`, then th
 
 Then run:
 
-```
+```shell
 systemctl enable nym-gateway.service
 ```
 
 Start your node:
 
-```
+```shell
 service nym-gateway start
 ```
 
@@ -219,7 +219,7 @@ You can also do `service nym-gateway stop` or `service nym-gateway restart`.
 
 Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
 
-```
+```shell
 systemctl daemon-reload
 ```
 
