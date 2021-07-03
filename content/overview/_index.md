@@ -17,15 +17,3 @@ At a high level, our technologies include:
 3. a _mixnet_, which encrypts and mixes Sphinx packet traffic so that it cannot be determined who is communicating with whom. Our mixnet is based on a modified version of the _Loopix_ design.
 
 We'll explore Coconut, Sphinx, and Loopix in detail in the next few sections. The most important thing to note is that these technologies ensure privacy at two different levels of the stack: network data transmission, and transactions.
-
-## How does Nym compare to other systems?
-
-Nym is the first system we're aware of which provides integrated protection on both the network and transaction level at once. We think that this seamless approach gives the best possible privacy protections, ensuring that nothing falls through the cracks between systems.
-
-Most comparable systems concentrate on only one of these layers at a time.
-
-For example, some blockchain-based systems contain zero knowledge proof systems that deal only with on-chain transaction privacy. This leaves network privacy as an exercise for the user. It's easy to get it wrong.
-
-Conversely, Tor deals only with network privacy, and has nothing built-in to help with transaction privacy. If you include identifiable information in your Tor network requests (which can happen accidentally), the privacy protections are void.
-
-Speaking of Tor, our claim is that mixnets like Nym give stronger security guarantees against end-to-end network tracing attacks that are becoming easier to operationalize, and which we'll see more of in future.
