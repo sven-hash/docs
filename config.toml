@@ -27,7 +27,6 @@ testnetToken = "PUNK"
 bech32Prefix = "punk"
 
 # BINARY VERSIONS
-stable = "0.10.2" # TODO remove after all individual binaries have their own version
 mixnodestable = "0.10.2"
 validatorstable = "0.10.2"
 gatewaystable = "0.10.1"
