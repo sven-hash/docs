@@ -178,7 +178,7 @@ sudo ufw allow 1789,1790,8000,22,80,443/tcp
 sudo ufw status
 ```
 
-For more information about your mixnode's ports, check the ADD LINK !!!! [port configuration table]() below.
+For more information about your mixnode's port configuration, check the [mixnode port reference table]({{< ref "#mixnode-port-reference" >}}) below.
 
 ## Describe your mixnode (optional)
 
@@ -439,5 +439,5 @@ All mixnode-specific port configuration can be found in `$HOME/.nym/mixnodes/<yo
 | Default port | Use                       |
 |--------------|---------------------------|
 | `1789`       | Listen for mixnet traffic |
-| `1790`       | Listen VerLoc traffic     |
+| `1790`       | Listen for VerLoc traffic |
 | `8000`       | Metrics http API endpoint |
