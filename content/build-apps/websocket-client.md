@@ -4,9 +4,9 @@ weight: 40
 description: "How to run the Nym websocket client on a desktop or server machine."
 ---
 
-{{% notice info %}}
+{{< note title=" " >}}
 The Nym Websocket Client was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-{{% /notice %}}
+{{< /note >}}
 
 From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your \$PATH):
 
@@ -70,9 +70,7 @@ You can run the `alice` client by doing this:
 
 When you run the client, it immediately starts generating (fake) cover traffic and sending it to the Nym testnet.
 
-{{% notice info %}}
 Congratulations, you have just contributed a tiny bit of privacy to the world! `<CTRL-C>` to stop the client.
-{{% /notice %}}
 
 When the client is first started, it will reach out to the Nym network's validators, and get a list of available Nym nodes (gateways, mixnodes, and validators). We call this list of nodes the network _topology_. The client does this so that it knows how to connect, register itself with the network, and know which mixnodes it can route Sphinx packets through.
 

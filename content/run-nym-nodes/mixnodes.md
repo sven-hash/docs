@@ -4,9 +4,9 @@ weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
 
-{{% notice info %}}
-The Nym gateway was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
-{{% /notice %}}
+{{< note title=" " >}}
+The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+{{< /note >}}
 
 {{< table_of_contents >}}
 
@@ -52,9 +52,11 @@ The `init` command will refuse to destroy existing mixnode keys.
 
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
 
-{{% notice info %}}
+
+{{< attention title=" " >}}
 If you do update anything in your `config.toml` file, remember to restart your mixnode process for the changes to take effect.
-{{% /notice %}}
+{{< /attention >}}
+
 
 ## Claim your mixnode in Telegram to recieve tokens
 
@@ -149,9 +151,9 @@ Note that your node's public identity key is displayed during startup, you can u
 
 Keep reading to find out more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
 
-{{% notice info %}}
+{{< tip title=" " >}}
 If you run into trouble, please ask for help in the channel **nymtech.friends#general** on [KeyBase](https://keybase.io).
-{{% /notice %}}
+{{< /tip >}}
 
 Have a look at the saved configuration files to see more configuration options.
 
@@ -428,9 +430,10 @@ curl <YOUR_NODE_IP>:8000/verloc
 
 Returns the verloc information of your node, which is updated every 12 hours.
 
-{{% notice info %}}
+{{< attention title=" " >}}
 Remember to add which endpoint you want to query. `<your-node-ip>:8000` will return nothing if used with `curl` and return an error if used in your browser.
-{{% /notice %}}
+{{< /attention >}}
+
 
 ## Mixnode port reference
 

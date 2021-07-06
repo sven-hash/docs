@@ -81,9 +81,9 @@ Sending JSON is fairly simple. If you're playing with the wasm example app, just
 
 ### Think about what you're sending!
 
-{{% notice warning %}}
+{{< attention title=" " >}}
 Think about what information your app sends. That goes for whatever you put into your Sphinx packet messages as well as what your app's environment may leak.
-{{% /notice %}}
+{{< /attention >}}
 
 Whenever you write client peaps using HTML/JavaScript, we recommend that you do not load external resources from CDNs. Webapp developers do this all the time, to save load time for common resources, or just for convenience. But when you're writing privacy apps it's better not to make these kinds of requests. Pack everything locally.
 

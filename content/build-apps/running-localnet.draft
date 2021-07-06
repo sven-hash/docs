@@ -12,9 +12,9 @@ You can start up a full mix network, including mixnodes, and a gateway on your l
 
 First, download, build and run the [Nym directory server](https://github.com/nymtech/nym-directory). This step will soon go away, as the directory server is about to be retired in the {{< param stable >}}  release. But for now it's necessary.
 
-{{% notice warning %}}
+{{< attention title=" " >}}
 The local network **must** be able to access a directory server running on `localhost`! Make sure you install and run the directory server.
-{{% /notice %}}
+{{< /attention >}}
 
 Once you have a directory server running on port 8080, you can run the local network startup script:
 

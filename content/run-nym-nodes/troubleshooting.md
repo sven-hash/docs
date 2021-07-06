@@ -119,9 +119,9 @@ If you are still unable to see your node on the [dashboard](https://testnet-{{< 
 - You did not configure your router firewall while running the mixnode from your local machine behind NAT, or you are lacking IPv6 support.
 - Your mixnode is not running at all, it has either exited / panicked or you closed the session without making the node persistent.
 
-{{% notice info %}}
+{{< attention title=" " >}}
 Your mixnode **must speak both IPv4 and IPv6** in order to cooperate with other nodes and route traffic. This is a common reason behind many errors we are seeing among node operators, so check with your provider that your VPS is able to do this!
-{{% /notice %}}
+{{< /attention >}}
 
 ### Incorrectly configured firewall
 
@@ -282,7 +282,7 @@ These warnings are not an issue, please ignore them. Rocket is a web framework f
 
 Find more information about this in the [Mixnodes metrics documentation]( {{< ref "./mixnodes.md#mixnode-metrics" >}} ).
 
-Rocket runs on port `8000` by default. Although at this stage of the testnet we need Rocket to be reachable via this port, in the future customization of the particular port it uses will be possible. 
+Rocket runs on port `8000` by default. Although at this stage of the testnet we need Rocket to be reachable via this port, in the future customization of the particular port it uses will be possible.
 
 ### `failed to receive reply to our echo packet within 1.5s. Stopping the test`
 
@@ -305,9 +305,9 @@ sudo ufw deny 1789
 
 And then edit the mixnode's config.
 
-{{% notice info %}}
+{{< attention title=" " >}}
 If you want to change the port for an already running node, you need to stop the process before editing your config file.
-{{% /notice %}}
+{{< /attention >}}
 
 Assuming your node name is `nym`, the config file is located at `~/.nym/mixnodes/nym/config/config.toml`.
 
@@ -345,9 +345,9 @@ bob@nym:~$ tree /home/nym/.nym/mixnodes/
 
 ```
 
-{{% notice info %}}
+{{< attention title=" " >}}
 If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
-{{% /notice %}}
+{{< /attention >}}
 
 ## What is `verloc` and do I have to configure my mixnode to implement it?
 

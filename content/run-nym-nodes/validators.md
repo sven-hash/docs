@@ -271,9 +271,9 @@ If this check passes, you should receive the following output:
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
-{{% notice info %}}
+{{< attention title=" " >}}
 If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-{{< param testnetNameLowercase >}} genesis file](https://nymtech.net/testnets/{{< param testnetNameLowercase >}}/genesis.json).
-{{% /notice %}}
+{{< /attention >}}
 
 Before starting the validator, we will need to open the firewall ports:
 
@@ -422,9 +422,9 @@ sudo apt install certbot nginx python3
 certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
 ```
 
-{{% notice info %}}
+{{< attention title=" " >}}
 If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-certbot-nginx`
-{{% /notice %}}
+{{< /attention >}}
 
 These commands will get you an HTTPS encrypted nginx proxy in front of the API.
 

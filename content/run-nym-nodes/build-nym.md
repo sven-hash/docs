@@ -4,9 +4,10 @@ weight: 20
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
 ---
 
-{{% notice info %}}
+{{< attention title=" " >}}
 This page details how to build the main Nym platform code, in Rust. **If you want to build and run a validator, [go here](/docs/run-nym-nodes/validators) instead.**
-{{% /notice %}}
+{{< /attention >}}
+
 
 Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
 
@@ -54,6 +55,6 @@ Quite a bit of stuff gets built. The key working parts are:
 4. the [socks5 client](/docs/use-apps/): `nym-socks5-client`
 5. the [network requester](/docs/run-nym-nodes/requester): `nym-network-requester`
 
-{{% notice info %}}
+{{< tip title=" " >}}
 If you run into trouble, please ask for help in the channel **nymtech.friends#general** on [KeyBase](https://keybase.io).
-{{% /notice %}}
+{{< /tip >}}
