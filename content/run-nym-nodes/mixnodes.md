@@ -434,7 +434,7 @@ Remember to add which endpoint you want to query. `<your-node-ip>:8000` will ret
 
 ## Mixnode port reference
 
-All mixnode-specific port configuration can be found in `~/.nym/mixnodes/<your-id>/config/config.toml`. 
+All mixnode-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. 
 
 | Default port | Use                                         | Configurable |
 |--------------|---------------------------------------------|--------------|
