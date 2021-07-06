@@ -381,21 +381,17 @@ This will change when we get a chance to start doing performance optimizations i
 
 ## Metrics
 
-We currently have an API set up returning our metrics tests of the network. There are 4 endpoints to ping for information about your mixnode, `report`, `history`, `description` and `verloc`.
+There are currently two options for getting information about your mixnode. `description` and `verloc` - are accessed via your mixnode's http API, whilst `report` and `history` are reported by the Nym node status API.
 
-### `/report`
+| Endpoint       | Description                                                                                                                                                                                      | Command                                                                                                                               |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `/report`      | Returns the most recent node status test report                                                                                                                                                  | `curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report`  |
+| `/history`     | Returns all previous test reports                                                                                                                                                                | `curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history` |
+| `/description` | Returns the description of your node set with the `describe` command. See <br>['Describe your mixnode']( {{< ref "#describe-your-mixnode-optional" >}} ) <br>above for more information on this. | `curl <YOUR_NODE_IP>:8000/description`                                                                                                |
+| `/verloc`      | Returns the verloc information of your node, which is updated every 12 hours.                                                                                                                    | `curl <YOUR_NODE_IP>:8000/verloc`                                                                                                     |
 
-```shell
-curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/report
-```
 
-Returns the most recent test report, and looks something like this:
-
-```shell
-{"pubKey":"3wbvb6snDfXscqNLVAoquEhHPiHvPyJMHEcw8VEnuXz1","owner":"{{< param bech32Prefix >}}1k8r8g69m2528uwzu3hsglp7h0h39zf6u405wz5","mostRecentIPV4":true,"last5MinutesIPV4":100,"lastHourIPV4":100,"lastDayIPV4":100,"mostRecentIPV6":true,"last5MinutesIPV6":100,"lastHourIPV6":100,"lastDayIPV6":100}
-```
-
-There serveral metrics of interest here regarding your mixnode's uptime and package-mixing capabilities:
+There serveral metrics of interest returned by `/report` regarding your mixnode's uptime and package-mixing capabilities:
 
 - `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
 - `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
@@ -405,35 +401,6 @@ There serveral metrics of interest here regarding your mixnode's uptime and pack
 - `last5MinutesIPV6`: returns IPv6 connectivity as a percentage over the last five minutes.
 - `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
 - `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
-
-### `/history`
-
-```shell
-curl https://testnet-{{< param testnetNameLowercase >}}-node-status-api.nymtech.net/api/status/mixnode/<YOUR_NODE_IDENTITY>/history
-```
-
-Returns all previous test reports as described in `/report`.
-
-### `/description`
-
-```shell
-curl <YOUR_NODE_IP>:8000/description
-```
-
-Returns the description of your node set with the `describe` command. See ['Describe your mixnode']( {{< ref "#describe-your-mixnode-optional" >}} ) above for more information on this.
-
-### `/verloc`
-
-```shell
-curl <YOUR_NODE_IP>:8000/verloc
-```
-
-Returns the verloc information of your node, which is updated every 12 hours.
-
-{{< attention title=" " >}}
-Remember to add which endpoint you want to query. `<your-node-ip>:8000` will return nothing if used with `curl` and return an error if used in your browser.
-{{< /attention >}}
-
 
 ## Mixnode port reference
 
