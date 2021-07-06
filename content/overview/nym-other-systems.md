@@ -3,6 +3,7 @@ title: Nym vs other systems
 weight: 40
 description: "A comparison of Nym and other privacy systems"
 ---
+{{< lastmodified >}}
 
 Nym is the first system we're aware of which provides integrated protection on both the network and transaction level at once. We think that this seamless approach gives the best possible privacy protections, ensuring that nothing falls through the cracks between systems.
 

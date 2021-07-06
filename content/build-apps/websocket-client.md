@@ -3,6 +3,7 @@ title: "Websocket client"
 weight: 40
 description: "How to run the Nym websocket client on a desktop or server machine."
 ---
+{{< lastmodified >}}
 
 {{< note title=" " >}}
 The Nym Websocket Client was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.

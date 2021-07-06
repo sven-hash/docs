@@ -3,6 +3,7 @@ title: "Mixnode Troubleshooting FAQ"
 weight: 42
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
 ---
+{{< lastmodified >}}
 
 {{< table_of_contents >}}
 

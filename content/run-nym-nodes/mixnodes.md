@@ -4,6 +4,8 @@ weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
 
+{{< lastmodified >}}
+
 {{< note title=" " >}}
 The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 {{< /note >}}

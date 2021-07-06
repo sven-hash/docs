@@ -3,6 +3,7 @@ title: Use Apps
 weight: 60
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
 ---
+{{< lastmodified >}}
 
 {{< note title=" " >}}
 The Nym SOCKS5 Client was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.

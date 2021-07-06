@@ -3,6 +3,7 @@ title: "Protecting other applications"
 weight: 40
 description: "How to run the Nym SOCKS5 client."
 ---
+{{< lastmodified >}}
 
 {{< note title=" " >}}
 The Nym Socks5 Proxy Client was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
