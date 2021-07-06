@@ -537,3 +537,15 @@ nymd tx staking delegate <{{< param bech32Prefix >}}valoperaddress> <amount>stak
 NOTE: The value to be used instead of the `<amount>stake` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
 
 Also remember to replace `{{< param bech32Prefix >}}valoper` with your validator address and `nym-admin` with the user you created during initialization.
+
+## Validator port reference
+
+All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
+
+| Default port | Use                                  |
+|--------------|--------------------------------------|
+| 1317         | REST API server endpoint             |
+| 1790         | Listen for VerLoc traffic            |
+| 8000         | Metrics http API endpoint            |
+| 26656        | Listen for incoming peer connections |
+| 26660        | Listen for Prometheus connections    |
