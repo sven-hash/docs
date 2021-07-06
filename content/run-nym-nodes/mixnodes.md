@@ -391,7 +391,7 @@ There are currently two options for getting information about your mixnode. `des
 | `/verloc`      | Returns the verloc information of your node, which is updated every 12 hours.                                                                                                                    | `curl <YOUR_NODE_IP>:8000/verloc`                                                                                                     |
 
 
-There serveral metrics of interest returned by `/report` regarding your mixnode's uptime and package-mixing capabilities:
+There several metrics of interest returned by `/report` regarding your mixnode's uptime and package-mixing capabilities:
 
 - `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
 - `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
@@ -406,7 +406,7 @@ There serveral metrics of interest returned by `/report` regarding your mixnode'
 
 All mixnode-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mixnode.
 
-| Default port | Use                       |
+| Default port | Use                       |                                                                                                                                            
 |--------------|---------------------------|
 | `1789`       | Listen for mixnet traffic |
 | `1790`       | Listen for VerLoc traffic |
