@@ -288,6 +288,8 @@ sudo ufw status
 
 Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. `8000` and `1790` are for VerLoc, our node location system, and the rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
+For more information about your validator's port configuration, check the [validator port reference table]({{< ref "#validator-port-reference" >}}) below.
+
 > If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.
 
 Start the validator:
