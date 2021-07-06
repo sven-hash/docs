@@ -224,3 +224,12 @@ systemctl daemon-reload
 ```
 
 This lets your operating system know it's ok to reload the service configuration.
+
+## Gateway port reference
+
+All gateway-specific port configuration can be found in `$HOME/.nym/gateways/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your gateway.
+
+| Default port | Use                       |
+|--------------|---------------------------|
+| 1789         | Listen for Mixnet traffic |
+| 9000         | Listen for Client traffic |
