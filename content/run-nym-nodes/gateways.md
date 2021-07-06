@@ -19,6 +19,8 @@ The default gateway implementation included in the Nym platform code holds packe
 
 If you would like to run a gateway for the network, please get in touch via **nymtech.friends#general** on [KeyBase](https://keybase.io) or [email us](mailto:max@nymtech.net).
 
+{{< table_of_contents >}}
+
 ## Initializing your gateway
 
 You can check that your binaries are properly compiled with:

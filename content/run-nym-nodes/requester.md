@@ -12,6 +12,8 @@ If you have access to a server, you can run the nym-network-requester, which all
 
 The nym-network-requester is NOT an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets.
 
+{{< table_of_contents >}}
+
 ## Running your network requester
 
 You can run the requester yourself by taking the following steps.
