@@ -434,8 +434,10 @@ Remember to add which endpoint you want to query. `<your-node-ip>:8000` will ret
 
 ## Mixnode port reference
 
-| Port   | Use                                         | Configurable |
-|--------|---------------------------------------------|--------------|
-| `1789` | Socket address for receiving Sphinx packets | yes          |
-| `1790` | Used for VerLoc measurement packets         | yes          |
-| `8000` | Metrics API endpoint                        | yes          |
+All mixnode-specific port configuration can be found in `~/.nym/mixnodes/<your-id>/config/config.toml`. 
+
+| Default port | Use                                         | Configurable |
+|--------------|---------------------------------------------|--------------|
+| `1789`       | Socket address for receiving Sphinx packets | yes          |
+| `1790`       | Used for VerLoc measurement packets         | yes          |
+| `8000`       | Metrics API endpoint                        | yes          |
