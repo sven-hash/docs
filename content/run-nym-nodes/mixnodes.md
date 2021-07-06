@@ -178,6 +178,8 @@ sudo ufw allow 1789,1790,8000,22,80,443/tcp
 sudo ufw status
 ```
 
+For more information about your mixnode's ports, check the ADD LINK !!!! [port configuration table]() below.
+
 ## Describe your mixnode (optional)
 
 In order to easily identify your node via human-readable information later on in the development of the testnet when delegated staking is implemented, you can `describe` your mixnode with the following command:
@@ -375,7 +377,7 @@ For the moment, we haven't put a great amount of effort into optimizing concurre
 
 This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
 
-## Mixnode Metrics
+## Metrics
 
 We currently have an API set up returning our metrics tests of the network. There are 4 endpoints to ping for information about your mixnode, `report`, `history`, `description` and `verloc`.
 
@@ -429,3 +431,11 @@ Returns the verloc information of your node, which is updated every 12 hours.
 {{% notice info %}}
 Remember to add which endpoint you want to query. `<your-node-ip>:8000` will return nothing if used with `curl` and return an error if used in your browser.
 {{% /notice %}}
+
+## Mixnode port reference
+
+| Port   | Use                                         | Configurable |
+|--------|---------------------------------------------|--------------|
+| `1789` | Socket address for receiving Sphinx packets | yes          |
+| `1790` | Used for VerLoc measurement packets         | yes          |
+| `8000` | Metrics API endpoint                        | yes          |
