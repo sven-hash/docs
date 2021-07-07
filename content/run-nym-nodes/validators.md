@@ -428,7 +428,7 @@ certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-to
 If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-certbot-nginx`
 {{< /attention >}}
 
-These commands will get you an HTTPS encrypted nginx proxy in front of the API.
+These commands will get you an https encrypted nginx proxy in front of the API.
 
 In the next testnet we will be focusing more on things such as validator TLS and sentry nodes.
 
