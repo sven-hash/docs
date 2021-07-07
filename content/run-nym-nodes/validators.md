@@ -430,8 +430,6 @@ If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-
 
 These commands will get you an https encrypted nginx proxy in front of the API.
 
-In the next testnet we will be focusing more on things such as validator TLS and sentry nodes.
-
 ## Configuring Prometheus metrics (optional)
 
 Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
