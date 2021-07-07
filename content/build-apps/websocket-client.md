@@ -9,7 +9,7 @@ description: "How to run the Nym websocket client on a desktop or server machine
 The Nym Websocket Client was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 {{< /note >}}
 
-From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your \$PATH):
+From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your `$PATH`):
 
 `./nym-client`
 
