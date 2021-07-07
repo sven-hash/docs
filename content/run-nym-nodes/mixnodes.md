@@ -14,13 +14,13 @@ The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) 
 
 ## Running a mixnode for the first time
 
-After your build is finished, the `ym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
+After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
 
 Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
 ## Upgrading your mixnode from an earlier version
 
-If you have already been running a node on the Nym network v0.9.2 or v0.10.0, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
+If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
 
 ```shell
 ./nym-mixnode upgrade --id your-node-id
@@ -28,7 +28,7 @@ If you have already been running a node on the Nym network v0.9.2 or v0.10.0, gr
 
 Once you've upgraded, **make sure to unbond and then rebond your node** via the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
 
-Once you have rebonded your node with 100 PUNK (this is currently a hardcoded amount for the testnet), the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface.
+Once you have rebonded your node with PUNK, the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface.
 
 ## Initialize your mixnode
 
@@ -153,11 +153,11 @@ Note that your node's public identity key is displayed during startup, you can u
 
 Keep reading to find out more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
 
+Have a look at the saved configuration files to see more configuration options.
+
 {{< tip title=" " >}}
 If you run into trouble, please ask for help in the channel **nymtech.friends#general** on [KeyBase](https://keybase.io).
 {{< /tip >}}
-
-Have a look at the saved configuration files to see more configuration options.
 
 ## Configure your firewall
 

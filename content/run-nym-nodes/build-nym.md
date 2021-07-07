@@ -5,9 +5,9 @@ description: "How to build the Nym platform. Nym is relatively simple to build a
 ---
 {{< lastmodified >}}
 
-{{< attention title=" " >}}
+{{< note title=" " >}}
 This page details how to build the main Nym platform code, in Rust. **If you want to build and run a validator, [go here](/docs/run-nym-nodes/validators) instead.**
-{{< /attention >}}
+{{< /note >}}
 
 
 Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
@@ -31,18 +31,16 @@ If you really don't want to use the shell script installer, the [Rust installati
 
 The following commands will compile binaries into the `nym/target/release` directory:
 
-```
+```shell
 rustup update
 git clone https://github.com/nymtech/nym.git
 cd nym
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-
 # Note: the default branch you clone from Github, `develop`, is guaranteed to be
 # broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v{{< param stable >}}` or `v0.10.0` in order to join the testnet.
-
+# `git checkout tags/v{{< param stable >}}` in order to join the testnet.
 
 git checkout tags/v{{< param stable >}}
 cargo build --release

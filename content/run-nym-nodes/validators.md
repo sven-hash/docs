@@ -40,7 +40,7 @@ git version
 sudo rm -rf /usr/local/go
 
 # Install correct Go version
-curl https://dl.google.com/go/correct.go.version.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+curl https://dl.google.com/go/<CORRECT.GO.VERSION>.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
 
 # Update environment variables to include go
 cat <<'EOF' >>$HOME/.profile
@@ -52,9 +52,9 @@ EOF
 source $HOME/.profile
 ```
 
-Remember to replace `correct.go.version` with the version of your choice from the Go releases page. For example:
+Remember to replace `<CORRECT.GO.VERSION>` with the version of your choice from the Go releases page. For example:
 
-`correct.go.version.linux-amd64.tar.gz` becomes `go1.15.7.linux-amd64.tar.gz`
+`<CORRECT.GO.VERSION>.linux-amd64.tar.gz` becomes `go1.15.7.linux-amd64.tar.gz`
 
 Verify `Go` is installed with:
 
@@ -137,7 +137,7 @@ git pull           # in case you've checked it out before
 git checkout tags/v{{< param validatorstable >}}
 ```
 
-Inside the folder `validator` you will find the precompiled binaries to use.
+Inside the `validator` directory you will find the precompiled binaries to use.
 
 Upload both `nymd` and `libwasmvm.so` to your validator machine. If you attempt to run `./nymd` on your server, you'll likely see an error if `nymd` can't find `libwasmvm.so`:
 
