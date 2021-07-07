@@ -483,7 +483,7 @@ go_memstats_gc_sys_bytes 1.3884192e+07
 
 ## Unjailing your validator
 
-If, for some reason, your validator gets jailed, you can fix it with the following command:
+If your validator gets jailed, you can fix it with the following command:
 
 ```shell
 nymd tx slashing unjail \
@@ -501,7 +501,7 @@ The most common reason for your validator being jailed is that your validator is
 
 Running the command `df -H` will return the size of the various partitions of your VPS.
 
-If the `/dev/sda` partition is almost full, try pruning some of the `.gz` syslog archives and restart your validator process. 
+If the `/dev/sda` partition is almost full, try pruning some of the `.gz` syslog archives and restart your validator process.
 
 ## Day 2 operations with your validator
 
