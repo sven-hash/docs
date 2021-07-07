@@ -3,6 +3,7 @@ title: Links
 weight: 40
 description: "Here are some links that may prove handy as you start exploring Nym, and the Nym community."
 ---
+{{< lastmodified >}}
 
 Here are some links that may prove handy as you start exploring.
 

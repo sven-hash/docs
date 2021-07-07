@@ -3,6 +3,7 @@ title: "Building Nym"
 weight: 20
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
 ---
+{{< lastmodified >}}
 
 {{% notice info %}}
 This page details how to build the main Nym platform code, in Rust. **If you want to build and run a validator, [go here](/docs/run-nym-nodes/validators) instead.**

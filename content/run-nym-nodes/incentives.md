@@ -3,6 +3,7 @@ title: "Incentives"
 weight: 15
 description: "Why should you run Nym nodes?"
 ---
+{{< lastmodified >}}
 
 We will get into building the Nym codebase and running nodes in the next section. Before we do so, a note on token incentives.
 

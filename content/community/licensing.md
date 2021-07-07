@@ -3,6 +3,7 @@ title: Licensing
 weight: 20
 description: "Nym is free software released under the Apache License V2"
 ---
+{{< lastmodified >}}
 
 Nym is Free Software released under the Apache License V2.
 

@@ -3,6 +3,7 @@ title: KeyBase
 weight: 37
 description: "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how."
 ---
+{{< lastmodified >}}
 
 We have added support for KeyBase (which we use for our own internal chat). Feel free to try that out and say hello!
 

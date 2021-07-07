@@ -3,6 +3,7 @@ title: The Nym Platform
 weight: 10
 description: "An overview of the Nym platform architecture"
 ---
+{{< lastmodified >}}
 
 We are currently running a [testnet](https://explorer.nymtech.net) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
 

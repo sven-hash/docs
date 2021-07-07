@@ -3,6 +3,7 @@ title: Coconut
 weight: 40
 description: "Nym ensures access control privacy using a sophisticated signature scheme called Coconut."
 ---
+{{< lastmodified >}}
 
 ### Introducing Coconut
 

@@ -3,6 +3,7 @@ title: Build Apps
 weight: 65
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
 ---
+{{< lastmodified >}}
 
 If you are a coder, we invite you to build **privacy enhanced applications** using Nym.
 
