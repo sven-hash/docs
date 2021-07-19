@@ -93,7 +93,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
 ```shell
-WASMD_VERSION=v0.14.1
+WASMD_VERSION=v0.17.0
 BECH32_PREFIX={{< param bech32Prefix >}}
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
@@ -112,7 +112,12 @@ You should see `nymd` help text print out.
 
 Both the `nymd` and `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute Nym smart contracts.
 
-> If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.** To locate these files on your local system run:
+
+{{< attention title=" " >}}
+If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.**
+{{< /attention >}}
+
+To locate these files on your local system run:
 
 ```shell
 WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
@@ -188,7 +193,7 @@ wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/{{< param 
 Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in `$HOME/.nymd/config/config.toml` to match the information below:
 
 - `cors_allowed_origins = ["*"]` allows the web wallet to make HTTPS requests to your validator.
-- `persistent_peers = "e7163ea63219504344c669164d083f52434f382b@testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
+- `persistent_peers = "d6265e7c885eda002ef8736d2270bcbfb346a3aa@testnet-{{< param testnetNameLowercase >}}-validator1.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
 - `create_empty_blocks = false` may save a bit of space
 
 Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics then the following must also match in the `config.toml`:
@@ -196,7 +201,9 @@ Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics t
 - `prometheus = true`
 - `prometheus_listen_addr = ":26660"`
 
-> Remember to enable metrics in the 'Configuring Prometheus metrics' section below as well.
+{{< tip title=" " >}}
+Remember to enable metrics in the 'Configuring Prometheus metrics' section below as well.
+{{< /tip >}}
 
 And if you wish to add a human-readable moniker to your node:
 
