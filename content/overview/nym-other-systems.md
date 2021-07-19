@@ -1,6 +1,6 @@
 ---
 title: Nym vs other systems
-weight: 40
+weight: 35
 description: "A comparison of Nym and other privacy systems"
 ---
 {{< lastmodified >}}
