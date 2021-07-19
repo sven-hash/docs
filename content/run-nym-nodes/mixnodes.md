@@ -383,7 +383,7 @@ This will change when we get a chance to start doing performance optimizations i
 
 ## Metrics
 
-There are currently two options for getting information about your mixnode. `description` and `verloc` - are accessed via your mixnode's http API, whilst `report` and `history` are reported by the Nym node status API.
+There are currently two options for getting information about your mixnode. `description` and `verloc` are accessed via your mixnode's http API, whilst `report` and `history` are reported by the Nym node status API.
 
 | Endpoint       | Description                                                                                                                                                                                      | Command                                                                                                                               |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
