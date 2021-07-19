@@ -172,7 +172,7 @@ sudo ufw allow 1789,22,9000/tcp
 sudo ufw status
 ```
 
-## Automating your mixnode with systemd
+## Automating your gateway with systemd
 
 Although it's not totally necessary, it's useful to have the gateway automatically start at system boot time. Here's a systemd service file to do that:
 
