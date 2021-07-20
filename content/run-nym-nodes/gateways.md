@@ -33,8 +33,6 @@ You can check that your binaries are properly compiled with:
 Which should return:
 
 ```shell
-$ ./nym-gateway
-
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -52,26 +50,32 @@ usage: --help to see available options.
 To check available configuration options use:
 
 ```shell
-./nym-gateway init --help
+nym@localhost:~$ ./nym-gateway init --help
 ```
 
-In order to initialize your gateway the `id`, `clients-host`, and `mix-host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above.
+In order to initialize your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
 
-- `--id` specifies a human-readable name for this gateway. This also determines the location of your gateway's config file, so keep it to one word for ease.
-- `--clients-host` needs to be an IPv4 or IPv6 address. This is the IP that the gateway will listen on for requests coming from Nym clients.
-- `--mix-host` needs to be an IPv4 or IPv6 address. This is the IP that the gateway will listen on for incoming Sphinx packets coming from the mixnet.
+```shell
+--announce-host <announce-host>        The host that will be reported to the directory server
+--clients-ledger <clients-ledger>      Ledger file containing registered clients
+--clients-port <clients-port>          The port on which the gateway will be listening for clients gateway-
+                                               requests
+--host <host>                          The custom host on which the gateway will be running for receiving sphinx
+                                               packets
+--id <id>                              Id of the gateway we want to create config for.
+--inboxes <inboxes>                    Directory with inboxes where all packets for the clients are stored
+--mix-port <mix-port>                  The port on which the gateway will be listening for sphinx packets
+--mixnet-contract <mixnet-contract>    Address of the validator contract managing the network
+--validators <validators>              Comma separated list of rest endpoints of the validators
+```
 
 For example, the following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```shell
-root@localhost:~# ./nym-gateway init --clients-host $(curl ifconfig.me) --mix-host $(curl ifconfig.me) --id supergateway
-
+nym@localhost:~$ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100    13  100    13    0     0     25      0 --:--:-- --:--:-- --:--:--    25
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    13  100    13    0     0     61      0 --:--:-- --:--:-- --:--:--    61
+100    14  100    14    0     0    125      0 --:--:-- --:--:-- --:--:--   123
 
 
       _ __  _   _ _ __ ___
@@ -82,26 +86,26 @@ root@localhost:~# ./nym-gateway init --clients-host $(curl ifconfig.me) --mix-ho
 
              (gateway - version {{< param gatewaystable >}})
 
-
+    
 Initialising gateway supergateway...
 Saved identity and mixnet sphinx keypairs
-Saved configuration file to "/path/to/.nym/gateways/supergateway/config/config.toml"
+Saved configuration file to "/home/nym/.nym/gateways/supergateway/config/config.toml"
 Gateway configuration completed.
 
 
 
-Public identity key: 3M2seioUjFw8drmTJabP8c8e6Ds9MBhsGwrzAfk2x64L
+Public identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
 
-Public sphinx key: 2Rk7UQ2xqsbQtaTLpRVEzMDrV12xSg54mLsqvq1cTHhs
+Public sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
 
 
 To bond your gateway you will [most likely] need to provide the following:
-    Identity key: 3M2seioUjFw8drmTJabP8c8e6Ds9MBhsGwrzAfk2x64L
-    Sphinx key: 2Rk7UQ2xqsbQtaTLpRVEzMDrV12xSg54mLsqvq1cTHhs
-    Mix Host: 194.195.246.82:1789
-    Clients Host: ws://194.195.246.82:9000
-    Location: [physical location of your node\'s server]
-    Version: {{< param gatewaystable >}}
+    Identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
+    Sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
+    Host: 172.105.67.104
+    Mix Port: 1789
+    Clients Port: 9000
+    Location: [physical location of your node's server]
 ```
 
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
@@ -117,7 +121,7 @@ Example:
 Results in:
 
 ```shell
-./nym-gateway run --id supergateway
+nym@localhost:~$ ./nym-gateway run --id supergateway
 
 
       _ __  _   _ _ __ ___
@@ -130,26 +134,25 @@ Results in:
 
 
 Starting gateway supergateway...
-Public sphinx key: 2Rk7UQ2xqsbQtaTLpRVEzMDrV12xSg54mLsqvq1cTHhs
+Public sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
 
-Public identity key: 3M2seioUjFw8drmTJabP8c8e6Ds9MBhsGwrzAfk2x64L
+Public identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
 
-Validator REST endpoint: http://testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:1317
-Listening for incoming sphinx packets on 194.195.246.82:1789
-Announcing the following socket address for sphinx packets: 194.195.246.82:1789
-Listening for incoming clients packets on 194.195.246.82:9000
-Announcing the following socket address for clients packets: ws://194.195.246.82:9000
-Inboxes directory is: "/root/.nym/gateways/supergateway/data/inboxes"
-Clients ledger is stored at: "/root/.nym/gateways/supergateway/data/client_ledger.sled"
- 2021-05-26T19:55:14.432Z INFO  nym_gateway::node > Starting nym gateway!
- 2021-05-26T19:55:14.826Z INFO  nym_gateway::node > Starting mix packet forwarder...
- 2021-05-26T19:55:14.826Z INFO  nym_gateway::node > Starting clients handler
- 2021-05-26T19:55:14.827Z INFO  nym_gateway::node > Starting mix socket listener...
- 2021-05-26T19:55:14.827Z INFO  nym_gateway::node::mixnet_handling::receiver::listener > Running mix listener on "194.195.246.82:1789"
- 2021-05-26T19:55:14.827Z INFO  nym_gateway::node::mixnet_handling::receiver::listener > Starting mixnet listener at 194.195.246.82:1789
- 2021-05-26T19:55:14.827Z INFO  nym_gateway::node                                      > Starting client [web]socket listener...
- 2021-05-26T19:55:14.827Z INFO  nym_gateway::node::client_handling::websocket::listener > Starting websocket listener at 194.195.246.82:9000
- 2021-05-26T19:55:14.827Z INFO  nym_gateway::node                                       > Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
+Validator servers: ["http://testnet-milhon-validator1.nymtech.net:1317"]
+Listening for incoming packets on 172.105.67.104
+Announcing the following address: 172.105.67.104
+Inboxes directory is: "/home/nym/.nym/gateways/supergateway/data/inboxes"
+Clients ledger is stored at: "/home/nym/.nym/gateways/supergateway/data/client_ledger.sled"
+ 2021-07-20T15:08:36.751Z INFO  nym_gateway::node > Starting nym gateway!
+ 2021-07-20T15:08:36.849Z INFO  nym_gateway::node > Starting mix packet forwarder...
+ 2021-07-20T15:08:36.849Z INFO  nym_gateway::node > Starting clients handler
+ 2021-07-20T15:08:36.850Z INFO  nym_gateway::node > Starting mix socket listener...
+ 2021-07-20T15:08:36.850Z INFO  nym_gateway::node::mixnet_handling::receiver::listener > Running mix listener on "172.105.67.104:1789"
+ 2021-07-20T15:08:36.850Z INFO  nym_gateway::node::mixnet_handling::receiver::listener > Starting mixnet listener at 172.105.67.104:1789
+ 2021-07-20T15:08:36.850Z INFO  nym_gateway::node                                      > Starting client [web]socket listener...
+ 2021-07-20T15:08:36.850Z INFO  nym_gateway::node::client_handling::websocket::listener > Starting websocket listener at 172.105.67.104:9000
+ 2021-07-20T15:08:36.850Z INFO  nym_gateway::node                                       > Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
+
 ```
 
 ### Configure your firewall
