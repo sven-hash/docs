@@ -354,9 +354,9 @@ Subcommand help is also available, e.g.:
 ./nym-mixnode upgrade --help
 ```
 
-## Virtual IPs, Google, AWS, and all that
+## Virtual IPs and hosting via Google & AWS
 
-On some services (e.g. AWS, Google), the machine's available bind address is not the same as the public IP address. In this case, bind `--host` to the local machine address returned by `ifconfig`, but also specify `--announce-host` with the public IP. Please make sure that you pass the correct, routable `--announce-host`.
+On some services (AWS, Google, etc), the machine's available bind address is not the same as the public IP address. In this case, bind `--host` to the local machine address returned by `ifconfig`, but also specify `--announce-host` with the public IP. Please make sure that you pass the correct, routable `--announce-host`.
 
 For example, on a Google machine, you may see the following output from the `ifconfig` command:
 
@@ -368,7 +368,7 @@ ens4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
 
 The `ens4` interface has the IP `10.126.5.7`. But this isn't the public IP of the machine, it's the IP of the machine on Google's internal network. Google uses virtual routing, so the public IP of this machine is something else, maybe `36.68.243.18`.
 
-`nym-mixnode init --host 10.126.5.7`, inits the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
+`nym-mixnode init --host 10.126.5.7`, initializes the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
 
 Trying `nym-mixnode init --host 36.68.243.18`, you'll get back a startup error saying `AddrNotAvailable`. This is because the mixnode doesn't know how to bind to a host that's not in the output of `ifconfig`.
 
@@ -378,7 +378,7 @@ This will bind the mixnode to the available host `10.126.5.7`, but announce the 
 
 ## Mixnode Hardware Specs
 
-For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput. So don't bother provisioning a beastly server with many cores.
+For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput. So don't bother provisioning a beastly server with multiple cores.
 
 - Processors: 2 cores are fine. Get the fastest CPUs you can afford.
 - RAM: Memory requirements are very low - typically a mixnode may use only a few hundred MB of RAM.
