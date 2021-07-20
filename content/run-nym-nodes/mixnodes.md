@@ -18,6 +18,11 @@ After your build is finished, the `nym-mixnode` binary will be located in `/path
 
 Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
+{{< attention title=" " >}}
+Please note that unless you ran a mixnode in the Finney testnet, **you will not be able to get PUNKs and bond your mixnode for the Milhon testnet**. 
+Instead please look into delegated staking for how you can get involved. 
+{{< /attention >}}
+
 ## Upgrading your mixnode from an earlier version
 
 If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
@@ -62,12 +67,12 @@ If you do update anything in your `config.toml` file, remember to restart your m
 
 ## Claim your mixnode in Telegram to recieve tokens
 
-Testnet {{< param testnetName >}}, which works with version 0.10.x of the Nym mixnode, introduces the concept of "mixnode bonding". Each mixnode operator needs to get tokens, and bond them in our blockchain, in order to enter Testnet {{< param testnetName >}}.
+In order to take part in Testnet {{< param testnetName >}} each mixnode operator needs to get {{< param testnetToken >}}, and bond them in the blockchain. 
 
-To claim your mixnode, run the `sign` command, and provide your Telegram username:
+To claim your mixnode, run the `sign` command:
 
 ```shell
-./nym-mixnode sign --id winston-smithnode --text @your-telegram-username
+./nym-mixnode sign --id winston-smithnode --text "@your_telegram_username your-punk-wallet-address"
 
 
       _ __  _   _ _ __ ___
