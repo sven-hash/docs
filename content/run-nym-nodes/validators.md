@@ -195,6 +195,8 @@ Add the Nym validator as a persistent peer so that your validator can start pull
 - `cors_allowed_origins = ["*"]` allows the web wallet to make HTTPS requests to your validator.
 - `persistent_peers = "d6265e7c885eda002ef8736d2270bcbfb346a3aa@testnet-{{< param testnetNameLowercase >}}-validator1.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
 - `create_empty_blocks = false` may save a bit of space
+- `laddr = "tcp://0.0.0.0:26656"` in your `p2p configuration options` 
+
 
 Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics then the following must also match in the `config.toml`:
 
