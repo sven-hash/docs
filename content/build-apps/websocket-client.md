@@ -14,7 +14,7 @@ From inside the `nym` directory, the `nym-client` binary got built to the `./tar
 `./nym-client`
 
 ```shell
-$ ./nym-client
+nym@localhost:~$ ./nym-client
 
 
       _ __  _   _ _ __ ___
@@ -48,7 +48,7 @@ Initializing a new client instance can be done with the following command:
 When you initialize a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
 ```shell
-$ tree ~/.nym/clients/alice/
+nym@localhost:~$ tree ~/.nym/clients/alice/
 /home/dave/.nym/clients/alice/
 ├── config
 │   └── config.toml
@@ -59,7 +59,7 @@ $ tree ~/.nym/clients/alice/
 
 The file `config.toml` contains client configuration options, while the two `pem` files contain client key information.
 
-Have a look at the generated files if you'd like - they contain the client name, public/private keypairs, and gateway address. The name `alice` in the example above is just a local identifier so that you can name your clients; it is never transmitted over the network.
+The generated files contain the client name, public/private keypairs, and gateway address. The name `alice` in the example above is just a local identifier so that you can name your clients; it is never transmitted over the network.
 
 ## Running the native client
 
