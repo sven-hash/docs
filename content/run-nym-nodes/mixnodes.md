@@ -37,7 +37,7 @@ Once you have rebonded your node with PUNK, the rest of the balance in your mixn
 
 ## Initialize your mixnode
 
-If you are new to Nym, here's how you initialize a mixnode:
+Here's how you initialize a mixnode if you are running one locally for testing, or just curious:
 
 ```shell
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
