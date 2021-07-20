@@ -20,7 +20,7 @@ Alternatively, you can fetch the binaries from our [releases page](https://githu
 
 {{< attention title=" " >}}
 Please note that unless you ran a mixnode in the Finney testnet, **you will not be able to get PUNKs and bond your mixnode for the Milhon testnet**. 
-Instead please look into delegated staking for how you can get involved. 
+Instead please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301) for how you can get involved. 
 {{< /attention >}}
 
 ## Upgrading your mixnode from an earlier version
@@ -42,6 +42,10 @@ If you are new to Nym, here's how you initialize a mixnode:
 ```shell
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
 ```
+
+{{< attention title=" " >}}
+Remember that if you did not take part in the Finney testnet, **you will not be able to get PUNKs and bond your mixnode for the Milhon testnet**. 
+{{< /attention >}}
 
 To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service.
 
