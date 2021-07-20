@@ -28,6 +28,8 @@ nym@localhost:~$ ./nym-client
 
 
 usage: --help to see available options.
+
+
 ```
 
 There are two commands you can issue to the client.
