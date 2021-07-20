@@ -27,14 +27,14 @@ testnetToken = "PUNK"
 bech32Prefix = "punk"
 
 # BINARY VERSIONS
-stable = "0.10.2"
-mixnodestable = "0.10.2"
-validatorstable = "0.10.2"
-gatewaystable = "0.10.1"
-requesterstable = "0.10.2"
-clientstable = "0.10.1"
-socks5stable = "0.10.1"
-validatorapistable = "0.10.1"
+stable = "0.11.0"
+mixnodestable = "0.11.0"
+validatorstable = "0.11.0"
+gatewaystable = "0.11.0"
+requesterstable = "0.11.0"
+clientstable = "0.11.0"
+socks5stable = "0.11.0"
+validatorapistable = "0.11.0"
 
 [frontmatter]
 date = ["date", "publishDate"]
