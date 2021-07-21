@@ -3,6 +3,7 @@ title: Community
 weight: 70
 description: "Some (slowly expanding) notes on the Nym project, its community and governance."
 ---
+{{< lastmodified >}}
 
 ## Get involved!
 

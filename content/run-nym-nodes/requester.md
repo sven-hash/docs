@@ -3,24 +3,25 @@ title: Requesters
 weight: 37
 description: "Run a requester proxy for the benefit of the community."
 ---
+{{< lastmodified >}}
 
-{{% notice info %}}
-The `nym-network-requester` was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-{{% /notice %}}
+{{< note title=" " >}}
+The Nym network requester was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+{{< /note >}}
 
 If you have access to a server, you can run the nym-network-requester, which allows Nym users to make outbound network requests from your server.
 
 The nym-network-requester is NOT an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets.
 
-## Running nym-network-requester
+## Running your network requester
 
-You can run the requester yourself, by taking the following steps.
+You can run the requester yourself by taking the following steps.
 
-First of all, choose which gateway to connect to. At the time of writing there are two gateways on the testnet, both run by Nym. They can be found in the 'Gateways' [section of the explorer](https://testnet-finney-explorer.nymtech.net/nym/gate-list).
+First of all, choose which gateway to connect to. At the time of writing there are two gateways on the testnet, both run by Nym. They can be found in the 'Gateways' [section of the explorer](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/nym/gate-list).
 
 Next, run following commands from the top-level `nym` directory you built previously, including the gateway of your choice:
 
-```sh
+```shell
 # Initialize then run your Nym client in a new screen (adapt as necessary for `tmux` or `nohup`)
 screen -S nym-client
 ./target/release/nym-client init --gateway <GATEWAY_ADDRESS> --id nym-network-requester-client
@@ -37,7 +38,7 @@ The `nym-network-requester` will attach to the already running `nym-client`.
 
 Make a note of the address of the client when it starts up:
 
-```
+```shell
  2020-09-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: EzvzfN4baf3ULUbAmExQELUWMQry7qqVDibSyekR31KE.4khUuTUyYTWiLki3SKbxeG2sP3mwgn9ykBhvtyaLfMdN@DiYR9o8KgeQ81woKPYVAu4LNaAEg8SWkiufDCahNnPov
 ```
 
@@ -53,9 +54,9 @@ If you want, you can just use the domains in the default `allowed.list`, by runn
 
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
-{{% notice info %}}
-If you change your allowed.list, make sure you restart nym-network-requester to pick up the new allowed request list
-{{% /notice %}}
+  {{< attention title=" " >}}
+  If you change your `allowed.list`, make sure you restart nym-network-requester to pick up the new allowed request list
+  {{< /attention >}}
 
 ## Adding URLs for other clients
 
@@ -63,7 +64,7 @@ It would suck if Nym was restricted to only three clients. How can we add suppor
 
 Have a look in your nym-network-requester config directory:
 
-```
+```shell
 ls $HOME/.nym/service-providers/network-requester/
 
 # returns: allowed.list  unknown.list

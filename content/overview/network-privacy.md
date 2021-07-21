@@ -3,6 +3,7 @@ title: Network Privacy
 weight: 30
 description: "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet."
 ---
+{{< lastmodified >}}
 
 When you send data across the internet, it can be recorded by a wide range of observers: your ISP, internet infrastructure providers, large tech companies, and governments.
 

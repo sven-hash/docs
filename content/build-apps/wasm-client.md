@@ -3,12 +3,13 @@ title: "Webassembly client"
 weight: 45
 description: "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users"
 ---
+{{< lastmodified >}}
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 
 You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) via `npm` from its package page, or with:
 
-```sh
+```shell
 npm i @nymproject/nym-client-wasm
 ```
 
@@ -81,9 +82,9 @@ Sending JSON is fairly simple. If you're playing with the wasm example app, just
 
 ### Think about what you're sending!
 
-{{% notice warning %}}
+{{< attention title=" " >}}
 Think about what information your app sends. That goes for whatever you put into your Sphinx packet messages as well as what your app's environment may leak.
-{{% /notice %}}
+{{< /attention >}}
 
 Whenever you write client peaps using HTML/JavaScript, we recommend that you do not load external resources from CDNs. Webapp developers do this all the time, to save load time for common resources, or just for convenience. But when you're writing privacy apps it's better not to make these kinds of requests. Pack everything locally.
 

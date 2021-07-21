@@ -3,6 +3,11 @@ title: KeyBase
 weight: 37
 description: "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how."
 ---
+{{< lastmodified >}}
+
+{{< note title=" " >}}
+You need to [run the Nym Socks5 client](/docs/use-apps/) before following the instructions on this page.
+{{< /note >}}
 
 We have added support for KeyBase (which we use for our own internal chat). Feel free to try that out and say hello!
 
