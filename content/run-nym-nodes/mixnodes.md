@@ -31,7 +31,7 @@ If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`
 ./nym-mixnode upgrade --id your-node-id
 ```
 
-Claim your mixnode in the new testnet by following the steps in the 'Claim your mixnode in Telegram to recieve tokens' section below. 
+Claim your mixnode in the new testnet by following the steps in the 'Claim your mixnode in Telegram to receive tokens' section below. 
 
 ## Initialize your mixnode
 
@@ -63,7 +63,7 @@ If you do update anything in your `config.toml` file, remember to restart your m
 {{< /attention >}}
 
 
-## Claim your mixnode in Telegram to recieve tokens
+## Claim your mixnode in Telegram to receive tokens
 
 In order to take part in Testnet {{< param testnetName >}} each mixnode operator needs to get {{< param testnetToken >}}, and bond them in the blockchain. 
 
