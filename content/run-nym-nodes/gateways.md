@@ -110,6 +110,8 @@ To bond your gateway you will [most likely] need to provide the following:
 
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
 
+Remember to bond your node via the [{{< param testnetName >}} Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/)! This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
+
 ## Running your gateway
 
 The `run` command runs the gateway.

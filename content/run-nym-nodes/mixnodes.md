@@ -31,7 +31,7 @@ If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`
 ./nym-mixnode upgrade --id your-node-id
 ```
 
-Once you've upgraded, **make sure to unbond and then rebond your node** via the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
+Once you've upgraded, **make sure to unbond and then rebond your node** via the [{{< param testnetName >}} Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
 
 Once you have rebonded your node with PUNK, the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface.
 

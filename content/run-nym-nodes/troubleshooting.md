@@ -114,7 +114,7 @@ We currently have an API set up returning our metrics tests of the network. Ther
 If you are still unable to see your node on the [dashboard](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net/), or your node is declaring it has not mixed any packets, there are several potential issues:
 
 - The firewall on your host machine is not configured properly.
-- You provided incorrect information when bonding your node via the [web wallet](web-wallet-{{< param testnetNameLowercase >}}.nymtech.net)
+- You provided incorrect information when bonding your node via the [web wallet](https://testnet-milhon-wallet.nymtech.net/)
 - You are running your mixnode from a VPS without IPv6 support.
 - You did not use the `--announce-host` flag while running the mixnode from your local machine behind NAT.
 - You did not configure your router firewall while running the mixnode from your local machine behind NAT, or you are lacking IPv6 support.
@@ -149,7 +149,7 @@ sudo ufw status
 
 ### Incorrect bonding information
 
-Check that you have provided the correct information when bonding your mixnode in the web wallet [interface](web-wallet-{{< param testnetNameLowercase >}}.nymtech.net). When in doubt, unbond and then rebond your node!
+Check that you have provided the correct information when bonding your mixnode in the web wallet [interface](https://testnet-milhon-wallet.nymtech.net/). When in doubt, unbond and then rebond your node!
 
 ### Missing `announce-host` flag
 
@@ -255,7 +255,7 @@ Anytime you change your `systemd` service file you need to `sudo systemctl daemo
 
 ### Network configuration seems fine but log still claims `Since startup mixed 0 packets!`
 
-This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node via the [web wallet])(https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/). The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
+This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node via the [web wallet])(https://testnet-milhon-wallet.nymtech.net/). The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
 
 Also make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the `host` field must contain the _port_ on which your mixnode will listen:
 
