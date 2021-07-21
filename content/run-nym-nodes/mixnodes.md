@@ -69,7 +69,9 @@ If you do update anything in your `config.toml` file, remember to restart your m
 
 In order to take part in Testnet {{< param testnetName >}} each mixnode operator needs to get {{< param testnetToken >}}, and bond them in the blockchain. 
 
-To claim your mixnode, run the `sign` command:
+Go to the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
+
+Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `sign` command:
 
 ```shell
 ./nym-mixnode sign --id winston-smithnode --text "@your_telegram_username your-punk-wallet-address"
@@ -90,29 +92,21 @@ Signature is: 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsn
 
 You can claim your mixnode in Telegram by talking to our bot. To do so:
 
-* go to the '@nymchan_help_chat' channel
+* go to the '@nympunkbot' channel
 * copy the following line of text, and paste it into the channel
 
 /claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 ```
 
-Then enter the **@nymchan_help_chat** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key:
+Then enter the **[@nympunkbot](https://t.me/nympunkbot)** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key:
 
 ```shell
-/claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
+/transfer 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 ```
 
-This proves to the bot that your username owns the mixnode.
+This proves to the bot that your username owns the mixnode. 
 
-Next, go to the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
-
-Once you have a Nym testnet address, ask the Telegram bot for tokens:
-
-```shell
-/faucet {{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt # your address goes here!
-```
-
-The bot will send you tokens so that you can bond your mixnode. First, you'll need to run it.
+Now bond your mixnode in the web wallet, and you're all set. 
 
 ## Run your mixnode
 
