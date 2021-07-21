@@ -116,29 +116,34 @@ Should return a nice clean startup:
 
 ```shell
 
+
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
             |___/
 
-            (mixnode - version {{< param mixnodestable >}})
+             (mixnode - version {{< param mixnodestable >}})
 
+    
+Starting mixnode mix01...
+Validator servers: ["http://testnet-milhon-validator1.nymtech.net:1317", "http://testnet-milhon-validator2.nymtech.net:1317"]
+Listening for incoming packets on 89.144.210.254
+Announcing the following address: 89.144.210.254
 
-Starting mixnode winston-smithnode...
+To bond your mixnode, go to https://testnet-milhon-wallet.nymtech.net/.  You will need to provide the following:
+    Identity key: D5yLugjknoZ8gwEjQVvFSVckNPur6qYLSPFsKJcZUruR
+    Sphinx key: Fh7BjMTYv4KAzXjoFzsz3PUpJ2wT2i6fsSTDQQuJ916Y
+    Address: 89.144.210.254
+    Version: 0.11.0
+    
+ 2021-07-21T13:31:34.672Z INFO  nym_mixnode::node > Starting nym mixnode
+ 2021-07-21T13:31:35.083Z INFO  nym_mixnode::node > Starting node stats controller...
+ 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
+ 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node > Starting socket listener...
+ 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node::listener > Running mix listener on "89.144.210.254:1789"
+ 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
 
-Directory server [presence]: http://testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:1317
-Directory server [metrics]: http://testnet-metrics.nymtech.net:8080
-Listening for incoming packets on <your-ip>:1789
-Announcing the following socket address: <your-ip>:1789
-
-To bond your mixnode, go to https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/.  You will need to provide the following:
-    Identity key: 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz
-    Sphinx key: 6T6PpSAzaiHMKJQPKPABXzppxLtUDB3TB4ChM16t3oYP
-    Host: <your-ip>:1789
-    Layer: 3
-    Location: [physical location of your node's server]
-    Version: {{< param mixnodestable >}}
 
 ```
 
