@@ -31,9 +31,7 @@ If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`
 ./nym-mixnode upgrade --id your-node-id
 ```
 
-Once you've upgraded, **make sure to unbond and then rebond your node** via the [{{< param testnetName >}} Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/)! This is required for the blockchain to recognize your node and its software version.
-
-Once you have rebonded your node with PUNK, the rest of the balance in your mixnode will be returned to your wallet. Make sure to check your balance via the web wallet interface.
+Claim your mixnode in the new testnet by following the steps in the 'Claim your mixnode in Telegram to recieve tokens' section below. 
 
 ## Initialize your mixnode
 
@@ -69,7 +67,7 @@ If you do update anything in your `config.toml` file, remember to restart your m
 
 In order to take part in Testnet {{< param testnetName >}} each mixnode operator needs to get {{< param testnetToken >}}, and bond them in the blockchain. 
 
-Go to the [{{< param testnetName >}} Testnet web wallet](https://web-wallet-{{< param testnetNameLowercase >}}.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
+Go to the [{{< param testnetName >}} Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `sign` command:
 
@@ -104,7 +102,7 @@ Then enter the **[@nympunkbot](https://t.me/nympunkbot)** channel on Telegram an
 
 This proves to the bot that your username owns the mixnode. 
 
-Now bond your mixnode in the web wallet, and you're all set. 
+Now bond your mixnode in the [Milhon web wallet](https://testnet-milhon-wallet.nymtech.net/), and you're all set. 
 
 ## Run your mixnode
 
