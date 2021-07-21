@@ -59,7 +59,7 @@ During the `init` process you will have the option to change the `http_api`, `ve
 
 
 {{< attention title=" " >}}
-If you do update anything in your `config.toml` file, remember to restart your mixnode process for the changes to take effect.
+**Do not send tokens to `punk10pyejy66429refv3g35g2t7am0was7yalwrzen` thinking this is your address - this is the address of the mixnet smart contract**.
 {{< /attention >}}
 
 
