@@ -5,16 +5,16 @@ description: "How to run the Nym websocket client on a desktop or server machine
 ---
 {{< lastmodified >}}
 
-{{% notice info %}}
+{{< note title=" " >}}
 The Nym Websocket Client was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-{{% /notice %}}
+{{< /note >}}
 
-From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your \$PATH):
+From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your `$PATH`):
 
 `./nym-client`
 
 ```shell
-$ ./nym-client
+nym@localhost:~$ ./nym-client
 
 
       _ __  _   _ _ __ ___
@@ -23,11 +23,13 @@ $ ./nym-client
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version {{< param stable >}} )
+             (client - version {{< param clientstable >}} )
 
 
 
 usage: --help to see available options.
+
+
 ```
 
 There are two commands you can issue to the client.
@@ -48,7 +50,7 @@ Initializing a new client instance can be done with the following command:
 When you initialize a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
 ```shell
-$ tree ~/.nym/clients/alice/
+nym@localhost:~$ tree ~/.nym/clients/alice/
 /home/dave/.nym/clients/alice/
 ├── config
 │   └── config.toml
@@ -59,7 +61,7 @@ $ tree ~/.nym/clients/alice/
 
 The file `config.toml` contains client configuration options, while the two `pem` files contain client key information.
 
-Have a look at the generated files if you'd like - they contain the client name, public/private keypairs, and gateway address. The name `alice` in the example above is just a local identifier so that you can name your clients; it is never transmitted over the network.
+The generated files contain the client name, public/private keypairs, and gateway address. The name `alice` in the example above is just a local identifier so that you can name your clients; it is never transmitted over the network.
 
 ## Running the native client
 
@@ -71,9 +73,7 @@ You can run the `alice` client by doing this:
 
 When you run the client, it immediately starts generating (fake) cover traffic and sending it to the Nym testnet.
 
-{{% notice info %}}
 Congratulations, you have just contributed a tiny bit of privacy to the world! `<CTRL-C>` to stop the client.
-{{% /notice %}}
 
 When the client is first started, it will reach out to the Nym network's validators, and get a list of available Nym nodes (gateways, mixnodes, and validators). We call this list of nodes the network _topology_. The client does this so that it knows how to connect, register itself with the network, and know which mixnodes it can route Sphinx packets through.
 

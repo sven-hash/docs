@@ -7,8 +7,9 @@ description: "Build your first Nym privacy enhanced application, a simple chat a
 
 Before we start, the obligatory immature cryptography warning.
 
-{{% notice warning %}}
-Please, don't depend on our code for strong privacy (yet). We are still at an early stage.{{% /notice %}}
+{{< attention title=" " >}}
+Please, don't depend on our code for strong privacy (yet). We are still at an early stage.
+{{< /attention >}}
 
 Having said that, we are aiming to bring very strong privacy guarantees to users and service providers, and you want to see how it works. So let's dance.
 
@@ -19,7 +20,7 @@ This quickstart demonstrates how you can use Nym from webassembly-capable browse
 
 Install [npm](https://www.npmjs.com/get-npm) for your platform. Then, from the top-level `nym` directory:
 
-```sh
+```shell
 cd clients/webassembly/js-example
 npm install
 npm run start
@@ -250,6 +251,6 @@ Sending JSON is totally possible, just stick it into the message box and send it
 
 So far, we've just scratched the surface. See the [Build Privacy Applications](/docs/build-peapps) docs for a discussion of anonymous replies, key storage, running mixnodes, writing Service Providers, and using other languages to talk to the mixnet.
 
-{{% notice info %}}
+{{< tip title=" " >}}
 If you run into trouble, please ask for help in the channel **nymtech.friends#general** on [KeyBase](https://keybase.io).
-{{% /notice %}}
+{{< /tip >}}

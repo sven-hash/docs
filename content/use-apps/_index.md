@@ -5,9 +5,10 @@ description: "Tutorials for building Privacy Enhanced Applications (or integrati
 ---
 {{< lastmodified >}}
 
-{{% notice info %}}
+{{< note title=" " >}}
 The Nym SOCKS5 Client was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-{{% /notice %}}
+{{< /note >}}
+
 
 Nym is a general purpose system. We aim to provide the strongest possible protections for internet traffic and transactions.
 
@@ -23,9 +24,9 @@ Note that the nym-network-requester we're running works only for specific applic
 
 ## Running the nym-socks5-client
 
-{{% notice warning %}}
+{{< attention title=" " >}}
 **Obligatory disclaimer time:** The Nym mixnet is still under construction and has not undergone a security audit. Do not rely on it for strong privacy (yet).
-{{% /notice %}}
+{{< /attention >}}
 
 After building the Nym platform code, initialize `nym-socks5-client`:
 

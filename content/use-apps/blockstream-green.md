@@ -5,9 +5,9 @@ description: "You can protect your Blockstream Green transactions from network e
 ---
 {{< lastmodified >}}
 
-{{% notice info %}}
+{{< note title=" " >}}
 You need to [run the Nym Socks5 client](/docs/use-apps/) before following the instructions on this page.
-{{% /notice %}}
+{{< /note >}}
 
 [Blockstream Green](https://blockstream.com/green/) is a BitCoin and Liquid wallet. Since it supports Socks5, it can use Nym. Set your proxy settings in Green as follows.
 
