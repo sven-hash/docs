@@ -5,9 +5,10 @@ description: "You can protect your Electrum transactions from network eavesdropp
 ---
 {{< lastmodified >}}
 
-{{% notice info %}}
+{{< note title=" " >}}
 You need to [run the Nym Socks5 client](/docs/use-apps/) before following the instructions on this page.
-{{% /notice %}}
+{{< /note >}}
+
 
 Here's how you use Electrum with Nym's Socks5 client:
 
