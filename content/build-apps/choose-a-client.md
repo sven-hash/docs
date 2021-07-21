@@ -3,6 +3,7 @@ title: "Choose a client"
 weight: 30
 description: "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose."
 ---
+{{< lastmodified >}}
 
 In the previous section, we got a general overview of the application flow when you're building Nym-enabled apps. Now it's time to understand a bit about how to structure your app by choosing a Nym client.
 
