@@ -3,7 +3,6 @@ title: "Mixnodes"
 weight: 30
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 ---
-{{< lastmodified >}}
 
 {{< lastmodified >}}
 
