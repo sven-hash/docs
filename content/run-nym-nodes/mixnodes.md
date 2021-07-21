@@ -102,6 +102,8 @@ Then enter the **[@nympunkbot](https://t.me/nympunkbot)** channel on Telegram an
 
 This proves to the bot that your username owns the mixnode. 
 
+Once the tokens arrive, bond your mixnode in the [Milhon web wallet](https://testnet-milhon-wallet.nymtech.net/) before running your node. 
+
 ## Run your mixnode
 
 ```shell
@@ -142,8 +144,6 @@ To bond your mixnode, go to https://testnet-milhon-wallet.nymtech.net/.  You wil
 
 
 ```
-
-Once the tokens arrive, go back to the web wallet and fill in the mixnode bonding form, using your mixnode's info.
 
 If everything worked, you'll see your node running at https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net.
 
