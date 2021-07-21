@@ -182,7 +182,7 @@ sudo ufw status
 
 For more information about your gateway's port configuration, check the [gateway port reference table]({{< ref "#gateway-port-reference" >}}) below.
 
-## Automating your mixnode with systemd
+## Automating your gateway with systemd
 
 Although it's not totally necessary, it's useful to have the gateway automatically start at system boot time. Here's a systemd service file to do that:
 
