@@ -21,7 +21,7 @@ sudo apt update
 sudo apt install pkg-config build-essential libssl-dev curl jq
 ```
 
-- `Rust & cargo >= v1.47`
+- `Rust & cargo >= v1.51`
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
 
