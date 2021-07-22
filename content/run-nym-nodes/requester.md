@@ -24,7 +24,7 @@ Next, run following commands from the top-level `nym` directory you built previo
 ```shell
 # Initialize then run your Nym client in a new screen (adapt as necessary for `tmux` or `nohup`)
 screen -S nym-client
-./target/release/nym-client init --gateway <GATEWAY_ADDRESS> --id nym-network-requester-client
+./target/release/nym-client init --gateway <GATEWAY_IDENTIY_KEY> --id nym-network-requester-client
 ./target/release/nym-client run --id nym-network-requester-client
 # exit screen with Ctrl+a / d
 
@@ -39,7 +39,7 @@ The `nym-network-requester` will attach to the already running `nym-client`.
 Make a note of the address of the client when it starts up:
 
 ```shell
- 2020-09-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: EzvzfN4baf3ULUbAmExQELUWMQry7qqVDibSyekR31KE.4khUuTUyYTWiLki3SKbxeG2sP3mwgn9ykBhvtyaLfMdN@DiYR9o8KgeQ81woKPYVAu4LNaAEg8SWkiufDCahNnPov
+ 2021-07-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: BLJ6SrgbaYjb7Px32G7zSZnocuim3HT9n3ocKcwQHETd.4WAAh7xRxWVeiohcw44G8wQ5bGHMEvq8j9LctDkGKUC7@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
 Copy the whole address (format `xxx.yyy@zzz`) and keep it somewhere. You can use it yourself, give it to friends, or (if you would like to run a nym-network-requester for the whole Nym network) give it to us and we can put it in the Nym documentation.
@@ -58,6 +58,31 @@ Those URLs will let through requests for the Blockstream Green and Electrum cryp
   If you change your `allowed.list`, make sure you restart nym-network-requester to pick up the new allowed request list
   {{< /attention >}}
 
+## Configure your firewall
+
+Although your requester is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
+
+```shell
+# check if you have ufw installed
+ufw version
+# if it is not installed, install with
+sudo apt install ufw -y
+# enable ufw
+sudo ufw enable
+# check the status of the firewall
+sudo ufw status
+```
+
+Finally open your requester's p2p port, as well as ports for ssh and incoming traffic connections:
+
+```shell
+sudo ufw allow 1789,22,9000/tcp
+# check the status of the firewall
+sudo ufw status
+```
+
+For more information about your requester's port configuration, check the [requester port reference table]({{< ref "#requester-port-reference" >}}) below.
+
 ## Adding URLs for other clients
 
 It would suck if Nym was restricted to only three clients. How can we add support for a new application? It's fairly easy to do.
@@ -72,8 +97,22 @@ ls $HOME/.nym/service-providers/network-requester/
 
 We already know that `allowed.list` is what lets requests go through. All unknown requests are logged to `unknown.list`. If you want to try using a new client type, just start the new application, point it at your local SOCKS5 proxy (configured to use your remote `nym-network-requester`), and keep copying URLs from `unknown.list` into `allowed.list` (it may take multiple tries until you get all of them, depending on the complexity of the application).
 
-If you add support for a new application, we'd love to hear about it: let us know or submit a commented pull request on `allowed.list.sample`
+If you add support for a new application, we'd love to hear about it: let us know or submit a commented pull request on `allowed.list.sample`. 
+
+{{< attention title=" " >}}
+If you are adding custom domains, please note that whilst they may appear in the logs of your network-requester as something like `api-0.core.keybaseapi.com:443`, you **only need** to include the main domain name, in this instance `keybaseapi.com`
+{{< /attention >}}
 
 ## Running an open proxy
 
 If you really, really want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
+
+
+## Requester port reference
+
+All requester-specific port configuration can be found in `$HOME/.nym/clients/<YOUR_ID>/config/config.toml` & `$HOME/.nym/service-providers/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.
+
+| Default port | Use                       |
+|--------------|---------------------------|
+| 1789         | Listen for Mixnet traffic |
+| 9000         | Listen for Client traffic |
