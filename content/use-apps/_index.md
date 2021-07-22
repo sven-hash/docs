@@ -28,15 +28,19 @@ Note that the nym-network-requester we're running works only for specific applic
 **Obligatory disclaimer time:** The Nym mixnet is still under construction and has not undergone a security audit. Do not rely on it for strong privacy (yet).
 {{< /attention >}}
 
-After building the Nym platform code, initialize `nym-socks5-client`:
+After building the Nym platform code, initialize the client:
 
-`nym-socks5-client init --id my-socks5-client --provider Ei49VdLRx2d49Zhweqj77SGidhWoiU8nRtChXXd8NUor.AaoJyib37gG54GVaESivpCT2A35AQ3wQDh8WW7y3EYMn@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i`
+```shell
+nym-socks5-client init --id my-socks5-client --provider AFB7kzofcDSJ1feEJsfHE5uxq4wJecLz8MkWVywAzMCu.DZex1uSmS5iLxbc1zR96T1dDs9Wmi8ko7qjX4ACCTYQR@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
+```
 
-The `--provider` field needs to be filled with the Nym address of a `nym-network-requester` that can make network requests on your behalf. You can [run your own](/docs/run-nym-nodes/requester/) if you want.
+The `--provider` field needs to be filled with the Nym address of a `nym-network-requester` that can make network requests on your behalf. You can also [run your own](/docs/run-nym-nodes/requester/) if you want.
 
 Then run the socks5 client locally:
 
-`nym-socks5-client run --id my-socks5-client`
+```shell
+nym-socks5-client run --id my-socks5-client
+```
 
 This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`.
 
