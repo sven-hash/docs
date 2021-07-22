@@ -58,16 +58,16 @@ The `init` command will refuse to destroy existing mixnode keys.
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
 
 
-{{< attention title=" " >}}
-**Do not send tokens to `punk10pyejy66429refv3g35g2t7am0was7yalwrzen` thinking this is your address - this is the address of the mixnet smart contract**.
-{{< /attention >}}
-
 
 ## Claim your mixnode in Telegram to receive tokens
 
 In order to take part in Testnet {{< param testnetName >}} each mixnode operator needs to get {{< param testnetToken >}}, and bond them in the blockchain. 
 
 Go to the [{{< param testnetName >}} Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
+
+{{< attention title=" " >}}
+**Do not send tokens to `punk10pyejy66429refv3g35g2t7am0was7yalwrzen` thinking this is your address - this is the address of the mixnet smart contract**.
+{{< /attention >}}
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `sign` command:
 
