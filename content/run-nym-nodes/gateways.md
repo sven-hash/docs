@@ -18,8 +18,6 @@ When it starts up, a client registers itself with a gateway, and the gateway ret
 
 The default gateway implementation included in the Nym platform code holds packets for later retrieval. For many applications (such as simple chat), this is usable out of the box, as it provides a place that potentially offline clients can retrieve packets from. The access token allows clients to pull messages from the gateway node.
 
-If you would like to run a gateway for the network, please get in touch via **nymtech.friends#general** on [KeyBase](https://keybase.io) or [email us](mailto:max@nymtech.net).
-
 {{< table_of_contents >}}
 
 ## Initializing your gateway
