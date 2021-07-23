@@ -26,6 +26,6 @@ Alternately, to start a webserver, run:
 hugo -D  serve --enableGitInfo
 ```
 
-This will start up an HTTP server. View docs at http://localhost:1313/docs/.
+This will start up an HTTP server. View docs at http://localhost:1313/docs/. The `--enableGitInfo` flag is necessary for the `lastmodified` shortcode.  
 
 Edit the markdown content in the `/content/` directory, and your changes will be automatically shown in your browser. Happy editing!
