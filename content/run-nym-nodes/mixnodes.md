@@ -385,8 +385,8 @@ There are currently two options for getting information about your mixnode. `des
 
 | Endpoint       | Description                                                                                                                                                                                      | Command                                                                                                                               |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `/report`      | Returns the most recent node status test report                                                                                                                                                  | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_IP>/report`        |
-| `/history`     | Returns all previous test reports                                                                                                                                                                | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_IP>/history`       |
+| `/report`      | Returns the most recent node status test report                                                                                                                                                  | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/report`        |
+| `/history`     | Returns all previous test reports                                                                                                                                                                | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/history`       |
 | `/description` | Returns the description of your node set with the `describe` command. See <br>['Describe your mixnode']( {{< ref "#describe-your-mixnode-optional" >}} ) <br>above for more information on this. | `curl <YOUR_NODE_IP>:8000/description`                                                                                                |
 | `/verloc`      | Returns the verloc information of your node, which is updated every 12 hours.                                                                                                                    | `curl <YOUR_NODE_IP>:8000/verloc`                                                                                                     |
 
@@ -402,11 +402,11 @@ There several metrics of interest returned by `/report` regarding your mixnode's
 - `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
 - `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
 
-You can also access reports for _all_ mixnodes at with: 
+<!-- You can also access reports for _all_ mixnodes at with: 
 
 ```shell
 curl http://testnet-milhon-validator1.nymtech.net:8080/v1/status/mixnodes/all/report
-```
+``` -->
 
 ## Mixnode port reference
 
