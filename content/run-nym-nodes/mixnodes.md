@@ -65,14 +65,10 @@ In order to take part in Testnet {{< param testnetName >}} each mixnode operator
 
 Go to the [{{< param testnetName >}} Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/) and create a Nym address. It will look something like `{{< param bech32Prefix >}}1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
 
-{{< attention title=" " >}}
-**Do not send tokens to `punk10pyejy66429refv3g35g2t7am0was7yalwrzen` thinking this is your address - this is the address of the mixnet smart contract**.
-{{< /attention >}}
-
 Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `sign` command:
 
 ```shell
-./nym-mixnode sign --id winston-smithnode --text "@your_telegram_username your-punk-wallet-address"
+./nym-mixnode sign --id winston-smithnode --text "@<YOUR_TELEGRAM_USERNAME> <YOUR_PUNK_WALLET_ADDRESS>"
 
 
       _ __  _   _ _ __ ___
@@ -81,26 +77,32 @@ Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `s
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version {{< param mixnodestable >}})
+             (mixnode - version 0.11.0)
 
+    
+Signing the text "@winston_smithnode_telegram punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt" using your mixnode's Ed25519 identity key...
 
-Signing the text "@your-telegram-username" using your mixnode\'s Ed25519 identity key...
+Signature is: 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
 
-Signature is: 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
+You can claim your mixnode in Telegram by talking to our bot. To do so:
 
-* go to the '@nympunkbot' channel
+* go to the 'https://t.me/nympunkbot' channel
 * copy the following line of text, and paste it into the channel
 
-/transfer 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
+/transfer punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
 ```
 
 Then enter the **[@nympunkbot](https://t.me/nympunkbot)** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key:
 
 ```shell
-/transfer 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
+/transfer punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
 ```
 
 This proves to the bot that your username owns the mixnode. 
+
+{{< attention title=" " >}}
+**Do not send tokens to `punk10pyejy66429refv3g35g2t7am0was7yalwrzen` thinking this is your address - this is the address of the mixnet smart contract**.
+{{< /attention >}}
 
 ## Run your mixnode
 
@@ -122,7 +124,7 @@ Should return a nice clean startup:
              (mixnode - version {{< param mixnodestable >}})
 
     
-Starting mixnode mix01...
+Starting mixnode winston-smithnode...
 Validator servers: ["http://testnet-milhon-validator1.nymtech.net:1317", "http://testnet-milhon-validator2.nymtech.net:1317"]
 Listening for incoming packets on 89.144.210.254
 Announcing the following address: 89.144.210.254
@@ -145,7 +147,7 @@ To bond your mixnode, go to https://testnet-milhon-wallet.nymtech.net/.  You wil
 
 Now bond your mixnode in the [Milhon web wallet](https://testnet-milhon-wallet.nymtech.net/) before running your node. 
 
-If everything worked, you'll see your node running at https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net.
+If everything worked, you'll see your node running on the [Milhon network explorer](https://testnet-{{< param testnetNameLowercase >}}-explorer.nymtech.net).
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
@@ -402,11 +404,6 @@ There several metrics of interest returned by `/report` regarding your mixnode's
 - `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
 - `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
 
-<!-- You can also access reports for _all_ mixnodes at with: 
-
-```shell
-curl http://testnet-milhon-validator1.nymtech.net:8080/v1/status/mixnodes/all/report
-``` -->
 
 ## Mixnode port reference
 
