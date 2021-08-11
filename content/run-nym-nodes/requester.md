@@ -48,14 +48,6 @@ Client configuration completed.
 The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
-Make a note of the address of the client when it starts up:
-
-```shell
- 2021-07-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: BLJ6SrgbaYjb7Px32G7zSZnocuim3HT9n3ocKcwQHETd.4WAAh7xRxWVeiohcw44G8wQ5bGHMEvq8j9LctDkGKUC7@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-```
-
-
-
 Now create a service file at `/etc/systemd/system/nym-client.service`: 
 
 ```shell
@@ -84,6 +76,14 @@ systemctl start nym-client.service
 
 # you can always check your client has succesfully started with: 
 systemctl status nym-client.service
+```
+
+With `systemctl status nym-client.service` you should be able to see the address of the client at startup. Alternatively you can use `journalctl -t nym-client -o cat -f` to get the output of the client in your console as it comes in. 
+
+Make a note of the client's address:
+
+```shell
+ 2021-07-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: BLJ6SrgbaYjb7Px32G7zSZnocuim3HT9n3ocKcwQHETd.4WAAh7xRxWVeiohcw44G8wQ5bGHMEvq8j9LctDkGKUC7@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
 ## Running your network requester 
