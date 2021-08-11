@@ -23,6 +23,11 @@ Please note that unless you ran a mixnode in the Finney testnet, **you will not 
 Instead please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301) for how you can get involved. 
 {{< /attention >}}
 
+{{< attention title=" " >}}
+If you **do** delegate your PUNKs to others and shut down your node, remember to **save the keys located in `$HOME/.nym`!**
+{{< /attention >}}
+
+
 ## Upgrading your mixnode from an earlier version
 
 If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
