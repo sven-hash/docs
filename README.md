@@ -10,22 +10,21 @@ Contributions to our documentation are very welcome. Please shoot us a pull requ
 
 Requirements:
 
-- Hugo (get it from https://gohugo.io/getting-started/installing/)
+* `NodeJS` 
+* `npm` 
 
-Clone the docs from Github and `cd docs`.
+Clone the docs from Github, then `cd docs`, then `npm i --save` to install dependencies. 
 
-The docs are built using Hugo, a go-based static site generator. To build static HTML just do:
+To develop the docs locally, run:
 
-```
-hugo
-```
-
-Alternately, to start a webserver, run:
-
-```
-hugo -D  serve --enableGitInfo
+```console
+npm run start
 ```
 
-This will start up an HTTP server. View docs at http://localhost:1313/docs/. The `--enableGitInfo` flag is necessary for the `lastmodified` shortcode.  
+The site is served at `http://localhost:3000/`
 
-Edit the markdown content in the `/content/` directory, and your changes will be automatically shown in your browser. Happy editing!
+To generate static content into `/build/` run:
+
+```console
+npm run build
+```

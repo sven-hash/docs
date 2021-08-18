@@ -1,0 +1,9 @@
+FORMATTING ETC
+- themes - pick a good light and dark 
+- sort base redirect 
+
+FOR VERSIONING 
+- translations enable 
+- versioning once 0.11.0 is done 
+- https://docusaurus.io/docs/versioning#figure-out-the-behavior-for-the-current-version
+- https://docusaurus.io/docs/api/themes/configuration#navbar-dropdown
