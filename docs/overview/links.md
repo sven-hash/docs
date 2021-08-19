@@ -1,10 +1,11 @@
 ---
 sidebar_label: Links
 description: "Here are some links that may prove handy as you start exploring Nym, and the Nym community."
-hide_title: true 
+hide_title: false
+title: Links
 ---
 
-<br />
+ 
 
 Here are some links that may prove handy as you start exploring.
 

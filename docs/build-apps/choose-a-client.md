@@ -1,10 +1,11 @@
 ---
 sidebar_label: "Choose a client"
-hide_title: true 
+hide_title: false
 description: "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose."
+title: "Choose a client "
 ---
 
-<br />
+ 
 
 In the previous section, we got a general overview of the application flow when you're building Nym-enabled apps. Now it's time to understand a bit about how to structure your app by choosing a Nym client.
 

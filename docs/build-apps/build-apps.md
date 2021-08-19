@@ -1,10 +1,11 @@
 ---
 sidebar_label: Introduction
-hide_title: true 
+hide_title: false
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
+title: "Build Nym Apps"
 ---
 
-<br />
+ 
 
 If you are a coder, we invite you to build **privacy enhanced applications** using Nym.
 

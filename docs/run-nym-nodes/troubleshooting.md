@@ -1,10 +1,11 @@
 ---
 sidebar_label: "Mixnode Troubleshooting FAQ"
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
-hide_title: true 
+hide_title: false
+title: Mixnode Troubleshooting FAQ
 ---
 
-<br />
+ 
 
 ### How can I tell my node is up and running and mixing traffic?
 

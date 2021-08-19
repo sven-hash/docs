@@ -1,10 +1,11 @@
 ---
 sidebar_label: Nym vs other systems
 description: "A comparison of Nym and other privacy systems"
-hide_title: true 
+hide_title: false
+title: Nym vs other systems
 ---
 
-<br />
+ 
 
 Nym is the first system we're aware of which provides integrated protection on both the network and transaction level at once. We think that this seamless approach gives the best possible privacy protections, ensuring that nothing falls through the cracks between systems.
 

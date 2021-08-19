@@ -1,10 +1,11 @@
 ---
 sidebar_label: "Validators"
 description: "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities."
-hide_title: true 
+hide_title: false
+title: Validators
 ---
 
-<br />
+ 
 
 Nym validators secure the network with a staking token, defending the network from Sybil attacks.
 

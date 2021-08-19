@@ -1,10 +1,11 @@
 ---
 sidebar_label: Network Privacy
 description: "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet."
-hide_title: true 
+hide_title: false
+title: Network Privacy
 ---
 
-<br />
+ 
 
 When you send data across the internet, it can be recorded by a wide range of observers: your ISP, internet infrastructure providers, large tech companies, and governments.
 
@@ -13,6 +14,7 @@ Even if the _content_ of a network request is encrypted, observers can still see
 Claudia's lightning talk from Dappcon 2019 in Berlin gives a general overview of network privacy.
 
 <iframe width="560" height="380" src="https://www.youtube.com/embed/5A378jgYXSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br /><br />
 
 The Nym mixnet provides very strong security guarantees against this sort of surveillance. It _packetizes_ and _mixes_ together IP traffic from many users inside a _mixnet_: a decentralized system composed of many _mixnodes_.
 
@@ -27,6 +29,7 @@ To meet these new threats, the Nym mixnet re-orders encrypted, indistinguishable
 This short video features Ania discussing the Loopix mixnet design in detail at USENix 2017.
 
 <iframe width="560" height="380" src="https://www.youtube.com/embed/R-yEqLX_UvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br /><br />
 
 There is a very non-technical introduction to mixnets in the blog post [A Simple Introduction to Mixnets](https://medium.com/nymtech/a-simple-introduction-to-mixnets-6783a103d20e). But here's the boiled-down explanation.
 

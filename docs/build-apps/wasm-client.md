@@ -1,10 +1,11 @@
 ---
 sidebar_label: "Webassembly client"
-hide_title: true 
+hide_title: false
 description: "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users"
+title: "Webassembly client"
 ---
 
-<br />
+ 
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 

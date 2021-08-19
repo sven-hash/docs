@@ -1,10 +1,11 @@
 ---
 sidebar_label: Community
-hide_title: true 
+hide_title: false
 description: "Some (slowly expanding) notes on the Nym project, its community and governance."
+title: Community
 ---
 
-<br />
+ 
 
 ### Get involved!
 

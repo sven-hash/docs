@@ -1,10 +1,11 @@
 ---
 sidebar_label: "Incentives"
 description: "Why should you run Nym nodes?"
-hide_title: true 
+hide_title: false
+title: Incentives
 ---
 
-<br />
+ 
 
 We will get into building the Nym codebase and running nodes in the next section. Before we do so, a note on token incentives.
 

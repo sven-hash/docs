@@ -1,10 +1,14 @@
 ---
 sidebar_label: Overview
 description: "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous access control using blinded, re-randomizable, decentralized credentials."
-hide_title: true 
+hide_title: false
+title: The Nym Platform
 ---
 
-<br />
+
+# The Nym Platform
+
+Nym is a privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous access control using blinded, re-randomizable, decentralized credentials.
 
 The internet has become essential to the functioning of modern society. Many aspects of daily life are now touched by the internet in ways that are both mundane and deeply revolutionary. Everything is accelerating.
 

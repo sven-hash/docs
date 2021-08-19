@@ -1,10 +1,11 @@
 ---
 sidebar_label: Blockstream Green
 description: "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how."
-hide_title: true 
+hide_title: false
+title: Blockstream Green
 ---
 
-<br />
+ 
 
 :::note
 

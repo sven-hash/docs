@@ -1,10 +1,11 @@
 ---
 sidebar_label: KeyBase
 description: "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how."
-hide_title: true 
+hide_title: false
+title: Keybase
 ---
 
-<br />
+ 
 
 :::note
 

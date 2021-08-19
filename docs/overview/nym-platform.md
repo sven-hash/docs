@@ -1,10 +1,11 @@
 ---
 sidebar_label: The Nym Platform
 description: "An overview of the Nym platform architecture"
-hide_title: true 
+hide_title: false
+title: The Nym Platform
 ---
 
-<br />
+ 
 
 We are currently running a [testnet](https://testnet-milhon-explorer.nymtech.net/) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
 

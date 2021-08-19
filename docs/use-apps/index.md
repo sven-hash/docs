@@ -1,10 +1,11 @@
 ---
 sidebar_label: Use Apps
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
-hide_title: true 
+hide_title: false
+title: Use Apps with Nym
 ---
 
-<br />
+ 
 
 :::note
 

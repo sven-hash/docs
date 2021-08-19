@@ -1,10 +1,11 @@
 ---
 sidebar_label: Electrum
 description: "You can protect your Electrum transactions from network eavesdroppers using the Nym mixnet. Here's how."
-hide_title: true 
+hide_title: false
+title: Electrum
 ---
 
-<br />
+ 
 
 :::note
 
