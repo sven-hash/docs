@@ -1,0 +1,27 @@
+{
+  "unversionedId": "build-apps/demos",
+  "id": "version-0.11.0/build-apps/demos",
+  "isDocsHomePage": false,
+  "title": "Demos",
+  "description": "Example code for interacting with the Nym privacy network, in multiple languages.",
+  "source": "@site/versioned_docs/version-0.11.0/build-apps/demos.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/demos",
+  "permalink": "/docs/build-apps/demos",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Demos",
+    "hide_title": false,
+    "description": "Example code for interacting with the Nym privacy network, in multiple languages.",
+    "title": "Demos"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Webassembly client",
+    "permalink": "/docs/build-apps/wasm-client"
+  },
+  "next": {
+    "title": "Community",
+    "permalink": "/docs/community/index"
+  }
+}

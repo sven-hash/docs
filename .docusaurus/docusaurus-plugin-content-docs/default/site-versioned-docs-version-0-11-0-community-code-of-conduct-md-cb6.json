@@ -1,0 +1,26 @@
+{
+  "unversionedId": "community/code-of-conduct",
+  "id": "version-0.11.0/community/code-of-conduct",
+  "isDocsHomePage": false,
+  "title": "code-of-conduct",
+  "description": "Nym is committed to providing a friendly, safe and welcoming environment for all. Here's our code of conduct, please follow it if you'd like to participate in our community.",
+  "source": "@site/versioned_docs/version-0.11.0/community/code-of-conduct.md",
+  "sourceDirName": "community",
+  "slug": "/community/code-of-conduct",
+  "permalink": "/docs/community/code-of-conduct",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Code of Conduct",
+    "hide_title": false,
+    "description": "Nym is committed to providing a friendly, safe and welcoming environment for all. Here's our code of conduct, please follow it if you'd like to participate in our community."
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Community",
+    "permalink": "/docs/community/index"
+  },
+  "next": {
+    "title": "Licensing",
+    "permalink": "/docs/community/licensing"
+  }
+}

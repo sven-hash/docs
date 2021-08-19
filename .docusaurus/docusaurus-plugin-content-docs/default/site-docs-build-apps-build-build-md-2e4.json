@@ -1,0 +1,17 @@
+{
+  "unversionedId": "build-apps/build-build",
+  "id": "build-apps/build-build",
+  "isDocsHomePage": false,
+  "title": "build-build",
+  "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
+  "source": "@site/docs/build-apps/build-build.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/build-build",
+  "permalink": "/docs/build-apps/build-build",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Introduction",
+    "hide_title": true,
+    "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
+  }
+}

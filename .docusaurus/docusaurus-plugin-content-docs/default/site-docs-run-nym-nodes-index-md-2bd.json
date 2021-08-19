@@ -1,0 +1,27 @@
+{
+  "unversionedId": "run-nym-nodes/index",
+  "id": "run-nym-nodes/index",
+  "isDocsHomePage": false,
+  "title": "Run Nym Nodes",
+  "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
+  "source": "@site/docs/run-nym-nodes/index.md",
+  "sourceDirName": "run-nym-nodes",
+  "slug": "/run-nym-nodes/index",
+  "permalink": "/docs/next/run-nym-nodes/index",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Run Nym Nodes",
+    "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
+    "hide_title": false,
+    "title": "Run Nym Nodes"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Links",
+    "permalink": "/docs/next/overview/links"
+  },
+  "next": {
+    "title": "Incentives",
+    "permalink": "/docs/next/run-nym-nodes/incentives"
+  }
+}

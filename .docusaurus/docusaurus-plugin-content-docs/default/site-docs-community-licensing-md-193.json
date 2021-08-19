@@ -1,0 +1,23 @@
+{
+  "unversionedId": "community/licensing",
+  "id": "community/licensing",
+  "isDocsHomePage": false,
+  "title": "Licensing",
+  "description": "Nym is free software released under the Apache License V2",
+  "source": "@site/docs/community/licensing.md",
+  "sourceDirName": "community",
+  "slug": "/community/licensing",
+  "permalink": "/docs/next/community/licensing",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Licensing",
+    "hide_title": false,
+    "description": "Nym is free software released under the Apache License V2",
+    "title": "Licensing"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Code of Conduct",
+    "permalink": "/docs/next/community/code-of-conduct"
+  }
+}

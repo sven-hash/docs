@@ -1,0 +1,27 @@
+{
+  "unversionedId": "use-apps/keybase",
+  "id": "use-apps/keybase",
+  "isDocsHomePage": false,
+  "title": "Keybase",
+  "description": "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how.",
+  "source": "@site/docs/use-apps/keybase.md",
+  "sourceDirName": "use-apps",
+  "slug": "/use-apps/keybase",
+  "permalink": "/docs/next/use-apps/keybase",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "KeyBase",
+    "description": "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how.",
+    "hide_title": false,
+    "title": "Keybase"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Electrum",
+    "permalink": "/docs/next/use-apps/electrum"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/docs/next/build-apps/build-apps"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "unversionedId": "run-nym-nodes/troubleshooting",
+  "id": "version-0.11.0/run-nym-nodes/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Mixnode Troubleshooting FAQ",
+  "description": "This page will help you find answers to common issues with setting up and maintaining mixnodes",
+  "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/troubleshooting.md",
+  "sourceDirName": "run-nym-nodes",
+  "slug": "/run-nym-nodes/troubleshooting",
+  "permalink": "/docs/run-nym-nodes/troubleshooting",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Mixnode Troubleshooting FAQ",
+    "description": "This page will help you find answers to common issues with setting up and maintaining mixnodes",
+    "hide_title": false,
+    "title": "Mixnode Troubleshooting FAQ"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Gateways",
+    "permalink": "/docs/run-nym-nodes/gateways"
+  },
+  "next": {
+    "title": "Use Apps",
+    "permalink": "/docs/use-apps/index"
+  }
+}

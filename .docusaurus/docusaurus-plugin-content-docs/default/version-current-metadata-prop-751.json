@@ -1,0 +1,181 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": "unreleased",
+  "isLast": false,
+  "docsSidebars": {
+    "sidebar": [
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Overview",
+        "items": [
+          {
+            "type": "link",
+            "label": "Overview",
+            "href": "/docs/next/overview/index"
+          },
+          {
+            "type": "link",
+            "label": "The Nym Platform",
+            "href": "/docs/next/overview/nym-platform"
+          },
+          {
+            "type": "link",
+            "label": "Network Privacy",
+            "href": "/docs/next/overview/network-privacy"
+          },
+          {
+            "type": "link",
+            "label": "Nym vs other systems",
+            "href": "/docs/next/overview/nym-other-systems"
+          },
+          {
+            "type": "link",
+            "label": "Coconut",
+            "href": "/docs/next/overview/private-access-control"
+          },
+          {
+            "type": "link",
+            "label": "Links",
+            "href": "/docs/next/overview/links"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Run Nym Nodes",
+        "items": [
+          {
+            "type": "link",
+            "label": "Run Nym Nodes",
+            "href": "/docs/next/run-nym-nodes/index"
+          },
+          {
+            "type": "link",
+            "label": "Incentives",
+            "href": "/docs/next/run-nym-nodes/incentives"
+          },
+          {
+            "type": "link",
+            "label": "Building Nym",
+            "href": "/docs/next/run-nym-nodes/build-nym"
+          },
+          {
+            "type": "link",
+            "label": "Mixnodes",
+            "href": "/docs/next/run-nym-nodes/mixnodes"
+          },
+          {
+            "type": "link",
+            "label": "Validators",
+            "href": "/docs/next/run-nym-nodes/validators"
+          },
+          {
+            "type": "link",
+            "label": "Requesters",
+            "href": "/docs/next/run-nym-nodes/requester"
+          },
+          {
+            "type": "link",
+            "label": "Gateways",
+            "href": "/docs/next/run-nym-nodes/gateways"
+          },
+          {
+            "type": "link",
+            "label": "Mixnode Troubleshooting FAQ",
+            "href": "/docs/next/run-nym-nodes/troubleshooting"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Use Apps",
+        "items": [
+          {
+            "type": "link",
+            "label": "Use Apps",
+            "href": "/docs/next/use-apps/index"
+          },
+          {
+            "type": "link",
+            "label": "Blockstream Green",
+            "href": "/docs/next/use-apps/blockstream-green"
+          },
+          {
+            "type": "link",
+            "label": "Electrum",
+            "href": "/docs/next/use-apps/electrum"
+          },
+          {
+            "type": "link",
+            "label": "KeyBase",
+            "href": "/docs/next/use-apps/keybase"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Build Apps",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/docs/next/build-apps/build-apps"
+          },
+          {
+            "type": "link",
+            "label": "Choose a client",
+            "href": "/docs/next/build-apps/choose-a-client"
+          },
+          {
+            "type": "link",
+            "label": "Websocket client",
+            "href": "/docs/next/build-apps/websocket-client"
+          },
+          {
+            "type": "link",
+            "label": "Webassembly client",
+            "href": "/docs/next/build-apps/wasm-client"
+          },
+          {
+            "type": "link",
+            "label": "Demos",
+            "href": "/docs/next/build-apps/demos"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Community",
+        "items": [
+          {
+            "type": "link",
+            "label": "Community",
+            "href": "/docs/next/community/index"
+          },
+          {
+            "type": "link",
+            "label": "Code of Conduct",
+            "href": "/docs/next/community/code-of-conduct"
+          },
+          {
+            "type": "link",
+            "label": "Licensing",
+            "href": "/docs/next/community/licensing"
+          }
+        ]
+      }
+    ]
+  }
+}

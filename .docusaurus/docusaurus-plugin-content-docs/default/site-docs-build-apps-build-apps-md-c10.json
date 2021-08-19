@@ -1,0 +1,27 @@
+{
+  "unversionedId": "build-apps/build-apps",
+  "id": "build-apps/build-apps",
+  "isDocsHomePage": false,
+  "title": "Build Nym Apps",
+  "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
+  "source": "@site/docs/build-apps/build-apps.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/build-apps",
+  "permalink": "/docs/next/build-apps/build-apps",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Introduction",
+    "hide_title": false,
+    "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
+    "title": "Build Nym Apps"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "KeyBase",
+    "permalink": "/docs/next/use-apps/keybase"
+  },
+  "next": {
+    "title": "Choose a client",
+    "permalink": "/docs/next/build-apps/choose-a-client"
+  }
+}

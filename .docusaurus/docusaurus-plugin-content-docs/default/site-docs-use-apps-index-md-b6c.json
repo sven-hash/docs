@@ -1,0 +1,27 @@
+{
+  "unversionedId": "use-apps/index",
+  "id": "use-apps/index",
+  "isDocsHomePage": false,
+  "title": "Use Apps with Nym",
+  "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
+  "source": "@site/docs/use-apps/index.md",
+  "sourceDirName": "use-apps",
+  "slug": "/use-apps/index",
+  "permalink": "/docs/next/use-apps/index",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Use Apps",
+    "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
+    "hide_title": false,
+    "title": "Use Apps with Nym"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Mixnode Troubleshooting FAQ",
+    "permalink": "/docs/next/run-nym-nodes/troubleshooting"
+  },
+  "next": {
+    "title": "Blockstream Green",
+    "permalink": "/docs/next/use-apps/blockstream-green"
+  }
+}

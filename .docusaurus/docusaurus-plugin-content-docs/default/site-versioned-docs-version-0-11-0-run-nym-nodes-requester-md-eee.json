@@ -1,0 +1,27 @@
+{
+  "unversionedId": "run-nym-nodes/requester",
+  "id": "version-0.11.0/run-nym-nodes/requester",
+  "isDocsHomePage": false,
+  "title": "Requester",
+  "description": "Run a requester proxy for the benefit of the community.",
+  "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/requester.md",
+  "sourceDirName": "run-nym-nodes",
+  "slug": "/run-nym-nodes/requester",
+  "permalink": "/docs/run-nym-nodes/requester",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Requesters",
+    "description": "Run a requester proxy for the benefit of the community.",
+    "hide_title": false,
+    "title": "Requester"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Validators",
+    "permalink": "/docs/run-nym-nodes/validators"
+  },
+  "next": {
+    "title": "Gateways",
+    "permalink": "/docs/run-nym-nodes/gateways"
+  }
+}

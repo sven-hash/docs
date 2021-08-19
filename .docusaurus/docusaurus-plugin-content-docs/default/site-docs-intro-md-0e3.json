@@ -1,0 +1,17 @@
+{
+  "unversionedId": "intro",
+  "id": "intro",
+  "isDocsHomePage": false,
+  "title": "The Nym Platform",
+  "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous transactions using blinded, re-randomizable, decentralized credentials.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/docs/next/intro",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Nym",
+    "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous transactions using blinded, re-randomizable, decentralized credentials.",
+    "hide_title": false
+  }
+}

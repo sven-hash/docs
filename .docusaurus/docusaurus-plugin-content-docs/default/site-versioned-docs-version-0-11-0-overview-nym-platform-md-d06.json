@@ -1,0 +1,27 @@
+{
+  "unversionedId": "overview/nym-platform",
+  "id": "version-0.11.0/overview/nym-platform",
+  "isDocsHomePage": false,
+  "title": "The Nym Platform",
+  "description": "An overview of the Nym platform architecture",
+  "source": "@site/versioned_docs/version-0.11.0/overview/nym-platform.md",
+  "sourceDirName": "overview",
+  "slug": "/overview/nym-platform",
+  "permalink": "/docs/overview/nym-platform",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "The Nym Platform",
+    "description": "An overview of the Nym platform architecture",
+    "hide_title": false,
+    "title": "The Nym Platform"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/docs/overview/index"
+  },
+  "next": {
+    "title": "Network Privacy",
+    "permalink": "/docs/overview/network-privacy"
+  }
+}

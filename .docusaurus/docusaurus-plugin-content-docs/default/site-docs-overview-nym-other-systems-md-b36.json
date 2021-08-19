@@ -1,0 +1,27 @@
+{
+  "unversionedId": "overview/nym-other-systems",
+  "id": "overview/nym-other-systems",
+  "isDocsHomePage": false,
+  "title": "Nym vs other systems",
+  "description": "A comparison of Nym and other privacy systems",
+  "source": "@site/docs/overview/nym-other-systems.md",
+  "sourceDirName": "overview",
+  "slug": "/overview/nym-other-systems",
+  "permalink": "/docs/next/overview/nym-other-systems",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Nym vs other systems",
+    "description": "A comparison of Nym and other privacy systems",
+    "hide_title": false,
+    "title": "Nym vs other systems"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Network Privacy",
+    "permalink": "/docs/next/overview/network-privacy"
+  },
+  "next": {
+    "title": "Coconut",
+    "permalink": "/docs/next/overview/private-access-control"
+  }
+}

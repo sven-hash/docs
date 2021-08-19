@@ -1,0 +1,27 @@
+{
+  "unversionedId": "build-apps/wasm-client",
+  "id": "build-apps/wasm-client",
+  "isDocsHomePage": false,
+  "title": "Webassembly client",
+  "description": "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users",
+  "source": "@site/docs/build-apps/wasm-client.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/wasm-client",
+  "permalink": "/docs/next/build-apps/wasm-client",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Webassembly client",
+    "hide_title": false,
+    "description": "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users",
+    "title": "Webassembly client"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Websocket client",
+    "permalink": "/docs/next/build-apps/websocket-client"
+  },
+  "next": {
+    "title": "Demos",
+    "permalink": "/docs/next/build-apps/demos"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "unversionedId": "run-nym-nodes/gateways",
+  "id": "run-nym-nodes/gateways",
+  "isDocsHomePage": false,
+  "title": "Gateways",
+  "description": "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic.",
+  "source": "@site/docs/run-nym-nodes/gateways.md",
+  "sourceDirName": "run-nym-nodes",
+  "slug": "/run-nym-nodes/gateways",
+  "permalink": "/docs/next/run-nym-nodes/gateways",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Gateways",
+    "description": "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic.",
+    "hide_title": false,
+    "title": "Gateways"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Requesters",
+    "permalink": "/docs/next/run-nym-nodes/requester"
+  },
+  "next": {
+    "title": "Mixnode Troubleshooting FAQ",
+    "permalink": "/docs/next/run-nym-nodes/troubleshooting"
+  }
+}

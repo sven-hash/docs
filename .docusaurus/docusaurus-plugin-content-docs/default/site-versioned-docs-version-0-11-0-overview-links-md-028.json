@@ -1,0 +1,27 @@
+{
+  "unversionedId": "overview/links",
+  "id": "version-0.11.0/overview/links",
+  "isDocsHomePage": false,
+  "title": "Links",
+  "description": "Here are some links that may prove handy as you start exploring Nym, and the Nym community.",
+  "source": "@site/versioned_docs/version-0.11.0/overview/links.md",
+  "sourceDirName": "overview",
+  "slug": "/overview/links",
+  "permalink": "/docs/overview/links",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Links",
+    "description": "Here are some links that may prove handy as you start exploring Nym, and the Nym community.",
+    "hide_title": false,
+    "title": "Links"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Coconut",
+    "permalink": "/docs/overview/private-access-control"
+  },
+  "next": {
+    "title": "Run Nym Nodes",
+    "permalink": "/docs/run-nym-nodes/index"
+  }
+}

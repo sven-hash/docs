@@ -1,0 +1,295 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": false,
+          "path": "/docs/next",
+          "mainDocId": "overview/index",
+          "docs": [
+            {
+              "id": "build-apps/build-apps",
+              "path": "/docs/next/build-apps/build-apps",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "build-apps/choose-a-client",
+              "path": "/docs/next/build-apps/choose-a-client",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "build-apps/demos",
+              "path": "/docs/next/build-apps/demos",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "build-apps/wasm-client",
+              "path": "/docs/next/build-apps/wasm-client",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "build-apps/websocket-client",
+              "path": "/docs/next/build-apps/websocket-client",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "community/code-of-conduct",
+              "path": "/docs/next/community/code-of-conduct",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "community/index",
+              "path": "/docs/next/community/index",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "community/licensing",
+              "path": "/docs/next/community/licensing",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/next/intro"
+            },
+            {
+              "id": "overview/index",
+              "path": "/docs/next/overview/index",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "overview/links",
+              "path": "/docs/next/overview/links",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "overview/network-privacy",
+              "path": "/docs/next/overview/network-privacy",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "overview/nym-other-systems",
+              "path": "/docs/next/overview/nym-other-systems",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "overview/nym-platform",
+              "path": "/docs/next/overview/nym-platform",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "overview/private-access-control",
+              "path": "/docs/next/overview/private-access-control",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/build-nym",
+              "path": "/docs/next/run-nym-nodes/build-nym",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/gateways",
+              "path": "/docs/next/run-nym-nodes/gateways",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/incentives",
+              "path": "/docs/next/run-nym-nodes/incentives",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/index",
+              "path": "/docs/next/run-nym-nodes/index",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/mixnodes",
+              "path": "/docs/next/run-nym-nodes/mixnodes",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/requester",
+              "path": "/docs/next/run-nym-nodes/requester",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/troubleshooting",
+              "path": "/docs/next/run-nym-nodes/troubleshooting",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "run-nym-nodes/validators",
+              "path": "/docs/next/run-nym-nodes/validators",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "use-apps/blockstream-green",
+              "path": "/docs/next/use-apps/blockstream-green",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "use-apps/electrum",
+              "path": "/docs/next/use-apps/electrum",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "use-apps/index",
+              "path": "/docs/next/use-apps/index",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "use-apps/keybase",
+              "path": "/docs/next/use-apps/keybase",
+              "sidebar": "sidebar"
+            }
+          ]
+        },
+        {
+          "name": "0.11.0",
+          "label": "0.11.0",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "overview/index",
+          "docs": [
+            {
+              "id": "build-apps/build-apps",
+              "path": "/docs/build-apps/build-apps",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "build-apps/choose-a-client",
+              "path": "/docs/build-apps/choose-a-client",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "build-apps/demos",
+              "path": "/docs/build-apps/demos",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "build-apps/wasm-client",
+              "path": "/docs/build-apps/wasm-client",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "build-apps/websocket-client",
+              "path": "/docs/build-apps/websocket-client",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "community/code-of-conduct",
+              "path": "/docs/community/code-of-conduct",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "community/index",
+              "path": "/docs/community/index",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "community/licensing",
+              "path": "/docs/community/licensing",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro"
+            },
+            {
+              "id": "overview/index",
+              "path": "/docs/overview/index",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "overview/links",
+              "path": "/docs/overview/links",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "overview/network-privacy",
+              "path": "/docs/overview/network-privacy",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "overview/nym-other-systems",
+              "path": "/docs/overview/nym-other-systems",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "overview/nym-platform",
+              "path": "/docs/overview/nym-platform",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "overview/private-access-control",
+              "path": "/docs/overview/private-access-control",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/build-nym",
+              "path": "/docs/run-nym-nodes/build-nym",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/gateways",
+              "path": "/docs/run-nym-nodes/gateways",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/incentives",
+              "path": "/docs/run-nym-nodes/incentives",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/index",
+              "path": "/docs/run-nym-nodes/index",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/mixnodes",
+              "path": "/docs/run-nym-nodes/mixnodes",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/requester",
+              "path": "/docs/run-nym-nodes/requester",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/troubleshooting",
+              "path": "/docs/run-nym-nodes/troubleshooting",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "run-nym-nodes/validators",
+              "path": "/docs/run-nym-nodes/validators",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "use-apps/blockstream-green",
+              "path": "/docs/use-apps/blockstream-green",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "use-apps/electrum",
+              "path": "/docs/use-apps/electrum",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "use-apps/index",
+              "path": "/docs/use-apps/index",
+              "sidebar": "version-0.11.0/sidebar"
+            },
+            {
+              "id": "use-apps/keybase",
+              "path": "/docs/use-apps/keybase",
+              "sidebar": "version-0.11.0/sidebar"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

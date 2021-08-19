@@ -1,0 +1,26 @@
+{
+  "unversionedId": "build-apps/initial",
+  "id": "build-apps/initial",
+  "isDocsHomePage": false,
+  "title": "initial",
+  "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
+  "source": "@site/docs/build-apps/initial.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/initial",
+  "permalink": "/docs/build-apps/initial",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/build-apps/initial.md",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Build build build",
+    "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
+  },
+  "sidebar": "prodSidebar",
+  "previous": {
+    "title": "Demos",
+    "permalink": "/docs/build-apps/demos"
+  },
+  "next": {
+    "title": "Webassembly client",
+    "permalink": "/docs/build-apps/wasm-client"
+  }
+}

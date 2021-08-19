@@ -1,0 +1,27 @@
+{
+  "unversionedId": "build-apps/index",
+  "id": "build-apps/index",
+  "isDocsHomePage": false,
+  "title": "Build Apps",
+  "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
+  "source": "@site/docs/build-apps/index.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/index",
+  "permalink": "/docs/next/build-apps/index",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/build-apps/index.md",
+  "version": "current",
+  "frontMatter": {
+    "title": "Build Apps",
+    "weight": 65,
+    "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Demos",
+    "permalink": "/docs/next/build-apps/demos"
+  },
+  "next": {
+    "title": "Webassembly client",
+    "permalink": "/docs/next/build-apps/wasm-client"
+  }
+}

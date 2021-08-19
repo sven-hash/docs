@@ -1,0 +1,27 @@
+{
+  "unversionedId": "community/index",
+  "id": "version-0.11.0/community/index",
+  "isDocsHomePage": false,
+  "title": "Community",
+  "description": "Some (slowly expanding) notes on the Nym project, its community and governance.",
+  "source": "@site/versioned_docs/version-0.11.0/community/index.md",
+  "sourceDirName": "community",
+  "slug": "/community/index",
+  "permalink": "/docs/community/index",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Community",
+    "hide_title": false,
+    "description": "Some (slowly expanding) notes on the Nym project, its community and governance.",
+    "title": "Community"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Demos",
+    "permalink": "/docs/build-apps/demos"
+  },
+  "next": {
+    "title": "Code of Conduct",
+    "permalink": "/docs/community/code-of-conduct"
+  }
+}

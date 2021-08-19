@@ -1,0 +1,181 @@
+{
+  "pluginId": "default",
+  "version": "0.11.0",
+  "label": "0.11.0",
+  "banner": "none",
+  "isLast": true,
+  "docsSidebars": {
+    "version-0.11.0/sidebar": [
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Overview",
+        "items": [
+          {
+            "type": "link",
+            "label": "Overview",
+            "href": "/docs/overview/index"
+          },
+          {
+            "type": "link",
+            "label": "The Nym Platform",
+            "href": "/docs/overview/nym-platform"
+          },
+          {
+            "type": "link",
+            "label": "Network Privacy",
+            "href": "/docs/overview/network-privacy"
+          },
+          {
+            "type": "link",
+            "label": "Nym vs other systems",
+            "href": "/docs/overview/nym-other-systems"
+          },
+          {
+            "type": "link",
+            "label": "Coconut",
+            "href": "/docs/overview/private-access-control"
+          },
+          {
+            "type": "link",
+            "label": "Links",
+            "href": "/docs/overview/links"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Run Nym Nodes",
+        "items": [
+          {
+            "type": "link",
+            "label": "Run Nym Nodes",
+            "href": "/docs/run-nym-nodes/index"
+          },
+          {
+            "type": "link",
+            "label": "Incentives",
+            "href": "/docs/run-nym-nodes/incentives"
+          },
+          {
+            "type": "link",
+            "label": "Building Nym",
+            "href": "/docs/run-nym-nodes/build-nym"
+          },
+          {
+            "type": "link",
+            "label": "Mixnodes",
+            "href": "/docs/run-nym-nodes/mixnodes"
+          },
+          {
+            "type": "link",
+            "label": "Validators",
+            "href": "/docs/run-nym-nodes/validators"
+          },
+          {
+            "type": "link",
+            "label": "Requesters",
+            "href": "/docs/run-nym-nodes/requester"
+          },
+          {
+            "type": "link",
+            "label": "Gateways",
+            "href": "/docs/run-nym-nodes/gateways"
+          },
+          {
+            "type": "link",
+            "label": "Mixnode Troubleshooting FAQ",
+            "href": "/docs/run-nym-nodes/troubleshooting"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Use Apps",
+        "items": [
+          {
+            "type": "link",
+            "label": "Use Apps",
+            "href": "/docs/use-apps/index"
+          },
+          {
+            "type": "link",
+            "label": "Blockstream Green",
+            "href": "/docs/use-apps/blockstream-green"
+          },
+          {
+            "type": "link",
+            "label": "Electrum",
+            "href": "/docs/use-apps/electrum"
+          },
+          {
+            "type": "link",
+            "label": "KeyBase",
+            "href": "/docs/use-apps/keybase"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Build Apps",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/docs/build-apps/build-apps"
+          },
+          {
+            "type": "link",
+            "label": "Choose a client",
+            "href": "/docs/build-apps/choose-a-client"
+          },
+          {
+            "type": "link",
+            "label": "Websocket client",
+            "href": "/docs/build-apps/websocket-client"
+          },
+          {
+            "type": "link",
+            "label": "Webassembly client",
+            "href": "/docs/build-apps/wasm-client"
+          },
+          {
+            "type": "link",
+            "label": "Demos",
+            "href": "/docs/build-apps/demos"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Community",
+        "items": [
+          {
+            "type": "link",
+            "label": "Community",
+            "href": "/docs/community/index"
+          },
+          {
+            "type": "link",
+            "label": "Code of Conduct",
+            "href": "/docs/community/code-of-conduct"
+          },
+          {
+            "type": "link",
+            "label": "Licensing",
+            "href": "/docs/community/licensing"
+          }
+        ]
+      }
+    ]
+  }
+}

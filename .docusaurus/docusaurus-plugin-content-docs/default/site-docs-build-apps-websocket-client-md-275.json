@@ -1,0 +1,27 @@
+{
+  "unversionedId": "build-apps/websocket-client",
+  "id": "build-apps/websocket-client",
+  "isDocsHomePage": false,
+  "title": "Websocket client",
+  "description": "How to run the Nym websocket client on a desktop or server machine.",
+  "source": "@site/docs/build-apps/websocket-client.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/websocket-client",
+  "permalink": "/docs/next/build-apps/websocket-client",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Websocket client",
+    "hide_title": false,
+    "description": "How to run the Nym websocket client on a desktop or server machine.",
+    "title": "Websocket client"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Choose a client",
+    "permalink": "/docs/next/build-apps/choose-a-client"
+  },
+  "next": {
+    "title": "Webassembly client",
+    "permalink": "/docs/next/build-apps/wasm-client"
+  }
+}

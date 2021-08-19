@@ -1,0 +1,27 @@
+{
+  "unversionedId": "run-nym-nodes/incentives",
+  "id": "version-0.11.0/run-nym-nodes/incentives",
+  "isDocsHomePage": false,
+  "title": "Incentives",
+  "description": "Why should you run Nym nodes?",
+  "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/incentives.md",
+  "sourceDirName": "run-nym-nodes",
+  "slug": "/run-nym-nodes/incentives",
+  "permalink": "/docs/run-nym-nodes/incentives",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Incentives",
+    "description": "Why should you run Nym nodes?",
+    "hide_title": false,
+    "title": "Incentives"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Run Nym Nodes",
+    "permalink": "/docs/run-nym-nodes/index"
+  },
+  "next": {
+    "title": "Building Nym",
+    "permalink": "/docs/run-nym-nodes/build-nym"
+  }
+}

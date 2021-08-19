@@ -1,0 +1,27 @@
+{
+  "unversionedId": "run-nym-nodes/validators",
+  "id": "version-0.11.0/run-nym-nodes/validators",
+  "isDocsHomePage": false,
+  "title": "Validators",
+  "description": "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities.",
+  "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/validators.md",
+  "sourceDirName": "run-nym-nodes",
+  "slug": "/run-nym-nodes/validators",
+  "permalink": "/docs/run-nym-nodes/validators",
+  "version": "0.11.0",
+  "frontMatter": {
+    "sidebar_label": "Validators",
+    "description": "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities.",
+    "hide_title": false,
+    "title": "Validators"
+  },
+  "sidebar": "version-0.11.0/sidebar",
+  "previous": {
+    "title": "Mixnodes",
+    "permalink": "/docs/run-nym-nodes/mixnodes"
+  },
+  "next": {
+    "title": "Requesters",
+    "permalink": "/docs/run-nym-nodes/requester"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "unversionedId": "overview/network-privacy",
+  "id": "overview/network-privacy",
+  "isDocsHomePage": false,
+  "title": "Network Privacy",
+  "description": "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet.",
+  "source": "@site/docs/overview/network-privacy.md",
+  "sourceDirName": "overview",
+  "slug": "/overview/network-privacy",
+  "permalink": "/docs/next/overview/network-privacy",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Network Privacy",
+    "description": "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet.",
+    "hide_title": false,
+    "title": "Network Privacy"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "The Nym Platform",
+    "permalink": "/docs/next/overview/nym-platform"
+  },
+  "next": {
+    "title": "Nym vs other systems",
+    "permalink": "/docs/next/overview/nym-other-systems"
+  }
+}

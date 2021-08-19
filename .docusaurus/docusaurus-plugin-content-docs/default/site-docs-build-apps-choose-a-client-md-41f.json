@@ -1,0 +1,27 @@
+{
+  "unversionedId": "build-apps/choose-a-client",
+  "id": "build-apps/choose-a-client",
+  "isDocsHomePage": false,
+  "title": "Choose a client ",
+  "description": "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose.",
+  "source": "@site/docs/build-apps/choose-a-client.md",
+  "sourceDirName": "build-apps",
+  "slug": "/build-apps/choose-a-client",
+  "permalink": "/docs/next/build-apps/choose-a-client",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Choose a client",
+    "hide_title": false,
+    "description": "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose.",
+    "title": "Choose a client "
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/next/build-apps/build-apps"
+  },
+  "next": {
+    "title": "Websocket client",
+    "permalink": "/docs/next/build-apps/websocket-client"
+  }
+}

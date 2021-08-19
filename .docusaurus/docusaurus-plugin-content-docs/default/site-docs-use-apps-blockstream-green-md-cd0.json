@@ -1,0 +1,27 @@
+{
+  "unversionedId": "use-apps/blockstream-green",
+  "id": "use-apps/blockstream-green",
+  "isDocsHomePage": false,
+  "title": "Blockstream Green",
+  "description": "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how.",
+  "source": "@site/docs/use-apps/blockstream-green.md",
+  "sourceDirName": "use-apps",
+  "slug": "/use-apps/blockstream-green",
+  "permalink": "/docs/next/use-apps/blockstream-green",
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Blockstream Green",
+    "description": "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how.",
+    "hide_title": false,
+    "title": "Blockstream Green"
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Use Apps",
+    "permalink": "/docs/next/use-apps/index"
+  },
+  "next": {
+    "title": "Electrum",
+    "permalink": "/docs/next/use-apps/electrum"
+  }
+}
