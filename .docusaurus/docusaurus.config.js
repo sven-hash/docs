@@ -8,6 +8,14 @@ export default {
   "favicon": "img/docs/FAVICON.png",
   "organizationName": "nymtech",
   "projectName": "docs",
+  "i18n": {
+    "defaultLocale": "en",
+    "locales": [
+      "en",
+      "es"
+    ],
+    "localeConfigs": {}
+  },
   "themeConfig": {
     "navbar": {
       "title": "Nym",
@@ -38,6 +46,12 @@ export default {
           "href": "https://github.com/nymtech",
           "label": "GitHub",
           "position": "right"
+        },
+        {
+          "type": "localeDropdown",
+          "position": "right",
+          "dropdownItemsBefore": [],
+          "dropdownItemsAfter": []
         }
       ],
       "hideOnScroll": false
@@ -310,13 +324,6 @@ export default {
     ]
   ],
   "baseUrlIssueBanner": true,
-  "i18n": {
-    "defaultLocale": "en",
-    "locales": [
-      "en"
-    ],
-    "localeConfigs": {}
-  },
   "onDuplicateRoutes": "warn",
   "customFields": {},
   "plugins": [],

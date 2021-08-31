@@ -10,8 +10,12 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/docs/FAVICON.png',
-  organizationName: 'nymtech', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'nymtech', 
+  projectName: 'docs', 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+  },
   themeConfig: {
     navbar: {
       title: 'Nym',
@@ -31,6 +35,10 @@ module.exports = {
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
           position: 'right',
         },
       ],
@@ -90,7 +98,6 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: 'docs',
-          // homePageId: "/"
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

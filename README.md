@@ -8,6 +8,8 @@ Contributions to our documentation are very welcome. Please shoot us a pull requ
 
 ## Building
 
+This site is built with [Docsaurus](https://docusaurus.io/), which is managed via `npm`. 
+
 Requirements:
 
 * `NodeJS` 
