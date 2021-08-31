@@ -3,9 +3,10 @@ FORMATTING ETC
 - footer formatting? 
 
 
-FOR VERSIONING 
-- translations enable 
-
+TRANSLATIONS: 
+- change finney -> milhon 
+- check links 
+- change software versions 
 
 LINKS/INFO
 - https://docusaurus.io/docs/versioning#figure-out-the-behavior-for-the-current-version

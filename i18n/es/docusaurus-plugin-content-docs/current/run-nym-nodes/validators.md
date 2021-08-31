@@ -1,48 +1,28 @@
 ---
-sidebar_label: "Validators"
-description: "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities."
-hide_title: false
-title: Validators
+título: "Validadores"
+peso: 30
+descripción: "Los validadores de Nym proporcionan credenciales de privacidad mejorada basadas en el testimonio de un conjunto de autoridades emisoras descentralizadas y basadas en blockchain."
 ---
 
- 
+Los validadores Nym aseguran la red con un token de estacionamiento, defendiendo la red de ataques Sybil.
 
-Nym validators secure the network with a staking token, defending the network from Sybil attacks.
+Los validadores también proporcionan credenciales de privacidad mejorada basadas en el testimonio de un conjunto de autoridades emisoras descentralizadas y basadas en la cadena de bloques. Los validadores Nym utilizan un [esquema de firma](https://en.wikipedia.org/wiki/Digital_signature) llamado [Coco](https://arxiv.org/abs/1802.07344) para emitir credenciales. Esto permite que las aplicaciones de privacidad generen reclamaciones anónimas de recursos a través de autoridades descentralizadas, para luego utilizarlas con los proveedores de servicios.
 
-Validators also provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities. Nym validators use a [signature scheme](https://en.wikipedia.org/wiki/Digital_signature) called [Coconut](https://arxiv.org/abs/1802.07344) to issue credentials. This allows privacy apps to generate anonymous resource claims through decentralised authorities, then use them with Service Providers.
+El validador se construye utilizando [Cosmos SDK](https://cosmos.network) y [Tendermint](https://tendermint.com), con un contrato inteligente [CosmWasm](https://cosmwasm.com) que controla el servicio de directorio, la vinculación de nodos, y el staking delegado de mixnet.
 
-The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermint](https://tendermint.com), with a [CosmWasm](https://cosmwasm.com) smart contract controlling the directory service, node bonding, and delegated mixnet staking.
-
-### Building the Nym validator
-
-#### Prerequisites
-
-- `git`
-
-```shell
-sudo apt update
-sudo apt install git
-```
-
-Verify `git` is installed with:
-
-```shell
-git version
-# Should return: git version X.Y.Z
-```
-
+### Construyendo el validador Nym
+#### Requisitos previos
 - `Go >= v1.15`
+`Go` se puede instalar a través de los siguientes comandos (tomados de los [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
 
-`Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
-
-```shell
-# First remove any existing old Go installation
+``sh
+# Primero elimina cualquier instalación antigua de Go existente
 sudo rm -rf /usr/local/go
 
-# Install correct Go version
-curl https://dl.google.com/go/<CORRECT.GO.VERSION>.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+# Instalar la versión correcta de Go
+curl https://dl.google.com/go/correct.go.version.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
 
-# Update environment variables to include go
+# Actualizar las variables de entorno para incluir go
 cat <<'EOF' >>$HOME/.profile
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
@@ -50,189 +30,163 @@ export GO111MODULE=on
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 EOF
 source $HOME/.profile
+
 ```
+Recuerde sustituir `correcto.go.version` por la versión que elija de la página de versiones de Go. Por ejemplo:
 
-Remember to replace `<CORRECT.GO.VERSION>` with the version of your choice from the Go releases page. For example:
+`correct.go.version.linux-amd64.tar.gz` se convierte en `go1.15.7.linux-amd64.tar.gz`.
 
-`<CORRECT.GO.VERSION>.linux-amd64.tar.gz` becomes `go1.15.7.linux-amd64.tar.gz`
+Comprueba que `Go` está instalado con:
 
-Verify `Go` is installed with:
-
-```shell
-go version
-# Should return: go version go1.15.7 linux/amd64
+``sh
+versión de go
+# Debería devolver: go versión go1.15.7 linux/amd64
 ```
 
 - `gcc`
 
-`gcc` can be installed with:
+`gcc` puede ser instalado con:
 
-```shell
+``sh
 sudo apt install build-essential
-# Optional additional manual pages can be installed with:
+# Las páginas de manual adicionales opcionales se pueden instalar con:
 sudo apt-get install manpages-dev
 ```
 
-Verify `gcc` is installed with:
+Verifique que `gcc` está instalado con:
 
-```shell
+``sh
 gcc --version
 ```
 
-Which should return something like:
+Lo que debería devolver algo como:
 
-```shell
+``sh
 gcc (Ubuntu 7.4.0-1ubuntu1~18.04) 7.4.0
 Copyright (C) 2017 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Este es un software libre; ver la fuente para las condiciones de copia.  NO hay
+garantía; ni siquiera de COMERCIALIZACIÓN o ADECUACIÓN A UN PROPÓSITO PARTICULAR.
 ```
 
-#### Building your validator
+#### Construyendo su validador
+Utilizamos la versión `wasmd` del validador Cosmos para ejecutar nuestra blockchain. Ejecuta esto para clonar, compilar y construirlo:
 
-We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
-
-```shell
-WASMD_VERSION=v0.17.0
-BECH32_PREFIX=punk
+```sh
+WASMD_VERSION=v0.14.1
+BECH32_PREFIX=hal
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
 mkdir build
 go build -o build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=1920f80d181adbeaedac1eeea1c1c6e1704d3e49 -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X 'github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger'" -trimpath ./cmd/wasmd # noqa line-length
 ```
+En este punto, tendrás una copia del binario `nymd` en tu directorio `build/`. Comprueba que se ha compilado correctamente ejecutando:
 
-At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running:
-
-```shell
+```sh
 ./build/nymd
 ```
 
-You should see `nymd` help text print out.
+Debería ver el texto de ayuda de `nymd` impreso.
 
-Both the `nymd` and `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute Nym smart contracts.
+Tanto el binario de la biblioteca de objetos compartidos `nymd` como `libwasmvm.so` han sido compilados. El archivo `libwasmvm.so` es la máquina virtual wasm que se necesita para ejecutar los contratos inteligentes Nym.
 
+> Si has compilado estos archivos localmente debes subir ambos al servidor en el que se ejecutará el validador. **Si por el contrario los has compilado en el servidor, salta al paso en el que se establece la `LD_LIBRARY PATH` más abajo:
 
-:::caution
-If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.**
-:::
-
-To locate these files on your local system run:
-
-```shell
+```sh
 WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}
 ```
 
-This will output something like:
-
-```shell
+Esto producirá algo como:
+```sh
 '/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
 ```
+Cuando subas tu binario `nymd`, tendrás que decirle dónde está `libwasmvm.so` cuando inicies tu validador, o `nymd` no se ejecutará. Si los has compilado en tu servidor, esto no es necesario, ya que el `nymd` compilado ya tiene acceso a `libwasmvm.so`.
 
-When you upload your `nymd` binary, you'll need to tell it where `libwasmvm.so` is when you start your validator, or `nymd` will not run. If you have compiled them on your server then this is not necessary, as the compiled `nymd` already has access to `libwasmvm.so`.
+Como alternativa, puedes consultar el repositorio de `nym` en <https://github.com/nymtech/nym> y utilizar la etiqueta de la versión actual con:
 
-Alternatively, you can check out the repository for `nym` at <https://github.com/nymtech/nym> and use the tag for the current release with:
-
-```shell
+```sh
 git clone https://github.com/nymtech/nym.git
 cd nym
 git reset --hard   # in case you made any changes on your branch
 git pull           # in case you've checked it out before
-git checkout tags/v0.11.0
+git checkout tags/v0.10.0
 ```
+Dentro de la carpeta `validator` encontrarás los binarios precompilados para usar.
 
-Inside the `validator` directory you will find the precompiled binaries to use.
+Sube tanto `nymd` como `libwasmvm.so` a tu máquina validadora. Si intentas ejecutar `./nymd` en tu servidor, probablemente verás un error si `nymd` no puede encontrar `libwasmvm.so`:
 
-Upload both `nymd` and `libwasmvm.so` to your validator machine. If you attempt to run `./nymd` on your server, you'll likely see an error if `nymd` can't find `libwasmvm.so`:
-
-```shell
+```sh
 ./nymd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
 ```
+Necesitarás establecer `LD_LIBRARY_PATH` en el archivo `~/.bashrc` de tu usuario, y añadirlo a nuestra ruta. Sustituye `/home/su usuario/ruta/al/nym/binarios` en el comando que aparece a continuación por las ubicaciones de `nymd` y `libwasmvm.so` y ejecútalo. Si los has compilado en el servidor, estarán en la carpeta `build/`:
 
-You'll need to set `LD_LIBRARY_PATH` in your user's `~/.bashrc` file, and add that to our path. Replace `/home/youruser/path/to/nym/binaries` in the command below to the locations of `nymd` and `libwasmvm.so` and run it. If you have compiled these on the server, they will be in the `build/` folder:
-
-```shell
+```sh
 NYM_BINARIES=/home/youruser/path/to/nym/binaries
 echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYM_BINARIES >> ~/.bashrc
 echo 'export PATH=$PATH:'${NYM_BINARIES} >> ~/.bashrc
 source ~/.bashrc
 ```
-
-Test everything worked:
-
-```shell
+ Prueba que todo funcionó:
+```sh
 nymd
 ```
+Esto debería devolver el texto de ayuda normal de `nymd`.
 
-This should return the regular `nymd` help text.
+### Inicialización de su validador
 
-### Initializing your validator
+Requisitos previos:
 
-Prerequisites:
+- FQDN Nombre de dominio
+- Conectividad IPv4 e IPv6
 
-- FQDN Domain name
-- IPv4 and IPv6 connectivity
+Elija un nombre para su validador y utilícelo en lugar de `yourname` en el siguiente comando:
 
-Choose a name for your validator and use it in place of `yourname` in the following command:
-
-```shell
-nymd init yourname --chain-id testnet-milhon
+```sh
+nymd init yourname --chain-id testnet-finney
 ```
+En este punto, usted tiene un nuevo validador, con su propio archivo genesis ubicado en `$HOME/.nymd/config/genesis.json`. Tendrás que **reemplazar el contenido de ese archivo** que con el de Nym [testnet-finney genesis file](https://nymtech.net/testnets/finney/genesis.json).
 
-At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with Nym's [testnet-milhon genesis file](https://nymtech.net/testnets/milhon/genesis.json).
+Puedes utilizar el siguiente comando para descargar el de Finney:
 
-You can use the following command to download the one for Milhon:
-
-```shell
-wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/milhon/genesis.json
+```sh
+wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/finney/genesis.json
 ```
+#### config.toml configuración
 
-#### `config.toml` configuration
+Añade el validador Nym como un peer persistente para que tu validador pueda empezar a sacar bloques del resto de la red, editando las siguientes opciones de configuración en `$HOME/.nymd/
+config/config.toml` para que coincida con la información de abajo:
 
-Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in `$HOME/.nymd/config/config.toml` to match the information below:
+- `cors_allowed_origins = ["*"]` permite a la cartera web hacer peticiones HTTPS a tu validador.
+- `persistent_peers = "e7163ea63219504344c669164d083f52434f382b@testnet-finney-validator.nymtech.net:26656"` permite que tu validador empiece a sacar bloques de otros validadores
+- `create_empty_blocks = false` puede ahorrar un poco de espacio
 
-- `cors_allowed_origins = ["*"]` allows the web wallet to make HTTPS requests to your validator.
-- `persistent_peers = "d6265e7c885eda002ef8736d2270bcbfb346a3aa@testnet-milhon-validator1.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
-- `create_empty_blocks = false` may save a bit of space
-- `laddr = "tcp://0.0.0.0:26656"` in your `p2p configuration options` 
-
-
-Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics then the following must also match in the `config.toml`:
+Opcionalmente, si quiere habilitar las métricas de [Prometheus](https://prometheus.io/) también debe coincidir lo siguiente en el `config.toml`:
 
 - `prometheus = true`
 - `prometheus_listen_addr = ":26660"`
 
-:::tip
-Remember to enable metrics in the 'Configuring Prometheus metrics' section below as well.
-:::
-
-And if you wish to add a human-readable moniker to your node:
-
+Y si desea añadir un nombre legible para los humanos a su nodo:
 - `moniker = "yourname"`
 
-Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
+Por último, si planea utilizar [Cockpit](https://cockpit-project.org/documentation.html) en su servidor, cambie el puerto `grpc` de `9090` ya que este es el puerto utilizado por Cockpit.
 
-#### `app.toml` configuration
+#### configuración de app.toml
 
-In the file `$HOME/.nymd/config/app.toml`, set the following values:
-
-1. `minimum-gas-prices = "0.025upunk"`
+En el archivo `$HOME/.nymd/config/app.toml`, establezca los siguientes valores:
+1. `minimum-gas-prices = "0.025uhal"`
 1. `enable = true` in the `[api]` section to get the API server running
 
-### Setting up your validator's admin user
+### Configurar el usuario administrador de su validador:
+Necesitarás una cuenta de administrador para estar a cargo de tu validador. Configúrala con:
 
-You'll need an admin account to be in charge of your validator. Set that up with:
-
-```shell
+```sh
 nymd keys add nymd-admin
 ```
+Esto añadirá las claves de su cuenta de administrador al llavero de su sistema.
 
-This will add keys for your administrator account to your system's keychain.
-
-The command output should look something like:
-
-```shell
+La salida del comando debería ser algo así:
+```sh
 $ nymd keys add nymd-admin
 Enter keyring passphrase:
 password must be at least 8 characters
@@ -241,85 +195,80 @@ Re-enter keyring passphrase:
 
 - name: nymd-admin
 type: local
-address: punk1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
-pubkey: punkpub1addwnpepqdfcf5786qry8g8ef9nad5vnl0rs5cmkcywzrwwvvdye27ktjmqw2ygr2hr
+address: hal1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
+pubkey: halpub1addwnpepqdfcf5786qry8g8ef9nad5vnl0rs5cmkcywzrwwvvdye27ktjmqw2ygr2hr
 mnemonic: ""
 threshold: 0
 pubkeys: []
 
+**Importante** escriba esta frase mnemotécnica en un lugar seguro.
+Es la única manera de recuperar su cuenta si alguna vez olvida su contraseña.
 
-**Important** write this mnemonic phrase in a safe place.
-It is the only way to recover your account if you ever forget your password.
-
-design payment apple input doll left badge never toe claw coconut neither travel side castle know plate unit mercy weekend pelican stay fortune road
+diseño pago manzana entrada muñeca izquierda insignia nunca dedo garra coco ni viaje lado castillo saber placa unidad misericordia fin de semana pelícano estancia fortuna camino
 ```
 
-As the instructions say, remember to **write down your mnemonic**.
+Como dicen las instrucciones, recuerda **escribir tu mnemónica**.
 
-You can get the admin account's address with:
+Puedes obtener la dirección de la cuenta del administrador con:
 
-```shell
+```sh
 nymd keys show nymd-admin -a
 ```
 
-Type in your keychain **password**, not the mnemonic, when asked. The output should look something like this:
+Escriba su **contraseña** de llavero, no el mnemónico, cuando se le pida. El resultado debería ser algo parecido a esto:
 
-```shell
-punk1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
+```sh
+hal1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 ```
 
-### Starting your validator
+### Iniciando su validador
 
-Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
+Ahora todo debería estar listo para funcionar. Tienes el validador configurado, todos los cambios hechos en `config.toml` y `app.toml`, el archivo Nym genesis copiado en su lugar (reemplazando el inicial auto-generado). Ahora vamos a validar toda la configuración:
 
-```shell
+```sh
 nymd validate-genesis
 ```
 
-If this check passes, you should receive the following output:
+Si esta comprobación se supera, debería recibir la siguiente salida:
 
-```shell
+```sh
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
-> If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-milhon genesis file](https://nymtech.net/testnets/milhon/genesis.json).
+>Si esta prueba no se ha superado, compruebe que ha sustituido el contenido de `ruta/to/.nymd/config/genesis.json` por el del archivo [testnet-finney genesis](https://nymtech.net/testnets/finney/genesis.json).
 
-Before starting the validator, we will need to open the firewall ports:
+Antes de iniciar el validador, necesitaremos abrir los puertos del firewall (adaptarlos si no se usa `firewalld`):
 
-```shell
-# if ufw is not already installed:
-sudo apt install ufw
-sudo ufw enable
-sudo ufw allow 1317,26656,26660,22,80,443,8000,1790/tcp
-# to check everything worked
-sudo ufw status
+```sh
+for port in 1317/tcp 9090/tcp 26656/tcp 22/tcp 26660/tcp 80/tcp 443/tcp; do
+firewall-cmd --add-port=${port}
+firewall-cmd --add-port=${port} --permanent
+done
 ```
 
-Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. `8000` and `1790` are for VerLoc, our node location system, and the rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
+Los puertos `22`, `80` y `443` son para conexiones ssh, http y https respectivamente. El resto de los puertos están documentados [aquí](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
-For more information about your validator's port configuration, check the [validator port reference table](#validator-port-reference) below.
+>Si estás planeando usar [Cockpit](https://cockpit-project.org/) en tu servidor validador entonces habrás definido un puerto `grpc` diferente en tu `config.toml` de arriba: recuerda abrir este puerto también.  
 
-> If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.
+Inicia el validador:
 
-Start the validator:
-
-```shell
+```sh
 nymd start
 ```
 
-Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set:
+Una vez que su validador se inicie, comenzará a solicitar bloques de otros validadores. Esto puede llevar varias horas. Una vez que esté al día, puede emitir una solicitud para unirse al conjunto de validadores:
 
-```shell
-PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. punkvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
+```sh
+PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. halvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
 MONIKER="nym-secondary"                                                       # whatever you called your validator
 FROM_ACCOUNT="nymd-admin"                                                     # your keychain name
 
 nymd tx staking create-validator \
 --amount=10000000stake \
---fees=5000upunk \
+--fees=5000uhal \
 --pubkey="${PUB_KEY}" \
 --moniker=${MONIKER} \
---chain-id=testnet-milhon \
+--chain-id=testnet-finney \
 --commission-rate="0.10" \
 --commission-max-rate="0.20" \
 --commission-max-change-rate="0.01" \
@@ -327,30 +276,27 @@ nymd tx staking create-validator \
 --gas="auto" \
 --gas-adjustment=1.15 \
 --from=${FROM_ACCOUNT} \
---node https://testnet-milhon-validator.nymtech.net:443
+--node https://testnet-finney-validator.nymtech.net:443
 ```
 
-You'll need `stake` coins for this.
+Para ello, necesitarás monedas `stake`.
 
-Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
+Nota: actualmente estamos trabajando para crear un conjunto cerrado de validadores de confianza. Puedes pedirnos monedas para entrar, pero por favor no te ofendas si te decimos que no - los validadores son parte de la seguridad central de nuestro sistema y estamos empezando con gente que ya conocemos o que tiene una sólida reputación.
 
-If you want to edit some details for your node you will use a command like this:
+Si quieres editar algunos detalles de tu nodo usarás un comando como este:
 
-```shell
-nymd tx staking edit-validator   --chain-id=testnet-milhon   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000upunk
+```sh
+nymd tx staking edit-validator   --chain-id=testnet-finney   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000uhal
 ```
 
-With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact~
+Con el comando anterior puedes especificar los últimos números de la clave `gpg` (como se usa en `keybase`) así como los detalles del validador y tu correo electrónico para el contacto de seguridad~
 
-### Automating your validator with systemd
-
-You will most likely want to automate your validator restarting if your server reboots. Below is a systemd unit file to place at `/etc/systemd/system/nymd.service`:
+### Automatizar su validador con systemd
+Lo más probable es que quiera automatizar el reinicio de su validador si su servidor se reinicia. A continuación se muestra un archivo de unidad systemd para colocar en `/etc/systemd/system/nymd.service`:
 
 ```ini
 [Unit]
-Description=Nymd (0.11.0)
-StartLimitInterval=350
-StartLimitBurst=10
+Description=Nymd (0.10.0)
 
 [Service]
 User=nym                                                          # change to your user
@@ -359,41 +305,35 @@ Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nym/binaries" # change to co
 ExecStart=/home/youruser/path/to/nym/binaries/nymd start          # change to correct path
 Restart=on-failure
 RestartSec=30
+StartLimitInterval=350
+StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target
 ```
+Proceda a iniciarlo:
 
-Proceed to start it with:
-
-```shell
+```sh
 systemctl daemon-reload # to pickup the new unit file
 systemctl enable nymd   # to enable the service
 systemctl start nymd    # to actually start the service
 journalctl -f           # to monitor system logs showing the service start
 ```
 
-### Installing and configuring nginx for HTTPS
+### Instalación y configuración de nginx para HTTPS
+#### Configuración
+[Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) es un software de código abierto utilizado para el funcionamiento de servidores web de alto rendimiento. Nos permite configurar el proxy inverso en nuestro servidor validador para mejorar el rendimiento y la seguridad.
 
-#### Setup
+Instala `nginx` y activa "Nginx Full" en tu firewall.
 
-[Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
+Compruebe que nginx se está ejecutando a través de systemctl:
 
-Install `nginx` and allow the 'Nginx Full' rule in your firewall:
-
-```shell
-sudo ufw allow 'Nginx Full'
-```
-
-Check nginx is running via systemctl:
-
-```shell
+```sh
 systemctl status nginx
 ```
+Que debería volver:
 
-Which should return:
-
-```shell
+```sh
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
    Active: active (running) since Fri 2018-04-20 16:08:19 UTC; 3 days ago
@@ -405,164 +345,89 @@ Which should return:
            └─2380 nginx: worker process
 ```
 
-#### Configuration
+#### Configuración
 
-Proxying your validator's port `26657` to nginx port `80` can then be done by creating a file with the following at `/etc/nginx/conf.d/validator.conf`:
+El proxy del puerto `26657` de su validador al puerto `80` de nginx puede hacerse incluyendo lo siguiente en `/etc/nginx/conf.d/validator.conf`:
 
-```shell
+```sh
 server {
   listen 80;
   listen [::]:80;
-  server_name "{{ domain }}";
+  server_name {{ domain }};
 
   location / {
     proxy_pass http://127.0.0.1:26657;
     proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_headerHost $host;
+    proxy_set_headerX-Real-IP $remote_addr;
   }
 }
 ```
 
-Followed by:
+Seguido por:
 
-```shell
+```sh
 sudo apt install certbot nginx python3
 certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
 ```
 
-:::caution
-If using a VPS running Ubuntu 20: replace `certbot nginx python3` with `python3-certbot-nginx`
-:::
+Estos comandos te darán un proxy nginx encriptado HTTPS frente a la API.
 
-These commands will get you an https encrypted nginx proxy in front of the API.
+En el próximo testnet nos centraremos más en cosas como el TLS del validador y los nodos centinela.
 
-### Configuring Prometheus metrics (optional)
+### Desenclavamiento de su validador
 
-Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
+Si, por alguna razón, tu validador es encarcelado, puedes arreglarlo con el siguiente comando:
 
-```shell
-echo 'export OTEL_EXPORTER_PROMETHEUS_PORT=9464' >> $HOME/.bashrc
-source ~/.bashrc
-sed -i '/\[telemetry\]/{:a;n;/enabled/s/false/true/;Ta}' $HOME/.nymd/config/app.toml
-sed -i "s/prometheus-retention-time = 0/prometheus-retention-time = 60/g" $HOME/.nymd/config/app.toml
-sudo ufw allow 9464
-echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
-```
-
-Your validator's metrics will be available to you at the returned 'Metrics URL', and look something like this:
-
-```shell
-# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
-# TYPE go_gc_duration_seconds summary
-go_gc_duration_seconds{quantile="0"} 6.7969e-05
-go_gc_duration_seconds{quantile="0.25"} 7.864e-05
-go_gc_duration_seconds{quantile="0.5"} 8.4591e-05
-go_gc_duration_seconds{quantile="0.75"} 0.000115919
-go_gc_duration_seconds{quantile="1"} 0.001137591
-go_gc_duration_seconds_sum 0.356555301
-go_gc_duration_seconds_count 2448
-# HELP go_goroutines Number of goroutines that currently exist.
-# TYPE go_goroutines gauge
-go_goroutines 668
-# HELP go_info Information about the Go environment.
-# TYPE go_info gauge
-go_info{version="go1.15.7"} 1
-# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
-# TYPE go_memstats_alloc_bytes gauge
-go_memstats_alloc_bytes 1.62622216e+08
-# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
-# TYPE go_memstats_alloc_bytes_total counter
-go_memstats_alloc_bytes_total 2.09341707264e+11
-# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
-# TYPE go_memstats_buck_hash_sys_bytes gauge
-go_memstats_buck_hash_sys_bytes 5.612319e+06
-# HELP go_memstats_frees_total Total number of frees.
-# TYPE go_memstats_frees_total counter
-go_memstats_frees_total 2.828263344e+09
-# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
-# TYPE go_memstats_gc_cpu_fraction gauge
-go_memstats_gc_cpu_fraction 0.03357798610671518
-# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
-# TYPE go_memstats_gc_sys_bytes gauge
-go_memstats_gc_sys_bytes 1.3884192e+07
-```
-
-### Unjailing your validator
-
-If your validator gets jailed, you can fix it with the following command:
-
-```shell
+```sh
 nymd tx slashing unjail \
   --broadcast-mode=block \
   --from=${FROM_ACCOUNT} \
-  --chain-id=testnet-milhon \
+  --chain-id=testnet-finney \
   --gas=auto \
   --gas-adjustment=1.4 \
-  --fees=7000upunk
+  --fees=7000uhal
 ```
 
-#### Common reasons for your validator being jailed
+### Operaciones del día 2 con su validador
 
-The most common reason for your validator being jailed is that your validator is out of memory because of bloated syslogs.
+Como parte de la ejecución del validador, podrá obtener algunas recompensas.
 
-Running the command `df -H` will return the size of the various partitions of your VPS.
+Con este comando, podemos consultar nuestras recompensas pendientes:
 
-If the `/dev/sda` partition is almost full, try pruning some of the `.gz` syslog archives and restart your validator process.
+```sh
+nymd query distribution validator-outstanding-rewards <halvaloperaddress>
 
-### Day 2 operations with your validator
-
-As part of the execution of the validator, it will be able to get some rewards.
-
-With this command, we can query our outstanding rewards:
-
-```shell
-nymd query distribution validator-outstanding-rewards <punkvaloperaddress>
 ```
 
-Using the values obtained from the previous command, you can withdraw all rewards with:
+Utilizando los valores obtenidos del comando anterior, puede retirar todas las recompensas con:
 
-```shell
-nymd tx distribution withdraw-rewards <punkvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-milhon" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000upunk
+```sh
+nymd tx distribution withdraw-rewards <halvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-finney" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000uhal
 ```
 
-You can check your current balances with:
-
-```shell
-nymd query bank balances punk<address>
+Puede consultar sus saldos actuales con:
+```sh
+nymd query bank balances hal<address>
 ```
-
-For example:
-
+Por ejemplo
 ```yaml
 balances:
 - amount: "22976200"
 denom: stake
 - amount: "919376"
-denom: upunk
+denom: uhal
 pagination:
 next_key: null
 total: "0"
 ```
 
-You can, of course, stake back the available balance to your validator with the following command:
+Por supuesto, puede devolver el saldo disponible a su validador con el siguiente comando:
 
-```shell
-nymd tx staking delegate <punkvaloperaddress> <amount>stake--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-milhon" --gas="auto" --gas-adjustment=1.15 --fees 5000upunk
+```sh
+nymd tx staking delegate <halvaloperaddress> <amount>stake--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-finney" --gas="auto" --gas-adjustment=1.15 --fees 5000uhal
 ```
 
-NOTE: The value to be used instead of the `<amount>stake` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
+NOTA: El valor a utilizar en lugar de la "apuesta" puede calcularse a partir del saldo disponible. Por ejemplo, si tiene `999989990556` en el saldo, puede apostar `999909990556`, tenga en cuenta que el 5º dígito, se ha cambiado de `8` a `0` para dejar algo de espacio para las comisiones (las cantidades se multiplican por 10^6).
 
-Also remember to replace `punkvaloper` with your validator address and `nym-admin` with the user you created during initialization.
-
-### Validator port reference
-
-All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
-
-| Default port | Use                                  |
-|--------------|--------------------------------------|
-| 1317         | REST API server endpoint             |
-| 1790         | Listen for VerLoc traffic            |
-| 8000         | Metrics http API endpoint            |
-| 26656        | Listen for incoming peer connections |
-| 26660        | Listen for Prometheus connections    |
+Recuerda también sustituir `halvaloper` por la dirección de tu validador y `nym-admin` por el usuario que creaste durante la inicialización.

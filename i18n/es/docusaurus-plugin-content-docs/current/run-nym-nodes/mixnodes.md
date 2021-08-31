@@ -1,80 +1,49 @@
 ---
-sidebar_label: "Mixnodes"
-description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
-hide_title: false
-title: Mixnodes
+title: "Mixnodes"
+weight: 30
+description: "Los mixnodes aceptan paquetes Sphinx, mezclan los paquetes y los reenvían, lo que proporciona una gran privacidad a los usuarios de Internet."
 ---
 
- 
 
-:::note 
-
-The Nym mixnode was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
-
+:::note
+El mixnode Nym fue compilado en la sección [building nym] (/docs/run-nym-nodes/build-nym/). Si aún no ha creado Nym y desea ejecutar el código, vaya allí primero.
 :::
 
-### Running a mixnode for the first time
+Para añadir su mixnode a la red testnet, puede copiar el binario `nym-mixnode` desde el directorio `target/release` a su servidor o bien puede compilarlo directamente en el servidor.
 
-After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
+### Actualización desde una versión anterior 
 
-Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
-
-:::caution
-Please note that unless you ran a mixnode in the Finney testnet, **you will not be able to get PUNKs and bond your mixnode for the Milhon testnet**. 
-Instead please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301) for how you can get involved. 
-:::
-
-:::caution
-If you **do** delegate your PUNKs to others and shut down your node, remember to **save the keys located in `$HOME/.nym`!**
-:::
-
-
-### Upgrading your mixnode from an earlier version
-
-If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
+Si ya está estado ejecutando un nodo en la red Nym con la versión v0.9.2, puede usar el comando `upgrade` para actualizar la versión.
 
 ```shell
-./nym-mixnode upgrade --id your-node-id
+./nym-mixnode upgrade --id ID-NODO
 ```
 
-Claim your mixnode in the new testnet by following the steps in the 'Claim your mixnode in Telegram to receive tokens' section below. 
+### Inicializar un mixnode
 
-### Initialize your mixnode
-
-Here's how you initialize a mixnode if you are running one locally for testing, or just curious:
+Si es tu primera vez en NYM, así se inicializa un mixnode:
 
 ```shell
-./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
+./nym-mixnode init --id ID-NODO --host $(curl ifconfig.me) --location Ciudad
 ```
+Para poder participar en la red de prueba de Nym, `--host` debe ser públicamente enrutable en Internet. Puede ser una dirección IPv4 o IPv6. Su nodo * debe * poder enviar datos TCP usando * tanto * IPv4 como IPv6 (ya que otros nodos con los que habla pueden usar cualquiera de los dos protocolos). El comando anterior obtiene su IP automáticamente usando un servicio externo `$ (curl ifconfig.me)`. Puede poner su IP pública directamente si no tiene instalado `curl`. 
 
-To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service.
+La opción `--location` es opcional pero nos ayuda a depurar la red de prueba. 
 
-You can install `curl` with:
+La opción `--id` es el identificador del nodo que queramos usar.
 
-```shell
-sudo apt-get install curl
-```
+Cuando tu ejecutes el comando `init`, se creará un fichero de configuración en `~/.nym/mixnodes/ID-NODO/`. 
 
-Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+El comando `init` NO destruirá las llaves de otros mixnode existente.
 
-You can pick any `--id` you want.
+### Reclama tu mixnode en Telegram para que puedas obtener tokens
 
-The `init` command will refuse to destroy existing mixnode keys.
+La red de Testnet se llama Finney y trabaja con la versión 0.10.x del mixnode de Nym, añade el concepto de "mixnode bonding". Cada operador de mixnode necesita obtener tokens y vincularlse al mixnode para ingresar en la red de Testnet Finney.
 
-During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
-
-
-
-### Claim your mixnode in Telegram to receive tokens
-
-In order to take part in Testnet Milhon each mixnode operator needs to get PUNK, and bond them in the blockchain. 
-
-Go to the [Milhon Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/) and create a Nym address. It will look something like `punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
-
-Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `sign` command:
+Para reclamar su mixnode simplemente ejecute el comando `sign` y proporcione su nombre de usuario de Telegram:
 
 ```shell
-./nym-mixnode sign --id winston-smithnode --text "@<YOUR_TELEGRAM_USERNAME> <YOUR_PUNK_WALLET_ADDRESS>"
+./nym-mixnode sign --id ID-NODO --text @USUARIO_TELEGRAM
 
 
       _ __  _   _ _ __ ___
@@ -83,337 +52,236 @@ Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `s
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.11.0)
+             (mixnode - version 0.10.0)
 
     
-Signing the text "@winston_smithnode_telegram punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt" using your mixnode's Ed25519 identity key...
+Signing the text "@your-telegram-username" using your mixnode's Ed25519 identity key...
 
-Signature is: 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
+Signature is: 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 
 You can claim your mixnode in Telegram by talking to our bot. To do so:
 
-* go to the 'https://t.me/nympunkbot' channel
+* go to the '@nymchan_help_chat' channel
 * copy the following line of text, and paste it into the channel
 
-/transfer punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
+/claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 ```
 
-Then enter the **[@nympunkbot](https://t.me/nympunkbot)** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key:
+Luego ingrese al canal de Telegram ** @ nymchan_help_chat ** y hable con el bot para asociar su nombre de usuario de Telegram con su clave de mixnode: 
 
-```shell
-/transfer punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
+```
+/claim 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz 4Yo4ZkUBxREJapzf7AxLPodQXic4cfbNziJMLxsftTQsVdm5XKUg8be8ErXhnHunsnmz8EZvuGLwSD98PifCad1f
 ```
 
-This proves to the bot that your username owns the mixnode. 
+Con esto hemos declarado que nuestro mixnode debe estar asociado a nuestra cuenta.
 
-:::caution
-**Do not send tokens to `punk10pyejy66429refv3g35g2t7am0was7yalwrzen` thinking this is your address - this is the address of the mixnet smart contract**.
-:::
+A continuación, vaya a la [Wallet web Finney Testnet] (https://web-wallet-finney.nymtech.net/) y cree una dirección Nym. Se verá algo así como `hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. ¡Asegúrese de escribir su mnemotécnico (las palarbas de seguridad de su cuenta)!
 
-### Run your mixnode
+Una vez que tenga una dirección de red de TESTNET de Nym, solicite tokens al bot de Telegram:
 
-```shell
-./nym-mixnode run --id winston-smithnode
+```
+/faucet hal1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt # Cambiando esto por tu dirección de la wallet
 ```
 
-Should return a nice clean startup:
-
-```shell
+El bot te enviará tokens para que puedas vincular tu mixnode. Primero, deberá lanzarlo.
 
 
-      _ __  _   _ _ __ ___
+### Corriendo el mixnode
+
+`./nym-mixnode run --id ID-NODO`
+
+
+Deberías de ver un arranque limpio como este:
+
+```
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.11.0)
+             (mixnode - version 0.10.0)
 
     
 Starting mixnode winston-smithnode...
-Validator servers: ["http://testnet-milhon-validator1.nymtech.net:1317", "http://testnet-milhon-validator2.nymtech.net:1317"]
-Listening for incoming packets on 89.144.210.254
-Announcing the following address: 89.144.210.254
 
-To bond your mixnode, go to https://testnet-milhon-wallet.nymtech.net/.  You will need to provide the following:
-    Identity key: D5yLugjknoZ8gwEjQVvFSVckNPur6qYLSPFsKJcZUruR
-    Sphinx key: Fh7BjMTYv4KAzXjoFzsz3PUpJ2wT2i6fsSTDQQuJ916Y
-    Address: 89.144.210.254
-    Version: 0.11.0
+Directory server [presence]: http://testnet-finney-validator.nymtech.net:1317
+Directory server [metrics]: http://testnet-metrics.nymtech.net:8080
+Listening for incoming packets on <your-ip>:1789
+Announcing the following socket address: <your-ip>:1789
+
+To bond your mixnode, go to https://web-wallet-finney.nymtech.net/.  You will need to provide the following:
+    Identity key: 7xdQ1USuNEZN4WbbiZFPfd59HTqFeNkxpu4zWrYGtmTz
+    Sphinx key: 6T6PpSAzaiHMKJQPKPABXzppxLtUDB3TB4ChM16t3oYP
+    Host: <your-ip>:1789
+    Layer: 3
+    Location: [physical location of your node's server]
+    Version: 0.10.0
     
- 2021-07-21T13:31:34.672Z INFO  nym_mixnode::node > Starting nym mixnode
- 2021-07-21T13:31:35.083Z INFO  nym_mixnode::node > Starting node stats controller...
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node > Starting socket listener...
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node::listener > Running mix listener on "89.144.210.254:1789"
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
-
-
 ```
 
-Now bond your mixnode in the [Milhon web wallet](https://testnet-milhon-wallet.nymtech.net/) before running your node. 
+Una vez que lleguen los tokens, regrese a la billetera web y complete el formulario de vinculación de mixnode, utilizando la información del mixnode que se ha generado en el arranque.
 
-If everything worked, you'll see your node running on the [Milhon network explorer](https://testnet-milhon-explorer.nymtech.net).
+Si todo funcionó, verá su nodo ejecutándose en https://testnet-finney-explorer.nymtech.net.
 
-Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
+Tenga en cuenta que la **Identity key** de su nodo se muestra durante el inicio, puede usarla para identificar su nodo en la lista.
 
-Keep reading to find out more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
+Siga leyendo para encontrar más información sobre las opciones de configuración o la solución de problemas si tiene problemas. También hay algunos consejos para ejecutar en AWS y otros proveedores de la nube, algunos de los cuales requieren una configuración adicional menor.
 
-Have a look at the saved configuration files to see more configuration options.
+:::note
+Si tiene problemas, solicite ayuda en el canal  **nymtech.friends#general** en [KeyBase](https://keybase.io).
+:::
 
+Eche un vistazo a los archivos de configuración guardados para ver más opciones de configuración.
 
-### Configure your firewall
+### Haciendo un script de inicio de systemd
 
-The following commands will allow you to set up a firewall using `ufw`.
+Aunque no es totalmente necesario, es útil hacer que el mixnode se inicie automáticamente al arrancar el sistema. Aquí hay un archivo de servicio systemd para hacerlo:
 
-```shell
-# check if you have ufw installed
-ufw version
-# if it is not installed, install with
-sudo apt install ufw -y
-# enable ufw
-sudo ufw enable
-# check the status of the firewall
-sudo ufw status
 ```
-
-Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
-
-```shell
-sudo ufw allow 1789,1790,8000,22,80,443/tcp
-# check the status of the firewall
-sudo ufw status
-```
-
-For more information about your mixnode's port configuration, check the [mixnode port reference table](#mixnode-port-reference) below.
-
-### Describe your mixnode (optional)
-
-In order to easily identify your node via human-readable information later on in the development of the testnet when delegated staking is implemented, you can `describe` your mixnode with the following command:
-
-```shell
-./nym-mixnode describe --id winston-smithnode
-```
-
-Which will output something like this:
-
-```shell
-
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (mixnode - version 0.11.0)
-
-
-name: winston-smithnode
-description: nym-mixnode hosted on Linode VPS in <location> with the following specs: <specs>.
-link, e.g. https://mixnode.yourdomain.com: mixnode.mydomain.net
-```
-
-This information will be shown in a (not yet built) mixnode page in in the Network Explorer, and help people make delegated staking decisions.
-
-### Automating your mixnode with systemd
-
-Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
-
-```ini
 [Unit]
-Description=Nym Mixnode (0.11.0)
-StartLimitInterval=350
-StartLimitBurst=10
+Description=Nym Mixnode (0.10.0)
 
 [Service]
 User=nym
 LimitNOFILE=65536
 ExecStart=/home/nym/nym-mixnode run --id mix0100
-KillSignal=SIGINT
+KillSignal=SIGINT 
 Restart=on-failure
 RestartSec=30
+StartLimitInterval=350
+StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-Put the above file onto your system at `/etc/systemd/system/nym-mixnode.service`.
+Pon el archivo anterior en tu sistema en `/etc/systemd/system/nym-mixnode.service`. 
 
-Change the path in `ExecStart` to point at your mixnode binary (`nym-mixnode`), and the `User` so it is the user you are running as.
+Cambia la ruta en `ExecStart` para que apunte al binario de tu mixnode (`nym-mixnode`), y el `User` para que sea el usuario con el que estás ejecutando.
 
-If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this:
+Si has construido nym en tu servidor, y tu nombre de usuario es `jetpanther`, entonces el comando de inicio podría ser así: 
 
-`ExecStart=/home/jetpanther/nym/target/release/nym-mixnode run --id your-id`. Basically, you want the full `/path/to/nym-mixnode run --id whatever-your-node-id-is`
+`ExecStart=/home/jetpanther/nym/target/release/nym-mixnode run --id your-id`. Básicamente, quieres el comando completo `path/to/nym-mixnode run --id whatever-your-node-id-is`.
 
-Then run:
+Entonces ejecuta:
 
-```shell
+```
 systemctl enable nym-mixnode.service
 ```
 
-Start your node:
+Inicia tu nodo: 
 
-```shell
+```
 service nym-mixnode start
 ```
 
-This will cause your node to start at system boot time. If you restart your machine, the node will come back up automatically.
+Esto hará que tu nodo se inicie en el momento del arranque del sistema. Si reinicia su equipo, el nodo volverá a arrancar automáticamente. 
 
-You can also do `service nym-mixnode stop` or `service nym-mixnode restart`.
+También puedes usar `service nym-mixnode stop` o `service nym-mixnode restart`. 
 
-Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
+Nota: si realizas algún cambio en tu script systemd después de haberlo habilitado, tendrás que ejecutar 
 
-```shell
+```
 systemctl daemon-reload
 ```
 
-This lets your operating system know it's ok to reload the service configuration.
+Esto permite a tu sistema operativo saber que está bien recargar la configuración del servicio.
 
-#### Set the ulimit
+### Configurar el  ulimit
+Si no estás ejecutando nym-mixnode con systemd como arriba con `LimitNOFILE=65536` entonces tendrás problemas.
+Debes establecer tu ulimit por encima de 1024 o tu nodo no funcionará correctamente en la red de pruebas. Para probar el `ulimit` de tu mixnode:
 
-Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
-
-`ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
-
-If you see errors such as:
-
-```shell
-Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
+```
+grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits 
 ```
 
-This means that the operating system is preventing network connections from being made.
+Obtendrás los límites duros y blandos, algo así 
 
-##### Set the ulimit via `systemd` service file
+``Máximo de archivos abiertos 65536 65536 archivos ```
 
-Query the `ulimit` of your mixnode with:
+Esto significa que estás bien y que tu nodo no se encontrará con ningún problema relacionado con `ulimit`. 
 
-```shell
-grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
+Sin embargo;
+
+Si cualquiera de los dos valores es 1024, debes aumentar el límite. Para ello, edita el archivo de servicio systemd y añade `LimitNOFILE=65536` y recarga el demonio:
+``systemctl daemon-reload`` como root
+
+o ejecuta esto como root para configurar el `ulimit` en todo el sistema: 
+
 ```
-
-You'll get back the hard and soft limits, which looks something like this:
-
-```shell
-Max open files            65536                65536                files
-```
-
-If your output is **the same as above**, your node will not encounter any `ulimit` related issues.
-
-However if either value is `1024`, you must raise the limit via the systemd service file. Add the line:
-
-```shell
-LimitNOFILE=65536
-```
-
-Reload the daemon:
-
-```shell
-systemctl daemon-reload
-```
-
-or execute this as root for system-wide setting of `ulimit`:
-
-```shell
 echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 ```
 
-Reboot your machine and restart your node. When it comes back, use `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` to make sure the limit has changed to 65535.
+Reinicie su equipo y reinicie su nodo. Cuando vuelva, ejecuta `cat /proc/$(pidof nym-mixnode)/limits | grep "Max open files"` de nuevo para asegurarse de que el límite haya cambiado a 65535.
 
-##### Set the ulimit on `non-systemd` based distributions
+Cambiar el `DefaultLimitNOFILE` y reiniciar debería ser todo lo que necesitas hacer. Pero si quiere saber qué es lo que acaba de hacer, sigue leyendo.
 
-Edit `etc/security/conf` and add the following lines:
+Los equipos Linux limitan el número de archivos abiertos que puede tener un usuario. Esto se llama `ulimit`.
 
-```shell
-# Example hard limit for max opened files
-username        hard nofile 4096
-# Example soft limit for max opened files
-username        soft nofile 4096
+El `ulimit` por defecto es de 1024 en la mayoría de los sistemas. Es necesario ponerlo más alto, porque los mixnodes hacen y reciben muchas conexiones con otros nodos.
+
+#### Síntomas de problemas de ulimit
+
+Si ves alguna referencia a "Demasiados archivos abiertos" en tus registros:
+
+```
+Fallo al aceptar la conexión entrante - Os { código: 24, kind: Otro, mensaje: "Demasiados archivos abiertos" }
 ```
 
-Then reboot your server and restart your mixnode.
+Esto significa que el sistema operativo está impidiendo que se realicen conexiones de red. Aumente su `ulimit`.
 
-### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-milhon-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
-For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
+### Comprobación de que su nodo está mezclando correctamente
 
-### Viewing command help
+Una vez que hayas iniciado tu mixnode y se conecte al validador de testnet, tu nodo aparecerá automáticamente en el [Nym testnet explorer](https://testnet-finney-explorer.nymtech.net/).
 
-See all available options by running:
+Para más detalles, consulte [Preguntas frecuentes sobre la resolución de problemas](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
-```shell
+### Ver la ayuda del comando
+
+Vea todas las opciones disponibles ejecutando:
+
+```
 ./nym-mixnode --help
 ```
 
-Subcommand help is also available, e.g.:
+También está disponible la ayuda de los subcomandos, por ejemplo
 
-```shell
+```
 ./nym-mixnode upgrade --help
 ```
 
-### Virtual IPs and hosting via Google & AWS
+### IPs virtuales, Google, AWS, y lo demás
 
-On some services (AWS, Google, etc), the machine's available bind address is not the same as the public IP address. In this case, bind `--host` to the local machine address returned by `ifconfig`, but also specify `--announce-host` with the public IP. Please make sure that you pass the correct, routable `--announce-host`.
+En algunos servicios (por ejemplo, AWS, Google), la dirección de enlace disponible del equipo no es la misma que la dirección IP pública. En este caso, enlaza `--host` con la dirección del equipo local devuelta por `ifconfig`, pero especifica también `--announce-host` con la IP pública. Asegúrate  que pasas la dirección correcta y enrutable de `--announce-host`.
 
-For example, on a Google machine, you may see the following output from the `ifconfig` command:
+Por ejemplo, en un equipo de Google, puede ver la siguiente salida del comando `ifconfig`:
 
-```shell
+```
 ens4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
         inet 10.126.5.7  netmask 255.255.255.255  broadcast 0.0.0.0
         ...
 ```
 
-The `ens4` interface has the IP `10.126.5.7`. But this isn't the public IP of the machine, it's the IP of the machine on Google's internal network. Google uses virtual routing, so the public IP of this machine is something else, maybe `36.68.243.18`.
+La interfaz `ens4` tiene la IP `10.126.5.7`. Pero esta no es la IP pública del equipo, es la IP del equipo en la red interna de Google. Google utiliza el enrutamiento virtual, por lo que la IP pública de este equipo es otra, tal vez `36.68.243.18`.
 
-`nym-mixnode init --host 10.126.5.7`, initializes the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
+Si se utiliza `nym-mixnode init --host 10.126.5.7`, se entra en el mixnode, pero no se enrutan los paquetes porque `10.126.5.7` no está en la red pública.
 
-Trying `nym-mixnode init --host 36.68.243.18`, you'll get back a startup error saying `AddrNotAvailable`. This is because the mixnode doesn't know how to bind to a host that's not in the output of `ifconfig`.
+Intentando `nym-mixnode init --host 36.68.243.18`, obtendrás un error de inicio diciendo `AddrNotAvailable`. Esto se debe a que el mixnode no sabe cómo enlazar con un host que no está en la salida de `ifconfig`.
 
-The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 --announce-host 36.68.243.18`.
+Lo que hay que hacer en esta situación es `nym-mixnode init --host 10.126.5.7 --announce-host 36.68.243.18`.
 
-This will bind the mixnode to the available host `10.126.5.7`, but announce the mixnode's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
-
-### Mixnode Hardware Specs
-
-For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput. So don't bother provisioning a beastly server with multiple cores.
-
-- Processors: 2 cores are fine. Get the fastest CPUs you can afford.
-- RAM: Memory requirements are very low - typically a mixnode may use only a few hundred MB of RAM.
-- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
-
-This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
-
-### Metrics
-
-There are currently two options for getting information about your mixnode. `description` and `verloc` are accessed via your mixnode's http API, whilst `report` and `history` are reported by the Nym node status API.
-
-| Endpoint       | Description                                                                                                                                                                                      | Command                                                                                                                               |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `/report`      | Returns the most recent node status test report                                                                                                                                                  | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/report`        |
-| `/history`     | Returns all previous test reports                                                                                                                                                                | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/history`       |
-| `/description` | Returns the description of your node set with the `describe` command. | `curl <YOUR_NODE_IP>:8000/description`                                                                                                |
-| `/verloc`      | Returns the verloc information of your node, which is updated every 12 hours.                                                                                                                    | `curl <YOUR_NODE_IP>:8000/verloc`                                                                                                     |
+Esto vinculará el mixnode al host disponible `10.126.5.7`, pero anunciará la IP pública del mixnode al servidor de directorio como `36.68.243.18`. Depende de ti, como operador del nodo, asegurarte de que tus IPs públicas y privadas coinciden correctamente.
 
 
-There several metrics of interest returned by `/report` regarding your mixnode's uptime and package-mixing capabilities:
 
-- `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
-- `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
-- `lastHourIPV4`: returns IPv4 connectivity as a percentage over the last hour.
-- `lastDayIPV4`: returns IPv4 connectivity as a percentage over the 24 hours.
-- `mostRecentIPV6`: returns a `bool` for whether the most recent IPv6 connectivity test was successful.
-- `last5MinutesIPV6`: returns IPv6 connectivity as a percentage over the last five minutes.
-- `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
-- `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
+### Especificaciones de hardware del Mixnode
 
+Por el momento, no hemos puesto una gran cantidad de esfuerzo en la optimización de la concurrencia para aumentar el rendimiento. Así que no te molestes en aprovisionar un servidor bestial con muchos núcleos. 
 
-### Mixnode port reference
+* Procesadores: 2 núcleos están bien. Consigue las CPUs más rápidas que puedas permitirte. 
+* RAM: Los requerimientos de memoria son muy bajos - típicamente un mixnode puede usar sólo unos cientos de MB de RAM. 
+* Discos: Los mixnodes no requieren espacio en disco más allá de unos pocos bytes para los archivos de configuración
 
-All mixnode-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mixnode.
-
-| Default port | Use                       |                                                                                                                                            
-|--------------|---------------------------|
-| `1789`       | Listen for mixnet traffic |
-| `1790`       | Listen for VerLoc traffic |
-| `8000`       | Metrics http API endpoint |
+Esto cambiará cuando tengamos la oportunidad de empezar a hacer optimizaciones de rendimiento de una manera más seria. El descifrado de paquetes de Sphinx está ligado a la CPU, así que una vez que optimicemos, será mejor tener más núcleos rápidos.

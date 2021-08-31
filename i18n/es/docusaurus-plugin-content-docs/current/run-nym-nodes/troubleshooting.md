@@ -1,78 +1,33 @@
 ---
-sidebar_label: "Mixnode Troubleshooting FAQ"
-description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
-hide_title: false
-title: Mixnode Troubleshooting FAQ
+título: "Preguntas frecuentes sobre la solución de problemas de Mixnode"
+peso: 42
+descripción: "Esta página te ayudará a encontrar respuestas a problemas comunes con la configuración y el mantenimiento de los mixnodes"
 ---
 
- 
+## ¿Cómo puedo saber que mi nodo está funcionando y mezclando tráfico?
 
-### How can I tell my node is up and running and mixing traffic?
+En primer lugar, comprueba el [tablero] de testnet (https://testnet-milhon-explorer.nymtech.net/).
+Vaya a Mixnodes y busque su nodo. 
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-milhon-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+Puedes obtener más detalles después de conectarte a tu servidor.
 
-If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
+Aquí hay algunos ejemplos de cómo comprobar si el nodo está configurado correctamente.
 
-#### Check from your VPS
+### Para comprobar desde el equipo en el que se ejecuta su nodo:
 
-Additional details can be obtained via various methods after you connect to your VPS:
+- ``` sudo ss -s -t | grep 1789 ``` Esto debería funcionar en todos los sistemas basados en unix
+- ``` sudo lsof -i TCP:1789 ``` si obtiene el comando no encontrado, haga ``` sudo apt install lsof ```
+- ``sudo journalctl -u nym-mixnode -o cat | grep "Since startup mixed" ``` Si has creado el archivo nym-mixnode.service entonces este comando te muestra cuantos paquetes has mezclado hasta ahora. puedes añadir ` | tail` después del comando para verlo en tiempo real si es necesario. 
 
-##### Socket statistics with `ss`
 
-```shell
-sudo ss -s -t | grep 1789 # if you have specified a different port in your mixnode config, change accordingly
-```
+### Para volver a comprobarlo desde su equipo local
 
-This command should return a lot of data containing `ESTAB`. This command should work on every unix based system.
+-  ``` telnet <IP ADDRESS> 1789<OR OTHER PORT> ```
+-  ``` nmap -p 1789 <IP ADDRESS> -Pn ```
 
-##### List open files and reliant processes with `lsof`
+Esto no te dirá mucho, pero mientras tu conexión telnet no se cuelgue con "**Intentando...**" debería significar que tu mixnode es accesible desde el exterior.
 
-```shell
-# check if lsof is installed:
-lsof -v
-# install if not installed
-sudo apt install lsof
-# run against mixnode port
-sudo lsof -i TCP:1789 # if you have specified a different port in your mixnode config, change accordingly
-```
-
-This command should return something like this:
-
-```shell
-nym-mixno 103349 root   53u  IPv6 1333229972      0t0  TCP [2a03:b0c0:3:d0::ff3:f001]:57844->[2a01:4f9:c011:38ae::5]:1789 (ESTABLISHED)
-nym-mixno 103349 root   54u  IPv4 1333229973      0t0  TCP nym:57104->194.5.78.73:1789 (ESTABLISHED)
-nym-mixno 103349 root   55u  IPv4 1333229974      0t0  TCP nym:48130->static.236.109.119.168.clients.your-server.de:1789 (ESTABLISHED)
-nym-mixno 103349 root   56u  IPv4 1333229975      0t0  TCP nym:52548->vmi572614.contaboserver.net:1789 (ESTABLISHED)
-nym-mixno 103349 root   57u  IPv6 1333229976      0t0  TCP [2a03:b0c0:3:d0::ff3:f001]:43244->[2600:1f18:1031:2401:c04b:2f25:ca79:fef3]:1789 (ESTABLISHED)
-```
-
-##### Query `systemd` journal with `journalctl`
-
-```shell
-sudo journalctl -u nym-mixnode -o cat | grep "Since startup mixed"
-```
-
-If you have created `nym-mixnode.service` file (i.e. you are running your mixnode via `systemd`) then this command shows you how many packets have you mixed so far, and should return a list of messages like this:
-
-```shell
-2021-05-18T12:35:24.057Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 233639 packets!
-2021-05-18T12:38:02.178Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 233739 packets!
-2021-05-18T12:40:32.344Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 233837 packets!
-2021-05-18T12:46:08.549Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 234081 packets!
-2021-05-18T12:56:57.129Z INFO  nym_mixnode::node::metrics                      > Since startup mixed 234491 packets!
-```
-
-You can add ` | tail` to the end of the command to watch for new entries in real time if needed.
-
-#### Check from your local machine
-
-##### Scan ports with `nmap`:
-
-```shell
-nmap -p 1789 <IP ADDRESS> -Pn
-```
-
-If your mixnode is configured properly it should output something like this:
+Así es como debería verse la salida del comando **nmap** anterior si tu mixnode está configurado correctamente:
 
 ```
 bob@desktop:~$ nmap -p 1789 95.296.134.220 -Pn
@@ -81,253 +36,109 @@ Host is up (0.053s latency).
 
 PORT     STATE SERVICE
 1789/tcp open  hello
-```
-
-##### Query all nodes and parse with `jq`:
-
-```shell
-curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq
-```
-
-Should return a JSON object of all nodes currently online.
-
-This command can be further parsed by various keys, such as location:
-
-```shell
-curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
-```
-
-or address:
 
 ```
-curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
-```
+También puedes consultar todos los mixnodes, y seguir analizándolos con un poco de ayuda de **jq**
 
-#### Check with testnet API
+- ``` curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq ```
 
-We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation](./mixnodes.md#mixnode-metrics).
+se puede analizar más a fondo entonces
 
-### Why is my node not mixing any packets?
+por ejemplo, obtener una lista de nodos con ubicación en Londres 
 
-If you are still unable to see your node on the [dashboard](https://testnet-milhon-explorer.nymtech.net/), or your node is declaring it has not mixed any packets, there are several potential issues:
+- ``` curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")' ```
 
-- The firewall on your host machine is not configured properly.
-- You provided incorrect information when bonding your node via the [web wallet](https://testnet-milhon-wallet.nymtech.net/)
-- You are running your mixnode from a VPS without IPv6 support.
-- You did not use the `--announce-host` flag while running the mixnode from your local machine behind NAT.
-- You did not configure your router firewall while running the mixnode from your local machine behind NAT, or you are lacking IPv6 support.
-- Your mixnode is not running at all, it has either exited / panicked or you closed the session without making the node persistent.
+o para ver todos los nodos que comienzan con la dirección ipv4 65.21.x.x y listar sólo sus direcciones ipv4 completas
 
-:::caution
-Your mixnode **must speak both IPv4 and IPv6** in order to cooperate with other nodes and route traffic. This is a common reason behind many errors we are seeing among node operators, so check with your provider that your VPS is able to do this!
-:::
+- ``` curl https://testnet-finney-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host' ```
 
-#### Incorrectly configured firewall
+***
 
-The most common reason your mixnode might not be mixing packets is due to a poorly configured firewall. The following commands will allow you to set up a firewall using `ufw`.
+## Por qué mi nodo no mezcla ningún paquete & Como configurar el firewall
 
-```shell
-# check if you have ufw installed
-ufw version
-# if it is not installed, install with
-sudo apt install ufw -y
-# enable ufw
-sudo ufw enable
-# check the status of the firewall
-sudo ufw status
-```
+Si no puedes ver tu nodo en el [dashboard](https://testnet-finney-explorer.nymtech.net/) o con ninguna de las otras formas mencionadas anteriormente para comprobar tu nodo, entonces suele ser bastante simple y directo resolver este problema.
+La razón más probable es :
+* El firewall de su equipo no está configurado.
+* Ha utilizado datos incorrectos durante el proceso de vinculación de su nodo desde la [cartera web] (web-wallet-finney.nymtech.net) 
+* No usaste la bandera *--anunciar-host* mientras ejecutabas mixnode desde tu equipo local detrás de NAT.
+* No has configurado el firewall de tu router mientras ejecutas el mixnode desde tu equipo local detrás de NAT o no tienes soporte para IPv6. Tu mixnode **debe hablar tanto  IPv4 como IPv6**. Tendrá que cooperar con otros nodos para enrutar el tráfico.
+* El mixnode no se está ejecutando en absoluto, o bien ha salido o has cerrado la sesión sin hacer que el nodo sea persistente.
 
-Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
 
-```shell
-sudo ufw allow 1789,1790,8000,22,80,443/tcp
-# check the status of the firewall
-sudo ufw status
-```
+**Compruebe la configuración del firewall en su equipo. La forma más fácil en su VPS es usar ``ufw``. 
+ En algunos sistemas, como el servidor Debian 10, ``ufw`` no está instalado por defecto**
+- como usuario root en Debian 10 instala ufw - ```apt install ufw -y ``` 
+- En Ubuntu, primero comprueba si tu ufw está habilitado - ``ufw status ```
+- ``` ufw allow 1789/tcp && ufw allow 22/tcp && ufw enable ``` - > Esto permitirá el puerto 1789 para el mixnode, 22 para ssh y luego habilita el firewall. Tu nodo debería funcionar bien después de eso.
+**Nota**: Necesitas añadir ``sudo `` antes de cada comando ``ufw `` si no eres un usuario root. ``sudo ufw allow 1789/tcp ``. Los símbolos ``&&`` se utilizan para encadenar comandos en Linux. 
 
-#### Incorrect bonding information
+En ciertos proveedores de nube como AWS y Google Cloud, necesitas hacer una configuración adicional de tu firewall y usar ```--host`` con tu **ip local** y ``--announce-host`` con la **ip pública** de tu host mixnode. 
 
-Check that you have provided the correct information when bonding your mixnode in the web wallet [interface](https://testnet-milhon-wallet.nymtech.net/). When in doubt, unbond and then rebond your node!
+Para obtener todas las **direcciones IP** de tu host, prueba lo siguiente:
 
-#### Missing `announce-host` flag
+```hostname -i`` te muestra tu **dirección ip** local,
+```hostname -I`` que te mostrará todas las **direcciones ip** de tu host. Este es un ejemplo de salida. 
 
-On certain cloud providers such as AWS and Google Cloud, you need to do some additional configuration of your firewall and use `--host` with your **local ip** and `--announce-host` with the **public ip** of your mixnode host.
-
-#### No IPv6 connectivity
-
-Make sure that your VPS has IPv6 connectivity available with whatever provider you are using.
-
-To get all ip addresses of your host, try following commands:
-
-```shell
-hostname -i
-```
-
-Will return your **local ip** address.
-
-```shell
-hostname -I
-```
-
-Will return all of the ip addresses of your host. This output should look something like this:
-
-```shell
+``sh
 bob@nym:~$ hostname -I
 88.36.11.23 172.18.0.1 2a01:28:ca:102::1:641
 ```
+* El primer **ipv4** es tu ip pública que necesitas usar para ```--anunciar-host``.
+* El segundo **ipv4** es tu ip local que tienes que usar para ``--host`` 
+* Y la tercera debería confirmar si tu equipo tiene **ipv6** disponible. 
 
-- The first **ipv4** is the public ip you need to use for the `--announce-host` flag.
-- The second **ipv4** is the local ip you need to use for the `--host` flag.
-- The 3rd output should confirm if your machine has ipv6 available.
+## ¿Cómo puedo asegurarme que mi nodo funciona desde mi equipo local si estoy detrás de NAT y no tengo una dirección IP fija?
 
-#### Running on a local machine behind NAT with no fixed IP address
+En primer lugar, tu ISP tiene que estar preparado para IPv6. Lamentablemente, en 2020, la mayoría de ellos no lo están y no obtendrás una dirección IPv6 por defecto de tu ISP. Normalmente es un servicio de pago adicional o simplemente no lo ofrecen. 
 
-Your ISP has to be IPv6 ready if you want to run a mixnode on your local machine. Sadly, in 2020, most of them are not and you won't get an IPv6 address by default from your ISP. Usually it is a extra paid service or they simply don't offer it.
+Antes de empezar, comprueba si tienes IPv6 [aquí](https://test-ipv6.cz/). Si no es así, no pierdas el tiempo en ejecutar un nodo que no podrá mezclar ningún paquete debido a esta limitación. Llama a tu ISP y pregunta por IPv6, ¡hay de sobra para todos!
 
-Before you begin, check if you have IPv6 [here](https://test-ipv6.cz/). If not, then don't waste your time to run a node which won't ever be able to mix any packet due to this limitation. Call your ISP and ask for IPv6, there is a plenty of it for everyone!
+Si todo va bien y tienes IPv6 disponible, entonces necesitarás ``init`` el mixnode con una bandera extra, ``--announce-host``. También necesitarás editar tu archivo **config** cada vez que tu dirección IPv4 cambie, lo que podría ser unos días o unas semanas. 
 
-If all goes well and you have IPv6 available, then you will need to `init` the mixnode with an extra flag, `--announce-host`. You will also need to edit your `config.toml` file each time your IPv4 address changes, that could be a few days or a few weeks.
+También podría ser necesaria una configuración adicional en su router para permitir la entrada y salida de tráfico al puerto 1789 y el soporte de IPv6.
 
-Additional configuration on your router might also be needed to allow traffic in and out to port 1789 and IPv6 support.
+Aquí hay un ejemplo del comando `init` para crear la configuración del mixnode.
 
-Here is a sample of the `init` command to create the mixnode config.
-
-```
-./target/release/nym-mixnode init --id nym-nat --host 0.0.0.0 --announce-host 85.160.12.13 --layer 3
-```
-
-- `--host 0.0.0.0` should work everytime even if your local machine IPv4 address changes. For example on Monday your router gives your machine an address `192.168.0.13` and on Wednesday, the DHCP lease will end and you will be asigned `192.168.0.14`. Using `0.0.0.0` should avoid this without having to set any static ip in your router`s configuration.
-
-- you can get your current IPv4 address by either using `curl ipinfo.io` if you're on MacOS or Linux or visiting [whatsmyip site](https://www.whatsmyip.org/). Simply copy it and use it as `--anounce-host` address.
-
-Make sure you check if your node is really mixing. You will need a bit of luck to set this up from your home behind NAT.
-
-#### Accidentally killing your node process on exiting session
-
-When you close your current terminal session, you need to make sure you don't kill the mixnode process! There are multiple ways on how to make it persistent even after exiting your ssh session, the easiest solution is to use `nohup`, and the more elegant solution is to run the node with `systemd`.
-
-##### Running your mixnode as a background process with `nohup`
-
-`nohup` is a command with which your terminal is told to ignore the `HUP` or 'hangup' signal. This will stop the mixnode process ending if you kill your session.
-
-```shell
-nohup ./nym-mixnode run --id NYM # where `--id NYM` is the id you set during the `init` command.
+``` 
+./target/release/nym-mixnode init --id nym-nat --host 0.0.0.0 --announce-host 85.160.12.13 --layer 3 --location Mars 
 ```
 
-##### Running your mixnode as a background process with `systemd`
+- La opción `--host 0.0.0.0` debería funcionar siempre, incluso si la dirección IPv4 de su equipo local cambia. Por ejemplo, el lunes su router le da a su equipo una dirección `192.168.0.13` y el miércoles, el arrendamiento DHCP terminará y se le asignará `192.168.0.14`. El uso de `0.0.0.0` debería evitar esto sin tener que establecer ninguna ip estática en la configuración de tu router.
+- Puedes obtener tu dirección IPv4 actual usando `curl ipinfo.io` si estás en MacOS o Linux o visitando [whatsmyip site](https://www.whatsmyip.org/). Simplemente cópiala y úsala como dirección `--anounce-host`.
 
-The most reliable and elegant solution is to create a `systemd.service` file and run the nym-mixnode with `systemctl` command.
+Asegúrate de comprobar si tu nodo está mezclando realmente. Necesitarás un poco de suerte para configurar esto desde tu casa detrás de NAT. 
 
-Create a file with `nano` at `/etc/systemd/system/nym-mixnode.service` containing the following:
+## ¿Puedo utilizar un puerto diferente al 1789?
 
-```shell
-[Unit]
-Description=nym mixnode service
-After=network.target
+Sí, esto es lo que necesitas.
+Digamos que quieres usar el puerto **1337** para tu mixnode. 
 
-[Service]
-Type=simple
-User=nym                                      # change as appropriate
-LimitNOFILE=65536
-ExecStart=/home/nym/nym-mixnode run --id nym  # change as appropriate
-KillSignal=SIGINT
-Restart=on-failure
-RestartSec=30
-Restart=on-abort
-[Install]
-WantedBy=multi-user.target
+### Configurando el firewall 
+
+`sudo ufw allow 1337` (ejecutar sin sudo si eres root). Puedes encontrar más detalles sobre esto en la sección **Por qué mi nodo no mezcla ningún paquete y Cómo configurar el firewall** de este wiki.
+
+### Editar la configuración existente 
+
+Si ya tienes una configuración que creaste antes y quieres cambiar el puerto, necesitas detener tu nodo, si está corriendo, y luego editar tu archivo de configuración. 
+Asumiendo que el nombre de tu nodo es `nym`, el archivo de configuración se encuentra en `~/.nym/mixnodes/nym/config/config.toml`. 
 ```
-
-```shell
-# enable the service
-sudo systemctl enable nym-mixnode
-# start the service
-sudo systemctl start nym-mixnode
-# check if the service is running properly and mixnode is mixing
-sudo systemctl status nym-mixnode
+nano ~/.nym/mixnodes/nym/config/config.toml 
 ```
+Tendrás que editar dos partes del archivo. `announce_address` y `listening_address` en el archivo config.toml. Simplemente encuentra estas dos partes, borra tu antiguo puerto `:1789` y añade `:1337` después de tu dirección IP.
 
-Now your node should be mixing all the time, and restart if you reboot your server!
+Para guardar la edición, presiona `CTRL+O` y luego sal `CTRL+X`. Luego ejecuta el nodo de nuevo. Deberías ver si el mixnode está usando el puerto que has cambiado en el archivo config.toml justo después de ejecutar el nodo. 
 
-Anytime you change your `systemd` service file you need to `sudo systemctl daemon-reload` in order to restart the service.
 
-#### Network configuration seems fine but log still claims `Since startup mixed 0 packets!`
+## ¿Dónde puedo encontrar mis claves privadas y públicas y la configuración del mixnode?
 
-This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node via the [web wallet])(https://testnet-milhon-wallet.nymtech.net/). The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
+Todos los archivos de configuración y claves se almacenan en un directorio con el nombre de tu `id` que elegiste durante la configuración *init* con el siguiente PATH: `$HOME/.nym/mixnodes/` donde `$HOME` es un directorio de inicio del usuario (tu usuario actual en este caso) que lanzó el mixnode.
 
-Also make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the `host` field must contain the _port_ on which your mixnode will listen:
+Dependiendo de cómo hayas instalado Nym, los archivos se almacenarán aquí:
 
-- correct host: `34.12.3.43:1789`
-- incorrect host:`34.12.3.43`
+1. Autoinstalador - `/home/nym/.nym/mixnodes/<YOURNODEID>`.
+2. Construido desde el código fuente como tu usuario o root - `~/.nym/mixnodes/<YOURNODEID>`.
 
-### Common errors and warnings
-
-Most of the `ERROR` and `WARN` messages in your node logs are benign - as long as your node outputs `since startup mixed X packets!` in your logs (and this number increases over time), your node is mixing packets. If you want to be sure, check the Nym [dashboard](https://testnet-milhon-explorer.nymtech.net/) or see other ways on how to check if your node is mixing properly as outlined in the section **How can I tell my node is up and running and mixing traffic?** above.
-
-More specific errors and warnings are covered below.
-
-#### `tokio runtime worker` error
-
-If you are running into issues with an error including the following:
-
-```shell
-thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address" }'
-```
-
-Then you need to `--announce-host <public ip>` and ``--host <local ip>` on startup. This issue arises because of your use of a provider like AWS or Google Cloud, and the fact that your VPS' available bind address is not the same as the public IP address (see [Virtual IPs, Google, AWS, and all that]( ./mixnodes.md#virtual-ips-and-hosting-via-google--aws) for more information on this issue).
-
-#### `rocket::launch` warnings
-These warnings are not an issue, please ignore them. Rocket is a web framework for rust which we are using to provide mixnodes with `/verloc` and `/description` http APIs.
-
-Find more information about this in the [Mixnodes metrics documentation](./mixnodes.md#mixnode-metrics).
-
-Rocket runs on port `8000` by default. Although at this stage of the testnet we need Rocket to be reachable via this port, in the future customization of the particular port it uses will be possible.
-
-#### `failed to receive reply to our echo packet within 1.5s. Stopping the test`
-
-This relates to the VerLoc implementation that appeared in `0.10.1`, which has a particularly high log sensitivity. This warning means that the echo packet sent to the mixnode was received, but not sent back. _This will not affect the rate of rewards or performance metrics of your mixnode in the testnet at this point._
-
-#### `Connection to <IP>:1789 seems to be dead`
-
-This warning is normal at the moment, and is _nothing to do with your mixnode!_ It is simply a warning that your node is unable to connect to other peoples' mixnodes for some reason, most likely because they are offline or poorly configured.
-
-### Can I use a port other than 1789 ?
-
-Yes! Here is what you will need to do:
-
-Assuming you would like to use port `1337` for your mixnode, you need to open the new port (and close the old one):
-
-```shell
-sudo ufw allow 1337
-sudo ufw deny 1789
-```
-
-And then edit the mixnode's config.
-
-:::caution
-If you want to change the port for an already running node, you need to stop the process before editing your config file.
-:::
-
-Assuming your node name is `nym`, the config file is located at `~/.nym/mixnodes/nym/config/config.toml`.
-
-```
-nano ~/.nym/mixnodes/nym/config/config.toml
-```
-
-You will need to edit two parts of the file. `announce_address` and `listening_address` in the config.toml file. Simply replace `:1789` (the default port) with `:1337` (your new port) after your IP address.
-
-Finally, restart your node. You should see if the mixnode is using the port you have changed in the config.toml file right after you run the node.
-
-### Where can I find my private and public keys and mixnode config?
-
-All config and keys files are stored in a directory named after your `id` which you chose during the `init` process, and can be found at the following PATH: `$HOME/.nym/mixnodes/` where `$HOME` is a home directory of the user (your current user in this case) that launched the mixnode.
-
-Depending on how you installed Nym, the files will be stored here:
-
-1. Autoinstaller - `/home/nym/.nym/mixnodes/<YOURNODEID>`
-2. Built from source as your user or root - `~/.nym/mixnodes/<YOURNODEID>`
-
-The directory structure is as follows:
+La estructura del directorio es la siguiente:
 
 ```
 bob@nym:~$ tree /home/nym/.nym/mixnodes/
@@ -344,18 +155,73 @@ bob@nym:~$ tree /home/nym/.nym/mixnodes/
 
 ```
 
-:::caution
-If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://testnet-milhon-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
-:::
+**Nota:** Si usted usa  `cat` la clave public_sphinx.pem, la salida será diferente de la clave pública que verá en Nym [dashboard](https://testnet-finney-explorer.nymtech.net/). La razón es que los archivos `.pem` están codificados en **base64**, sin embargo, en la web están en una codificación diferente - **base58**. No te confundas si tus claves parecen diferentes. Son las mismas claves, sólo que con diferente codificación :). 
 
-### What is `verloc` and do I have to configure my mixnode to implement it?
 
-`verloc` is short for _verifiable location_. Mixnodes and gateways now measure speed-of-light distances to each other, in an attempt to verify how far apart they are. In later releases, this will allow us to algorithmically verify node locations in a non-fakeable and trustworthy manner.
+## Sigo viendo mensajes de ERROR o WARN en los registros de mi nodo. ¿Por qué?
 
-You don't have to do any additional configuration for your node to implement this, it is a passive process that runs in the background of the mixnet from version `0.10.1` onwards.
+He visto bastantes errores de miembros de la comunidad en nuestro [chat de ayuda de Telegram](https://t.me/nymchan_help_chat).
 
-### Where can I get more help?
+La mayoría de ellos son benignos. Por lo general, se encontrará con errores cuando sus nodos intenten establecer una conexión con un nodo "muerto", que esté mal configurado (lo más probable es que su firewall lo esté).
 
-The fastest way to reach one of us or get a help from the community, visit our [Telegram help chat](https://t.me/nymchan_help_chat).
+Mientras su nodo muestre en sus registros "¡desde el inicio se han mezclado 1337 paquetes!", debería estar bien. Si quieres estar seguro, comprueba el Nym [dashboard](https://testnet-finney-explorer.nymtech.net/) o mira otras formas de comprobar si tu nodo está realmente mezclando, mencionadas en la sección **¿Cómo puedo saber si mi nodo está funcionando y mezclando tráfico?** en este wiki. 
 
-For more tech heavy questions join our Keybase channel. Get Keybase [here](https://keybase.io/), then click Teams -> Join a team. Type nymtech.friends into the team name and hit continue. For general chat, hang out in the #general channel. Our development takes places in the #dev channel.
+
+
+
+## He compilado Nym desde el código fuente. ¿Cómo hago que el mixnode se ejecute en segundo plano?
+
+Cuando cierras la sesión actual, matas el proceso y por lo tanto el mixnode se detendrá. Hay varias maneras de hacer que persista incluso después de salir de la sesión ssh. Tmux, screen por ejemplo. 
+
+Una solución fácil sería usar **nohup** -> ``nohup`./nym-mixnode run --id NYM & ``` donde `--id NYM` es el id que estableciste durante el comando *init* previamente. 
+
+**Sin embargo**, la solución **más fiable** y **elegante** es crear un archivo **systemd.service** y ejecutar el nym-mixnode con el comando `systemctl`.
+
+Crea un archivo con nano y copia allí lo siguiente. 
+**IMPORTANTE:** Tienes que escribir allí el id de tu nodo que estableciste antes en la configuración, de lo contrario no funcionará.
+En la línea ExecStart, reescribe el --id SOMENAME con exactamente el mismo nombre que usaste para la configuración.
+
+``` sudo nano /etc/systemd/system/nym-mixnode.service ```
+
+Copia ahí esto y cambia el nombre del id y la ruta dependiendo de cómo hayas instalado tu mixnode
+
+```
+[Unit]
+Description=nym mixnode service
+After=network.target
+
+[Service]
+Type=simple
+User=nym
+LimitNOFILE=65536
+ExecStart=/home/nym/nym-mixnode run --id nym
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=30
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
+
+```
+Ahora presiona CTRL + O para escribir el archivo, presiona enter. Luego sal con CTRL + W.
+
+``sudo systemctl enable nym-mixnode ``
+
+- Habilita el servicio 
+
+``sudo systemctl start nym-mixnode ```
+
+- Iniciar el servicio
+
+``sudo systemctl status nym-mixnode ```
+
+- Comprueba si el servicio está funcionando correctamente y el mixnode está mezclando. 
+
+Ahora tu nodo debería estar mezclando todo el tiempo a menos que reinicies el servidor.
+
+Cada vez que cambies tu archivo de servicio systemd necesitas ejecutar ``sudo systemctl daemon-reload`` y reiniciar el servicio. 
+## ¿Dónde puedo obtener más ayuda?
+
+La forma más rápida de contactar con uno de nosotros o conseguir ayuda de la comunidad, es visitar nuestro [chat de ayuda en Telegram](https://t.me/nymchan_help_chat).
+
+Para más preguntas técnicas, únete a nuestro canal de Keybase. Obtén Keybase [aquí](https://keybase.io/), luego haz clic en Equipos -> Únete a un equipo. Escribe nymtech.friends en el nombre del equipo y pulsa continuar. Para charlar en general, pasa el rato en el canal #general. Nuestro desarrollo tiene lugar en el canal #dev. 
