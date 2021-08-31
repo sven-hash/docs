@@ -329,7 +329,7 @@ nymd tx staking create-validator \
 --gas="auto" \
 --gas-adjustment=1.15 \
 --from=${FROM_ACCOUNT} \
---node https://testnet-{{< param testnetNameLowercase >}}-validator.nymtech.net:443
+--node https://testnet-{{< param testnetNameLowercase >}}-validator1.nymtech.net:443
 ```
 
 You'll need `stake` coins for this.
