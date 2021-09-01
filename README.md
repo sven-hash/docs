@@ -23,7 +23,7 @@ To develop the docs locally, run:
 npm run start
 ```
 
-The site is served at `http://localhost:3000/`
+Docs are served from `http://localhost:3000/docs/0.11.0/overview/index`
 
 To generate static content into `/build/` run:
 
