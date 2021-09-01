@@ -7,8 +7,10 @@
   "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/build-nym.md",
   "sourceDirName": "run-nym-nodes",
   "slug": "/run-nym-nodes/build-nym",
-  "permalink": "/docs/run-nym-nodes/build-nym",
+  "permalink": "/docs/0.11.0/run-nym-nodes/build-nym",
   "version": "0.11.0",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Building Nym",
     "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
@@ -18,10 +20,10 @@
   "sidebar": "version-0.11.0/sidebar",
   "previous": {
     "title": "Incentives",
-    "permalink": "/docs/run-nym-nodes/incentives"
+    "permalink": "/docs/0.11.0/run-nym-nodes/incentives"
   },
   "next": {
     "title": "Mixnodes",
-    "permalink": "/docs/run-nym-nodes/mixnodes"
+    "permalink": "/docs/0.11.0/run-nym-nodes/mixnodes"
   }
 }

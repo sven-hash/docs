@@ -7,8 +7,10 @@
   "source": "@site/versioned_docs/version-0.11.0/build-apps/choose-a-client.md",
   "sourceDirName": "build-apps",
   "slug": "/build-apps/choose-a-client",
-  "permalink": "/docs/build-apps/choose-a-client",
+  "permalink": "/docs/0.11.0/build-apps/choose-a-client",
   "version": "0.11.0",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Choose a client",
     "hide_title": false,
@@ -18,10 +20,10 @@
   "sidebar": "version-0.11.0/sidebar",
   "previous": {
     "title": "Introduction",
-    "permalink": "/docs/build-apps/build-apps"
+    "permalink": "/docs/0.11.0/build-apps/build-apps"
   },
   "next": {
     "title": "Websocket client",
-    "permalink": "/docs/build-apps/websocket-client"
+    "permalink": "/docs/0.11.0/build-apps/websocket-client"
   }
 }

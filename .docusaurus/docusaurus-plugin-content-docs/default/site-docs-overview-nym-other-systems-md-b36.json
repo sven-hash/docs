@@ -7,8 +7,10 @@
   "source": "@site/docs/overview/nym-other-systems.md",
   "sourceDirName": "overview",
   "slug": "/overview/nym-other-systems",
-  "permalink": "/docs/next/overview/nym-other-systems",
+  "permalink": "/docs/current/overview/nym-other-systems",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Nym vs other systems",
     "description": "A comparison of Nym and other privacy systems",
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Network Privacy",
-    "permalink": "/docs/next/overview/network-privacy"
+    "permalink": "/docs/current/overview/network-privacy"
   },
   "next": {
     "title": "Coconut",
-    "permalink": "/docs/next/overview/private-access-control"
+    "permalink": "/docs/current/overview/private-access-control"
   }
 }

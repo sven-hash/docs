@@ -7,8 +7,10 @@
   "source": "@site/docs/use-apps/electrum.md",
   "sourceDirName": "use-apps",
   "slug": "/use-apps/electrum",
-  "permalink": "/docs/next/use-apps/electrum",
+  "permalink": "/docs/current/use-apps/electrum",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Electrum",
     "description": "You can protect your Electrum transactions from network eavesdroppers using the Nym mixnet. Here's how.",
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Blockstream Green",
-    "permalink": "/docs/next/use-apps/blockstream-green"
+    "permalink": "/docs/current/use-apps/blockstream-green"
   },
   "next": {
     "title": "KeyBase",
-    "permalink": "/docs/next/use-apps/keybase"
+    "permalink": "/docs/current/use-apps/keybase"
   }
 }

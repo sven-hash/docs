@@ -3,883 +3,11 @@
     "default": {
       "loadedVersions": [
         {
-          "versionName": "current",
-          "versionLabel": "Next",
-          "versionPath": "/docs/next",
-          "versionBanner": "unreleased",
-          "isLast": false,
-          "sidebarFilePath": "/home/mx/dev/nym/docs/sidebars.js",
-          "contentPath": "/home/mx/dev/nym/docs/docs",
-          "contentPathLocalized": "/home/mx/dev/nym/docs/i18n/en/docusaurus-plugin-content-docs/current",
-          "mainDocId": "overview/index",
-          "sidebars": {
-            "sidebar": [
-              {
-                "type": "category",
-                "collapsed": true,
-                "collapsible": true,
-                "label": "Overview",
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "overview/index"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "overview/nym-platform"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "overview/network-privacy"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "overview/nym-other-systems"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "overview/private-access-control"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "overview/links"
-                  }
-                ]
-              },
-              {
-                "type": "category",
-                "collapsed": true,
-                "collapsible": true,
-                "label": "Run Nym Nodes",
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/index"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/incentives"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/build-nym"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/mixnodes"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/validators"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/requester"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/gateways"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "run-nym-nodes/troubleshooting"
-                  }
-                ]
-              },
-              {
-                "type": "category",
-                "collapsed": true,
-                "collapsible": true,
-                "label": "Use Apps",
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "use-apps/index"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "use-apps/blockstream-green"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "use-apps/electrum"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "use-apps/keybase"
-                  }
-                ]
-              },
-              {
-                "type": "category",
-                "collapsed": true,
-                "collapsible": true,
-                "label": "Build Apps",
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "build-apps/build-apps"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "build-apps/choose-a-client"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "build-apps/websocket-client"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "build-apps/wasm-client"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "build-apps/demos"
-                  }
-                ]
-              },
-              {
-                "type": "category",
-                "collapsed": true,
-                "collapsible": true,
-                "label": "Community",
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "community/index"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "community/code-of-conduct"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "community/licensing"
-                  }
-                ]
-              }
-            ]
-          },
-          "docs": [
-            {
-              "unversionedId": "build-apps/build-apps",
-              "id": "build-apps/build-apps",
-              "isDocsHomePage": false,
-              "title": "Build Nym Apps",
-              "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
-              "source": "@site/docs/build-apps/build-apps.md",
-              "sourceDirName": "build-apps",
-              "slug": "/build-apps/build-apps",
-              "permalink": "/docs/next/build-apps/build-apps",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Introduction",
-                "hide_title": false,
-                "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
-                "title": "Build Nym Apps"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "KeyBase",
-                "permalink": "/docs/next/use-apps/keybase"
-              },
-              "next": {
-                "title": "Choose a client",
-                "permalink": "/docs/next/build-apps/choose-a-client"
-              }
-            },
-            {
-              "unversionedId": "build-apps/choose-a-client",
-              "id": "build-apps/choose-a-client",
-              "isDocsHomePage": false,
-              "title": "Choose a client ",
-              "description": "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose.",
-              "source": "@site/docs/build-apps/choose-a-client.md",
-              "sourceDirName": "build-apps",
-              "slug": "/build-apps/choose-a-client",
-              "permalink": "/docs/next/build-apps/choose-a-client",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Choose a client",
-                "hide_title": false,
-                "description": "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose.",
-                "title": "Choose a client "
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Introduction",
-                "permalink": "/docs/next/build-apps/build-apps"
-              },
-              "next": {
-                "title": "Websocket client",
-                "permalink": "/docs/next/build-apps/websocket-client"
-              }
-            },
-            {
-              "unversionedId": "build-apps/demos",
-              "id": "build-apps/demos",
-              "isDocsHomePage": false,
-              "title": "Demos",
-              "description": "Example code for interacting with the Nym privacy network, in multiple languages.",
-              "source": "@site/docs/build-apps/demos.md",
-              "sourceDirName": "build-apps",
-              "slug": "/build-apps/demos",
-              "permalink": "/docs/next/build-apps/demos",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Demos",
-                "hide_title": false,
-                "description": "Example code for interacting with the Nym privacy network, in multiple languages.",
-                "title": "Demos"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Webassembly client",
-                "permalink": "/docs/next/build-apps/wasm-client"
-              },
-              "next": {
-                "title": "Community",
-                "permalink": "/docs/next/community/index"
-              }
-            },
-            {
-              "unversionedId": "build-apps/wasm-client",
-              "id": "build-apps/wasm-client",
-              "isDocsHomePage": false,
-              "title": "Webassembly client",
-              "description": "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users",
-              "source": "@site/docs/build-apps/wasm-client.md",
-              "sourceDirName": "build-apps",
-              "slug": "/build-apps/wasm-client",
-              "permalink": "/docs/next/build-apps/wasm-client",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Webassembly client",
-                "hide_title": false,
-                "description": "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users",
-                "title": "Webassembly client"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Websocket client",
-                "permalink": "/docs/next/build-apps/websocket-client"
-              },
-              "next": {
-                "title": "Demos",
-                "permalink": "/docs/next/build-apps/demos"
-              }
-            },
-            {
-              "unversionedId": "build-apps/websocket-client",
-              "id": "build-apps/websocket-client",
-              "isDocsHomePage": false,
-              "title": "Websocket client",
-              "description": "How to run the Nym websocket client on a desktop or server machine.",
-              "source": "@site/docs/build-apps/websocket-client.md",
-              "sourceDirName": "build-apps",
-              "slug": "/build-apps/websocket-client",
-              "permalink": "/docs/next/build-apps/websocket-client",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Websocket client",
-                "hide_title": false,
-                "description": "How to run the Nym websocket client on a desktop or server machine.",
-                "title": "Websocket client"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Choose a client",
-                "permalink": "/docs/next/build-apps/choose-a-client"
-              },
-              "next": {
-                "title": "Webassembly client",
-                "permalink": "/docs/next/build-apps/wasm-client"
-              }
-            },
-            {
-              "unversionedId": "community/code-of-conduct",
-              "id": "community/code-of-conduct",
-              "isDocsHomePage": false,
-              "title": "code-of-conduct",
-              "description": "Nym is committed to providing a friendly, safe and welcoming environment for all. Here's our code of conduct, please follow it if you'd like to participate in our community.",
-              "source": "@site/docs/community/code-of-conduct.md",
-              "sourceDirName": "community",
-              "slug": "/community/code-of-conduct",
-              "permalink": "/docs/next/community/code-of-conduct",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Code of Conduct",
-                "hide_title": false,
-                "description": "Nym is committed to providing a friendly, safe and welcoming environment for all. Here's our code of conduct, please follow it if you'd like to participate in our community."
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Community",
-                "permalink": "/docs/next/community/index"
-              },
-              "next": {
-                "title": "Licensing",
-                "permalink": "/docs/next/community/licensing"
-              }
-            },
-            {
-              "unversionedId": "community/index",
-              "id": "community/index",
-              "isDocsHomePage": false,
-              "title": "Community",
-              "description": "Some (slowly expanding) notes on the Nym project, its community and governance.",
-              "source": "@site/docs/community/index.md",
-              "sourceDirName": "community",
-              "slug": "/community/index",
-              "permalink": "/docs/next/community/index",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Community",
-                "hide_title": false,
-                "description": "Some (slowly expanding) notes on the Nym project, its community and governance.",
-                "title": "Community"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Demos",
-                "permalink": "/docs/next/build-apps/demos"
-              },
-              "next": {
-                "title": "Code of Conduct",
-                "permalink": "/docs/next/community/code-of-conduct"
-              }
-            },
-            {
-              "unversionedId": "community/licensing",
-              "id": "community/licensing",
-              "isDocsHomePage": false,
-              "title": "Licensing",
-              "description": "Nym is free software released under the Apache License V2",
-              "source": "@site/docs/community/licensing.md",
-              "sourceDirName": "community",
-              "slug": "/community/licensing",
-              "permalink": "/docs/next/community/licensing",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Licensing",
-                "hide_title": false,
-                "description": "Nym is free software released under the Apache License V2",
-                "title": "Licensing"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Code of Conduct",
-                "permalink": "/docs/next/community/code-of-conduct"
-              }
-            },
-            {
-              "unversionedId": "intro",
-              "id": "intro",
-              "isDocsHomePage": false,
-              "title": "The Nym Platform",
-              "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous transactions using blinded, re-randomizable, decentralized credentials.",
-              "source": "@site/docs/intro.md",
-              "sourceDirName": ".",
-              "slug": "/intro",
-              "permalink": "/docs/next/intro",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Nym",
-                "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous transactions using blinded, re-randomizable, decentralized credentials.",
-                "hide_title": false
-              }
-            },
-            {
-              "unversionedId": "overview/index",
-              "id": "overview/index",
-              "isDocsHomePage": false,
-              "title": "The Nym Platform",
-              "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous access control using blinded, re-randomizable, decentralized credentials.",
-              "source": "@site/docs/overview/index.md",
-              "sourceDirName": "overview",
-              "slug": "/overview/index",
-              "permalink": "/docs/next/overview/index",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Overview",
-                "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous access control using blinded, re-randomizable, decentralized credentials.",
-                "hide_title": false,
-                "title": "The Nym Platform"
-              },
-              "sidebar": "sidebar",
-              "next": {
-                "title": "The Nym Platform",
-                "permalink": "/docs/next/overview/nym-platform"
-              }
-            },
-            {
-              "unversionedId": "overview/links",
-              "id": "overview/links",
-              "isDocsHomePage": false,
-              "title": "Links",
-              "description": "Here are some links that may prove handy as you start exploring Nym, and the Nym community.",
-              "source": "@site/docs/overview/links.md",
-              "sourceDirName": "overview",
-              "slug": "/overview/links",
-              "permalink": "/docs/next/overview/links",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Links",
-                "description": "Here are some links that may prove handy as you start exploring Nym, and the Nym community.",
-                "hide_title": false,
-                "title": "Links"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Coconut",
-                "permalink": "/docs/next/overview/private-access-control"
-              },
-              "next": {
-                "title": "Run Nym Nodes",
-                "permalink": "/docs/next/run-nym-nodes/index"
-              }
-            },
-            {
-              "unversionedId": "overview/network-privacy",
-              "id": "overview/network-privacy",
-              "isDocsHomePage": false,
-              "title": "Network Privacy",
-              "description": "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet.",
-              "source": "@site/docs/overview/network-privacy.md",
-              "sourceDirName": "overview",
-              "slug": "/overview/network-privacy",
-              "permalink": "/docs/next/overview/network-privacy",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Network Privacy",
-                "description": "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet.",
-                "hide_title": false,
-                "title": "Network Privacy"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "The Nym Platform",
-                "permalink": "/docs/next/overview/nym-platform"
-              },
-              "next": {
-                "title": "Nym vs other systems",
-                "permalink": "/docs/next/overview/nym-other-systems"
-              }
-            },
-            {
-              "unversionedId": "overview/nym-other-systems",
-              "id": "overview/nym-other-systems",
-              "isDocsHomePage": false,
-              "title": "Nym vs other systems",
-              "description": "A comparison of Nym and other privacy systems",
-              "source": "@site/docs/overview/nym-other-systems.md",
-              "sourceDirName": "overview",
-              "slug": "/overview/nym-other-systems",
-              "permalink": "/docs/next/overview/nym-other-systems",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Nym vs other systems",
-                "description": "A comparison of Nym and other privacy systems",
-                "hide_title": false,
-                "title": "Nym vs other systems"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Network Privacy",
-                "permalink": "/docs/next/overview/network-privacy"
-              },
-              "next": {
-                "title": "Coconut",
-                "permalink": "/docs/next/overview/private-access-control"
-              }
-            },
-            {
-              "unversionedId": "overview/nym-platform",
-              "id": "overview/nym-platform",
-              "isDocsHomePage": false,
-              "title": "The Nym Platform",
-              "description": "An overview of the Nym platform architecture",
-              "source": "@site/docs/overview/nym-platform.md",
-              "sourceDirName": "overview",
-              "slug": "/overview/nym-platform",
-              "permalink": "/docs/next/overview/nym-platform",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "The Nym Platform",
-                "description": "An overview of the Nym platform architecture",
-                "hide_title": false,
-                "title": "The Nym Platform"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Overview",
-                "permalink": "/docs/next/overview/index"
-              },
-              "next": {
-                "title": "Network Privacy",
-                "permalink": "/docs/next/overview/network-privacy"
-              }
-            },
-            {
-              "unversionedId": "overview/private-access-control",
-              "id": "overview/private-access-control",
-              "isDocsHomePage": false,
-              "title": "Coconut",
-              "description": "Nym ensures access control privacy using a sophisticated signature scheme called Coconut.",
-              "source": "@site/docs/overview/private-access-control.md",
-              "sourceDirName": "overview",
-              "slug": "/overview/private-access-control",
-              "permalink": "/docs/next/overview/private-access-control",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Coconut",
-                "description": "Nym ensures access control privacy using a sophisticated signature scheme called Coconut.",
-                "hide_title": false,
-                "title": "Coconut"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Nym vs other systems",
-                "permalink": "/docs/next/overview/nym-other-systems"
-              },
-              "next": {
-                "title": "Links",
-                "permalink": "/docs/next/overview/links"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/build-nym",
-              "id": "run-nym-nodes/build-nym",
-              "isDocsHomePage": false,
-              "title": "Building Nym",
-              "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
-              "source": "@site/docs/run-nym-nodes/build-nym.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/build-nym",
-              "permalink": "/docs/next/run-nym-nodes/build-nym",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Building Nym",
-                "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
-                "hide_title": false,
-                "title": "Building Nym"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Incentives",
-                "permalink": "/docs/next/run-nym-nodes/incentives"
-              },
-              "next": {
-                "title": "Mixnodes",
-                "permalink": "/docs/next/run-nym-nodes/mixnodes"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/gateways",
-              "id": "run-nym-nodes/gateways",
-              "isDocsHomePage": false,
-              "title": "Gateways",
-              "description": "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic.",
-              "source": "@site/docs/run-nym-nodes/gateways.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/gateways",
-              "permalink": "/docs/next/run-nym-nodes/gateways",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Gateways",
-                "description": "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic.",
-                "hide_title": false,
-                "title": "Gateways"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Requesters",
-                "permalink": "/docs/next/run-nym-nodes/requester"
-              },
-              "next": {
-                "title": "Mixnode Troubleshooting FAQ",
-                "permalink": "/docs/next/run-nym-nodes/troubleshooting"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/incentives",
-              "id": "run-nym-nodes/incentives",
-              "isDocsHomePage": false,
-              "title": "Incentives",
-              "description": "Why should you run Nym nodes?",
-              "source": "@site/docs/run-nym-nodes/incentives.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/incentives",
-              "permalink": "/docs/next/run-nym-nodes/incentives",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Incentives",
-                "description": "Why should you run Nym nodes?",
-                "hide_title": false,
-                "title": "Incentives"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Run Nym Nodes",
-                "permalink": "/docs/next/run-nym-nodes/index"
-              },
-              "next": {
-                "title": "Building Nym",
-                "permalink": "/docs/next/run-nym-nodes/build-nym"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/index",
-              "id": "run-nym-nodes/index",
-              "isDocsHomePage": false,
-              "title": "Run Nym Nodes",
-              "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
-              "source": "@site/docs/run-nym-nodes/index.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/index",
-              "permalink": "/docs/next/run-nym-nodes/index",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Run Nym Nodes",
-                "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
-                "hide_title": false,
-                "title": "Run Nym Nodes"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Links",
-                "permalink": "/docs/next/overview/links"
-              },
-              "next": {
-                "title": "Incentives",
-                "permalink": "/docs/next/run-nym-nodes/incentives"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/mixnodes",
-              "id": "run-nym-nodes/mixnodes",
-              "isDocsHomePage": false,
-              "title": "Mixnodes",
-              "description": "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users.",
-              "source": "@site/docs/run-nym-nodes/mixnodes.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/mixnodes",
-              "permalink": "/docs/next/run-nym-nodes/mixnodes",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Mixnodes",
-                "description": "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users.",
-                "hide_title": false,
-                "title": "Mixnodes"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Building Nym",
-                "permalink": "/docs/next/run-nym-nodes/build-nym"
-              },
-              "next": {
-                "title": "Validators",
-                "permalink": "/docs/next/run-nym-nodes/validators"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/requester",
-              "id": "run-nym-nodes/requester",
-              "isDocsHomePage": false,
-              "title": "Requester",
-              "description": "Run a requester proxy for the benefit of the community.",
-              "source": "@site/docs/run-nym-nodes/requester.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/requester",
-              "permalink": "/docs/next/run-nym-nodes/requester",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Requesters",
-                "description": "Run a requester proxy for the benefit of the community.",
-                "hide_title": false,
-                "title": "Requester"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Validators",
-                "permalink": "/docs/next/run-nym-nodes/validators"
-              },
-              "next": {
-                "title": "Gateways",
-                "permalink": "/docs/next/run-nym-nodes/gateways"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/troubleshooting",
-              "id": "run-nym-nodes/troubleshooting",
-              "isDocsHomePage": false,
-              "title": "Mixnode Troubleshooting FAQ",
-              "description": "This page will help you find answers to common issues with setting up and maintaining mixnodes",
-              "source": "@site/docs/run-nym-nodes/troubleshooting.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/troubleshooting",
-              "permalink": "/docs/next/run-nym-nodes/troubleshooting",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Mixnode Troubleshooting FAQ",
-                "description": "This page will help you find answers to common issues with setting up and maintaining mixnodes",
-                "hide_title": false,
-                "title": "Mixnode Troubleshooting FAQ"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Gateways",
-                "permalink": "/docs/next/run-nym-nodes/gateways"
-              },
-              "next": {
-                "title": "Use Apps",
-                "permalink": "/docs/next/use-apps/index"
-              }
-            },
-            {
-              "unversionedId": "run-nym-nodes/validators",
-              "id": "run-nym-nodes/validators",
-              "isDocsHomePage": false,
-              "title": "Validators",
-              "description": "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities.",
-              "source": "@site/docs/run-nym-nodes/validators.md",
-              "sourceDirName": "run-nym-nodes",
-              "slug": "/run-nym-nodes/validators",
-              "permalink": "/docs/next/run-nym-nodes/validators",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Validators",
-                "description": "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities.",
-                "hide_title": false,
-                "title": "Validators"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Mixnodes",
-                "permalink": "/docs/next/run-nym-nodes/mixnodes"
-              },
-              "next": {
-                "title": "Requesters",
-                "permalink": "/docs/next/run-nym-nodes/requester"
-              }
-            },
-            {
-              "unversionedId": "use-apps/blockstream-green",
-              "id": "use-apps/blockstream-green",
-              "isDocsHomePage": false,
-              "title": "Blockstream Green",
-              "description": "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how.",
-              "source": "@site/docs/use-apps/blockstream-green.md",
-              "sourceDirName": "use-apps",
-              "slug": "/use-apps/blockstream-green",
-              "permalink": "/docs/next/use-apps/blockstream-green",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Blockstream Green",
-                "description": "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how.",
-                "hide_title": false,
-                "title": "Blockstream Green"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Use Apps",
-                "permalink": "/docs/next/use-apps/index"
-              },
-              "next": {
-                "title": "Electrum",
-                "permalink": "/docs/next/use-apps/electrum"
-              }
-            },
-            {
-              "unversionedId": "use-apps/electrum",
-              "id": "use-apps/electrum",
-              "isDocsHomePage": false,
-              "title": "Electrum",
-              "description": "You can protect your Electrum transactions from network eavesdroppers using the Nym mixnet. Here's how.",
-              "source": "@site/docs/use-apps/electrum.md",
-              "sourceDirName": "use-apps",
-              "slug": "/use-apps/electrum",
-              "permalink": "/docs/next/use-apps/electrum",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Electrum",
-                "description": "You can protect your Electrum transactions from network eavesdroppers using the Nym mixnet. Here's how.",
-                "hide_title": false,
-                "title": "Electrum"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Blockstream Green",
-                "permalink": "/docs/next/use-apps/blockstream-green"
-              },
-              "next": {
-                "title": "KeyBase",
-                "permalink": "/docs/next/use-apps/keybase"
-              }
-            },
-            {
-              "unversionedId": "use-apps/index",
-              "id": "use-apps/index",
-              "isDocsHomePage": false,
-              "title": "Use Apps with Nym",
-              "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
-              "source": "@site/docs/use-apps/index.md",
-              "sourceDirName": "use-apps",
-              "slug": "/use-apps/index",
-              "permalink": "/docs/next/use-apps/index",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "Use Apps",
-                "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
-                "hide_title": false,
-                "title": "Use Apps with Nym"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Mixnode Troubleshooting FAQ",
-                "permalink": "/docs/next/run-nym-nodes/troubleshooting"
-              },
-              "next": {
-                "title": "Blockstream Green",
-                "permalink": "/docs/next/use-apps/blockstream-green"
-              }
-            },
-            {
-              "unversionedId": "use-apps/keybase",
-              "id": "use-apps/keybase",
-              "isDocsHomePage": false,
-              "title": "Keybase",
-              "description": "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how.",
-              "source": "@site/docs/use-apps/keybase.md",
-              "sourceDirName": "use-apps",
-              "slug": "/use-apps/keybase",
-              "permalink": "/docs/next/use-apps/keybase",
-              "version": "current",
-              "frontMatter": {
-                "sidebar_label": "KeyBase",
-                "description": "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how.",
-                "hide_title": false,
-                "title": "Keybase"
-              },
-              "sidebar": "sidebar",
-              "previous": {
-                "title": "Electrum",
-                "permalink": "/docs/next/use-apps/electrum"
-              },
-              "next": {
-                "title": "Introduction",
-                "permalink": "/docs/next/build-apps/build-apps"
-              }
-            }
-          ]
-        },
-        {
           "versionName": "0.11.0",
-          "versionLabel": "0.11.0",
-          "versionPath": "/docs",
+          "versionLabel": "v0.11.0",
+          "versionPath": "/docs/0.11.0",
           "versionBanner": "none",
           "isLast": true,
-          "routePriority": -1,
           "sidebarFilePath": "/home/mx/dev/nym/docs/versioned_sidebars/version-0.11.0-sidebars.json",
           "contentPath": "/home/mx/dev/nym/docs/versioned_docs/version-0.11.0",
           "contentPathLocalized": "/home/mx/dev/nym/docs/i18n/en/docusaurus-plugin-content-docs/version-0.11.0",
@@ -1042,8 +170,10 @@
               "source": "@site/versioned_docs/version-0.11.0/build-apps/build-apps.md",
               "sourceDirName": "build-apps",
               "slug": "/build-apps/build-apps",
-              "permalink": "/docs/build-apps/build-apps",
+              "permalink": "/docs/0.11.0/build-apps/build-apps",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Introduction",
                 "hide_title": false,
@@ -1053,11 +183,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "KeyBase",
-                "permalink": "/docs/use-apps/keybase"
+                "permalink": "/docs/0.11.0/use-apps/keybase"
               },
               "next": {
                 "title": "Choose a client",
-                "permalink": "/docs/build-apps/choose-a-client"
+                "permalink": "/docs/0.11.0/build-apps/choose-a-client"
               }
             },
             {
@@ -1069,8 +199,10 @@
               "source": "@site/versioned_docs/version-0.11.0/build-apps/choose-a-client.md",
               "sourceDirName": "build-apps",
               "slug": "/build-apps/choose-a-client",
-              "permalink": "/docs/build-apps/choose-a-client",
+              "permalink": "/docs/0.11.0/build-apps/choose-a-client",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Choose a client",
                 "hide_title": false,
@@ -1080,11 +212,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/docs/build-apps/build-apps"
+                "permalink": "/docs/0.11.0/build-apps/build-apps"
               },
               "next": {
                 "title": "Websocket client",
-                "permalink": "/docs/build-apps/websocket-client"
+                "permalink": "/docs/0.11.0/build-apps/websocket-client"
               }
             },
             {
@@ -1096,8 +228,10 @@
               "source": "@site/versioned_docs/version-0.11.0/build-apps/demos.md",
               "sourceDirName": "build-apps",
               "slug": "/build-apps/demos",
-              "permalink": "/docs/build-apps/demos",
+              "permalink": "/docs/0.11.0/build-apps/demos",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Demos",
                 "hide_title": false,
@@ -1107,11 +241,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Webassembly client",
-                "permalink": "/docs/build-apps/wasm-client"
+                "permalink": "/docs/0.11.0/build-apps/wasm-client"
               },
               "next": {
                 "title": "Community",
-                "permalink": "/docs/community/index"
+                "permalink": "/docs/0.11.0/community/index"
               }
             },
             {
@@ -1123,8 +257,10 @@
               "source": "@site/versioned_docs/version-0.11.0/build-apps/wasm-client.md",
               "sourceDirName": "build-apps",
               "slug": "/build-apps/wasm-client",
-              "permalink": "/docs/build-apps/wasm-client",
+              "permalink": "/docs/0.11.0/build-apps/wasm-client",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Webassembly client",
                 "hide_title": false,
@@ -1134,11 +270,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Websocket client",
-                "permalink": "/docs/build-apps/websocket-client"
+                "permalink": "/docs/0.11.0/build-apps/websocket-client"
               },
               "next": {
                 "title": "Demos",
-                "permalink": "/docs/build-apps/demos"
+                "permalink": "/docs/0.11.0/build-apps/demos"
               }
             },
             {
@@ -1150,8 +286,10 @@
               "source": "@site/versioned_docs/version-0.11.0/build-apps/websocket-client.md",
               "sourceDirName": "build-apps",
               "slug": "/build-apps/websocket-client",
-              "permalink": "/docs/build-apps/websocket-client",
+              "permalink": "/docs/0.11.0/build-apps/websocket-client",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Websocket client",
                 "hide_title": false,
@@ -1161,11 +299,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Choose a client",
-                "permalink": "/docs/build-apps/choose-a-client"
+                "permalink": "/docs/0.11.0/build-apps/choose-a-client"
               },
               "next": {
                 "title": "Webassembly client",
-                "permalink": "/docs/build-apps/wasm-client"
+                "permalink": "/docs/0.11.0/build-apps/wasm-client"
               }
             },
             {
@@ -1177,8 +315,10 @@
               "source": "@site/versioned_docs/version-0.11.0/community/code-of-conduct.md",
               "sourceDirName": "community",
               "slug": "/community/code-of-conduct",
-              "permalink": "/docs/community/code-of-conduct",
+              "permalink": "/docs/0.11.0/community/code-of-conduct",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Code of Conduct",
                 "hide_title": false,
@@ -1187,11 +327,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Community",
-                "permalink": "/docs/community/index"
+                "permalink": "/docs/0.11.0/community/index"
               },
               "next": {
                 "title": "Licensing",
-                "permalink": "/docs/community/licensing"
+                "permalink": "/docs/0.11.0/community/licensing"
               }
             },
             {
@@ -1203,8 +343,10 @@
               "source": "@site/versioned_docs/version-0.11.0/community/index.md",
               "sourceDirName": "community",
               "slug": "/community/index",
-              "permalink": "/docs/community/index",
+              "permalink": "/docs/0.11.0/community/index",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Community",
                 "hide_title": false,
@@ -1214,11 +356,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Demos",
-                "permalink": "/docs/build-apps/demos"
+                "permalink": "/docs/0.11.0/build-apps/demos"
               },
               "next": {
                 "title": "Code of Conduct",
-                "permalink": "/docs/community/code-of-conduct"
+                "permalink": "/docs/0.11.0/community/code-of-conduct"
               }
             },
             {
@@ -1230,8 +372,10 @@
               "source": "@site/versioned_docs/version-0.11.0/community/licensing.md",
               "sourceDirName": "community",
               "slug": "/community/licensing",
-              "permalink": "/docs/community/licensing",
+              "permalink": "/docs/0.11.0/community/licensing",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Licensing",
                 "hide_title": false,
@@ -1241,7 +385,7 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Code of Conduct",
-                "permalink": "/docs/community/code-of-conduct"
+                "permalink": "/docs/0.11.0/community/code-of-conduct"
               }
             },
             {
@@ -1253,8 +397,10 @@
               "source": "@site/versioned_docs/version-0.11.0/intro.md",
               "sourceDirName": ".",
               "slug": "/intro",
-              "permalink": "/docs/intro",
+              "permalink": "/docs/0.11.0/intro",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Nym",
                 "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous transactions using blinded, re-randomizable, decentralized credentials.",
@@ -1270,8 +416,10 @@
               "source": "@site/versioned_docs/version-0.11.0/overview/index.md",
               "sourceDirName": "overview",
               "slug": "/overview/index",
-              "permalink": "/docs/overview/index",
+              "permalink": "/docs/0.11.0/overview/index",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Overview",
                 "description": "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous access control using blinded, re-randomizable, decentralized credentials.",
@@ -1281,7 +429,7 @@
               "sidebar": "version-0.11.0/sidebar",
               "next": {
                 "title": "The Nym Platform",
-                "permalink": "/docs/overview/nym-platform"
+                "permalink": "/docs/0.11.0/overview/nym-platform"
               }
             },
             {
@@ -1293,8 +441,10 @@
               "source": "@site/versioned_docs/version-0.11.0/overview/links.md",
               "sourceDirName": "overview",
               "slug": "/overview/links",
-              "permalink": "/docs/overview/links",
+              "permalink": "/docs/0.11.0/overview/links",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Links",
                 "description": "Here are some links that may prove handy as you start exploring Nym, and the Nym community.",
@@ -1304,11 +454,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Coconut",
-                "permalink": "/docs/overview/private-access-control"
+                "permalink": "/docs/0.11.0/overview/private-access-control"
               },
               "next": {
                 "title": "Run Nym Nodes",
-                "permalink": "/docs/run-nym-nodes/index"
+                "permalink": "/docs/0.11.0/run-nym-nodes/index"
               }
             },
             {
@@ -1320,8 +470,10 @@
               "source": "@site/versioned_docs/version-0.11.0/overview/network-privacy.md",
               "sourceDirName": "overview",
               "slug": "/overview/network-privacy",
-              "permalink": "/docs/overview/network-privacy",
+              "permalink": "/docs/0.11.0/overview/network-privacy",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Network Privacy",
                 "description": "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet.",
@@ -1331,11 +483,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "The Nym Platform",
-                "permalink": "/docs/overview/nym-platform"
+                "permalink": "/docs/0.11.0/overview/nym-platform"
               },
               "next": {
                 "title": "Nym vs other systems",
-                "permalink": "/docs/overview/nym-other-systems"
+                "permalink": "/docs/0.11.0/overview/nym-other-systems"
               }
             },
             {
@@ -1347,8 +499,10 @@
               "source": "@site/versioned_docs/version-0.11.0/overview/nym-other-systems.md",
               "sourceDirName": "overview",
               "slug": "/overview/nym-other-systems",
-              "permalink": "/docs/overview/nym-other-systems",
+              "permalink": "/docs/0.11.0/overview/nym-other-systems",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Nym vs other systems",
                 "description": "A comparison of Nym and other privacy systems",
@@ -1358,11 +512,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Network Privacy",
-                "permalink": "/docs/overview/network-privacy"
+                "permalink": "/docs/0.11.0/overview/network-privacy"
               },
               "next": {
                 "title": "Coconut",
-                "permalink": "/docs/overview/private-access-control"
+                "permalink": "/docs/0.11.0/overview/private-access-control"
               }
             },
             {
@@ -1374,8 +528,10 @@
               "source": "@site/versioned_docs/version-0.11.0/overview/nym-platform.md",
               "sourceDirName": "overview",
               "slug": "/overview/nym-platform",
-              "permalink": "/docs/overview/nym-platform",
+              "permalink": "/docs/0.11.0/overview/nym-platform",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "The Nym Platform",
                 "description": "An overview of the Nym platform architecture",
@@ -1385,11 +541,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Overview",
-                "permalink": "/docs/overview/index"
+                "permalink": "/docs/0.11.0/overview/index"
               },
               "next": {
                 "title": "Network Privacy",
-                "permalink": "/docs/overview/network-privacy"
+                "permalink": "/docs/0.11.0/overview/network-privacy"
               }
             },
             {
@@ -1401,8 +557,10 @@
               "source": "@site/versioned_docs/version-0.11.0/overview/private-access-control.md",
               "sourceDirName": "overview",
               "slug": "/overview/private-access-control",
-              "permalink": "/docs/overview/private-access-control",
+              "permalink": "/docs/0.11.0/overview/private-access-control",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Coconut",
                 "description": "Nym ensures access control privacy using a sophisticated signature scheme called Coconut.",
@@ -1412,11 +570,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Nym vs other systems",
-                "permalink": "/docs/overview/nym-other-systems"
+                "permalink": "/docs/0.11.0/overview/nym-other-systems"
               },
               "next": {
                 "title": "Links",
-                "permalink": "/docs/overview/links"
+                "permalink": "/docs/0.11.0/overview/links"
               }
             },
             {
@@ -1428,8 +586,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/build-nym.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/build-nym",
-              "permalink": "/docs/run-nym-nodes/build-nym",
+              "permalink": "/docs/0.11.0/run-nym-nodes/build-nym",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Building Nym",
                 "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
@@ -1439,11 +599,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Incentives",
-                "permalink": "/docs/run-nym-nodes/incentives"
+                "permalink": "/docs/0.11.0/run-nym-nodes/incentives"
               },
               "next": {
                 "title": "Mixnodes",
-                "permalink": "/docs/run-nym-nodes/mixnodes"
+                "permalink": "/docs/0.11.0/run-nym-nodes/mixnodes"
               }
             },
             {
@@ -1455,8 +615,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/gateways.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/gateways",
-              "permalink": "/docs/run-nym-nodes/gateways",
+              "permalink": "/docs/0.11.0/run-nym-nodes/gateways",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Gateways",
                 "description": "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic.",
@@ -1466,11 +628,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Requesters",
-                "permalink": "/docs/run-nym-nodes/requester"
+                "permalink": "/docs/0.11.0/run-nym-nodes/requester"
               },
               "next": {
                 "title": "Mixnode Troubleshooting FAQ",
-                "permalink": "/docs/run-nym-nodes/troubleshooting"
+                "permalink": "/docs/0.11.0/run-nym-nodes/troubleshooting"
               }
             },
             {
@@ -1482,8 +644,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/incentives.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/incentives",
-              "permalink": "/docs/run-nym-nodes/incentives",
+              "permalink": "/docs/0.11.0/run-nym-nodes/incentives",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Incentives",
                 "description": "Why should you run Nym nodes?",
@@ -1493,11 +657,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Run Nym Nodes",
-                "permalink": "/docs/run-nym-nodes/index"
+                "permalink": "/docs/0.11.0/run-nym-nodes/index"
               },
               "next": {
                 "title": "Building Nym",
-                "permalink": "/docs/run-nym-nodes/build-nym"
+                "permalink": "/docs/0.11.0/run-nym-nodes/build-nym"
               }
             },
             {
@@ -1509,8 +673,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/index.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/index",
-              "permalink": "/docs/run-nym-nodes/index",
+              "permalink": "/docs/0.11.0/run-nym-nodes/index",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Run Nym Nodes",
                 "description": "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows.",
@@ -1520,11 +686,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Links",
-                "permalink": "/docs/overview/links"
+                "permalink": "/docs/0.11.0/overview/links"
               },
               "next": {
                 "title": "Incentives",
-                "permalink": "/docs/run-nym-nodes/incentives"
+                "permalink": "/docs/0.11.0/run-nym-nodes/incentives"
               }
             },
             {
@@ -1536,8 +702,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/mixnodes.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/mixnodes",
-              "permalink": "/docs/run-nym-nodes/mixnodes",
+              "permalink": "/docs/0.11.0/run-nym-nodes/mixnodes",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Mixnodes",
                 "description": "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users.",
@@ -1547,11 +715,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Building Nym",
-                "permalink": "/docs/run-nym-nodes/build-nym"
+                "permalink": "/docs/0.11.0/run-nym-nodes/build-nym"
               },
               "next": {
                 "title": "Validators",
-                "permalink": "/docs/run-nym-nodes/validators"
+                "permalink": "/docs/0.11.0/run-nym-nodes/validators"
               }
             },
             {
@@ -1563,8 +731,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/requester.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/requester",
-              "permalink": "/docs/run-nym-nodes/requester",
+              "permalink": "/docs/0.11.0/run-nym-nodes/requester",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Requesters",
                 "description": "Run a requester proxy for the benefit of the community.",
@@ -1574,11 +744,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Validators",
-                "permalink": "/docs/run-nym-nodes/validators"
+                "permalink": "/docs/0.11.0/run-nym-nodes/validators"
               },
               "next": {
                 "title": "Gateways",
-                "permalink": "/docs/run-nym-nodes/gateways"
+                "permalink": "/docs/0.11.0/run-nym-nodes/gateways"
               }
             },
             {
@@ -1590,8 +760,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/troubleshooting.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/troubleshooting",
-              "permalink": "/docs/run-nym-nodes/troubleshooting",
+              "permalink": "/docs/0.11.0/run-nym-nodes/troubleshooting",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Mixnode Troubleshooting FAQ",
                 "description": "This page will help you find answers to common issues with setting up and maintaining mixnodes",
@@ -1601,11 +773,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Gateways",
-                "permalink": "/docs/run-nym-nodes/gateways"
+                "permalink": "/docs/0.11.0/run-nym-nodes/gateways"
               },
               "next": {
                 "title": "Use Apps",
-                "permalink": "/docs/use-apps/index"
+                "permalink": "/docs/0.11.0/use-apps/index"
               }
             },
             {
@@ -1617,8 +789,10 @@
               "source": "@site/versioned_docs/version-0.11.0/run-nym-nodes/validators.md",
               "sourceDirName": "run-nym-nodes",
               "slug": "/run-nym-nodes/validators",
-              "permalink": "/docs/run-nym-nodes/validators",
+              "permalink": "/docs/0.11.0/run-nym-nodes/validators",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Validators",
                 "description": "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities.",
@@ -1628,11 +802,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Mixnodes",
-                "permalink": "/docs/run-nym-nodes/mixnodes"
+                "permalink": "/docs/0.11.0/run-nym-nodes/mixnodes"
               },
               "next": {
                 "title": "Requesters",
-                "permalink": "/docs/run-nym-nodes/requester"
+                "permalink": "/docs/0.11.0/run-nym-nodes/requester"
               }
             },
             {
@@ -1644,8 +818,10 @@
               "source": "@site/versioned_docs/version-0.11.0/use-apps/blockstream-green.md",
               "sourceDirName": "use-apps",
               "slug": "/use-apps/blockstream-green",
-              "permalink": "/docs/use-apps/blockstream-green",
+              "permalink": "/docs/0.11.0/use-apps/blockstream-green",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Blockstream Green",
                 "description": "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how.",
@@ -1655,11 +831,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Use Apps",
-                "permalink": "/docs/use-apps/index"
+                "permalink": "/docs/0.11.0/use-apps/index"
               },
               "next": {
                 "title": "Electrum",
-                "permalink": "/docs/use-apps/electrum"
+                "permalink": "/docs/0.11.0/use-apps/electrum"
               }
             },
             {
@@ -1671,8 +847,10 @@
               "source": "@site/versioned_docs/version-0.11.0/use-apps/electrum.md",
               "sourceDirName": "use-apps",
               "slug": "/use-apps/electrum",
-              "permalink": "/docs/use-apps/electrum",
+              "permalink": "/docs/0.11.0/use-apps/electrum",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Electrum",
                 "description": "You can protect your Electrum transactions from network eavesdroppers using the Nym mixnet. Here's how.",
@@ -1682,11 +860,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Blockstream Green",
-                "permalink": "/docs/use-apps/blockstream-green"
+                "permalink": "/docs/0.11.0/use-apps/blockstream-green"
               },
               "next": {
                 "title": "KeyBase",
-                "permalink": "/docs/use-apps/keybase"
+                "permalink": "/docs/0.11.0/use-apps/keybase"
               }
             },
             {
@@ -1698,8 +876,10 @@
               "source": "@site/versioned_docs/version-0.11.0/use-apps/index.md",
               "sourceDirName": "use-apps",
               "slug": "/use-apps/index",
-              "permalink": "/docs/use-apps/index",
+              "permalink": "/docs/0.11.0/use-apps/index",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "Use Apps",
                 "description": "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)",
@@ -1709,11 +889,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Mixnode Troubleshooting FAQ",
-                "permalink": "/docs/run-nym-nodes/troubleshooting"
+                "permalink": "/docs/0.11.0/run-nym-nodes/troubleshooting"
               },
               "next": {
                 "title": "Blockstream Green",
-                "permalink": "/docs/use-apps/blockstream-green"
+                "permalink": "/docs/0.11.0/use-apps/blockstream-green"
               }
             },
             {
@@ -1725,8 +905,10 @@
               "source": "@site/versioned_docs/version-0.11.0/use-apps/keybase.md",
               "sourceDirName": "use-apps",
               "slug": "/use-apps/keybase",
-              "permalink": "/docs/use-apps/keybase",
+              "permalink": "/docs/0.11.0/use-apps/keybase",
               "version": "0.11.0",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "sidebar_label": "KeyBase",
                 "description": "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how.",
@@ -1736,11 +918,11 @@
               "sidebar": "version-0.11.0/sidebar",
               "previous": {
                 "title": "Electrum",
-                "permalink": "/docs/use-apps/electrum"
+                "permalink": "/docs/0.11.0/use-apps/electrum"
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/docs/build-apps/build-apps"
+                "permalink": "/docs/0.11.0/build-apps/build-apps"
               }
             }
           ]

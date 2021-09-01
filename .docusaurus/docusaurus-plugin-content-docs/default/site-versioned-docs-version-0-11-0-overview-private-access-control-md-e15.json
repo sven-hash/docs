@@ -7,8 +7,10 @@
   "source": "@site/versioned_docs/version-0.11.0/overview/private-access-control.md",
   "sourceDirName": "overview",
   "slug": "/overview/private-access-control",
-  "permalink": "/docs/overview/private-access-control",
+  "permalink": "/docs/0.11.0/overview/private-access-control",
   "version": "0.11.0",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Coconut",
     "description": "Nym ensures access control privacy using a sophisticated signature scheme called Coconut.",
@@ -18,10 +20,10 @@
   "sidebar": "version-0.11.0/sidebar",
   "previous": {
     "title": "Nym vs other systems",
-    "permalink": "/docs/overview/nym-other-systems"
+    "permalink": "/docs/0.11.0/overview/nym-other-systems"
   },
   "next": {
     "title": "Links",
-    "permalink": "/docs/overview/links"
+    "permalink": "/docs/0.11.0/overview/links"
   }
 }

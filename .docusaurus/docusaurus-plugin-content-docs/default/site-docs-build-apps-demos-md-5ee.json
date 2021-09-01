@@ -7,8 +7,10 @@
   "source": "@site/docs/build-apps/demos.md",
   "sourceDirName": "build-apps",
   "slug": "/build-apps/demos",
-  "permalink": "/docs/next/build-apps/demos",
+  "permalink": "/docs/current/build-apps/demos",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Demos",
     "hide_title": false,
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Webassembly client",
-    "permalink": "/docs/next/build-apps/wasm-client"
+    "permalink": "/docs/current/build-apps/wasm-client"
   },
   "next": {
     "title": "Community",
-    "permalink": "/docs/next/community/index"
+    "permalink": "/docs/current/community/index"
   }
 }

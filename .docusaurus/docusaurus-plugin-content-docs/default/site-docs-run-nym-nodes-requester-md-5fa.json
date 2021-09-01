@@ -7,8 +7,10 @@
   "source": "@site/docs/run-nym-nodes/requester.md",
   "sourceDirName": "run-nym-nodes",
   "slug": "/run-nym-nodes/requester",
-  "permalink": "/docs/next/run-nym-nodes/requester",
+  "permalink": "/docs/current/run-nym-nodes/requester",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Requesters",
     "description": "Run a requester proxy for the benefit of the community.",
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Validators",
-    "permalink": "/docs/next/run-nym-nodes/validators"
+    "permalink": "/docs/current/run-nym-nodes/validators"
   },
   "next": {
     "title": "Gateways",
-    "permalink": "/docs/next/run-nym-nodes/gateways"
+    "permalink": "/docs/current/run-nym-nodes/gateways"
   }
 }

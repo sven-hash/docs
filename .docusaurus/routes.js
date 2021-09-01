@@ -39,334 +39,167 @@ export default [
     exact: true
   },
   {
-    path: '/docs/next',
-    component: ComponentCreator('/docs/next','55d'),
+    path: '/docs/0.11.0',
+    component: ComponentCreator('/docs/0.11.0','c55'),
     routes: [
       {
-        path: '/docs/next/build-apps/build-apps',
-        component: ComponentCreator('/docs/next/build-apps/build-apps','924'),
+        path: '/docs/0.11.0/build-apps/build-apps',
+        component: ComponentCreator('/docs/0.11.0/build-apps/build-apps','f07'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/build-apps/choose-a-client',
-        component: ComponentCreator('/docs/next/build-apps/choose-a-client','b39'),
+        path: '/docs/0.11.0/build-apps/choose-a-client',
+        component: ComponentCreator('/docs/0.11.0/build-apps/choose-a-client','653'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/build-apps/demos',
-        component: ComponentCreator('/docs/next/build-apps/demos','352'),
+        path: '/docs/0.11.0/build-apps/demos',
+        component: ComponentCreator('/docs/0.11.0/build-apps/demos','b2a'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/build-apps/wasm-client',
-        component: ComponentCreator('/docs/next/build-apps/wasm-client','c24'),
+        path: '/docs/0.11.0/build-apps/wasm-client',
+        component: ComponentCreator('/docs/0.11.0/build-apps/wasm-client','267'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/build-apps/websocket-client',
-        component: ComponentCreator('/docs/next/build-apps/websocket-client','620'),
+        path: '/docs/0.11.0/build-apps/websocket-client',
+        component: ComponentCreator('/docs/0.11.0/build-apps/websocket-client','946'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/community/code-of-conduct',
-        component: ComponentCreator('/docs/next/community/code-of-conduct','5a2'),
+        path: '/docs/0.11.0/community/code-of-conduct',
+        component: ComponentCreator('/docs/0.11.0/community/code-of-conduct','87c'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/community/index',
-        component: ComponentCreator('/docs/next/community/index','80c'),
+        path: '/docs/0.11.0/community/index',
+        component: ComponentCreator('/docs/0.11.0/community/index','42e'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/community/licensing',
-        component: ComponentCreator('/docs/next/community/licensing','615'),
+        path: '/docs/0.11.0/community/licensing',
+        component: ComponentCreator('/docs/0.11.0/community/licensing','77d'),
         exact: true,
-        'sidebar': "sidebar"
+        'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/next/intro',
-        component: ComponentCreator('/docs/next/intro','e88'),
+        path: '/docs/0.11.0/intro',
+        component: ComponentCreator('/docs/0.11.0/intro','ac9'),
         exact: true
       },
       {
-        path: '/docs/next/overview/index',
-        component: ComponentCreator('/docs/next/overview/index','f60'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/overview/links',
-        component: ComponentCreator('/docs/next/overview/links','3c0'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/overview/network-privacy',
-        component: ComponentCreator('/docs/next/overview/network-privacy','3fb'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/overview/nym-other-systems',
-        component: ComponentCreator('/docs/next/overview/nym-other-systems','b52'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/overview/nym-platform',
-        component: ComponentCreator('/docs/next/overview/nym-platform','bb8'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/overview/private-access-control',
-        component: ComponentCreator('/docs/next/overview/private-access-control','913'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/build-nym',
-        component: ComponentCreator('/docs/next/run-nym-nodes/build-nym','65e'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/gateways',
-        component: ComponentCreator('/docs/next/run-nym-nodes/gateways','2d0'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/incentives',
-        component: ComponentCreator('/docs/next/run-nym-nodes/incentives','e3b'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/index',
-        component: ComponentCreator('/docs/next/run-nym-nodes/index','5ff'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/mixnodes',
-        component: ComponentCreator('/docs/next/run-nym-nodes/mixnodes','cd7'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/requester',
-        component: ComponentCreator('/docs/next/run-nym-nodes/requester','b4f'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/troubleshooting',
-        component: ComponentCreator('/docs/next/run-nym-nodes/troubleshooting','1c5'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/run-nym-nodes/validators',
-        component: ComponentCreator('/docs/next/run-nym-nodes/validators','c7e'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/use-apps/blockstream-green',
-        component: ComponentCreator('/docs/next/use-apps/blockstream-green','2af'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/use-apps/electrum',
-        component: ComponentCreator('/docs/next/use-apps/electrum','599'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/use-apps/index',
-        component: ComponentCreator('/docs/next/use-apps/index','b68'),
-        exact: true,
-        'sidebar': "sidebar"
-      },
-      {
-        path: '/docs/next/use-apps/keybase',
-        component: ComponentCreator('/docs/next/use-apps/keybase','53f'),
-        exact: true,
-        'sidebar': "sidebar"
-      }
-    ]
-  },
-  {
-    path: '/docs',
-    component: ComponentCreator('/docs','d6d'),
-    routes: [
-      {
-        path: '/docs/build-apps/build-apps',
-        component: ComponentCreator('/docs/build-apps/build-apps','507'),
+        path: '/docs/0.11.0/overview/index',
+        component: ComponentCreator('/docs/0.11.0/overview/index','8ff'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/build-apps/choose-a-client',
-        component: ComponentCreator('/docs/build-apps/choose-a-client','13e'),
+        path: '/docs/0.11.0/overview/links',
+        component: ComponentCreator('/docs/0.11.0/overview/links','56c'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/build-apps/demos',
-        component: ComponentCreator('/docs/build-apps/demos','189'),
+        path: '/docs/0.11.0/overview/network-privacy',
+        component: ComponentCreator('/docs/0.11.0/overview/network-privacy','921'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/build-apps/wasm-client',
-        component: ComponentCreator('/docs/build-apps/wasm-client','4ff'),
+        path: '/docs/0.11.0/overview/nym-other-systems',
+        component: ComponentCreator('/docs/0.11.0/overview/nym-other-systems','34d'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/build-apps/websocket-client',
-        component: ComponentCreator('/docs/build-apps/websocket-client','506'),
+        path: '/docs/0.11.0/overview/nym-platform',
+        component: ComponentCreator('/docs/0.11.0/overview/nym-platform','9f1'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/community/code-of-conduct',
-        component: ComponentCreator('/docs/community/code-of-conduct','91b'),
+        path: '/docs/0.11.0/overview/private-access-control',
+        component: ComponentCreator('/docs/0.11.0/overview/private-access-control','d91'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/community/index',
-        component: ComponentCreator('/docs/community/index','54f'),
+        path: '/docs/0.11.0/run-nym-nodes/build-nym',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/build-nym','165'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/community/licensing',
-        component: ComponentCreator('/docs/community/licensing','95f'),
+        path: '/docs/0.11.0/run-nym-nodes/gateways',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/gateways','f31'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/intro',
-        component: ComponentCreator('/docs/intro','42a'),
-        exact: true
-      },
-      {
-        path: '/docs/overview/index',
-        component: ComponentCreator('/docs/overview/index','7b1'),
+        path: '/docs/0.11.0/run-nym-nodes/incentives',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/incentives','5d6'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/overview/links',
-        component: ComponentCreator('/docs/overview/links','f15'),
+        path: '/docs/0.11.0/run-nym-nodes/index',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/index','2a3'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/overview/network-privacy',
-        component: ComponentCreator('/docs/overview/network-privacy','6eb'),
+        path: '/docs/0.11.0/run-nym-nodes/mixnodes',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/mixnodes','188'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/overview/nym-other-systems',
-        component: ComponentCreator('/docs/overview/nym-other-systems','921'),
+        path: '/docs/0.11.0/run-nym-nodes/requester',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/requester','6e9'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/overview/nym-platform',
-        component: ComponentCreator('/docs/overview/nym-platform','062'),
+        path: '/docs/0.11.0/run-nym-nodes/troubleshooting',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/troubleshooting','1e7'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/overview/private-access-control',
-        component: ComponentCreator('/docs/overview/private-access-control','6a1'),
+        path: '/docs/0.11.0/run-nym-nodes/validators',
+        component: ComponentCreator('/docs/0.11.0/run-nym-nodes/validators','c22'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/run-nym-nodes/build-nym',
-        component: ComponentCreator('/docs/run-nym-nodes/build-nym','344'),
+        path: '/docs/0.11.0/use-apps/blockstream-green',
+        component: ComponentCreator('/docs/0.11.0/use-apps/blockstream-green','e02'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/run-nym-nodes/gateways',
-        component: ComponentCreator('/docs/run-nym-nodes/gateways','2f4'),
+        path: '/docs/0.11.0/use-apps/electrum',
+        component: ComponentCreator('/docs/0.11.0/use-apps/electrum','58c'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/run-nym-nodes/incentives',
-        component: ComponentCreator('/docs/run-nym-nodes/incentives','5c7'),
+        path: '/docs/0.11.0/use-apps/index',
+        component: ComponentCreator('/docs/0.11.0/use-apps/index','65c'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       },
       {
-        path: '/docs/run-nym-nodes/index',
-        component: ComponentCreator('/docs/run-nym-nodes/index','2d1'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/run-nym-nodes/mixnodes',
-        component: ComponentCreator('/docs/run-nym-nodes/mixnodes','8c4'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/run-nym-nodes/requester',
-        component: ComponentCreator('/docs/run-nym-nodes/requester','ff9'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/run-nym-nodes/troubleshooting',
-        component: ComponentCreator('/docs/run-nym-nodes/troubleshooting','d5b'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/run-nym-nodes/validators',
-        component: ComponentCreator('/docs/run-nym-nodes/validators','046'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/use-apps/blockstream-green',
-        component: ComponentCreator('/docs/use-apps/blockstream-green','621'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/use-apps/electrum',
-        component: ComponentCreator('/docs/use-apps/electrum','629'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/use-apps/index',
-        component: ComponentCreator('/docs/use-apps/index','db5'),
-        exact: true,
-        'sidebar': "version-0.11.0/sidebar"
-      },
-      {
-        path: '/docs/use-apps/keybase',
-        component: ComponentCreator('/docs/use-apps/keybase','027'),
+        path: '/docs/0.11.0/use-apps/keybase',
+        component: ComponentCreator('/docs/0.11.0/use-apps/keybase','460'),
         exact: true,
         'sidebar': "version-0.11.0/sidebar"
       }

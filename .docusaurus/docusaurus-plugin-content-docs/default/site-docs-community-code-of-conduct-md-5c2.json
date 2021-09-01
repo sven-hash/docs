@@ -7,8 +7,10 @@
   "source": "@site/docs/community/code-of-conduct.md",
   "sourceDirName": "community",
   "slug": "/community/code-of-conduct",
-  "permalink": "/docs/next/community/code-of-conduct",
+  "permalink": "/docs/current/community/code-of-conduct",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Code of Conduct",
     "hide_title": false,
@@ -17,10 +19,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Community",
-    "permalink": "/docs/next/community/index"
+    "permalink": "/docs/current/community/index"
   },
   "next": {
     "title": "Licensing",
-    "permalink": "/docs/next/community/licensing"
+    "permalink": "/docs/current/community/licensing"
   }
 }

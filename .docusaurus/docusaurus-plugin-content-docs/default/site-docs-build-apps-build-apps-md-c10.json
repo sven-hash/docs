@@ -7,8 +7,10 @@
   "source": "@site/docs/build-apps/build-apps.md",
   "sourceDirName": "build-apps",
   "slug": "/build-apps/build-apps",
-  "permalink": "/docs/next/build-apps/build-apps",
+  "permalink": "/docs/current/build-apps/build-apps",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Introduction",
     "hide_title": false,
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "KeyBase",
-    "permalink": "/docs/next/use-apps/keybase"
+    "permalink": "/docs/current/use-apps/keybase"
   },
   "next": {
     "title": "Choose a client",
-    "permalink": "/docs/next/build-apps/choose-a-client"
+    "permalink": "/docs/current/build-apps/choose-a-client"
   }
 }

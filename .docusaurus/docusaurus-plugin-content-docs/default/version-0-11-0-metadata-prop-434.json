@@ -1,7 +1,7 @@
 {
   "pluginId": "default",
   "version": "0.11.0",
-  "label": "0.11.0",
+  "label": "v0.11.0",
   "banner": "none",
   "isLast": true,
   "docsSidebars": {
@@ -15,32 +15,32 @@
           {
             "type": "link",
             "label": "Overview",
-            "href": "/docs/overview/index"
+            "href": "/docs/0.11.0/overview/index"
           },
           {
             "type": "link",
             "label": "The Nym Platform",
-            "href": "/docs/overview/nym-platform"
+            "href": "/docs/0.11.0/overview/nym-platform"
           },
           {
             "type": "link",
             "label": "Network Privacy",
-            "href": "/docs/overview/network-privacy"
+            "href": "/docs/0.11.0/overview/network-privacy"
           },
           {
             "type": "link",
             "label": "Nym vs other systems",
-            "href": "/docs/overview/nym-other-systems"
+            "href": "/docs/0.11.0/overview/nym-other-systems"
           },
           {
             "type": "link",
             "label": "Coconut",
-            "href": "/docs/overview/private-access-control"
+            "href": "/docs/0.11.0/overview/private-access-control"
           },
           {
             "type": "link",
             "label": "Links",
-            "href": "/docs/overview/links"
+            "href": "/docs/0.11.0/overview/links"
           }
         ]
       },
@@ -53,42 +53,42 @@
           {
             "type": "link",
             "label": "Run Nym Nodes",
-            "href": "/docs/run-nym-nodes/index"
+            "href": "/docs/0.11.0/run-nym-nodes/index"
           },
           {
             "type": "link",
             "label": "Incentives",
-            "href": "/docs/run-nym-nodes/incentives"
+            "href": "/docs/0.11.0/run-nym-nodes/incentives"
           },
           {
             "type": "link",
             "label": "Building Nym",
-            "href": "/docs/run-nym-nodes/build-nym"
+            "href": "/docs/0.11.0/run-nym-nodes/build-nym"
           },
           {
             "type": "link",
             "label": "Mixnodes",
-            "href": "/docs/run-nym-nodes/mixnodes"
+            "href": "/docs/0.11.0/run-nym-nodes/mixnodes"
           },
           {
             "type": "link",
             "label": "Validators",
-            "href": "/docs/run-nym-nodes/validators"
+            "href": "/docs/0.11.0/run-nym-nodes/validators"
           },
           {
             "type": "link",
             "label": "Requesters",
-            "href": "/docs/run-nym-nodes/requester"
+            "href": "/docs/0.11.0/run-nym-nodes/requester"
           },
           {
             "type": "link",
             "label": "Gateways",
-            "href": "/docs/run-nym-nodes/gateways"
+            "href": "/docs/0.11.0/run-nym-nodes/gateways"
           },
           {
             "type": "link",
             "label": "Mixnode Troubleshooting FAQ",
-            "href": "/docs/run-nym-nodes/troubleshooting"
+            "href": "/docs/0.11.0/run-nym-nodes/troubleshooting"
           }
         ]
       },
@@ -101,22 +101,22 @@
           {
             "type": "link",
             "label": "Use Apps",
-            "href": "/docs/use-apps/index"
+            "href": "/docs/0.11.0/use-apps/index"
           },
           {
             "type": "link",
             "label": "Blockstream Green",
-            "href": "/docs/use-apps/blockstream-green"
+            "href": "/docs/0.11.0/use-apps/blockstream-green"
           },
           {
             "type": "link",
             "label": "Electrum",
-            "href": "/docs/use-apps/electrum"
+            "href": "/docs/0.11.0/use-apps/electrum"
           },
           {
             "type": "link",
             "label": "KeyBase",
-            "href": "/docs/use-apps/keybase"
+            "href": "/docs/0.11.0/use-apps/keybase"
           }
         ]
       },
@@ -129,27 +129,27 @@
           {
             "type": "link",
             "label": "Introduction",
-            "href": "/docs/build-apps/build-apps"
+            "href": "/docs/0.11.0/build-apps/build-apps"
           },
           {
             "type": "link",
             "label": "Choose a client",
-            "href": "/docs/build-apps/choose-a-client"
+            "href": "/docs/0.11.0/build-apps/choose-a-client"
           },
           {
             "type": "link",
             "label": "Websocket client",
-            "href": "/docs/build-apps/websocket-client"
+            "href": "/docs/0.11.0/build-apps/websocket-client"
           },
           {
             "type": "link",
             "label": "Webassembly client",
-            "href": "/docs/build-apps/wasm-client"
+            "href": "/docs/0.11.0/build-apps/wasm-client"
           },
           {
             "type": "link",
             "label": "Demos",
-            "href": "/docs/build-apps/demos"
+            "href": "/docs/0.11.0/build-apps/demos"
           }
         ]
       },
@@ -162,17 +162,17 @@
           {
             "type": "link",
             "label": "Community",
-            "href": "/docs/community/index"
+            "href": "/docs/0.11.0/community/index"
           },
           {
             "type": "link",
             "label": "Code of Conduct",
-            "href": "/docs/community/code-of-conduct"
+            "href": "/docs/0.11.0/community/code-of-conduct"
           },
           {
             "type": "link",
             "label": "Licensing",
-            "href": "/docs/community/licensing"
+            "href": "/docs/0.11.0/community/licensing"
           }
         ]
       }

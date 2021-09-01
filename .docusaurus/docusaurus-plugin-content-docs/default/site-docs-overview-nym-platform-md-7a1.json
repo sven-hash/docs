@@ -7,8 +7,10 @@
   "source": "@site/docs/overview/nym-platform.md",
   "sourceDirName": "overview",
   "slug": "/overview/nym-platform",
-  "permalink": "/docs/next/overview/nym-platform",
+  "permalink": "/docs/current/overview/nym-platform",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "The Nym Platform",
     "description": "An overview of the Nym platform architecture",
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Overview",
-    "permalink": "/docs/next/overview/index"
+    "permalink": "/docs/current/overview/index"
   },
   "next": {
     "title": "Network Privacy",
-    "permalink": "/docs/next/overview/network-privacy"
+    "permalink": "/docs/current/overview/network-privacy"
   }
 }

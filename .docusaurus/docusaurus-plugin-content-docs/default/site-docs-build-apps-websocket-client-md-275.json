@@ -7,8 +7,10 @@
   "source": "@site/docs/build-apps/websocket-client.md",
   "sourceDirName": "build-apps",
   "slug": "/build-apps/websocket-client",
-  "permalink": "/docs/next/build-apps/websocket-client",
+  "permalink": "/docs/current/build-apps/websocket-client",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Websocket client",
     "hide_title": false,
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Choose a client",
-    "permalink": "/docs/next/build-apps/choose-a-client"
+    "permalink": "/docs/current/build-apps/choose-a-client"
   },
   "next": {
     "title": "Webassembly client",
-    "permalink": "/docs/next/build-apps/wasm-client"
+    "permalink": "/docs/current/build-apps/wasm-client"
   }
 }

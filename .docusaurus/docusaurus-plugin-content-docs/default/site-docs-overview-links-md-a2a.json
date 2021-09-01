@@ -7,8 +7,10 @@
   "source": "@site/docs/overview/links.md",
   "sourceDirName": "overview",
   "slug": "/overview/links",
-  "permalink": "/docs/next/overview/links",
+  "permalink": "/docs/current/overview/links",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Links",
     "description": "Here are some links that may prove handy as you start exploring Nym, and the Nym community.",
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Coconut",
-    "permalink": "/docs/next/overview/private-access-control"
+    "permalink": "/docs/current/overview/private-access-control"
   },
   "next": {
     "title": "Run Nym Nodes",
-    "permalink": "/docs/next/run-nym-nodes/index"
+    "permalink": "/docs/current/run-nym-nodes/index"
   }
 }

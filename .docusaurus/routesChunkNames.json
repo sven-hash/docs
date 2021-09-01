@@ -21,228 +21,116 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/docs/next-55d": {
+  "/docs/0.11.0-c55": {
     "component": "component---theme-doc-page-1-be-9be",
-    "versionMetadata": "versionMetadata---docs-next-935-7db"
+    "versionMetadata": "versionMetadata---docs-0-11-0778-76c"
   },
-  "/docs/next/build-apps/build-apps-924": {
+  "/docs/0.11.0/build-apps/build-apps-f07": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-build-apps-build-appsc-10-4af"
+    "content": "content---docs-0-11-0-build-apps-build-appsfb-4-912"
   },
-  "/docs/next/build-apps/choose-a-client-b39": {
+  "/docs/0.11.0/build-apps/choose-a-client-653": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-build-apps-choose-a-client-41-f-163"
+    "content": "content---docs-0-11-0-build-apps-choose-a-client-2-b-9-946"
   },
-  "/docs/next/build-apps/demos-352": {
+  "/docs/0.11.0/build-apps/demos-b2a": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-build-apps-demos-5-ee-ea2"
+    "content": "content---docs-0-11-0-build-apps-demosec-4-296"
   },
-  "/docs/next/build-apps/wasm-client-c24": {
+  "/docs/0.11.0/build-apps/wasm-client-267": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-build-apps-wasm-client-1-c-5-5a7"
+    "content": "content---docs-0-11-0-build-apps-wasm-client-057-290"
   },
-  "/docs/next/build-apps/websocket-client-620": {
+  "/docs/0.11.0/build-apps/websocket-client-946": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-build-apps-websocket-client-275-62d"
+    "content": "content---docs-0-11-0-build-apps-websocket-clientbbe-99e"
   },
-  "/docs/next/community/code-of-conduct-5a2": {
+  "/docs/0.11.0/community/code-of-conduct-87c": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-community-code-of-conduct-5-c-2-fe6"
+    "content": "content---docs-0-11-0-community-code-of-conductcb-6-631"
   },
-  "/docs/next/community/index-80c": {
+  "/docs/0.11.0/community/index-42e": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-community-index-3-fa-3e7"
+    "content": "content---docs-0-11-0-community-index-9-f-3-7b7"
   },
-  "/docs/next/community/licensing-615": {
+  "/docs/0.11.0/community/licensing-77d": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-community-licensing-193-970"
+    "content": "content---docs-0-11-0-community-licensing-613-dd4"
   },
-  "/docs/next/intro-e88": {
+  "/docs/0.11.0/intro-ac9": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-intro-0-e-3-e8b"
+    "content": "content---docs-0-11-0-intro-5-f-8-c63"
   },
-  "/docs/next/overview/index-f60": {
+  "/docs/0.11.0/overview/index-8ff": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-overview-indexfb-8-8bc"
+    "content": "content---docs-0-11-0-overview-index-19-c-a8a"
   },
-  "/docs/next/overview/links-3c0": {
+  "/docs/0.11.0/overview/links-56c": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-overview-linksa-2-a-3e9"
+    "content": "content---docs-0-11-0-overview-links-028-e82"
   },
-  "/docs/next/overview/network-privacy-3fb": {
+  "/docs/0.11.0/overview/network-privacy-921": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-overview-network-privacyf-6-a-6da"
+    "content": "content---docs-0-11-0-overview-network-privacyb-00-7c9"
   },
-  "/docs/next/overview/nym-other-systems-b52": {
+  "/docs/0.11.0/overview/nym-other-systems-34d": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-overview-nym-other-systemsb-36-c75"
+    "content": "content---docs-0-11-0-overview-nym-other-systemsad-3-172"
   },
-  "/docs/next/overview/nym-platform-bb8": {
+  "/docs/0.11.0/overview/nym-platform-9f1": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-overview-nym-platform-7-a-1-329"
+    "content": "content---docs-0-11-0-overview-nym-platformd-06-715"
   },
-  "/docs/next/overview/private-access-control-913": {
+  "/docs/0.11.0/overview/private-access-control-d91": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-overview-private-access-control-06-e-4d8"
+    "content": "content---docs-0-11-0-overview-private-access-controle-15-e41"
   },
-  "/docs/next/run-nym-nodes/build-nym-65e": {
+  "/docs/0.11.0/run-nym-nodes/build-nym-165": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-build-nyme-10-3d5"
+    "content": "content---docs-0-11-0-run-nym-nodes-build-nym-29-a-d9a"
   },
-  "/docs/next/run-nym-nodes/gateways-2d0": {
+  "/docs/0.11.0/run-nym-nodes/gateways-f31": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-gatewaysc-59-6f9"
+    "content": "content---docs-0-11-0-run-nym-nodes-gateways-161-b0a"
   },
-  "/docs/next/run-nym-nodes/incentives-e3b": {
+  "/docs/0.11.0/run-nym-nodes/incentives-5d6": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-incentives-3-da-8a0"
+    "content": "content---docs-0-11-0-run-nym-nodes-incentives-5-cf-9d8"
   },
-  "/docs/next/run-nym-nodes/index-5ff": {
+  "/docs/0.11.0/run-nym-nodes/index-2a3": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-index-2-bd-934"
+    "content": "content---docs-0-11-0-run-nym-nodes-index-343-32e"
   },
-  "/docs/next/run-nym-nodes/mixnodes-cd7": {
+  "/docs/0.11.0/run-nym-nodes/mixnodes-188": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-mixnodesa-42-cdf"
+    "content": "content---docs-0-11-0-run-nym-nodes-mixnodes-04-e-5c4"
   },
-  "/docs/next/run-nym-nodes/requester-b4f": {
+  "/docs/0.11.0/run-nym-nodes/requester-6e9": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-requester-5-fa-d31"
+    "content": "content---docs-0-11-0-run-nym-nodes-requestereee-3ee"
   },
-  "/docs/next/run-nym-nodes/troubleshooting-1c5": {
+  "/docs/0.11.0/run-nym-nodes/troubleshooting-1e7": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-troubleshootinge-89-b54"
+    "content": "content---docs-0-11-0-run-nym-nodes-troubleshooting-221-2ce"
   },
-  "/docs/next/run-nym-nodes/validators-c7e": {
+  "/docs/0.11.0/run-nym-nodes/validators-c22": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-run-nym-nodes-validators-20-b-1a1"
+    "content": "content---docs-0-11-0-run-nym-nodes-validators-413-06c"
   },
-  "/docs/next/use-apps/blockstream-green-2af": {
+  "/docs/0.11.0/use-apps/blockstream-green-e02": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-use-apps-blockstream-greencd-0-820"
+    "content": "content---docs-0-11-0-use-apps-blockstream-green-925-e4f"
   },
-  "/docs/next/use-apps/electrum-599": {
+  "/docs/0.11.0/use-apps/electrum-58c": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-use-apps-electrum-3-b-7-145"
+    "content": "content---docs-0-11-0-use-apps-electrume-7-e-7e8"
   },
-  "/docs/next/use-apps/index-b68": {
+  "/docs/0.11.0/use-apps/index-65c": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-use-apps-indexb-6-c-57c"
+    "content": "content---docs-0-11-0-use-apps-index-6-c-3-de9"
   },
-  "/docs/next/use-apps/keybase-53f": {
+  "/docs/0.11.0/use-apps/keybase-460": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-next-use-apps-keybase-1-c-7-17b"
-  },
-  "/docs-d6d": {
-    "component": "component---theme-doc-page-1-be-9be",
-    "versionMetadata": "versionMetadata---docs-778-486"
-  },
-  "/docs/build-apps/build-apps-507": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-build-apps-build-appsfb-4-15b"
-  },
-  "/docs/build-apps/choose-a-client-13e": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-build-apps-choose-a-client-2-b-9-6ae"
-  },
-  "/docs/build-apps/demos-189": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-build-apps-demosec-4-5a8"
-  },
-  "/docs/build-apps/wasm-client-4ff": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-build-apps-wasm-client-057-710"
-  },
-  "/docs/build-apps/websocket-client-506": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-build-apps-websocket-clientbbe-f36"
-  },
-  "/docs/community/code-of-conduct-91b": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-community-code-of-conductcb-6-8e3"
-  },
-  "/docs/community/index-54f": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-community-index-9-f-3-d8f"
-  },
-  "/docs/community/licensing-95f": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-community-licensing-613-d3f"
-  },
-  "/docs/intro-42a": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-intro-5-f-8-606"
-  },
-  "/docs/overview/index-7b1": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-overview-index-19-c-9ba"
-  },
-  "/docs/overview/links-f15": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-overview-links-028-b0b"
-  },
-  "/docs/overview/network-privacy-6eb": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-overview-network-privacyb-00-101"
-  },
-  "/docs/overview/nym-other-systems-921": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-overview-nym-other-systemsad-3-093"
-  },
-  "/docs/overview/nym-platform-062": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-overview-nym-platformd-06-b60"
-  },
-  "/docs/overview/private-access-control-6a1": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-overview-private-access-controle-15-81a"
-  },
-  "/docs/run-nym-nodes/build-nym-344": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-build-nym-29-a-3fa"
-  },
-  "/docs/run-nym-nodes/gateways-2f4": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-gateways-161-d52"
-  },
-  "/docs/run-nym-nodes/incentives-5c7": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-incentives-5-cf-6a3"
-  },
-  "/docs/run-nym-nodes/index-2d1": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-index-343-9a4"
-  },
-  "/docs/run-nym-nodes/mixnodes-8c4": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-mixnodes-04-e-6a2"
-  },
-  "/docs/run-nym-nodes/requester-ff9": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-requestereee-ff2"
-  },
-  "/docs/run-nym-nodes/troubleshooting-d5b": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-troubleshooting-221-af8"
-  },
-  "/docs/run-nym-nodes/validators-046": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-run-nym-nodes-validators-413-1f7"
-  },
-  "/docs/use-apps/blockstream-green-621": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-use-apps-blockstream-green-925-88f"
-  },
-  "/docs/use-apps/electrum-629": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-use-apps-electrume-7-e-47e"
-  },
-  "/docs/use-apps/index-db5": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-use-apps-index-6-c-3-ea3"
-  },
-  "/docs/use-apps/keybase-027": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---docs-use-apps-keybasec-17-cac"
+    "content": "content---docs-0-11-0-use-apps-keybasec-17-123"
   }
 }

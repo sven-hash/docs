@@ -7,8 +7,10 @@
   "source": "@site/docs/run-nym-nodes/mixnodes.md",
   "sourceDirName": "run-nym-nodes",
   "slug": "/run-nym-nodes/mixnodes",
-  "permalink": "/docs/next/run-nym-nodes/mixnodes",
+  "permalink": "/docs/current/run-nym-nodes/mixnodes",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Mixnodes",
     "description": "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users.",
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Building Nym",
-    "permalink": "/docs/next/run-nym-nodes/build-nym"
+    "permalink": "/docs/current/run-nym-nodes/build-nym"
   },
   "next": {
     "title": "Validators",
-    "permalink": "/docs/next/run-nym-nodes/validators"
+    "permalink": "/docs/current/run-nym-nodes/validators"
   }
 }

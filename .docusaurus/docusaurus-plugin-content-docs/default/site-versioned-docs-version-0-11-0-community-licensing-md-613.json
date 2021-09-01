@@ -7,8 +7,10 @@
   "source": "@site/versioned_docs/version-0.11.0/community/licensing.md",
   "sourceDirName": "community",
   "slug": "/community/licensing",
-  "permalink": "/docs/community/licensing",
+  "permalink": "/docs/0.11.0/community/licensing",
   "version": "0.11.0",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Licensing",
     "hide_title": false,
@@ -18,6 +20,6 @@
   "sidebar": "version-0.11.0/sidebar",
   "previous": {
     "title": "Code of Conduct",
-    "permalink": "/docs/community/code-of-conduct"
+    "permalink": "/docs/0.11.0/community/code-of-conduct"
   }
 }

@@ -17,6 +17,21 @@ export default {
     "localeConfigs": {}
   },
   "themeConfig": {
+    "colorMode": {
+      "defaultMode": "light",
+      "disableSwitch": false,
+      "respectPrefersColorScheme": false,
+      "switchConfig": {
+        "darkIcon": "☽",
+        "darkIconStyle": {
+          "marginLeft": "1px"
+        },
+        "lightIcon": "☼",
+        "lightIconStyle": {
+          "marginLeft": "1px"
+        }
+      }
+    },
     "navbar": {
       "title": "Nym",
       "logo": {
@@ -28,17 +43,12 @@ export default {
         {
           "type": "docsVersionDropdown",
           "position": "right",
-          "dropdownItemsAfter": [
-            {
-              "to": "/versions",
-              "label": "All versions"
-            }
-          ],
           "dropdownActiveClassDisabled": true,
-          "dropdownItemsBefore": []
+          "dropdownItemsBefore": [],
+          "dropdownItemsAfter": []
         },
         {
-          "to": "/docs/overview/index",
+          "to": "/docs/0.11.0/overview/index",
           "label": "Docs",
           "position": "left"
         },
@@ -46,12 +56,6 @@ export default {
           "href": "https://github.com/nymtech",
           "label": "GitHub",
           "position": "right"
-        },
-        {
-          "type": "localeDropdown",
-          "position": "right",
-          "dropdownItemsBefore": [],
-          "dropdownItemsAfter": []
         }
       ],
       "hideOnScroll": false
@@ -292,17 +296,6 @@ export default {
       },
       "additionalLanguages": []
     },
-    "colorMode": {
-      "defaultMode": "light",
-      "disableSwitch": false,
-      "respectPrefersColorScheme": false,
-      "switchConfig": {
-        "darkIcon": "🌜",
-        "darkIconStyle": {},
-        "lightIcon": "🌞",
-        "lightIconStyle": {}
-      }
-    },
     "docs": {
       "versionPersistence": "localStorage"
     },
@@ -315,7 +308,17 @@ export default {
       {
         "docs": {
           "sidebarPath": "/home/mx/dev/nym/docs/sidebars.js",
-          "routeBasePath": "docs"
+          "routeBasePath": "docs",
+          "showLastUpdateTime": true,
+          "disableVersioning": false,
+          "includeCurrentVersion": false,
+          "versions": {
+            "0.11.0": {
+              "label": "v0.11.0",
+              "path": "0.11.0",
+              "banner": "none"
+            }
+          }
         },
         "theme": {
           "customCss": "/home/mx/dev/nym/docs/src/css/custom.css"

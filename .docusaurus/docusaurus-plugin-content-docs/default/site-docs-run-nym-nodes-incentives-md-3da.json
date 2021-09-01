@@ -7,8 +7,10 @@
   "source": "@site/docs/run-nym-nodes/incentives.md",
   "sourceDirName": "run-nym-nodes",
   "slug": "/run-nym-nodes/incentives",
-  "permalink": "/docs/next/run-nym-nodes/incentives",
+  "permalink": "/docs/current/run-nym-nodes/incentives",
   "version": "current",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "sidebar_label": "Incentives",
     "description": "Why should you run Nym nodes?",
@@ -18,10 +20,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Run Nym Nodes",
-    "permalink": "/docs/next/run-nym-nodes/index"
+    "permalink": "/docs/current/run-nym-nodes/index"
   },
   "next": {
     "title": "Building Nym",
-    "permalink": "/docs/next/run-nym-nodes/build-nym"
+    "permalink": "/docs/current/run-nym-nodes/build-nym"
   }
 }
