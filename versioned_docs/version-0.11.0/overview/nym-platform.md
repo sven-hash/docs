@@ -5,7 +5,15 @@ hide_title: false
 title: The Nym Platform
 ---
 
- 
+import ThemedImage from '@theme/ThemedImage';
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('./nym-platform.png'),
+    dark: useBaseUrl('./nym-platform-dark.png'),
+  }}
+/>; 
 
 We are currently running a [testnet](https://testnet-milhon-explorer.nymtech.net/) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
 
