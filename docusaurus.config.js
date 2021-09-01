@@ -17,6 +17,21 @@ module.exports = {
     locales: ['en', 'es'],
   },
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+      switchConfig: {
+        darkIcon: '☽',
+        darkIconStyle: {
+          marginLeft: '1px',
+        },
+        lightIcon: '☼',
+        lightIconStyle: {
+          marginLeft: '1px',
+        },
+      },
+    },
     navbar: {
       title: 'Nym',
       logo: {
@@ -28,16 +43,15 @@ module.exports = {
         {
           type: 'docsVersionDropdown',
           position: 'right',
-          dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
           dropdownActiveClassDisabled: true,
         },
-        {to: '/docs/overview/index', label: 'Docs', position: 'left'},
+        {to: '/docs/0.11.0/overview/index', label: 'Docs', position: 'left'}, // TODO remove this in prod 
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
           position: 'right',
         },
-        // temporarily commenting this out 
+        // temporarily commenting this out: awaiting translation update 
         // { 
         //   type: 'localeDropdown',
         //   position: 'right',
@@ -57,6 +71,7 @@ module.exports = {
               label: 'Keybase',
               href: 'https://keybase.io/team/nymtech.friends',
             },
+            
           ],
         },
         {
@@ -85,7 +100,6 @@ module.exports = {
           ]
         },
       ],
-      // copyright: `© ${new Date().getFullYear()} Nym Technologies SA, all rights reserved`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -99,6 +113,23 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: 'docs',
+          lastVersion: "current",  
+          showLastUpdateTime: true,
+          disableVersioning: false,
+          includeCurrentVersion: false,
+          lastVersion: undefined,
+          versions: {
+            // current: {
+            //   label: 'v0.11.x 🚧',
+            //   path: 'current',
+            //   banner: 'unreleased',
+            // },
+            '0.11.0': {
+              label: 'v0.11.0',
+              path: '0.11.0',
+              banner: 'none',
+            },
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
