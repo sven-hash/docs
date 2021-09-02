@@ -113,17 +113,16 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: 'docs',
-          lastVersion: "current",  
           showLastUpdateTime: true,
           disableVersioning: false,
-          includeCurrentVersion: false,
+          includeCurrentVersion: true,
           lastVersion: undefined,
           versions: {
-            // current: {
-            //   label: 'v0.11.x 🚧',
-            //   path: 'current',
-            //   banner: 'unreleased',
-            // },
+            current: {
+              label: '🚧 current 🚧',
+              path: 'current',
+              banner: 'unreleased',
+            },
             '0.11.0': {
               label: 'v0.11.0',
               path: '0.11.0',
