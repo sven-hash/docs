@@ -5,13 +5,20 @@ hide_title: false
 title: Network Overview
 ---
 
- 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
 We are currently running a [testnet](https://testnet-milhon-explorer.nymtech.net/) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
 
 Here's an overview of the entire network.
 
-![Nym Platform](/img/docs/nym-platform.png)
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/docs/nym-platform.png'),
+    dark: useBaseUrl('/img/docs/nym-platform-dark.png'),
+  }}
+/>; 
 
 The [Nym platform](https://github.com/nymtech/nym) includes mixnodes, validators, gateways, and client code used for talking to the network. All of this is run in a decentralized, trustless fashion.
 
