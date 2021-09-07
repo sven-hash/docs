@@ -9,7 +9,7 @@ title: Electrum
 
 :::note
 
-You need to [run the Nym Socks5 client](/docs/use-apps/) before following the instructions on this page.
+You need to [run the Nym Socks5 client](/docs/0.11.0/use-apps/index) before following the instructions on this page.
 
 :::
 

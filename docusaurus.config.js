@@ -12,10 +12,10 @@ module.exports = {
   favicon: 'img/docs/FAVICON.png',
   organizationName: 'nymtech', 
   projectName: 'docs', 
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'es'],
-  },
+  // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['en', 'es'],
+  // },
   themeConfig: {
     colorMode: {
       defaultMode: 'light',
