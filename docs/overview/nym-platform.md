@@ -18,7 +18,7 @@ Here's an overview of the entire network.
     light: useBaseUrl('/img/docs/nym-platform.png'),
     dark: useBaseUrl('/img/docs/nym-platform-dark.png'),
   }}
-/>; 
+/>
 
 The [Nym platform](https://github.com/nymtech/nym) includes mixnodes, validators, gateways, and client code used for talking to the network. All of this is run in a decentralized, trustless fashion.
 
