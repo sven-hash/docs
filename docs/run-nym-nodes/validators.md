@@ -180,6 +180,16 @@ Choose a name for your validator and use it in place of `yourname` in the follow
 nymd init yourname --chain-id testnet-milhon
 ```
 
+:::caution
+`nymd init` generates `priv_validator_key.json` and `node_key.json`.  
+
+If you have already set up a validator on a previous testnet, **make sure to back up the key located at** 
+`~/.nymd/config/priv_validator_key.json`. 
+
+If you don't save the validator key, then it can't sign blocks and will be jailed all the time, and
+there is no way to deterministically (re)generate this key using `nymd`.  
+:::
+
 At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with Nym's [testnet-milhon genesis file](https://nymtech.net/testnets/milhon/genesis.json).
 
 You can use the following command to download the one for Milhon:
