@@ -4,6 +4,7 @@ description: "An overview of the Nym platform architecture"
 hide_title: false
 title: Network Overview
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
@@ -12,7 +13,7 @@ We are currently running a [testnet](https://testnet-milhon-explorer.nymtech.net
 Here's an overview of the entire network.
 
 <ThemedImage
-  alt="Docusaurus themed image"
+  alt="Overview diagram of the Nym network"
   sources={{
     light: useBaseUrl('/img/docs/nym-platform.png'),
     dark: useBaseUrl('/img/docs/nym-platform-dark.png'),
@@ -55,7 +56,7 @@ The mixnet and validators are now working.
 
 Mixnet APIs have mostly stabilized, and at this point it's possible to start building applications.
 
-Validators are now working in their most basic form, and include a reputation token called `nym`. Later, validators will also generate Coconut credentials.
+Validators are now working in their most basic form. Later, validators will also generate Coconut credentials.
 
 There is currently a native mixnet client written in Rust. It runs in standalone fashion on desktops or servers. You can use this for connecting desktop or server apps to the Nym network, using any language that speaks websockets.
 

@@ -6,16 +6,23 @@ Documentation for the Nym privacy platform v0.11.0. Docs can be viewed at https:
 
 Contributions to our documentation are very welcome. Please shoot us a pull request against the `develop` branch if you can see a way that they can be improved.
 
+The directory structure produced by Docusaurus (see below) can be confusing; please check the list below to make sure you are making edits in the correct place. 
+
+* To contribute to the `🚧 current 🚧` (in development) version, edit files in `/docs/`
+* To contribute to previous versions, edit files in `/versioned_docs/<VERSION>/`
+* To contribute to an *existing* translation, edit files in `i18n/<LANGUAGE>/docusaurus-plugin-content-docs/<VERSION>` 
+* To contribute tranlsations in a *new* language, please get in touch via max@nymtech.net or via our [Keybase](https://keybase.io/team/nymtech.friends) channel. 
+
 ## Building
 
-This site is built with [Docsaurus](https://docusaurus.io/), which is managed via `npm`. 
+This site is built with [Docusaurus](https://docusaurus.io/), which is managed via `npm`. 
 
 Requirements:
 
 * `NodeJS` 
 * `npm` 
 
-Clone the docs from Github, then `cd docs`, then `npm i --save` to install dependencies. 
+Clone the docs from Github, `cd docs`, then `npm i --save` to install dependencies. 
 
 To develop the docs locally, run:
 
