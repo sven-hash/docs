@@ -27,13 +27,13 @@ The default gateway implementation included in the Nym platform code holds packe
 
 You can check that your binaries are properly compiled with:
 
-```shell
+```
 ./nym-gateway
 ```
 
 Which should return:
 
-```shell
+```
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -50,13 +50,13 @@ usage: --help to see available options.
 
 To check available configuration options use:
 
-```shell
+```
 nym@localhost:~$ ./nym-gateway init --help
 ```
 
 In order to initialize your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
 
-```shell
+```
 --announce-host <announce-host>        The host that will be reported to the directory server
 --clients-ledger <clients-ledger>      Ledger file containing registered clients
 --clients-port <clients-port>          The port on which the gateway will be listening for clients gateway-
@@ -72,7 +72,7 @@ In order to initialize your gateway the `id` and `host` parameters are required,
 
 For example, the following command returns a gateway on your current IP with the `id` of `supergateway`:
 
-```shell
+```
 nym@localhost:~$ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -123,7 +123,7 @@ Example:
 
 Results in:
 
-```shell
+```
 nym@localhost:~$ ./nym-gateway run --id supergateway
 
 
@@ -162,7 +162,7 @@ Clients ledger is stored at: "/home/nym/.nym/gateways/supergateway/data/client_l
 
 Although your gateway is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
-```shell
+```
 # check if you have ufw installed
 ufw version
 # if it is not installed, install with
@@ -175,7 +175,7 @@ sudo ufw status
 
 Finally open your gateway's p2p port, as well as ports for ssh and incoming traffic connections:
 
-```shell
+```
 sudo ufw allow 1789,22,9000/tcp
 # check the status of the firewall
 sudo ufw status
@@ -215,13 +215,13 @@ If you have built nym on your server, and your username is `jetpanther`, then th
 
 Then run:
 
-```shell
+```
 systemctl enable nym-gateway.service
 ```
 
 Start your node:
 
-```shell
+```
 service nym-gateway start
 ```
 
@@ -231,7 +231,7 @@ You can also do `service nym-gateway stop` or `service nym-gateway restart`.
 
 Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
 
-```shell
+```
 systemctl daemon-reload
 ```
 

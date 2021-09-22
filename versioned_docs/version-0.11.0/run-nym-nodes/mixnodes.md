@@ -33,7 +33,7 @@ If you **do** delegate your PUNKs to others and shut down your node, remember to
 
 If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
 
-```shell
+```
 ./nym-mixnode upgrade --id your-node-id
 ```
 
@@ -43,7 +43,7 @@ Claim your mixnode in the new testnet by following the steps in the 'Claim your 
 
 Here's how you initialize a mixnode if you are running one locally for testing, or just curious:
 
-```shell
+```
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
 ```
 
@@ -51,7 +51,7 @@ To participate in the Nym testnet, `--host` must be publicly routable on the int
 
 You can install `curl` with:
 
-```shell
+```
 sudo apt-get install curl
 ```
 
@@ -73,7 +73,7 @@ Go to the [Milhon Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/
 
 Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `sign` command:
 
-```shell
+```
 ./nym-mixnode sign --id winston-smithnode --text "@<YOUR_TELEGRAM_USERNAME> <YOUR_PUNK_WALLET_ADDRESS>"
 
 
@@ -100,7 +100,7 @@ You can claim your mixnode in Telegram by talking to our bot. To do so:
 
 Then enter the **[@nympunkbot](https://t.me/nympunkbot)** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key:
 
-```shell
+```
 /transfer punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
 ```
 
@@ -112,13 +112,13 @@ This proves to the bot that your username owns the mixnode.
 
 ### Run your mixnode
 
-```shell
+```
 ./nym-mixnode run --id winston-smithnode
 ```
 
 Should return a nice clean startup:
 
-```shell
+```
 
 
       _ __  _   _ _ __ ___
@@ -166,7 +166,7 @@ Have a look at the saved configuration files to see more configuration options.
 
 The following commands will allow you to set up a firewall using `ufw`.
 
-```shell
+```
 # check if you have ufw installed
 ufw version
 # if it is not installed, install with
@@ -179,7 +179,7 @@ sudo ufw status
 
 Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
 
-```shell
+```
 sudo ufw allow 1789,1790,8000,22,80,443/tcp
 # check the status of the firewall
 sudo ufw status
@@ -191,13 +191,13 @@ For more information about your mixnode's port configuration, check the [mixnode
 
 In order to easily identify your node via human-readable information later on in the development of the testnet when delegated staking is implemented, you can `describe` your mixnode with the following command:
 
-```shell
+```
 ./nym-mixnode describe --id winston-smithnode
 ```
 
 Which will output something like this:
 
-```shell
+```
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -247,13 +247,13 @@ If you have built nym on your server, and your username is `jetpanther`, then th
 
 Then run:
 
-```shell
+```
 systemctl enable nym-mixnode.service
 ```
 
 Start your node:
 
-```shell
+```
 service nym-mixnode start
 ```
 
@@ -263,7 +263,7 @@ You can also do `service nym-mixnode stop` or `service nym-mixnode restart`.
 
 Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
 
-```shell
+```
 systemctl daemon-reload
 ```
 
@@ -277,7 +277,7 @@ Linux machines limit how many open files a user is allowed to have. This is call
 
 If you see errors such as:
 
-```shell
+```
 Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
 ```
 
@@ -287,13 +287,13 @@ This means that the operating system is preventing network connections from bein
 
 Query the `ulimit` of your mixnode with:
 
-```shell
+```
 grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
 ```
 
 You'll get back the hard and soft limits, which looks something like this:
 
-```shell
+```
 Max open files            65536                65536                files
 ```
 
@@ -301,19 +301,19 @@ If your output is **the same as above**, your node will not encounter any `ulimi
 
 However if either value is `1024`, you must raise the limit via the systemd service file. Add the line:
 
-```shell
+```
 LimitNOFILE=65536
 ```
 
 Reload the daemon:
 
-```shell
+```
 systemctl daemon-reload
 ```
 
 or execute this as root for system-wide setting of `ulimit`:
 
-```shell
+```
 echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 ```
 
@@ -323,7 +323,7 @@ Reboot your machine and restart your node. When it comes back, use `cat /proc/$(
 
 Edit `etc/security/conf` and add the following lines:
 
-```shell
+```
 # Example hard limit for max opened files
 username        hard nofile 4096
 # Example soft limit for max opened files
@@ -342,13 +342,13 @@ For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-node
 
 See all available options by running:
 
-```shell
+```
 ./nym-mixnode --help
 ```
 
 Subcommand help is also available, e.g.:
 
-```shell
+```
 ./nym-mixnode upgrade --help
 ```
 
@@ -358,7 +358,7 @@ On some services (AWS, Google, etc), the machine's available bind address is not
 
 For example, on a Google machine, you may see the following output from the `ifconfig` command:
 
-```shell
+```
 ens4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
         inet 10.126.5.7  netmask 255.255.255.255  broadcast 0.0.0.0
         ...

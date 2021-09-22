@@ -19,14 +19,14 @@ The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermin
 
 - `git`
 
-```shell
+```
 sudo apt update
 sudo apt install git
 ```
 
 Verify `git` is installed with:
 
-```shell
+```
 git version
 # Should return: git version X.Y.Z
 ```
@@ -35,7 +35,7 @@ git version
 
 `Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
 
-```shell
+```
 # First remove any existing old Go installation
 sudo rm -rf /usr/local/go
 
@@ -58,7 +58,7 @@ Remember to replace `<CORRECT.GO.VERSION>` with the version of your choice from 
 
 Verify `Go` is installed with:
 
-```shell
+```
 go version
 # Should return: go version go1.15.7 linux/amd64
 ```
@@ -67,7 +67,7 @@ go version
 
 `gcc` can be installed with:
 
-```shell
+```
 sudo apt install build-essential
 # Optional additional manual pages can be installed with:
 sudo apt-get install manpages-dev
@@ -75,13 +75,13 @@ sudo apt-get install manpages-dev
 
 Verify `gcc` is installed with:
 
-```shell
+```
 gcc --version
 ```
 
 Which should return something like:
 
-```shell
+```
 gcc (Ubuntu 7.4.0-1ubuntu1~18.04) 7.4.0
 Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
@@ -92,7 +92,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
-```shell
+```
 WASMD_VERSION=v0.17.0
 BECH32_PREFIX=punk
 git clone https://github.com/CosmWasm/wasmd.git
@@ -104,7 +104,7 @@ go build -o build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.co
 
 At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running:
 
-```shell
+```
 ./build/nymd
 ```
 
@@ -119,14 +119,14 @@ If you have compiled these files locally you need to upload both of them to the 
 
 To locate these files on your local system run:
 
-```shell
+```
 WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}
 ```
 
 This will output something like:
 
-```shell
+```
 '/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
 ```
 
@@ -134,7 +134,7 @@ When you upload your `nymd` binary, you'll need to tell it where `libwasmvm.so` 
 
 Alternatively, you can check out the repository for `nym` at <https://github.com/nymtech/nym> and use the tag for the current release with:
 
-```shell
+```
 git clone https://github.com/nymtech/nym.git
 cd nym
 git reset --hard   # in case you made any changes on your branch
@@ -146,13 +146,13 @@ Inside the `validator` directory you will find the precompiled binaries to use.
 
 Upload both `nymd` and `libwasmvm.so` to your validator machine. If you attempt to run `./nymd` on your server, you'll likely see an error if `nymd` can't find `libwasmvm.so`:
 
-```shell
+```
 ./nymd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
 ```
 
 You'll need to set `LD_LIBRARY_PATH` in your user's `~/.bashrc` file, and add that to our path. Replace `/home/youruser/path/to/nym/binaries` in the command below to the locations of `nymd` and `libwasmvm.so` and run it. If you have compiled these on the server, they will be in the `build/` folder:
 
-```shell
+```
 NYM_BINARIES=/home/youruser/path/to/nym/binaries
 echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYM_BINARIES >> ~/.bashrc
 echo 'export PATH=$PATH:'${NYM_BINARIES} >> ~/.bashrc
@@ -161,7 +161,7 @@ source ~/.bashrc
 
 Test everything worked:
 
-```shell
+```
 nymd
 ```
 
@@ -176,7 +176,7 @@ Prerequisites:
 
 Choose a name for your validator and use it in place of `yourname` in the following command:
 
-```shell
+```
 nymd init yourname --chain-id testnet-milhon
 ```
 
@@ -184,7 +184,7 @@ At this point, you have a new validator, with its own genesis file located at `$
 
 You can use the following command to download the one for Milhon:
 
-```shell
+```
 wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/milhon/genesis.json
 ```
 
@@ -224,7 +224,7 @@ In the file `$HOME/.nymd/config/app.toml`, set the following values:
 
 You'll need an admin account to be in charge of your validator. Set that up with:
 
-```shell
+```
 nymd keys add nymd-admin
 ```
 
@@ -232,7 +232,7 @@ This will add keys for your administrator account to your system's keychain.
 
 The command output should look something like:
 
-```shell
+```
 $ nymd keys add nymd-admin
 Enter keyring passphrase:
 password must be at least 8 characters
@@ -258,13 +258,13 @@ As the instructions say, remember to **write down your mnemonic**.
 
 You can get the admin account's address with:
 
-```shell
+```
 nymd keys show nymd-admin -a
 ```
 
 Type in your keychain **password**, not the mnemonic, when asked. The output should look something like this:
 
-```shell
+```
 punk1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 ```
 
@@ -272,13 +272,13 @@ punk1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 
 Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
 
-```shell
+```
 nymd validate-genesis
 ```
 
 If this check passes, you should receive the following output:
 
-```shell
+```
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
@@ -286,7 +286,7 @@ File at /path/to/.nymd/config/genesis.json is a valid genesis file
 
 Before starting the validator, we will need to open the firewall ports:
 
-```shell
+```
 # if ufw is not already installed:
 sudo apt install ufw
 sudo ufw enable
@@ -303,13 +303,13 @@ For more information about your validator's port configuration, check the [valid
 
 Start the validator:
 
-```shell
+```
 nymd start
 ```
 
 Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set:
 
-```shell
+```
 PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. punkvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
 MONIKER="nym-secondary"                                                       # whatever you called your validator
 FROM_ACCOUNT="nymd-admin"                                                     # your keychain name
@@ -336,7 +336,7 @@ Note: we are currently working towards building up a closed set of reputable val
 
 If you want to edit some details for your node you will use a command like this:
 
-```shell
+```
 nymd tx staking edit-validator   --chain-id=testnet-milhon   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000upunk
 ```
 
@@ -366,7 +366,7 @@ WantedBy=multi-user.target
 
 Proceed to start it with:
 
-```shell
+```
 systemctl daemon-reload # to pickup the new unit file
 systemctl enable nymd   # to enable the service
 systemctl start nymd    # to actually start the service
@@ -381,19 +381,19 @@ journalctl -f           # to monitor system logs showing the service start
 
 Install `nginx` and allow the 'Nginx Full' rule in your firewall:
 
-```shell
+```
 sudo ufw allow 'Nginx Full'
 ```
 
 Check nginx is running via systemctl:
 
-```shell
+```
 systemctl status nginx
 ```
 
 Which should return:
 
-```shell
+```
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
    Active: active (running) since Fri 2018-04-20 16:08:19 UTC; 3 days ago
@@ -409,7 +409,7 @@ Which should return:
 
 Proxying your validator's port `26657` to nginx port `80` can then be done by creating a file with the following at `/etc/nginx/conf.d/validator.conf`:
 
-```shell
+```
 server {
   listen 80;
   listen [::]:80;
@@ -426,7 +426,7 @@ server {
 
 Followed by:
 
-```shell
+```
 sudo apt install certbot nginx python3
 certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
 ```
@@ -441,7 +441,7 @@ These commands will get you an https encrypted nginx proxy in front of the API.
 
 Configure Prometheus with the following commands (adapted from NodesGuru's [Agoric setup guide](https://nodes.guru/agoric/setup-guide/en)):
 
-```shell
+```
 echo 'export OTEL_EXPORTER_PROMETHEUS_PORT=9464' >> $HOME/.bashrc
 source ~/.bashrc
 sed -i '/\[telemetry\]/{:a;n;/enabled/s/false/true/;Ta}' $HOME/.nymd/config/app.toml
@@ -452,7 +452,7 @@ echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
 
 Your validator's metrics will be available to you at the returned 'Metrics URL', and look something like this:
 
-```shell
+```
 # HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
 # TYPE go_gc_duration_seconds summary
 go_gc_duration_seconds{quantile="0"} 6.7969e-05
@@ -492,7 +492,7 @@ go_memstats_gc_sys_bytes 1.3884192e+07
 
 If your validator gets jailed, you can fix it with the following command:
 
-```shell
+```
 nymd tx slashing unjail \
   --broadcast-mode=block \
   --from=${FROM_ACCOUNT} \
@@ -516,19 +516,19 @@ As part of the execution of the validator, it will be able to get some rewards.
 
 With this command, we can query our outstanding rewards:
 
-```shell
+```
 nymd query distribution validator-outstanding-rewards <punkvaloperaddress>
 ```
 
 Using the values obtained from the previous command, you can withdraw all rewards with:
 
-```shell
+```
 nymd tx distribution withdraw-rewards <punkvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-milhon" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000upunk
 ```
 
 You can check your current balances with:
 
-```shell
+```
 nymd query bank balances punk<address>
 ```
 
@@ -547,7 +547,7 @@ total: "0"
 
 You can, of course, stake back the available balance to your validator with the following command:
 
-```shell
+```
 nymd tx staking delegate <punkvaloperaddress> <amount>stake--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-milhon" --gas="auto" --gas-adjustment=1.15 --fees 5000upunk
 ```
 

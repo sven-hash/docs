@@ -17,7 +17,7 @@ From inside the `nym` directory, the `nym-client` binary got built to the `./tar
 
 `./nym-client`
 
-```shell
+```
 nym@localhost:~$ ./nym-client
 
 
@@ -47,13 +47,13 @@ Before you can use the client, you need to initialize a new instance of it. Each
 
 Initializing a new client instance can be done with the following command:
 
-```shell
+```
 ./nym-client init --id alice
 ```
 
 When you initialize a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
-```shell
+```
 nym@localhost:~$ tree ~/.nym/clients/alice/
 /home/dave/.nym/clients/alice/
 ├── config
@@ -71,7 +71,7 @@ The generated files contain the client name, public/private keypairs, and gatewa
 
 You can run the `alice` client by doing this:
 
-```shell
+```
 ./nym-client run --id alice
 ```
 

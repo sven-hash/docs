@@ -15,7 +15,7 @@ Para añadir su mixnode a la red testnet, puede copiar el binario `nym-mixnode` 
 
 Si ya está estado ejecutando un nodo en la red Nym con la versión v0.9.2, puede usar el comando `upgrade` para actualizar la versión.
 
-```shell
+```
 ./nym-mixnode upgrade --id ID-NODO
 ```
 
@@ -23,7 +23,7 @@ Si ya está estado ejecutando un nodo en la red Nym con la versión v0.9.2, pued
 
 Si es tu primera vez en NYM, así se inicializa un mixnode:
 
-```shell
+```
 ./nym-mixnode init --id ID-NODO --host $(curl ifconfig.me) --location Ciudad
 ```
 Para poder participar en la red de prueba de Nym, `--host` debe ser públicamente enrutable en Internet. Puede ser una dirección IPv4 o IPv6. Su nodo * debe * poder enviar datos TCP usando * tanto * IPv4 como IPv6 (ya que otros nodos con los que habla pueden usar cualquiera de los dos protocolos). El comando anterior obtiene su IP automáticamente usando un servicio externo `$ (curl ifconfig.me)`. Puede poner su IP pública directamente si no tiene instalado `curl`. 
@@ -42,7 +42,7 @@ La red de Testnet se llama Finney y trabaja con la versión 0.10.x del mixnode d
 
 Para reclamar su mixnode simplemente ejecute el comando `sign` y proporcione su nombre de usuario de Telegram:
 
-```shell
+```
 ./nym-mixnode sign --id ID-NODO --text @USUARIO_TELEGRAM
 
 

@@ -11,7 +11,7 @@ The Nym webassembly client allows any webassembly-capable runtime to build and s
 
 You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) via `npm` from its package page, or with:
 
-```shell
+```
 npm i @nymproject/nym-client-wasm
 ```
 

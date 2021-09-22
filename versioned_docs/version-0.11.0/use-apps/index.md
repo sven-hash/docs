@@ -45,7 +45,7 @@ The Nym SOCKS5 proxy, though, does something quite interesting and different. Ra
 
 After building the Nym platform code, initialize the client:
 
-```shell
+```
 nym-socks5-client init --id my-socks5-client --provider AFB7kzofcDSJ1feEJsfHE5uxq4wJecLz8MkWVywAzMCu.DZex1uSmS5iLxbc1zR96T1dDs9Wmi8ko7qjX4ACCTYQR@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
@@ -53,7 +53,7 @@ The `--provider` field needs to be filled with the Nym address of a `nym-network
 
 Then run the socks5 client locally:
 
-```shell
+```
 nym-socks5-client run --id my-socks5-client
 ```
 

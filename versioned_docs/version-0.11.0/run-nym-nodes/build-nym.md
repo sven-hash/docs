@@ -20,7 +20,7 @@ Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimen
 
 - (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`
 
-```shell
+```
 sudo apt update
 sudo apt install pkg-config build-essential libssl-dev curl jq
 ```
@@ -35,7 +35,7 @@ If you really don't want to use the shell script installer, the [Rust installati
 
 The following commands will compile binaries into the `nym/target/release` directory:
 
-```shell
+```
 rustup update
 git clone https://github.com/nymtech/nym.git
 cd nym

@@ -26,13 +26,13 @@ First of all, choose which gateway to connect your client to. Active gateways ca
 
 Then initialize your nym client with the ID key of your gateway of choice: 
 
-```shell
+```
 nym@localhost:~$ ./nym-client init --id requester-client --gateway <GATEWAY_ID>
 ```
 
 Which should return: 
 
-```shell 
+``` 
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -55,7 +55,7 @@ The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9
 
 Now create a service file at `/etc/systemd/system/nym-client.service`: 
 
-```shell
+```
 [Unit]
 Description=Nym Client (0.11.0)
 StartLimitInterval=350
@@ -75,7 +75,7 @@ WantedBy=multi-user.target
 
 Then enable and start your client with the following commands: 
 
-```shell
+```
 systemctl enable nym-client.service
 systemctl start nym-client.service
 
@@ -87,7 +87,7 @@ With `systemctl status nym-client.service` you should be able to see the address
 
 Make a note of the client's address:
 
-```shell
+```
  2021-07-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: BLJ6SrgbaYjb7Px32G7zSZnocuim3HT9n3ocKcwQHETd.4WAAh7xRxWVeiohcw44G8wQ5bGHMEvq8j9LctDkGKUC7@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
@@ -95,7 +95,7 @@ Make a note of the client's address:
 
 Now that we have a running client for the requester to listen to, we can start it with the following command : 
 
-```shell
+```
 nym@localhost:~$ ./nym-network-requester 
 
 Starting socks5 service provider:
@@ -108,7 +108,7 @@ As you can see, it has connected to the nym client that we started before.
 
 Now stop that process with `CTRL-C`, and create a service file for the requester as we did with our client instance previously at `/etc/systemd/system/nym-network-requester.service`:
 
-```shell
+```
 [Unit]
 Description=Nym Client (0.11.0)
 StartLimitInterval=350
@@ -128,7 +128,7 @@ WantedBy=multi-user.target
 
 Now enable and start your requester: 
 
-```shell
+```
 systemctl enable nym-network-requester.service
 systemctl start nym-network-requester.service
 
@@ -140,7 +140,7 @@ systemctl status nym-network-requester.service
 
 Although your requester is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
-```shell
+```
 # check if you have ufw installed
 ufw version
 # if it is not installed, install with
@@ -153,7 +153,7 @@ sudo ufw status
 
 Finally open your requester's p2p port, as well as ports for ssh and incoming traffic connections:
 
-```shell
+```
 sudo ufw allow 1789,22,9000/tcp
 # check the status of the firewall
 sudo ufw status
@@ -185,7 +185,7 @@ It would suck if Nym was restricted to only three clients. How can we add suppor
 
 Have a look in your nym-network-requester config directory:
 
-```shell
+```
 ls $HOME/.nym/service-providers/network-requester/
 
 # returns: allowed.list  unknown.list
