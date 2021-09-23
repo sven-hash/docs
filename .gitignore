@@ -22,3 +22,10 @@ wget.log
 # ---------------
 .sass-cache
 _site
+
+# ----------
+# Docusaurus
+# ----------
+.docusaurus
+build
+dist
