@@ -5,7 +5,8 @@ description: "Tutorials for building Privacy Enhanced Applications (or integrati
 title: "Build Nym Apps"
 ---
 
- 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
 If you are a coder, we invite you to build **privacy enhanced applications** using Nym.
 
@@ -21,7 +22,14 @@ We'll get into the technical details more deeply in the next few sections, but b
 
 First, we need to initialize an app and connect it to Nym.
 
-![send to gateway](/img/docs/application-flow/send-to-gateway.png)
+<!-- ![send to gateway](/img/docs/application-flow/send-to-gateway.png) -->
+<ThemedImage
+  alt="Message to gateway"
+  sources={{
+    light: useBaseUrl('/img/docs/application-flow/send-to-gateway.png'),
+    dark: useBaseUrl('/img/docs/application-flow/send-to-gateway.png-dark.png'),
+  }}
+/>
 
 At the bottom we have an app. It consists of two parts:
 
@@ -50,7 +58,14 @@ The nym client part of the app (in blue) accepts messages from your code (in yel
 
 The app has now connected to the gateway, but we haven't sent a message to ourselves yet. Let's do that now.
 
-![simplest message send to self](/img/docs/application-flow/simplest-request.png)
+<!-- ![simplest message send to self](/img/docs/application-flow/simplest-request.png) -->
+<ThemedImage
+  alt="Sending message sent to self"
+  sources={{
+    light: useBaseUrl('/img/docs/application-flow/simplest-request.png'),
+    dark: useBaseUrl('/img/docs/application-flow/simplest-request-dark.png'),
+  }}
+/>
 
 Let's say your code code pokes a message `hello world` into the nym client. The nym client automatically wraps that message up into a layer encrypted Sphinx packet, adds some routing information and encryption, and sends it to its own gateway. The gateway strips the first layer of encryption, ending up with the address of the first mixnode it should forward to, and a Sphinx packet.
 
@@ -66,7 +81,14 @@ Messages are end-to-end encrypted. Although the gateway knows our app's IP when 
 
 The process for sending messages to other apps is exactly the same, you simply specify a different recipient address. Address discovery happens outside the Nym system: in the case of a Service Provider app, the service provider has presumably advertised its own address. If you're sending to a friend of yours, you'll need to get ahold of their address out of band, maybe through a private messaging app such as Signal.
 
-![service provider messages](/img/docs/application-flow/sp-request.png)
+<!-- ![service provider messages](/img/docs/application-flow/sp-request.png) -->
+<ThemedImage
+  alt="Sending message to a peap"
+  sources={{
+    light: useBaseUrl('/img/docs/application-flow/sp-request.png'),
+    dark: useBaseUrl('/img/docs/application-flow/sp-request-dark.png'),
+  }}
+/>
 
 ### Clients vs Service Providers
 

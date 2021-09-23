@@ -5,6 +5,8 @@ hide_title: false
 title: Use Apps with Nym
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
  
 
 :::note
@@ -20,23 +22,27 @@ The system is still very young, but it's starting to be able to do useful work. 
 
 Many existing applications are able to use the SOCKS5 proxy protocol. They can use the `nym-socks5-client` to bounce their network traffic through the Nym network, like this:
 
-![Socks5 architecture](/img/docs/nym-socks5-architecture.png)
+<!-- ![Socks5 architecture](/img/docs/nym-socks5-architecture.png) -->
+<ThemedImage
+  alt="Overview diagram of the Nym network"
+  sources={{
+    light: useBaseUrl('/img/docs/nym-socks5-architecture.png'),
+    dark: useBaseUrl('/img/docs/nym-socks5-architecture-dark.png'),
+  }}
+/>
 
 The Nym network already runs the mixnet, and the `nym-network-requester` and `nym-client` components. In order to use existing applications with Nym, you only need to set up the `nym-socks5-client`.
 
 Note that the nym-network-requester we're running works only for specific applications. We are not running an open proxy, we have an allowed list of applications that can use the mixnet (currently Blockstream Green, Electrum, and KeyBase). We can add other applications upon request, just come talk to us in our dev chat. Or, you can [set up your own](/docs/current/run-nym-nodes/requester) `nym-network-requester`, it's not very hard to do if you have access to a server.
 
-<!-- The Nym SOCKS5 proxy runs on your local machine and exposes a SOCKS5 network proxy on a port. You can use it just like you would any other SOCKS5 proxy: you add drop the proxy address in an application's proxy settings, and all your TCP traffic is routed through the proxy. This makes it the easiest way to enable strong network privacy in existing applications, as many apps already support SOCKS5 out of the box. In this sense it's very similar to other socks proxies.
+The Nym SOCKS5 proxy, though, does something quite interesting and different. Rather than simply copy data between TCP streams and making requests directly from the machine it's running on, it does the following:
 
-The Nym SOCKS5 proxy, though, does something quite interesting and different. Rather than simply copy data between TCP streams and making requests directly from the machine it's running on, it does the following: -->
-
-<!-- TODO small tidyup -->
-<!-- * takes a TCP data stream in, e.g. a request from a crypto wallet
+* takes a TCP data stream in, e.g. a request from a crypto wallet
 * chops up the TCP stream into multiple Sphinx packets, assigning sequence numbers to them, while leaving the TCP connection open for more data
 * sends the Sphinx packets through the mixnet to a nym-network-requester. Packets are shuffled and mixed as they transit the mixnet.
 * nym-network-requester reassembles the original TCP stream using the sequence numbers, and makes the intended request.
 * nym-network-requester then does the whole process in reverse, chopping up the response into Sphinx packets and sending it back through the mixnet to the crypto wallet.
-* The crypto wallet receives its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy. -->
+* The crypto wallet receives its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy.
 
 ## Running the nym-socks5-client
 

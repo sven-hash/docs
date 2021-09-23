@@ -5,7 +5,8 @@ hide_title: false
 title: Use Apps with Nym
 ---
 
- 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
 :::note
 
@@ -20,7 +21,14 @@ The system is still very young, but it's starting to be able to do useful work. 
 
 Many existing applications are able to use the SOCKS5 proxy protocol. They can use the `nym-socks5-client` to bounce their network traffic through the Nym network, like this:
 
-![Socks5 architecture](/img/docs/nym-socks5-architecture.png)
+<!-- ![Socks5 architecture](/img/docs/nym-socks5-architecture.png) -->
+<ThemedImage
+  alt="Overview diagram of the Nym network"
+  sources={{
+    light: useBaseUrl('/img/docs/nym-socks5-architecture.png'),
+    dark: useBaseUrl('/img/docs/nym-socks5-architecture-dark.png'),
+  }}
+/>
 
 The Nym network already runs the mixnet, and the `nym-network-requester` and `nym-client` components. In order to use existing applications with Nym, you only need to set up the `nym-socks5-client`.
 
