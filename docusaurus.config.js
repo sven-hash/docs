@@ -7,7 +7,7 @@ module.exports = {
   tagline: '',
   url: 'https://nymtech.net',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/docs/FAVICON.png',
   organizationName: 'nymtech', 
@@ -45,7 +45,7 @@ module.exports = {
           position: 'right',
           dropdownActiveClassDisabled: true,
         },
-        {to: '/docs/0.11.0/overview/index', label: 'Docs', position: 'left'}, // TODO remove this in prod 
+        {to: '/docs/0.11.0/overview/index', label: 'Docs', position: 'left'},
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
