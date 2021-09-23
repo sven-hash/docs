@@ -27,3 +27,5 @@ _site
 # Docusaurus
 # ----------
 .docusaurus
+build
+dist
