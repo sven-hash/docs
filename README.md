@@ -1,6 +1,6 @@
-# Nym Documentation
+̉# Nym Documentation
 
-Documentation for the Nym privacy platform v0.11.0. Docs can be viewed at https://nymtech.net/docs.
+Documentation for the Nym privacy platform v0.11.0. Docs can be viewed at https://nymtech.net/docs/0.11.0/overview/index
 
 ## Contributing
 
