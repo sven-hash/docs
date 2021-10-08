@@ -325,7 +325,7 @@ MONIKER="nym-secondary"                                                       # 
 FROM_ACCOUNT="nymd-admin"                                                     # your keychain name
 
 nymd tx staking create-validator \
---amount=10000000stake \
+--amount=10000000upunk \
 --fees=5000upunk \
 --pubkey="${PUB_KEY}" \
 --moniker=${MONIKER} \
@@ -337,10 +337,10 @@ nymd tx staking create-validator \
 --gas="auto" \
 --gas-adjustment=1.15 \
 --from=${FROM_ACCOUNT} \
---node https://testnet-milhon-validator.nymtech.net:443
+--node https://testnet-milhon-validator1.nymtech.net:443
 ```
 
-You'll need `stake` coins for this.
+You'll need `upunk ` coins for this.
 
 Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
 
@@ -369,6 +369,7 @@ Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nym/binaries" # change to co
 ExecStart=/home/youruser/path/to/nym/binaries/nymd start          # change to correct path
 Restart=on-failure
 RestartSec=30
+LimitNOFILE=infinity
 
 [Install]
 WantedBy=multi-user.target
@@ -546,8 +547,6 @@ For example:
 
 ```yaml
 balances:
-- amount: "22976200"
-denom: stake
 - amount: "919376"
 denom: upunk
 pagination:
@@ -558,10 +557,10 @@ total: "0"
 You can, of course, stake back the available balance to your validator with the following command:
 
 ```
-nymd tx staking delegate <punkvaloperaddress> <amount>stake--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-milhon" --gas="auto" --gas-adjustment=1.15 --fees 5000upunk
+nymd tx staking delegate <punkvaloperaddress> <amount>upunk--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-milhon" --gas="auto" --gas-adjustment=1.15 --fees 5000upunk
 ```
 
-NOTE: The value to be used instead of the `<amount>stake` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
+NOTE: The value to be used instead of the `<amount>upunk` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
 
 Also remember to replace `punkvaloper` with your validator address and `nym-admin` with the user you created during initialization.
 
