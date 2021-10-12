@@ -21,7 +21,6 @@ module.exports = {
     "Use Apps": [
       "use-apps/index",
       "use-apps/blockstream-green",
-      "use-apps/electrum",
       "use-apps/keybase"
     ],
     "Build Apps": [

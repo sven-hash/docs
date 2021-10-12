@@ -88,10 +88,6 @@
         },
         {
           "type": "doc",
-          "id": "version-0.11.0/use-apps/electrum"
-        },
-        {
-          "type": "doc",
           "id": "version-0.11.0/use-apps/keybase"
         }
       ]
