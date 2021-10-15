@@ -340,7 +340,7 @@ nymd tx staking create-validator \
 --node https://testnet-milhon-validator1.nymtech.net:443
 ```
 
-You'll need `upunk ` coins for this.
+You'll need `upunk` coins for this.
 
 Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
 
