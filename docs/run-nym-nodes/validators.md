@@ -340,7 +340,7 @@ nymd tx staking create-validator \
 --node https://testnet-milhon-validator1.nymtech.net:443
 ```
 
-You'll need `upunk ` coins for this.
+You'll need `upunk` coins for this.
 
 Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
 
@@ -557,7 +557,7 @@ total: "0"
 You can, of course, stake back the available balance to your validator with the following command:
 
 ```
-nymd tx staking delegate <punkvaloperaddress> <amount>upunk--from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-milhon" --gas="auto" --gas-adjustment=1.15 --fees 5000upunk
+nymd tx staking delegate <punkvaloperaddress> <amount>upunk --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-milhon" --gas="auto" --gas-adjustment=1.15 --fees 5000upunk
 ```
 
 NOTE: The value to be used instead of the `<amount>upunk` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
