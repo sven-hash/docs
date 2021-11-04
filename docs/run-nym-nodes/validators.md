@@ -498,8 +498,7 @@ go_memstats_gc_cpu_fraction 0.03357798610671518
 # TYPE go_memstats_gc_sys_bytes gauge
 go_memstats_gc_sys_bytes 1.3884192e+07
 ```
-#### Set the ulimit
-
+### Setting the ulimit
 Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
 
 `ulimit` is 1024 by default on most systems. It needs to be set higher, because validators make and receive a lot of connections to other nodes.

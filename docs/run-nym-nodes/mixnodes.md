@@ -269,8 +269,7 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
-#### Set the ulimit
-
+#### Setting the ulimit
 Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
 
 `ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
