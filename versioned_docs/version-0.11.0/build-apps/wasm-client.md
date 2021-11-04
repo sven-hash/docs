@@ -41,7 +41,7 @@ let client = new Client(directoryUrl, identity, authToken);
 
 This returns a nym Client which connects to a Nym gateway via websocket. All communication with the Nym network happens through this client.
 
-The `directoryUrl` of the Nym testnet is `http://testnet-validator1.nymtech.net:8081`. Use that if you want to connect to the running testnet.
+The `directoryUrl` of the Nym testnet is `http://testnet-milhon-validator1.nymtech.net:8081`. Use that if you want to connect to the running testnet.
 
 #### Running the Nym client
 
