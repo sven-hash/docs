@@ -1,93 +1,93 @@
 ---
-sidebar_label: "Webassembly client"
+sidebar_label: "Cliente de Webassembly"
 hide_title: false
-description: "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users"
-title: "Webassembly client"
+description: "Cómo integrar el cliente Nym webassembly en tus propias aplicaciones para permitir una fuerte privacidad a tus usuarios"
+title: Cliente Webassembly
 ---
 
  
 
-The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
+El cliente Nym webassembly permite que cualquier tiempo de ejecución con capacidad de webassembly construya y envíe paquetes Sphinx a la red Nym.
 
-You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) via `npm` from its package page, or with:
+Puedes instalar [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) a través de `npm` desde su página de paquetes, o con:
 
 ```
 npm i @nymproject/nym-client-wasm
 ```
 
-The `nym-client-wasm` package allows easy creation of Sphinx packets from within mobile apps and browser-based client-side apps (including Electron or similar). Browser extensions should also work.
+El paquete `nym-client-wasm` permite crear fácilmente paquetes de Sphinx desde aplicaciones móviles y aplicaciones cliente basadas en el navegador (incluyendo Electron o similares). Las extensiones del navegador también deberían funcionar.
 
-The webassembly client lets you deliver web apps that build and send Sphinx packets solely in a web browser window. However, note that all the normal constraints of [browser-based key storage](https://pomcor.com/2017/06/02/keys-in-browser/) and same-origin rules (which are there for good reason) make it difficult to structure pure webapps apps securely. We are still assessing what can be done here.
+El cliente webassembly le permite entregar aplicaciones web que construyen y envían paquetes Sphinx únicamente en una ventana del navegador web. Sin embargo, tenga en cuenta que todas las restricciones normales de [almacenamiento de claves basado en el navegador](https://pomcor.com/2017/06/02/keys-in-browser/) y las reglas de mismo origen (que están ahí por una buena razón) hacen que sea difícil estructurar aplicaciones webapps puras de forma segura. Todavía estamos evaluando lo que se puede hacer aquí.
 
-### Building apps with nym-client-wasm
+### Construyendo aplicaciones con nym-client-wasm
 
-There are two example applications located in the directory `clients/webassembly` in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. The `react-example` is a nicer-looking chat app done in React and Typescript.
+Hay dos aplicaciones de ejemplo ubicadas en el directorio `clients/webassembly` en la base de código principal de la plataforma Nym. La aplicación `js-example` es una simple aplicación JavaScript. El `react-example` es una aplicación de chat de mejor aspecto hecha en React y Typescript.
 
-#### Initializing a new Nym identity
+#### Inicialización de una nueva identidad Nym
 
-The main methods you'll use from the NPM package are:
+Los principales métodos que usarás del paquete NPM son:
 
-```js
+``js
 let identity = new Identity();
 ```
 
-This generates a new Nym identity, consisting of a public/private keypair and a Nym gateway address.
+Esto genera una nueva identidad Nym, que consiste en un par de claves públicas/privadas y una dirección de puerta de enlace Nym.
 
-#### Constructing a Nym client
+#### Construyendo un cliente Nym
 
 ```js
 let client = new Client(directoryUrl, identity, authToken);
 ```
 
-This returns a nym Client which connects to a Nym gateway via websocket. All communication with the Nym network happens through this client.
+Esto devuelve un Cliente nym que se conecta a una pasarela Nym a través de websocket. Toda la comunicación con la red Nym se realiza a través de este cliente.
 
-The `directoryUrl` of the Nym testnet is `http://testnet-validator1.nymtech.net:8081`. Use that if you want to connect to the running testnet.
+El `directoryUrl` de la red Nym es `http://testnet-validator1.nymtech.net:8081`. Utilízalo si quieres conectarte a la red de pruebas en funcionamiento.
 
-#### Running the Nym client
+#### Ejecutar el cliente Nym
 
-```js
+``js
 client.start();
 ```
 
-This will cause the client to retrieve a network topology from the defined `directoryUrl`, and connect to its gateway via websocket. Cover traffic is not yet sent, but message sends should work after client start.
+Esto hará que el cliente recupere una topología de red desde el `directoryUrl` definido, y se conecte a su puerta de enlace vía websocket. El tráfico de cobertura aún no se envía, pero el envío de mensajes debería funcionar tras el inicio del cliente.
 
-#### Sending messages
+#### Envío de mensajes
 
-```js
+``js
 client.sendMessage(message, recipient) {
 ```
 
-Sends a message up the websocket to this client's Nym gateway.
+Envía un mensaje por el websocket a la pasarela Nym de este cliente.
 
-NOTE: the webassembly client currently does not implement chunking. Messages over ~1KB will cause a panic. This will be fixed in a future version.
+NOTA: el cliente webassembly actualmente no implementa el chunking. Los mensajes de más de ~1KB causarán un pánico. Esto se arreglará en una versión futura.
 
-`message` must be a string at the moment. Binary `Blob` and `ArrayBuffer`
-will be supported soon.
+Por el momento, `message` debe ser una cadena. Los binarios `Blob` y `ArrayBuffer`
+serán soportados pronto.
 
-`recipient` is a Nym address as a string.
+`recipient` es una dirección Nym como cadena.
 
-#### Getting the client's address
+#### Obtener la dirección del cliente
 
-Given a client, to get its address, you can call:
+Dado un cliente, para obtener su dirección, puedes llamar a
 
-```js
+``js
 client.formatAsRecipient();
 ```
 
 #### SURBs
 
-Anonymous replies using surbs don't yet work in the webassembly client. They should be available in the next release.
+Las respuestas anónimas que utilizan surbs todavía no funcionan en el cliente de webassembly. Deberían estar disponibles en la próxima versión.
 
 #### JSON
 
-Sending JSON is fairly simple. If you're playing with the wasm example app, just stick it into the message box and send it (or send it programmatically as the `message` content of `client.sendMessage(message, recipient)` in your own application code.
+El envío de JSON es bastante sencillo. Si estás jugando con la aplicación de ejemplo de wasm, sólo tienes que meterlo en la caja de mensajes y enviarlo (o enviarlo programáticamente como el contenido del `mensaje` de `client.sendMessage(message, recipient)` en el código de tu propia aplicación.
 
-#### Think about what you're sending!
+#### ¡Piensa en lo que estás enviando!
 
 :::caution
-Think about what information your app sends. That goes for whatever you put into your Sphinx packet messages as well as what your app's environment may leak.
+Piensa en la información que envía tu aplicación. Eso va para cualquier cosa que pongas en tus mensajes de paquetes Sphinx, así como lo que el entorno de tu aplicación pueda filtrar.
 :::
 
-Whenever you write client peaps using HTML/JavaScript, we recommend that you do not load external resources from CDNs. Webapp developers do this all the time, to save load time for common resources, or just for convenience. But when you're writing privacy apps it's better not to make these kinds of requests. Pack everything locally.
+Siempre que escribas peaps de cliente usando HTML/JavaScript, te recomendamos que no cargues recursos externos desde CDNs. Los desarrolladores de aplicaciones web hacen esto todo el tiempo, para ahorrar tiempo de carga de recursos comunes, o simplemente por conveniencia. Pero cuando estás escribiendo aplicaciones de privacidad es mejor no hacer este tipo de peticiones. Empaquetar todo localmente.
 
-If you use only local resources within your Electron app or your browser extensions, explicitly encoding request data in a Sphinx packet does protect you from the normal leakage that gets sent in a browser HTTP request. [There's a lot of stuff that leaks when you make an HTTP request from a browser window](https://panopticlick.eff.org/). Luckily, all that metadata and request leakage doesn't happen in Nym, because you're choosing very explicitly what to encode into Sphinx packets, instead of sending a whole browser environment by default.
+Si usted utiliza sólo los recursos locales dentro de su aplicación Electron o sus extensiones del navegador, codificar explícitamente los datos de la solicitud en un paquete Sphinx le protege de la fuga normal que se envía en una solicitud HTTP del navegador. [Hay un montón de cosas que se filtran cuando se hace una solicitud HTTP desde una ventana del navegador](https://panopticlick.eff.org/). Por suerte, todos esos metadatos y la fuga de solicitudes no ocurren en Nym, porque estás eligiendo muy explícitamente qué codificar en los paquetes Sphinx, en lugar de enviar todo un entorno de navegador por defecto.

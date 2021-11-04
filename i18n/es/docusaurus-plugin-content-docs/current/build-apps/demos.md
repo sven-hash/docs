@@ -1,12 +1,12 @@
 ---
 sidebar_label: "Demos"
 hide_title: false
-description: "Example code for interacting with the Nym privacy network, in multiple languages."
-title: "Demos"
+description: "Código de ejemplo para interactuar con la red de privacidad Nym, en varios idiomas"
+title: Demos
 ---
 
  
 
-We have included code examples for multiple languages inside the `clients/native/examples` directory within our codebase - you can see how to connect and send messages from Go, Python, Rust, and JavaScript there.
+Hemos incluido ejemplos de código para múltiples lenguajes dentro del directorio `clients/native/examples` dentro de nuestra base de código - puedes ver cómo conectar y enviar mensajes desde Go, Python, Rust y JavaScript allí.
 
-It may also be worth running the webassembly example code in `clients/webassembly/js-example` if you're planning to run your using browser or other js technology.
+También puede valer la pena ejecutar el código de ejemplo de webassembly en `clients/webassembly/js-example` si estás planeando ejecutar tu utilizando el navegador u otra tecnología js.

@@ -1,39 +1,38 @@
 ---
-sidebar_label: Nym vs other systems
-description: "A comparison of Nym and other privacy systems"
+sidebar_label: "Nym frente a otros sistemas"
+description: "Una comparación de Nym y otros sistemas de privacidad"
 hide_title: false
-title: Nym vs other systems
+title: Nym frente a otros sistemas
 ---
 
  
 
-Nym is the first system we're aware of which provides integrated protection on both the network and transaction level at once. We think that this seamless approach gives the best possible privacy protections, ensuring that nothing falls through the cracks between systems.
+Nym es el primer sistema que conocemos que proporciona una protección integrada tanto a nivel de red como de transacción a la vez. Creemos que este enfoque sin fisuras ofrece la mejor protección posible de la privacidad, garantizando que nada se pierda entre los sistemas.
 
-Most comparable systems concentrate on only one of these layers at a time.
+La mayoría de los sistemas comparables se concentran en una sola de estas capas a la vez.
 
 ### Nym vs VPNs
 
-The most popular network-level privacy solution currently is the VPN (virtual private network), which provides network-level protection via an encrypted tunnel between a user’s computer and one run by a VPN provider. VPNs are often misconfigured, however, and even when configured correctly, don’t offer real privacy or adequate resistance to censorship.
+La solución de privacidad a nivel de red más popular actualmente es la VPN (red privada virtual), que proporciona protección a nivel de red a través de un túnel encriptado entre el ordenador del usuario y uno gestionado por un proveedor de VPN. Sin embargo, las VPN suelen estar mal configuradas e, incluso cuando lo están correctamente, no ofrecen una privacidad real ni una resistencia adecuada a la censura.
 
-VPN providers can also fully observe all network traffic between users and the public internet, knowing exactly what services its users are accessing at a given time. The user must trust that the VPN provider is not using their information in a malicious manner or keeping logs.
+Los proveedores de VPN también pueden observar completamente todo el tráfico de red entre los usuarios y la Internet pública, sabiendo exactamente a qué servicios acceden sus usuarios en un momento dado. El usuario debe confiar en que el proveedor de VPN no está utilizando su información de forma maliciosa o guardando registros.
 
-The Nym mixnet is an anonymous overlay network that provides strong network-level anonymity, even in the face of powerful systems capable of passively monitoring the entire network. The mixnet is decentralized, with no trusted third parties, and so does not require a trusted provider like a VPN. More importantly, Nym provides superior privacy to VPNs and can support high-quality of service and low latency through incentives.
+La mixnet de Nym es una red anónima superpuesta que proporciona un fuerte anonimato a nivel de red, incluso frente a potentes sistemas capaces de monitorizar pasivamente toda la red. La mixnet está descentralizada, sin terceros de confianza, por lo que no requiere un proveedor de confianza como una VPN. Y lo que es más importante, Nym proporciona una privacidad superior a la de las VPN y puede soportar una alta calidad de servicio y una baja latencia mediante incentivos.
 
-### Nym vs Tor
+### Nym vs. Tor
 
-Tor is the best-known anonymous overlay network today. Unlike VPNs, Tor provides a ‘circuit’ of three hops that provides better privacy than single-node VPNs, so any single node in Tor can’t deanonymize traffic. Tor’s onion-routing encrypts traffic between each hop so that only the final hop, the Tor ‘exit node’, can decrypt the package.
+Tor es la red anónima superpuesta más conocida en la actualidad. A diferencia de las VPNs, Tor proporciona un "circuito" de tres saltos que proporciona mejor privacidad que las VPNs de un solo nodo, por lo que cualquier nodo de Tor no puede desanonimizar el tráfico. El enrutamiento de cebolla de Tor encripta el tráfico entre cada salto, de modo que sólo el último salto, el 'nodo de salida' de Tor, puede desencriptar el paquete.
 
-However, Tor’s anonymity properties can be defeated by an entity that is capable of monitoring the entire network’s ‘entry’ and ‘exit’ nodes, because while onion-routing encrypts traffic, Tor does not add timing obfuscation or use decoy traffic to obfuscate the traffic patterns which can be used to deanonymize users. Although these kinds of attacks were thought to be unrealistic when Tor was invented, in the era of powerful government agencies and private companies, these kinds of attacks are a real threat. Tor’s design is also based on a centralized directory authority for routing.
+Sin embargo, las propiedades de anonimato de Tor pueden ser derrotadas por una entidad que sea capaz de monitorizar todos los nodos de 'entrada' y 'salida' de la red, porque mientras el enrutamiento-cebolla encripta el tráfico, Tor no añade ofuscación de tiempo o utiliza tráfico señuelo para ofuscar los patrones de tráfico que pueden ser utilizados para desanonimizar a los usuarios. Aunque este tipo de ataques se consideraban irreales cuando se inventó Tor, en la era de las poderosas agencias gubernamentales y empresas privadas, este tipo de ataques son una amenaza real. El diseño de Tor también se basa en una autoridad de directorio centralizada para el enrutamiento.
 
-While Tor may be the best existing solution for general-purpose web-browsing that accesses the entire internet, it is inarguable that mixnets are better than Tor for message-passing systems such as cryptocurrency transactions and secure messaging, and we believe well designed incentives can also enable the use of Nym as a general purpose decentralized VPN. The Nym mixnet provides superior privacy by making packets indistinguishable from each other, adding cover traffic, and providing timing obfuscation. Unlike both previous mixnet designs and Tor, the Nym mixnet decentralizes its shared operations using blockchain technology and uses incentives to both scale and provide censorship-resistance.
+Mientras que Tor puede ser la mejor solución existente para la navegación web de propósito general que accede a todo Internet, es indiscutible que las mixnets son mejores que Tor para los sistemas de paso de mensajes como las transacciones de criptomonedas y la mensajería segura, y creemos que los incentivos bien diseñados también pueden permitir el uso de Nym como una VPN descentralizada de propósito general. La mixnet de Nym proporciona una privacidad superior haciendo que los paquetes sean indistinguibles unos de otros, añadiendo tráfico de cobertura y proporcionando ofuscación de tiempo. A diferencia de los diseños anteriores de mixnet y de Tor, la Nym mixnet descentraliza sus operaciones compartidas utilizando la tecnología blockchain y utiliza incentivos para escalar y proporcionar resistencia a la censura.
 
-### Nym vs I2P
+### Nym frente a I2P
 
-I2P (‘Invisible Internet Project’) replaces Tor’s directory authority with a distributed hash table for routing. How to design a secure and private distributed hash table is still an open research question, and I2P is open to a number of attacks that isolate, misdirect, or deanonymize users. Like Tor, I2P is based on ‘security by obscurity’, where it is assumed that no adversary can watch the entire network. While security by obscurity may have been cutting-edge at the turn of the millennium, such an approach is rapidly showing its age.
+I2P ('Invisible Internet Project') sustituye la autoridad de directorio de Tor por una tabla hash distribuida para el enrutamiento. Cómo diseñar una tabla hash distribuida segura y privada es todavía una cuestión de investigación abierta, e I2P está abierto a una serie de ataques que aíslan, desvían o desanonimizan a los usuarios. Al igual que Tor, I2P se basa en la "seguridad por oscuridad", donde se asume que ningún adversario puede vigilar toda la red. Mientras que la seguridad por oscuridad puede haber sido de vanguardia en el cambio de milenio, este enfoque está mostrando rápidamente su edad.
+El diseño mixto de vanguardia de Nym garantiza el anonimato de la red y la resistencia a la vigilancia incluso frente a potentes ataques desanonimizadores. A diferencia de I2P, Nym añade tráfico señuelo y ofuscación temporal. En lugar de una autoridad de directorio centralizada o una tabla de hash distribuida, Nym utiliza la tecnología blockchain y los incentivos económicos para descentralizar su red.La Nym mixnet puede anonimizar los metadatos incluso frente a organismos gubernamentales o empresas privadas que pueden vigilar los enlaces de la red y observar el tráfico entrante y saliente de todos los clientes y servidores.
 
-Nym’s cutting-edge mixnet design guarantees network anonymity and resistance to surveillance even in the face of powerful deanonymizing attacks. Unlike I2P, Nym adds decoy traffic and timing obfuscation. Rather than a centralized directory authority or distributed hash table, Nym uses blockchain technology and economic incentives to decentralize its network.The Nym mixnet can anonymize metadata even against government agencies or private companies who can monitor network links and observe the incoming and outgoing traffic of all clients and servers.
+### Nym frente a Facebook Connect
+El sistema de credenciales Nym descentraliza las funciones de sistemas como Facebook Connect al tiempo que añade privacidad. Los datos personales se han convertido en un activo tóxico, incluso para las empresas que basan todo su negocio en torno a ellos, como lo demuestra el hackeo del sistema de identidad OAuth de Facebook en 2018 y la posterior liberación de los datos de 50 millones de usuarios.
 
-### Nym vs Facebook Connect
-The Nym credential system decentralizes the functions of systems like Facebook Connect while adding privacy. Personal data has become a toxic asset, even to companies who base their entire business around it, as evidenced by the hack of Facebook’s OAuth identity system in 2018 and the subsequent release of the data of 50 million users.
-
-Unlike Facebook Connect and similar OAuth-based services like Sign in with Google, traditional usernames and passwords, or even public/private key pairs, Nym credentials allow users to authenticate and authorize data sharing without unwillingly revealing any information to a third party. There is no central third party in charge of the credentials, and users remain totally in control of their own data, disclosing it only to those who they want to. A user can store their data wherever they want (including on their own devices), and unlike alternatives like W3C’s DIDs, a user does not store anything on the blockchain, offering better privacy.
+A diferencia de Facebook Connect y otros servicios similares basados en OAuth, como Sign in with Google, los nombres de usuario y contraseñas tradicionales, o incluso los pares de claves públicas/privadas, las credenciales Nym permiten a los usuarios autenticar y autorizar el intercambio de datos sin revelar involuntariamente ninguna información a un tercero. No hay un tercero central a cargo de las credenciales, y los usuarios siguen teniendo el control total de sus propios datos, revelándolos sólo a quienes ellos quieren. Un usuario puede almacenar sus datos donde quiera (incluso en sus propios dispositivos), y a diferencia de alternativas como los DID del W3C, un usuario no almacena nada en la cadena de bloques, lo que ofrece una mayor privacidad.

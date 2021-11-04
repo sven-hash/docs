@@ -1,6 +1,6 @@
 ---
-sidebar_label: Blockstream Green
-description: "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how."
+sidebar_label: "Blockstream Green"
+description: "Puedes proteger tus transacciones de Blockstream Green de los fisgones de la red utilizando el mixnet de Nym. Aquí se explica cómo"
 hide_title: false
 title: Blockstream Green
 ---
@@ -9,18 +9,18 @@ title: Blockstream Green
 
 :::note
 
-You need to [run the Nym Socks5 client](/docs/use-apps/) before following the instructions on this page.
+Es necesario [ejecutar el cliente Nym Socks5](/docs/0.11.0/use-apps/index) antes de seguir las instrucciones de esta página.
 
 :::
 
-[Blockstream Green](https://blockstream.com/green/) is a BitCoin and Liquid wallet. Since it supports Socks5, it can use Nym. Set your proxy settings in Green as follows.
+[Blockstream Green](https://blockstream.com/green/) es un monedero de BitCoin y Liquid. Como soporta Socks5, puede utilizar Nym. Configura tu proxy en Green de la siguiente manera.
 
-First you need to log out.
+Primero tienes que cerrar la sesión.
 
-Next, click on the settings on the right hand side to set proxy URL:
+A continuación, haz clic en la configuración de la derecha para establecer la URL del proxy:
 
-![Blockstream Green settings](/img/docs/wallet-proxy-settings/blockstream-green.gif)
+(/img/docs/wallet-proxy-settings/blockstream-green.gif)
 
-Most wallets and other applications will work basically the same way: find the network proxy settings, enter the proxy url (host: **localhost**, port: **1080**).
+La mayoría de los monederos y otras aplicaciones funcionarán básicamente de la misma manera: encontrar la configuración del proxy de red, introducir la url del proxy (host: **localhost**, puerto: **1080**).
 
-In some other applications, this might be written as **localhost:1080** if there's only one proxy entry field.
+En algunas otras aplicaciones, esto podría escribirse como **localhost:1080** si sólo hay un campo de entrada de proxy.

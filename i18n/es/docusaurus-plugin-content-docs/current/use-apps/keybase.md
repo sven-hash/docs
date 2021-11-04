@@ -1,6 +1,6 @@
 ---
 sidebar_label: KeyBase
-description: "You can protect your KeyBase chat traffic from network eavesdroppers using the Nym mixnet. Here's how."
+description: "Puedes proteger tu tráfico de chat de KeyBase de los curiosos de la red utilizando el mixnet de Nym. Aquí se explica cómo"
 hide_title: false
 title: Keybase
 ---
@@ -9,12 +9,13 @@ title: Keybase
 
 :::note
 
-You need to [run the Nym Socks5 client](/docs/use-apps/) before following the instructions on this page.
+Es necesario [ejecutar el cliente Nym Socks5](/docs/0.11.0/use-apps/index) antes de seguir las instrucciones de esta página.
 
 :::
 
-We have added support for KeyBase (which we use for our own internal chat). Feel free to try that out and say hello!
+Hemos añadido soporte para KeyBase (que usamos para nuestro propio chat interno). Siéntase libre de probarlo y saludar.
 
-The socks5 settings in KeyBase are under Settings > Advanced > Proxy Settings.
+La configuración de los Sockets5 en KeyBase se encuentra en Configuración > Avanzada > Configuración del proxy.
 
-![Electrum settings](/img/docs/keybase-settings.gif)
+[Configuración de Electrum](/img/docs/keybase-settings.gif)
+

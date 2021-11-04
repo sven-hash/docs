@@ -1,60 +1,66 @@
 ---
-sidebar_label: The Nym Platform
-description: "An overview of the Nym platform architecture"
+sidebar_label: "Visión general de la red"
+description: "Una visión general de la arquitectura de la plataforma Nym"
 hide_title: false
-title: The Nym Platform
+title: Visión general de la red
 ---
 
- 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
-We are currently running a [testnet](https://testnet-milhon-explorer.nymtech.net/) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
+Actualmente estamos ejecutando una [testnet](https://testnet-milhon-explorer.nymtech.net/) con validadores Nym y mixnodes. Juntos, los validadores y los mixnodes proporcionan un control de acceso integrado y privacidad en la red a los usuarios de la plataforma Nym. Cuentan con la ayuda de otros componentes de la plataforma: varios tipos de clientes y nodos de pasarela.
 
-Here's an overview of the entire network.
+He aquí una visión general de toda la red.
 
-![Nym Platform](/img/docs/nym-platform.png)
+<ThemedImage
+  alt="Diagrama general de la red Nym"
+  sources={{
+    light: useBaseUrl('/img/docs/nym-platform.png'),
+    dark: useBaseUrl('/img/docs/nym-platform-dark.png'),
+  }}
+/>
 
-The [Nym platform](https://github.com/nymtech/nym) includes mixnodes, validators, gateways, and client code used for talking to the network. All of this is run in a decentralized, trustless fashion.
+La [plataforma Nym](https://github.com/nymtech/nym) incluye mixnodes, validadores, puertas de enlace y código de cliente utilizado para hablar con la red. Todo esto se ejecuta de forma descentralizada y sin confianza.
 
-The mixnodes provide network security for network content _and_ metadata, making it impossible to see who is communicating with who.
+Los mixnodes proporcionan seguridad de red para el contenido de la red _y_ los metadatos, haciendo imposible ver quién se comunica con quién.
 
-Validators secure the network with proof-of-stake Sybil defenses, determine which nodes are included within the network, and work together to create Coconut threshold credentials which provide anonymous access to data and resources.
+Los validadores aseguran la red con defensas Sybil de prueba de participación, determinan qué nodos están incluidos en la red y trabajan juntos para crear credenciales de umbral de coco que proporcionan acceso anónimo a los datos y recursos.
 
-Gateway nodes act as message storage for clients which may go offline and come back online again, and defend against denial of service attacks.
+Los nodos de la pasarela actúan como almacén de mensajes para los clientes que pueden desconectarse y volver a conectarse, y se defienden de los ataques de denegación de servicio.
 
-But the Nym platform (blue) is just infrastructure. The interesting part are the privacy enhanced apps (yellow) which can be created by privacy developers or hooked into the network for existing applications. We've included some (fictional) examples of things we think people might build or integrate. Read our docs and use your imagination, and you may come up with many more!
+Pero la plataforma Nym (azul) es sólo infraestructura. La parte interesante son las aplicaciones mejoradas de privacidad (amarillo) que pueden ser creadas por desarrolladores de privacidad o enganchadas a la red para aplicaciones existentes. Hemos incluido algunos ejemplos (ficticios) de cosas que creemos que la gente podría construir o integrar. Lee nuestros documentos y usa tu imaginación, ¡y puede que se te ocurran muchos más!
 
-Nym-enhanced applications can:
+Las aplicaciones mejoradas con Nym pueden
 
-- upgrade the privacy properties of existing applications, such as cryptographic wallets, VPNs, payment systems, chat, medical records, blockchains, exchanges, markets, DAOs or other allocation systems.
-- enable completely new types of applications built from the ground up with privacy at their core
+- mejorar las propiedades de privacidad de las aplicaciones existentes, como carteras criptográficas, VPNs, sistemas de pago, chat, registros médicos, blockchains, intercambios, mercados, DAOs u otros sistemas de asignación.
+- Permitir tipos de aplicaciones completamente nuevos construidos desde cero con la privacidad en su núcleo.
 
-Apps talk to the Nym network by connecting to gateway nodes. Applications may go online and offline; the gateway provides a sort of mailbox where apps can receive their messages.
+Las aplicaciones se comunican con la red Nym conectándose a los nodos de la pasarela. Las aplicaciones pueden estar en línea y fuera de línea; la pasarela proporciona una especie de buzón donde las aplicaciones pueden recibir sus mensajes.
 
-There are two basic kinds of privacy enhanced applications:
+Hay dos tipos básicos de aplicaciones con privacidad mejorada:
+1. Aplicaciones orientadas al usuario que se ejecutan en dispositivos móviles o de escritorio. Éstas suelen exponer una interfaz de usuario (UI) a un usuario humano. Puede tratarse de aplicaciones existentes, como carteras de criptomonedas que se comunican con Nym a través de nuestro proxy SOCKS5, o de aplicaciones totalmente nuevas.
+2. 2. Proveedores de servicios, que normalmente se ejecutan en un servidor y realizan acciones en nombre de los usuarios sin saber quiénes son.
 
-1. user facing apps running on mobile or desktop devices. These will typically expose a user interface (UI) to a human user. These might be existing apps such as crypto wallets that communicate with Nym via our SOCKS5 proxy, or entirely new apps.
-2. Service Providers, which will usually run on a server, and take actions on behalf of users without knowing who they are.
+Los proveedores de servicios (SP) pueden interactuar con sistemas externos en nombre de un usuario. Por ejemplo, un SP puede enviar una transacción de Bitcoin, Ethereum o Cosmos, hacer una solicitud de red por proxy, hablar con un servidor de chat o proporcionar acceso anónimo a un sistema médico como un [rastreador de coronavirus de privacidad](https://constructiveproof.com/posts/2020-04-24-coronavirus-tracking-app-privacy/).
 
-Service Providers (SPs) may interact with external systems on behalf of a user. For example, an SP might submit a Bitcoin, Ethereum or Cosmos transaction, proxy a network request, talk to a chat server, or provide anonymous access to a medical system such as a [privacy-friendly coronavirus tracker](https://constructiveproof.com/posts/2020-04-24-coronavirus-tracking-app-privacy/).
+También existe una categoría especial de proveedores de servicios, a saber, los SP que no interactúan visiblemente con ningún sistema externo. Se podría pensar en ellas como cripto-utopiapps: están haciendo algo, pero no es posible desde fuera decir con certeza cuál es su función, o quién está interactuando con ellas.
 
-There is also a special category of Service Provider, namely SPs that do not visibly interact with any external systems. You might think of these as crypto-utopiapps: they're doing something, but it's not possible from outside to say with any certainty what their function is, or who is interacting with them.
+Todas las aplicaciones hablan con los nodos de la pasarela Nym utilizando paquetes Sphinx y un pequeño conjunto de mensajes de control sencillos. Estos mensajes se envían a las pasarelas a través de websockets. Cada cliente de la aplicación tiene una relación de larga duración con su pasarela; Nym define los mensajes para que los clientes se registren y autentifiquen con las pasarelas, así como para enviar paquetes Sphinx cifrados.
 
-All apps talk with Nym gateway nodes using Sphinx packets and a small set of simple control messages. These messages are sent to gateways over websockets. Each app client has a long-lived relationship with its gateway; Nym defines messages for clients registering and authenticating with gateways, as well as sending encrypted Sphinx packets.
+Actualmente nos centramos en proporcionar privacidad a los sistemas de cadenas de bloques. Pero nuestras ambiciones son más amplias. A medio plazo, estamos trabajando activamente para reunir una serie de nuevas tecnologías que puedan permitir una privacidad sólida para todo Internet. En los últimos 15 años no ha habido muchas nuevas tecnologías de privacidad ampliamente adoptadas para ayudar a los usuarios de Internet. Estamos trabajando duro para cambiar esta situación.
 
-We are currently focused on providing privacy for blockchain systems. But our ambitions are wider. In the medium term, we are actively working to bring together a range of new technologies that can enable strong privacy for the whole internet. There have not been many new widely-adopted privacy technologies to help internet users in the past 15 years. We are working hard to change that.
+### Estado actual
 
-### Current Status
+Mixnet y los validadores ya funcionan.
 
-The mixnet and validators are now working.
+Las API de Mixnet se han estabilizado en su mayor parte, y en este momento es posible empezar a crear aplicaciones.
 
-Mixnet APIs have mostly stabilized, and at this point it's possible to start building applications.
+Los validadores ya funcionan en su forma más básica. Más adelante, los validadores también generarán credenciales de coco.
 
-Validators are now working in their most basic form, and include a reputation token called `nym`. Later, validators will also generate Coconut credentials.
+Actualmente existe un cliente nativo de mixnet escrito en Rust. Se ejecuta de forma autónoma en ordenadores de sobremesa o servidores. Puedes utilizarlo para conectar aplicaciones de escritorio o servidor a la red Nym, utilizando cualquier lenguaje que hable de websockets.
 
-There is currently a native mixnet client written in Rust. It runs in standalone fashion on desktops or servers. You can use this for connecting desktop or server apps to the Nym network, using any language that speaks websockets.
+También existe un cliente webassembly. Los clientes webassembly se pueden utilizar dentro de los navegadores o aplicaciones móviles, y de nuevo se comunican con las pasarelas a través de websockets. El cliente webassembly no está completo (todavía no envía tráfico de cobertura), pero está funcionando hasta un punto en el que deberías poder utilizarlo para el desarrollo de aplicaciones. El tráfico de cobertura, cuando esté configurado, se producirá de forma transparente y no deberías tener que preocuparte por ello como desarrollador de aplicaciones Nym.
 
-A webassembly client also exists. Webassembly clients can be used within browser or mobile apps, and again communicate with gateways via websockets. The webassembly client is not complete (it does not yet send cover traffic), but it is working to a point where you should be able to use it for application development. Cover traffic, when it is set up, will happen transparently and you shouldn't need to worry about it as a Nym app developer.
+Por último, un cliente y proveedor de servicios SOCKS5 (llamado nym-network-requester) facilita la adaptación de carteras de criptomonedas y otras aplicaciones existentes compatibles con SOCKS para utilizar la infraestructura de privacidad Nym.
 
-Lastly, a SOCKS5 client and Service Provider (called nym-network-requester) makes it easy to retrofit cryptocurrency wallets and other existing SOCKS-compatible applications to use Nym privacy infrastructure.
-
-In the next few sections, we'll look at network privacy and access privacy in more detail.
+En las próximas secciones, veremos la privacidad de la red y la privacidad del acceso con más detalle.

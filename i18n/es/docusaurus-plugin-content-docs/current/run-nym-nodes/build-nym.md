@@ -1,22 +1,22 @@
 ---
 sidebar_label: "Building Nym"
-description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
+description: "Cómo construir la plataforma Nym. Nym es relativamente sencillo de construir y ejecutar en Mac OS X, Linux y Windows."
 hide_title: false
-title: Building Nym
+title: Construyendo Nym
 ---
 
  
 
 :::note
 
-This page details how to build the main Nym platform code, in Rust. **If you want to build and run a validator, [go here](/docs/run-nym-nodes/validators) instead.**
+Esta página detalla cómo construir el código principal de la plataforma Nym, en Rust. **Si quieres construir y ejecutar un validador, [ve aquí](/docs/0.11.0/run-nym-nodes/validators).
 
 :::
 
 
-Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
+Nym funciona en Mac OS X, Linux y Windows. Windows debe considerarse experimental - funciona bien si eres un desarrollador de aplicaciones pero no se recomienda para ejecutar nodos.
 
-### Prerequisites:
+### Prerrequisitos:
 
 - (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`
 
@@ -27,34 +27,34 @@ sudo apt install pkg-config build-essential libssl-dev curl jq
 
 - `Rust & cargo >= v1.51`
 
-We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
+Recomendamos utilizar el [Rust shell script installer](https://www.rust-lang.org/tools/install). No se recomienda instalar cargo desde el gestor de paquetes (por ejemplo, `apt`) ya que las versiones empaquetadas suelen ser demasiado antiguas.
 
-If you really don't want to use the shell script installer, the [Rust installation docs](https://forge.rust-lang.org/infra/other-installation-methods.html) contain instructions for many platforms.
+Si realmente no quieres usar el instalador de shell script, los [documentos de instalación de Rust](https://forge.rust-lang.org/infra/other-installation-methods.html) contienen instrucciones para muchas plataformas.
 
-### Download & build Nym Mixnode, Gateway, and Clients binaries:
+### Descarga y construye los binarios de Nym Mixnode, Gateway y Clients:
 
-The following commands will compile binaries into the `nym/target/release` directory:
+Los siguientes comandos compilarán los binarios en el directorio `nym/target/release`:
 
 ```
 rustup update
 git clone https://github.com/nymtech/nym.git
 cd nym
-git reset --hard # in case you made any changes on your branch
-git pull # in case you've checked it out before
+git reset --hard # en caso de que hayas hecho algún cambio en tu rama
+git pull # en caso de que lo hayas revisado antes
 
-# Note: the default branch you clone from Github, `develop`, is guaranteed to be
-# broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.11.0` in order to join the testnet.
+# Nota: la rama por defecto que clonas desde Github, `develop`, está garantizada
+# rota e incompatible con la red de pruebas en funcionamiento en todo momento. Usted *debe*
+# git checkout tags/v0.11.0` para unirse a la red de pruebas.
 
 git checkout tags/v0.11.0
 cargo build --release
 ```
 
-Quite a bit of stuff gets built. The key working parts are:
+Se construyen bastantes cosas. Las partes clave de trabajo son:
 
-1. the [mixnode](/docs/run-nym-nodes/mixnodes): `nym-mixnode`
-2. the [gateway node](/docs/run-nym-nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/build-apps/websocket-client): `nym-client`
-4. the [socks5 client](/docs/use-apps/): `nym-socks5-client`
-5. the [network requester](/docs/run-nym-nodes/requester): `nym-network-requester`
+1. El [mixnode](/docs/0.11.0/run-nym-nodes/mixnodes): `nym-mixnode`.
+2. el [nodo pasarela](/docs/0.11.0/run-nym-nodes/gateways): `nym-gateway`
+3. el [cliente websocket](/docs/0.11.0/build-apps/websocket-client): `nym-client`
+4. el [cliente socks5](/docs/0.11.0/use-apps/index): `nym-socks5-client`
+5. el [solicitante de red](/docs/0.11.0/run-nym-nodes/requester): `nym-network-requester`
 

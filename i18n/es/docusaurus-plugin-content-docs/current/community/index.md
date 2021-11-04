@@ -1,41 +1,41 @@
 ---
-sidebar_label: Community
+sidebar_label: "Comunidad"
 hide_title: false
-description: "Some (slowly expanding) notes on the Nym project, its community and governance."
-title: Community
+description: "Algunos apuntes (que se van ampliando poco a poco) sobre el proyecto Nym, su comunidad y su gobernanza"
+title: Comunidad
 ---
 
  
 
-### Get involved!
+### ¡Involúcrate!
 
-Nym is a free software project. We welcome the participation of anyone who values internet privacy and freedom.
+Nym es un proyecto de software libre. Damos la bienvenida a la participación de cualquier persona que valore la privacidad y la libertad en Internet.
 
-The Nym platform, and Nym nodes, are infrastructure. The system is designed to provide incentives for people who run the infrastructure, and also for people who write Privacy Enhanced Applications (Peaps). We need people to get involved running reliable infrastructure and building applications.
+La plataforma Nym, y los nodos Nym, son una infraestructura. El sistema está diseñado para incentivar a las personas que gestionan la infraestructura, y también a las que escriben Aplicaciones para Mejorar la Privacidad (Peaps). Necesitamos que la gente se involucre en el funcionamiento de la infraestructura fiable y en la creación de aplicaciones.
 
-#### Run a Nym node
+#### Dirigir un nodo Nym
 
-If you have server administration skills and an interest in maintaining high-quality infrastructure, the easiest way to get involved is to download our code and run a node, as detailed in our documentation. As the system progressively gets built, rewards will accrue to node operators who provide the best quality of service, a provable track record, and a good community reputation.
+Si tienes conocimientos de administración de servidores y te interesa mantener una infraestructura de alta calidad, la forma más fácil de participar es descargar nuestro código y ejecutar un nodo, como se detalla en nuestra documentación. A medida que el sistema se vaya construyendo, se recompensará a los operadores de nodos que ofrezcan la mejor calidad de servicio, un historial demostrable y una buena reputación en la comunidad.
 
-#### Write a Peap
+#### Escribir un Peap
 
-Nym allows application developers to build things that previously weren't possible.
+Nym permite a los desarrolladores de aplicaciones construir cosas que antes no eran posibles.
 
-Depending on your skills, you might be interested in building a Service Provider (which performs actions on behalf of users), or a client-facing app (which takes user input and forwards it so Service Providers), or both.
+Dependiendo de tus habilidades, podrías estar interesado en construir un Proveedor de Servicios (que realiza acciones en nombre de los usuarios), o una aplicación orientada al cliente (que toma la entrada del usuario y la reenvía a los Proveedores de Servicios), o ambos.
 
-#### Helping Nym core
+#### Ayudar al núcleo de Nym
 
-If you don't have server admin skills, or the desire to write a Peap, you can still get involved in lots of different ways.
+Si no tienes conocimientos de administración de servidores, o el deseo de escribir un Peap, todavía puedes participar de muchas maneras diferentes.
 
-The Nym core team is small, and we are thrilled to get help from the wider community.
+El equipo del núcleo de Nym es pequeño, y estamos encantados de recibir ayuda de la comunidad en general.
 
-##### Technical
+##### Técnico
 
-- Rust
+- Óxido
 - JavaScript
-- HTML/CSS work
-- other languages (building examples)
+- Trabajo en HTML/CSS
+- otros lenguajes (construyendo ejemplos)
 
-##### Non-technical
+##### No técnico
 
-Tweets, PR help, general advocacy, explanatory help, partnerships, and commercial collaborations are also all very welcome!
+Los tweets, la ayuda en relaciones públicas, la promoción general, la ayuda explicativa, las asociaciones y las colaboraciones comerciales también son muy bienvenidas.

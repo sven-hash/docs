@@ -1,23 +1,23 @@
 ---
-sidebar_label: Code of Conduct
+sidebar_label: "Código de Conducta"
 hide_title: false
-description: "Nym is committed to providing a friendly, safe and welcoming environment for all. Here's our code of conduct, please follow it if you'd like to participate in our community."
+description: "Nym se compromete a proporcionar un entorno amigable, seguro y acogedor para todos. Este es nuestro código de conducta, por favor, síguelo si quieres participar en nuestra comunidad."
 ---
 
  
 
-We are committed to providing a friendly, safe and welcoming environment for all, regardless of level of experience, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, nationality, or other similar characteristic.
+Nos comprometemos a proporcionar un entorno amistoso, seguro y acogedor para todos, independientemente del nivel de experiencia, la identidad y expresión de género, la orientación sexual, la discapacidad, la apariencia personal, el tamaño del cuerpo, la raza, la etnia, la edad, la religión, la nacionalidad u otra característica similar.
 
-Please avoid using overtly sexual aliases or other nicknames that might detract from a friendly, safe and welcoming environment for all.
+Por favor, evite utilizar alias abiertamente sexuales u otros apodos que puedan perjudicar un entorno amistoso, seguro y acogedor para todos.
 
-Please be kind and courteous. There’s no need to be mean or rude.
+Por favor, sea amable y cortés. No hay necesidad de ser malo o grosero.
 
-Respect that people have differences of opinion and that every design or implementation choice carries a trade-off and numerous costs. There is seldom a right answer.
+Respeta que la gente tiene diferencias de opinión y que cada elección de diseño o implementación conlleva una compensación y numerosos costes. Rara vez hay una respuesta correcta.
 
-Please keep unstructured critique to a minimum. If you have solid ideas you want to experiment with, make a fork and see how it works.
+Por favor, reduzca al mínimo las críticas no estructuradas. Si tienes ideas sólidas con las que quieres experimentar, haz una bifurcación y mira cómo funciona.
 
-We will exclude you from interaction if you insult, demean or harass anyone. That is not welcome behaviour. We interpret the term “harassment” as including the definition in the Citizen Code of Conduct; if you have any lack of clarity about what might be included in that concept, please read their definition. In particular, we don’t tolerate behaviour that excludes people in socially marginalized groups.
+Te excluiremos de la interacción si insultas, rebajas o acosas a alguien. Este comportamiento no es bienvenido. Interpretamos que el término "acoso" incluye la definición del Código de Conducta del Ciudadano; si no tienes claro qué puede incluirse en ese concepto, lee su definición. En particular, no toleramos comportamientos que excluyan a personas de grupos socialmente marginados.
 
-Private harassment is also unacceptable. No matter who you are, if you feel you have been or are being harassed or made uncomfortable by a community member, please contact one of the channel ops or any of the Rust moderation team immediately. Whether you’re a regular contributor or a newcomer, we care about making this community a safe place for you and we’ve got your back.
+El acoso privado también es inaceptable. No importa quién seas, si crees que has sido o estás siendo acosado o incomodado por un miembro de la comunidad, por favor, ponte en contacto con uno de los operadores del canal o con cualquier miembro del equipo de moderación de Rust inmediatamente. Tanto si eres un colaborador habitual como un recién llegado, nos preocupamos por hacer de esta comunidad un lugar seguro para ti y te cubrimos la espalda.
 
-Likewise any spamming, trolling, flaming, baiting or other attention-stealing behaviour is not welcome.
+Asimismo, cualquier tipo de spam, trolling, flaming, baiting o cualquier otro comportamiento que llame la atención no es bienvenido.

@@ -16,7 +16,7 @@ module.exports = {
       "run-nym-nodes/validators",
       "run-nym-nodes/requester",
       "run-nym-nodes/gateways",
-      "run-nym-nodes/troubleshooting",
+      "run-nym-nodes/troubleshooting"
     ],
     "Use Apps": [
       "use-apps/index",

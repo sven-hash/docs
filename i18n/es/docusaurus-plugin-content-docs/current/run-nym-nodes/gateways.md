@@ -1,83 +1,82 @@
 ---
 sidebar_label: "Gateways"
-description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
+description: "Las pasarelas proporcionan un destino para los paquetes mixnet. La mayor parte de Internet no utiliza paquetes Sphinx encriptados, por lo que la pasarela actúa como destino del tráfico Sphinx."
 hide_title: false
-title: Gateways
+título: Pasarelas
 ---
 
  
 
 :::note
 
-The Nym gateway was built in the [building nym](/docs/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+La pasarela Nym fue construida en la sección [building nym](/docs/0.11.0/run-nym-nodes/build-nym/). Si aún no has construido Nym y quieres ejecutar el código, ve allí primero.
 
 :::
 
 
 
-Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination, sort of like a mailbox, for messages.
+Las puertas de enlace proporcionan un destino para los paquetes mixnet. La mayor parte de Internet no utiliza paquetes Sphinx encriptados, por lo que la pasarela actúa como destino, algo así como un buzón, para los mensajes.
 
-Nym clients connect to gateways. Messages are automatically piped to connected clients and deleted from the gateway's disk storage. If a client is offline when a message arrives, it will be stored for later retrieval. When the client connects, all messages will be delivered, and deleted from the gateway's disk. As of release 0.8.x gateways use end-to-end encryption, so they cannot see the content of what they're storing for users.
+Los clientes Nym se conectan a las pasarelas. Los mensajes se envían automáticamente a los clientes conectados y se eliminan del almacenamiento en disco de la pasarela. Si un cliente está desconectado cuando llega un mensaje, éste se almacenará para su posterior recuperación. Cuando el cliente se conecta, todos los mensajes se entregan y se borran del disco de la pasarela. A partir de la versión 0.8.x las pasarelas utilizan un cifrado de extremo a extremo, por lo que no pueden ver el contenido de lo que almacenan para los usuarios.
 
-When it starts up, a client registers itself with a gateway, and the gateway returns an access token. The access token plus the gateway's IP can then be used as a form of addressing for delivering packets.
+Cuando se pone en marcha, un cliente se registra en una pasarela, y la pasarela devuelve un token de acceso. El token de acceso y la IP de la pasarela pueden utilizarse como forma de direccionamiento para la entrega de paquetes.
 
-The default gateway implementation included in the Nym platform code holds packets for later retrieval. For many applications (such as simple chat), this is usable out of the box, as it provides a place that potentially offline clients can retrieve packets from. The access token allows clients to pull messages from the gateway node.
+La implementación de la pasarela por defecto incluida en el código de la plataforma Nym retiene los paquetes para su posterior recuperación. Para muchas aplicaciones (como un simple chat), esto es utilizable desde el principio, ya que proporciona un lugar del que los clientes potencialmente desconectados pueden recuperar los paquetes. El token de acceso permite a los clientes extraer mensajes del nodo de la pasarela.
 
-### Initializing your gateway
+### Inicialización de la pasarela
 
-You can check that your binaries are properly compiled with:
+Puedes comprobar que tus binarios están correctamente compilados con
 
 ```
 ./nym-gateway
 ```
 
-Which should return:
+Que debería devolver:
 
 ```
 
-      _ __  _   _ _ __ ___
+      _ __ _ _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.11.0)
+             (pasarela - versión 0.11.0)
 
 
 
-usage: --help to see available options.
+uso: --help para ver las opciones disponibles.
 ```
 
-To check available configuration options use:
+Para comprobar las opciones de configuración disponibles, utilice:
 
 ```
 nym@localhost:~$ ./nym-gateway init --help
 ```
 
-In order to initialize your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
+Para inicializar su puerta de enlace se requieren los parámetros `id` y `host`, aunque puede experimentar añadiendo cualquiera de las otras banderas que aparecen en el comando `--help` anterior:
 
 ```
---announce-host <announce-host>        The host that will be reported to the directory server
---clients-ledger <clients-ledger>      Ledger file containing registered clients
---clients-port <clients-port>          The port on which the gateway will be listening for clients gateway-
-                                               requests
---host <host>                          The custom host on which the gateway will be running for receiving sphinx
-                                               packets
---id <id>                              Id of the gateway we want to create config for.
---inboxes <inboxes>                    Directory with inboxes where all packets for the clients are stored
---mix-port <mix-port>                  The port on which the gateway will be listening for sphinx packets
---mixnet-contract <mixnet-contract>    Address of the validator contract managing the network
---validators <validators>              Comma separated list of rest endpoints of the validators
+--announce-host <announce-host> El host que será reportado al servidor de directorio
+--clients-ledger <clients-ledger> Archivo del libro mayor que contiene los clientes registrados
+--clients-port <clients-port> El puerto en el que la pasarela escuchará las
+                                               solicitudes
+--host <host> El host personalizado en el que se ejecutará la pasarela para recibir paquetes de sphinx
+                                               paquetes
+--id <id> Id de la pasarela para la que queremos crear la configuración.
+--inboxes <inboxes> Directorio con las bandejas de entrada donde se almacenan todos los paquetes para los clientes
+--mix-port <mix-port> El puerto en el que la pasarela escuchará los paquetes de sphinx
+--mixnet-contract <mixnet-contract> Dirección del contrato del validador que gestiona la red
+--validadores <validadores> Lista separada por comas de los puntos finales de descanso de los validadores
 ```
 
-For example, the following command returns a gateway on your current IP with the `id` of `supergateway`:
+Por ejemplo, el siguiente comando devuelve un gateway en su IP actual con el `id` de `supergateway`:
 
 ```
 nym@localhost:~$ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100    14  100    14    0     0    125      0 --:--:-- --:--:-- --:--:--   123
-
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -109,23 +108,22 @@ To bond your gateway you will [most likely] need to provide the following:
     Location: [physical location of your node's server]
 ```
 
-Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
+Las puertas de enlace **deben** también ser capaces de direccionar IPv6, que es algo que es difícil de conseguir con muchos ISP. Ejecutar una puerta de enlace desde detrás de su router será difícil debido a esto, y recomendamos encarecidamente ejecutar su puerta de enlace en un VPS. Además de la conectividad IPv6, esto ayudará a mantener un mejor tiempo de actividad y conectividad.
 
-Remember to bond your node via the [Milhon Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/)! This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
+Recuerda vincular tu nodo a través de la [billetera web de Milhon Testnet](https://testnet-milhon-wallet.nymtech.net/). Esto es necesario para que la cadena de bloques reconozca su nodo y su versión de software, e incluya su puerta de enlace en la red mixta. 
 
-### Running your gateway
+### Ejecutar su puerta de enlace
 
-The `run` command runs the gateway.
+El comando `run` ejecuta la pasarela.
 
-Example:
+Ejemplo:
 
 `./nym-gateway run --id supergateway`
 
-Results in:
+El resultado es:
 
 ```
 nym@localhost:~$ ./nym-gateway run --id supergateway
-
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -158,88 +156,88 @@ Clients ledger is stored at: "/home/nym/.nym/gateways/supergateway/data/client_l
 
 ```
 
-#### Configure your firewall
+#### Configure su cortafuegos
 
-Although your gateway is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
+Aunque su puerta de enlace ya está preparada para recibir tráfico, es posible que su servidor no lo esté. Los siguientes comandos le permitirán configurar un cortafuegos correctamente con `ufw`:
 
 ```
-# check if you have ufw installed
-ufw version
-# if it is not installed, install with
+# comprueba si tienes ufw instalado
+versión de ufw
+# si no está instalado, instale con
 sudo apt install ufw -y
-# enable ufw
+# habilitar ufw
 sudo ufw enable
-# check the status of the firewall
+# comprueba el estado del firewall
 sudo ufw status
 ```
 
-Finally open your gateway's p2p port, as well as ports for ssh and incoming traffic connections:
+Finalmente abre el puerto p2p de tu pasarela, así como los puertos para ssh y las conexiones de tráfico entrante:
 
 ```
 sudo ufw allow 1789,22,9000/tcp
-# check the status of the firewall
+# comprueba el estado del firewall
 sudo ufw status
 ```
 
-For more information about your gateway's port configuration, check the [gateway port reference table](#gateway-port-reference) below.
+Para más información sobre la configuración de puertos de su puerta de enlace, consulte la [tabla de referencia de puertos de la puerta de enlace](#referencia-de-puertos-de-la-puerta-de-envío) a continuación.
 
-### Automating your gateway with systemd
+### Automatización de su puerta de enlace con systemd
 
-Although it's not totally necessary, it's useful to have the gateway automatically start at system boot time. Here's a systemd service file to do that:
+Aunque no es totalmente necesario, es útil hacer que la pasarela se inicie automáticamente al arrancar el sistema. Aquí hay un archivo de servicio systemd para hacerlo:
 
 ```ini
-[Unit]
-Description=Nym Gateway (0.11.0)
+[Unidad]
+description=Puerta de enlace Nym (0.11.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
-[Service]
-User=nym
+[Servicio]
+Usuario=nym
 LimitNOFILE=65536
 ExecStart=/home/nym/nym-gateway run --id supergateway
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
 
-[Install]
+[Instalar]
 WantedBy=multi-user.target
 ```
 
-Put the above file onto your system at `/etc/systemd/system/nym-gateway.service`.
+Ponga el archivo anterior en su sistema en `/etc/systemd/system/nym-gateway.service`.
 
-Change the path in `ExecStart` to point at your gateway binary (`nym-gateway`), and the `User` so it is the user you are running as.
+Cambia la ruta en `ExecStart` para que apunte a tu binario de la pasarela (`nym-gateway`), y el `User` para que sea el usuario con el que estás ejecutando.
 
-If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this:
+Si has construido nym en tu servidor, y tu nombre de usuario es `jetpanther`, entonces el comando de inicio podría ser así:
 
-`ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id`. Basically, you want the full `/path/to/nym-gateway run --id whatever-your-node-id-is`
+`ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id`. Básicamente, quieres el comando completo `path/to/nym-gateway run --id whatever-your-node-id-is`.
 
-Then run:
+Entonces ejecuta:
 
 ```
 systemctl enable nym-gateway.service
 ```
 
-Start your node:
+Inicia tu nodo:
 
 ```
 service nym-gateway start
 ```
 
-This will cause your node to start at system boot time. If you restart your machine, the node will come back up automatically.
+Esto hará que tu nodo se inicie al arrancar el sistema. Si reinicias tu máquina, el nodo volverá a arrancar automáticamente.
 
-You can also do `service nym-gateway stop` or `service nym-gateway restart`.
+También puedes hacer `service nym-gateway stop` o `service nym-gateway restart`.
 
-Note: if you make any changes to your systemd script after you've enabled it, you will need to run:
+Nota: si haces algún cambio en el script de systemd después de haberlo habilitado, tendrás que ejecutar
 
 ```
 systemctl daemon-reload
 ```
 
-This lets your operating system know it's ok to reload the service configuration.
+Esto permite a tu sistema operativo saber que está bien recargar la configuración del servicio.
 
-### Gateway port reference
+### Referencia de los puertos de la pasarela
 
-All gateway-specific port configuration can be found in `$HOME/.nym/gateways/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your gateway.
+Toda la configuración de puertos específica de la pasarela se encuentra en `$HOME/.nym/gateways/<su-id>/config/config.toml`. Si edita alguna configuración de puertos, recuerde reiniciar su pasarela.
 
 | Default port | Use                       |
 |--------------|---------------------------|

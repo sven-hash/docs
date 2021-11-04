@@ -1,23 +1,23 @@
 ---
-sidebar_label: "Run Nym Nodes"
-description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
+sidebar_label: "Ejecutar nodos Nym"
+description: "Cómo construir la plataforma Nym. Nym es relativamente sencillo de construir y ejecutar en Mac OS X, Linux y Windows."
 hide_title: false
-title: Run Nym Nodes
+title: Ejecutar los nodos Nym
 ---
 
  
 
-### Installing pre-built binaries
+### Instalación de los binarios preconstruidos
 
-The Nym [release page](https://github.com/nymtech/nym/releases) has pre-built binaries which _should_ work on Ubuntu 20.04 and other Debian-based systems, but at this stage cannot be guaranteed to work everywhere.
+La [página de publicación] de Nym (https://github.com/nymtech/nym/releases) tiene binarios precompilados que _deberían_ funcionar en Ubuntu 20.04 y otros sistemas basados en Debian, pero en esta etapa no se puede garantizar que funcionen en todas partes.
 
-Later, when we're focused more on things like packaging, we will ensure that all components get built for all operating systems. There is a third-party install script which can be found [here](https://github.com/gyrusdentatus/nym_autoinstall), although this may not always be up to date with the newest version of the testnet.
+Más adelante, cuando nos centremos más en cosas como el empaquetado, nos aseguraremos de que todos los componentes se construyan para todos los sistemas operativos. Hay un script de instalación de terceros que puede encontrarse [aquí](https://github.com/gyrusdentatus/nym_autoinstall), aunque puede que no esté siempre actualizado con la versión más reciente de la red de pruebas.
 
-If the pre-built binaries don't work or are unavailable for your system, you will need to build the platform yourself.
+Si los binarios preconstruidos no funcionan o no están disponibles para su sistema, tendrá que construir la plataforma usted mismo.
 
-### Building Nym
+### Construcción de Nym
 
-Nym has two main codebases:
+Nym tiene dos bases de código principales:
 
-- the Nym platform ([build instructions](build-nym)), written in Rust. This contains all of our code _except_ for the validators.
-- the Nym validators ([build instructions](validators)), written in Go.
+- la plataforma Nym ([build instructions](build-nym)), escrita en Rust. Contiene todo nuestro código _excepto_ los validadores.
+- Los validadores de Nym ([instrucciones de construcción](validadores)), escritos en Go.

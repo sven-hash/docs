@@ -1,26 +1,26 @@
 ---
-sidebar_label: Links
-description: "Here are some links that may prove handy as you start exploring Nym, and the Nym community."
+sidebar_label: "Enlaces"
+description: "Aquí hay algunos enlaces que pueden resultar útiles para empezar a explorar Nym, y la comunidad Nym"
 hide_title: false
-title: Links
+title: Enlaces
 ---
 
  
 
-Here are some links that may prove handy as you start exploring.
+Aquí hay algunos enlaces que pueden ser útiles para empezar a explorar.
 
-### The Nym Project
+### El Proyecto Nym
 
-- You can chat to us in [Keybase](https://keybase.io). Download the app, then click **Teams -> Join a team**. Type `nymtech.friends` into the team name and hit **continue**. For general chat, hang out in the **#general** channel. Our development takes places in the **#dev** channel. Node operators should be in the **#node-operators** channel to receive notice of system updates or node downtime.
-- The [Nym website](https://nymtech.net) has general info on project status and links to learning materials and talks we've given
-- The [Nym blog](https://medium.com/nymtech) provides up to date project news and views
-- The [Nym Platform](https://github.com/nymtech/nym) code repo contains most parts of the Nym system in one convenient place
-- The [Nym Validator](https://github.com/nymtech/nym-validator) repo contains our Cosmos-based validator code
-- The [Testnet Milhon Network Explorer](https://testnet-milhon-explorer.nymtech.net) shows testnet nodes and activity
+- Puedes chatear con nosotros en [Keybase](https://keybase.io). Descarga la aplicación y haz clic en **Equipos -> Unirse a un equipo**. Escribe `nymtech.friends` en el nombre del equipo y pulsa **continuar**. Para el chat general, pasa el rato en el canal **#general**. Nuestro desarrollo se realiza en el canal **#dev**. Los operadores de nodos deben estar en el canal **#node-operators** para recibir avisos de las actualizaciones del sistema o del tiempo de inactividad de los nodos.
+- El [sitio web de Nym](https://nymtech.net) tiene información general sobre el estado del proyecto y enlaces a materiales de aprendizaje y charlas que hemos dado
+- El [blog de Nym](https://medium.com/nymtech) ofrece noticias y opiniones actualizadas sobre el proyecto
+- El repositorio de código [Nym Platform](https://github.com/nymtech/nym) contiene la mayoría de las partes del sistema Nym en un lugar práctico
+- El repositorio [Nym Validator](https://github.com/nymtech/nym-validator) contiene nuestro código de validación basado en Cosmos
+- El [Testnet Milhon Network Explorer](https://testnet-milhon-explorer.nymtech.net) muestra los nodos y la actividad de testnet
 
-### Academic Papers
+### Papeles Académicos
 
 - [Coconut](https://arxiv.org/abs/1802.07344)
-- [Sphinx (pdf)](https://www.cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf)
+- Sphinx (pdf)](https://www.cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf)
 - [Loopix](https://arxiv.org/abs/1703.00536)
-- [Comparison between Nym, Elixxir and HOPR](https://arxiv.org/abs/2107.12172)
+- Comparación entre Nym, Elixxir y HOPR](https://arxiv.org/abs/2107.12172)

@@ -1,50 +1,50 @@
 ---
-sidebar_label: "Choose a client"
+sidebar_label: "Elige un cliente"
 hide_title: false
-description: "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose."
-title: "Choose a client "
+description: "Hay múltiples tipos de cliente Nym. Cada uno es útil en diferentes situaciones. Aquí te explicamos cómo elegir"
+title: "Elige un cliente"
 ---
 
  
 
-In the previous section, we got a general overview of the application flow when you're building Nym-enabled apps. Now it's time to understand a bit about how to structure your app by choosing a Nym client.
+En la sección anterior, obtuvimos una visión general del flujo de la aplicación cuando estás construyendo aplicaciones con Nym. Ahora es el momento de entender un poco cómo estructurar tu aplicación eligiendo un cliente Nym.
 
-### Understanding Nym clients
+### Entender los clientes Nym
 
-A large proportion of the Nym mixnet's functionality is implemented client-side, including:
+Una gran parte de la funcionalidad de Nym mixnet se implementa del lado del cliente, incluyendo:
 
-* determining network topology - what mixnodes exist, what their keys are, etc.
-* registering with a gateway
-* authenticating to a gateway
-* receiving and decrypting messages from the gateway
-* creation of layer-encrypted Sphinx packets
-* sending Sphinx packets with real messages
-* sending Sphinx packet _cover traffic_ when no real messages are being sent
+* determinar la topología de la red - qué mixnodes existen, cuáles son sus claves, etc.
+* Registro en una puerta de enlace
+* autenticación en una puerta de enlace
+* recibir y descifrar mensajes de la pasarela
+* Creación de paquetes Sphinx encriptados por capas
+* envío de paquetes Sphinx con mensajes reales
+* envío de paquetes Sphinx _tráfico encubierto_ cuando no se están enviando mensajes reales
 
-In the next few sections we will discuss how to integrate Nym clients into your apps.
+En las siguientes secciones discutiremos cómo integrar los clientes Nym en tus aplicaciones.
 
-### Types of Nym clients
+### Tipos de clientes Nym
 
-At present, there are three Nym clients:
+En la actualidad, existen tres clientes Nym
 
-- the native client
-- the [webassembly](https://webassembly.org/) client
-- the SOCKS5 client
+- el cliente nativo
+- el cliente [webassembly](https://webassembly.org/)
+- el cliente SOCKS5
 
-You need to choose which one you want incorporate into your app. Which one you use will depend largely on your preferred programming style and the purpose of your app.
+Tienes que elegir cuál quieres incorporar a tu aplicación. El que utilices dependerá en gran medida de tu estilo de programación preferido y del propósito de tu aplicación.
 
-#### The websocket client
+#### El cliente websocket
 
-Your first option is the websocket client (`nym-client`). This is a compiled program that can run on Linux, Mac OS X, and Windows machines. It runs as a persistent process on a desktop or server machine. You can connect to it from any language that supports websockets.
+Tu primera opción es el cliente websocket (`nym-client`). Es un programa compilado que puede ejecutarse en máquinas Linux, Mac OS X y Windows. Se ejecuta como un proceso persistente en una máquina de escritorio o servidor. Puedes conectarte a él desde cualquier lenguaje que soporte websockets.
 
-#### The webassembly client
+#### El cliente webassembly
 
-If you're working in JavaScript, or building an [edge computing](https://en.wikipedia.org/wiki/Edge_computing) app, you'll likely want to choose the webassembly client. We expect that many client apps will be built using the webassembly client. It's packaged and [available on the npm registry](https://www.npmjs.com/package/@nymproject/nym-client-wasm), so you can `npm install` it into your JavaScript or TypeScript application.
+Si trabajas en JavaScript o construyes una aplicación [edge computing](https://en.wikipedia.org/wiki/Edge_computing), es probable que quieras elegir el cliente webassembly. Esperamos que muchas aplicaciones cliente se construyan utilizando el cliente webassembly. Está empaquetado y [disponible en el registro npm](https://www.npmjs.com/package/@nymproject/nym-client-wasm), así que puedes `npm install` en tu aplicación JavaScript o TypeScript.
 
-#### The SOCKS5 client
+#### El cliente SOCKS5
 
-This client is useful for allowing existing applications to use the Nym mixnet without any code changes. All that's necessary is that they can use the SOCKS5 proxy protocol (which many applications can - crypto wallets, browsers, chat applications etc). It's less flexible as a way of writing custom applications than the other clients.
+Este cliente es útil para permitir que las aplicaciones existentes utilicen la red mixta de Nym sin ningún cambio de código. Todo lo que se necesita es que puedan utilizar el protocolo proxy SOCKS5 (lo que muchas aplicaciones pueden hacer - carteras de criptomonedas, navegadores, aplicaciones de chat, etc). Es menos flexible como forma de escribir aplicaciones personalizadas que los otros clientes.
 
-### Commonalities between clients
+### Puntos en común entre los clientes
 
-All Nym client packages present basically the same capabilities to the privacy application developer. They need to run as a persistent process in order to stay connected and ready to receive any incoming messages from their gateway nodes. They register and authenticate to gateways, and encrypt Sphinx packets.
+Todos los paquetes de clientes Nym presentan básicamente las mismas capacidades para el desarrollador de aplicaciones de privacidad. Necesitan ejecutarse como un proceso persistente para mantenerse conectados y listos para recibir cualquier mensaje entrante de sus nodos de puerta de enlace. Se registran y autentifican en las pasarelas, y encriptan los paquetes Sphinx.
