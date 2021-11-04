@@ -499,6 +499,69 @@ go_memstats_gc_cpu_fraction 0.03357798610671518
 go_memstats_gc_sys_bytes 1.3884192e+07
 ```
 
+#### Set the ulimit
+
+Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
+
+`ulimit` is 1024 by default on most systems. It needs to be set higher, because validators make and receive a lot of connections to other nodes.
+
+If you see errors such as:
+
+```
+Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too many open files" }
+```
+
+This means that the operating system is preventing network connections from being made.
+
+##### Set the ulimit via `systemd` service file
+
+Query the `ulimit` of your validator with:
+
+```
+grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nymd | grep -v grep |head -n 1 | awk '{print $1}')/limits
+```
+
+You'll get back the hard and soft limits, which looks something like this:
+
+```
+Max open files            65536                65536                files
+```
+
+If your output is **the same as above**, your node will not encounter any `ulimit` related issues.
+
+However if either value is `1024`, you must raise the limit via the systemd service file. Add the line:
+
+```
+LimitNOFILE=65536
+```
+
+Reload the daemon:
+
+```
+systemctl daemon-reload
+```
+
+or execute this as root for system-wide setting of `ulimit`:
+
+```
+echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
+```
+
+Reboot your machine and restart your node. When it comes back, use `cat /proc/$(pidof nym-validator)/limits | grep "Max open files"` to make sure the limit has changed to 65535.
+
+##### Set the ulimit on `non-systemd` based distributions
+
+Edit `etc/security/conf` and add the following lines:
+
+```
+# Example hard limit for max opened files
+username        hard nofile 4096
+# Example soft limit for max opened files
+username        soft nofile 4096
+```
+
+Then reboot your server and restart your validator.
+
 ### Unjailing your validator
 
 If your validator gets jailed, you can fix it with the following command:
