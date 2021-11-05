@@ -1,8 +1,8 @@
 ---
-sidebar_label: Use Apps
+sidebar_label: Using Apps with Nym
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
 hide_title: false
-title: Use Apps with Nym
+title: Using Apps with Nym
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
