@@ -18,7 +18,10 @@ module.exports = {
       "run-nym-nodes/gateways",
       "run-nym-nodes/troubleshooting",
     ],
-    "Use Apps": [
+    "Use Nym Apps": [
+      "wallet/index"
+    ],
+    "Connect External Apps": [
       "use-apps/index",
       "use-apps/blockstream-green",
       "use-apps/keybase"
