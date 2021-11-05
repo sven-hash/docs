@@ -525,13 +525,13 @@ Como parte de la ejecución del validador, podrá obtener algunas recompensas.
 Con este comando, podemos consultar nuestras recompensas pendientes:
 
 ```
-nymd query distribution validator-outstanding-rewards  <punkvaloperaddress>
+nymd query distribution validator-outstanding-rewards <punkvaloperaddress>
 ```
 
 Usando los valores obtenidos del comando anterior, puedes retirar todas las recompensas con:
 
 ```
-nymd tx distribution withdraw-rewards    <punkvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-milhon" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000upunk
+nymd tx distribution withdraw-rewards <punkvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-milhon" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000upunk
 ```
 
 Puede comprobar sus saldos actuales con:
