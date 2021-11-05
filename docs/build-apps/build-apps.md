@@ -27,7 +27,7 @@ First, we need to initialize an app and connect it to Nym.
   alt="Message to gateway"
   sources={{
     light: useBaseUrl('/img/docs/application-flow/send-to-gateway.png'),
-    dark: useBaseUrl('/img/docs/application-flow/send-to-gateway.png-dark.png'),
+    dark: useBaseUrl('/img/docs/application-flow/send-to-gateway-dark.png'),
   }}
 />
 
