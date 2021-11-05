@@ -17,7 +17,7 @@ El validador se construye utilizando [Cosmos SDK](https://cosmos.network) y [Ten
 
 #### Requisitos previos
 
-- ``git``
+- `git`
 
 ```
 sudo apt update
@@ -354,7 +354,7 @@ Con el comando anterior puedes especificar los últimos números de la clave `gp
 
 Lo más probable es que quiera automatizar el reinicio de su validador si su servidor se reinicia. A continuación se muestra un archivo de unidad systemd para colocar en `/etc/systemd/system/nymd.service`:
 
-``ini
+```ini
 [Unidad]
 description=Nymd (0.11.0)
 StartLimitInterval=350
@@ -501,7 +501,7 @@ go_memstats_gc_sys_bytes 1.3884192e+07
 Si tu validador se queda encerrado, puedes arreglarlo con el siguiente comando:
 
 ```
-nymd tx slashing unjail ```
+nymd tx slashing unjail 
   --broadcast-mode=block \N -from=${FROM=Amigos de la Tierra
   --from=${FROM_ACCOUNT} \
   --chain-id=testnet-milhon \N - gas=auto

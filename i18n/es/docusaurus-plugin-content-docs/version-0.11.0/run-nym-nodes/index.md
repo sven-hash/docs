@@ -20,4 +20,4 @@ Si los binarios preconstruidos no funcionan o no están disponibles para su sist
 Nym tiene dos bases de código principales:
 
 - la plataforma Nym ([build instructions](build-nym)), escrita en Rust. Contiene todo nuestro código _excepto_ los validadores.
-- Los validadores de Nym ([instrucciones de construcción](validadores)), escritos en Go.
+- Los validadores de Nym ([instrucciones de construcción](validators)), escritos en Go.
