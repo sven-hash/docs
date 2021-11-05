@@ -1,8 +1,8 @@
 ---
-sidebar_label: "Run Nym Nodes"
+sidebar_label: "Introduction"
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
 hide_title: false
-title: Run Nym Nodes
+title: Introduction
 ---
 
  
