@@ -1,8 +1,8 @@
 ---
-sidebar_label: Nym Desktop Tauri Wallet
+sidebar_label: Nym Desktop Wallet
 description: "Setup and use the Nym Tauri Desktop Wallet."
 hide_title: false
-title: Nym Tauri Wallet
+title: Nym Desktop Wallet
 ---
 
 A Rust and Tauri desktop wallet implementation.
@@ -16,7 +16,6 @@ Unlike the rest of the Nym codebase, the Nym Desktop Wallet is currently built v
 ### Building the Nym Desktop Wallet
 
 #### Prerequisites
-
 
 - `git`
 
