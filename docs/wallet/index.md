@@ -5,7 +5,7 @@ hide_title: false
 title: Nym Desktop Wallet
 ---
 
-A Rust and Tauri desktop wallet implementation.
+A Rust and Tauri desktop wallet implementation which gives access to the Nym mixnet, serving as a point of connection to interact with your node and to delegate stake to others! 
 
 :::note 
 
