@@ -11,7 +11,7 @@ A Rust and Tauri desktop wallet implementation which gives access to the Nym mix
 
 Unlike the rest of the Nym codebase, the Nym Desktop Wallet is currently built via Yarn. Follow this doc for the instructions to do so. 
 
-Pre-compiled versions of the Wallet for Mac, Windows, and Linux (compiled on Ubuntu 20) can be found [here](https://github.com/nymtech/nym/releases?q=wallet&expanded=true). 
+<!-- Pre-compiled versions of the Wallet for Mac, Windows, and Linux (compiled on Ubuntu 20) can be found [here](https://github.com/nymtech/nym/releases?q=wallet&expanded=true).  -->
 
 :::
 
