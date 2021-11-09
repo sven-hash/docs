@@ -1,15 +1,17 @@
 ---
-sidebar_label: Nym Desktop Wallet
-description: "Setup and use the Nym Tauri Desktop Wallet."
+sidebar_label: Nym Wallet
+description: "Install and use the Nym Wallet."
 hide_title: false
-title: Nym Desktop Wallet
+title: Nym Wallet
 ---
 
 A Rust and Tauri desktop wallet implementation which gives access to the Nym mixnet, serving as a point of connection to interact with your node and to delegate stake to others! 
 
 :::note 
 
-Unlike the rest of the Nym codebase, the Nym Desktop Wallet is currently built via Yarn. Follow this doc for the instructions to do so.
+Unlike the rest of the Nym codebase, the Nym Desktop Wallet is currently built via Yarn. Follow this doc for the instructions to do so. 
+
+Pre-compiled versions of the Wallet for Mac, Windows, and Linux (compiled on Ubuntu 20) can be found [here](https://github.com/nymtech/nym/releases?q=wallet&expanded=true). 
 
 :::
 
@@ -50,11 +52,11 @@ If you really don't want to use the shell script installer, the [Rust installati
 
 #### Installation
 
-Inside of the `tauri-wallet` folder, run the following commands
+Inside of the `nym-wallet` folder, run:
 
 ```
 yarn install
-```
+``` 
 
 ### Running in Development Mode
 
@@ -68,7 +70,7 @@ This will then start the Wallet GUI.
 
 ### Running in Production Mode
 
-To build and install the wallet, run the following terminal command from the `tauri-wallet` folder
+To build and install the wallet, run the following terminal command from the `nym-wallet` folder
 
 ```
 yarn build
@@ -78,4 +80,4 @@ This will build an executable file that you can use to install the wallet on you
 
 ### Install the wallet
 
-Once the the building process is complete an installation file can be found in: `tauri-wallet/target/release/nym_wallet`. 
+Once the the building process is complete an installation file can be found in: `nym-wallet/target/release/nym_wallet`. 
