@@ -8,8 +8,6 @@ title: The Nym Platform
 
 # The Nym Platform
 
-Nym is a privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous access control using blinded, re-randomizable, decentralized credentials.
-
 The internet has become essential to the functioning of modern society. Many aspects of daily life are now touched by the internet in ways that are both mundane and deeply revolutionary. Everything is accelerating.
 
 But the internet we have is not the internet we wished we'd have. The increase in surveillance over the past twenty years has not been matched by advances in privacy tech. Nym is an attempt to redress this imbalance.

@@ -15,7 +15,6 @@ Here are some links that may prove handy as you start exploring.
 - The [Nym website](https://nymtech.net) has general info on project status and links to learning materials and talks we've given
 - The [Nym blog](https://medium.com/nymtech) provides up to date project news and views
 - The [Nym Platform](https://github.com/nymtech/nym) code repo contains most parts of the Nym system in one convenient place
-- The [Nym Validator](https://github.com/nymtech/nym-validator) repo contains our Cosmos-based validator code
 - The [Testnet Milhon Network Explorer](https://testnet-milhon-explorer.nymtech.net) shows testnet nodes and activity
 
 ### Academic Papers
