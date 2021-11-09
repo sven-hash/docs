@@ -1,8 +1,8 @@
 ---
-sidebar_label: Build Nym Apps
+sidebar_label: Introduction
 hide_title: false
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
-title: "Build Nym Apps"
+title: "Introduction"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -22,12 +22,11 @@ We'll get into the technical details more deeply in the next few sections, but b
 
 First, we need to initialize an app and connect it to Nym.
 
-<!-- ![send to gateway](/img/docs/application-flow/send-to-gateway.png) -->
 <ThemedImage
   alt="Message to gateway"
   sources={{
     light: useBaseUrl('/img/docs/application-flow/send-to-gateway.png'),
-    dark: useBaseUrl('/img/docs/application-flow/send-to-gateway.png-dark.png'),
+    dark: useBaseUrl('/img/docs/application-flow/send-to-gateway-dark.png'),
   }}
 />
 
