@@ -46,7 +46,7 @@ If you really don't want to use the shell script installer, the [Rust installati
 #### Additional prerequisites for Windows
 
 - When running on Windows you will need to install c++ build tools
-- An easy guide to get rust up and running [Installation]("http://kennykerr.ca/2019/11/18/rust-getting-started/")
+- An easy guide to get rust up and running can be found [here]("http://kennykerr.ca/2019/11/18/rust-getting-started/")
 - When installing NodeJS please use the `current features` version
 - Using a package manager like [Chocolatey]("chocolatey.org") is recommended
 
