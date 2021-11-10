@@ -5,19 +5,22 @@ hide_title: false
 title: Nym Wallet
 ---
 
-A Rust and Tauri desktop wallet implementation which gives access to the Nym mixnet, serving as a point of connection to interact with your node and to delegate stake to others! 
+The Nym Desktop Wallet lets you interact with your Nym node and to delegate stake to others. In future releases, it will also let you access the Nym mixnet.
 
-:::note 
+You can download it for Mac, Windows, or Linux.
 
-Unlike the rest of the Nym codebase, the Nym Desktop Wallet is currently built via Yarn. Follow this doc for the instructions to do so. 
+[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases?q=wallet&expanded=true)
 
-Pre-compiled versions of the Wallet for Mac, Windows, and Linux (compiled on Ubuntu 20) can be found [here](https://github.com/nymtech/nym/releases?q=wallet&expanded=true). 
+The wallet is currently an early release version. If you find any bugs, please [report them to our QA team](https://github.com/nymtech/nym/issues/new?assignees=tommyv1987&labels=bug%2C+bug-needs-triage%2C+qa&template=report.md&title=%5BIssue%5D).
 
-:::
+-----
 
-### Building the Nym Desktop Wallet
+### For developers
 
-#### Prerequisites
+If you would like to the compile the wallet yourself, follow the instructions below. 
+
+#### Prerequisites for building the wallet
+
 
 - `git`
 
@@ -33,7 +36,7 @@ git version
 # Should return: git version X.Y.Z
 ```
 
-- `Yarn`
+- [Yarn](https://yarnpkg.com/)
 
 - `NodeJS >= v16.8.0`
 
@@ -60,7 +63,7 @@ yarn install
 
 ### Running in Development Mode
 
-You can run the wallet without having to install it in development mode by running the following terminal command from the `tauri-wallet` folder
+You can run the wallet without having to install it in development mode by running the following terminal command from the `nym-wallet` folder
 
 ```
 yarn dev
