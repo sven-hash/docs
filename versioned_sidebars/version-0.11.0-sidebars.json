@@ -112,10 +112,6 @@
         },
         {
           "type": "doc",
-          "id": "version-0.11.0/build-apps/wasm-client"
-        },
-        {
-          "type": "doc",
           "id": "version-0.11.0/build-apps/demos"
         }
       ]

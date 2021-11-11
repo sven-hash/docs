@@ -38,7 +38,7 @@ module.exports = {
         "build-apps/build-apps",
         "build-apps/choose-a-client",
         "build-apps/websocket-client",
-        "build-apps/wasm-client",
+        // "build-apps/wasm-client",
         "build-apps/demos"
       ],
     },
