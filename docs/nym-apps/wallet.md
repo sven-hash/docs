@@ -17,6 +17,24 @@ The wallet is currently an early release version. If you find any bugs, please [
 
 :::
 
+On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes.
+
+On Mac: 
+
+* `shasum -a 256 nym-wallet_macos_0.1.0_aarch64.dmg` should return `74ff83d122d7cf3525e08e8f0d3d2c15c9e76878ae3f4073180111ef2a231990`
+* `shasum -a 256 nym-wallet_macos_0.1.0_x64.dmg` should return `54f1076e0dfc936c832e2b2c356afb6b789bc2ef4ba68a2cea183144f5677820`
+
+On Windows:
+
+* `sha256.exe nym-wallet_windows_0.1.0_x64.msi` should return `2a70b923123ddea4ae875a7710d8830b65380625ef1bcf989d3c53ad56ad6b46`
+
+On Linux: 
+
+* `sha256sum nym-wallet_linux_0.1.0_amd64.AppImage` should return `e4a850094d14789c77d17aba815ca4f06b95a3cb509c2dceb92cf5bc16c959cf`
+
+
+You will need to `chmod +x nym-wallet_linux_0.1.0_amd64.AppImage` in the terminal (or give it execute permission in your file browser) before it will run. 
+
 
 ### For developers
 
