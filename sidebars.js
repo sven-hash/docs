@@ -29,7 +29,8 @@ module.exports = {
         "run-nym-nodes/troubleshooting",
       ],
     },
-    'wallet/index', 
+    'nym-apps/wallet', 
+    'nym-apps/network-explorer',
     {
       type: 'category',
       label: 'Build Nym Apps',
