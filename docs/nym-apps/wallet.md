@@ -11,11 +11,7 @@ You can download it for Mac, Windows, or Linux.
 
 [![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v0.1.0)
 
-:::note
-
 The wallet is currently an early release version. If you find any bugs, please [report them to our QA team](https://github.com/nymtech/nym/issues/new?assignees=tommyv1987&labels=bug%2C+bug-needs-triage%2C+qa&template=report.md&title=%5BIssue%5D).
-
-:::
 
 On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes.
 
@@ -90,7 +86,7 @@ You can run the wallet without having to install it in development mode by runni
 yarn dev
 ```
 
-This will then start the Wallet GUI. 
+This will then start the Wallet GUI and produce a binary in `nym-wallet/target/debug/` named `nym-wallet`. 
 
 ### Running in Production Mode
 
@@ -100,8 +96,32 @@ To build and install the wallet, run the following terminal command from the `ny
 yarn build
 ```
 
-This will build an executable file that you can use to install the wallet on your machine. 
+This will build an executable file that you can use to install the wallet on your machine. The output will compile different types of binaries dependent on your hardware / OS system. Once the binaries are built, they can be located as follows:
 
-### Install the wallet build
-
-Once the the building process is complete an installation file can be found in: `nym-wallet/target/release/nym_wallet`. 
+```
+Binary output directory structure
+**macos**
+|
+└─── target/release
+|   |─ nym-wallet
+└───target/release/bundle/dmg
+│   │─ bundle_dmg.sh
+│   │─ nym-wallet.*.dmg
+└───target/release/bundle/macos/MacOs
+│   │─ nym-wallet
+|
+**Linux**
+└─── target/release
+|   │─  nym-wallet
+└───target/release/bundle/appimage
+│   │─  nym-wallet_*_.AppImage
+│   │─  build_appimage.sh
+└───target/release/bundle/deb
+│   │─  nym-wallet_*_.deb
+|
+**Windows**
+└─── target/release
+|   │─  nym-wallet.exe
+└───target/release/bundle/msi
+│   │─  nym-wallet_*_.msi
+```
