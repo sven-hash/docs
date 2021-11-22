@@ -10,6 +10,7 @@
 Thumbs.db
 public/
 wget.log
+package-lock.json
 
 # -----------------------
 # Local Development Tools
