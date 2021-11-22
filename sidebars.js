@@ -30,7 +30,7 @@ module.exports = {
       ],
     },
     'nym-apps/wallet', 
-    'nym-apps/network-explorer',
+    // 'nym-apps/network-explorer', // TODO fix build instructions 
     {
       type: 'category',
       label: 'Build Nym Apps',
