@@ -1,6 +1,5 @@
 module.exports = {
   sidebar: [
-    'intro', 
     {
       type: 'category',
       label: 'Overview',
@@ -30,7 +29,7 @@ module.exports = {
       ],
     },
     'nym-apps/wallet', 
-    // 'nym-apps/network-explorer', // TODO fix build instructions 
+    'nym-apps/network-explorer', // TODO fix build instructions 
     {
       type: 'category',
       label: 'Build Nym Apps',

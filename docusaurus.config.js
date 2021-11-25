@@ -40,19 +40,19 @@ module.exports = {
         href: 'https://nymtech.net'
       },
       items: [
+        {to: '/docs/0.11.0/overview/index', label: 'Docs', position: 'left'},
         {
           type: 'docsVersionDropdown',
           position: 'right',
           dropdownActiveClassDisabled: true,
         },
-        {to: '/docs/0.11.0/intro', label: 'Docs', position: 'left'},
+        { 
+          type: 'localeDropdown',
+          position: 'right',
+        },
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
-          position: 'right',
-        },
-        { 
-          type: 'localeDropdown',
           position: 'right',
         },
       ],
