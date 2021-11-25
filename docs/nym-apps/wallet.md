@@ -36,6 +36,10 @@ You will need to `chmod +x nym-wallet_linux_0.1.0_amd64.AppImage` in the termina
 
 If you would like to the compile the wallet yourself, follow the instructions below. 
 
+:::info
+Please note that the wallet has currently only been built on the operating systems for which there are binaries as listed above. If you find an issue or any additional prerequisties, please create an issue or PR against `develop` on [Github](https://github.com/nymtech/docs).
+:::
+
 #### Prerequisites for building the wallet
 
 
@@ -63,12 +67,19 @@ We recommend using the [Rust shell script installer](https://www.rust-lang.org/t
 
 If you really don't want to use the shell script installer, the [Rust installation docs](https://forge.rust-lang.org/infra/other-installation-methods.html) contain instructions for many platforms.
 
+#### Additional prerequisites for Ubuntu/Debian systems
+
+```
+sudo apt update
+sudo apt install pkg-config build-essential libssl-dev curl jq
+```
+
 #### Additional prerequisites for Windows
 
-- When running on Windows you will need to install c++ build tools
-- An easy guide to get rust up and running can be found [here](http://kennykerr.ca/2019/11/18/rust-getting-started/)
-- When installing NodeJS please use the `current features` version
-- Using a package manager like [Chocolatey](https://chocolatey.org/) is recommended
+- When running on Windows you will need to install the `c++` build tools.
+- An easy guide to get Rust up and running can be found [here](http://kennykerr.ca/2019/11/18/rust-getting-started/).
+- When installing `NodeJS` please use the `current features` version.
+- Using a package manager like [Chocolatey](https://chocolatey.org/) is recommended.
 
 ### Installation
 
