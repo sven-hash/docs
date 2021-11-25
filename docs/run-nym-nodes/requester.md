@@ -1,11 +1,9 @@
 ---
-sidebar_label: Requesters
+sidebar_label: Network Requesters
 description: "Run a requester proxy for the benefit of the community."
 hide_title: false
-title: Requester 
+title: Network Requesters 
 ---
-
- 
 
 :::note
 
