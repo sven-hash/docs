@@ -1,8 +1,8 @@
 ---
-sidebar_label: "Incentives"
+sidebar_label: "Testnet Incentives"
 description: "Why should you run Nym nodes?"
 hide_title: false
-title: Incentives
+title: Testnet Incentives
 ---
 
  

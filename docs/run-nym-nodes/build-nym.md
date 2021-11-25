@@ -5,16 +5,18 @@ hide_title: false
 title: Building Nym
 ---
 
- 
+Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
+
+### Building Nym
+
+Nym has two main codebases:
+
+- the Nym platform, written in Rust. This contains all of our code _except_ for the validators.
+- the Nym validators, written in Go.
 
 :::note
-
-This page details how to build the main Nym platform code, in Rust. **If you want to build and run a validator, [go here](/docs/current/run-nym-nodes/validators) instead.**
-
+This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/current/run-nym-nodes/validators) instead.**
 :::
-
-
-Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
 
 ### Prerequisites:
 
