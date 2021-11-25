@@ -45,7 +45,7 @@ module.exports = {
           position: 'right',
           dropdownActiveClassDisabled: true,
         },
-        {to: '/docs/version-stable/intro', label: 'Docs', position: 'left'},
+        {to: '/docs/stable/intro', label: 'Docs', position: 'left'},
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
@@ -119,16 +119,16 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: 'Unreleased (WIP)',
-              path: 'unreleased',
+              label: 'Next (in progress)',
+              path: 'next',
               banner: 'unreleased',
             },
             'stable': {
-              label: 'Stable (v0.11.0)',
-              path: 'version-stable',
+              label: 'v0.11.0',
+              path: 'stable',
               banner: 'none',
             },
-            // 'archive' <-- reminder 
+            // 'archive' <-- reminder to archive old versions when you cut a new one  
           },
         },
         theme: {
