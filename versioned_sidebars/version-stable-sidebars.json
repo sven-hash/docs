@@ -94,6 +94,7 @@
         ]
       },
       "version-stable/nym-apps/wallet", 
+      "version-stable/network-rewards",
       {
         "type": "category",
         "collapsed": true,

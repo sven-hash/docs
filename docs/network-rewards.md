@@ -3,6 +3,8 @@ sidebar_label: "Network Rewards"
 hide_title: false
 ---
 
+# Network Rewards
+
 Node operator and delegator rewards are determined according to the principles laid out in the section 6 of [Nym Whitepaper](https://nymtech.net/nym-whitepaper.pdf). 
 
 Below is a TLDR of the variables and formulas involved in calculating these rewards per epoch. The initial reward pool contains 250 million NYM, leaving a circulating supply of 750 million NYM.

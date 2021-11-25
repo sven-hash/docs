@@ -124,7 +124,7 @@ module.exports = {
               banner: 'unreleased',
             },
             'stable': {
-              label: 'v0.11.0',
+              label: 'v0.11.0 (stable)',
               path: 'stable',
               banner: 'none',
             },
