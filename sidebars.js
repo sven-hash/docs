@@ -29,6 +29,7 @@ module.exports = {
         "run-nym-nodes/troubleshooting",
       ],
     },
+    'network-rewards',
     'nym-apps/wallet', 
     // 'nym-apps/network-explorer', // TODO fix build instructions 
     {

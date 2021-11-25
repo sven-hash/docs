@@ -12,6 +12,15 @@ module.exports = {
   favicon: 'img/docs/FAVICON.png',
   organizationName: 'nymtech', 
   projectName: 'docs', 
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X',
+      crossorigin: 'anonymous',
+    }
+  ],
   // i18n: {
   //   defaultLocale: 'en',
   //   locales: ['en', 'es'],
@@ -129,6 +138,8 @@ module.exports = {
               banner: 'none',
             },
           },
+          remarkPlugins: [import('remark-math')],
+          rehypePlugins: [import('rehype-katex')],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
