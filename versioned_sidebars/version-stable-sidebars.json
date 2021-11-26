@@ -73,28 +73,23 @@
           }
         ]
       },
+      "version-stable/network-rewards",
       {
         "type": "category",
         "collapsed": true,
         "collapsible": true,
-        "label": "Use Apps",
+        "label": "Use Nym Apps",
         "items": [
           {
             "type": "doc",
-            "id": "version-stable/use-apps/index"
+            "id": "version-stable/nym-apps/wallet"
           },
           {
             "type": "doc",
-            "id": "version-stable/use-apps/blockstream-green"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/use-apps/keybase"
+            "id": "version-stable/nym-apps/network-explorer"
           }
         ]
       },
-      "version-stable/nym-apps/wallet", 
-      "version-stable/network-rewards",
       {
         "type": "category",
         "collapsed": true,
@@ -116,6 +111,26 @@
           {
             "type": "doc",
             "id": "version-stable/build-apps/demos"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Use External Apps With Nym",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/use-external-apps/index"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/use-external-apps/blockstream-green"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/use-external-apps/keybase"
           }
         ]
       },

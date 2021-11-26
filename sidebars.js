@@ -30,8 +30,15 @@ module.exports = {
       ],
     },
     'network-rewards',
-    'nym-apps/wallet', 
-    // 'nym-apps/network-explorer', // TODO fix build instructions 
+    {
+      type: 'category',
+      label: 'Use Nym apps',
+      collapsed: true,
+      items: [
+        'nym-apps/wallet', 
+        'nym-apps/network-explorer',  
+      ],
+    },
     {
       type: 'category',
       label: 'Build Nym Apps',
@@ -49,9 +56,9 @@ module.exports = {
       label: 'Use External Apps',
       collapsed: true,
       items: [
-        "use-apps/index",
-        "use-apps/blockstream-green",
-        "use-apps/keybase"
+        "use-external-apps/index",
+        "use-external-apps/blockstream-green",
+        "use-external-apps/keybase"
       ],
     },
     {

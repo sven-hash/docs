@@ -53,7 +53,7 @@ git pull # in case you've checked it out before
 A development server with hot reloading running on `http://localhost:3000` can be started with the following commands from inside the `explorer` directory:
 
 ```
-nvm install
+nvm install # install relevant nodejs and npm versions 
 npm install
 npm run start
 ```
@@ -99,7 +99,7 @@ cargo build --release
 Build the UI with these commands from within the `explorer` directory:
 
 ```
-nvm install
+nvm install # install relevant nodejs and npm versions 
 npm install
 npm run build
 ```
