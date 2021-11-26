@@ -9,7 +9,7 @@ title: Keybase
 
 :::note
 
-You need to [run the Nym Socks5 client](/docs/current/use-apps/index) before following the instructions on this page.
+You need to [run the Nym Socks5 client](/docs/next/use-external-apps/index) before following the instructions on this page.
 
 :::
 

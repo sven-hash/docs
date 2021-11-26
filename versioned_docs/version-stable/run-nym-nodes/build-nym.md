@@ -7,7 +7,7 @@ title: Building Nym
 
 Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
 
-### Building Nym
+### Building Nym 
 
 Nym has two main codebases:
 
@@ -15,7 +15,7 @@ Nym has two main codebases:
 - the Nym validators, written in Go.
 
 :::note
-This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/current/run-nym-nodes/validators) instead.**
+This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/stable/run-nym-nodes/validators) instead.**
 :::
 
 ### Prerequisites:
@@ -54,9 +54,9 @@ cargo build --release
 
 Quite a bit of stuff gets built. The key working parts are:
 
-1. the [mixnode](/docs/current/run-nym-nodes/mixnodes): `nym-mixnode`
-2. the [gateway node](/docs/current/run-nym-nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/current/build-apps/websocket-client): `nym-client`
-4. the [socks5 client](/docs/current/use-apps/index): `nym-socks5-client`
-5. the [network requester](/docs/current/run-nym-nodes/requester): `nym-network-requester`
+1. the [mixnode](/docs/stable/run-nym-nodes/mixnodes): `nym-mixnode`
+2. the [gateway node](/docs/stable/run-nym-nodes/gateways): `nym-gateway`
+3. the [websocket client](/docs/stable/build-apps/websocket-client): `nym-client`
+4. the [socks5 client](/docs/stable/use-external-apps/index): `nym-socks5-client`
+5. the [network requester](/docs/stable/run-nym-nodes/requester): `nym-network-requester`
 

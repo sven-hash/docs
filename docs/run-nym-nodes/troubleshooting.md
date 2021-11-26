@@ -103,7 +103,7 @@ curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq -r '.[]
 
 #### Check with testnet API
 
-We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation](docs/current/run-nym-nodes/mixnodes).
+We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation](docs/next/run-nym-nodes/mixnodes).
 
 ### Why is my node not mixing any packets?
 
