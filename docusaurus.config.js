@@ -40,7 +40,6 @@ module.exports = {
         href: 'https://nymtech.net'
       },
       items: [
-        {to: '/docs/0.11.0/overview/index', label: 'Docs', position: 'left'},
         {
           type: 'docsVersionDropdown',
           position: 'right',
@@ -50,6 +49,7 @@ module.exports = {
           type: 'localeDropdown',
           position: 'right',
         },
+        {to: '/docs/stable/intro', label: 'Docs', position: 'left'},
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
@@ -118,15 +118,16 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: '🚧 current 🚧',
-              path: 'current',
+              label: 'Next (in progress)',
+              path: 'next',
               banner: 'unreleased',
             },
-            '0.11.0': {
-              label: 'v0.11.0',
-              path: '0.11.0',
+            'stable': {
+              label: 'v0.11.0 (stable)',
+              path: 'stable',
               banner: 'none',
             },
+            // 'archive' <-- reminder to archive old versions when you cut a new one  
           },
         },
         theme: {

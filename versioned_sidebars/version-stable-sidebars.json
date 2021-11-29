@@ -1,0 +1,158 @@
+{
+    "version-stable/sidebar": [
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Overview",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/overview/index"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/overview/nym-platform"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/overview/network-privacy"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/overview/nym-other-systems"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/overview/private-access-control"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/overview/links"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Run Nym Nodes",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/pre-built-binaries"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/incentives"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/build-nym"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/mixnodes"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/validators"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/requester"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/gateways"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/run-nym-nodes/troubleshooting"
+          }
+        ]
+      },
+      "version-stable/network-rewards",
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Use Nym Apps",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/nym-apps/wallet"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/nym-apps/network-explorer"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Build Apps",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/build-apps/build-apps"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/build-apps/choose-a-client"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/build-apps/websocket-client"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/build-apps/demos"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Use External Apps With Nym",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/use-external-apps/index"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/use-external-apps/blockstream-green"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/use-external-apps/keybase"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Community",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/community/index"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/community/code-of-conduct"
+          },
+          {
+            "type": "doc",
+            "id": "version-stable/community/licensing"
+          }
+        ]
+      }
+    ]
+  }
+  
