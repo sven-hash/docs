@@ -1,6 +1,5 @@
 module.exports = {
   sidebar: [
-    'intro', 
     {
       type: 'category',
       label: 'Overview',

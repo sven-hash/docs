@@ -1,6 +1,5 @@
 {
     "version-stable/sidebar": [
-      "version-stable/intro", 
       {
         "type": "category",
         "collapsed": true,
