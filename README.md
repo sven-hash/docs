@@ -6,7 +6,7 @@ Documentation for the Nym privacy platform. Docs can be viewed at https://nymtec
 
 Contributions to our documentation are very welcome. Please shoot us a pull request against the `develop` branch if you can see a way that they can be improved.
 
-The directory structure produced by Docusaurus (see below) can be confusing; please check the list below to make sure you are making edits in the correct place. 
+The directory structure produced by Docusaurus (see below) can be initially confusing; please check the list below to make sure you are making edits in the correct place. 
 
 * To contribute to the `next (in progress)` version, edit files in `docs/`
 * To contribute to previous versions, edit files in `versioned_docs/<VERSION>/`
@@ -32,7 +32,7 @@ To develop the docs locally, run:
 npm run start
 ```
 
-Docs are served from `http://localhost:3000/docs/0.11.0/overview/index`
+Docs are served from `http://localhost:3000/docs/stable/overview/index`
 
 To generate static content into `/build/` run:
 
