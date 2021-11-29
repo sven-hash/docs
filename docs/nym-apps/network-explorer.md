@@ -66,7 +66,7 @@ You can lint the code by running:
 npm run lint
 ```
 
-:::note 
+:::info 
 
 This command will only **show** linting errors and will not fix them!
 
@@ -112,7 +112,7 @@ This can then be either served directly from the `nym` directory, or from its ow
 
 The Explorer API was built in the previous step with `cargo build`. 
 
-### Automating your the explorer with systemd
+### Automating the explorer with systemd
 
 You will most likely want to automate the Explorer-API restarting if your server reboots. Below is a systemd unit file to place at `/etc/systemd/system/nym-explorer-api.service`:
 

@@ -27,6 +27,7 @@ On Windows:
 On Linux: 
 
 * `sha256sum nym-wallet_linux_0.1.0_amd64.AppImage` should return `e4a850094d14789c77d17aba815ca4f06b95a3cb509c2dceb92cf5bc16c959cf`
+* `sha256sum nym-wallet_manjaro_0.1.0` should return `355d319f333f29a25556fd2817863ef44c27fe9c5f8252675d8f4c98b9b4cd7c`
 
 
 You will need to `chmod +x nym-wallet_linux_0.1.0_amd64.AppImage` in the terminal (or give it execute permission in your file browser) before it will run. 
