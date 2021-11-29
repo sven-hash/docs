@@ -9,7 +9,7 @@ title: Mixnodes
 
 :::note 
 
-The Nym mixnode was built in the [building nym](/docs/0.11.0/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mixnode was built in the [building nym](/es/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 
 :::
 
