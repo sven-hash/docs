@@ -12,10 +12,10 @@ module.exports = {
   favicon: 'img/docs/FAVICON.png',
   organizationName: 'nymtech', 
   projectName: 'docs', 
-  // i18n: {
-  //   defaultLocale: 'en',
-  //   locales: ['en', 'es'],
-  // },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+  },
   themeConfig: {
     colorMode: {
       defaultMode: 'light',
@@ -45,17 +45,16 @@ module.exports = {
           position: 'right',
           dropdownActiveClassDisabled: true,
         },
-        {to: '/docs/0.11.0/intro', label: 'Docs', position: 'left'},
+        { 
+          type: 'localeDropdown',
+          position: 'right',
+        },
+        {to: '/docs/stable/overview/index', label: 'Docs', position: 'left'},
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
           position: 'right',
         },
-        // temporarily commenting this out: awaiting translation update 
-        // { 
-        //   type: 'localeDropdown',
-        //   position: 'right',
-        // },
       ],
     },
     footer: {
@@ -119,15 +118,16 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: '🚧 current 🚧',
-              path: 'current',
+              label: 'Next (in progress)',
+              path: 'next',
               banner: 'unreleased',
             },
-            '0.11.0': {
-              label: 'v0.11.0',
-              path: '0.11.0',
+            'stable': {
+              label: 'v0.11.0 (stable)',
+              path: 'stable',
               banner: 'none',
             },
+            // 'archive' <-- reminder to archive old versions when you cut a new one  
           },
         },
         theme: {

@@ -1,6 +1,5 @@
 module.exports = {
   sidebar: [
-    'intro', 
     {
       type: 'category',
       label: 'Overview',
@@ -19,17 +18,26 @@ module.exports = {
       label: 'Run Nym Nodes',
       collapsed: true,
       items: [
-        "run-nym-nodes/index",
+        "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/incentives",
         "run-nym-nodes/build-nym",
         "run-nym-nodes/mixnodes",
-        "run-nym-nodes/validators",
+        "run-nym-nodes/troubleshooting",
         "run-nym-nodes/requester",
         "run-nym-nodes/gateways",
-        "run-nym-nodes/troubleshooting",
+        "run-nym-nodes/validators",
       ],
     },
-    'wallet/index', 
+    'network-rewards',
+    {
+      type: 'category',
+      label: 'Use Nym apps',
+      collapsed: true,
+      items: [
+        'nym-apps/wallet', 
+        'nym-apps/network-explorer',  
+      ],
+    },
     {
       type: 'category',
       label: 'Build Nym Apps',
@@ -38,7 +46,7 @@ module.exports = {
         "build-apps/build-apps",
         "build-apps/choose-a-client",
         "build-apps/websocket-client",
-        // "build-apps/wasm-client",
+        // "build-apps/wasm-client", // temporarily commented out awaiting update 
         "build-apps/demos"
       ],
     },
@@ -47,9 +55,9 @@ module.exports = {
       label: 'Use External Apps',
       collapsed: true,
       items: [
-        "use-apps/index",
-        "use-apps/blockstream-green",
-        "use-apps/keybase"
+        "use-external-apps/index",
+        "use-external-apps/blockstream-green",
+        "use-external-apps/keybase"
       ],
     },
     {

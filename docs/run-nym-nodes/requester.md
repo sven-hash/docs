@@ -1,15 +1,13 @@
 ---
-sidebar_label: Requesters
+sidebar_label: Network Requesters
 description: "Run a requester proxy for the benefit of the community."
 hide_title: false
-title: Requester 
+title: Network Requesters 
 ---
-
- 
 
 :::note
 
-The Nym network requester was built in the [building nym](/docs/current/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym network requester was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 
 :::
 
