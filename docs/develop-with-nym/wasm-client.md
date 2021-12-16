@@ -5,7 +5,9 @@ description: "How to integrate the Nym webassembly client into your own applicat
 title: "Webassembly client"
 ---
 
- 
+:::caution
+Please note that this example information is, for the moment, out of date. 
+:::
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 
@@ -66,7 +68,7 @@ will be supported soon.
 
 `recipient` is a Nym address as a string.
 
-#### Getting the client's address
+### Getting the client's address
 
 Given a client, to get its address, you can call:
 
@@ -74,15 +76,15 @@ Given a client, to get its address, you can call:
 client.formatAsRecipient();
 ```
 
-#### SURBs
+### Single Use Reply Blocks (SURBs)
 
 Anonymous replies using surbs don't yet work in the webassembly client. They should be available in the next release.
 
-#### JSON
+### JSON
 
 Sending JSON is fairly simple. If you're playing with the wasm example app, just stick it into the message box and send it (or send it programmatically as the `message` content of `client.sendMessage(message, recipient)` in your own application code.
 
-#### Think about what you're sending!
+### Think about what you're sending!
 
 :::caution
 Think about what information your app sends. That goes for whatever you put into your Sphinx packet messages as well as what your app's environment may leak.

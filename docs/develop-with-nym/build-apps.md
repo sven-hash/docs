@@ -57,7 +57,6 @@ The nym client part of the app (in blue) accepts messages from your code (in yel
 
 The app has now connected to the gateway, but we haven't sent a message to ourselves yet. Let's do that now.
 
-<!-- ![simplest message send to self](/img/docs/application-flow/simplest-request.png) -->
 <ThemedImage
   alt="Sending message sent to self"
   sources={{
@@ -80,7 +79,6 @@ Messages are end-to-end encrypted. Although the gateway knows our app's IP when 
 
 The process for sending messages to other apps is exactly the same, you simply specify a different recipient address. Address discovery happens outside the Nym system: in the case of a Service Provider app, the service provider has presumably advertised its own address. If you're sending to a friend of yours, you'll need to get ahold of their address out of band, maybe through a private messaging app such as Signal.
 
-<!-- ![service provider messages](/img/docs/application-flow/sp-request.png) -->
 <ThemedImage
   alt="Sending message to a peap"
   sources={{

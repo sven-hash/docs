@@ -40,24 +40,24 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Build Nym Apps',
-      collapsed: true,
-      items: [
-        "build-apps/build-apps",
-        "build-apps/choose-a-client",
-        "build-apps/websocket-client",
-        // "build-apps/wasm-client", // temporarily commented out awaiting update 
-        "build-apps/demos"
-      ],
-    },
-    {
-      type: 'category',
       label: 'Use External Apps',
       collapsed: true,
       items: [
         "use-external-apps/index",
         "use-external-apps/blockstream-green",
         "use-external-apps/keybase"
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Develop Nym Apps',
+      collapsed: true,
+      items: [
+        "develop-with-nym/build-apps",
+        "develop-with-nym/choose-a-client",
+        "develop-with-nym/websocket-client",
+        "develop-with-nym/wasm-client", 
+        "develop-with-nym/demos"
       ],
     },
     {

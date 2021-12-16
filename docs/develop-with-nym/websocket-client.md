@@ -8,9 +8,7 @@ title: Websocket client
  
 
 :::note
-
 The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-
 :::
 
 From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your `$PATH`):
