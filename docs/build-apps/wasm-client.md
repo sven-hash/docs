@@ -23,7 +23,7 @@ The webassembly client lets you deliver web apps that build and send Sphinx pack
 
 There are two example applications located in the directory `clients/webassembly` in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. The `react-example` is a nicer-looking chat app done in React and Typescript.
 
-#### Initializing a new Nym identity
+#### Initialising a new Nym identity
 
 The main methods you'll use from the NPM package are:
 
@@ -41,7 +41,7 @@ let client = new Client(directoryUrl, identity, authToken);
 
 This returns a nym Client which connects to a Nym gateway via websocket. All communication with the Nym network happens through this client.
 
-The `directoryUrl` of the Nym testnet is `http://testnet-validator1.nymtech.net:8081`. Use that if you want to connect to the running testnet.
+The `directoryUrl` of the Nym testnet is `http://sandbox-validator.nymtech.net:8081`. Use that if you want to connect to the running testnet.
 
 #### Running the Nym client
 

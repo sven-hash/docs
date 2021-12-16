@@ -23,7 +23,7 @@ When it starts up, a client registers itself with a gateway, and the gateway ret
 
 The default gateway implementation included in the Nym platform code holds packets for later retrieval. For many applications (such as simple chat), this is usable out of the box, as it provides a place that potentially offline clients can retrieve packets from. The access token allows clients to pull messages from the gateway node.
 
-### Initializing your gateway
+### Initialising your gateway
 
 You can check that your binaries are properly compiled with:
 
@@ -41,20 +41,21 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.11.0)
+             (gateway - version 0.12.0)
 
 
 
 usage: --help to see available options.
+
 ```
 
 To check available configuration options use:
 
 ```
-nym@localhost:~$ ./nym-gateway init --help
+ ./nym-gateway init --help
 ```
 
-In order to initialize your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
+In order to initalise your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
 
 ```
 --announce-host <announce-host>        The host that will be reported to the directory server
@@ -73,7 +74,7 @@ In order to initialize your gateway the `id` and `host` parameters are required,
 For example, the following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```
-nym@localhost:~$ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
+ ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --testnet-mode 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100    14  100    14    0     0    125      0 --:--:-- --:--:-- --:--:--   123
@@ -85,7 +86,7 @@ nym@localhost:~$ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.11.0)
+             (gateway - version 0.12.0)
 
     
 Initialising gateway supergateway...
@@ -109,9 +110,21 @@ To bond your gateway you will [most likely] need to provide the following:
     Location: [physical location of your node's server]
 ```
 
+The `$(curl ifconfig.me)` command above returns your IP automatically using an external service.
+
+If necessary, you can install `curl` with:
+
+```
+sudo apt-get install curl
+```
+
+Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+
+The `--testnet-mode` flag is used to initialise your gateway so that it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
+
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
 
-Remember to bond your node via the [Milhon Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/)! This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
+Remember to bond your node via the Nym wallet, which can be downloaded [here](https://github.com/nymtech/nym/releases/tag/nym-wallet-v0.1.0). This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
 
 ### Running your gateway
 
@@ -124,7 +137,7 @@ Example:
 Results in:
 
 ```
-nym@localhost:~$ ./nym-gateway run --id supergateway
+ ./nym-gateway run --id supergateway
 
 
       _ __  _   _ _ __ ___
@@ -133,7 +146,7 @@ nym@localhost:~$ ./nym-gateway run --id supergateway
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.11.0)
+             (gateway - version 0.12.0)
 
 
 Starting gateway supergateway...
@@ -141,7 +154,7 @@ Public sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
 
 Public identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
 
-Validator servers: ["http://testnet-milhon-validator1.nymtech.net:1317"]
+Validator servers: ["http://sandbox-validator.nymtech.net:1317"]
 Listening for incoming packets on 172.105.67.104
 Announcing the following address: 172.105.67.104
 Inboxes directory is: "/home/nym/.nym/gateways/supergateway/data/inboxes"

@@ -18,7 +18,7 @@ From inside the `nym` directory, the `nym-client` binary got built to the `./tar
 `./nym-client`
 
 ```
-nym@localhost:~$ ./nym-client
+ ./nym-client
 
 
       _ __  _   _ _ __ ___
@@ -38,23 +38,23 @@ usage: --help to see available options.
 
 There are two commands you can issue to the client.
 
-1. `init` - initialize a new client instance. Requires `--id clientname` parameter.
+1. `init` - initalise a new client instance. Requires `--id clientname` parameter.
 2. `run` - run a mixnet client process. Requires `--id clientname` as a parameter
 
-### Initializing a new client instance
+### Initialising a new client instance
 
-Before you can use the client, you need to initialize a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node) make up an app's identity.
+Before you can use the client, you need to initalise a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node) make up an app's identity.
 
-Initializing a new client instance can be done with the following command:
+Initialising a new client instance can be done with the following command:
 
 ```
 ./nym-client init --id alice
 ```
 
-When you initialize a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
+When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
 ```
-nym@localhost:~$ tree ~/.nym/clients/alice/
+ tree ~/.nym/clients/alice/
 /home/dave/.nym/clients/alice/
 ├── config
 │   └── config.toml

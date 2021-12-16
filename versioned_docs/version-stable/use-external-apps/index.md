@@ -50,7 +50,7 @@ The Nym SOCKS5 proxy, though, does something quite interesting and different. Ra
 **Obligatory disclaimer time:** The Nym mixnet is still under construction and has not undergone a security audit. Do not rely on it for strong privacy (yet).
 :::
 
-After building the Nym platform code, initialize the client:
+After building the Nym platform code, initalise the client:
 
 ```
 nym-socks5-client init --id my-socks5-client --provider AFB7kzofcDSJ1feEJsfHE5uxq4wJecLz8MkWVywAzMCu.DZex1uSmS5iLxbc1zR96T1dDs9Wmi8ko7qjX4ACCTYQR@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i

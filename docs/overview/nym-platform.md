@@ -8,7 +8,7 @@ title: Network Overview
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-We are currently running a [testnet](https://testnet-milhon-explorer.nymtech.net/) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
+We are currently running a [testnet](https://sandbox-explorer.nymtech.net/) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
 
 Here's an overview of the entire network.
 

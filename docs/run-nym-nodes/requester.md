@@ -6,9 +6,7 @@ title: Network Requesters
 ---
 
 :::note
-
 The Nym network requester was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-
 :::
 
 
@@ -18,14 +16,14 @@ The nym-network-requester is NOT an open proxy. It ships with a file called `all
 
 ### Running your nym client 
 
-Before initializing your nym-network-requester, you must initialize an instance of the nym-client binary for it to listen to.
+Before initalising your nym-network-requester, you must initalise an instance of the nym-client binary for it to listen to.
 
-First of all, choose which gateway to connect your client to. Active gateways can be found in the 'Gateways' [section of the explorer](https://testnet-milhon-explorer.nymtech.net/nym/gateways).
+First of all, choose which gateway to connect your client to. Active gateways can be found in the 'Gateways' [section of the explorer](https://sandbox-explorer.nymtech.net/nym/gateways).
 
-Then initialize your nym client with the ID key of your gateway of choice: 
+Then initalise your nym client with the ID key of your gateway of choice: 
 
 ```
-nym@localhost:~$ ./nym-client init --id requester-client --gateway <GATEWAY_ID>
+ ./nym-client init --id requester-client --gateway <GATEWAY_ID>
 ```
 
 Which should return: 
@@ -38,7 +36,7 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 0.11.0)
+             (client - version 0.12.0)
 
     
 Initialising client...
@@ -94,7 +92,7 @@ Make a note of the client's address:
 Now that we have a running client for the requester to listen to, we can start it with the following command : 
 
 ```
-nym@localhost:~$ ./nym-network-requester 
+ ./nym-network-requester 
 
 Starting socks5 service provider:
  2021-08-11T13:28:02.767Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977

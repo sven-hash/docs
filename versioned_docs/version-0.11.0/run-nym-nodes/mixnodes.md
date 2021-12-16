@@ -41,7 +41,7 @@ Claim your mixnode in the new testnet by following the steps in the 'Claim your 
 
 ### Initialize your mixnode
 
-Here's how you initialize a mixnode if you are running one locally for testing, or just curious:
+Here's how you initalise a mixnode if you are running one locally for testing, or just curious:
 
 ```
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
@@ -365,7 +365,7 @@ ens4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
 
 The `ens4` interface has the IP `10.126.5.7`. But this isn't the public IP of the machine, it's the IP of the machine on Google's internal network. Google uses virtual routing, so the public IP of this machine is something else, maybe `36.68.243.18`.
 
-`nym-mixnode init --host 10.126.5.7`, initializes the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
+`nym-mixnode init --host 10.126.5.7`, initalises the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
 
 Trying `nym-mixnode init --host 36.68.243.18`, you'll get back a startup error saying `AddrNotAvailable`. This is because the mixnode doesn't know how to bind to a host that's not in the output of `ifconfig`.
 

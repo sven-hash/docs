@@ -33,7 +33,7 @@ We recommend using the [Rust shell script installer](https://www.rust-lang.org/t
 
 If you really don't want to use the shell script installer, the [Rust installation docs](https://forge.rust-lang.org/infra/other-installation-methods.html) contain instructions for many platforms.
 
-### Download & build Nym Mixnode, Gateway, and Clients binaries:
+### Download & build Nym binaries:
 
 The following commands will compile binaries into the `nym/target/release` directory:
 
@@ -46,9 +46,9 @@ git pull # in case you've checked it out before
 
 # Note: the default branch you clone from Github, `develop`, is guaranteed to be
 # broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.11.0` in order to join the testnet.
+# `git checkout tags/v0.12.0` in order to join the testnet.
 
-git checkout tags/v0.11.0
+git checkout tags/v0.12.0
 cargo build --release
 ```
 
@@ -59,4 +59,6 @@ Quite a bit of stuff gets built. The key working parts are:
 3. the [websocket client](/docs/next/build-apps/websocket-client): `nym-client`
 4. the [socks5 client](/docs/next/use-external-apps/index): `nym-socks5-client`
 5. the [network requester](/docs/next/run-nym-nodes/requester): `nym-network-requester`
+6. the [network explorer api](/docs/next/nym-apps/network-explorer): `explorer-api`
 
+The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/next/nym-apps/wallet) and the [Network Explorer UI](docs/next/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
