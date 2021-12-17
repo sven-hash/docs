@@ -1,8 +1,8 @@
 ---
-sidebar_label: Introduction
+sidebar_label: Overview
 hide_title: false
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
-title: "Introduction"
+title: "Overview"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
