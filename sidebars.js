@@ -20,15 +20,22 @@ module.exports = {
       items: [
         "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/incentives",
+        "run-nym-nodes/network-rewards",
         "run-nym-nodes/build-nym",
-        "run-nym-nodes/mixnodes",
-        "run-nym-nodes/troubleshooting",
-        "run-nym-nodes/requester",
-        "run-nym-nodes/gateways",
-        "run-nym-nodes/validators",
+        {
+          type: 'category',
+          label: 'Nodes',
+          collapsed: true,
+          items: [
+            "run-nym-nodes/nodes/mixnodes",
+            "run-nym-nodes/nodes/troubleshooting",
+            "run-nym-nodes/nodes/gateways",
+            "run-nym-nodes/nodes/validators",
+            "run-nym-nodes/nodes/requester",
+          ],
+        },
       ],
     },
-    'network-rewards',
     {
       type: 'category',
       label: 'Use Nym apps',
@@ -40,24 +47,24 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Develop Nym Apps',
+      collapsed: true,
+      items: [
+        "develop-with-nym/overview",
+        "develop-with-nym/choose-a-client",
+        "develop-with-nym/websocket-client",
+        "develop-with-nym/wasm-client", 
+        "develop-with-nym/demos"
+      ],
+    },
+    {
+      type: 'category',
       label: 'Use External Apps',
       collapsed: true,
       items: [
         "use-external-apps/index",
         "use-external-apps/blockstream-green",
         "use-external-apps/keybase"
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Develop Nym Apps',
-      collapsed: true,
-      items: [
-        "develop-with-nym/build-apps",
-        "develop-with-nym/choose-a-client",
-        "develop-with-nym/websocket-client",
-        "develop-with-nym/wasm-client", 
-        "develop-with-nym/demos"
       ],
     },
     {
