@@ -11,8 +11,6 @@ You can download it for Mac, Windows, or Linux.
 
 [![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v0.1.0)
 
-The wallet is currently an early release version. If you find any bugs, please [report them to our QA team](https://github.com/nymtech/nym/issues/new?assignees=tommyv1987&labels=bug%2C+bug-needs-triage%2C+qa&template=report.md&title=%5BIssue%5D).
-
 On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes.
 
 On Mac: 
@@ -137,3 +135,4 @@ Binary output directory structure
 └───target/release/bundle/msi
 │   │─  nym-wallet_*_.msi
 ```
+
