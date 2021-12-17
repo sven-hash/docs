@@ -5,8 +5,6 @@ description: "There are multiple kinds of Nym client. Each is useful in differen
 title: "Choose a client "
 ---
 
- 
-
 In the previous section, we got a general overview of the application flow when you're building Nym-enabled apps. Now it's time to understand a bit about how to structure your app by choosing a Nym client.
 
 ### Understanding Nym clients

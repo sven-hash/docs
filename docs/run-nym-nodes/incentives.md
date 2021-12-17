@@ -15,13 +15,11 @@ We are now testing out the incentives structure for running Nym nodes in our per
 Testnet rewards may not reflect how the incentives structure will work on mainnet!
 :::
 
-
 ### Joining the Sandbox Testnet as a participant of Milhon 
-Existing members of the Milhon testnet will be automatically moved over to Sandbox when it launches, as will the balances of their wallets and nodes. These balances are based on a snapshot taken at ____REMEMBER TO FILL THIS IN____, which can be found [here](add_link).  
+Existing members of the Milhon testnet will be automatically moved over to Sandbox when it launches, as will the balances of their wallets and nodes. These balances will be based on a snapshot taken in January 2022, which will be published online.  
 
 ### Joining the Sandbox Testnet as a new participant 
 There will be a faucet available soon which can be used to request `NYMT` for using in the testnet. There will be updates on this soon - watch this space! 
-
 
 :::caution
 If for any reason you lose your mnemonic, the tokens held in your account are lost, and they will **not** be able to be returned to you. 

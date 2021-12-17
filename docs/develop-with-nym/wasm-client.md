@@ -6,7 +6,7 @@ title: "Webassembly client"
 ---
 
 :::caution
-Please note that this example information is, for the moment, out of date. 
+Please note that this example information may be out of date. 
 :::
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
