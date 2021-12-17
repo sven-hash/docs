@@ -22,7 +22,7 @@ For those not able to immediately get involved, please look into [delegated stak
 If you **do** delegate your NYMT to others and shut down your node, remember to **save the keys located in `$HOME/.nym` in case you want to run a node in the future**
 :::
 
-If you have already been running a node on the Milhon testnet, you must do a clean install of the v0.12.0 `nym-mixnode` binary, and copy over the keys located in _____. 
+If you have already been running a node on the Milhon testnet, you must do a clean install of the v0.12.0 `nym-mixnode` binary, and copy over the keys located in `$HOME/.nym/mixnodes/<MIXNODE_ID>/data`. 
 
 You can either build the repository from source, or grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases). 
 
@@ -78,7 +78,7 @@ Which should return a nice clean startup:
      Identity key: HffiK89wpp2quX946RvwQrHhPsSTSP6pALvKGFAjNpEY
      Sphinx key: HmhNuZ7ZPKfmU5E2LNqhuvgWvoNNiAJzrcj9n9T4wdtW
      Address: 139.162.229.175
-     Version: 0.11.0
+     Version: 0.12.0
     
  2021-07-21T13:31:34.672Z INFO  nym_mixnode::node > Starting nym mixnode
  2021-07-21T13:31:35.083Z INFO  nym_mixnode::node > Starting node stats controller...
@@ -156,7 +156,7 @@ It's useful to have the mixnode automatically start at system boot time. Here's 
 
 ```ini
 [Unit]
-Description=Nym Mixnode (0.11.0)
+Description=Nym Mixnode (0.12.0)
 StartLimitInterval=350
 StartLimitBurst=10
 

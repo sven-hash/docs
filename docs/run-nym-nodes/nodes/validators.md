@@ -138,7 +138,7 @@ git clone https://github.com/nymtech/nym.git
 cd nym
 git reset --hard   # in case you made any changes on your branch
 git pull           # in case you've checked it out before
-git checkout tags/v0.11.0
+git checkout tags/v0.12.0
 ```
 
 Inside the `validator` directory you will find the precompiled binaries to use.
@@ -357,7 +357,7 @@ You will most likely want to automate your validator restarting if your server r
 
 ```ini
 [Unit]
-Description=Nymd (0.11.0)
+Description=Nymd (0.12.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
