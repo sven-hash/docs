@@ -21,7 +21,7 @@ We'll get into the technical details more deeply in the next few sections, but b
 
 ### Initialization
 
-First, we need to initialize an app and connect it to Nym.
+First, we need to initalise an app and connect it to Nym.
 
 <!-- ![send to gateway](/img/docs/application-flow/send-to-gateway.png) -->
 <ThemedImage
@@ -47,7 +47,7 @@ Gateways serve a few different functions:
 
 ### Nym addresses
 
-When the app is initialized, it generates and stores its own public/private keypair locally. When the app starts, it automatically connects to the Nym network and finds out what Nym infrastructure exists. It then chooses and connects to a Nym gateway node via websocket.
+When the app is initalised, it generates and stores its own public/private keypair locally. When the app starts, it automatically connects to the Nym network and finds out what Nym infrastructure exists. It then chooses and connects to a Nym gateway node via websocket.
 
 All apps in the Nym network therefore have an address, in the format `user-identity-key.user-encryption-key@gateway-identity-key`. Clients print out their address at startup.
 

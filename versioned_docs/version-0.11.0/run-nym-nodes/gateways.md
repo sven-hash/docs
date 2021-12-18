@@ -23,7 +23,7 @@ When it starts up, a client registers itself with a gateway, and the gateway ret
 
 The default gateway implementation included in the Nym platform code holds packets for later retrieval. For many applications (such as simple chat), this is usable out of the box, as it provides a place that potentially offline clients can retrieve packets from. The access token allows clients to pull messages from the gateway node.
 
-### Initializing your gateway
+### Initialising your gateway
 
 You can check that your binaries are properly compiled with:
 
@@ -51,10 +51,10 @@ usage: --help to see available options.
 To check available configuration options use:
 
 ```
-nym@localhost:~$ ./nym-gateway init --help
+ ./nym-gateway init --help
 ```
 
-In order to initialize your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
+In order to initalise your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
 
 ```
 --announce-host <announce-host>        The host that will be reported to the directory server
@@ -73,7 +73,7 @@ In order to initialize your gateway the `id` and `host` parameters are required,
 For example, the following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```
-nym@localhost:~$ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
+ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100    14  100    14    0     0    125      0 --:--:-- --:--:-- --:--:--   123
@@ -124,7 +124,7 @@ Example:
 Results in:
 
 ```
-nym@localhost:~$ ./nym-gateway run --id supergateway
+ ./nym-gateway run --id supergateway
 
 
       _ __  _   _ _ __ ___

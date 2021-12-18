@@ -166,7 +166,7 @@ nymd
 
 Esto debería devolver el texto de ayuda normal de `nymd`.
 
-### Initializing your validator
+### Initialising your validator
 
 Requisitos previos:
 

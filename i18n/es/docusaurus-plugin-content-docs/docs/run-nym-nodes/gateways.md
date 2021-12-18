@@ -51,7 +51,7 @@ uso: --help para ver las opciones disponibles.
 Para comprobar las opciones de configuración disponibles, utilice:
 
 ```
-nym@localhost:~$ ./nym-gateway init --help
+ ./nym-gateway init --help
 ```
 
 Para inicializar su puerta de enlace se requieren los parámetros `id` y `host`, aunque puede experimentar añadiendo cualquiera de las otras banderas que aparecen en el comando `--help` anterior:
@@ -73,7 +73,7 @@ Para inicializar su puerta de enlace se requieren los parámetros `id` y `host`,
 Por ejemplo, el siguiente comando devuelve un gateway en su IP actual con el `id` de `supergateway`:
 
 ```
-nym@localhost:~$ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
+ ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100    14  100    14    0     0    125      0 --:--:-- --:--:-- --:--:--   123
@@ -123,7 +123,7 @@ Ejemplo:
 El resultado es:
 
 ```
-nym@localhost:~$ ./nym-gateway run --id supergateway
+ ./nym-gateway run --id supergateway
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \

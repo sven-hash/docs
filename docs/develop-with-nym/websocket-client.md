@@ -8,9 +8,7 @@ title: Websocket client
  
 
 :::note
-
 The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-
 :::
 
 From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your `$PATH`):
@@ -18,8 +16,6 @@ From inside the `nym` directory, the `nym-client` binary got built to the `./tar
 `./nym-client`
 
 ```
-nym@localhost:~$ ./nym-client
-
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -27,7 +23,7 @@ nym@localhost:~$ ./nym-client
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 0.11.0 )
+             (client - version 0.12.0 )
 
 
 
@@ -38,23 +34,23 @@ usage: --help to see available options.
 
 There are two commands you can issue to the client.
 
-1. `init` - initialize a new client instance. Requires `--id clientname` parameter.
+1. `init` - initalise a new client instance. Requires `--id clientname` parameter.
 2. `run` - run a mixnet client process. Requires `--id clientname` as a parameter
 
-### Initializing a new client instance
+### Initialising a new client instance
 
-Before you can use the client, you need to initialize a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node) make up an app's identity.
+Before you can use the client, you need to initalise a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node) make up an app's identity.
 
-Initializing a new client instance can be done with the following command:
+Initialising a new client instance can be done with the following command:
 
 ```
 ./nym-client init --id alice
 ```
 
-When you initialize a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
+When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
 ```
-nym@localhost:~$ tree ~/.nym/clients/alice/
+ tree ~/.nym/clients/alice/
 /home/dave/.nym/clients/alice/
 ├── config
 │   └── config.toml
@@ -181,7 +177,7 @@ This provides an easy way for the receiving chat to then turn around and send a 
 }
 ```
 
-If that fits your security model, good. However, it may be the case that you want to send anonymous replies using Single Use Reply Blocks, or _surbs_. These will be available in the next version of Nym (0.11.0).
+If that fits your security model, good. However, it may be the case that you want to send anonymous replies using Single Use Reply Blocks, or _surbs_. These will be available soon.
 
 #### Sending binary data
 

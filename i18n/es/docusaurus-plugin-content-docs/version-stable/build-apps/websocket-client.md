@@ -18,7 +18,7 @@ Desde dentro del directorio `nym`, el binario `nym-client` se ha construido en e
 `./nym-client`
 
 ```
-nym@localhost:~$ ./nym-client
+ ./nym-client
 
 
       _ __  _   _ _ __ ___
@@ -54,7 +54,7 @@ La inicialización de una nueva instancia de cliente puede hacerse con el siguie
 Cuando se inicializa una instancia de cliente, se genera un directorio de configuración que se almacena en `$HOME_DIR/.nym/clients/<nombre-del-cliente>/`.
 
 ```
-nym@localhost:~$ tree ~/.nym/clients/alice/
+ tree ~/.nym/clients/alice/
 /home/dave/.nym/clients/alice/
 ├── config
 │ └── config.toml

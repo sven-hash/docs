@@ -118,7 +118,7 @@ You will most likely want to automate the Explorer-API restarting if your server
 
 ```ini
 [Unit]
-Description=Nym Explorer API (0.11.0)
+Description=Nym Explorer API (0.12.0)
 StartLimitIntervalSec=350
 StartLimitBurst=10
 

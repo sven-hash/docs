@@ -20,15 +20,22 @@ module.exports = {
       items: [
         "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/incentives",
+        "run-nym-nodes/network-rewards",
         "run-nym-nodes/build-nym",
-        "run-nym-nodes/mixnodes",
-        "run-nym-nodes/troubleshooting",
-        "run-nym-nodes/requester",
-        "run-nym-nodes/gateways",
-        "run-nym-nodes/validators",
+        {
+          type: 'category',
+          label: 'Nodes',
+          collapsed: true,
+          items: [
+            "run-nym-nodes/nodes/mixnodes",
+            "run-nym-nodes/nodes/troubleshooting",
+            "run-nym-nodes/nodes/gateways",
+            "run-nym-nodes/nodes/validators",
+            "run-nym-nodes/nodes/requester",
+          ],
+        },
       ],
     },
-    'network-rewards',
     {
       type: 'category',
       label: 'Use Nym apps',
@@ -40,14 +47,14 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Build Nym Apps',
+      label: 'Develop Nym Apps',
       collapsed: true,
       items: [
-        "build-apps/build-apps",
-        "build-apps/choose-a-client",
-        "build-apps/websocket-client",
-        // "build-apps/wasm-client", // temporarily commented out awaiting update 
-        "build-apps/demos"
+        "develop-with-nym/overview",
+        "develop-with-nym/choose-a-client",
+        "develop-with-nym/websocket-client",
+        "develop-with-nym/wasm-client", 
+        "develop-with-nym/demos"
       ],
     },
     {

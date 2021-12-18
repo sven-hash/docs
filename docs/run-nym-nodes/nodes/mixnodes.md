@@ -5,43 +5,30 @@ hide_title: false
 title: Mixnodes
 ---
 
- 
-
 :::note 
-
 The Nym mixnode was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
-
 :::
-
-### Running a mixnode for the first time
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
 
 Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
 :::caution
-Please note that unless you ran a mixnode in the Finney testnet, **you will not be able to get PUNKs and bond your mixnode for the Milhon testnet**. 
-Instead please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301) for how you can get involved. 
+Please note that unless you ran a mixnode in the Milhon testnet, **you will not be able to get NYMT tokens and bond your mixnode for the Sandbox testnet at this time**.
+
+In the future we will set up a token faucet - watch out for updates on this. 
+
+For those not able to immediately get involved, please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301).
+If you **do** delegate your NYMT to others and shut down your node, remember to **save the keys located in `$HOME/.nym` in case you want to run a node in the future**
 :::
 
-:::caution
-If you **do** delegate your PUNKs to others and shut down your node, remember to **save the keys located in `$HOME/.nym`!**
-:::
+If you have already been running a node on the Milhon testnet, you must do a clean install of the v0.12.0 `nym-mixnode` binary, and copy over the keys located in `$HOME/.nym/mixnodes/<MIXNODE_ID>/data`. 
+
+You can either build the repository from source, or grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases). 
 
 
-### Upgrading your mixnode from an earlier version
-
-If you have already been running a node on the Nym network `v0.10.0` or `0.10.1`, grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases) and use the `upgrade` command to upgrade your configs in place.
-
-```
-./nym-mixnode upgrade --id your-node-id
-```
-
-Claim your mixnode in the new testnet by following the steps in the 'Claim your mixnode in Telegram to receive tokens' section below. 
-
-### Initialize your mixnode
-
-Here's how you initialize a mixnode if you are running one locally for testing, or just curious:
+### Initialising your mixnode
+Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode. 
 
 ```
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
@@ -49,7 +36,7 @@ Here's how you initialize a mixnode if you are running one locally for testing, 
 
 To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service.
 
-You can install `curl` with:
+If necessary, you can install `curl` with:
 
 ```
 sudo apt-get install curl
@@ -57,89 +44,41 @@ sudo apt-get install curl
 
 Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
-You can pick any `--id` you want.
-
-The `init` command will refuse to destroy existing mixnode keys.
+:::caution
+Please note that the `init` command will refuse to destroy existing mixnode keys.
+:::
 
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
 
+Now bond your mixnode using the Nym Wallet, before running your node. 
 
+### Running your mixnode
 
-### Claim your mixnode in Telegram to receive tokens
-
-In order to take part in Testnet Milhon each mixnode operator needs to get PUNK, and bond them in the blockchain. 
-
-Go to the [Milhon Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/) and create a Nym address. It will look something like `punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt`. **Be sure to write down your mnemonic!**
-
-Once you have a Nym testnet address, ask the Telegram bot for tokens. Run the `sign` command:
-
-```
-./nym-mixnode sign --id winston-smithnode --text "@<YOUR_TELEGRAM_USERNAME> <YOUR_PUNK_WALLET_ADDRESS>"
-
-
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (mixnode - version 0.11.0)
-
-    
-Signing the text "@winston_smithnode_telegram punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt" using your mixnode's Ed25519 identity key...
-
-Signature is: 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
-
-You can claim your mixnode in Telegram by talking to our bot. To do so:
-
-* go to the 'https://t.me/nympunkbot' channel
-* copy the following line of text, and paste it into the channel
-
-/transfer punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
-```
-
-Then enter the **[@nympunkbot](https://t.me/nympunkbot)** channel on Telegram and talk to the bot to associate your Telegram username with your mixnode key:
-
-```
-/transfer punk1rytmasg5kavx4xasa0zg0u69jus8fn0r5j7nnt 3Zo2uMmK5x1WcMQWfqrd9MWw3N4updUBsAPM4tejfWMfMjS55jxsjyMXZ2pwBCJbhvBxkREBJ8R9ED2UcMRJprrU
-```
-
-This proves to the bot that your username owns the mixnode. 
-
-:::caution
-**Do not send tokens to `punk10pyejy66429refv3g35g2t7am0was7yalwrzen` thinking this is your address - this is the address of the mixnet smart contract**.
-:::
-
-### Run your mixnode
+Run your mixnode with: 
 
 ```
 ./nym-mixnode run --id winston-smithnode
 ```
 
-Should return a nice clean startup:
+Which should return a nice clean startup:
 
 ```
+       _ __  _   _ _ __ ___
+      | '_ \| | | | '_ \ _ \
+      | | | | |_| | | | | | |
+      |_| |_|\__, |_| |_| |_|
+             |___/
+              (mixnode - version 0.12.0)
+     
+ Starting mixnode qamix0110...
+ Validator servers: [Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("sandbox-validator.nymtech.net")), port: None, pa>
+ Listening for incoming packets on 139.162.229.175
+ Announcing the following address: 139.162.229.175
 
-
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (mixnode - version 0.11.0)
-
-    
-Starting mixnode winston-smithnode...
-Validator servers: ["http://testnet-milhon-validator1.nymtech.net:1317", "http://testnet-milhon-validator2.nymtech.net:1317"]
-Listening for incoming packets on 89.144.210.254
-Announcing the following address: 89.144.210.254
-
-To bond your mixnode, go to https://testnet-milhon-wallet.nymtech.net/.  You will need to provide the following:
-    Identity key: D5yLugjknoZ8gwEjQVvFSVckNPur6qYLSPFsKJcZUruR
-    Sphinx key: Fh7BjMTYv4KAzXjoFzsz3PUpJ2wT2i6fsSTDQQuJ916Y
-    Address: 89.144.210.254
-    Version: 0.11.0
+     Identity key: HffiK89wpp2quX946RvwQrHhPsSTSP6pALvKGFAjNpEY
+     Sphinx key: HmhNuZ7ZPKfmU5E2LNqhuvgWvoNNiAJzrcj9n9T4wdtW
+     Address: 139.162.229.175
+     Version: 0.12.0
     
  2021-07-21T13:31:34.672Z INFO  nym_mixnode::node > Starting nym mixnode
  2021-07-21T13:31:35.083Z INFO  nym_mixnode::node > Starting node stats controller...
@@ -148,19 +87,15 @@ To bond your mixnode, go to https://testnet-milhon-wallet.nymtech.net/.  You wil
  2021-07-21T13:31:35.084Z INFO  nym_mixnode::node::listener > Running mix listener on "89.144.210.254:1789"
  2021-07-21T13:31:35.084Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
 
-
 ```
 
-Now bond your mixnode in the [Milhon web wallet](https://testnet-milhon-wallet.nymtech.net/) before running your node. 
-
-If everything worked, you'll see your node running on the [Milhon network explorer](https://testnet-milhon-explorer.nymtech.net).
+If everything worked, you'll see your node running on the [Sandbox network explorer](https://sandbox-explorer.nymtech.net).
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
 Keep reading to find out more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
 
-Have a look at the saved configuration files to see more configuration options.
-
+Also have a look at the saved configuration files in `$HOME/.nym/mixnodes/` to see more configuration options.
 
 ### Configure your firewall
 
@@ -205,7 +140,7 @@ Which will output something like this:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.11.0)
+             (mixnode - version 0.12.0)
 
 
 name: winston-smithnode
@@ -213,15 +148,15 @@ description: nym-mixnode hosted on Linode VPS in <location> with the following s
 link, e.g. https://mixnode.yourdomain.com: mixnode.mydomain.net
 ```
 
-This information will be shown in a (not yet built) mixnode page in in the Network Explorer, and help people make delegated staking decisions.
+This information will be shown in the mixnode's page in the Network Explorer, and help people make delegated staking decisions.
 
 ### Automating your mixnode with systemd
 
-Although it's not totally necessary, it's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
+It's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
 
 ```ini
 [Unit]
-Description=Nym Mixnode (0.11.0)
+Description=Nym Mixnode (0.12.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -333,7 +268,7 @@ Then reboot your server and restart your mixnode.
 
 ### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://testnet-milhon-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the [Nym testnet explorer](https://sandbox-explorer.nymtech.net/), or checkout the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
@@ -365,7 +300,7 @@ ens4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
 
 The `ens4` interface has the IP `10.126.5.7`. But this isn't the public IP of the machine, it's the IP of the machine on Google's internal network. Google uses virtual routing, so the public IP of this machine is something else, maybe `36.68.243.18`.
 
-`nym-mixnode init --host 10.126.5.7`, initializes the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
+`nym-mixnode init --host 10.126.5.7`, initalises the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
 
 Trying `nym-mixnode init --host 36.68.243.18`, you'll get back a startup error saying `AddrNotAvailable`. This is because the mixnode doesn't know how to bind to a host that's not in the output of `ifconfig`.
 
@@ -389,8 +324,8 @@ There are currently two options for getting information about your mixnode. `des
 
 | Endpoint       | Description                                                                                                                                                                                      | Command                                                                                                                               |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `/report`      | Returns the most recent node status test report                                                                                                                                                  | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/report`        |
-| `/history`     | Returns all previous test reports                                                                                                                                                                | `curl https://testnet-milhon-validator1.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/history`       |
+| `/report`      | Returns the most recent node status test report                                                                                                                                                  | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/report`        |
+| `/history`     | Returns all previous test reports                                                                                                                                                                | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/history`       |
 | `/description` | Returns the description of your node set with the `describe` command. | `curl <YOUR_NODE_IP>:8000/description`                                                                                                |
 | `/verloc`      | Returns the verloc information of your node, which is updated every 12 hours.                                                                                                                    | `curl <YOUR_NODE_IP>:8000/verloc`                                                                                                     |
 

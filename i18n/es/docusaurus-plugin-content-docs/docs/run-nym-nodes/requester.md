@@ -27,7 +27,7 @@ En primer lugar, elija a qué puerta de enlace desea conectar su cliente. Las pa
 A continuación, inicializa tu cliente nym con la clave de identificación de la pasarela que hayas elegido: 
 
 ```
-nym@localhost:~$ ./nym-client init --id requester-client --gateway <GATEWAY_ID>
+ ./nym-client init --id requester-client --gateway <GATEWAY_ID>
 ```
 
 Que debería devolver: 
@@ -96,7 +96,7 @@ Anote la dirección del cliente:
 Ahora que tenemos un cliente en ejecución para que el solicitante escuche, podemos iniciarlo con el siguiente comando : 
 
 ```
-nym@localhost:~$ ./nym-network-requester 
+ ./nym-network-requester 
 
 Iniciando el proveedor de servicios socks5:
  2021-08-11T13:28:02.767Z INFO nym_network_requester::core > * connected to local websocket server at ws://localhost:1977

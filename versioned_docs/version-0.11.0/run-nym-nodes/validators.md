@@ -167,7 +167,7 @@ nymd
 
 This should return the regular `nymd` help text.
 
-### Initializing your validator
+### Initialising your validator
 
 Prerequisites:
 
