@@ -94,6 +94,10 @@ cd explorer-api
 cargo build --release
 ```
 
+:::caution
+The Network Explorer should be run on a machine with at least 4GB of RAM - the build process might fail if run on a less powerful machine. 
+:::
+
 #### Building the Explorer UI 
 
 Build the UI with these commands from within the `explorer` directory:
