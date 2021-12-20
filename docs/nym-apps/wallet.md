@@ -90,6 +90,10 @@ yarn install
 
 ### Running in Development Mode
 
+:::note
+Make sure you copy over the contents of the provided `.env.sample` to a new `.env` file before proceeding
+:::
+
 You can run the wallet without having to install it in development mode by running the following terminal command from the `nym-wallet` folder
 
 ```
@@ -99,6 +103,10 @@ yarn dev
 This will then start the Wallet GUI and produce a binary in `nym-wallet/target/debug/` named `nym-wallet`. 
 
 ### Running in Production Mode
+
+:::note
+Make sure you copy over the contents of the provided `.env.sample` to a new `.env` file before proceeding
+:::
 
 To build and install the wallet, run the following terminal command from the `nym-wallet` folder
 
