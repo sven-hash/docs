@@ -1,15 +1,13 @@
 ---
-sidebar_label: "Mixnode Troubleshooting FAQ"
+sidebar_label: "Mixnodes FAQ"
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
 hide_title: false
-title: Mixnode Troubleshooting FAQ
+title: Mixnodes FAQ
 ---
-
- 
 
 ### How can I tell my node is up and running and mixing traffic?
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://testnet-milhon-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+First of all check the 'Mixnodes' section of the testnet [dashboard](https://sandbox-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
 
@@ -86,7 +84,7 @@ PORT     STATE SERVICE
 ##### Query all nodes and parse with `jq`:
 
 ```
-curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq
+curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq
 ```
 
 Should return a JSON object of all nodes currently online.
@@ -94,25 +92,25 @@ Should return a JSON object of all nodes currently online.
 This command can be further parsed by various keys, such as location:
 
 ```
-curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
+curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
 ```
 
 or address:
 
 ```
-curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
+curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
 ```
 
 #### Check with testnet API
 
-We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation](/docs/0.11.0/run-nym-nodes/mixnodes).
+We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation](docs/stable/run-nym-nodes/nodes/mixnodes).
 
 ### Why is my node not mixing any packets?
 
-If you are still unable to see your node on the [dashboard](https://testnet-milhon-explorer.nymtech.net/), or your node is declaring it has not mixed any packets, there are several potential issues:
+If you are still unable to see your node on the [dashboard](https://sandbox-explorer.nymtech.net/), or your node is declaring it has not mixed any packets, there are several potential issues:
 
 - The firewall on your host machine is not configured properly.
-- You provided incorrect information when bonding your node via the [web wallet](https://testnet-milhon-wallet.nymtech.net/)
+- You provided incorrect information when bonding your node.
 - You are running your mixnode from a VPS without IPv6 support.
 - You did not use the `--announce-host` flag while running the mixnode from your local machine behind NAT.
 - You did not configure your router firewall while running the mixnode from your local machine behind NAT, or you are lacking IPv6 support.
@@ -147,7 +145,7 @@ sudo ufw status
 
 #### Incorrect bonding information
 
-Check that you have provided the correct information when bonding your mixnode in the web wallet [interface](https://testnet-milhon-wallet.nymtech.net/). When in doubt, unbond and then rebond your node!
+Check that you have provided the correct information when bonding your mixnode in the web wallet [interface](https://sandbox-wallet.nymtech.net/). When in doubt, unbond and then rebond your node!
 
 #### Missing `announce-host` flag
 
@@ -253,7 +251,7 @@ Anytime you change your `systemd` service file you need to `sudo systemctl daemo
 
 #### Network configuration seems fine but log still claims `Since startup mixed 0 packets!`
 
-This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node via the [web wallet])(https://testnet-milhon-wallet.nymtech.net/). The re-bonding procedure does not cost any additional HAL, so you can do it as often as you like.
+This behavior is most likely caused by a mismatch between your node configuration and the bonding information. Unbond and then rebond your node.
 
 Also make sure to enter all the information in the web wallet exactly as it appears in the log when you start the mixnode process. In particular, the `host` field must contain the _port_ on which your mixnode will listen:
 
@@ -262,7 +260,7 @@ Also make sure to enter all the information in the web wallet exactly as it appe
 
 ### Common errors and warnings
 
-Most of the `ERROR` and `WARN` messages in your node logs are benign - as long as your node outputs `since startup mixed X packets!` in your logs (and this number increases over time), your node is mixing packets. If you want to be sure, check the Nym [dashboard](https://testnet-milhon-explorer.nymtech.net/) or see other ways on how to check if your node is mixing properly as outlined in the section **How can I tell my node is up and running and mixing traffic?** above.
+Most of the `ERROR` and `WARN` messages in your node logs are benign - as long as your node outputs `since startup mixed X packets!` in your logs (and this number increases over time), your node is mixing packets. If you want to be sure, check the Nym [dashboard](https://sandbox-explorer.nymtech.net/) or see other ways on how to check if your node is mixing properly as outlined in the section **How can I tell my node is up and running and mixing traffic?** above.
 
 More specific errors and warnings are covered below.
 
@@ -274,12 +272,12 @@ If you are running into issues with an error including the following:
 thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address" }'
 ```
 
-Then you need to `--announce-host <public ip>` and ``--host <local ip>` on startup. This issue arises because of your use of a provider like AWS or Google Cloud, and the fact that your VPS' available bind address is not the same as the public IP address (see [Virtual IPs and hosting via Google & AWS](docs/0.11.0/run-nym-nodes/mixnodes) for more information on this issue).
+Then you need to `--announce-host <public ip>` and ``--host <local ip>` on startup. This issue arises because of your use of a provider like AWS or Google Cloud, and the fact that your VPS' available bind address is not the same as the public IP address (see [Virtual IPs and hosting via Google and AWS](docs/stable/run-nym-nodes/nodes/mixnodes) for more information on this issue).
 
 #### `rocket::launch` warnings
 These warnings are not an issue, please ignore them. Rocket is a web framework for rust which we are using to provide mixnodes with `/verloc` and `/description` http APIs.
 
-Find more information about this in the [Mixnodes metrics documentation](docs/0.11.0/run-nym-nodes/mixnodes).
+Find more information about this in the [Mixnodes metrics documentation](docs/stable/run-nym-nodes/nodes/mixnodes).
 
 Rocket runs on port `8000` by default. Although at this stage of the testnet we need Rocket to be reachable via this port, in the future customization of the particular port it uses will be possible.
 
@@ -345,7 +343,7 @@ bob@nym:~$ tree /home/nym/.nym/mixnodes/
 ```
 
 :::caution
-If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://testnet-milhon-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
+If you `cat` the `public_sphinx.pem key`, the output will be different from the public key you will see on Nym [dashboard](https://sandbox-explorer.nymtech.net/). The reason for this is that `.pem` files are encoded in **base64**, however on the web they are in **base58**. Don't be confused if your keys look different. They are the same keys, just with different encoding :).
 :::
 
 ### What is `verloc` and do I have to configure my mixnode to implement it?

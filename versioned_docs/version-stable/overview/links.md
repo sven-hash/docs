@@ -15,7 +15,7 @@ Here are some links that may prove handy as you start exploring.
 - The [Nym website](https://nymtech.net) has general info on project status and links to learning materials and talks we've given
 - The [Nym blog](https://medium.com/nymtech) provides up to date project news and views
 - The [Nym Platform](https://github.com/nymtech/nym) code repo contains most parts of the Nym system in one convenient place
-- The [Testnet Milhon Network Explorer](https://testnet-milhon-explorer.nymtech.net) shows testnet nodes and activity
+- The [Nym Sandbox Network Explorer](https://sandbox-explorer.nymtech.net) shows testnet nodes and activity
 
 ### Academic Papers
 

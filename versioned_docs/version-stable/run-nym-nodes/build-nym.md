@@ -7,7 +7,7 @@ title: Building Nym
 
 Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
 
-### Building Nym 
+### Building Nym
 
 Nym has two main codebases:
 
@@ -15,7 +15,7 @@ Nym has two main codebases:
 - the Nym validators, written in Go.
 
 :::note
-This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/stable/run-nym-nodes/validators) instead.**
+This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/stable/run-nym-nodes/nodes/validators) instead.**
 :::
 
 ### Prerequisites:
@@ -33,7 +33,7 @@ We recommend using the [Rust shell script installer](https://www.rust-lang.org/t
 
 If you really don't want to use the shell script installer, the [Rust installation docs](https://forge.rust-lang.org/infra/other-installation-methods.html) contain instructions for many platforms.
 
-### Download & build Nym Mixnode, Gateway, and Clients binaries:
+### Download & build Nym binaries:
 
 The following commands will compile binaries into the `nym/target/release` directory:
 
@@ -46,17 +46,19 @@ git pull # in case you've checked it out before
 
 # Note: the default branch you clone from Github, `develop`, is guaranteed to be
 # broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.11.0` in order to join the testnet.
+# `git checkout tags/v0.12.0` in order to join the testnet.
 
-git checkout tags/v0.11.0
+git checkout tags/v0.12.0
 cargo build --release
 ```
 
 Quite a bit of stuff gets built. The key working parts are:
 
-1. the [mixnode](/docs/stable/run-nym-nodes/mixnodes): `nym-mixnode`
-2. the [gateway node](/docs/stable/run-nym-nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/stable/build-apps/websocket-client): `nym-client`
+1. the [mixnode](/docs/stable/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
+2. the [gateway node](/docs/stable/run-nym-nodes/nodes/gateways): `nym-gateway`
+3. the [websocket client](/docs/stable/develop-with-nym/websocket-client): `nym-client`
 4. the [socks5 client](/docs/stable/use-external-apps/index): `nym-socks5-client`
-5. the [network requester](/docs/stable/run-nym-nodes/requester): `nym-network-requester`
+5. the [network requester](/docs/stable/run-nym-nodes/nodes/requester): `nym-network-requester`
+6. the [network explorer api](/docs/stable/nym-apps/network-explorer): `explorer-api`
 
+The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/nym-apps/wallet) and the [Network Explorer UI](docs/stable/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 

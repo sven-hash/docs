@@ -66,7 +66,7 @@ You can lint the code by running:
 npm run lint
 ```
 
-:::note 
+:::info 
 
 This command will only **show** linting errors and will not fix them!
 
@@ -94,6 +94,10 @@ cd explorer-api
 cargo build --release
 ```
 
+:::caution
+The Network Explorer should be run on a machine with at least 4GB of RAM - the build process might fail if run on a less powerful machine. 
+:::
+
 #### Building the Explorer UI 
 
 Build the UI with these commands from within the `explorer` directory:
@@ -112,13 +116,13 @@ This can then be either served directly from the `nym` directory, or from its ow
 
 The Explorer API was built in the previous step with `cargo build`. 
 
-### Automating your the explorer with systemd
+### Automating the explorer with systemd
 
 You will most likely want to automate the Explorer-API restarting if your server reboots. Below is a systemd unit file to place at `/etc/systemd/system/nym-explorer-api.service`:
 
 ```ini
 [Unit]
-Description=Nym Explorer API (0.11.0)
+Description=Nym Explorer API (0.12.0)
 StartLimitIntervalSec=350
 StartLimitBurst=10
 

@@ -5,7 +5,6 @@ hide_title: false
 title: Validators
 ---
 
- 
 
 Nym validators secure the network with a staking token, defending the network from Sybil attacks.
 
@@ -93,13 +92,13 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
 ```
-WASMD_VERSION=v0.17.0
-BECH32_PREFIX=punk
+WASMD_VERSION=v0.21.0
+BECH32_PREFIX=nymt
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
 mkdir build
-go build -o build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=d2e35c249e39e90c5a85e03e0b75800431612b20 -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X 'github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger'" -trimpath ./cmd/wasmd # noqa line-length
+go build -o /tmp/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version={{ network_vars.validator.wasmdversion }} -X github.com/cosmos/cosmos-sdk/version.Commit={{ network_vars.validator.wasmdcommit}} -X github.com/CosmWasm/wasmd/app.Bech32Prefix={{ network_vars.generic.bech32_prefix_mixnet }} -X 'github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger'" -trimpath ./cmd/wasmd # noqa line-length
 ```
 
 At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running:
@@ -139,7 +138,7 @@ git clone https://github.com/nymtech/nym.git
 cd nym
 git reset --hard   # in case you made any changes on your branch
 git pull           # in case you've checked it out before
-git checkout tags/v0.11.0
+git checkout tags/v0.12.0
 ```
 
 Inside the `validator` directory you will find the precompiled binaries to use.
@@ -177,7 +176,7 @@ Prerequisites:
 Choose a name for your validator and use it in place of `yourname` in the following command:
 
 ```
-nymd init yourname --chain-id testnet-milhon
+nymd init yourname --chain-id testnet-nym-sandbox
 ```
 
 :::caution
@@ -190,12 +189,12 @@ If you don't save the validator key, then it can't sign blocks and will be jaile
 there is no way to deterministically (re)generate this key using `nymd`.  
 :::
 
-At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with Nym's [testnet-milhon genesis file](https://nymtech.net/testnets/milhon/genesis.json).
+At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with the Nym-Sandbox [genesis file](https://nymtech.net/testnets/sandbox/genesis.json). //<==== CHECK THIS IS HERE
 
 You can use the following command to download the one for Milhon:
 
 ```
-wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/milhon/genesis.json
+wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
 ```
 
 #### `config.toml` configuration
@@ -203,7 +202,7 @@ wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/milhon/gen
 Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in `$HOME/.nymd/config/config.toml` to match the information below:
 
 - `cors_allowed_origins = ["*"]` allows the web wallet to make HTTPS requests to your validator.
-- `persistent_peers = "d6265e7c885eda002ef8736d2270bcbfb346a3aa@testnet-milhon-validator1.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
+- `persistent_peers = "90a5f4b2569b2729ae5a5c48c993c9e89f1e9b58@sandbox-validator.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
 - `create_empty_blocks = false` may save a bit of space
 - `laddr = "tcp://0.0.0.0:26656"` in your `p2p configuration options` 
 
@@ -227,7 +226,7 @@ Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentatio
 
 In the file `$HOME/.nymd/config/app.toml`, set the following values:
 
-1. `minimum-gas-prices = "0.025upunk"`
+1. `minimum-gas-prices = "0.025unymt"`
 1. `enable = true` in the `[api]` section to get the API server running
 
 ### Setting up your validator's admin user
@@ -251,8 +250,8 @@ Re-enter keyring passphrase:
 
 - name: nymd-admin
 type: local
-address: punk1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
-pubkey: punkpub1addwnpepqdfcf5786qry8g8ef9nad5vnl0rs5cmkcywzrwwvvdye27ktjmqw2ygr2hr
+address: nymt1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
+pubkey: nymtpub1addwnpepqdfcf5786qry8g8ef9nad5vnl0rs5cmkcywzrwwvvdye27ktjmqw2ygr2hr
 mnemonic: ""
 threshold: 0
 pubkeys: []
@@ -275,7 +274,7 @@ nymd keys show nymd-admin -a
 Type in your keychain **password**, not the mnemonic, when asked. The output should look something like this:
 
 ```
-punk1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
+nymt1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
 ```
 
 ### Starting your validator
@@ -292,7 +291,7 @@ If this check passes, you should receive the following output:
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
-> If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [testnet-milhon genesis file](https://nymtech.net/testnets/milhon/genesis.json).
+> If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the [Nym-Sandbox genesis file](https://nymtech.net/testnets/milhon/genesis.json).
 
 Before starting the validator, we will need to open the firewall ports:
 
@@ -320,16 +319,16 @@ nymd start
 Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set:
 
 ```
-PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. punkvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
+PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. nymtvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
 MONIKER="nym-secondary"                                                       # whatever you called your validator
 FROM_ACCOUNT="nymd-admin"                                                     # your keychain name
 
 nymd tx staking create-validator \
---amount=10000000upunk \
---fees=5000upunk \
+--amount=10000000unymt \
+--fees=5000unymt \
 --pubkey="${PUB_KEY}" \
 --moniker=${MONIKER} \
---chain-id=testnet-milhon \
+--chain-id=nym-sandbox \
 --commission-rate="0.10" \
 --commission-max-rate="0.20" \
 --commission-max-change-rate="0.01" \
@@ -337,17 +336,17 @@ nymd tx staking create-validator \
 --gas="auto" \
 --gas-adjustment=1.15 \
 --from=${FROM_ACCOUNT} \
---node https://testnet-milhon-validator1.nymtech.net:443
+--node https://sandbox-validator.nymtech.net:443
 ```
 
-You'll need `upunk ` coins for this.
+You'll need `unymt` coins for this.
 
 Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
 
 If you want to edit some details for your node you will use a command like this:
 
 ```
-nymd tx staking edit-validator   --chain-id=testnet-milhon   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000upunk
+nymd tx staking edit-validator   --chain-id=nym-sandbox   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000unymt
 ```
 
 With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact~
@@ -358,7 +357,7 @@ You will most likely want to automate your validator restarting if your server r
 
 ```ini
 [Unit]
-Description=Nymd (0.11.0)
+Description=Nymd (0.12.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -569,10 +568,10 @@ If your validator gets jailed, you can fix it with the following command:
 nymd tx slashing unjail \
   --broadcast-mode=block \
   --from=${FROM_ACCOUNT} \
-  --chain-id=testnet-milhon \
+  --chain-id=nym-sandbox \
   --gas=auto \
   --gas-adjustment=1.4 \
-  --fees=7000upunk
+  --fees=7000unymt
 ```
 
 #### Common reasons for your validator being jailed
@@ -590,19 +589,19 @@ As part of the execution of the validator, it will be able to get some rewards.
 With this command, we can query our outstanding rewards:
 
 ```
-nymd query distribution validator-outstanding-rewards <punkvaloperaddress>
+nymd query distribution validator-outstanding-rewards <nymtvaloperaddress>
 ```
 
 Using the values obtained from the previous command, you can withdraw all rewards with:
 
 ```
-nymd tx distribution withdraw-rewards <punkvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="testnet-milhon" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000upunk
+nymd tx distribution withdraw-rewards <nymtvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="nym-sandbox" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000unymt
 ```
 
 You can check your current balances with:
 
 ```
-nymd query bank balances punk<address>
+nymd query bank balances nymt<address>
 ```
 
 For example:
@@ -610,7 +609,7 @@ For example:
 ```yaml
 balances:
 - amount: "919376"
-denom: upunk
+denom: unymt
 pagination:
 next_key: null
 total: "0"
@@ -619,12 +618,12 @@ total: "0"
 You can, of course, stake back the available balance to your validator with the following command:
 
 ```
-nymd tx staking delegate <punkvaloperaddress> <amount>upunk --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "testnet-milhon" --gas="auto" --gas-adjustment=1.15 --fees 5000upunk
+nymd tx staking delegate <nymtvaloperaddress> <amount>unymt --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "nym-sandbox" --gas="auto" --gas-adjustment=1.15 --fees 5000unymt
 ```
 
-NOTE: The value to be used instead of the `<amount>upunk` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
+NOTE: The value to be used instead of the `<amount>unymt` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
 
-Also remember to replace `punkvaloper` with your validator address and `nym-admin` with the user you created during initialization.
+Also remember to replace `nymtvaloper` with your validator address and `nym-admin` with the user you created during initialization.
 
 ### Validator port reference
 

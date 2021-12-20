@@ -51,28 +51,35 @@
             "id": "version-stable/run-nym-nodes/build-nym"
           },
           {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/mixnodes"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/validators"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/requester"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/gateways"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/troubleshooting"
+            "type": "category",
+            "collapsed": true,
+            "collapsible": true,
+            "label": "Nodes",
+            "items": [
+              {
+                "type": "doc",
+                "id": "version-stable/run-nym-nodes/nodes/mixnodes"
+              },
+              {
+                "type": "doc",
+                "id": "version-stable/run-nym-nodes/nodes/troubleshooting"
+              },
+              {
+                "type": "doc",
+                "id": "version-stable/run-nym-nodes/nodes/validators"
+              },
+              {
+                "type": "doc",
+                "id": "version-stable/run-nym-nodes/nodes/requester"
+              },
+              {
+                "type": "doc",
+                "id": "version-stable/run-nym-nodes/nodes/gateways"
+              }
+            ]
           }
         ]
       },
-      "version-stable/network-rewards",
       {
         "type": "category",
         "collapsed": true,
@@ -93,23 +100,23 @@
         "type": "category",
         "collapsed": true,
         "collapsible": true,
-        "label": "Build Apps",
+        "label": "Develop with Nym",
         "items": [
           {
             "type": "doc",
-            "id": "version-stable/build-apps/build-apps"
+            "id": "version-stable/develop-with-nym/overview"
           },
           {
             "type": "doc",
-            "id": "version-stable/build-apps/choose-a-client"
+            "id": "version-stable/develop-with-nym/choose-a-client"
           },
           {
             "type": "doc",
-            "id": "version-stable/build-apps/websocket-client"
+            "id": "version-stable/develop-with-nym/websocket-client"
           },
           {
             "type": "doc",
-            "id": "version-stable/build-apps/demos"
+            "id": "version-stable/develop-with-nym/demos"
           }
         ]
       },
@@ -117,7 +124,7 @@
         "type": "category",
         "collapsed": true,
         "collapsible": true,
-        "label": "Use External Apps With Nym",
+        "label": "Use External Apps",
         "items": [
           {
             "type": "doc",

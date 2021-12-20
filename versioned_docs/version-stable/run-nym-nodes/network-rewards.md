@@ -2,6 +2,7 @@
 sidebar_label: "Network Rewards"
 hide_title: false
 ---
+
 # Network Rewards
 
 Node operator and delegator rewards are determined according to the principles laid out in the section 6 of [Nym Whitepaper](https://nymtech.net/nym-whitepaper.pdf). 

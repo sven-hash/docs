@@ -9,7 +9,7 @@ title: Gateways
 
 :::note
 
-The Nym gateway was built in the [building nym](/docs/0.11.0/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym gateway was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 
 :::
 
@@ -41,11 +41,12 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.11.0)
+             (gateway - version 0.12.0)
 
 
 
 usage: --help to see available options.
+
 ```
 
 To check available configuration options use:
@@ -53,31 +54,9 @@ To check available configuration options use:
 ```
  ./nym-gateway init --help
 ```
-
-In order to initalise your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
-
-```
---announce-host <announce-host>        The host that will be reported to the directory server
---clients-ledger <clients-ledger>      Ledger file containing registered clients
---clients-port <clients-port>          The port on which the gateway will be listening for clients gateway-
-                                               requests
---host <host>                          The custom host on which the gateway will be running for receiving sphinx
-                                               packets
---id <id>                              Id of the gateway we want to create config for.
---inboxes <inboxes>                    Directory with inboxes where all packets for the clients are stored
---mix-port <mix-port>                  The port on which the gateway will be listening for sphinx packets
---mixnet-contract <mixnet-contract>    Address of the validator contract managing the network
---validators <validators>              Comma separated list of rest endpoints of the validators
-```
-
-For example, the following command returns a gateway on your current IP with the `id` of `supergateway`:
+Which will return the following: 
 
 ```
- ./nym-gateway init --id supergateway --host $(curl ifconfig.me)
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    14  100    14    0     0    125      0 --:--:-- --:--:-- --:--:--   123
-
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -85,33 +64,59 @@ For example, the following command returns a gateway on your current IP with the
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.11.0)
+             (gateway - version 0.12.0)
 
     
-Initialising gateway supergateway...
-Saved identity and mixnet sphinx keypairs
-Saved configuration file to "/home/nym/.nym/gateways/supergateway/config/config.toml"
-Gateway configuration completed.
+nym-gateway-init 
+Initialise the gateway
 
+USAGE:
+    nym-gateway init [FLAGS] [OPTIONS] --eth_endpoint <eth_endpoint> --host <host> --id <id> --mnemonic <mnemonic> --wallet-address <wallet-address>
 
+FLAGS:
+    -h, --help            Prints help information
+        --testnet-mode    Set this gateway to work in a testnet mode that would allow clients to bypass bandwidth
+                          credential requirement
+    -V, --version         Prints version information
 
-Public identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
+OPTIONS:
+        --announce-host <announce-host>      The host that will be reported to the directory server
+        --clients-port <clients-port>        The port on which the gateway will be listening for clients gateway-
+                                             requests
+        --datastore <datastore>              Path to sqlite database containing all gateway persistent data
+        --eth_endpoint <eth_endpoint>        URL of an Ethereum full node that we want to use for getting bandwidth
+                                             tokens from ERC20 tokens
+        --host <host>                        The custom host on which the gateway will be running for receiving sphinx
+                                             packets
+        --id <id>                            Id of the gateway we want to create config for.
+        --mix-port <mix-port>                The port on which the gateway will be listening for sphinx packets
+        --mnemonic <mnemonic>                Cosmos wallet mnemonic
+        --validator-apis <validator-apis>    Comma separated list of endpoints of the validators APIs
+        --validators <validators>            Comma separated list of endpoints of the validator
+        --wallet-address <wallet-address>    The wallet address you will use to bond this gateway, e.g.
+                                             nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
-Public sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
-
-
-To bond your gateway you will [most likely] need to provide the following:
-    Identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
-    Sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
-    Host: 172.105.67.104
-    Mix Port: 1789
-    Clients Port: 9000
-    Location: [physical location of your node's server]
 ```
+
+The following command returns a gateway on your current IP with the `id` of `supergateway`:
+
+```
+ ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --testnet-mode --eth_endpoint <infura_endpoint> --mnemonic <account_mnemonic> --wallet-address <wallet_address>
+```
+
+The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+
+The `--testnet-mode` flag is used to initialise your gateway so that it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
+
+Finally, the `--end_endpoint` flag must point to an [Infura](https://infura.io/) endpoint, and the `--mnemonic` is the mneomic of your existing Sandbox Testnet address. 
+
+:::caution
+Even though the `--testnet-mode` flag removes the need to provide basic bandwidth credentials, you still have to provide the ethereum-related information for the moment.
+:::
 
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
 
-Remember to bond your node via the [Milhon Testnet web wallet](https://testnet-milhon-wallet.nymtech.net/)! This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
+Remember to bond your node via the Nym wallet, which can be downloaded [here](https://github.com/nymtech/nym/releases/tag/nym-wallet-v0.1.0). This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
 
 ### Running your gateway
 
@@ -133,7 +138,7 @@ Results in:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.11.0)
+             (gateway - version 0.12.0)
 
 
 Starting gateway supergateway...
@@ -141,7 +146,7 @@ Public sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
 
 Public identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
 
-Validator servers: ["http://testnet-milhon-validator1.nymtech.net:1317"]
+Validator servers: ["http://sandbox-validator.nymtech.net:1317"]
 Listening for incoming packets on 172.105.67.104
 Announcing the following address: 172.105.67.104
 Inboxes directory is: "/home/nym/.nym/gateways/supergateway/data/inboxes"
@@ -155,6 +160,37 @@ Clients ledger is stored at: "/home/nym/.nym/gateways/supergateway/data/client_l
  2021-07-20T15:08:36.850Z INFO  nym_gateway::node                                      > Starting client [web]socket listener...
  2021-07-20T15:08:36.850Z INFO  nym_gateway::node::client_handling::websocket::listener > Starting websocket listener at 172.105.67.104:9000
  2021-07-20T15:08:36.850Z INFO  nym_gateway::node                                       > Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
+
+```
+
+If you ever want to check the version details of your node, run:  
+
+```
+./nym-gateway --version 
+```
+
+This prints various bits of information about your node: 
+
+```
+
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (gateway - version 0.12.0)
+
+    
+Nym Mixnet Gateway 
+Build Timestamp:    2021-12-17T16:59:54.243831464+00:00
+Build Version:      0.12.0
+Commit SHA:         96aa814a6106d6d5bbc1245cdc21b5b554d47b5f
+Commit Date:        2021-12-17T14:30:04+00:00
+Commit Branch:      detached HEAD
+rustc Version:      1.56.1
+rustc Channel:      stable
+cargo Profile:      release
 
 ```
 
@@ -189,7 +225,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (0.11.0)
+Description=Nym Gateway (0.12.0)
 StartLimitInterval=350
 StartLimitBurst=10
 

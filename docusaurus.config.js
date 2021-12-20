@@ -123,11 +123,10 @@ module.exports = {
               banner: 'unreleased',
             },
             'stable': {
-              label: 'v0.11.0 (stable)',
+              label: 'v0.12.0 (stable)',
               path: 'stable',
               banner: 'none',
             },
-            // 'archive' <-- reminder to archive old versions when you cut a new one  
           },
         },
         theme: {

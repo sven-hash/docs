@@ -5,8 +5,6 @@ description: "There are multiple kinds of Nym client. Each is useful in differen
 title: "Choose a client "
 ---
 
- 
-
 In the previous section, we got a general overview of the application flow when you're building Nym-enabled apps. Now it's time to understand a bit about how to structure your app by choosing a Nym client.
 
 ### Understanding Nym clients
@@ -25,10 +23,11 @@ In the next few sections we will discuss how to integrate Nym clients into your 
 
 ### Types of Nym clients
 
-At present, there are two Nym clients:
+At present, there are three Nym clients:
 
 - the native client
 - the SOCKS5 client
+- the wasm (webassembly) client
 
 You need to choose which one you want incorporate into your app. Which one you use will depend largely on your preferred programming style and the purpose of your app.
 
@@ -36,9 +35,9 @@ You need to choose which one you want incorporate into your app. Which one you u
 
 Your first option is the websocket client (`nym-client`). This is a compiled program that can run on Linux, Mac OS X, and Windows machines. It runs as a persistent process on a desktop or server machine. You can connect to it from any language that supports websockets.
 
-<!-- #### The webassembly client
+#### The webassembly client
 
-If you're working in JavaScript, or building an [edge computing](https://en.wikipedia.org/wiki/Edge_computing) app, you'll likely want to choose the webassembly client. We expect that many client apps will be built using the webassembly client. It's packaged and [available on the npm registry](https://www.npmjs.com/package/@nymproject/nym-client-wasm), so you can `npm install` it into your JavaScript or TypeScript application. -->
+If you're working in JavaScript, or building an [edge computing](https://en.wikipedia.org/wiki/Edge_computing) app, you'll likely want to choose the webassembly client. We expect that many client apps will be built using the webassembly client. It's packaged and [available on the npm registry](https://www.npmjs.com/package/@nymproject/nym-client-wasm), so you can `npm install` it into your JavaScript or TypeScript application.
 
 #### The SOCKS5 client
 

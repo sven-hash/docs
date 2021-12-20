@@ -11,8 +11,6 @@ You can download it for Mac, Windows, or Linux.
 
 [![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v0.1.0)
 
-The wallet is currently an early release version. If you find any bugs, please [report them to our QA team](https://github.com/nymtech/nym/issues/new?assignees=tommyv1987&labels=bug%2C+bug-needs-triage%2C+qa&template=report.md&title=%5BIssue%5D).
-
 On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes.
 
 On Mac: 
@@ -27,6 +25,7 @@ On Windows:
 On Linux: 
 
 * `sha256sum nym-wallet_linux_0.1.0_amd64.AppImage` should return `e4a850094d14789c77d17aba815ca4f06b95a3cb509c2dceb92cf5bc16c959cf`
+* `sha256sum nym-wallet_manjaro_0.1.0` should return `355d319f333f29a25556fd2817863ef44c27fe9c5f8252675d8f4c98b9b4cd7c`
 
 
 You will need to `chmod +x nym-wallet_linux_0.1.0_amd64.AppImage` in the terminal (or give it execute permission in your file browser) before it will run. 
@@ -91,6 +90,10 @@ yarn install
 
 ### Running in Development Mode
 
+:::note
+Make sure you copy over the contents of the provided `.env.sample` to a new `.env` file before proceeding
+:::
+
 You can run the wallet without having to install it in development mode by running the following terminal command from the `nym-wallet` folder
 
 ```
@@ -100,6 +103,10 @@ yarn dev
 This will then start the Wallet GUI and produce a binary in `nym-wallet/target/debug/` named `nym-wallet`. 
 
 ### Running in Production Mode
+
+:::note
+Make sure you copy over the contents of the provided `.env.sample` to a new `.env` file before proceeding
+:::
 
 To build and install the wallet, run the following terminal command from the `nym-wallet` folder
 
@@ -136,3 +143,4 @@ Binary output directory structure
 └───target/release/bundle/msi
 │   │─  nym-wallet_*_.msi
 ```
+
