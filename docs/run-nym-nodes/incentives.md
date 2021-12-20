@@ -16,7 +16,7 @@ Testnet rewards may not reflect how the incentives structure will work on mainne
 :::
 
 ### Joining the Sandbox Testnet as a participant of Milhon 
-Existing members of the Milhon testnet will be automatically moved over to Sandbox when it launches, as will the balances of their wallets and nodes. These balances will be based on a snapshot taken in January 2022, which will be published online.  
+Existing members of the Milhon testnet will be automatically moved over to Sandbox when it launches, as will the balances of their wallets and nodes. These balances are based on a snapshot taken at 15:00 UDT 20th December 2021.  
 
 ### Joining the Sandbox Testnet as a new participant 
 There will be a faucet available soon which can be used to request `NYMT` for using in the testnet. There will be updates on this soon - watch this space! 
