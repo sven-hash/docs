@@ -54,10 +54,32 @@ To check available configuration options use:
 ```
  ./nym-gateway init --help
 ```
-
-In order to initalise your gateway the `id` and `host` parameters are required, although feel free to experiment with adding any of the other flags output from the `--help` command above:
+Which will return the following: 
 
 ```
+
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (gateway - version 0.12.0)
+
+    
+nym-gateway-init 
+Initialise the gateway
+
+USAGE:
+    nym-gateway init [FLAGS] [OPTIONS] --eth_endpoint <eth_endpoint> --host <host> --id <id> --mnemonic <mnemonic> --wallet-address <wallet-address>
+
+FLAGS:
+    -h, --help            Prints help information
+        --testnet-mode    Set this gateway to work in a testnet mode that would allow clients to bypass bandwidth
+                          credential requirement
+    -V, --version         Prints version information
+
+OPTIONS:
         --announce-host <announce-host>      The host that will be reported to the directory server
         --clients-port <clients-port>        The port on which the gateway will be listening for clients gateway-
                                              requests
@@ -71,62 +93,22 @@ In order to initalise your gateway the `id` and `host` parameters are required, 
         --mnemonic <mnemonic>                Cosmos wallet mnemonic
         --validator-apis <validator-apis>    Comma separated list of endpoints of the validators APIs
         --validators <validators>            Comma separated list of endpoints of the validator
+        --wallet-address <wallet-address>    The wallet address you will use to bond this gateway, e.g.
+                                             nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
 ```
 
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```
- ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --testnet-mode --eth_endpoint <INFURA_ADDRESS> --eth_private_key <ETHEREUM_PRIVATE_KEY>
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    14  100    14    0     0    125      0 --:--:-- --:--:-- --:--:--   123
-
-
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (gateway - version 0.12.0)
-
-    
-Initialising gateway supergateway...
-Saved identity and mixnet sphinx keypairs
-Saved configuration file to "/home/nym/.nym/gateways/supergateway/config/config.toml"
-Gateway configuration completed.
-
-
-
-Public identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
-
-Public sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
-
-
-To bond your gateway you will [most likely] need to provide the following:
-    Identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
-    Sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
-    Host: 172.105.67.104
-    Mix Port: 1789
-    Clients Port: 9000
-    Location: [physical location of your node's server]
-
+ ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --testnet-mode --eth_endpoint <infura_endpoint> --mnemonic <account_mnemonic> --wallet-address <wallet_address>
 ```
 
-The `$(curl ifconfig.me)` command above returns your IP automatically using an external service.
-
-If necessary, you can install `curl` with:
-
-```
-sudo apt-get install curl
-```
-
-Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
 The `--testnet-mode` flag is used to initialise your gateway so that it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
 
-Finally, the `--end_endpoint` flag must point to an [Infura](https://infura.io/) endpoint, and the `--eth_private_key` to the private key of an ethereum account. This information will be necessary to provide in the future. 
+Finally, the `--end_endpoint` flag must point to an [Infura](https://infura.io/) endpoint, and the `--mnemonic` is the mneomic of your existing Sandbox Testnet address. 
 
 :::caution
 Even though the `--testnet-mode` flag removes the need to provide basic bandwidth credentials, you still have to provide the ethereum-related information for the moment.

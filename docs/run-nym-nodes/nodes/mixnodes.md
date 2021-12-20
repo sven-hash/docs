@@ -14,12 +14,12 @@ After your build is finished, the `nym-mixnode` binary will be located in `/path
 Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
 :::caution
-Please note that unless you ran a mixnode in the Milhon testnet, **you will not be able to get NYMT tokens and bond your mixnode for the Sandbox testnet at this time**.
+Please note that unless you ran a mixnode in the Milhon testnet, **you will not be able to get `NYMT` tokens and bond your mixnode for the Sandbox testnet at this time**.
 
 In the future we will set up a token faucet - watch out for updates on this. 
 
 For those not able to immediately get involved, please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301).
-If you **do** delegate your NYMT to others and shut down your node, remember to **save the keys located in `$HOME/.nym` in case you want to run a node in the future**
+If you **do** delegate your `NYMT` to others and shut down your node, remember to **save the keys located in `$HOME/.nym` in case you want to run a node in the future**
 :::
 
 If you have already been running a node on the Milhon testnet, you must do a clean install of the v0.12.0 `nym-mixnode` binary, and copy over the keys located in `$HOME/.nym/mixnodes/<MIXNODE_ID>/data`. 
@@ -28,29 +28,105 @@ You can either build the repository from source, or grab the new binaries from o
 
 
 ### Initialising your mixnode
-Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode. 
+You can check that your binaries are properly compiled with:
 
 ```
-./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me)
+./nym-mixnode --help
 ```
 
-To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service.
-
-If necessary, you can install `curl` with:
+Which should return a list of all avaliable commands:
 
 ```
-sudo apt-get install curl
+
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 0.12.0)
+
+    
+Nym Mixnode 0.12.0
+Nymtech
+Implementation of a Loopix-based Mixnode
+
+USAGE:
+    nym-mixnode [SUBCOMMAND]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+SUBCOMMANDS:
+    describe        Describe your mixnode and tell people why they should delegate stake to you
+    help            Prints this message or the help of the given subcommand(s)
+    init            Initialise the mixnode
+    node-details    Show details of this mixnode
+    run             Starts the mixnode
+    sign            Sign text to prove ownership of this mixnode
+    upgrade         Try to upgrade the mixnode
+
 ```
 
-Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+To check available configuration options use:
+
+```
+./nym-mixnode init --help
+```
+
+Which will return: 
+
+```
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 0.12.0)
+
+
+nym-mixnode-init
+Initialise the mixnode
+
+USAGE:
+    nym-mixnode init [OPTIONS] --host <host> --id <id> --wallet-address <wallet-address>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+OPTIONS:
+        --announce-host <announce-host>      The custom host that will be reported to the directory server
+        --host <host>                        The host on which the mixnode will be running
+        --http-api-port <http-api-port>      The port on which the mixnode will be listening for http requests
+        --id <id>                            Id of the nym-mixnode we want to create config for.
+        --mix-port <mix-port>                The port on which the mixnode will be listening for mix packets
+        --validators <validators>            Comma separated list of rest endpoints of the validators
+        --verloc-port <verloc-port>          The port on which the mixnode will be listening for verloc packets
+        --wallet-address <wallet-address>    The wallet address you will use to bond this mixnode, e.g.
+                                             nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+
+```
+
+Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode, and the `--wallet-address` with the address you used on the Milhon Testnet **which has been auto-generated and migrated to the Sandbox testnet**. 
+
+```
+./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --wallet-address <wallet-address>
+```
+
+:::caution
+Please make sure you have access to the `--wallet-address` account, and download the Desktop Wallet [here](https://nymtech.net/get-involved) if you have not already done so, in order to be able to interact with your node!
+:::
+
+To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
 :::caution
 Please note that the `init` command will refuse to destroy existing mixnode keys.
 :::
 
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
-
-Now bond your mixnode using the Nym Wallet, before running your node. 
 
 ### Running your mixnode
 
@@ -63,30 +139,36 @@ Run your mixnode with:
 Which should return a nice clean startup:
 
 ```
-       _ __  _   _ _ __ ___
-      | '_ \| | | | '_ \ _ \
-      | | | | |_| | | | | | |
-      |_| |_|\__, |_| |_| |_|
-             |___/
-              (mixnode - version 0.12.0)
-     
- Starting mixnode qamix0110...
- Validator servers: [Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("sandbox-validator.nymtech.net")), port: None, pa>
- Listening for incoming packets on 139.162.229.175
- Announcing the following address: 139.162.229.175
 
-     Identity key: HffiK89wpp2quX946RvwQrHhPsSTSP6pALvKGFAjNpEY
-     Sphinx key: HmhNuZ7ZPKfmU5E2LNqhuvgWvoNNiAJzrcj9n9T4wdtW
-     Address: 139.162.229.175
-     Version: 0.12.0
-    
- 2021-07-21T13:31:34.672Z INFO  nym_mixnode::node > Starting nym mixnode
- 2021-07-21T13:31:35.083Z INFO  nym_mixnode::node > Starting node stats controller...
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node > Starting socket listener...
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node::listener > Running mix listener on "89.144.210.254:1789"
- 2021-07-21T13:31:35.084Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
+             (mixnode - version 0.12.0)
+
+
+Starting mixnode winston-smithnode...
+
+
+To bond your mixnode you will need to install the Nym wallet, go to https://nymtech.net/get-involved and select the Download button.
+Select the correct version and install it to your machine. You will need to provide the following:
+
+Identity Key: 733KdRDp9jyiTKvK6U1AGbSg8uEb7TUN8HtTEvNACTKq
+Sphinx Key: BVQxKYbGmnnESLUkzmpLVNxQkqoeuCYro7EL5sfqUkxN
+Owner Signature: 4eY6PEUEPMWZSBc5dSksrWWQrtCcejgPptNnNbM7MWaFKru7LzSNib8FtZdqcUGRvsySu44znPZx6QmU1snd1Zov
+Host: 1.2.3.4 (bind address: 127.0.0.1)
+Version: 0.12.0
+Mix Port: 1789, Verloc port: 0.12.0, Http Port: 8000
+
+You are bonding to wallet address: nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+
+
+ 2021-12-20T09:53:38.646Z INFO  nym_mixnode::node > Starting nym mixnode
+ 2021-12-20T09:53:38.856Z INFO  nym_mixnode::node > Starting node stats controller...
+ 2021-12-20T09:53:38.857Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
+ 2021-12-20T09:53:38.857Z INFO  nym_mixnode::node > Starting socket listener...
 ```
 
 If everything worked, you'll see your node running on the [Sandbox network explorer](https://sandbox-explorer.nymtech.net).
@@ -96,31 +178,6 @@ Note that your node's public identity key is displayed during startup, you can u
 Keep reading to find out more about configuration options or troubleshooting if you're having issues. There are also some tips for running on AWS and other cloud providers, some of which require minor additional setup.
 
 Also have a look at the saved configuration files in `$HOME/.nym/mixnodes/` to see more configuration options.
-
-### Configure your firewall
-
-The following commands will allow you to set up a firewall using `ufw`.
-
-```
-# check if you have ufw installed
-ufw version
-# if it is not installed, install with
-sudo apt install ufw -y
-# enable ufw
-sudo ufw enable
-# check the status of the firewall
-sudo ufw status
-```
-
-Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
-
-```
-sudo ufw allow 1789,1790,8000,22,80,443/tcp
-# check the status of the firewall
-sudo ufw status
-```
-
-For more information about your mixnode's port configuration, check the [mixnode port reference table](#mixnode-port-reference) below.
 
 ### Describe your mixnode (optional)
 
@@ -149,6 +206,58 @@ link, e.g. https://mixnode.yourdomain.com: mixnode.mydomain.net
 ```
 
 This information will be shown in the mixnode's page in the Network Explorer, and help people make delegated staking decisions.
+
+### Displaying mixnode information 
+
+You can always check the details of your mixnode with the `node-details` command: 
+
+```
+./nym-mixnode node-details --id winston-smithnode
+
+
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 0.12.0)
+
+
+Identity Key: 733KdRDp9jyiTKvK6U1AGbSg8uEb7TUN8HtTEvNACTKq
+Sphinx Key: BVQxKYbGmnnESLUkzmpLVNxQkqoeuCYro7EL5sfqUkxN
+Owner Signature: 4eY6PEUEPMWZSBc5dSksrWWQrtCcejgPptNnNbM7MWaFKru7LzSNib8FtZdqcUGRvsySu44znPZx6QmU1snd1Zov
+Host: 1.2.3.4 (bind address: 127.0.0.1)
+Version: 0.12.0
+Mix Port: 1789, Verloc port: 0.12.0, Http Port: 8000
+
+You are bonding to wallet address: nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+```
+
+### Configure your firewall
+
+The following commands will allow you to set up a firewall using `ufw`.
+
+```
+# check if you have ufw installed
+ufw version
+# if it is not installed, install with
+sudo apt install ufw -y
+# enable ufw
+sudo ufw enable
+# check the status of the firewall
+sudo ufw status
+```
+
+Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
+
+```
+sudo ufw allow 1789,1790,8000,22,80,443/tcp
+# check the status of the firewall
+sudo ufw status
+```
+
+For more information about your mixnode's port configuration, check the [mixnode port reference table](#mixnode-port-reference) below.
 
 ### Automating your mixnode with systemd
 
