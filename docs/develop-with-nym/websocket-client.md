@@ -34,7 +34,7 @@ usage: --help to see available options.
 
 There are two commands you can issue to the client.
 
-1. `init` - initalise a new client instance. Requires `--id clientname` parameter.
+1. `init` - initalise a new client instance. Requires `--id clientname` parameter and `--testnet-mode` flag for use on the Nym Sandbox Testnet.
 2. `run` - run a mixnet client process. Requires `--id clientname` as a parameter
 
 ### Initialising a new client instance
@@ -44,7 +44,7 @@ Before you can use the client, you need to initalise a new instance of it. Each 
 Initialising a new client instance can be done with the following command:
 
 ```
-./nym-client init --id alice
+./nym-client init --id alice --testnet-mode
 ```
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
