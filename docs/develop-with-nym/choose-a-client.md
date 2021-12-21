@@ -25,7 +25,7 @@ In the next few sections we will discuss how to integrate Nym clients into your 
 
 At present, there are three Nym clients:
 
-- the native client
+- the native (websocket) client
 - the SOCKS5 client
 - the wasm (webassembly) client
 
@@ -33,7 +33,7 @@ You need to choose which one you want incorporate into your app. Which one you u
 
 #### The websocket client
 
-Your first option is the websocket client (`nym-client`). This is a compiled program that can run on Linux, Mac OS X, and Windows machines. It runs as a persistent process on a desktop or server machine. You can connect to it from any language that supports websockets.
+Your first option is the native websocket client (`nym-client`). This is a compiled program that can run on Linux, Mac OS X, and Windows machines. It runs as a persistent process on a desktop or server machine. You can connect to it from any language that supports websockets.
 
 #### The webassembly client
 
