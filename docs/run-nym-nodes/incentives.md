@@ -9,10 +9,10 @@ We will get into building the Nym codebase and running nodes in the next section
 
 The Nym network has some of the same overall goals as [Tor](https://tor-project.org). But we want to enable Nym to scale in response to increased demand (and shrink when demand drops, so as not to waste resources). To do this in a decentralized way, nodes are included in the network based on cryptocurrency bonding, and a system of delegated staking.
 
-We are now testing out the incentives structure for running Nym nodes in our permanent testnet, Nym-Sandbox. For the Sandbox testnet, Nym testnet wallet holders who run nodes or delegate stake to nodes will receive (valueless) testnet tokens, `NYMT`, which runs on our Cosmos-based blockchain validators.
+Sandbox is not incentivized but it includes `NYMT` test-tokens designed to mimic the tokenomics of the Nym mainnet. `NYMT`s have no real world utility but node operators or delegators will receive `NYMT`s to see how the economics, reward sharing and other mechanisms of the Nym mainnet works.
 
 :::caution
-Testnet rewards may not reflect how the incentives structure will work on mainnet!
+Testnet rewards may not exactly reflect how the incentives structure work on mainnet but they will be very close to it!
 :::
 
 ### Joining the Sandbox Testnet as a participant of Milhon 
