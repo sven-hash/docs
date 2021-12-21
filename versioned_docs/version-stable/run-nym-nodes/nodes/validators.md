@@ -202,7 +202,7 @@ wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/ge
 Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in `$HOME/.nymd/config/config.toml` to match the information below:
 
 - `cors_allowed_origins = ["*"]` allows the web wallet to make HTTPS requests to your validator.
-- `persistent_peers = "90a5f4b2569b2729ae5a5c48c993c9e89f1e9b58@sandbox-validator.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
+- `persistent_peers = "d24ee58d85a65d34ad5adfc3302c3614b36e8b14@sandbox-validator.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
 - `create_empty_blocks = false` may save a bit of space
 - `laddr = "tcp://0.0.0.0:26656"` in your `p2p configuration options` 
 
