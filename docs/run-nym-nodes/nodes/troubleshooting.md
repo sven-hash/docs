@@ -5,6 +5,25 @@ hide_title: false
 title: Mixnodes FAQ
 ---
 
+### I am trying to build from the GitHub archive files and the build fails
+
+GitHub automatically includes .zip and tar.gz files of the Nym repository in its release. You cannot extract these and build - you'll see something like this:
+
+```
+  process didn't exit successfully: `/build/nym/src/nym-0.12.0/target/release/build/nym-socks5-client-c1d0f76a8c7d7e9a/build-script-build` (exit status: 101)
+  --- stderr
+  thread 'main' panicked at 'failed to extract build metadata: could not find repository from '/build/nym/src/nym-0.12.0/clients/socks5'; class=Repository (6); code=NotFound (-3)', clients/socks5/build.rs:7:31
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+warning: build failed, waiting for other jobs to finish...
+error: build failed
+```
+
+Why does this happen? 
+
+We have scripts which automatically include the Git commit hash and Git tag in the binary for easier debugging later. If you download a .zip and try building from that, it's not a Git repository and build will fail as above.
+
+
+
 ### How can I tell my node is up and running and mixing traffic?
 
 First of all check the 'Mixnodes' section of the testnet [dashboard](https://sandbox-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
