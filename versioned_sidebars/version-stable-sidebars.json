@@ -115,8 +115,12 @@
             "id": "version-stable/develop-with-nym/websocket-client"
           },
           {
-            "type": "doc",
-            "id": "version-stable/develop-with-nym/demos"
+            "type": "doc", 
+            "id": "version-stable/develop-with-nym/socks5-client"
+          },
+          {
+            "type": "doc", 
+            "id": "version-stable/develop-with-nym/wasm-client"
           }
         ]
       },

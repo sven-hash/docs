@@ -53,8 +53,9 @@ module.exports = {
         "develop-with-nym/overview",
         "develop-with-nym/choose-a-client",
         "develop-with-nym/websocket-client",
+        "develop-with-nym/socks5-client",
         "develop-with-nym/wasm-client", 
-        "develop-with-nym/demos"
+        // "develop-with-nym/demos"
       ],
     },
     {
