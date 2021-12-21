@@ -7,13 +7,7 @@ title: Using Apps with Nym
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
- 
 
-:::note
-
-The Nym SOCKS5 Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-
-:::
 
 
 Nym is a general purpose system. We aim to provide the strongest possible protections for internet traffic and transactions.
@@ -33,6 +27,10 @@ Many existing applications are able to use the SOCKS5 proxy protocol. They can u
 
 The Nym network already runs the mixnet, and the `nym-network-requester` and `nym-client` components. In order to use existing applications with Nym, you only need to set up the `nym-socks5-client`.
 
+:::note
+If you have not yet set up a local socks5 client, follow the instructions [here](/docs/next/develop-with-nym/socks5-client) before continuing. 
+:::
+
 Note that the nym-network-requester we're running works only for specific applications. We are not running an open proxy, we have an allowed list of applications that can use the mixnet (currently Blockstream Green, Electrum, and KeyBase). We can add other applications upon request, just come talk to us in our dev chat. Or, you can [set up your own](/docs/next/run-nym-nodes/nodes/requester) `nym-network-requester`, it's not very hard to do if you have access to a server.
 
 The Nym SOCKS5 proxy, though, does something quite interesting and different. Rather than simply copy data between TCP streams and making requests directly from the machine it's running on, it does the following:
@@ -43,27 +41,3 @@ The Nym SOCKS5 proxy, though, does something quite interesting and different. Ra
 * nym-network-requester reassembles the original TCP stream using the sequence numbers, and makes the intended request.
 * nym-network-requester then does the whole process in reverse, chopping up the response into Sphinx packets and sending it back through the mixnet to the crypto wallet.
 * The crypto wallet receives its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy.
-
-## Running the nym-socks5-client
-
-:::caution
-**Obligatory disclaimer time:** The Nym mixnet is still under construction and has not undergone a security audit. Do not rely on it for strong privacy (yet).
-:::
-
-After building the Nym platform code, initalise the client:
-
-```
-nym-socks5-client init --id my-socks5-client --provider AFB7kzofcDSJ1feEJsfHE5uxq4wJecLz8MkWVywAzMCu.DZex1uSmS5iLxbc1zR96T1dDs9Wmi8ko7qjX4ACCTYQR@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-```
-
-The `--provider` field needs to be filled with the Nym address of a `nym-network-requester` that can make network requests on your behalf. The address in the above example is one that we are currently running for the Milhon Testnet, but you can also [run your own](/docs/next/run-nym-nodes/nodes/requester/) if you want.
-
-Then run the socks5 client locally:
-
-```
-nym-socks5-client run --id my-socks5-client
-```
-
-This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`.
-
-In the next few sections, we will show you how to run it with some existing applications. Later, we will discuss how you can use any application that can use SOCKS5 with Nym.
