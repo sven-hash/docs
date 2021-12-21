@@ -5,9 +5,6 @@ description: "How to integrate the Nym webassembly client into your own applicat
 title: "Webassembly client"
 ---
 
-:::caution
-Please note that this example information may be out of date. 
-:::
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 
@@ -24,6 +21,11 @@ The webassembly client lets you deliver web apps that build and send Sphinx pack
 ### Building apps with nym-client-wasm
 
 There are two example applications located in the directory `clients/webassembly` in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. The `react-example` is a nicer-looking chat app done in React and Typescript.
+
+
+:::caution
+Please note that this example code is temporarily out of date: it will be updated soon! 
+:::
 
 #### Initialising a new Nym identity
 
