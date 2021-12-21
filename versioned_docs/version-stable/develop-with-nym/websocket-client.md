@@ -8,12 +8,16 @@ title: Websocket client
  
 
 :::note
-The Nym Websocket Client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
-From inside the `nym` directory, the `nym-client` binary got built to the `./target/release/` directory. You can run it like this (or add it to your `$PATH`):
+You can check that your binaries are properly compiled with:
 
-`./nym-client`
+```
+./nym-client --help
+```
+
+Which should return a list of all avaliable commands:
 
 ```
 
@@ -23,19 +27,38 @@ From inside the `nym` directory, the `nym-client` binary got built to the `./tar
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 0.12.0 )
+             (client - version 0.12.0)
 
+    
+Nym Client 0.12.0
+Nymtech
+Implementation of the Nym Client
 
+USAGE:
+    nym-client [SUBCOMMAND]
 
-usage: --help to see available options.
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
 
+SUBCOMMANDS:
+    help       Prints this message or the help of the given subcommand(s)
+    init       Initialise a Nym client. Do this first!
+    run        Run the Nym client with provided configuration client optionally overriding set parameters
+    upgrade    Try to upgrade the client
 
 ```
 
-There are two commands you can issue to the client.
+The two most important commands you will issue to the client are: 
 
-1. `init` - initalise a new client instance. Requires `--id clientname` parameter and `--testnet-mode` flag for use on the Nym Sandbox Testnet.
-2. `run` - run a mixnet client process. Requires `--id clientname` as a parameter
+1. `init` - initalise a new client instance. 
+2. `run` - run a mixnet client process. 
+
+You can check the necessary parameters for the available commands by running:
+
+```
+./nym-client <command> --help 
+```
 
 ### Initialising a new client instance
 
@@ -44,14 +67,23 @@ Before you can use the client, you need to initalise a new instance of it. Each 
 Initialising a new client instance can be done with the following command:
 
 ```
-./nym-client init --id alice --testnet-mode
+./nym-client init --id <client_id> --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --testnet-mode
 ```
+
+The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
+
+The `--testnet-mode` flag is used to initialise your gateway so that it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials will be shared soon. 
+
+The `--end_endpoint` flag must point to either an Ethereum Full Node or an [Infura](https://infura.io/) endpoint, and the `--eth_private_key` is the private key of an Ethereum address. 
+
+:::caution
+Even though the `--testnet-mode` flag removes the need to provide basic bandwidth credentials, you still have to provide the ethereum-related information for the moment.
+::: 
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
 ```
- tree ~/.nym/clients/alice/
-/home/dave/.nym/clients/alice/
+/home/<user>/.nym/clients/<client_id>/
 ├── config
 │   └── config.toml
 └── data
@@ -61,14 +93,14 @@ When you initalise a client instance, a configuration directory will be generate
 
 The file `config.toml` contains client configuration options, while the two `pem` files contain client key information.
 
-The generated files contain the client name, public/private keypairs, and gateway address. The name `alice` in the example above is just a local identifier so that you can name your clients; it is never transmitted over the network.
+The generated files contain the client name, public/private keypairs, and gateway address. 
 
 ### Running the native client
 
-You can run the `alice` client by doing this:
+You can run the initalised client by doing this:
 
 ```
-./nym-client run --id alice
+./nym-client run --id <client_id>
 ```
 
 When you run the client, it immediately starts generating (fake) cover traffic and sending it to the Nym testnet.
@@ -83,7 +115,7 @@ Once the client has obtained the network topology, it automatically sends a regi
 
 The Nym native client exposes a websocket interface that your code connects to. To program your app, choose a websocket library for whatever language you're using. The default websocket port is `1977`, you can override that in the client config if you want.
 
-### A simple example peap
+<!-- ### A simple example peap
 
 Let's write some code. Sometimes when you're learning something new it's easiest to see a short working example. Here's a simple app written in Python. This example is packaged with the Nym platform, dig around in the `python-examples` directory inside `clients/native`
 
@@ -133,7 +165,7 @@ The Python code does the following.
 4. waits for confirmation that the message hit the native client
 5. waits to receive messages from other Nym apps
 
-By varying the message content, you can easily build sophisticated Service Provider apps. For example, instead of `print("received {} from the mix network!".format(received_message))` your Service Provider might take some action on behalf of the user - perhaps initiating a network request, a blockchain transaction, or writing to a local data store.
+By varying the message content, you can easily build sophisticated Service Provider apps. For example, instead of `print("received {} from the mix network!".format(received_message))` your Service Provider might take some action on behalf of the user - perhaps initiating a network request, a blockchain transaction, or writing to a local data store. -->
 
 ### Message Types
 
