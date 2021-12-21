@@ -22,7 +22,7 @@ For those not able to immediately get involved, please look into [delegated stak
 If you **do** delegate your `NYMT` to others and shut down your node, remember to **save the keys located in `$HOME/.nym` in case you want to run a node in the future**
 :::
 
-If you have already been running a node on the Milhon testnet, you must do a clean install of the v0.12.0 `nym-mixnode` binary, and copy over the keys located in `$HOME/.nym/mixnodes/<MIXNODE_ID>/data`. 
+Even you have already been running a node on the Milhon testnet, **you must do a clean install of the v0.12.0 `nym-mixnode` binary**. 
 
 You can either build the repository from source, or grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases). 
 

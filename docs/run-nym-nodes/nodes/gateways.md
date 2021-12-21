@@ -116,7 +116,7 @@ Even though the `--testnet-mode` flag removes the need to provide basic bandwidt
 
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
 
-Remember to bond your node via the Nym wallet, which can be downloaded [here](https://github.com/nymtech/nym/releases/tag/nym-wallet-v0.1.0). This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
+Remember to bond your node via the Nym wallet, which can be downloaded [here](https://github.com/nymtech/nym/releases/). This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
 
 ### Running your gateway
 

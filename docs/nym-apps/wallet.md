@@ -5,30 +5,118 @@ hide_title: false
 title: Nym Wallet
 ---
 
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+
 The Nym Desktop Wallet lets you interact with your Nym node and to delegate stake to others. In future releases, it will also let you access the Nym mixnet.
 
 You can download it for Mac, Windows, or Linux.
 
-[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v0.1.0)
+[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/v0.12.0)
 
-On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes.
+### Bypassing security warnings
 
-On Mac: 
+On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. See the section below for details on steps to bypass these. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes:
 
-* `shasum -a 256 nym-wallet_macos_0.1.0_aarch64.dmg` should return `74ff83d122d7cf3525e08e8f0d3d2c15c9e76878ae3f4073180111ef2a231990`
-* `shasum -a 256 nym-wallet_macos_0.1.0_x64.dmg` should return `54f1076e0dfc936c832e2b2c356afb6b789bc2ef4ba68a2cea183144f5677820`
+* On MacOS 
+`shasum nym-wallet_0.12.0_macos_x64.dmg` should return `639cc6695106e25d7c4cb65b7ebbca1ffbd4c656`  
 
-On Windows:
+* On Ubuntu20 
+`shasum nym-wallet_0.12.0_ubuntu_20.04_amd64.AppImage` should return `8f641d54e8143faa9b0c195f21211e412b3221f2`  
 
-* `sha256.exe nym-wallet_windows_0.1.0_x64.msi` should return `2a70b923123ddea4ae875a7710d8830b65380625ef1bcf989d3c53ad56ad6b46`
-
-On Linux: 
-
-* `sha256sum nym-wallet_linux_0.1.0_amd64.AppImage` should return `e4a850094d14789c77d17aba815ca4f06b95a3cb509c2dceb92cf5bc16c959cf`
-* `sha256sum nym-wallet_manjaro_0.1.0` should return `355d319f333f29a25556fd2817863ef44c27fe9c5f8252675d8f4c98b9b4cd7c`
+* On Windows
+`shasum nym-wallet_windows_0.1.0_x64.msi` should return `cd6cd1988fef0b20b81bda9ea0067ac81e56dca8`    
 
 
-You will need to `chmod +x nym-wallet_linux_0.1.0_amd64.AppImage` in the terminal (or give it execute permission in your file browser) before it will run. 
+#### Linux 
+
+You will need to `chmod +x` the AppImage in the terminal (or give it execute permission in your file browser) before it will run. 
+
+#### MacOS 
+
+* Drag the application to your 'Applications' folder.
+
+* If you double click the application you will see the following warning: 
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning1.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning1.png'),
+  }}
+/>
+
+Press cancel and ignore this. 
+
+* Go to your system preferences -> security and privacy -> general, and unlock the application. 
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning2.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning2.png'),
+  }}
+/>
+
+* Right-click on the application, press 'open', and then 'open anyway'. 
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning3.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning3.png'),
+  }}
+/>
+
+#### Windows 
+
+* Select more-info after clicking the msi installer app: 
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning1.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning1.png'),
+  }}
+/>
+
+* Proceed to 'run-anyway':
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning2.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning2.png'),
+  }}
+/>
+
+* Follow the installer instructions: 
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning3.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning3.png'),
+  }}
+/>
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning4.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning4.png'),
+  }}
+/>
+
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning5.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning5.png'),
+  }}
+/>
 
 
 ### For developers
