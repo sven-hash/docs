@@ -74,7 +74,7 @@ The `--id` in the example above is a local identifier so that you can name your 
 
 The `--testnet-mode` flag is used to initialise your gateway so that it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials will be shared soon. 
 
-The `--end_endpoint` flag must point to either an Ethereum Full Node or an [Infura](https://infura.io/) endpoint, and the `--eth_private_key` is the private key of an Ethereum address. 
+The `--eth_endpoint` flag must point to either an Ethereum Full Node or an [Infura](https://infura.io/) endpoint, and the `--eth_private_key` is the private key of an Ethereum address. 
 
 :::caution
 Even though the `--testnet-mode` flag removes the need to provide basic bandwidth credentials, you still have to provide the ethereum-related information for the moment.
