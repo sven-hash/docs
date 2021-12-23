@@ -41,7 +41,7 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.0)
+             (gateway - version 0.12.1)
 
 
 
@@ -64,31 +64,14 @@ Which will return the following:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.0)
+             (gateway - version 0.12.1)
 
     
 nym-gateway-init 
 Initialise the gateway
 
 USAGE:
-    nym-gateway init [FLAGS] [OPTIONS] --eth_endpoint <eth_endpoint> --host <host> --id <id> --mnemonic <mnemonic> --wallet-address <wallet-address>
-
-FLAGS:
-    -h, --help            Prints help information
-        --testnet-mode    Set this gateway to work in a testnet mode that would allow clients to bypass bandwidth
-                          credential requirement
-    -V, --version         Prints version information
-
-OPTIONS:
-        --announce-host <announce-host>      The host that will be reported to the directory server
-        --clients-port <clients-port>        The port on which the gateway will be listening for clients gateway-
-                                             requests
-        --datastore <datastore>              Path to sqlite database containing all gateway persistent data
-        --eth_endpoint <eth_endpoint>        URL of an Ethereum full node that we want to use for getting bandwidth
-                                             tokens from ERC20 tokens
-        --host <host>                        The custom host on which the gateway will be running for receiving sphinx
-                                             packets
-        --id <id>                            Id of the gateway we want to create config for.
+    nym-gateway init [FLAGS] [OPTIONS        Id of the gateway we want to create config for.
         --mix-port <mix-port>                The port on which the gateway will be listening for sphinx packets
         --mnemonic <mnemonic>                Cosmos wallet mnemonic
         --validator-apis <validator-apis>    Comma separated list of endpoints of the validators APIs
@@ -101,17 +84,15 @@ OPTIONS:
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```
- ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --testnet-mode --eth_endpoint <infura_endpoint> --mnemonic <account_mnemonic> --wallet-address <wallet_address>
+ ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <wallet_address>
 ```
 
 The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
-The `--testnet-mode` flag is used to initialise your gateway so that it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
-
-Finally, the `--end_endpoint` flag must point to an [Infura](https://infura.io/) endpoint, and the `--mnemonic` is the mneomic of your existing Sandbox Testnet address. 
+The `--testnet-mode` is currently enabled, it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
 
 :::caution
-Even though the `--testnet-mode` flag removes the need to provide basic bandwidth credentials, you still have to provide the ethereum-related information for the moment.
+By default in v0.12.1 `--testnet-mode` is enabled behind the `init` of the gateway
 :::
 
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
@@ -138,7 +119,7 @@ Results in:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.0)
+             (gateway - version 0.12.1)
 
 
 Starting gateway supergateway...
@@ -179,12 +160,12 @@ This prints various bits of information about your node:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.0)
+             (gateway - version 0.12.1)
 
     
 Nym Mixnet Gateway 
 Build Timestamp:    2021-12-17T16:59:54.243831464+00:00
-Build Version:      0.12.0
+Build Version:      0.12.1
 Commit SHA:         96aa814a6106d6d5bbc1245cdc21b5b554d47b5f
 Commit Date:        2021-12-17T14:30:04+00:00
 Commit Branch:      detached HEAD
@@ -225,7 +206,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (0.12.0)
+Description=Nym Gateway (0.12.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -281,3 +262,4 @@ All gateway-specific port configuration can be found in `$HOME/.nym/gateways/<yo
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
+

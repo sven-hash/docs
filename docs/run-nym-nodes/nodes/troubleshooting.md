@@ -10,9 +10,9 @@ title: Mixnodes FAQ
 GitHub automatically includes .zip and tar.gz files of the Nym repository in its release. You cannot extract these and build - you'll see something like this:
 
 ```
-  process didn't exit successfully: `/build/nym/src/nym-0.12.0/target/release/build/nym-socks5-client-c1d0f76a8c7d7e9a/build-script-build` (exit status: 101)
+  process didn't exit successfully: `/build/nym/src/nym-0.12.1/target/release/build/nym-socks5-client-c1d0f76a8c7d7e9a/build-script-build` (exit status: 101)
   --- stderr
-  thread 'main' panicked at 'failed to extract build metadata: could not find repository from '/build/nym/src/nym-0.12.0/clients/socks5'; class=Repository (6); code=NotFound (-3)', clients/socks5/build.rs:7:31
+  thread 'main' panicked at 'failed to extract build metadata: could not find repository from '/build/nym/src/nym-0.12.1/clients/socks5'; class=Repository (6); code=NotFound (-3)', clients/socks5/build.rs:7:31
   note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 warning: build failed, waiting for other jobs to finish...
 error: build failed
