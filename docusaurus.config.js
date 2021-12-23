@@ -10,8 +10,8 @@ module.exports = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/docs/FAVICON.png',
-  organizationName: 'nymtech', 
-  projectName: 'docs', 
+  organizationName: 'nymtech',
+  projectName: 'docs',
   // i18n: {
   //   defaultLocale: 'en',
   //   locales: ['en', 'es'],
@@ -49,7 +49,7 @@ module.exports = {
         //   type: 'localeDropdown',
         //   position: 'right',
         // },
-        {to: '/docs/stable/overview/index', label: 'Docs', position: 'left'},
+        { to: '/docs/stable/overview/index', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
@@ -70,7 +70,7 @@ module.exports = {
               label: 'Keybase',
               href: 'https://keybase.io/team/nymtech.friends',
             },
-            
+
           ],
         },
         {
@@ -118,12 +118,12 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: 'v0.12.1',
+              label: 'Next (in progress)',
               path: 'next',
-              banner: 'none',
+              banner: 'unreleased',
             },
             'stable': {
-              label: 'v0.12.0',
+              label: 'v0.12.0 (stable)',
               path: 'stable',
               banner: 'none',
             },
