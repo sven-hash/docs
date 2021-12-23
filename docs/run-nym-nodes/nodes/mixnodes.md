@@ -59,7 +59,7 @@ FLAGS:
 
 SUBCOMMANDS:
     describe        Describe your mixnode and tell people why they should delegate stake to you
-    help            Prints this message or the help of the given subcomman  d(s)
+    help            Prints this message or the help of the given subcommand(s)
     init            Initialise the mixnode
     node-details    Show details of this mixnode
     run             Starts the mixnode

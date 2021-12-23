@@ -71,7 +71,7 @@ nym-gateway-init
 Initialise the gateway
 
 USAGE:
-    nym-gateway init [FLAGS]  [OPTIONS] --host <host> --id <id> --wallet-address <wallet-address>       
+    nym-gateway init [FLAGS]  [OPTIONS] --host <host> --id <id> --wallet-address <wallet-address>
 
 FLAGS:
     -h, --help            Prints help information

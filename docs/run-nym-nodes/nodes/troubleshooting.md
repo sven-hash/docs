@@ -22,8 +22,6 @@ Why does this happen?
 
 We have scripts which automatically include the Git commit hash and Git tag in the binary for easier debugging later. If you download a .zip and try building from that, it's not a Git repository and build will fail as above.
 
-
-
 ### How can I tell my node is up and running and mixing traffic?
 
 First of all check the 'Mixnodes' section of the testnet [dashboard](https://sandbox-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
