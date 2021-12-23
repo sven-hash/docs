@@ -120,7 +120,7 @@ module.exports = {
             current: {
               label: 'v0.12.1',
               path: 'next',
-              banner: 'unreleased',
+              banner: 'none',
             },
             'stable': {
               label: 'v0.12.0',
