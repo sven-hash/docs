@@ -108,7 +108,7 @@ The `$(curl ifconfig.me)` command above returns your IP automatically using an e
 
 The `--testnet-mode` flag is used to initialise your gateway so that it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
 
-Finally, the `--end_endpoint` flag must point to an [Infura](https://infura.io/) endpoint, and the `--mnemonic` is the mneomic of your existing Sandbox Testnet address. 
+Finally, the `--eth_endpoint` flag must point to an [Infura](https://infura.io/) endpoint, and the `--mnemonic` is the mneomic of your existing Sandbox Testnet address. 
 
 :::caution
 Even though the `--testnet-mode` flag removes the need to provide basic bandwidth credentials, you still have to provide the ethereum-related information for the moment.

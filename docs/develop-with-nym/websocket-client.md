@@ -72,7 +72,6 @@ Initialising a new client instance can be done with the following command:
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-
 The `--gateway` parameter is accepted as an optional arg, if you want to use a specific gateway, navigate to `https://sandbox-explorer.nymtech.net/network-components/gateways` and select the `Identity key` then  pass the argument: `--gateway CbxxDmmNCufXSsi7hqUnorchtsqqSLSZp7QfRJ5ugSRA`. Alterantively, not passing this argument will randomly select a  gateway.
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
