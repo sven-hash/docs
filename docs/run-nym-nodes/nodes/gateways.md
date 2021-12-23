@@ -71,7 +71,20 @@ nym-gateway-init
 Initialise the gateway
 
 USAGE:
-    nym-gateway init [FLAGS] [OPTIONS        Id of the gateway we want to create config for.
+    nym-gateway init [FLAGS]  [OPTIONS] --host <host> --id <id> --wallet-address <wallet-address>       
+
+FLAGS:
+    -h, --help            Prints help information
+
+    -V, --version         Prints version information
+
+OPTIONS:
+        --announce-host <announce-host>      The host that will be reported to the directory server
+        --clients-port <clients-port>        The port on which the gateway will be listening for clients gateway-
+                                             requests
+        --datastore <datastore>              Path to sqlite database containing all gateway persistent data
+        --host <host>                        The custom host on which the gateway will be running for receiving sphinx packets
+        --id <id>                            Id of the gateway we want to create config for.
         --mix-port <mix-port>                The port on which the gateway will be listening for sphinx packets
         --mnemonic <mnemonic>                Cosmos wallet mnemonic
         --validator-apis <validator-apis>    Comma separated list of endpoints of the validators APIs
