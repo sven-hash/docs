@@ -118,12 +118,12 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: 'Next (in progress)',
+              label: 'v0.12.1',
               path: 'next',
-              banner: 'unreleased',
+              banner: 'none',
             },
             'stable': {
-              label: 'v0.12.0 (stable)',
+              label: 'v0.12.0',
               path: 'stable',
               banner: 'none',
             },

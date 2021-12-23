@@ -62,3 +62,7 @@ Quite a bit of stuff gets built. The key working parts are:
 6. the [network explorer api](/docs/stable/nym-apps/network-explorer): `explorer-api`
 
 The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/nym-apps/wallet) and the [Network Explorer UI](docs/stable/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
+
+:::note
+You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation. Check the code out from github using `git clone` instead. 
+:::
