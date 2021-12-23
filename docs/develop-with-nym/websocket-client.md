@@ -72,13 +72,8 @@ Initialising a new client instance can be done with the following command:
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--testnet-mode` is currently enabled, it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
 
 The `--gateway` parameter is accepted as an optional arg, if you want to use a specific gateway, navigate to `https://sandbox-explorer.nymtech.net/network-components/gateways` and select the `Identity key` then  pass the argument: `--gateway CbxxDmmNCufXSsi7hqUnorchtsqqSLSZp7QfRJ5ugSRA`. Alterantively, not passing this argument will randomly select a  gateway.
-
-:::caution
-By default in v0.12.1 `--testnet-mode` is enabled
-:::
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 

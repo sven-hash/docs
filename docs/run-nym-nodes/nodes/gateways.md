@@ -102,12 +102,6 @@ The following command returns a gateway on your current IP with the `id` of `sup
 
 The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
-The `--testnet-mode` is currently enabled, it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
-
-:::caution
-By default in v0.12.1 `--testnet-mode` is enabled behind the `init` of the gateway
-:::
-
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
 
 Remember to bond your node via the Nym wallet, which can be downloaded [here](https://github.com/nymtech/nym/releases/). This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 

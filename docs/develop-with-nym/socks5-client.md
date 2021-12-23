@@ -64,12 +64,6 @@ The `--id` in the example above is a local identifier so that you can name your 
 
 The `--provider` field needs to be filled with the Nym address of a `nym-network-requester` that can make network requests on your behalf. The address in the above example is one that we are currently running for the Sandbox Testnet, but you can also [run your own](/docs/stable/run-nym-nodes/nodes/requester/) if you want.
 
-The `--testnet-mode` is currently enabled, it doesn't require bandwidth credentials for data sent through the mixnet by clients. This functionality is still in active development, and updates regarding Basic Bandwidth Credentials (BBCs) will be shared soon. 
-
-:::caution
-By default in v0.12.1 `--testnet-mode` is enabled
-:::
-
 
 ### Running the socks5 client
 
