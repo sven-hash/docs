@@ -46,9 +46,9 @@ git pull # in case you've checked it out before
 
 # Note: the default branch you clone from Github, `develop`, is guaranteed to be
 # broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.12.0` in order to join the testnet.
+# `git checkout tags/v0.12.1` in order to join the testnet.
 
-git checkout tags/v0.12.0
+git checkout tags/v0.12.1
 cargo build --release
 ```
 
@@ -64,5 +64,5 @@ Quite a bit of stuff gets built. The key working parts are:
 The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/nym-apps/wallet) and the [Network Explorer UI](docs/stable/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
 
 :::note
-You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation. Check the code out from github using `git clone` instead. 
+You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 
 :::

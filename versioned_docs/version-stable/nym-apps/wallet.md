@@ -5,6 +5,7 @@ hide_title: false
 title: Nym Wallet
 ---
 
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
@@ -13,20 +14,20 @@ The Nym Desktop Wallet lets you interact with your Nym node and to delegate stak
 
 You can download it for Mac, Windows, or Linux.
 
-[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/v0.12.0)
+[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/v0.12.1)
 
 ### Bypassing security warnings
 
 On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. See the section below for details on steps to bypass these. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes:
 
 * On MacOS 
-`shasum nym-wallet_0.12.0_macos_x64.dmg` should return `639cc6695106e25d7c4cb65b7ebbca1ffbd4c656`  
+`openssl md5 nym-wallet_0.12.1_macos_x64.dmg` should return `9a50644c51b01b2fa3d5e2bfd33183b9`
 
 * On Ubuntu20 
-`shasum nym-wallet_0.12.0_ubuntu_20.04_amd64.AppImage` should return `8f641d54e8143faa9b0c195f21211e412b3221f2`  
+`openssl md5 nym-wallet_0.12.1_amd64_ubuntu_20.04.AppImage` should return `52992fa34bf8ed1118010f9d423dfd4a`
 
 * On Windows
-`shasum nym-wallet_windows_0.1.0_x64.msi` should return `cd6cd1988fef0b20b81bda9ea0067ac81e56dca8`    
+`openssl md5 nym-wallet_windows_0.12.1_x64.msi` should return `6afa60c049bfd091fb48a5e099a91347`
 
 
 #### Linux 
@@ -116,6 +117,7 @@ Press cancel and ignore this.
     dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning5.png'),
   }}
 />
+
 
 ### For developers
 
