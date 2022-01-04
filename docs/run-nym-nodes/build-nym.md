@@ -46,9 +46,9 @@ git pull # in case you've checked it out before
 
 # Note: the default branch you clone from Github, `develop`, is guaranteed to be
 # broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.12.0` in order to join the testnet.
+# `git checkout tags/v0.12.1` in order to join the testnet.
 
-git checkout tags/v0.12.0
+git checkout tags/v0.12.1
 cargo build --release
 ```
 

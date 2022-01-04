@@ -22,6 +22,7 @@ The webassembly client lets you deliver web apps that build and send Sphinx pack
 
 There are two example applications located in the directory `clients/webassembly` in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. The `react-example` is a nicer-looking chat app done in React and Typescript.
 
+
 :::caution
 Please note that this example code is temporarily out of date: it will be updated soon! 
 :::

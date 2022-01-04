@@ -41,7 +41,7 @@ Just like normal credentials, Nym's Coconut credentials can be signed with a sec
 
 Specifically, Coconut is a blinded, re-randomizable, selective disclosure threshold credential signature scheme. That's quite a mouthful, so let's break it down into its component parts.
 
-Let's say you have a `message` with the content `This credential controls controls X` in hand. In addition to the normal `sign(message, secretKey)` and `verify(message, publicKey)` functions present in other signature schemes, Coconut adds the following:
+Let's say you have a `message` with the content `This credential controls X` in hand. In addition to the normal `sign(message, secretKey)` and `verify(message, publicKey)` functions present in other signature schemes, Coconut adds the following:
 
 1. _[Blind signatures](https://en.wikipedia.org/wiki/Blind_signature)_ - disguises message content so that the signer can't see what they're signing. This defends users against signers: the entity that signed can't identify the user who created a given credential, since they've never seen the message they're signing before it's been _blinded_ (turned into gobbledygook). Coconut uses zero-knowledge proofs so that the signer can sign confidently without seeing the unblinded content of the message.
 

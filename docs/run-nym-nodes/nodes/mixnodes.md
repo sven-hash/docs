@@ -22,7 +22,7 @@ For those not able to immediately get involved, please look into [delegated stak
 If you **do** delegate your `NYMT` to others and shut down your node, remember to **save the keys located in `$HOME/.nym` in case you want to run a node in the future**
 :::
 
-Even you have already been running a node on the Milhon testnet, **you must do a clean install of the v0.12.0 `nym-mixnode` binary**. 
+Even you have already been running a node on the Milhon testnet, **you must do a clean install of the v0.12.1 `nym-mixnode` binary**. 
 
 You can either build the repository from source, or grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases). 
 
@@ -43,10 +43,10 @@ Which should return a list of all avaliable commands:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.0)
+             (mixnode - version 0.12.1)
 
     
-Nym Mixnode 0.12.0
+Nym Mixnode 0.12.1
 Nymtech
 Implementation of a Loopix-based Mixnode
 
@@ -83,7 +83,7 @@ Which will return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.0)
+             (mixnode - version 0.12.1)
 
 
 nym-mixnode-init
@@ -145,7 +145,7 @@ Which should return a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.0)
+             (mixnode - version 0.12.1)
 
 
 Starting mixnode winston-smithnode...
@@ -158,8 +158,8 @@ Identity Key: 733KdRDp9jyiTKvK6U1AGbSg8uEb7TUN8HtTEvNACTKq
 Sphinx Key: BVQxKYbGmnnESLUkzmpLVNxQkqoeuCYro7EL5sfqUkxN
 Owner Signature: 4eY6PEUEPMWZSBc5dSksrWWQrtCcejgPptNnNbM7MWaFKru7LzSNib8FtZdqcUGRvsySu44znPZx6QmU1snd1Zov
 Host: 1.2.3.4 (bind address: 127.0.0.1)
-Version: 0.12.0
-Mix Port: 1789, Verloc port: 0.12.0, Http Port: 8000
+Version: 0.12.1
+Mix Port: 1789, Verloc port: 0.12.1, Http Port: 8000
 
 You are bonding to wallet address: nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
@@ -196,7 +196,7 @@ Which will output something like this:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.0)
+             (mixnode - version 0.12.1)
 
 
 name: winston-smithnode
@@ -220,15 +220,15 @@ You can always check the details of your mixnode with the `node-details` command
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.0)
+             (mixnode - version 0.12.1)
 
 
 Identity Key: 733KdRDp9jyiTKvK6U1AGbSg8uEb7TUN8HtTEvNACTKq
 Sphinx Key: BVQxKYbGmnnESLUkzmpLVNxQkqoeuCYro7EL5sfqUkxN
 Owner Signature: 4eY6PEUEPMWZSBc5dSksrWWQrtCcejgPptNnNbM7MWaFKru7LzSNib8FtZdqcUGRvsySu44znPZx6QmU1snd1Zov
 Host: 1.2.3.4 (bind address: 127.0.0.1)
-Version: 0.12.0
-Mix Port: 1789, Verloc port: 0.12.0, Http Port: 8000
+Version: 0.12.1
+Mix Port: 1789, Verloc port: 0.12.1, Http Port: 8000
 
 You are bonding to wallet address: nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 ```
@@ -264,7 +264,7 @@ It's useful to have the mixnode automatically start at system boot time. Here's 
 
 ```ini
 [Unit]
-Description=Nym Mixnode (0.12.0)
+Description=Nym Mixnode (0.12.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
