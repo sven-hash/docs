@@ -55,7 +55,7 @@ Verify `Go` is installed with:
 
 ```
 go version
-# Should return: go version go1.15.7 linux/amd64
+# Should return: go version go1.17.5 linux/amd64
 ```
 
 - `gcc`
