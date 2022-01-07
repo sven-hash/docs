@@ -185,7 +185,7 @@ If you don't save the validator key, then it can't sign blocks and will be jaile
 there is no way to deterministically (re)generate this key using `nymd`.  
 :::
 
-At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with the Nym-Sandbox [genesis file](https://nymtech.net/testnets/sandbox/genesis.json). //<==== CHECK THIS IS HERE
+At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with the Nym-Sandbox [genesis file](https://nymtech.net/testnets/sandbox/genesis.json). 
 
 You can use the following command to download the one for Milhon:
 
