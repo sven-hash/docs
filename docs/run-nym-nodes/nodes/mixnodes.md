@@ -427,27 +427,47 @@ For the moment, we haven't put a great amount of effort into optimizing concurre
 This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
 
 ### Metrics
+Here is an overview of the commands for getting information about a particular node via `curl`:  
 
-There are currently two options for getting information about your mixnode. `description` and `verloc` are accessed via your mixnode's http API, whilst `report` and `history` are reported by the Nym node status API.
+| Endpoint             | Description                                                                           | Command                                                                                        |
+|----------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| `/description`       | Returns the description of the node set with the `describe` command                   | `curl <NODE_IP_ADDRESS>:8000/description`                                                      |
+| `/verloc`            | Returns the verloc information of the node, updated every 12 hours                    | `curl <NODE_IP_ADDRESS>:8000/verloc`                                                           |
+| `/report`            | Returns the most recent node status test report                                       | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
+| `/history`           | Returns all previous test reports                                                     | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/history`           |
+| `/status`            | Returns the status of the node                                                        | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/status`            |
+| `/reward-estimation` | Returns various reward estimation statistics                                          | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/reward-estimation` |
+| `/stake-saturation`  | Returns the stake saturation of the node as a decimal, with `1` being fully saturated | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/stake-saturation`  |
+| `/core-status-count` | Returns the amount of times the node has been selected for use in network tests       | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/core-status-count` | 
+|----------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
 
-| Endpoint       | Description                                                                                                                                                                                      | Command                                                                                                                               |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `/report`      | Returns the most recent node status test report                                                                                                                                                  | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/report`        |
-| `/history`     | Returns all previous test reports                                                                                                                                                                | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<YOUR_NODE_ID>/history`       |
-| `/description` | Returns the description of your node set with the `describe` command. | `curl <YOUR_NODE_IP>:8000/description`                                                                                                |
-| `/verloc`      | Returns the verloc information of your node, which is updated every 12 hours.                                                                                                                    | `curl <YOUR_NODE_IP>:8000/verloc`                                                                                                     |
+#### Metrics of interest 
+Although some of the endpoints return information that is fairly self-explanatory, there are some which are more complex, which are explained in more detail here. 
 
+##### `/report` 
+This endpoint returns different metrics returned regarding your mixnode's uptime and package-mixing capabilities:
 
-There several metrics of interest returned by `/report` regarding your mixnode's uptime and package-mixing capabilities:
+- `identity`: the identity key of the mixnode.
+- `owner`: the address of the owner of the mixnode. 
+- `last_hour`: uptime over the last hour as a percentage. 
+- `last_day`: uptime over the last 24 hours as a percentage. 
 
-- `mostRecentIPV4`: returns a `bool` for whether the most recent IPv4 connectivity test was successful.
-- `last5MinutesIPV4`: returns IPv4 connectivity as a percentage over the last five minutes.
-- `lastHourIPV4`: returns IPv4 connectivity as a percentage over the last hour.
-- `lastDayIPV4`: returns IPv4 connectivity as a percentage over the 24 hours.
-- `mostRecentIPV6`: returns a `bool` for whether the most recent IPv6 connectivity test was successful.
-- `last5MinutesIPV6`: returns IPv6 connectivity as a percentage over the last five minutes.
-- `lastHourIPV6`: returns IPv6 connectivity as a percentage over the last hour.
-- `lastDayIPV6`: returns IPv6 connectivity as a percentage over the 24 hours.
+##### `/reward-estimation`
+This endpoint returns different metrics returned regarding your mixnode's currently estimated rewards:
+
+- `estimated_total_node_reward`: the estimated total reward in `uNYM` that the mixnode will recieve for this epoch to be split between the operator and the delegator(s), if any.  
+- `estimated_operator_reward`: the estimated total reward in `uNYM` that the operator will recieve for this epoch.   
+- `estimated_delegators_reward`: the estimated reward in `uNYM` that will be split between all of the mixnode delegator(s), if any. 
+- `current_epoch_start`: the UNIX timestamp of the beginning of the current epoch.
+- `current_epoch_end`: the UNIX timestamp of the end of the current epoch.
+- `current_epoch_uptime`: the uptime of the mixnode for the current epoch, represented as a percentage. 
+- `as_at`: the UNIX timestamp when the metrics information cache was last refreshed.  
+
+##### `/core-status-count`
+This endpoint returns the number of times that the node has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network. 
+
+- `identity`: the identity key of the mixnode. 
+- `count`: the number of times it has been used for network testing. 
 
 
 ### Mixnode port reference
