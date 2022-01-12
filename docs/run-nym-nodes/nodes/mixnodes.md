@@ -447,14 +447,10 @@ Although some of the endpoints return information that is fairly self-explanator
 ##### `/report` 
 This endpoint returns different metrics returned regarding your mixnode's uptime and package-mixing capabilities:
 
-- `mostRecentIPV4`: a `bool` for whether the most recent IPv4 connectivity test was successful.
-- `last5MinutesIPV4`: IPv4 connectivity as a percentage over the last five minutes.
-- `lastHourIPV4`: IPv4 connectivity as a percentage over the last hour.
-- `lastDayIPV4`: IPv4 connectivity as a percentage over the 24 hours.
-- `mostRecentIPV6`: a `bool` for whether the most recent IPv6 connectivity test was successful.
-- `last5MinutesIPV6`: IPv6 connectivity as a percentage over the last five minutes.
-- `lastHourIPV6`: IPv6 connectivity as a percentage over the last hour.
-- `lastDayIPV6`: IPv6 connectivity as a percentage over the 24 hours.
+- `identity`: the identity key of the mixnode.
+- `owner`: the address of the owner of the mixnode. 
+- `last_hour`: uptime over the last hour as a percentage. 
+- `last_day`: uptime over the last 24 hours as a percentage. 
 
 ##### `/reward-estimation`
 This endpoint returns different metrics returned regarding your mixnode's currently estimated rewards:
