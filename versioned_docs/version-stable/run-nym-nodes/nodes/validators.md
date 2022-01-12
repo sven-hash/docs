@@ -30,7 +30,7 @@ git version
 # Should return: git version X.Y.Z
 ```
 
-- `Go >= v1.15`
+- `Go`
 
 `Go` can be installed via the following commands (taken from the [Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)):
 
@@ -39,7 +39,7 @@ git version
 sudo rm -rf /usr/local/go
 
 # Install correct Go version
-curl https://dl.google.com/go/<CORRECT.GO.VERSION>.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+curl https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
 
 # Update environment variables to include go
 cat <<'EOF' >>$HOME/.profile
@@ -51,15 +51,11 @@ EOF
 source $HOME/.profile
 ```
 
-Remember to replace `<CORRECT.GO.VERSION>` with the version of your choice from the Go releases page. For example:
-
-`<CORRECT.GO.VERSION>.linux-amd64.tar.gz` becomes `go1.15.7.linux-amd64.tar.gz`
-
 Verify `Go` is installed with:
 
 ```
 go version
-# Should return: go version go1.15.7 linux/amd64
+# Should return: go version go1.17.5 linux/amd64
 ```
 
 - `gcc`
@@ -98,7 +94,7 @@ git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
 mkdir build
-go build -o /tmp/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version={{ network_vars.validator.wasmdversion }} -X github.com/cosmos/cosmos-sdk/version.Commit={{ network_vars.validator.wasmdcommit}} -X github.com/CosmWasm/wasmd/app.Bech32Prefix={{ network_vars.generic.bech32_prefix_mixnet }} -X 'github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger'" -trimpath ./cmd/wasmd # noqa line-length
+go build -o ./build/nymd -mod=readonly -tags "netgo,ledger" -ldflags '-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=$WASMD_VERSION -X github.com/cosmos/cosmos-sdk/version.Commit=4ffba672739a41d395827b78cb610f4a51eea83c -X github.com/CosmWasm/wasmd/app.Bech32Prefix=$BECH32_PREFIX -X "github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger"' -trimpath ./cmd/wasmd
 ```
 
 At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running:
@@ -189,7 +185,7 @@ If you don't save the validator key, then it can't sign blocks and will be jaile
 there is no way to deterministically (re)generate this key using `nymd`.  
 :::
 
-At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with the Nym-Sandbox [genesis file](https://nymtech.net/testnets/sandbox/genesis.json). //<==== CHECK THIS IS HERE
+At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with the Nym-Sandbox [genesis file](https://nymtech.net/testnets/sandbox/genesis.json). 
 
 You can use the following command to download the one for Milhon:
 
