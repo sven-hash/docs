@@ -427,7 +427,7 @@ For the moment, we haven't put a great amount of effort into optimizing concurre
 This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
 
 ### Metrics
-Here is an overview of the commands for getting information about a particular node via `curl`. More detailed information about many of the commands can be found below this table:  
+Here is an overview of the commands for getting information about a particular node via `curl`:  
 
 | Endpoint             | Description                                                                           | Command                                                                                        |
 |----------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
