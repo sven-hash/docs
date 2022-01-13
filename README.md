@@ -9,7 +9,7 @@ Contributions to our documentation are very welcome. Please shoot us a pull requ
 The directory structure produced by Docusaurus (see below) can be initially confusing; please check the list below to make sure you are making edits in the correct place. 
 
 * To contribute to the `next (in progress)` version, edit files in `docs/`
-* To contribute to previous versions, edit files in `versioned_docs/<VERSION>/`
+* To contribute to the `stable` version, edit files in `versioned_docs/<VERSION>/`
 * To contribute to an *existing* translation, edit files in `i18n/<LANGUAGE>/docusaurus-plugin-content-docs/<VERSION>/` 
 * To contribute tranlsations in a *new* language, please get in touch via max@nymtech.net or via our [Keybase](https://keybase.io/team/nymtech.friends) channel. When developing for another locale, run `npm run build` and serve the build files locally via nginx for ease. 
 
