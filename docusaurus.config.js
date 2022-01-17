@@ -12,13 +12,13 @@ module.exports = {
   favicon: 'img/docs/FAVICON.png',
   organizationName: 'nymtech',
   projectName: 'docs',
-  // i18n: {
-  //   defaultLocale: 'en',
-  //   locales: ['en', 'es'],
-  // },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es', 'zh'],
+  },
   themeConfig: {
     colorMode: {
-      defaultMode: 'light',
+      defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
       switchConfig: {
@@ -45,10 +45,10 @@ module.exports = {
           position: 'right',
           dropdownActiveClassDisabled: true,
         },
-        // { 
-        //   type: 'localeDropdown',
-        //   position: 'right',
-        // },
+        { 
+          type: 'localeDropdown',
+          position: 'right',
+        },
         { to: '/docs/stable/overview/index', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/nymtech',
