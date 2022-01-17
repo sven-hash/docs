@@ -14,7 +14,8 @@ module.exports = {
   projectName: 'docs',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'es', 'zh'],
+    // locales: ['en', 'es', 'zh'],
+    locales: ['en', 'zh'], 
   },
   themeConfig: {
     colorMode: {
