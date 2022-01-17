@@ -9,7 +9,7 @@ title: Solicitante
 
 :::note
 
-El solicitante de red Nym fue construido en la sección [building nym](/docs/0.11.0/run-nym-nodes/build-nym/). Si aún no has construido Nym y quieres ejecutar el código de esta página, ve allí primero.
+El solicitante de red Nym fue construido en la sección [building nym](/es/docs/stable/run-nym-nodes/build-nym/). Si aún no has construido Nym y quieres ejecutar el código de esta página, ve allí primero.
 
 :::
 
