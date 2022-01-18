@@ -9,8 +9,9 @@ hide_title: false
 
 下面是用于计算每个周期的奖励所涉及的变量和公式的简要说明。最初的奖励池包含2.5亿个NYM代币，剩余的7.5亿NYM代币用作流通。
 
-|<span style="white-space:nowrap;">符号&emsp;&emsp;</span>|定义|
-|:--|--|
+<!-- |<span style="white-space:nowrap;">符号&emsp;&emsp;</span>|定义| -->
+|符号|定义|
+|--|--|
 |<img src="https://render.githubusercontent.com/render/math?math=R"></img>|全球的奖励份额，起始值为奖励池的2% |
 |<img src="https://render.githubusercontent.com/render/math?math=R_{i}"></img>|混合节点`i`的代币奖励数目|
 |<img src="https://render.githubusercontent.com/render/math?math=\sigma_{i}"></img>|节点总质押数目（绑定+委托）对代币流通量的比率|
