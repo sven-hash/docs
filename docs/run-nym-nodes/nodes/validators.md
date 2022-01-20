@@ -187,10 +187,10 @@ Select the correct network below, as the instructions, files, and endpoints diff
 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
-    At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/testnets/sandbox/genesis.json">genesis file</a>. You can use the following command to download the one for the Sandbox testnet:
+    At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>. You can use the following command to download the one for the Sandbox testnet:
     <pre>
       <code>
-      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
+      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/genesis/genesis.json
       </code>
       </pre>
     </TabItem>
@@ -198,7 +198,7 @@ Select the correct network below, as the instructions, files, and endpoints diff
       At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/testnets/____/genesis.json">genesis file</a>. You can use the following command to download the one for the Nym Mainnet:
       <pre>
       <code>
-      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/________/genesis.json
+      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/genesis/genesis.json
       </code>
     </pre>
   </TabItem>
