@@ -170,7 +170,7 @@ Prerequisites:
 Choose a name for your validator and use it in place of `yourname` in the following command:
 
 ```
-nymd init yourname --chain-id testnet-nym-sandbox
+nymd init yourname --chain-id nym-sandbox
 ```
 
 :::caution
@@ -364,7 +364,7 @@ Once your validator starts, it will start requesting blocks from other validator
         --fees=5000unymt
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
-        --chain-id=__________________
+        --chain-id=nym
         --commission-rate="0.10"
         --commission-max-rate="0.20"
         --commission-max-change-rate="0.01"
@@ -400,7 +400,7 @@ If you want to edit some details for your node you will use a command like this:
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
       nymd tx staking edit-validator   
-        --chain-id=______________   
+        --chain-id=nym   
         --moniker="whatever you called your validator"
         --details="Nym validator"   
         --security-contact="your email"   
@@ -639,7 +639,7 @@ If your validator gets jailed, you can fix it with the following command:
       nymd tx slashing unjail 
         --broadcast-mode=block 
         --from="your keychain name"
-        --chain-id=_______ 
+        --chain-id=nym 
         --gas=auto 
         --gas-adjustment=1.4 
         --fees=7000unyx
@@ -672,7 +672,7 @@ Using the values obtained from the previous command, you can withdraw all reward
       nymd tx distribution withdraw-rewards ${VALOPERADDRESS} 
         --from="your keychain name"
         --keyring-backend=os 
-        --chain-id="nym-sandbox" 
+        --chain-id=nym-sandbox 
         --gas="auto" 
         --gas-adjustment=1.15 
         --commission 
@@ -684,7 +684,7 @@ Using the values obtained from the previous command, you can withdraw all reward
       nymd tx distribution withdraw-rewards ${VALOPERADDRESS} 
         --from="your keychain name"
         --keyring-backend=os 
-        --chain-id="_________" 
+        --chain-id=nym 
         --gas="auto" 
         --gas-adjustment=1.15 
         --commission 
@@ -718,7 +718,7 @@ You can, of course, stake back the available balance to your validator with the 
       nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unymt 
         --from="your keychain name"
         --keyring-backend=os 
-        --chain-id "nym-sandbox" 
+        --chain-id=nym-sandbox
         --gas="auto" 
         --gas-adjustment=1.15 
         --fees 5000unymt
@@ -729,7 +729,7 @@ You can, of course, stake back the available balance to your validator with the 
       nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unymt 
         --from="your keychain name"
         --keyring-backend=os 
-        --chain-id "____________" 
+        --chain-id=nym 
         --gas="auto" 
         --gas-adjustment=1.15 
         --fees 5000unyx
@@ -737,7 +737,7 @@ You can, of course, stake back the available balance to your validator with the 
   </TabItem>
 </Tabs>
 
-> Remember to save some tokens for fees!
+> Remember to save some tokens for 
 
 ### Validator port reference
 All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
