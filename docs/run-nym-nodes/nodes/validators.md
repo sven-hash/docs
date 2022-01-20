@@ -669,7 +669,7 @@ Using the values obtained from the previous command, you can withdraw all reward
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
-      nymd tx distribution withdraw-rewards "valoperaddress" 
+      nymd tx distribution withdraw-rewards ${VALOPERADDRESS} 
         --from="your keychain name"
         --keyring-backend=os 
         --chain-id="nym-sandbox" 
@@ -681,7 +681,7 @@ Using the values obtained from the previous command, you can withdraw all reward
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx distribution withdraw-rewards "valoperaddress" 
+      nymd tx distribution withdraw-rewards ${VALOPERADDRESS} 
         --from="your keychain name"
         --keyring-backend=os 
         --chain-id="_________" 
@@ -715,7 +715,7 @@ You can, of course, stake back the available balance to your validator with the 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
-      nymd tx staking delegate "valoperaddress" AMOUNTunymt 
+      nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unymt 
         --from="your keychain name"
         --keyring-backend=os 
         --chain-id "nym-sandbox" 
@@ -726,7 +726,7 @@ You can, of course, stake back the available balance to your validator with the 
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx staking delegate "valoperaddress" AMOUNTunymt 
+      nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unymt 
         --from="your keychain name"
         --keyring-backend=os 
         --chain-id "____________" 
@@ -737,7 +737,7 @@ You can, of course, stake back the available balance to your validator with the 
   </TabItem>
 </Tabs>
 
-NOTE: The value to be used instead of the `AMOUNTunymt` can be calculated from the available balance. For example, if you've `999989990556` in the balance, you can stake `999909990556`, note that the 5th digit, has been changed from `8` to `0` to leave some room for fees (amounts are multiplied by 10^6).
+> Remember to save some tokens for fees!
 
 ### Validator port reference
 All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
