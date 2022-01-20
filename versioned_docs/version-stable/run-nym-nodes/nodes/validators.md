@@ -187,7 +187,7 @@ there is no way to deterministically (re)generate this key using `nymd`.
 
 At this point, you have a new validator, with its own genesis file located at `$HOME/.nymd/config/genesis.json`. You will need to **replace the contents of that file** that with the Nym-Sandbox [genesis file](https://nymtech.net/testnets/sandbox/genesis.json). 
 
-You can use the following command to download the one for Milhon:
+You can use the following command to download the one for Sandbox:
 
 ```
 wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
