@@ -187,15 +187,15 @@ Select the correct network below, as the instructions, files, and endpoints diff
 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
-    At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>. You can use the following command to download the one for the Sandbox testnet:
+    At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/testnets/sandbox/genesis.json">genesis file</a>. You can use the following command to download the one for the Sandbox testnet:
     <pre>
       <code>
-      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/genesis/genesis.json
+      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
       </code>
       </pre>
     </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
-      At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/testnets/____/genesis.json">genesis file</a>. You can use the following command to download the one for the Nym Mainnet:
+      At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Nyx Mainnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>. You can use the following command to download the one for the Nym Mainnet:
       <pre>
       <code>
       wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/genesis/genesis.json
@@ -342,8 +342,8 @@ Once your validator starts, it will start requesting blocks from other validator
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
       nymd tx staking create-validator
-        --amount=10000000unymt
-        --fees=5000unymt
+        --amount=10000000unyxt
+        --fees=5000unyxt
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
         --chain-id=nym-sandbox
@@ -361,7 +361,7 @@ Once your validator starts, it will start requesting blocks from other validator
     <pre>
       nymd tx staking create-validator
         --amount=10000000unyx
-        --fees=5000unymt
+        --fees=5000unyx 
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
         --chain-id=nym
@@ -394,7 +394,7 @@ If you want to edit some details for your node you will use a command like this:
         --gas="auto"   
         --gas-adjustment=1.15   
         --from="your keychain name"
-        --fees 2000unymt
+        --fees 2000unyxt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -631,7 +631,7 @@ If your validator gets jailed, you can fix it with the following command:
         --chain-id=nym-sandbox 
         --gas=auto 
         --gas-adjustment=1.4 
-        --fees=7000unymt
+        --fees=7000unyxt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -677,7 +677,7 @@ Using the values obtained from the previous command, you can withdraw all reward
         --gas="auto" 
         --gas-adjustment=1.15 
         --commission 
-        --fees 5000unymt
+        --fees 5000unyxt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -705,7 +705,7 @@ For example, on the Sanbox testnet this would return:
 ```yaml
 balances:
 - amount: "919376"
-denom: unymt
+denom: unyxt
 pagination:
 next_key: null
 total: "0"
@@ -722,12 +722,12 @@ You can, of course, stake back the available balance to your validator with the 
         --chain-id=nym-sandbox
         --gas="auto" 
         --gas-adjustment=1.15 
-        --fees 5000unymt
+        --fees 5000unyxt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unymt 
+      nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unyx 
         --from="your keychain name"
         --keyring-backend=os 
         --chain-id=nym 
@@ -738,7 +738,7 @@ You can, of course, stake back the available balance to your validator with the 
   </TabItem>
 </Tabs> -->
 
-> Remember to save some tokens for 
+> Remember to save some tokens for gas costs! 
 
 ### Validator port reference
 All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
