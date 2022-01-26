@@ -14,7 +14,6 @@ module.exports = {
   projectName: 'docs',
   i18n: {
     defaultLocale: 'en',
-    // locales: ['en', 'es', 'zh'],
     locales: ['en', 'zh'], 
   },
   themeConfig: {
@@ -50,7 +49,7 @@ module.exports = {
           type: 'localeDropdown',
           position: 'right',
         },
-        { to: '/docs/stable/overview/', label: 'Docs', position: 'left' },
+        { to: '/docs/stable/overview/index/', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
