@@ -352,14 +352,20 @@ Start the validator:
 nymd start
 ```
 
-Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set:
+Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set with the command below. 
+
+:::warning
+When joining consensus, make sure that you do not disrupt (or worse - halt) the network by coming in with a disproportionately large amount of staked tokens. 
+
+Please initially stake a small amount of tokens compared to existing validators, then delegate to yourself in tranches over time. 
+:::
 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
       nymd tx staking create-validator
         --amount=10000000unyxt
-        --fees=5000unymt
+        --fees=5000unyxt
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
         --chain-id=nym-sandbox
@@ -377,7 +383,7 @@ Once your validator starts, it will start requesting blocks from other validator
     <pre>
       nymd tx staking create-validator
         --amount=10000000unyx
-        --fees=5000unym 
+        --fees=5000unyx 
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
         --chain-id=nym
@@ -411,7 +417,7 @@ If you want to edit some details for your node you will use a command like this:
         --gas="auto"   
         --gas-adjustment=1.15   
         --from="KEYCHAIN NAME"
-        --fees 2000unymt
+        --fees 2000unyxt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -425,7 +431,7 @@ If you want to edit some details for your node you will use a command like this:
         --gas="auto"   
         --gas-adjustment=1.15   
         --from="KEYCHAIN NAME"
-        --fees 2000unym
+        --fees 2000unyx
     </pre>
   </TabItem>
 </Tabs>
@@ -648,7 +654,7 @@ If your validator gets jailed, you can fix it with the following command:
         --chain-id=nym-sandbox 
         --gas=auto 
         --gas-adjustment=1.4 
-        --fees=7000unymt
+        --fees=7000unyxt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -659,7 +665,7 @@ If your validator gets jailed, you can fix it with the following command:
         --chain-id=nym 
         --gas=auto 
         --gas-adjustment=1.4 
-        --fees=7000unym
+        --fees=7000unyx
     </pre>
   </TabItem>
 </Tabs>
@@ -673,43 +679,6 @@ Running the command `df -H` will return the size of the various partitions of yo
 If the `/dev/sda` partition is almost full, try pruning some of the `.gz` syslog archives and restart your validator process.
 
 ### Day 2 operations with your validator
-As part of the execution of the validator, it will be able to get some rewards.
-
-With this command, we can query our outstanding rewards:
-
-```
-nymd query distribution validator-outstanding-rewards <valoperaddress>
-```
-
-Using the values obtained from the previous command, you can withdraw all rewards with:
-
-<Tabs groupId="nym-network">
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      VALOPERADDRESS=
-      nymd tx distribution withdraw-rewards VALOPERADDRESS 
-        --from="KEYCHAIN NAME"
-        --keyring-backend=os 
-        --chain-id=nym-sandbox 
-        --gas="auto" 
-        --gas-adjustment=1.15 
-        --commission 
-        --fees 5000unymt
-    </pre>
-  </TabItem>
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
-      nymd tx distribution withdraw-rewards VALOPERADDRESS 
-        --from="KEYCHAIN NAME"
-        --keyring-backend=os 
-        --chain-id=nym 
-        --gas="auto" 
-        --gas-adjustment=1.15 
-        --commission 
-        --fees 5000unym
-    </pre>
-  </TabItem>
-</Tabs>
 
 You can check your current balances with:
 
@@ -728,7 +697,9 @@ next_key: null
 total: "0"
 ```
 
-You can, of course, stake back the available balance to your validator with the following command:
+You can, of course, stake back the available balance to your validator with the following command. 
+
+> Remember to save some tokens for gas costs! 
 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
@@ -739,7 +710,7 @@ You can, of course, stake back the available balance to your validator with the 
         --chain-id=nym-sandbox
         --gas="auto" 
         --gas-adjustment=1.15 
-        --fees 5000unymt
+        --fees 5000unyxt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -750,12 +721,10 @@ You can, of course, stake back the available balance to your validator with the 
         --chain-id=nym 
         --gas="auto" 
         --gas-adjustment=1.15 
-        --fees 5000unym
+        --fees 5000unyx
     </pre>
   </TabItem>
 </Tabs>
-
-> Remember to save some tokens for gas costs! 
 
 ### Validator port reference
 All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
