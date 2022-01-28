@@ -224,10 +224,10 @@ Select the correct network below, as the instructions, files, and endpoints diff
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in <code>$HOME/.nymd/config/config.toml</code> to match the information below:
     <pre>
-      cors_allowed_origins = [____] 
+      cors_allowed_origins = ["*"] 
     </pre>
     <pre>
-      persistent_peers = "__________@sandbox-validator.nymtech.net:26656" 
+      persistent_peers = "0a54f8f793427d3269b7a1d552bd11214f37990e@sandbox-validator.nymtech.net:26656" 
     </pre>
     <pre>
       create_empty_blocks = false 
@@ -239,7 +239,7 @@ Select the correct network below, as the instructions, files, and endpoints diff
 </Tabs>
 
 These affect the following: 
-* `cors_allowed_origins = ["*"]` allows the web wallet to make HTTPS requests to your validator.
+* `cors_allowed_origins = ["*"]` allows the wallet to make HTTPS requests to your validator.
 * `persistent_peers = "<PEER_ADDRESS>@<DOMAIN>.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
 * `create_empty_blocks = false` will save space 
 * `laddr = "tcp://0.0.0.0:26656"` is in your p2p configuration options 
