@@ -358,7 +358,7 @@ Once your validator starts, it will start requesting blocks from other validator
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
       nymd tx staking create-validator
-        --amount=10000000unymt
+        --amount=10000000unyxt
         --fees=5000unymt
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
@@ -376,7 +376,7 @@ Once your validator starts, it will start requesting blocks from other validator
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
       nymd tx staking create-validator
-        --amount=10000000unym
+        --amount=10000000unyx
         --fees=5000unym 
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
@@ -393,7 +393,7 @@ Once your validator starts, it will start requesting blocks from other validator
   </TabItem>
 </Tabs>
 
-You'll need either `unymt` tokens on Sandbox, or `unym` tokens on mainnet to perform this command.
+You'll need either `unyxt` tokens on Sandbox, or `unyx` tokens on mainnet to perform this command.
 
 Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
 
