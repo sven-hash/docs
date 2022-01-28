@@ -104,7 +104,7 @@ curl https://testnet-milhon-explorer.nymtech.net/data/mixnodes.json | jq -r '.[]
 
 #### Comprobación con la API de testnet
 
-Actualmente tenemos una API configurada que devuelve nuestras pruebas de métricas de la red. Hay dos puntos finales para hacer ping para obtener información sobre su mixnode, `report` y `history`. Encuentra más información sobre esto en la [documentación de métricas de Mixnodes](/docs/0.11.0/run-nym-nodes/mixnodes).
+Actualmente tenemos una API configurada que devuelve nuestras pruebas de métricas de la red. Hay dos puntos finales para hacer ping para obtener información sobre su mixnode, `report` y `history`. Encuentra más información sobre esto en la [documentación de métricas de Mixnodes](/es/docs/stable/run-nym-nodes/mixnodes).
 
 ### ¿Por qué mi nodo no mezcla ningún paquete?
 

@@ -9,7 +9,7 @@ title: Construyendo Nym
 
 :::note
 
-Esta página detalla cómo construir el código principal de la plataforma Nym, en Rust. **Si quieres construir y ejecutar un validador, [ve aquí](/docs/0.11.0/run-nym-nodes/validators).
+Esta página detalla cómo construir el código principal de la plataforma Nym, en Rust. **Si quieres construir y ejecutar un validador, [ve aquí](/es/docs/stable/run-nym-nodes/validators).
 
 :::
 
@@ -52,9 +52,9 @@ cargo build --release
 
 Se construyen bastantes cosas. Las partes clave de trabajo son:
 
-1. El [mixnode](/docs/0.11.0/run-nym-nodes/mixnodes): `nym-mixnode`.
-2. el [nodo pasarela](/docs/0.11.0/run-nym-nodes/gateways): `nym-gateway`
-3. el [cliente websocket](/docs/0.11.0/build-apps/websocket-client): `nym-client`
-4. el [cliente socks5](/docs/0.11.0/use-apps/index): `nym-socks5-client`
-5. el [solicitante de red](/docs/0.11.0/run-nym-nodes/requester): `nym-network-requester`
+1. El [mixnode](/es/docs/stable/run-nym-nodes/mixnodes): `nym-mixnode`.
+2. el [nodo pasarela](/es/docs/stable/run-nym-nodes/gateways): `nym-gateway`
+3. el [cliente websocket](/es/docs/stable/build-apps/websocket-client): `nym-client`
+4. el [cliente socks5](/es/docs/stable/use-apps/index): `nym-socks5-client`
+5. el [solicitante de red](/es/docs/stable/run-nym-nodes/requester): `nym-network-requester`
 
