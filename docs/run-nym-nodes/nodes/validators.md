@@ -84,11 +84,29 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 #### Building your validator
-We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
+We use the `wasmd` version of the Cosmos validator to run our blockchain. First define the correct `BECH32_PREFIX` by selecting the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in: 
+
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+        BECH32_PREFIX=nymt
+      </code>
+      </pre>
+    </TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+      <pre>
+      <code>
+        BECH32_PREFIX=nym
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
+
+Then run this to clone, compile, and build your validator:
 
 ```
 WASMD_VERSION=v0.22.0
-BECH32_PREFIX=nymt
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
@@ -183,8 +201,6 @@ If you don't save the validator key, then it can't sign blocks and will be jaile
 there is no way to deterministically (re)generate this key using `nymd`.  
 :::
 
-Select the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in.  
-
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/testnets/sandbox/genesis.json">genesis file</a>. You can use the following command to download the one for the Sandbox testnet:
@@ -273,7 +289,7 @@ In the file `$HOME/.nymd/config/app.toml`, set the following values:
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      minimum-gas-prices = "0.025unyx" 
+      minimum-gas-prices = "0.025unym" 
     </pre>
     <pre>
       enable = true` in the `[api]` section to get the API server running
@@ -342,8 +358,8 @@ Once your validator starts, it will start requesting blocks from other validator
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
       nymd tx staking create-validator
-        --amount=10000000unyxt
-        --fees=5000unyxt
+        --amount=10000000unymt
+        --fees=5000unymt
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
         --chain-id=nym-sandbox
@@ -353,15 +369,15 @@ Once your validator starts, it will start requesting blocks from other validator
         --min-self-delegation="1"
         --gas="auto"
         --gas-adjustment=1.15
-        --from="your keychain name"
+        --from="KEYCHAIN NAME"
         --node https://sandbox-validator.nymtech.net:443 
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
       nymd tx staking create-validator
-        --amount=10000000unyx
-        --fees=5000unyx 
+        --amount=10000000unym
+        --fees=5000unym 
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
         --chain-id=nym
@@ -371,12 +387,13 @@ Once your validator starts, it will start requesting blocks from other validator
         --min-self-delegation="1"
         --gas="auto"
         --gas-adjustment=1.15
-        --from="your keychain name"
-        --node ____________________:443     </pre>
+        --from="KEYCHAIN NAME"
+        --node https://nym-mainnet.commodum.io:443     
+      </pre>
   </TabItem>
 </Tabs>
 
-You'll need either `unymt` tokens on Sandbox, or `unyx` tokens on mainnet to perform this command.
+You'll need either `unymt` tokens on Sandbox, or `unym` tokens on mainnet to perform this command.
 
 Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
 
@@ -393,8 +410,8 @@ If you want to edit some details for your node you will use a command like this:
         --identity="your identity"   
         --gas="auto"   
         --gas-adjustment=1.15   
-        --from="your keychain name"
-        --fees 2000unyxt
+        --from="KEYCHAIN NAME"
+        --fees 2000unymt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -407,8 +424,8 @@ If you want to edit some details for your node you will use a command like this:
         --identity="your identity"   
         --gas="auto"   
         --gas-adjustment=1.15   
-        --from="your keychain name"
-        --fees 2000unyx
+        --from="KEYCHAIN NAME"
+        --fees 2000unym
     </pre>
   </TabItem>
 </Tabs>
@@ -627,22 +644,22 @@ If your validator gets jailed, you can fix it with the following command:
     <pre>
       nymd tx slashing unjail 
         --broadcast-mode=block 
-        --from="your keychain name"
+        --from="KEYCHAIN NAME"
         --chain-id=nym-sandbox 
         --gas=auto 
         --gas-adjustment=1.4 
-        --fees=7000unyxt
+        --fees=7000unymt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
       nymd tx slashing unjail 
         --broadcast-mode=block 
-        --from="your keychain name"
+        --from="KEYCHAIN NAME"
         --chain-id=nym 
         --gas=auto 
         --gas-adjustment=1.4 
-        --fees=7000unyx
+        --fees=7000unym
     </pre>
   </TabItem>
 </Tabs>
@@ -670,26 +687,26 @@ Using the values obtained from the previous command, you can withdraw all reward
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
       VALOPERADDRESS=
-      nymd tx distribution withdraw-rewards ${VALOPERADDRESS} 
-        --from="your keychain name"
+      nymd tx distribution withdraw-rewards VALOPERADDRESS 
+        --from="KEYCHAIN NAME"
         --keyring-backend=os 
         --chain-id=nym-sandbox 
         --gas="auto" 
         --gas-adjustment=1.15 
         --commission 
-        --fees 5000unyxt
+        --fees 5000unymt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx distribution withdraw-rewards ${VALOPERADDRESS} 
-        --from="your keychain name"
+      nymd tx distribution withdraw-rewards VALOPERADDRESS 
+        --from="KEYCHAIN NAME"
         --keyring-backend=os 
         --chain-id=nym 
         --gas="auto" 
         --gas-adjustment=1.15 
         --commission 
-        --fees 5000unyx
+        --fees 5000unym
     </pre>
   </TabItem>
 </Tabs>
@@ -705,7 +722,7 @@ For example, on the Sanbox testnet this would return:
 ```yaml
 balances:
 - amount: "919376"
-denom: unyxt
+denom: unymt
 pagination:
 next_key: null
 total: "0"
@@ -713,30 +730,30 @@ total: "0"
 
 You can, of course, stake back the available balance to your validator with the following command:
 
-<!-- <Tabs groupId="nym-network">
+<Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
-      nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unymt 
-        --from="your keychain name"
+      nymd tx staking delegate VALOPERADDRESS AMOUNTunymt 
+        --from="KEYCHAIN NAME"
         --keyring-backend=os 
         --chain-id=nym-sandbox
         --gas="auto" 
         --gas-adjustment=1.15 
-        --fees 5000unyxt
+        --fees 5000unymt
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx staking delegate ${VALOPERADDRESS} ${AMOUNT}unyx 
-        --from="your keychain name"
+      nymd tx staking delegate VALOPERADDRESS AMOUNTunym 
+        --from="KEYCHAIN NAME"
         --keyring-backend=os 
         --chain-id=nym 
         --gas="auto" 
         --gas-adjustment=1.15 
-        --fees 5000unyx
+        --fees 5000unym
     </pre>
   </TabItem>
-</Tabs> -->
+</Tabs>
 
 > Remember to save some tokens for gas costs! 
 
