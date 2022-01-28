@@ -87,7 +87,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 We use the `wasmd` version of the Cosmos validator to run our blockchain. Run this to clone, compile, and build it:
 
 ```
-WASMD_VERSION=v0.21.0
+WASMD_VERSION=v0.22.0
 BECH32_PREFIX=nymt
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
