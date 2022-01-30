@@ -412,7 +412,7 @@ Please initially stake a small amount of tokens compared to existing validators,
         --gas="auto"
         --gas-adjustment=1.15
         --from="KEYCHAIN NAME"
-        --node https://nym-mainnet.commodum.io:443     
+        --node https://nym-mainnet-rpc.commodum.io:443     
       </pre>
   </TabItem>
 </Tabs>
