@@ -199,12 +199,12 @@ Choose a name for your validator and use it in place of `yourname` in the follow
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
     <pre>
-      nymd init <yourname> --chain-id=nym-sandbox 
+      nymd init YOUR_NAME --chain-id=nym-sandbox 
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd init <yourname> --chain-id=nym 
+      nymd init YOUR_NAME --chain-id=nym 
     </pre>
   </TabItem>
 </Tabs>
