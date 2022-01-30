@@ -120,7 +120,7 @@ git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
 mkdir build
-go build -o ./build/nymd -mod=readonly -tags "netgo,ledger" -ldflags '-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=4ffba672739a41d395827b78cb610f4a51eea83c -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X "github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger"' -trimpath ./cmd/wasmd
+go build -o ./build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=4ffba672739a41d395827b78cb610f4a51eea83c -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
 ```
 
 At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running:
@@ -196,9 +196,18 @@ Prerequisites:
 
 Choose a name for your validator and use it in place of `yourname` in the following command:
 
-```
-nymd init yourname --chain-id nym-sandbox
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      nymd init YOUR_NAME --chain-id=nym-sandbox 
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      nymd init YOUR_NAME --chain-id=nym 
+    </pre>
+  </TabItem>
+</Tabs>
 
 :::caution
 `nymd init` generates `priv_validator_key.json` and `node_key.json`.  
@@ -252,7 +261,7 @@ there is no way to deterministically (re)generate this key using `nymd`.
       cors_allowed_origins = ["*"] 
     </pre>
     <pre>
-      persistent_peers = "0a54f8f793427d3269b7a1d552bd11214f37990e@sandbox-validator.nymtech.net:26656" 
+      persistent_peers = "0a54f8f793427d3269b7a1d552bd11214f37990e@nym-mainnet.commodum.io:26656" 
     </pre>
     <pre>
       create_empty_blocks = false 
@@ -403,7 +412,7 @@ Please initially stake a small amount of tokens compared to existing validators,
         --gas="auto"
         --gas-adjustment=1.15
         --from="KEYCHAIN NAME"
-        --node https://nym-mainnet.commodum.io:443     
+        --node https://nym-mainnet-rpc.commodum.io:443     
       </pre>
   </TabItem>
 </Tabs>
