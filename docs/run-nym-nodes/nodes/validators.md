@@ -92,12 +92,22 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
       <code>
         BECH32_PREFIX=nymt
       </code>
-      </pre>
+    </pre>
+        <pre>
+      <code>
+        WASMD_VERSION=v0.21.0
+      </code>
+    </pre>
     </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
       <pre>
       <code>
         BECH32_PREFIX=nym
+      </code>
+    </pre>
+      <pre>
+      <code>
+        WASMD_VERSION=v0.22.0
       </code>
     </pre>
   </TabItem>
@@ -106,7 +116,6 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
 Then run this to clone, compile, and build your validator:
 
 ```
-WASMD_VERSION=v0.22.0
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
