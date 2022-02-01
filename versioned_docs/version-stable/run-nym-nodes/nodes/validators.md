@@ -98,16 +98,26 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
         WASMD_VERSION=v0.21.0
       </code>
     </pre>
+    <pre>
+      <code>
+      NYM_APP_NAME=nymd
+      </code>
+    </pre>
     </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
       <pre>
       <code>
-        BECH32_PREFIX=nym
+        BECH32_PREFIX=n
       </code>
     </pre>
       <pre>
       <code>
-        WASMD_VERSION=v0.22.0
+        WASMD_VERSION=v0.23.0
+      </code>
+    </pre>
+        <pre>
+      <code>
+      NYM_APP_NAME=nyxd
       </code>
     </pre>
   </TabItem>
@@ -120,18 +130,18 @@ git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
 mkdir build
-go build -o ./build/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=4ffba672739a41d395827b78cb610f4a51eea83c -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
+go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=4ffba672739a41d395827b78cb610f4a51eea83c -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
 ```
 
-At this point, you will have a copy of the `nymd` binary in your `build/` directory. Test that it's compiled properly by running:
+At this point, you will have a copy of the `nymd` (for sandbox) or `nyxd` (for mainnet) binary in your `build/` directory. Test that it's compiled properly by running:
 
 ```
-./build/nymd
+./build/${NYM_APP_NAME}
 ```
 
-You should see `nymd` help text print out.
+You should see help text print out.
 
-Both the `nymd` and `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute Nym smart contracts.
+Both the `nymd` or `nyxd` binary and the `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute smart contracts.
 
 
 :::caution
@@ -142,7 +152,7 @@ To locate these files on your local system run:
 
 ```
 WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
-ls ${WASMVM_SO}
+ls ${WASMVM_SO}      
 ```
 
 This will output something like:
@@ -151,21 +161,9 @@ This will output something like:
 '/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
 ```
 
-When you upload your `nymd` binary, you'll need to tell it where `libwasmvm.so` is when you start your validator, or `nymd` will not run. If you have compiled them on your server then this is not necessary, as the compiled `nymd` already has access to `libwasmvm.so`.
+When you upload your `nymd`/`nyxd` binary, you'll need to tell it where `libwasmvm.so` is when you start your validator, or it will not run. If you have compiled them on your server then this is not necessary, as the compiled `nymd`/`nyxd` already has access to `libwasmvm.so`.
 
-Alternatively, you can check out the repository for `nym` at <https://github.com/nymtech/nym> and use the tag for the current release with:
-
-```
-git clone https://github.com/nymtech/nym.git
-cd nym
-git reset --hard   # in case you made any changes on your branch
-git pull           # in case you've checked it out before
-git checkout tags/v0.12.1
-```
-
-Inside the `validator` directory you will find the precompiled binaries to use.
-
-Upload both `nymd` and `libwasmvm.so` to your validator machine. If you attempt to run `./nymd` on your server, you'll likely see an error if `nymd` can't find `libwasmvm.so`:
+Upload both `nymd`/`nyxd` and `libwasmvm.so` to your validator machine. If `nymd`/`nyxd` can't find `libwasmvm.so` you will see an error like the following:
 
 ```
 ./nymd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
@@ -182,11 +180,24 @@ source ~/.bashrc
 
 Test everything worked:
 
-```
-nymd
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+        nymd  
+      </code>
+    </pre>
+    </TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+      <pre>
+      <code>
+        nyxd      
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
-This should return the regular `nymd` help text.
+This should return the regular help text.
 
 ### Initialising your validator
 Prerequisites:
@@ -204,19 +215,19 @@ Choose a name for your validator and use it in place of `yourname` in the follow
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd init YOUR_NAME --chain-id=nym 
+      nymd init YOUR_NAME --chain-id=nyx 
     </pre>
   </TabItem>
 </Tabs>
 
 :::caution
-`nymd init` generates `priv_validator_key.json` and `node_key.json`.  
+`init` generates `priv_validator_key.json` and `node_key.json`.  
 
 If you have already set up a validator on a previous testnet, **make sure to back up the key located at** 
 `~/.nymd/config/priv_validator_key.json`. 
 
 If you don't save the validator key, then it can't sign blocks and will be jailed all the time, and
-there is no way to deterministically (re)generate this key using `nymd`.  
+there is no way to deterministically (re)generate this key.  
 :::
 
 <Tabs groupId="nym-network">
@@ -229,10 +240,10 @@ there is no way to deterministically (re)generate this key using `nymd`.
       </pre>
     </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
-      At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Nyx Mainnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>. You can use the following command to download the one for the Nym Mainnet:
+      At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nyxd/config/genesis.json</code>. You will need to replace the contents of that file that with the Nyx Mainnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>. You can use the following command to download the one for the Nyx Mainnet:
       <pre>
       <code>
-      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/genesis/genesis.json
+      wget  -O $HOME/.nyxd/config/genesis.json https://nymtech.net/genesis/genesis.json
       </code>
     </pre>
   </TabItem>
@@ -256,13 +267,7 @@ there is no way to deterministically (re)generate this key using `nymd`.
     </pre>
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
-    Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in <code>$HOME/.nymd/config/config.toml</code> to match the information below:
-    <pre>
-      cors_allowed_origins = ["*"] 
-    </pre>
-    <pre>
-      persistent_peers = "0a54f8f793427d3269b7a1d552bd11214f37990e@nym-mainnet.commodum.io:26656" 
-    </pre>
+    Edit the following config options in <code>$HOME/.nyxd/config/config.toml</code> to match the information below:
     <pre>
       create_empty_blocks = false 
     </pre>
@@ -294,7 +299,7 @@ And if you wish to add a human-readable moniker to your node:
 Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
 
 #### `app.toml` configuration
-In the file `$HOME/.nymd/config/app.toml`, set the following values:
+In the file `$HOME/${NYM_APP_NAME}/config/app.toml`, set the following values:
 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
@@ -307,10 +312,7 @@ In the file `$HOME/.nymd/config/app.toml`, set the following values:
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      minimum-gas-prices = "0.025unym" 
-    </pre>
-    <pre>
-      enable = true` in the `[api]` section to get the API server running
+      enable = true in the `[api]` section to get the API server running
     </pre>
   </TabItem>
 </Tabs>
@@ -318,26 +320,66 @@ In the file `$HOME/.nymd/config/app.toml`, set the following values:
 ### Setting up your validator's admin user
 You'll need an admin account to be in charge of your validator. Set that up with:
 
-```
-nymd keys add nymd-admin
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd keys add nymd-admin
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd keys add nyxd-admin
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
 This will add keys for your administrator account to your system's keychain and log your name, address, public key, and mnemonic. As the instructions say, remember to **write down your mnemonic**.
 
 You can get the admin account's address with:
 
-```
-nymd keys show nymd-admin -a
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd keys show nymd-admin -a
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd keys show nyxd-admin -a
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
 Type in your keychain **password**, not the mnemonic, when asked. 
 
 ### Starting your validator
 Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
 
-```
-nymd validate-genesis
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd validate-genesis
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd validate-genesis
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
+
 
 If this check passes, you should receive the following output:
 
@@ -353,22 +395,34 @@ Before starting the validator, we will need to open the firewall ports:
 # if ufw is not already installed:
 sudo apt install ufw
 sudo ufw enable
-sudo ufw allow 1317,26656,26660,22,80,443,8000,1790/tcp
+sudo ufw allow 1317,26656,26660,22,80,443/tcp
 # to check everything worked
 sudo ufw status
 ```
 
-Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. `8000` and `1790` are for VerLoc, our node location system, and the rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
+Ports `22`, `80`, and `443` are for ssh, http, and https connections respectively. The rest of the ports are documented [here](https://docs.cosmos.network/v0.42/core/grpc_rest.html).
 
 For more information about your validator's port configuration, check the [validator port reference table](#validator-port-reference) below.
 
 > If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.
 
 Start the validator:
-
-```
-nymd start
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd start
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd start
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
 Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set with the command below. 
 
@@ -677,7 +731,7 @@ If your validator gets jailed, you can fix it with the following command:
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx slashing unjail 
+      nyxd tx slashing unjail 
         --broadcast-mode=block 
         --from="KEYCHAIN NAME"
         --chain-id=nym 
@@ -733,7 +787,7 @@ You can, of course, stake back the available balance to your validator with the 
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx staking delegate VALOPERADDRESS AMOUNTunym 
+      nyxd tx staking delegate VALOPERADDRESS AMOUNTunym 
         --from="KEYCHAIN NAME"
         --keyring-backend=os 
         --chain-id=nym 
