@@ -215,7 +215,7 @@ Choose a name for your validator and use it in place of `yourname` in the follow
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd init YOUR_NAME --chain-id=nyx 
+      nyxd init YOUR_NAME --chain-id=nyx 
     </pre>
   </TabItem>
 </Tabs>
@@ -316,6 +316,7 @@ In the file `$HOME/${NYM_APP_NAME}/config/app.toml`, set the following values:
     </pre>
   </TabItem>
 </Tabs>
+
 
 ### Setting up your validator's admin user
 You'll need an admin account to be in charge of your validator. Set that up with:
@@ -453,9 +454,9 @@ Please initially stake a small amount of tokens compared to existing validators,
   </TabItem>
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     <pre>
-      nymd tx staking create-validator
+      nyxd tx staking create-validator
         --amount=10000000unyx
-        --fees=5000unyx 
+        --fees=0unyx 
         --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
         --moniker="whatever you called your validator"
         --chain-id=nym
@@ -466,7 +467,7 @@ Please initially stake a small amount of tokens compared to existing validators,
         --gas="auto"
         --gas-adjustment=1.15
         --from="KEYCHAIN NAME"
-        --node https://nym-mainnet-rpc.commodum.io:443     
+        --node https://rpc.nyx.nodes.guru:443     
       </pre>
   </TabItem>
 </Tabs>
