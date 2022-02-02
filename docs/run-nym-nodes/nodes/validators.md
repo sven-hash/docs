@@ -269,6 +269,9 @@ there is no way to deterministically (re)generate this key.
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     Edit the following config options in <code>$HOME/.nyxd/config/config.toml</code> to match the information below:
     <pre>
+      persistent_peers = "dc0af6cde717420e9f8d35a3e0883aee0e5dbff3@15.235.14.66:26656" 
+    </pre>
+    <pre>
       create_empty_blocks = false 
     </pre>
     <pre>
@@ -385,7 +388,7 @@ Everything should now be ready to go. You've got the validator set up, all chang
 If this check passes, you should receive the following output:
 
 ```
-File at /path/to/.nymd/config/genesis.json is a valid genesis file
+File at /path/to/genesis.json is a valid genesis file
 ```
 
 > If this test did not pass, check that you have replaced the contents of `/path/to/.nymd/config/genesis.json` with that of the correct genesis file.
