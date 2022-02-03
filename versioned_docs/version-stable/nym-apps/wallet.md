@@ -14,61 +14,24 @@ The Nym Desktop Wallet lets you interact with your Nym node and to delegate stak
 
 You can download it for Mac, Windows, or Linux.
 
-[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/v0.12.1)
+[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v1.0.0)
 
 ### Bypassing security warnings
 
-On MacOS and Windows, you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Apple and Microsoft so that this doesn't happen. See the section below for details on steps to bypass these. In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes:
+On Windows you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Microsoft so that this doesn't happen. See the section below for details on steps to bypass these. 
 
-* On MacOS 
-`openssl md5 nym-wallet_0.12.1_macos_x64.dmg` should return `9a50644c51b01b2fa3d5e2bfd33183b9`
+In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes:
 
-* On Ubuntu20 
-`openssl md5 nym-wallet_0.12.1_amd64_ubuntu_20.04.AppImage` should return `52992fa34bf8ed1118010f9d423dfd4a`
-
-* On Windows
-`openssl md5 nym-wallet_windows_0.12.1_x64.msi` should return `6afa60c049bfd091fb48a5e099a91347`
+| Operating system | Hash                             | Command to check local download                            |
+|------------------|----------------------------------|------------------------------------------------------------|
+| MacOS            |`8eadc0c1c387cb8689b4d5db1bd0ba7f`|`openssl md5 nym-wallet_1.0.0_x64_macos_11.dmg`             | 
+| Windows          |`2947453602fc89401f89f37979c60cc2`|`openssl md5 nym-wallet_1.0.0_x64_windows.msi`              |
+| Ubuntu           |`2947453602fc89401f89f37979c60cc2`|`openssl md5 nym-wallet_1.0.0_amd64_ubuntu20.04\ .AppImage` |
 
 
 #### Linux 
 
 You will need to `chmod +x` the AppImage in the terminal (or give it execute permission in your file browser) before it will run. 
-
-#### MacOS 
-
-* Drag the application to your 'Applications' folder.
-
-* If you double click the application you will see the following warning: 
-
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning1.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning1.png'),
-  }}
-/>
-
-Press cancel and ignore this. 
-
-* Go to your system preferences -> security and privacy -> general, and unlock the application. 
-
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning2.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning2.png'),
-  }}
-/>
-
-* Right-click on the application, press 'open', and then 'open anyway'. 
-
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning3.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning3.png'),
-  }}
-/>
 
 #### Windows 
 
