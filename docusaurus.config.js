@@ -19,7 +19,7 @@ module.exports = {
   themeConfig: {
     algolia: {
       appId: 'A778OLBY0Y',
-      apiKey: 'c16a7b5dab9c7bdf4714a8c41b1445c0', 
+      apiKey: '996627a217de9d52bcd59e1be7a85280', 
       indexName: 'nym',
     },
     colorMode: {
