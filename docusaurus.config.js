@@ -17,6 +17,11 @@ module.exports = {
     locales: ['en', 'zh'], 
   },
   themeConfig: {
+    algolia: {
+      appId: 'A778OLBY0Y',
+      apiKey: 'c16a7b5dab9c7bdf4714a8c41b1445c0', 
+      indexName: 'nym',
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
@@ -53,6 +58,10 @@ module.exports = {
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          type: 'search',
           position: 'right',
         },
       ],
@@ -109,6 +118,10 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 1.0,
+        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: 'docs',
