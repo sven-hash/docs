@@ -19,8 +19,8 @@ module.exports = {
   themeConfig: {
     algolia: {
       appId: 'A778OLBY0Y',
-      apiKey: '996627a217de9d52bcd59e1be7a85280', 
-      indexName: 'nym',
+      apiKey: '53ff98b1ee6fd53dc42b3dd3bd3c9e61', 
+      indexName: 'nym_docs',
     },
     colorMode: {
       defaultMode: 'dark',
