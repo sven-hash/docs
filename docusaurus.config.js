@@ -17,6 +17,10 @@ module.exports = {
     locales: ['en', 'zh'], 
   },
   themeConfig: {
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 5,
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,

@@ -13,16 +13,15 @@ After your build is finished, the `nym-mixnode` binary will be located in `/path
 
 Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
-:::caution
-Please note that unless you ran a mixnode in the Milhon testnet, **you will not be able to get `NYMT` tokens and bond your mixnode for the Sandbox testnet at this time**.
+:::note
+If you were not a participant in the Milhon Testnet, you can get `NYMT` tokens via the testnet [faucet](https://faucet.nymtech.net/). 
 
-In the future we will set up a token faucet - watch out for updates on this. 
+If you don't want to run your own node, please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301).
 
-For those not able to immediately get involved, please look into [delegated staking](https://medium.com/nymtech/nym-delegated-staking-reputation-rewards-and-community-selection-bf0f346f7301).
 If you **do** delegate your `NYMT` to others and shut down your node, remember to **save the keys located in `$HOME/.nym` in case you want to run a node in the future**
 :::
 
-Even you have already been running a node on the Milhon testnet, **you must do a clean install of the v0.12.1 `nym-mixnode` binary**. 
+Even you have already been running a node on the Milhon testnet, **you must do a clean install of the v0.12.1 `nym-mixnode` binary** to run a node in the Sandbox testnet. 
 
 You can either build the repository from source, or grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases). 
 
@@ -119,7 +118,7 @@ Initalise your mixnode with the following command, replacing the value of `--id`
 Please make sure you have access to the `--wallet-address` account, and download the Desktop Wallet [here](https://nymtech.net/get-involved) if you have not already done so, in order to be able to interact with your node!
 :::
 
-To participate in the Nym testnet, `--host` must be publicly routable on the internet. It can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+Your `--host` must be publicly routable on the internet in order to mix packets, and can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
 :::caution
 Please note that the `init` command will refuse to destroy existing mixnode keys.
@@ -170,7 +169,7 @@ You are bonding to wallet address: nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
  2021-12-20T09:53:38.857Z INFO  nym_mixnode::node > Starting socket listener...
 ```
 
-If everything worked, you'll see your node running on the [Sandbox network explorer](https://sandbox-explorer.nymtech.net).
+If everything worked, you'll see your node running on the [Sandbox network explorer](https://sandbox-explorer.nymtech.net). 
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
@@ -440,6 +439,7 @@ Here is an overview of the commands for getting information about a particular n
 | `/stake-saturation`  | Returns the stake saturation of the node as a decimal, with `1` being fully saturated | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/stake-saturation`  |
 | `/core-status-count` | Returns the amount of times the node has been selected for use in network tests       | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/core-status-count` | 
 
+
 #### Metrics of interest 
 Although some of the endpoints return information that is fairly self-explanatory, there are some which are more complex, which are explained in more detail here. 
 
@@ -450,7 +450,6 @@ This endpoint returns different metrics returned regarding your mixnode's uptime
 - `owner`: the address of the owner of the mixnode. 
 - `last_hour`: uptime over the last hour as a percentage. 
 - `last_day`: uptime over the last 24 hours as a percentage. 
-
 
 ##### `/reward-estimation`
 This endpoint returns different metrics returned regarding your mixnode's currently estimated rewards:
