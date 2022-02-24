@@ -19,8 +19,8 @@ Testnet rewards may not exactly reflect how the incentives structure work on mai
 Existing members of the Milhon testnet will be automatically moved over to Sandbox when it launches, as will the balances of their wallets and nodes. These balances are based on a snapshot taken at 15:00 UDT 20th December 2021.  
 
 ### Joining the Sandbox Testnet as a new participant 
-There will be a faucet available soon which can be used to request `NYMT` for using in the testnet. There will be updates on this soon - watch this space! 
-
+There is a `NYMT` faucet [here](https://faucet.nymtech.net/). These tokens can be used to bond nodes and delegate to existing Sandbox nodes.  
+    
 :::caution
 If for any reason you lose your mnemonic, the tokens held in your account are lost, and they will **not** be able to be returned to you. 
 :::
