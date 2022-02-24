@@ -20,7 +20,7 @@ module.exports = {
     algolia: {
       appId: 'A778OLBY0Y',
       apiKey: '53ff98b1ee6fd53dc42b3dd3bd3c9e61', 
-      indexName: 'nym_docs',
+      indexName: 'nym',
     },
     colorMode: {
       defaultMode: 'dark',
