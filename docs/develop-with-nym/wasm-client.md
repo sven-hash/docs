@@ -43,7 +43,7 @@ This generates a new Nym identity, consisting of a public/private keypair and a 
 let client = new Client(directoryUrl, identity, authToken);
 ```
 
-This returns a nym Client which connects to a Nym gateway via websocket. All communication with the Nym network happens through this client.
+This returns a Nym Client which connects to a Nym gateway via websocket. All communication with the Nym network happens through this client.
 
 The `directoryUrl` of the Nym testnet is `http://sandbox-validator.nymtech.net:8081`. Use that if you want to connect to the running testnet.
 

@@ -1,0 +1,26 @@
+{
+  "link.item.label.Website": {
+    "message": "网站",
+    "description": "The label of footer link with label=Website linking to https://nymtech.net/"
+  },
+  "link.item.label.Keybase": {
+    "message": "Keybase",
+    "description": "The label of footer link with label=Keybase linking to https://keybase.io/team/nymtech.friends"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/nymtech"
+  },
+  "link.item.label.Telegram": {
+    "message": "Telegram",
+    "description": "The label of footer link with label=Telegram linking to https://t.me/nymchan"
+  },
+  "link.item.label.Twitter": {
+    "message": "Twitter",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/nymproject/"
+  },
+  "link.item.label.Blog": {
+    "message": "博客",
+    "description": "The label of footer link with label=Blog linking to https://medium.com/nymtech"
+  }
+}
