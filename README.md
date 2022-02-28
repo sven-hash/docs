@@ -39,3 +39,4 @@ To generate static content into `/build/` run:
 ```console
 npm run build
 ```
+
