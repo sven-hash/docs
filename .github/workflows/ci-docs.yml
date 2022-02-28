@@ -35,7 +35,7 @@ jobs:
       working-directory: .github/workflows/support-files
     - name: Keybase - Send Notification
       env:
-        NYM_NOTIFICATION_KIND: docs-ci
+        NYM_NOTIFICATION_KIND: docs
         NYM_PROJECT_NAME: "Docs ci"
         NYM_CI_WWW_BASE: "${{ secrets.NYM_CI_WWW_BASE }}"
         NYM_CI_WWW_LOCATION: "docs-${{ env.GITHUB_REF_SLUG }}"
