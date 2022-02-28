@@ -20,7 +20,7 @@
     "description": "The label for category Use Nym Apps in sidebar sidebar"
   },
   "sidebar.sidebar.category.Develop with Nym": {
-    "message": "Nym开发",
+    "message": "开发Nym应用",
     "description": "The label for category Develop with Nym in sidebar sidebar"
   },
   "sidebar.sidebar.category.Use External Apps": {
