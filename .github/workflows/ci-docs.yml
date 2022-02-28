@@ -2,7 +2,7 @@ name: CI docs
 
 on:
   push
-#    branches-ignore: master
+    branches-ignore: master
 
 jobs:
   build:
