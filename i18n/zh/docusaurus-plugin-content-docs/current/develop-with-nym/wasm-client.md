@@ -57,7 +57,7 @@ client.start();
 #### 发送消息
 
 ```js
-client.sendMessage(message, recipient) {
+client.sendMessage(message, recipient);
 ```
 
 通过websocket向该客户端的Nym网关发送一条信息。

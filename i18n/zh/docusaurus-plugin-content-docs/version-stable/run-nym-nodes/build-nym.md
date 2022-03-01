@@ -5,13 +5,13 @@ hide_title: false
 title: 构建Nym
 ---
 
-Nym可以在Mac OS X、Linux和Windows上运行。Windows应该被认为是实验性的--如果你是一个应用程序的开发者，它可以正常工作，但不建议用于运行节点。
+Nym可以在Mac OS X、Linux和Windows上运行。Windows应该被认为是实验性的 -- 如果你是一个应用程序的开发者，它可以正常工作，但不建议用于运行节点。
 
 ### 构建Nym
 
 Nym有两个主要的代码库：
 
-- Nym平台，用Rust编写。它包含了我们所有的代码，验证节点除外。
+- Nym平台，用Rust编写，它包含了我们所有的代码，验证节点除外。
 - Nym验证节点，用Go语言编写。
 
 :::note注意

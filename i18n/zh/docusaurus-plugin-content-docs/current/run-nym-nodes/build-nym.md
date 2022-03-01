@@ -5,18 +5,18 @@ hide_title: false
 title: 构建Nym
 ---
 
-Nym可以在Mac OS X、Linux和Windows上运行。Windows应该被认为是实验性的--如果你是一个应用程序的开发者，它可以正常工作，但不建议用于运行节点。
+Nym可以在Mac OS X、Linux和Windows上运行。Windows应该被认为是实验性的 -- 如果你是一个应用程序的开发者，它可以正常工作，但不建议用于运行节点。
 
 ### 构建Nym
 
 Nym有两个主要的代码库：
 
-- Nym平台，用Rust编写。它包含了我们所有的代码，验证节点除外。
+- Nym平台，用Rust编写，它包含了我们所有的代码，验证节点除外。
 - Nym验证节点，用Go语言编写。
 
 :::note注意
 
-本页详细介绍了如何构建Nym平台的代码。**如果你想编译和运行一个验证节点，**请点击**[这里](/docs/stable/run-nym-nodes/nodes/validators)**。
+本页详细介绍了如何构建Nym平台的代码。**如果你想编译和运行一个验证节点，**请点击**[这里](/docs/next/run-nym-nodes/nodes/validators)**。
 
 :::
 
@@ -56,14 +56,14 @@ cargo build --release
 
 你会得到一些文件，关键的部分有：
 
-1. [混合节点](/docs/stable/run-nym-nodes/nodes/mixnodes)：`nym-mixnode`
-2. [网关](/docs/stable/run-nym-nodes/nodes/gateways): `nym-gateway`
-3. [websocket客户端](/docs/stable/develop-with-nym/websocket-client): `nym-client`
-4. [socks5客户端](/docs/stable/use-external-apps/index): `nym-socks5-client`
-5. [网络请求器](/docs/stable/run-nym-nodes/nodes/requester): `nym-network-requester`
-6. [网络浏览器api](/docs/stable/nym-apps/network-explorer): `explorer-api`
+1. [混合节点](/docs/next/run-nym-nodes/nodes/mixnodes)：`nym-mixnode`
+2. [网关](/docs/next/run-nym-nodes/nodes/gateways): `nym-gateway`
+3. [websocket客户端](/docs/next/develop-with-nym/websocket-client): `nym-client`
+4. [socks5客户端](/docs/next/use-external-apps/index): `nym-socks5-client`
+5. [网络请求器](/docs/next/run-nym-nodes/nodes/requester): `nym-network-requester`
+6. [网络浏览器api](/docs/next/nym-apps/network-explorer): `explorer-api`
 
-仓库还包含两个在这个过程中没有构建的Typescript应用程序：[Nym Wallet](docs/stable/nym-apps/wallet)和[Network Explorer UI](docs/stable/nym-apps/network-explorer) ，这两样东西都可以按照它们各自文档上的说明来安装。
+仓库还包含两个在这个过程中没有构建的Typescript应用程序：[Nym Wallet](docs/next/nym-apps/wallet)和[Network Explorer UI](docs/next/nym-apps/network-explorer) ，这两样东西都可以按照它们各自文档上的说明来安装。
 
 :::note注意
 

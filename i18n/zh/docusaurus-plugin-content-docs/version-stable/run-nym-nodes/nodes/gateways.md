@@ -9,7 +9,7 @@ title: 网关
 
 :::note注意
 
-Nym网关是在[building nym](/docs/stable/run-nym-nodes/build-nym/)构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
+Nym网关是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
 
 :::
 
@@ -235,7 +235,7 @@ WantedBy=multi-user.target
 
 如果你在服务器上搭建了nym，并且你的用户名是`jetpanther`，那么启动命令可能看起来像这样：
 
-`ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id`. Basically, you want the full `/path/to/nym-gateway run --id whatever-your-node-id-is`
+`ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id`
 
 之后运行：
 

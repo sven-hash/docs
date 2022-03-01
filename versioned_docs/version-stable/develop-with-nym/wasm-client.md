@@ -58,7 +58,7 @@ This will cause the client to retrieve a network topology from the defined `dire
 #### Sending messages
 
 ```js
-client.sendMessage(message, recipient) {
+client.sendMessage(message, recipient);
 ```
 
 Sends a message up the websocket to this client's Nym gateway.

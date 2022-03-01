@@ -20,12 +20,13 @@ Nym桌面钱包可以让你跟你的Nym节点交互，并将代币委托给其�
 
 在MacOS和Windows上，当你试图运行钱包时，你会看到一个安全警告。我们正在从苹果和微软获得应用商店的密钥，以便这种情况不会发生。有关绕过这些安全警告的细节，请参见下面的章节。同时，我们建议你使用文件哈希值来检查你下载的文件的真实性：
 
-* 在MacOS上
+* 在MacOS上运行
 `openssl md5 nym-wallet_0.12.1_macos_x64.dmg` 应当返回 `9a50644c51b01b2fa3d5e2bfd33183b9`
 
-* 在Ubuntu20上
+* 在Ubuntu20上运行
 `openssl md5 nym-wallet_0.12.1_amd64_ubuntu_20.04.AppImage` 应当返回`52992fa34bf8ed1118010f9d423dfd4a`
-* 在Windows上
+
+* 在Windows上运行
 `openssl md5 nym-wallet_windows_0.12.1_x64.msi` 应当返回 `6afa60c049bfd091fb48a5e099a91347`
 
 
@@ -123,7 +124,7 @@ Nym桌面钱包可以让你跟你的Nym节点交互，并将代币委托给其�
 
 :::info信息
 
-请注意，该钱包目前只在有上述二进制文件的操作系统上构建。如果你发现问题或者任何额外的前提条件，请在[Github](https://github.com/nymtech/docs)上针对`develop`创建一个问题或PR。
+请注意，该钱包目前只在有上述二进制文件的操作系统上构建。如果你发现问题或者任何额外的前提条件，请在[Github](https://github.com/nymtech/docs)上针对`develop`分支创建一个问题或PR。
 
 :::
 

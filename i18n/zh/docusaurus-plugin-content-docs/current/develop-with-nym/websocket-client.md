@@ -7,7 +7,7 @@ title: Websocket客户端
 
 :::note注意
 
-Nym Websocket 客户端是在[building nym](/docs/stable/run-nym-nodes/build-nym/)构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
+Nym Websocket 客户端是在[构建Nym](/docs/next/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
 
 :::
 
@@ -52,8 +52,8 @@ SUBCOMMANDS:
 
 两个你向客户发出的最重要的命令是：
 
-1. `init` - 初始化一个新的客户端实例。
-2. `run`--运行一个混合网络客户端进程。
+1. `init` -- 初始化一个新的客户端实例。
+2. `run`-- 运行一个混合网络客户端进程。
 
 你可以通过运行以下命令来检查可用命令的参数：
 
@@ -109,59 +109,6 @@ SUBCOMMANDS:
 #### 连接到本地的websocket
 
 Nym本地客户端暴露了一个websocket接口，你的代码可以连接到这个接口。要为你的应用程序编程，请为你使用的语言选择一个websocket库。默认的websocket端口是`1977`，如果你想的话，你可以在客户端配置中覆盖它。
-
-<! -- ### 一个简单的例子 peap（隐私增强型应用程序）
-
-我们来写一些代码。有时当你学习新东西时，最容易的是学习一个简短的工作实例，这里有一个用Python编写的简单应用。这个例子是和Nym平台一起打包的，在`clients/native`里面的`python-examples`目录中挖掘吧：
-
-```python
-import asyncio
-import json
-import websockets
-
-self_address_request = json.dumps({"type": "selfAddress"})
-
-
-async def send_text():
-    message = "Hello Nym!"
-
-    uri = "ws://localhost:1977"
-    async with websockets.connect(uri) as websocket:  # 1
-        await websocket.send(self_address_request)
-        self_address = json.loads(await websocket.recv())
-        print("our address is: {}".format(self_address["address"]))
-
-        text_send = json.dumps(
-            {  # 2
-                "type": "send",
-                "message": message,
-                "recipient": self_address["address"],
-            }
-        )
-
-        print("sending '{}' over the mix network...".format(message))
-        await websocket.send(text_send)  # 3
-        msg_send_confirmation = json.loads(await websocket.recv())  # 4
-        assert msg_send_confirmation["type"], "send"
-
-        print("waiting to receive a message from the mix network...")
-        received_message = await websocket.recv()  # 5
-        print("received {} from the mix network!".format(received_message))
-
-
-asyncio.get_event_loop().run_until_complete(send_text())
-```
-
-Python代码做了以下工作。
-
-1. 连接到1977端口的websocket
-
-2. 格式化要发送的消息。Nym消息有定义好的JSON格式
-3. 将消息发送到websocket，本地客户端将消息打包成一个Sphinx包，并将其发送到混合网路中
-4. 等待确认该消息到达本地客户端
-5. 等待接收来自其他Nym应用程序的消息
-
-通过改变消息的内容，你可以很容易地建立复杂的服务提供者应用程序。例如，除了`print("received {} from the mix network!".format(received_message))`，你的服务提供商可能会代表用户采取一些行动 -- 也许是发起一个网络请求，一个区块链交易，或写入一个本地数据存储。-->
 
 ### 消息类型
 

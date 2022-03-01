@@ -7,7 +7,7 @@ title: Socks5客户端
 
 :::note注意
 
-Nym Socks5客户端是在[building nym](/docs/stable/run-nym-nodes/build-nym/)构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
+Nym Socks5客户端是在[构建Nym](/docs/next/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
 
 :::
 
@@ -64,7 +64,7 @@ nym-socks5-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_priv
 
 上面例子中的`--id`是一个本地标识符，这样你就可以为你的客户端命名，名称**永远不会**在网络上传输。
 
- `--provider`字段需要填写为 "nym-network-requester "的Nym地址，它可以代表你进行网络请求。上面例子中的地址是我们目前为Sandbox测试网运行的地址，但如果你愿意，你也可以[运行你自己的](/docs/stable/run-nym-nodes/nodes/requester/)。
+ `--provider`字段需要填写为 "nym-network-requester "的Nym地址，它可以代表你进行网络请求。上面例子中的地址是我们目前为Sandbox测试网运行的地址，但如果你愿意，你也可以[运行你自己的](/docs/next/run-nym-nodes/nodes/requester/)。
 
 
 ### 运行socks5客户端
@@ -79,4 +79,4 @@ nym-socks5-client run --id <id>
 
 这将在你的本地机器上启动一个SOCKS5代理，地址是`localhost:1080`。现在你可以通过Nym Sandbox测试网来传输应用程序的流量。
 
-想要查看如何将一些现有的应用程序附加到你的客户端的例子，请看[使用外部应用程序](/docs/stable/use-external-apps/index)章节。
+想要查看如何将一些现有的应用程序附加到你的客户端的例子，请看[使用外部应用程序](/docs/next/use-external-apps/)章节。

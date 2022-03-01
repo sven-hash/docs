@@ -7,7 +7,7 @@ title: 混合节点
 
 :::note注意
 
-Nym混合节点是在[building nym](/docs/stable/run-nym-nodes/build-nym/)构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
+Nym混合节点是在[构建Nym](/docs/next/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
 
 :::
 
@@ -126,7 +126,7 @@ OPTIONS:
 
 :::
 
-要参加Nym测试网，`--host`必须是可以在互联网上公开路由到的，它可以是一个IPv4或IPv6地址。你的节点必须能够使用IPv4和IPv6发送TCP数据（因为与你对话的其他节点可能使用这两种协议）。上面的`$(curl ifconfig.me)`命令是使用外部服务自动得到你的IP，或者，你也可以手动输入你的IP，如果你这样做，记住要输入你的IP但**不包括**任何端口信息。
+要参加Nym测试网，`--host`必须是可以在互联网上公开路由到的，它可以是一个IPv4或IPv6地址。你的节点必须能够使用IPv4和IPv6发送TCP数据（因为与你对话的其他节点也会使用这两种协议）。上面的`$(curl ifconfig.me)`命令是使用外部服务自动得到你的IP，或者，你也可以手动输入你的IP，如果你这样做，记住要输入你的IP但**不包括**任何端口信息。
 
 :::caution警告
 
@@ -295,7 +295,7 @@ WantedBy=multi-user.target
 
 如果你在服务器上搭建了nym，并且你的用户名是`jetpanther`，那么启动命令可能看起来像这样：
 
-`ExecStart=/home/jetpanther/nym/target/release/nym-mixnode run --id your-id`. Basically, you want the full `/path/to/nym-mixnode run --id whatever-your-node-id-is`
+`ExecStart=/home/jetpanther/nym/target/release/nym-mixnode run --id your-id`
 
 之后运行：
 
@@ -385,13 +385,13 @@ username        soft nofile 4096
 
 ### 检查你的节点是否正确混合流量包
 
-一旦你启动混合节点并连接到测试网验证节点，你的节点将自动显示在[Nym测试网浏览器](https://sandbox-explorer.nymtech.net/)中，或者查看社区成员Evgeny Garanin在[Nodes Guru](https://nodes.guru)创建的[排行榜界面](https://nodes.guru/nym/leaderboard)。
+一旦你启动混合节点并连接到测试网的验证节点，你的节点将自动显示在[Nym测试网浏览器](https://sandbox-explorer.nymtech.net/)中，或者查看社区成员Evgeny Garanin在[Nodes Guru](https://nodes.guru)创建的[排行榜界面](https://nodes.guru/nym/leaderboard)。
 
 更多详情请见[故障排除常见问题解答](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)。
 
 ### 查看命令帮助
 
-运行如下命令查看所有可用选项！
+运行如下命令查看所有可用选项：
 
 ```
 ./nym-mixnode --help
@@ -403,7 +403,7 @@ username        soft nofile 4096
 ./nym-mixnode upgrade --help
 ```
 
-### 通过谷歌和AWS的虚拟IP和主机
+### 通过谷歌和AWS的虚拟IP和主机搭建混合节点
 
 在某些服务上（AWS、Google等），机器上的绑定地址与公共IP地址不一样。在这种情况下，将`--host`与`ifconfig`返回的本地机器地址绑定的同时，也要用`--announce-host`指定公共IP。请确保你传入正确的、可路由的`--announce-host`。
 

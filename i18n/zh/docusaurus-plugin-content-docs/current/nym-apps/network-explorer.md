@@ -97,13 +97,13 @@ cargo build --release
 
 :::caution警告
 
-网络浏览器应该在至少有4GB内存的机器上运行--如果在性能较差的机器上运行，构建过程可能会失败。
+网络浏览器应该在至少有4GB内存的机器上运行 -- 如果在性能较差的机器上运行，构建过程可能会失败。
 
 :::
 
 #### 构建浏览器用户界面 
 
-在`explorer`目录下运行一下命令建立用户界面：
+在`explorer`目录下运行以下命令建立用户界面：
 
 ```
 nvm install # install relevant nodejs and npm versions 
@@ -157,7 +157,7 @@ journalctl -f           # to monitor system logs showing the service start
 
 [Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) 是一个用于操作高性能网络服务器的开源软件。它允许我们在验证节点服务器上设置反向代理，以提高性能和安全性。
 
-安装 "nginx "并在防火墙中允许 "Nginx Full "规则：
+安装`nginx`并在防火墙中允许 "Nginx Full "规则：
 
 ```
 sudo ufw allow 'Nginx Full'

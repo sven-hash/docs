@@ -7,7 +7,7 @@ title: Keybase软件
 
 :::note注意
 
-你需要[运行Nym Socks5客户端](/docs/stable/use-external-apps/index)，然后再按照本页的指示操作。
+你需要[运行Nym Socks5客户端](/docs/stable/use-external-apps/)，然后再按照本页的指示操作。
 
 :::
 

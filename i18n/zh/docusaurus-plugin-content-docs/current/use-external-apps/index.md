@@ -13,7 +13,7 @@ Nym是一个通用系统，我们的目标是为互联网流量和交易提供�
 
 该系统仍然处于早起阶段，但它已经能够运行，你今天就可以开始使用它。
 
-许多现有的应用程序都能够使用SOCKS5代理协议，他们可以使用`nym-socks5-client`来通过Nym网络发送网络流量，就像这样：
+许多现有的应用程序都能够使用SOCKS5代理协议，他们可以使用`nym-socks5-client`（Nym Socks5客户端）来连接到Nym网络发送网络流量，就像这样：
 
 <!-- ![Socks5 architecture](/img/docs/nym-socks5-architecture.png) -->
 <ThemedImage
@@ -24,11 +24,11 @@ Nym是一个通用系统，我们的目标是为互联网流量和交易提供�
   }}
 />
 
-Nym网络已经运行混合节点、`nym-network-requester`和`nym-client`组件。为了在现有的应用程序使用Nym，你只需要设置`nym-socks5-client`。
+Nym网络已经运行混合节点、`nym-network-requester`（Nym网络请求器）和`nym-client`（Nym客户端）组件。为了在现有的应用程序使用Nym，你只需要设置`nym-socks5-client`。
 
 :::note注意
 
-如果你还没有设置本地的socks5客户端，请先按照[这里](/docs/stable/develop-with-nym/socks5-client)的说明设置客户端再继续下面的步骤。
+如果你还没有设置本地的socks5客户端，请先按照[这里](/docs/next/develop-with-nym/socks5-client)的说明设置客户端再继续下面的步骤。
 
 :::
 

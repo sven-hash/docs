@@ -121,7 +121,7 @@ curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_no
 
 #### 检查测试网的API
 
-我们目前建立了一个API，用于返回当前网络的指标。有两个端点可以ping到关于你的混合节点的信息，`report`和`history`。在 [混合节点指标文档](docs/stable/run-nym-nodes/nodes/mixnodes) 中找到更多相关信息。
+我们目前建立了一个API，用于返回当前网络的指标。有两个端点可以ping到关于你的混合节点的信息，`report`和`history`。在 [混合节点指标文档](docs/next/run-nym-nodes/nodes/mixnodes) 中找到更多相关信息。
 
 ### 为什么我的节点没有混合数据包？
 
@@ -173,7 +173,7 @@ sudo ufw status
 
 #### 没有IPv6连接
 
-确保你的VPS与你所使用的任何供应商有都支持IPv6的连接。
+确保你的VPS与你所使用的任何供应商都支持IPv6的连接。
 
 要获得你的主机的所有IP地址，尝试以下命令：
 
@@ -222,7 +222,7 @@ bob@nym:~$ hostname -I
 
 #### 不小心在当前会话杀死了节点进程
 
-当你关闭当前的终端会话时，你需要确保你不会杀死混合节点进程！这里有多种方法可以让它在退出ssh会话后依然存在，最简单的方法是使用`nohup`，更优雅的方法是用`systemd`运行节点。
+当你关闭当前的终端会话时，你需要确保你不会杀死混合节点的进程！这里有多种方法可以让它在退出ssh会话后依然存在，最简单的方法是使用`nohup`，更优雅的方法是用`systemd`运行节点。
 
 ##### 用`nohup`在后台运行你的混合节点
 
@@ -278,7 +278,7 @@ sudo systemctl status nym-mixnode
 
 ### 常见错误和警告
 
-节点日志中的大多数 "ERROR "和 "WARN "信息都是良性的 -- 只要你的节点在日志中输出`since startup mixed X packets!`（并且这个数字随着时间的推移而增加），你的节点就正在混合数据包。如果你想确认，请检查Nym的[数据面板](https://sandbox-explorer.nymtech.net/)，或者查看其他方法来检查你的节点是否正常，比如上面的**我怎样才能知道我的节点已经开始运行并混合了流量？**
+节点日志中的大多数 "ERROR "和 "WARN "信息都是良性的 -- 只要你的节点在日志中输出`since startup mixed X packets!`（并且这个数字随着时间的推移而增加），你的节点就正在混合数据包。如果你想确认，请检查Nym的[数据面板](https://sandbox-explorer.nymtech.net/)，或者查看其他方法来检查你的节点是否正常，比如上面的小节**我怎样才能知道我的节点已经开始运行并混合了流量？**
 
 更具体的错误和警告将在下面介绍。
 
@@ -290,13 +290,13 @@ sudo systemctl status nym-mixnode
 thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address" }'
 ```
 
-那么你需要在启动时使用`---announce-host <public ip>`和`--host <local ip>`这两个标志。这个问题的出现是因为你使用了像AWS或谷歌云这样的供应商，或者你的VPS可用绑定地址与公共IP地址不一样（参见[通过谷歌和AWS的虚拟IP和主机](docs/stable/run-nym-nodes/nodes/mixnodes)以获得更多关于这个问题的信息）。
+那么你需要在启动时使用`---announce-host <public ip>`和`--host <local ip>`这两个标志。这个问题的出现是因为你使用了像AWS或谷歌云这样的供应商，或者你的VPS可用绑定地址与公共IP地址不一样（参见[通过谷歌和AWS的虚拟IP和主机](docs/next/run-nym-nodes/nodes/mixnodes)以获得更多关于这个问题的信息）。
 
 #### `rocket::launch` 警告
 
 这些警告不是问题，请忽略它们。Rocket是一个rust的web框架，我们用它来为混合节点提供`/verloc`和`/description`的http API。
 
-在[混合节点指标文档](docs/stable/run-nym-nodes/nodes/mixnodes)中查看更多相关信息。
+在[混合节点指标文档](docs/next/run-nym-nodes/nodes/mixnodes)中查看更多相关信息。
 
 Rocket默认运行在端口`8000`，虽然在测试网阶段，我们需要Rocket可以通过这个端口，但在未来，可能允许大家自定义该端口。
 

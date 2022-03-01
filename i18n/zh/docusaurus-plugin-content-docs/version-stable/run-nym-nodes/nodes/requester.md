@@ -8,7 +8,7 @@ title: Nym请求器
 
 :::note注意
 
-Nym请求器是在[building nym](/docs/stable/run-nym-nodes/build-nym/)构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
+Nym请求器是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
 
 :::
 
@@ -167,11 +167,11 @@ sudo ufw status
 
 为了减轻管理员的压力，Nym请求器默认放弃了所有传入的请求。为了让它发出请求，你需要在`$HOME/.nym/service-providers/nym-network-requester/allowed.list`文件中添加特定的域名。
 
-如果你愿意，你可以直接使用默认`allowed.list`文件中的域名，在`nym`代码的根目录下运行这个命令。
+如果你愿意，你可以直接使用默认`allowed.list`文件中的域名，在`nym`代码的根目录下运行这个命令：
 
 `cp service-providers/nym-network-requester/allowed.list.sample ~/.nym/service-providers/nym-network-requester/allowed.list`。
 
-这些URL将允许Blockstream Green和Electrum加密货币钱包以及KeyBase聊天客户端的请求通过。
+这些URL将允许来自Blockstream Green和Electrum加密货币钱包以及KeyBase聊天客户端的请求通过。
 
 :::caution警告
 
