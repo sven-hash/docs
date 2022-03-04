@@ -3,7 +3,7 @@ require('dotenv').config();
 const Bot = require('keybase-bot');
 
 let context = {
-  kinds: ['docs'],
+  kinds: ['ci-docs','cd-docs'],
 };
 
 /**

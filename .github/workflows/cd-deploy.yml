@@ -1,8 +1,8 @@
-name: CI docs
+name: Continous deployment
 
 on:
   push:
-    branches-ignore: master
+    branches: master
 
 jobs:
   build:
@@ -16,35 +16,33 @@ jobs:
       with:
         node-version: '14'
     - run: npm install
-      continue-on-error: true
     - run: npm run build
-      continue-on-error: true
-    - name: Deploy branch to CI www
+    - name: Deploy branch to production
       continue-on-error: true
       uses: easingthemes/ssh-deploy@main
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.CI_WWW_SSH_PRIVATE_KEY }}
+        SSH_PRIVATE_KEY: ${{ secrets.CD_WWW_SSH_PRIVATE_KEY }}
         ARGS: "-rltgoDzvO --delete"
         SOURCE: "build/"
-        REMOTE_HOST: ${{ secrets.CI_WWW_REMOTE_HOST }}
-        REMOTE_USER: ${{ secrets.CI_WWW_REMOTE_USER }}
-        TARGET: ${{ secrets.CI_WWW_REMOTE_TARGET }}/docs-${{ env.GITHUB_REF_SLUG }}
+        REMOTE_HOST: ${{ secrets.CD_WWW_REMOTE_HOST_DEV }}
+        REMOTE_USER: ${{ secrets.CD_WWW_REMOTE_USER }}
+        TARGET: ${{ secrets.CD_WWW_REMOTE_TARGET }}/
         EXCLUDE: "/dist/, /node_modules/"
     - name: Keybase - Node Install
       run: npm install
       working-directory: .github/workflows/support-files
     - name: Keybase - Send Notification
       env:
-        NYM_NOTIFICATION_KIND: ci-docs
-        NYM_PROJECT_NAME: "Docs CI"
+        NYM_NOTIFICATION_KIND: cd-docs
+        NYM_PROJECT_NAME: "Docs CD"
         NYM_CI_WWW_BASE: "${{ secrets.NYM_CI_WWW_BASE }}"
-        NYM_CI_WWW_LOCATION: "docs-${{ env.GITHUB_REF_SLUG }}"
+        NYM_CI_WWW_LOCATION: "${{ env.GITHUB_REF_SLUG }}"
         GIT_COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
         GIT_BRANCH: "${GITHUB_REF##*/}"
         KEYBASE_NYMBOT_USERNAME: "${{ secrets.KEYBASE_NYMBOT_USERNAME }}"
         KEYBASE_NYMBOT_PAPERKEY: "${{ secrets.KEYBASE_NYMBOT_PAPERKEY }}"
         KEYBASE_NYMBOT_TEAM: "${{ secrets.KEYBASE_NYMBOT_TEAM }}"
-        KEYBASE_NYM_CHANNEL: "ci-docs"
+        KEYBASE_NYM_CHANNEL: "cd-docs"
         IS_SUCCESS: "${{ job.status == 'success' }}"
       uses: docker://keybaseio/client:stable-node
       with:
