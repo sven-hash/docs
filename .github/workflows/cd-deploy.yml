@@ -35,7 +35,7 @@ jobs:
       env:
         NYM_NOTIFICATION_KIND: cd-docs
         NYM_PROJECT_NAME: "Docs CD"
-        NYM_CI_WWW_BASE: "${{ secrets.NYM_CI_WWW_BASE }}"
+        NYM_CI_WWW_BASE: "${{ secrets.NYM_CD_WWW_BASE }}"
         NYM_CI_WWW_LOCATION: "${{ env.GITHUB_REF_SLUG }}"
         GIT_COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
         GIT_BRANCH: "${GITHUB_REF##*/}"
