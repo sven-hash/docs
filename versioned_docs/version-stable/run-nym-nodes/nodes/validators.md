@@ -302,7 +302,7 @@ And if you wish to add a human-readable moniker to your node:
 Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
 
 #### `app.toml` configuration
-In the file `$HOME/${NYM_APP_NAME}/config/app.toml`, set the following values:
+In the file `$HOME/.${NYM_APP_NAME}/config/app.toml`, set the following values:
 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
