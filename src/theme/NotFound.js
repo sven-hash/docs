@@ -36,7 +36,7 @@ function NotFound() {
               <Translate
                 id="theme.NotFound.p2"
                 description="The 2nd paragraph of the 404 page">
-                Please consult the links below to find what you are looking for:  
+                Please consult the links below to get started with finding what you are looking for:  
               </Translate>
               <p>
               *<a href="https://nymtech.net/docs/stable/overview/"> Nym Platform Overview </a>
