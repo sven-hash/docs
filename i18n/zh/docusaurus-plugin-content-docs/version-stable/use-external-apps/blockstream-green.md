@@ -1,15 +1,13 @@
 ---
-sidebar_label: Blockstream Green
+sidebar_label: Blockstream Green钱包
 description: "You can protect your Blockstream Green transactions from network eavesdroppers using the Nym mixnet. Here's how."
 hide_title: false
-title: Blockstream Green
+title: Blockstream Green钱包
 ---
-
- # Blockstream Green钱包
 
 :::note注意
 
-你需要[运行Nym Socks5客户端](/docs/stable/use-external-apps/index)，然后再按照本页的指示操作。
+你需要[运行Nym Socks5客户端](/docs/stable/use-external-apps/)，然后再按照本页的指示操作。
 
 :::
 

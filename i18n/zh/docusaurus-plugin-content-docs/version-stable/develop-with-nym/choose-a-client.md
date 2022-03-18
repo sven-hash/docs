@@ -1,13 +1,11 @@
 ---
-sidebar_label: "Choose a client"
+sidebar_label: 选择你的客户端
 hide_title: false
 description: "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose."
-title: "Choose a client "
+title: 选择你的客户端
 ---
 
-# 选择你的客户端
-
-在上一节中，我们大致了解了在构建支持Nym的应用程序时的流程。现在是时候了解一下如何通过选择Nym客户端来构造你的应用了。
+在上一节中，我们大致了解了在构建Nym应用程序时的流程。现在是时候了解一下如何通过选择Nym客户端来构造你的应用了。
 
 ### 了解Nym客户端
 
@@ -31,11 +29,11 @@ Nym混合网络的很大一部分功能是在客户端实现的，包括：
 - SOCKS5客户端
 - wasm（webassembly）客户端
 
-你需要选择你想集成哪一个到你你的应用程序里。你使用哪一种，主要取决于你喜欢的编程风格和你应用程序的目的。
+你需要选择你想集成哪一个到你的应用程序里。你使用哪一种，主要取决于你喜欢的编程风格和你应用程序的目的。
 
 #### websocket客户端
 
-你的第一个选择是本地websocket客户端（`nym-client`），这是一个编译好的程序，可以在Linux、Mac OS X和Windows机器上运行，它作为一个持久的进程在桌面或服务器机器上运行，你可以从任何支持websockets的语言连接到它。
+你的第一个选择是本地websocket客户端（`nym-client`），这是一个编译好的程序，可以在Linux、Mac OS X和Windows机器上运行，它作为一个持久的进程在桌面或服务器机器上运行，你可以使用任何支持websockets的语言连接到它。
 
 #### webassembly的客户端
 
@@ -47,4 +45,4 @@ Nym混合网络的很大一部分功能是在客户端实现的，包括：
 
 ### 客户端之间的共同点
 
-所有的Nym客户端软件包的功能对于隐私应用程序的开发者来说基本上是一致的。它们需要作为一个持久的进程在系统中运行，以便保持连接并等待接收来自其网关的任何传入的消息。他们向网关注册和认证，并对Sphinx数据包进行加密。
+所有的Nym客户端软件包的功能对于隐私应用程序的开发者来说基本上是一致，它们需要作为一个持久的进程在系统中运行，以便保持连接并等待接收来自其网关的任何传入的消息。他们向网关注册和认证，并对Sphinx数据包进行加密。

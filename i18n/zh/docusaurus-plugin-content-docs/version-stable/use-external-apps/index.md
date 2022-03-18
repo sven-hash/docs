@@ -1,20 +1,19 @@
 ---
-sidebar_label: Using Apps with Nym
+sidebar_label: 集成Nym的应用程序
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
 hide_title: false
-title: Using Apps with Nym
+title: 集成Nym的应用程序
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-# 使用支持Nym的应用程序
 
 Nym是一个通用系统，我们的目标是为互联网流量和交易提供最强大的保护。
 
 该系统仍然处于早起阶段，但它已经能够运行，你今天就可以开始使用它。
 
-许多现有的应用程序都能够使用SOCKS5代理协议，他们可以使用`nym-socks5-client`来通过Nym网络发送网络流量，就像这样：
+许多现有的应用程序都能够使用SOCKS5代理协议，他们可以使用`nym-socks5-client`（Nym Socks5客户端）来连接到Nym网络发送网络流量，就像这样：
 
 <!-- ![Socks5 architecture](/img/docs/nym-socks5-architecture.png) -->
 <ThemedImage
@@ -25,7 +24,7 @@ Nym是一个通用系统，我们的目标是为互联网流量和交易提供�
   }}
 />
 
-Nym网络已经运行混合节点、`nym-network-requester`和`nym-client`组件。为了在现有的应用程序使用Nym，你只需要设置`nym-socks5-client`。
+Nym网络已经运行混合节点、`nym-network-requester`（Nym网络请求器）和`nym-client`（Nym客户端）组件。为了在现有的应用程序使用Nym，你只需要设置`nym-socks5-client`。
 
 :::note注意
 

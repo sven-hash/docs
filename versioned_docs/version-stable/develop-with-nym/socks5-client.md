@@ -77,4 +77,4 @@ nym-socks5-client run --id <id>
 
 This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`. You can now route application traffic through the Nym Sandbox Testnet! 
 
-To have a look at examples of how to attach some existing applications to your client, please see the [Use External Apps](/docs/stable/use-external-apps/index) section. 
+To have a look at examples of how to attach some existing applications to your client, please see the [Use External Apps](/docs/stable/use-external-apps/) section. 

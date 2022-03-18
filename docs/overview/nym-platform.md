@@ -33,7 +33,7 @@ But the Nym platform (blue) is just infrastructure. The interesting part are the
 Nym-enhanced applications can:
 
 - upgrade the privacy properties of existing applications, such as cryptographic wallets, VPNs, payment systems, chat, medical records, blockchains, exchanges, markets, DAOs or other allocation systems.
-- enable completely new types of applications built from the ground up with privacy at their core
+- enable completely new types of applications built from the ground up with privacy at their core.
 
 Apps talk to the Nym network by connecting to gateway nodes. Applications may go online and offline; the gateway provides a sort of mailbox where apps can receive their messages.
 
