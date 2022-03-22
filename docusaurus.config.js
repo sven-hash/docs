@@ -119,8 +119,8 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         sitemap: {
-          changefreq: 'weekly',
-          priority: 1.0,
+          changefreq: 'daily',
+          priority: 0.5,
         },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
