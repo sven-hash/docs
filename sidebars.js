@@ -21,6 +21,7 @@ module.exports = {
         "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/incentives",
         "run-nym-nodes/network-rewards",
+        "run-nym-nodes/addresses-in-nym",
         "run-nym-nodes/build-nym",
         {
           type: 'category',
