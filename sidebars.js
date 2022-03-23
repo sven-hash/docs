@@ -18,10 +18,9 @@ module.exports = {
       label: 'Run Nym Nodes',
       collapsed: true,
       items: [
-        "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/incentives",
-        "run-nym-nodes/network-rewards",
-        "run-nym-nodes/addresses-in-nym",
+        // "run-nym-nodes/network-rewards",
+        "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/build-nym",
         {
           type: 'category',
@@ -56,6 +55,7 @@ module.exports = {
         "develop-with-nym/websocket-client",
         "develop-with-nym/socks5-client",
         "develop-with-nym/wasm-client", 
+        "develop-with-nym/addresses-in-nym",
         // "develop-with-nym/demos"
       ],
     },
