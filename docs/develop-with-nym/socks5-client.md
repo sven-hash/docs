@@ -62,7 +62,7 @@ nym-socks5-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_priv
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--provider` field needs to be filled with the Nym address of a `nym-network-requester` that can make network requests on your behalf. The address in the above example is one that we are currently running for the Sandbox Testnet, but you can also [run your own](/docs/stable/run-nym-nodes/nodes/requester/) if you want.
+The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. The address in the above example is one that we are currently running for the Sandbox Testnet, but you can also [run your own](/docs/stable/run-nym-nodes/nodes/requester/) if you want.
 
 
 ### Running the socks5 client

@@ -32,6 +32,7 @@ module.exports = {
             "run-nym-nodes/nodes/gateways",
             "run-nym-nodes/nodes/validators",
             "run-nym-nodes/nodes/requester",
+            "run-nym-nodes/nodes/file-storage"
           ],
         },
       ],
@@ -42,7 +43,7 @@ module.exports = {
       collapsed: true,
       items: [
         'nym-apps/wallet', 
-        'nym-apps/network-explorer',  
+        'nym-apps/network-explorer'
       ],
     },
     {
