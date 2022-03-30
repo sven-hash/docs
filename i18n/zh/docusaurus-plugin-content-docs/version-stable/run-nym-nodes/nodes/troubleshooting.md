@@ -1,11 +1,10 @@
 ---
-sidebar_label: "Mixnodes FAQ"
+sidebar_label: 常见问题和解决方案
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
 hide_title: false
-title: Mixnodes FAQ
+title: 常见问题和解决方案
 ---
 
-# 常见问题和解决方案
 
 ### 我试图从GitHub的归档文件中构建Nym，但是失败了
 
@@ -100,7 +99,7 @@ PORT     STATE SERVICE
 1789/tcp open  hello
 ```
 
-##### 查询所有节点并用`jq`解析。
+##### 查询所有节点并用`jq`解析
 
 ```
 curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq
@@ -174,7 +173,7 @@ sudo ufw status
 
 #### 没有IPv6连接
 
-确保你的VPS与你所使用的任何供应商有都支持IPv6的连接。
+确保你的VPS与你所使用的任何供应商都支持IPv6的连接。
 
 要获得你的主机的所有IP地址，尝试以下命令：
 
@@ -223,7 +222,7 @@ bob@nym:~$ hostname -I
 
 #### 不小心在当前会话杀死了节点进程
 
-当你关闭当前的终端会话时，你需要确保你不会杀死混合节点进程！这里有多种方法可以让它在退出ssh会话后依然存在，最简单的方法是使用`nohup`，更优雅的方法是用`systemd`运行节点。
+当你关闭当前的终端会话时，你需要确保你不会杀死混合节点的进程！这里有多种方法可以让它在退出ssh会话后依然存在，最简单的方法是使用`nohup`，更优雅的方法是用`systemd`运行节点。
 
 ##### 用`nohup`在后台运行你的混合节点
 
@@ -279,7 +278,7 @@ sudo systemctl status nym-mixnode
 
 ### 常见错误和警告
 
-节点日志中的大多数 "ERROR "和 "WARN "信息都是良性的 -- 只要你的节点在日志中输出`since startup mixed X packets!`（并且这个数字随着时间的推移而增加），你的节点就正在混合数据包。如果你想确认，请检查Nym的[数据面板](https://sandbox-explorer.nymtech.net/)，或者查看其他方法来检查你的节点是否正常，比如上面的**我怎样才能知道我的节点已经开始运行并混合了流量？**
+节点日志中的大多数 "ERROR "和 "WARN "信息都是良性的 -- 只要你的节点在日志中输出`since startup mixed X packets!`（并且这个数字随着时间的推移而增加），你的节点就正在混合数据包。如果你想确认，请检查Nym的[数据面板](https://sandbox-explorer.nymtech.net/)，或者查看其他方法来检查你的节点是否正常，比如上面的小节**我怎样才能知道我的节点已经开始运行并混合了流量？**
 
 更具体的错误和警告将在下面介绍。
 

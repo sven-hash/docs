@@ -1,19 +1,17 @@
 ---
-sidebar_label: "Building Nym"
+sidebar_label: 构建Nym
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
 hide_title: false
-title: Building Nym
+title: 构建Nym
 ---
 
-# 构建Nym
-
-Nym可以在Mac OS X、Linux和Windows上运行。Windows应该被认为是实验性的--如果你是一个应用程序的开发者，它可以正常工作，但不建议用于运行节点。
+Nym可以在Mac OS X、Linux和Windows上运行。Windows应该被认为是实验性的 -- 如果你是一个应用程序的开发者，它可以正常工作，但不建议用于运行节点。
 
 ### 构建Nym
 
 Nym有两个主要的代码库：
 
-- Nym平台，用Rust编写。它包含了我们所有的代码，验证节点除外。
+- Nym平台，用Rust编写，它包含了我们所有的代码，验证节点除外。
 - Nym验证节点，用Go语言编写。
 
 :::note注意
@@ -22,7 +20,7 @@ Nym有两个主要的代码库：
 
 :::
 
-### 前提：
+### 前提
 
 - (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`
 
@@ -37,7 +35,7 @@ sudo apt install pkg-config build-essential libssl-dev curl jq
 
 如果你真的不想使用shell脚本安装程序，[Rust安装文档](https://forge.rust-lang.org/infra/other-installation-methods.html)包含了在许多平台安装的说明。
 
-### 下载并构建Nym二进制文件:
+### 下载并构建Nym二进制文件
 
 下面的命令将编译二进制文件到`nym/target/release`目录：
 

@@ -43,7 +43,7 @@ Gateways serve a few different functions:
 - they send encrypted surb-acks for potentially offline recipients, to ensure reliable message delivery
 - they offer a stable addressing location for apps, although the IP may change frequently
 
-### Nym addresses
+### A note on Nym addresses
 
 When the app is initalised, it generates and stores its own public/private keypair locally. When the app starts, it automatically connects to the Nym network and finds out what Nym infrastructure exists. It then chooses and connects to a Nym gateway node via websocket.
 

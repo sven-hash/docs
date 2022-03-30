@@ -1,15 +1,13 @@
 ---
-sidebar_label: "Socks5 Client"
+sidebar_label: Socks5客户端
 hide_title: false
 description: "How to run the Nym Socks5 client on a desktop or server machine."
-title: Socks5 Client
+title: Socks5客户端
 ---
-
-# Socks5客户端
 
 :::note注意
 
-Nym Socks5客户端是在[building nym](/docs/stable/run-nym-nodes/build-nym/)构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
+Nym Socks5客户端是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
 
 :::
 
@@ -81,4 +79,4 @@ nym-socks5-client run --id <id>
 
 这将在你的本地机器上启动一个SOCKS5代理，地址是`localhost:1080`。现在你可以通过Nym Sandbox测试网来传输应用程序的流量。
 
-想要查看如何将一些现有的应用程序附加到你的客户端的例子，请看[使用外部应用程序](/docs/stable/use-external-apps/index)章节。
+想要查看如何将一些现有的应用程序附加到你的客户端的例子，请看[使用外部应用程序](/docs/stable/use-external-apps/)章节。
