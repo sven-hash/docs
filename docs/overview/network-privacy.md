@@ -45,4 +45,4 @@ The Nym mixnet mitigates against packet-dropping attacks by malicious nodes, and
 
 Privacy Enhanced Applications (Peaps) that need to defend against network-level monitoring can use the Nym mixnet.
 
-The end result is that adversaries are unable to monitor Privacy Enhanced Applications (Peaps) using Nym even if they can record all internet traffic. The adversary can tell that a user's Peap has connected to the mixnet; beyond that, it's impossible to say whether they are doing encrypted chat, file transfer, or interacting with another Peap.
+The end result is that adversaries are unable to monitor Privacy Enhanced Applications (PEAPs) using Nym even if they can record all internet traffic. The adversary can tell that a user's PEAP has connected to the mixnet; beyond that, it's impossible to say whether they are doing encrypted chat, file transfer, or interacting with another PEAP.
