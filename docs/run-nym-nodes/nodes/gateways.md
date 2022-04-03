@@ -94,15 +94,25 @@ OPTIONS:
 
 ```
 
+:::note
+Users who have built the repository with `eth` features enabled will see additional flags output in their console. 
+:::
+
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```
- ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <wallet_address>
+./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS>
 ```
 
 The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
 Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
+
+Users who have `eth` features enabled will have to add several flags to this command in order to initialise a gateway: 
+
+```
+./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --eth-endpoint <ETH_ENDPOINT> --mnemonic <MNEMONIC>
+```
 
 Remember to bond your node via the Nym wallet, which can be downloaded [here](https://github.com/nymtech/nym/releases/). This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
 

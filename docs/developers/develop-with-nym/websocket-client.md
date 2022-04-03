@@ -49,6 +49,11 @@ SUBCOMMANDS:
 
 ```
 
+:::note
+Users who have built the repository with `eth` features enabled will see additional flags output in their console. 
+:::
+
+
 The two most important commands you will issue to the client are: 
 
 1. `init` - initalise a new client instance. 
@@ -73,6 +78,12 @@ Initialising a new client instance can be done with the following command:
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
 The `--gateway` parameter is accepted as an optional arg, if you want to use a specific gateway, navigate to `https://sandbox-explorer.nymtech.net/network-components/gateways` and select the `Identity key` then  pass the argument: `--gateway CbxxDmmNCufXSsi7hqUnorchtsqqSLSZp7QfRJ5ugSRA`. Alterantively, not passing this argument will randomly select a  gateway.
+
+Users who have `eth` features enabled will have to add several flags to this command in order to initialise their client: 
+
+```
+./nym-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --id <id>
+```
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 

@@ -57,14 +57,18 @@ You can check the necessary parameters for the available commands by running:
 Before you can use the client, you need to initalise a new instance of it, which can be done with the following command:
 
 ```
-nym-socks5-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --id <id> --provider <provider>
+nym-socks5-client init --id <id> --provider <provider>
 ```
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
 The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. The address in the above example is one that we are currently running for the Sandbox Testnet, but you can also [run your own](/docs/stable/run-nym-nodes/nodes/requester/) if you want.
 
+Users who have `eth` features enabled will have to add several flags to this command in order to initialise their client: 
 
+```
+nym-socks5-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --id <id> --provider <provider>
+```
 ### Running the socks5 client
 
 You can run the initalised client by doing this:
@@ -75,6 +79,6 @@ nym-socks5-client run --id <id>
 
 ### Using the socks5 client
 
-This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`. You can now route application traffic through the Nym Sandbox Testnet! 
+This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`. You can now route application traffic through the Nym mixnet! 
 
 To have a look at examples of how to attach some existing applications to your client, please see the [Use External Apps](/docs/stable/use-external-apps/) section. 
