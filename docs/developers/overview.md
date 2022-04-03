@@ -1,3 +1,10 @@
+---
+sidebar_label: Overview
+description: "Overview of areas of potential development."
+hide_title: false
+title: Overview
+---
+
 If you are a coder, we invite you to build privacy enhanced applications - **PEAPs** - using Nym.
 
 There are many different ways of utilising the anonymity properties the Nym mixnet and its associated technologies such as coconut offer developers, and numerous levels of the stack at which to start developing: 
