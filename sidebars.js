@@ -14,9 +14,46 @@ module.exports = {
         "overview/links"
       ],
     }, 
+    { 
+      type: 'category', 
+      label: 'Developers', 
+      collapsed: true, 
+      items: [
+        "developers/overview",
+        {
+          type: 'category',
+          label: 'Nym Mixnet',
+          collapsed: true,
+          items: [
+            "developers/develop-with-nym/introduction",
+            "developers/develop-with-nym/choose-a-client",
+            {
+              type: 'category',
+              label: 'Clients',
+              collapsed: true,
+              items: [
+                "developers/develop-with-nym/websocket-client",
+                "developers/develop-with-nym/socks5-client",
+                "developers/develop-with-nym/wasm-client", 
+              ]
+            },
+            "developers/develop-with-nym/addresses-in-nym",
+            // "developers/develop-with-nym/demos"
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Nyx Blockchain',
+          collapsed: true,
+          items: [
+            "developers/develop-with-nyx/intro",
+          ],
+        },
+      ],
+    },
     {
       type: 'category',
-      label: 'Run Nym Nodes',
+      label: 'Node Operators',
       collapsed: true,
       items: [
         "run-nym-nodes/incentives",
@@ -38,37 +75,30 @@ module.exports = {
       ],
     },
     {
-      type: 'category',
-      label: 'Use Nym apps',
-      collapsed: true,
+      type: 'category', 
+      label: 'Existing Apps', 
+      collapsed: 'true', 
       items: [
-        'nym-apps/wallet', 
-        'nym-apps/network-explorer'
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Develop Nym Apps',
-      collapsed: true,
-      items: [
-        "develop-with-nym/overview",
-        "develop-with-nym/choose-a-client",
-        "develop-with-nym/websocket-client",
-        "develop-with-nym/socks5-client",
-        "develop-with-nym/wasm-client", 
-        "develop-with-nym/addresses-in-nym",
-        // "develop-with-nym/demos"
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Use External Apps',
-      collapsed: true,
-      items: [
-        "use-external-apps/index",
-        "use-external-apps/blockstream-green",
-        "use-external-apps/keybase"
-      ],
+        {
+          type: 'category',
+          label: 'Nym apps',
+          collapsed: true,
+          items: [
+            'nym-apps/wallet', 
+            'nym-apps/network-explorer'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Route External Apps',
+          collapsed: true,
+          items: [
+            "use-external-apps/index",
+            "use-external-apps/blockstream-green",
+            "use-external-apps/keybase"
+          ],
+        }
+      ]
     },
     {
       type: 'category',
