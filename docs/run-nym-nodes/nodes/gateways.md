@@ -22,7 +22,7 @@ The default gateway implementation included in the Nym platform code holds packe
 You can check that your binaries are properly compiled with:
 
 ```
-./nym-gateway
+./nym-gateway --help
 ```
 
 Which should return:
@@ -37,9 +37,42 @@ Which should return:
 
              (gateway - version 1.0.0-rc.1)
 
+    
+nym-gateway 1.0.0-rc.1
+Nymtech
 
+Build Timestamp:    2022-04-03T14:35:31.126221879+00:00
+Build Version:      1.0.0-rc.1
+Commit SHA:         95b6ac50be87d4c17920b480fe60381661e02ce0
+Commit Date:        2022-03-30T10:20:03+00:00
+Commit Branch:      release/1.0.0-rc.1
+rustc Version:      1.59.0
+rustc Channel:      stable
+cargo Profile:      release
 
-usage: --help to see available options.
+USAGE:
+    nym-gateway <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    help
+            Print this message or the help of the given subcommand(s)
+    init
+            Initialise the gateway
+    node-details
+            Show details of this gateway
+    run
+            Starts the gateway
+    sign
+            Sign text to prove ownership of this mixnode
+    upgrade
+            Try to upgrade the gateway
 
 ```
 
@@ -176,7 +209,7 @@ This prints various bits of information about your node:
     
 Nym Mixnet Gateway 
 Build Timestamp:    2021-12-17T16:59:54.243831464+00:00
-Build Version:      0.12.1
+Build Version:      1.0.0-rc.1
 Commit SHA:         96aa814a6106d6d5bbc1245cdc21b5b554d47b5f
 Commit Date:        2021-12-17T14:30:04+00:00
 Commit Branch:      detached HEAD
@@ -217,7 +250,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (0.12.1)
+Description=Nym Gateway (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -269,6 +302,7 @@ This lets your operating system know it's ok to reload the service configuration
 This is currently only one metrics endpoint for the gateway. It can be accessed via `curl` like this: 
 
 ```
+# For gateways on the Sandbox testnet
 curl https://sandbox-validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
 ```
 

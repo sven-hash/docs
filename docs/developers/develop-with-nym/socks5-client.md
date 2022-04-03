@@ -18,6 +18,7 @@ You can check that your binaries are properly compiled with:
 Which should return a list of all avaliable commands:
 
 ```
+
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
@@ -27,7 +28,7 @@ Which should return a list of all avaliable commands:
              (socks5 proxy - version 1.0.0-rc.1)
 
     
-Nym Socks5 Proxy 0.12.1
+Nym Socks5 Proxy 1.0.0-rc.1
 Nymtech
 A Socks5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 

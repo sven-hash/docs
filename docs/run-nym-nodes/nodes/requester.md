@@ -23,7 +23,7 @@ First of all, choose which gateway to connect your client to. Active gateways ca
 Then initalise your nym client with the ID key of your gateway of choice: 
 
 ```
- ./nym-client init --id requester-client --gateway <GATEWAY_ID>
+ ./nym-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --gateway <gateway> --id <id>
 ```
 
 Which should return: 
@@ -53,7 +53,7 @@ Now create a service file at `/etc/systemd/system/nym-client.service`:
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -106,7 +106,7 @@ Now stop that process with `CTRL-C`, and create a service file for the requester
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 

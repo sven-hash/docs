@@ -519,7 +519,7 @@ You will most likely want to automate your validator restarting if your server r
 
 ```ini
 [Unit]
-Description=Nymd (0.12.1)
+Description=Nymd (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 

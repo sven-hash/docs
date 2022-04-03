@@ -5,7 +5,6 @@ description: "How to run the Nym websocket client on a desktop or server machine
 title: Websocket client
 ---
 
- 
 
 :::note
 The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
@@ -20,7 +19,6 @@ You can check that your binaries are properly compiled with:
 Which should return a list of all avaliable commands:
 
 ```
-
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
@@ -30,7 +28,7 @@ Which should return a list of all avaliable commands:
              (client - version 1.0.0-rc.1)
 
     
-Nym Client 0.12.1
+Nym Client 1.0.0-rc.1
 Nymtech
 Implementation of the Nym Client
 
