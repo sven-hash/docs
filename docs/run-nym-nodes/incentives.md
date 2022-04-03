@@ -5,22 +5,22 @@ hide_title: false
 title: Network Incentives
 ---
 
-The Nym network has some of the same overall goals as [Tor](https://tor-project.org). But we want to enable Nym to scale in response to increased demand (and shrink when demand drops, so as not to waste resources). To do this in a decentralized way, nodes are included in the network based on cryptocurrency bonding, and a system of delegated staking.
+The Nym network has some of the same overall goals as [Tor](https://tor-project.org). But we want to enable Nym to scale in response to increased demand (and shrink when demand drops, so as not to waste resources). To do this in a decentralized way, nodes are included in the network based on their _pledge_, an amount of `NYM` tokens they provide to stake their node into the system, as well as a system of delegated staking.
 
-There are 2 public networks currently: the (now permanent) Sandbox testnet, and the Nym mainnet. 
+There are 2 public networks: the (now permanent) Sandbox testnet, and the Nym mainnet. 
 
 ## Nym Mainnet
 
 Node operators earn `NYM` tokens for performing their different operations. See the different pages of each node type for more on their specific tasks in the `nodes` section of the sidebar for more information.  
 
 ### Joining mainnet
-Users who hold `NYM` tokens will be able to use their tokens to purchase access to the mixnet, bond nodes, and stake these tokens on existing nodes to earn rewards via the Desktop Wallet. 
+Nym is a permissionless, open system. As such, users who hold `NYM` tokens will be able to use their tokens to purchase access to the mixnet, bond nodes, and stake these tokens on existing nodes to earn rewards via the Desktop Wallet. 
 
 The majority of users will not need to run a node to gain network rewards; we recommend anyone who wishes to contribute to the network in a non-technical way to delegate their stake to existing node operators via the Desktop Wallet. 
 
 If you are technically-minded, feel run a gateway or mixnode! We recommend people run gateways, as we have enough mixnodes from the various testnets we've iterated through recently. 
 
-In the future you will also be able to earn by spinning up a service provider if you want to serve the network differently, and reimburse the service credentials users pay you for using your service. Service credentials will be able to be reimbured for `NYM` from the Validators. 
+In the future you will also be able to earn by spinning up a service provider if you want to serve the network differently, and reimburse the service credentials users pay you for using your service. Service credentials will be able to be reimbursed for `NYM` from Nyx blockchain validators. 
 
 ## Sandbox Testnet 
 Sandbox is not incentivized but it includes `NYMT` test-tokens designed to mimic the tokenomics of the Nym mainnet. `NYMT`s have no real world utility but node operators or delegators will receive `NYMT`s to see how the economics, reward sharing and other mechanisms of the Nym mainnet works.
@@ -43,7 +43,7 @@ If for any reason you lose your mnemonic, the tokens held in your account are lo
 
 Node operator and delegator rewards are determined according to the principles laid out in the section 6 of [Nym Whitepaper](https://nymtech.net/nym-whitepaper.pdf). 
 
-Below is a TLDR of the variables and formulas involved in calculating these rewards per epoch. The initial reward pool contains 250 million NYM, leaving a circulating supply of 750 million NYM.
+Below is a TLDR of the variables and formulas involved in calculating these rewards per epoch. The initial reward pool contains 250 million `NYM`, leaving a circulating supply of 750 million `NYM`.
 
 |Symbol|Definition|
 |---|---|

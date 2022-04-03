@@ -10,13 +10,13 @@ The Nym network requester was built in the [building nym](/docs/stable/run-nym-n
 :::
 
 
-If you have access to a server, you can run the nym-network-requester, which allows Nym users to make outbound network requests from your server.
+If you have access to a server, you can run the Network Requester, which allows Nym users to make outbound network requests from your server.
 
-The nym-network-requester is NOT an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets.
+The Network Requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the whim of the maintainer of that instance.
 
 ### Running your nym client 
 
-Before initalising your nym-network-requester, you must initalise an instance of the nym-client binary for it to listen to.
+Before initalising your Network Requester, you must initalise an instance of the nym-client binary for it to listen to.
 
 First of all, choose which gateway to connect your client to. Active gateways can be found in the 'Gateways' [section of the explorer](https://sandbox-explorer.nymtech.net/nym/gateways).
 
@@ -159,11 +159,11 @@ For more information about your requester's port configuration, check the [reque
 
 ### Using your network requester 
 
-You can safely share the address of your running nym-client with however you want - if you would like to run a nym-network-requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
+You can safely share the address of your running nym-client with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
 
 Is this safe to do? If it was an open proxy, this would be unsafe, because any Nym user could make network requests to any system on the internet.
 
-To make things a bit less stressful for administrators, nym-network-requester drops all incoming requests by default. In order for it to make requests, you need to add specific domains to the `allowed.list` file at `$HOME/.nym/service-providers/nym-network-requester/allowed.list`.
+To make things a bit less stressful for administrators, the Network Requester drops all incoming requests by default. In order for it to make requests, you need to add specific domains to the `allowed.list` file at `$HOME/.nym/service-providers/nym-network-requester/allowed.list`.
 
 If you want, you can just use the domains in the default `allowed.list`, by running this command from the top-level `nym` code directory:
 
@@ -172,7 +172,7 @@ If you want, you can just use the domains in the default `allowed.list`, by runn
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
   :::caution
-  If you change your `allowed.list`, make sure you restart nym-network-requester.service to pick up the new allowed request list
+  If you change your `allowed.list`, make sure you restart the `nym-network-requester.service` to pick up the new allowed request list
   :::
 
 ### Adding URLs for other clients
