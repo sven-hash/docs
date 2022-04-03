@@ -1,8 +1,8 @@
 ---
-sidebar_label: Encrypted Cloud Storage Providers
+sidebar_label: Encrypted Cloud Storage
 description: "Install and use the File Storage Service Provider."
 hide_title: false
-title: Encrypted Cloud Storage Providers
+title: Encrypted Cloud Storage
 ---
 
 Participants in our challenge for Hackatom VI built several working proof of concepts for a private cloud storage service; think a private Dropbox account accessed via the Mixnet, with encrypted file sharing. 
