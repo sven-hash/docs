@@ -1,5 +1,6 @@
 module.exports = {
   sidebar: [
+    "intro",
     {
       type: 'category',
       label: 'Overview',
@@ -19,7 +20,6 @@ module.exports = {
       collapsed: true,
       items: [
         "run-nym-nodes/incentives",
-        // "run-nym-nodes/network-rewards",
         "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/build-nym",
         {
