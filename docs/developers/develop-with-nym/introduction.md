@@ -1,8 +1,8 @@
 ---
-sidebar_label: Introduction to PEAPs
+sidebar_label: Introduction
 hide_title: false
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
-title: "Introduction to PEAPs"
+title: "Introduction"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
