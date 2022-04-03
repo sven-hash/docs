@@ -8,13 +8,10 @@ title: Using Apps with Nym
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-
-
 Nym is a general purpose system. We aim to provide the strongest possible protections for internet traffic and transactions.
 
 Many existing applications are able to use the SOCKS5 proxy protocol. They can use the `nym-socks5-client` to bounce their network traffic through the Nym network, like this:
 
-<!-- ![Socks5 architecture](/img/docs/nym-socks5-architecture.png) -->
 <ThemedImage
   alt="Overview diagram of the Nym network"
   sources={{
