@@ -5,15 +5,9 @@ hide_title: false
 title: Gateways
 ---
 
- 
-
 :::note
-
 The Nym gateway was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
-
 :::
-
-
 
 Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination, sort of like a mailbox, for messages.
 
@@ -41,7 +35,7 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.1)
+             (gateway - version 1.0.0-rc.1)
 
 
 
@@ -64,7 +58,7 @@ Which will return the following:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.1)
+             (gateway - version 1.0.0-rc.1)
 
     
 nym-gateway-init 
@@ -136,7 +130,7 @@ Results in:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.1)
+             (gateway - version 1.0.0-rc.1)
 
 
 Starting gateway supergateway...
@@ -177,7 +171,7 @@ This prints various bits of information about your node:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.1)
+             (gateway - version 1.0.0-rc.1)
 
     
 Nym Mixnet Gateway 

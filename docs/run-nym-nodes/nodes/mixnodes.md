@@ -23,8 +23,6 @@ If you **do** delegate your `NYMT` to others and shut down your node, remember t
 
 Even you have already been running a node on the Milhon testnet, **you must do a clean install of the v0.12.1 `nym-mixnode` binary** to run a node in the Sandbox testnet. 
 
-You can either build the repository from source, or grab the new binaries from our [releases page](https://github.com/nymtech/nym/releases). 
-
 ### Initialising your mixnode
 You can check that your binaries are properly compiled with:
 
@@ -42,7 +40,7 @@ Which should return a list of all avaliable commands:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.1)
+             (mixnode - version 1.0.0-rc.1)
 
     
 Nym Mixnode 0.12.1
@@ -82,7 +80,7 @@ Which will return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.1)
+             (mixnode - version 1.0.0-rc.1)
 
 
 nym-mixnode-init
@@ -144,7 +142,7 @@ Which should return a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.1)
+             (mixnode - version 1.0.0-rc.1)
 
 
 Starting mixnode winston-smithnode...
@@ -195,7 +193,7 @@ Which will output something like this:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.1)
+             (mixnode - version 1.0.0-rc.1)
 
 
 name: winston-smithnode
@@ -219,7 +217,7 @@ You can always check the details of your mixnode with the `node-details` command
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 0.12.1)
+             (mixnode - version 1.0.0-rc.1)
 
 
 Identity Key: 733KdRDp9jyiTKvK6U1AGbSg8uEb7TUN8HtTEvNACTKq

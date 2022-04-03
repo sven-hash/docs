@@ -24,7 +24,7 @@ Which should return a list of all avaliable commands:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (socks5 proxy - version 0.12.1)
+             (socks5 proxy - version 1.0.0-rc.1)
 
     
 Nym Socks5 Proxy 0.12.1

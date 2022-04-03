@@ -5,13 +5,12 @@ hide_title: false
 title: Links
 ---
 
- 
-
 Here are some links that may prove handy as you start exploring.
 
 ### The Nym Project
-
-- You can chat to us in [Keybase](https://keybase.io). Download the app, then click **Teams -> Join a team**. Type `nymtech.friends` into the team name and hit **continue**. For general chat, hang out in the **#general** channel. Our development takes places in the **#dev** channel. Node operators should be in the **#node-operators** channel to receive notice of system updates or node downtime.
+##  ADD LINKS
+- We have two main communication channels: Discord  ADD LINKS , and our main Telegram chat, as well as our announcements channel. 
+- You can also chat to us in [Keybase](https://keybase.io). Download the app, then click **Teams -> Join a team**. Type `nymtech.friends` into the team name and hit **continue**. For general chat, hang out in the **#general** channel. Our development takes places in the **#dev** channel. Node operators should be in the **#node-operators** channel to receive notice of system updates or node downtime.
 - The [Nym website](https://nymtech.net) has general info on project status and links to learning materials and talks we've given
 - The [Nym blog](https://medium.com/nymtech) provides up to date project news and views
 - The [Nym Platform](https://github.com/nymtech/nym) code repo contains most parts of the Nym system in one convenient place

@@ -36,7 +36,7 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 0.12.1)
+             (client - version 1.0.0-rc.1)
 
     
 Initialising client...
