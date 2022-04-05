@@ -14,7 +14,7 @@ The Nym Desktop Wallet lets you interact with your Nym node and to delegate stak
 
 You can download it for Mac, Windows, or Linux.
 
-[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v1.0.0)
+[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v1.0.2)
 
 ### Bypassing security warnings
 
@@ -24,9 +24,9 @@ In the meantime, we encourage you to check the authenticity of the your download
 
 | Operating system | Hash                             | Command to check local download                            |
 |------------------|----------------------------------|------------------------------------------------------------|
-| MacOS            |`8eadc0c1c387cb8689b4d5db1bd0ba7f`|`openssl md5 nym-wallet_1.0.0_x64_macos_11.dmg`             | 
-| Windows          |`2947453602fc89401f89f37979c60cc2`|`openssl md5 nym-wallet_1.0.0_x64_windows.msi`              |
-| Ubuntu           |`2947453602fc89401f89f37979c60cc2`|`openssl md5 nym-wallet_1.0.0_amd64_ubuntu20.04\ .AppImage` |
+| MacOS            |``|`openssl md5 .dmg`             | 
+| Windows          |``|`openssl md5 .msi`              |
+| Ubuntu           |``|`openssl md5 .AppImage` |
 
 
 #### Linux 
@@ -34,6 +34,10 @@ In the meantime, we encourage you to check the authenticity of the your download
 You will need to `chmod +x` the AppImage in the terminal (or give it execute permission in your file browser) before it will run. 
 
 #### Windows 
+
+_You will still encounter warnings when opening the wallet on Windows. This is because, whilst the wallet is approved by the Microsoft app store, it has less than 10 thousand downloads at the current time. Once the wallet has passed this threshold, this warning will disappear._
+
+Follow the steps below to bypass the warnings. 
 
 * Select more-info after clicking the msi installer app: 
 
@@ -90,8 +94,7 @@ If you would like to the compile the wallet yourself, follow the instructions be
 Please note that the wallet has currently only been built on the operating systems for which there are binaries as listed above. If you find an issue or any additional prerequisties, please create an issue or PR against `develop` on [Github](https://github.com/nymtech/docs).
 :::
 
-#### Prerequisites for building the wallet
-
+#### Software prerequisites for building the wallet
 
 - `git`
 
@@ -131,9 +134,21 @@ sudo apt install pkg-config build-essential libssl-dev curl jq
 - When installing `NodeJS` please use the `current features` version.
 - Using a package manager like [Chocolatey](https://chocolatey.org/) is recommended.
 
+### Removing signing errors when building in development mode
+
+If you're wanting to build the wallet yourself, you will need to make a few modifications to the file located at `nym-wallet/src-tauri/tauri.conf.json` before doing so. These relate to the wallet being accepted by Mac and Windows app stores, and so aren't relevant to you when building and running the wallet yourself. 
+
+On **all** operating systems: 
+* set the value of line 49 to `false`
+* remove lines 50 to 54 
+
+As well as these modifications: 
+* MacOS users must also remove line 39 
+* Windows users must remove lines 42 to 46 
+
 ### Installation
 
-Inside of the `nym-wallet` folder, run:
+Once you have made these modifications to `tauri.conf.json`, inside of the `nym-wallet` folder, run:
 
 ```
 yarn install
