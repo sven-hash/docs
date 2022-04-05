@@ -142,7 +142,7 @@ On **all** operating systems:
 * set the value of line 49 to `false`
 * remove lines 50 to 54 
 
-As well as these modifications: 
+As well as these modifications for MacOS and Windows users: 
 * MacOS users must also remove line 39 
 * Windows users must remove lines 42 to 46 
 
