@@ -23,7 +23,7 @@ First of all, choose which gateway to connect your client to. Active gateways ca
 Then initalise your nym client with the ID key of your gateway of choice: 
 
 ```
- ./nym-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --gateway <gateway> --id <id>
+ ./nym-client init --gateway <gateway> --id <id>
 ```
 
 Which should return: 
@@ -49,7 +49,12 @@ Client configuration completed.
 The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
-Now create a service file at `/etc/systemd/system/nym-client.service`: 
+
+:::note
+Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/next/run-nym-nodes/build-nym/) for more information.  
+:::
+
+Now create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
 
 ```
 [Unit]
