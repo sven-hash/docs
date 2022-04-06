@@ -35,8 +35,8 @@ Follow the steps below to bypass the warnings.
 <ThemedImage
   alt=""
   sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning1.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning1.png'),
+    light: useBaseUrl('/img/docs/wallet-warnings/windows_warningv1-0-2.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warningv1-0-2.png'),
   }}
 />
 
