@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
 
-The Nym Desktop Wallet lets you interact with your Nym node and to delegate stake to others. In future releases, it will also let you access the Nym mixnet.
+The Nym Desktop Wallet lets you interact with your Nym node and to delegate stake to others, see the vesting schedule of tokens, and transfer tokens. In future releases, it will also let you access the Nym mixnet.
 
 You can download it for Mac, Windows, or Linux.
 
@@ -20,22 +20,13 @@ You can download it for Mac, Windows, or Linux.
 
 On Windows you will see a security warning pop up when you attempt to run the wallet. We are in the process of getting app store keys from Microsoft so that this doesn't happen. See the section below for details on steps to bypass these. 
 
-In the meantime, we encourage you to check the authenticity of the your downloads using their file hashes:
-
-| Operating system | Hash                             | Command to check local download                            |
-|------------------|----------------------------------|------------------------------------------------------------|
-| MacOS            |``|`openssl md5 .dmg`             | 
-| Windows          |``|`openssl md5 .msi`              |
-| Ubuntu           |``|`openssl md5 .AppImage` |
-
-
 #### Linux 
 
 You will need to `chmod +x` the AppImage in the terminal (or give it execute permission in your file browser) before it will run. 
 
 #### Windows 
 
-_You will still encounter warnings when opening the wallet on Windows. This is because, whilst the wallet is approved by the Microsoft app store, it has less than 10 thousand downloads at the current time. Once the wallet has passed this threshold, this warning will disappear._
+_You will still encounter warnings when opening the wallet on Windows. This is because - although the wallet is approved by Microsoft - it has less than 10 thousand downloads at the current time. Once the wallet has passed this threshold, this warning will disappear._
 
 Follow the steps below to bypass the warnings. 
 
