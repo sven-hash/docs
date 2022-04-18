@@ -118,7 +118,7 @@ Once the client has obtained the network topology, it automatically sends a regi
 
 The Nym native client exposes a websocket interface that your code connects to. To program your app, choose a websocket library for whatever language you're using. The default websocket port is `1977`, you can override that in the client config if you want.
 
-<!-- ### A simple example peap
+<!-- ### A simple example PEAP
 
 Let's write some code. Sometimes when you're learning something new it's easiest to see a short working example. Here's a simple app written in Python. This example is packaged with the Nym platform, dig around in the `python-examples` directory inside `clients/native`
 
@@ -232,7 +232,7 @@ One example project from the Nym community using the binary API is [BTC-BC](http
 
 #### Receiving messages
 
-When another peap sends a message to you, all extraneous information is stripped and you just get the message. So if an app sends the following message:
+When another PEAP sends a message to you, all extraneous information is stripped and you just get the message. So if an app sends the following message:
 
 ```json
 {

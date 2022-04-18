@@ -43,6 +43,6 @@ As long as there's enough traffic flowing through the nodes, even an adversary w
 
 The Nym mixnet mitigates against packet-dropping attacks by malicious nodes, and ensures quality-of-service, via _loop_ traffic. Clients send messages which _loop_ back to themselves. This allows clients to assure themselves that messages are being delivered properly. It also provides _cover traffic_ to ensure that enough messages are going through the system to provide privacy.
 
-Privacy Enhanced Applications (Peaps) that need to defend against network-level monitoring can use the Nym mixnet.
+Privacy Enhanced Applications (PEAPs) that need to defend against network-level monitoring can use the Nym mixnet.
 
-The end result is that adversaries are unable to monitor Privacy Enhanced Applications (Peaps) using Nym even if they can record all internet traffic. The adversary can tell that a user's Peap has connected to the mixnet; beyond that, it's impossible to say whether they are doing encrypted chat, file transfer, or interacting with another Peap.
+The end result is that adversaries are unable to monitor Privacy Enhanced Applications (PEAPs) using Nym even if they can record all internet traffic. The adversary can tell that a user's PEAP has connected to the mixnet; beyond that, it's impossible to say whether they are doing encrypted chat, file transfer, or interacting with another PEAP.
