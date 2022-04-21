@@ -451,23 +451,29 @@ For the moment, we haven't put a great amount of effort into optimizing concurre
 This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
 
 ### Metrics
-Here is an overview of the commands for getting information about a particular node via `curl` if your node is on Sandbox (replace:  
+Here is an overview of the commands for getting information about a particular node via `curl`:  
 
 | Endpoint             | Description                                                                           | Command                                                                                        |
 |----------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
 | `/description`       | Returns the description of the node set with the `describe` command                   | `curl <NODE_IP_ADDRESS>:8000/description`                                                      |
 | `/verloc`            | Returns the verloc information of the node, updated every 12 hours                    | `curl <NODE_IP_ADDRESS>:8000/verloc`                                                           |
-| `/report`            | Returns the most recent node status test report                                       | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
-| `/history`           | Returns all previous test reports                                                     | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/history`           |
-| `/status`            | Returns the status of the node                                                        | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/status`            |
-| `/reward-estimation` | Returns various reward estimation statistics                                          | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/reward-estimation` |
-| `/stake-saturation`  | Returns the stake saturation of the node as a decimal, with `1` being fully saturated | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/stake-saturation`  |
-| `/core-status-count` | Returns the amount of times the node has been selected for use in network tests       | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/core-status-count` | 
-| `/blacklist`         | Returns a list of mixnodes that failed connectivity checks in the previous round      | `curl https://validator.nymtech.net/api/v1/mixnodes/blacklisted`                               |
+| `/report`            | Returns the most recent node status test report                                       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
+| `/history`           | Returns all previous test reports                                                     | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/history`           |
+| `/status`            | Returns the status of the node                                                        | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/status`            |
+| `/reward-estimation` | Returns various reward estimation statistics                                          | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/reward-estimation` |
+| `/stake-saturation`  | Returns the stake saturation of the node as a decimal, with `1` being fully saturated | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/stake-saturation`  |
+| `/core-status-count` | Returns the amount of times the node has been selected for use in network tests       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/core-status-count` | 
 
 :::note
-Replace `sandbox-validator` with `validator` in your commands if you're wanting to query the mainnet 
+Replace `validator` with `sandbox-validator` in your commands if you're wanting to query the testnet 
 ::: 
+
+There are also several endpoints which return information about all mixnodes in the network: 
+
+| Endpoint             | Description                                                                           | Command                                                                                        |
+|----------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| `/blacklist`         | Returns a list of mixnodes that failed connectivity checks in the previous round      | `curl https://validator.nymtech.net/api/v1/mixnodes/blacklisted`                               |
+| `/active`            | Returns the active set                                                                | `curl https://validator.nymtech.net/api/v1/mixnodes/active`                                    |
 
 #### Metrics of interest 
 Although some of the endpoints return information that is fairly self-explanatory, there are some which are more complex, which are explained in more detail here. 
