@@ -304,13 +304,14 @@ This is currently only one metrics endpoint for the gateway. It can be accessed 
 ```
 # For gateways on the Sandbox testnet
 curl https://sandbox-validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
+# For gateways on the Mainnet
+curl https://validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
 ```
 
 This endpoint returns the number of times that the gateway has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network. 
 
 - `identity`: the identity key of the gateway. 
 - `count`: the number of times it has been used for network testing. 
-
 
 ### Gateway port reference
 

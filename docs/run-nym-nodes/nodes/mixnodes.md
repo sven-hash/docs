@@ -463,10 +463,11 @@ Here is an overview of the commands for getting information about a particular n
 | `/reward-estimation` | Returns various reward estimation statistics                                          | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/reward-estimation` |
 | `/stake-saturation`  | Returns the stake saturation of the node as a decimal, with `1` being fully saturated | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/stake-saturation`  |
 | `/core-status-count` | Returns the amount of times the node has been selected for use in network tests       | `curl https://sandbox-validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/core-status-count` | 
+| `/blacklist`         | Returns a list of mixnodes that failed connectivity checks in the previous round      | `curl https://validator.nymtech.net/api/v1/mixnodes/blacklisted`                               |
 
-:::attention
-Replace `sandbox-validator` with `api.nyx.nodes.guru` in your commands if you're running mainnet 
-:::
+:::note
+Replace `sandbox-validator` with `validator` in your commands if you're wanting to query the mainnet 
+::: 
 
 #### Metrics of interest 
 Although some of the endpoints return information that is fairly self-explanatory, there are some which are more complex, which are explained in more detail here. 
