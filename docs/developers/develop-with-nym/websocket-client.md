@@ -75,7 +75,9 @@ Initialising a new client instance can be done with the following command:
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--gateway` parameter is accepted as an optional arg, if you want to use a specific gateway, navigate to `https://sandbox-explorer.nymtech.net/network-components/gateways` and select the `Identity key` then  pass the argument: `--gateway CbxxDmmNCufXSsi7hqUnorchtsqqSLSZp7QfRJ5ugSRA`. Alterantively, not passing this argument will randomly select a  gateway.
+There is an optional `--gateway` flag that you can use if you want to use a specific gateway. The supplied argument is the `Identity Key` of the gateway you wish to use, which can be found on the [mainnet Network Explorer](https://explorer.nymtech.net/network-components/gateways) or [Sandbox Testnet Explorer](https://sandbox-explorer.nymtech.net/network-components/gateways) depending on which network you are on. 
+
+Not passing this argument will randomly select a gateway for your client.
 
 Users who have `eth` features enabled will have to add several flags to this command in order to initialise their client: 
 
@@ -112,7 +114,6 @@ Congratulations, you have just contributed a tiny bit of privacy to the world! `
 
 When the client is first started, it will reach out to the Nym network's validators, and get a list of available Nym nodes (gateways, mixnodes, and validators). We call this list of nodes the network _topology_. The client does this so that it knows how to connect, register itself with the network, and know which mixnodes it can route Sphinx packets through.
 
-Once the client has obtained the network topology, it automatically sends a registration request to one of the first available gateway. The gateway returns a unique authentication token that the client attaches to every subsequent request to the gateway.
 
 #### Connecting to the local websocket
 
