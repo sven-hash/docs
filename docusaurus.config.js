@@ -21,6 +21,7 @@ module.exports = {
       appId: 'MNH5MI8L6O',
       apiKey: '7b2a5d8b8ade99dd41c95a9537dd3fbf',
       indexName: 'nymtech',
+      contextualSearch: true,
     },
     colorMode: {
       defaultMode: 'dark',
