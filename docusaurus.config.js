@@ -18,9 +18,9 @@ module.exports = {
   },
   themeConfig: {
     algolia: {
-      appId: '2UPVNZRN6R',
-      apiKey: '37688439807863fd62824f97f779cc6a',
-      indexName: 'nym',
+      appId: 'MNH5MI8L6O',
+      apiKey: '7b2a5d8b8ade99dd41c95a9537dd3fbf',
+      indexName: 'nymtech',
     },
     colorMode: {
       defaultMode: 'dark',
