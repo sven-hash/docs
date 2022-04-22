@@ -16,14 +16,11 @@ The Network Requester is **not** an open proxy. It ships with a file called `all
 
 ### Running your nym client 
 
-Before initalising your Network Requester, you must initalise an instance of the nym-client binary for it to listen to.
+Before initalising your Network Requester, you must initalise an instance of the nym-client binary for it to listen to with. If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
 
-First of all, choose which gateway to connect your client to. Active gateways can be found in the 'Gateways' [section of the explorer](https://sandbox-explorer.nymtech.net/nym/gateways).
-
-Then initalise your nym client with the ID key of your gateway of choice: 
 
 ```
- ./nym-client init --gateway <gateway> --id <id>
+ ./nym-client init --id <id>
 ```
 
 Which should return: 
@@ -48,7 +45,6 @@ Client configuration completed.
 
 The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
-
 
 :::note
 Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/next/run-nym-nodes/build-nym/) for more information.  
@@ -137,7 +133,7 @@ systemctl start nym-network-requester.service
 systemctl status nym-network-requester.service
 ```
 
-## Configure your firewall
+### Configure your firewall
 
 Although your requester is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
