@@ -112,7 +112,7 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
     </pre>
       <pre>
       <code>
-        WASMD_VERSION=v0.23.0
+        WASMD_VERSION=v0.26.0
       </code>
     </pre>
         <pre>
@@ -130,7 +130,7 @@ git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
 mkdir build
-go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=4ffba672739a41d395827b78cb610f4a51eea83c -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
+go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=dc5ef6fe84f0a5e3b0894692a18cc48fb5b00adf -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
 ```
 
 At this point, you will have a copy of the `nymd` (for sandbox) or `nyxd` (for mainnet) binary in your `build/` directory. Test that it's compiled properly by running:
@@ -166,15 +166,16 @@ When you upload your `nymd`/`nyxd` binary, you'll need to tell it where `libwasm
 Upload both `nymd`/`nyxd` and `libwasmvm.so` to your validator machine. If `nymd`/`nyxd` can't find `libwasmvm.so` you will see an error like the following:
 
 ```
-./nymd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
+./nyxd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
 ```
 
 You'll need to set `LD_LIBRARY_PATH` in your user's `~/.bashrc` file, and add that to our path. Replace `/home/youruser/path/to/nym/binaries` in the command below to the locations of `nymd` and `libwasmvm.so` and run it. If you have compiled these on the server, they will be in the `build/` folder:
 
 ```
-NYM_BINARIES=/home/youruser/path/to/nym/binaries
-echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYM_BINARIES >> ~/.bashrc
-echo 'export PATH=$PATH:'${NYM_BINARIES} >> ~/.bashrc
+NYX_BINARIES=/home/youruser/path/to/nym/binaries
+# if you are using another shell like zsh replace '.bashrc' with the relevant config file
+echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYX_BINARIES >> ~/.bashrc 
+echo 'export PATH=$PATH:'${NYX_BINARIES} >> ~/.bashrc
 source ~/.bashrc
 ```
 
