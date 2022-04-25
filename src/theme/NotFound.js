@@ -39,11 +39,11 @@ function NotFound() {
                 Please consult the links below to get started with finding what you are looking for:  
               </Translate>
               <p>
-              *<a href="https://nymtech.net/docs/stable/overview/"> Nym Platform Overview </a>
+              - <a href="https://nymtech.net/docs/stable/overview/"> Nym Platform Overview </a>
               <br></br> 
-              *<a href="https://nymtech.net/docs/stable/run-nym-nodes/pre-built-binaries"> Run a Nym Node </a>
+              - <a href="https://nymtech.net/docs/stable/run-nym-nodes/pre-built-binaries"> Run a Nym Node </a>
               <br></br>
-              *<a href="https://nymtech.net/docs/stable/develop-with-nym/overview"> Develop with Nym </a>
+              - <a href="https://nymtech.net/docs/stable/develop-with-nym/overview"> Develop with Nym </a>
               <br></br>
               </p>
             </p>
