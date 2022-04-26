@@ -51,8 +51,9 @@ git pull # in case you've checked it out before
 
 git checkout tags/v1.0.0
 # this builds your binaries with mainnet configuration
-# you can build for the testnet by replacing 'mainnet' with 'sandbox'
-NETWORK=mainnet cargo build --release
+cargo build --release
+# to build your binaries with Sandbox testnet configuration, run this instead: 
+NETWORK=sandbox cargo build --release
 ```
 
 Quite a bit of stuff gets built. The key working parts are:
