@@ -13,6 +13,21 @@ After your build is finished, the `nym-mixnode` binary will be located in `/path
 
 Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
+### Wallet preparation 
+#### Mainnet
+Before you initialise and run your mixnode, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/nym-apps/wallet). 
+
+If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a mixnode is 100 `NYM`, but make sure you have a bit more to account for gas costs. 
+
+`NYM` is currently present on several exchanges. Head to our [telegram channels](https://t.me/nymchan) to find out more on where to get `NYM` tokens. 
+
+:::note
+Remember that you can **only** use Cosmos `NYM` tokens to bond your mixnode. You **cannot** use ERC20 representations of `NYM` to run a node. 
+:::
+
+#### Sandbox testnet
+Make sure to download a wallet and create an account as outlined above. Then head to our [token faucet](https://faucet.nymtech.net/) and get some tokens to use to bond it. 
+
 ### Initialising your mixnode
 You can check that your binaries are properly compiled with:
 
@@ -145,9 +160,12 @@ Please note that the `init` command will refuse to destroy existing mixnode keys
 
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
 
+### Bonding your mixnode
+Head over to your Nym Wallet and bond your mixnode via the interface there. Remember to keep some tokens in your wallet for gas costs!
+
 ### Running your mixnode
 
-Run your mixnode with: 
+Now you've bonded your mixnode, run it with: 
 
 ```
 ./nym-mixnode run --id winston-smithnode
