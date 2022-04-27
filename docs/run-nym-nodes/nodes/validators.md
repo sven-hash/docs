@@ -84,7 +84,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 #### Building your validator
-We use the `wasmd` version of the Cosmos validator to run our blockchain. First define the correct `BECH32_PREFIX` by selecting the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in: 
+We use the `wasmd` version of the Cosmos validator to run our blockchain. First define the correct variables by selecting the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in: 
 
 <Tabs groupId="nym-network">
   <TabItem value="sandbox" label="Sandbox (Testnet)">
@@ -430,6 +430,8 @@ Start the validator:
 </Tabs>
 
 Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set with the command below. 
+
+> If you are having trouble upgrading your validator binary, try replacing (or re-compile) the `libwasmvm.so` file and replace it on your validator server.
 
 :::warning
 When joining consensus, make sure that you do not disrupt (or worse - halt) the network by coming in with a disproportionately large amount of staked tokens. 
