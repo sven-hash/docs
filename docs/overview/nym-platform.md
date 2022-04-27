@@ -56,5 +56,6 @@ We are currently focused on providing privacy for blockchain systems. But our am
 
 The Nyx Blockchain - named after the Greek diety of of night - serves a few purposes. Initially, it was used only to house the CosmWasm smart contracts keeping track of Nym's network topology, token vesting contracts, and the NYM token itself. 
 
-In recent months, we've decided to expand the role of Nyx and instead expand its role by making it an open smart contract platform for anyone to upload CosmWasm smart contracts to. 
+In recent months, we've decided to expand the role of Nyx and instead expand its role by making it an open smart contract platform for anyone to upload CosmWasm smart contracts to. It will also be where our Coconut Credential Scheme will be debuted and able to be used by developers. 
 
+_Expect a lot more here very soon._ 
