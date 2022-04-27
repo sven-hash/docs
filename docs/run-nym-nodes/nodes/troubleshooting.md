@@ -24,9 +24,17 @@ We have scripts which automatically include the Git commit hash and Git tag in t
 
 ### How can I tell my node is up and running and mixing traffic?
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://sandbox-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+First of all check the 'Mixnodes' section of either the Nym Network Explorers: 
+* [Mainnet](https://explorer.nymtech.net/overview) 
+* [Sandbox testnet](https://sandbox-explorer.nymtech.net/) 
 
-If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
+Enter your **identity key** to find your node. Check the contents of the 'mixnode stats' and 'uptime story' sections.
+
+There are 2 community explorers currently, which have been created by [Nodes Guru](https://nodes.guru): 
+* [Mainnet](https://mixnet.explorers.guru/)
+* [Sandbox testnet](https://sandbox.mixnet.explorers.guru/)
+
+If you want more information, or if your node isn't showing up on the explorer of your choice and you want to double-check, here are some examples on how to check if the node is configured properly.
 
 #### Check from your VPS
 
