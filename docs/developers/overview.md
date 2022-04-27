@@ -29,7 +29,7 @@ Since the network has only just reached the level that users can start to build 
 If you're wanting to develop on top of the infrastructure code itself, and start adding additional features to existing nodes, check out the [Nym github repository](https://github.com/nymtech/nym). If you want to get to grips with running a node before starting this, check out the [Node Operators](/docs/next/run-nym-nodes/pre-built-binaries) section of these docs for more.  
 
 ## Nyx Blockchain
-If you want to start by looking at the smart contract level, look towards [Nyx](/docs/next/developers/develop-with-nyx/intro), and also have a look at the Nym `validator-api` [code](https://github.com/nymtech/nym/tree/develop/validator-api) to explore the possibilities.  
+If you want to start by looking at the smart contract level, look towards [Nyx](/docs/next/developers/develop-with-nyx/overview), and also have a look at the Nym `validator-api` [code](https://github.com/nymtech/nym/tree/develop/validator-api) to explore the possibilities.  
 
 ## Integrations with existing apps 
 If you're building an application that you think could benefit from utilising the Nym network, get in touch via the Integrations channel on Discord. 

@@ -24,7 +24,7 @@ module.exports = {
           label: 'Nym Mixnet',
           collapsed: true,
           items: [
-            "developers/develop-with-nym/introduction",
+            "developers/develop-with-nym/overview",
             "developers/develop-with-nym/choose-a-client",
             {
               type: 'category',
@@ -45,7 +45,7 @@ module.exports = {
           label: 'Nyx Blockchain',
           collapsed: true,
           items: [
-            "developers/develop-with-nyx/intro",
+            "developers/develop-with-nyx/overview",
           ],
         },
       ],

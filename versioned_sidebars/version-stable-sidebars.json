@@ -46,7 +46,7 @@
                       "items": [
                         {
                           "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/introduction"
+                          "id": "version-stable/developers/develop-with-nym/overview"
                         },
                         {
                           "type": "doc",
@@ -85,7 +85,7 @@
                       "items": [
                         {
                           "type": "doc",
-                          "id": "version-stable/developers/develop-with-nyx/intro"
+                          "id": "version-stable/developers/develop-with-nyx/overview"
                         }
                       ]
                     }
