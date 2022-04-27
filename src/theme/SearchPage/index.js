@@ -35,8 +35,10 @@ function useDocsSearchVersionsHelpers() {
     // docsPluginId -> versionName map
     const [searchVersions, setSearchVersions] = useState(() => Object.entries(allDocsData).reduce((acc, [pluginId, pluginData]) => ({
         ...acc,
-        [pluginId]: pluginData.versions[0].name,
+        // set default version to 'stable' or fallback to first version
+        [pluginId]: (pluginData.versions.find((v) => v.name === 'stable') || pluginData.versions[0]).name,
     }), {}));
+
     // Set the value of a single select menu
     const setSearchVersion = (pluginId, searchVersion) => setSearchVersions((s) => ({ ...s, [pluginId]: searchVersion }));
     const versioningEnabled = Object.values(allDocsData).some((docsData) => docsData.versions.length > 1);
@@ -56,7 +58,10 @@ function SearchVersionSelectList({ docsSearchVersionsHelpers, }) {
       {versionedPluginEntries.map(([pluginId, docsData]) => {
             const labelPrefix = versionedPluginEntries.length > 1 ? `${pluginId}: ` : '';
             return (<select key={pluginId} onChange={(e) => docsSearchVersionsHelpers.setSearchVersion(pluginId, e.target.value)} defaultValue={docsSearchVersionsHelpers.searchVersions[pluginId]} className={styles.searchVersionInput}>
-            {docsData.versions.filter((version)=>version.name==="stable").map((version, i) => (<option key={i} label={`${labelPrefix}${version.label}`} value={version.name}/>))}
+            {docsData.versions
+                // filter out all versions except stable from the select options
+                .filter((version) => version.name === 'stable')
+                .map((version, i) => (<option key={i} label={`${labelPrefix}${version.label}`} value={version.name}/>))}
           </select>);
         })}
     </div>);
