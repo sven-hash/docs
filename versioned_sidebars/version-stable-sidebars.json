@@ -169,7 +169,7 @@
                       "type": "category",
                       "collapsed": true,
                       "collapsible": true,
-                      "label": "Connect 3rd Party Apps to Nym",
+                      "label": "Connect Apps",
                       "items": [
                         {
                           "type": "doc",

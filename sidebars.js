@@ -89,7 +89,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Connect 3rd Party Apps to Nym',
+          label: 'Connect Apps',
           collapsed: true,
           items: [
             "use-external-apps/index",

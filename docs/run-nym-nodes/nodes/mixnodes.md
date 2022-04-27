@@ -15,7 +15,7 @@ Alternatively, you can fetch the binaries from our [releases page](https://githu
 
 ### Wallet preparation 
 #### Mainnet
-Before you initialise and run your mixnode, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/nym-apps/wallet). 
+Before you initialise and run your mixnode, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/nym-apps/wallet). 
 
 If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a mixnode is 100 `NYM`, but make sure you have a bit more to account for gas costs. 
 
@@ -416,7 +416,7 @@ Then reboot your server and restart your mixnode.
 
 ### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in either the [Sandbox testnet explorer](https://sandbox-explorer.nymtech.net/) or [Mainnet explorer](FILL), depending on what network your node is on. You can also check out the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in either the [Sandbox testnet explorer](https://sandbox-explorer.nymtech.net/) or [Mainnet explorer](https://explorer.nymtech.net/), depending on what network your node is on. You can also check out the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
