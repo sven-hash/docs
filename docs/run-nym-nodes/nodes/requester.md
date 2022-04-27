@@ -172,9 +172,9 @@ If you want, you can just use the domains in the default `allowed.list`, by runn
 
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
-  :::caution
-  If you change your `allowed.list`, make sure you restart the `nym-network-requester.service` to pick up the new allowed request list
-  :::
+:::caution
+If you change your `allowed.list`, make sure you restart the `nym-network-requester.service` to pick up the new allowed request list
+:::
 
 ### Adding URLs for other clients
 

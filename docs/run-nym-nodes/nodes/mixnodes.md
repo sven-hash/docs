@@ -44,18 +44,18 @@ Which should return a list of all avaliable commands:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.0.0-rc.1)
+             (mixnode - version 1.0.0)
 
     
-nym-mixnode 1.0.0-rc.1
+nym-mixnode 1.0.0
 Nymtech
 
-Build Timestamp:    2022-04-03T14:35:29.690005596+00:00
-Build Version:      1.0.0-rc.1
-Commit SHA:         95b6ac50be87d4c17920b480fe60381661e02ce0
-Commit Date:        2022-03-30T10:20:03+00:00
-Commit Branch:      release/1.0.0-rc.1
-rustc Version:      1.59.0
+Build Timestamp:    2022-04-27T15:11:57.656131671+00:00
+Build Version:      1.0.0
+Commit SHA:         a2313a457cf168833c28de202349e55df0106996
+Commit Date:        2022-04-27T15:05:38+00:00
+Commit Branch:      release/1.0.0
+rustc Version:      1.60.0
 rustc Channel:      stable
 cargo Profile:      release
 
@@ -84,7 +84,6 @@ SUBCOMMANDS:
             Sign text to prove ownership of this mixnode
     upgrade
             Try to upgrade the mixnode
-
 ```
 
 To check available configuration options use:
@@ -96,13 +95,14 @@ To check available configuration options use:
 Which will return: 
 
 ```
+
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.0.0-rc.1)
+             (mixnode - version 1.0.0)
 
     
 nym-mixnode-init 
@@ -139,7 +139,6 @@ OPTIONS:
         --wallet-address <WALLET_ADDRESS>
             The wallet address you will use to bond this mixnode, e.g.
             nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
-
 ```
 
 Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode, and the `--wallet-address` with the address you used on the Milhon Testnet **which has been auto-generated and migrated to the Sandbox testnet**. 
@@ -181,7 +180,7 @@ Which should return a nice clean startup:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.0.0-rc.1)
+             (mixnode - version 1.0.0)
 
     
 Starting mixnode winston-smithnode...
@@ -189,26 +188,25 @@ Starting mixnode winston-smithnode...
 To bond your mixnode you will need to install the Nym wallet, go to https://nymtech.net/get-involved and select the Download button.
 Select the correct version and install it to your machine. You will need to provide the following: 
  
-Identity Key: 89dgN3NhGr3276xGZcN1h9N9zLp5aYXHGhCFnMpHXkBm
-Sphinx Key: 2TBYsLkWuizXtDW6DurcURRZBSG17Hodhp9TVgxGvueq
-Owner Signature: 4ukmzxAEaqRVFzWPwNjFhTciK37BYq4s8LbLJdJpRHk94htNyQ1gy5xBdJKsi6i2Y3xA7kLTLdHSYSjnmAE8TYyb
-Host: 62.240.134.90 (bind address: 62.240.134.90)
-Version: 1.0.0-rc.1
+Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
+Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
+Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
+Host: 62.240.134.46 (bind address: 62.240.134.46)
+Version: 1.0.0
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
-You are bonding to wallet address: nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
 
 
- 2022-04-03T17:56:16.138Z INFO  nym_mixnode::node > Starting nym mixnode
- 2022-04-03T17:56:25.559Z INFO  nym_mixnode::node > Starting node stats controller...
- 2022-04-03T17:56:25.560Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
- 2022-04-03T17:56:25.560Z INFO  nym_mixnode::node > Starting socket listener...
- 2022-04-03T17:56:25.560Z INFO  nym_mixnode::node::listener > Running mix listener on "62.240.134.90:1789"
- 2022-04-03T17:56:25.560Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
-
+ 2022-04-27T16:08:01.159Z INFO  nym_mixnode::node > Starting nym mixnode
+ 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting node stats controller...
+ 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
+ 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting socket listener...
+ 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node::listener > Running mix listener on "62.240.134.46:1789"
+ 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
 ```
 
-If everything worked, you'll see your node running on the either the [Sandbox network explorer](https://sandbox-explorer.nymtech.net) or the [mainnet network explorer](FILL), depending on which network you're running. 
+If everything worked, you'll see your node running on the either the [Sandbox network explorer](https://sandbox-explorer.nymtech.net) or the [mainnet network explorer](https://explorer.nymtech.net), depending on which network you're running. 
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
@@ -233,7 +231,7 @@ Which will output something like this:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.0.0-rc.1)
+             (mixnode - version 1.0.0)
 
     
 name: winston-smithnode
@@ -261,17 +259,17 @@ Which returns:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.0.0-rc.1)
+             (mixnode - version 1.0.0)
 
     
-Identity Key: 89dgN3NhGr3276xGZcN1h9N9zLp5aYXHGhCFnMpHXkBm
-Sphinx Key: 2TBYsLkWuizXtDW6DurcURRZBSG17Hodhp9TVgxGvueq
-Owner Signature: 4ukmzxAEaqRVFzWPwNjFhTciK37BYq4s8LbLJdJpRHk94htNyQ1gy5xBdJKsi6i2Y3xA7kLTLdHSYSjnmAE8TYyb
-Host: 62.240.134.90 (bind address: 62.240.134.90)
-Version: 1.0.0-rc.1
+Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
+Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
+Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
+Host: 62.240.134.46 (bind address: 62.240.134.46)
+Version: 1.0.0
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
-You are bonding to wallet address: nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
 
 ```
 

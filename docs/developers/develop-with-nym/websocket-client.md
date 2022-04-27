@@ -25,10 +25,10 @@ Which should return a list of all avaliable commands:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 1.0.0-rc.1)
+             (client - version 1.0.0)
 
     
-Nym Client 1.0.0-rc.1
+Nym Client 1.0.0
 Nymtech
 Implementation of the Nym Client
 
@@ -44,7 +44,6 @@ SUBCOMMANDS:
     init       Initialise a Nym client. Do this first!
     run        Run the Nym client with provided configuration client optionally overriding set parameters
     upgrade    Try to upgrade the client
-
 ```
 
 :::note
@@ -71,6 +70,30 @@ Initialising a new client instance can be done with the following command:
 
 ```
 ./nym-client init --id <client_id> 
+```
+
+Which will return: 
+
+```
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (client - version 1.0.0)
+
+    
+Initialising client...
+Saved all generated keys
+Saved configuration file to "/home/mx/.nym/clients/client/config/config.toml"
+Using gateway: BNjYZPxzcJwczXHHgBxCAyVJKxN6LPteDRrKapxWmexv
+Client configuration completed.
+
+
+
+
+The address of this client is: 7bxykcEH1uGNMr8mxGABvLJA44nbYt6Rp7xXHhJ4wQVk.HpnFbaMJ8NN1cp5ZPdPTc2GoBDnG4Jd51Sti32tbf3tF@BNjYZPxzcJwczXHHgBxCAyVJKxN6LPteDRrKapxWmexv
 ```
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.

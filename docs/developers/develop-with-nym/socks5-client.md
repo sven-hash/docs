@@ -18,17 +18,16 @@ You can check that your binaries are properly compiled with:
 Which should return a list of all avaliable commands:
 
 ```
-
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (socks5 proxy - version 1.0.0-rc.1)
+             (socks5 proxy - version 1.0.0)
 
     
-Nym Socks5 Proxy 1.0.0-rc.1
+Nym Socks5 Proxy 1.0.0
 Nymtech
 A Socks5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
@@ -44,7 +43,6 @@ SUBCOMMANDS:
     init       Initialise a Nym client. Do this first!
     run        Run the Nym client with provided configuration client optionally overriding set parameters
     upgrade    Try to upgrade the client
-
 ```
 
 You can check the necessary parameters for the available commands by running:
@@ -76,6 +74,35 @@ You can run the initalised client by doing this:
 
 ```
 nym-socks5-client run --id <id>
+```
+
+Which will return: 
+
+```
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (socks5 proxy - version 1.0.0)
+
+    
+ 2022-04-27T16:15:45.843Z INFO  nym_socks5_client::client > Starting nym client
+ 2022-04-27T16:15:45.889Z INFO  nym_socks5_client::client > Obtaining initial network topology
+ 2022-04-27T16:15:51.470Z INFO  nym_socks5_client::client > Starting topology refresher...
+ 2022-04-27T16:15:51.470Z INFO  nym_socks5_client::client > Starting received messages buffer controller...
+ 2022-04-27T16:15:51.648Z INFO  gateway_client::client    > Claiming more bandwidth for your tokens. This will use 1 token(s) from your wallet. Stop the process now if you don't want that to happen.
+ 2022-04-27T16:15:51.648Z WARN  gateway_client::client    > Not enough bandwidth. Trying to get more bandwidth, this might take a while
+ 2022-04-27T16:15:51.648Z INFO  gateway_client::client    > The client is running in disabled credentials mode - attempting to claim bandwidth without a credential
+ 2022-04-27T16:15:51.706Z INFO  nym_socks5_client::client > Starting mix traffic controller...
+ 2022-04-27T16:15:51.706Z INFO  nym_socks5_client::client > Starting real traffic stream...
+ 2022-04-27T16:15:51.706Z INFO  nym_socks5_client::client > Starting loop cover traffic stream...
+ 2022-04-27T16:15:51.707Z INFO  nym_socks5_client::client > Starting socks5 listener...
+ 2022-04-27T16:15:51.707Z INFO  nym_socks5_client::socks::server > Listening on 127.0.0.1:1080
+ 2022-04-27T16:15:51.707Z INFO  nym_socks5_client::client        > Client startup finished!
+ 2022-04-27T16:15:51.707Z INFO  nym_socks5_client::client        > The address of this client is: BFKhbyNsSVwbsGSLwHDkfwH5mwZqZYpnpNjjV7Xo25Xc.EFWd1geWspzyVeinwXrY5fCBMRtAKV1QmK1CNFhAA8VG@BNjYZPxzcJwczXHHgBxCAyVJKxN6LPteDRrKapxWmexv
+ 2022-04-27T16:15:51.707Z INFO  nym_socks5_client::socks::server > Serving Connections...
 ```
 
 ### Using the socks5 client
