@@ -66,16 +66,16 @@ module.exports = {
             "run-nym-nodes/nodes/mixnodes",
             "run-nym-nodes/nodes/troubleshooting",
             "run-nym-nodes/nodes/gateways",
-            "run-nym-nodes/nodes/validators",
             "run-nym-nodes/nodes/requester",
-            "run-nym-nodes/nodes/file-storage"
+            "run-nym-nodes/nodes/file-storage",
+            "run-nym-nodes/nodes/validators"
           ],
         },
       ],
     },
     {
       type: 'category', 
-      label: 'Use Existing Apps', 
+      label: 'Applications', 
       collapsed: 'true', 
       items: [
         {
@@ -89,7 +89,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Connect External Apps',
+          label: 'Connect 3rd Party Apps to Nym',
           collapsed: true,
           items: [
             "use-external-apps/index",

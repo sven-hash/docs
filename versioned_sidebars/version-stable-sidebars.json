@@ -70,6 +70,10 @@
                               "type": "doc", 
                               "id": "version-stable/developers/develop-with-nym/wasm-client"
                             }                          ]
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/developers/develop-with-nym/addresses-in-nym"
                         }
                       ]
                     }, 
@@ -121,10 +125,6 @@
               },
               {
                 "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/validators"
-              },
-              {
-                "type": "doc",
                 "id": "version-stable/run-nym-nodes/nodes/gateways"
               },
               {
@@ -134,6 +134,10 @@
               {
                 "type": "doc",
                 "id": "version-stable/run-nym-nodes/nodes/file-storage"
+              },
+              {
+                "type": "doc",
+                "id": "version-stable/run-nym-nodes/nodes/validators"
               }
             ]
           }
@@ -143,36 +147,44 @@
         "type": "category",
         "collapsed": true,
         "collapsible": true,
-        "label": "Use Existing Apps",
+        "label": "Applications",
         "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/nym-apps/wallet"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/nym-apps/network-explorer"
-          }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Connect External Apps",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/use-external-apps/index"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/use-external-apps/blockstream-green"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/use-external-apps/keybase"
-          }
+                    {
+                      "type": "category",
+                      "collapsed": true,
+                      "collapsible": true,
+                      "label": "Nym Apps",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "version-stable/nym-apps/wallet"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/nym-apps/network-explorer"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "category",
+                      "collapsed": true,
+                      "collapsible": true,
+                      "label": "Connect 3rd Party Apps to Nym",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "version-stable/use-external-apps/index"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/use-external-apps/blockstream-green"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/use-external-apps/keybase"
+                        }
+                      ]
+                    }
         ]
       },
       {
