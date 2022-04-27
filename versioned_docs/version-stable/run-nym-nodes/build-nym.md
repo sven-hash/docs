@@ -61,7 +61,7 @@ Quite a bit of stuff gets built. The key working parts are:
 1. the [mixnode](/docs/stable/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
 2. the [gateway node](/docs/stable/run-nym-nodes/nodes/gateways): `nym-gateway`
 3. the [websocket client](/docs/stable/developers/develop-with-nym/websocket-client): `nym-client`
-4. the [socks5 client](/docs/stable/use-external-apps/index): `nym-socks5-client`
+4. the [socks5 client](/docs/stable/developers/develop-with-nym/socks5-client): `nym-socks5-client`
 5. the [network requester](/docs/stable/run-nym-nodes/nodes/requester): `nym-network-requester`
 6. the [network explorer api](/docs/stable/nym-apps/network-explorer): `explorer-api`
 

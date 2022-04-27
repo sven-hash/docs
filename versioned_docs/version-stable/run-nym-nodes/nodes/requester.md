@@ -16,7 +16,7 @@ The Network Requester is **not** an open proxy. It ships with a file called `all
 
 ### Running your nym client 
 
-Before initalising your Network Requester, you must initalise an instance of the nym-client binary for it to listen to with. If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
+Before initalising your Network Requester, you must initalise an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/stable/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
 
 
 ```

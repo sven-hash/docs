@@ -16,7 +16,7 @@ The Network Requester is **not** an open proxy. It ships with a file called `all
 
 ### Running your nym client 
 
-Before initalising your Network Requester, you must initalise an instance of the nym-client binary for it to listen to with. If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
+Before initalising your Network Requester, you must initalise an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/next/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
 
 
 ```
@@ -160,7 +160,7 @@ For more information about your requester's port configuration, check the [reque
 
 ### Using your network requester 
 
-You can safely share the address of your running nym-client with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
+You can safely share the address of your running `nym-client` with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
 
 Is this safe to do? If it was an open proxy, this would be unsafe, because any Nym user could make network requests to any system on the internet.
 
