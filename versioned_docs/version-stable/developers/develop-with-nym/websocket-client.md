@@ -5,7 +5,6 @@ description: "How to run the Nym websocket client on a desktop or server machine
 title: Websocket client
 ---
 
- 
 
 :::note
 The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
@@ -20,17 +19,16 @@ You can check that your binaries are properly compiled with:
 Which should return a list of all avaliable commands:
 
 ```
-
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 0.12.1)
+             (client - version 1.0.0)
 
     
-Nym Client 0.12.1
+Nym Client 1.0.0
 Nymtech
 Implementation of the Nym Client
 
@@ -46,8 +44,12 @@ SUBCOMMANDS:
     init       Initialise a Nym client. Do this first!
     run        Run the Nym client with provided configuration client optionally overriding set parameters
     upgrade    Try to upgrade the client
-
 ```
+
+:::note
+Users who have built the repository with `eth` features enabled will see additional flags output in their console. 
+:::
+
 
 The two most important commands you will issue to the client are: 
 
@@ -70,9 +72,41 @@ Initialising a new client instance can be done with the following command:
 ./nym-client init --id <client_id> 
 ```
 
+Which will return: 
+
+```
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (client - version 1.0.0)
+
+    
+Initialising client...
+Saved all generated keys
+Saved configuration file to "/home/mx/.nym/clients/client/config/config.toml"
+Using gateway: BNjYZPxzcJwczXHHgBxCAyVJKxN6LPteDRrKapxWmexv
+Client configuration completed.
+
+
+
+
+The address of this client is: 7bxykcEH1uGNMr8mxGABvLJA44nbYt6Rp7xXHhJ4wQVk.HpnFbaMJ8NN1cp5ZPdPTc2GoBDnG4Jd51Sti32tbf3tF@BNjYZPxzcJwczXHHgBxCAyVJKxN6LPteDRrKapxWmexv
+```
+
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--gateway` parameter is accepted as an optional arg, if you want to use a specific gateway, navigate to `https://sandbox-explorer.nymtech.net/network-components/gateways` and select the `Identity key` then  pass the argument: `--gateway CbxxDmmNCufXSsi7hqUnorchtsqqSLSZp7QfRJ5ugSRA`. Alterantively, not passing this argument will randomly select a  gateway.
+There is an optional `--gateway` flag that you can use if you want to use a specific gateway. The supplied argument is the `Identity Key` of the gateway you wish to use, which can be found on the [mainnet Network Explorer](https://explorer.nymtech.net/network-components/gateways) or [Sandbox Testnet Explorer](https://sandbox-explorer.nymtech.net/network-components/gateways) depending on which network you are on. 
+
+Not passing this argument will randomly select a gateway for your client.
+
+Users who have `eth` features enabled will have to add several flags to this command in order to initialise their client: 
+
+```
+./nym-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --id <id>
+```
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
@@ -103,7 +137,6 @@ Congratulations, you have just contributed a tiny bit of privacy to the world! `
 
 When the client is first started, it will reach out to the Nym network's validators, and get a list of available Nym nodes (gateways, mixnodes, and validators). We call this list of nodes the network _topology_. The client does this so that it knows how to connect, register itself with the network, and know which mixnodes it can route Sphinx packets through.
 
-Once the client has obtained the network topology, it automatically sends a registration request to one of the first available gateway. The gateway returns a unique authentication token that the client attaches to every subsequent request to the gateway.
 
 #### Connecting to the local websocket
 

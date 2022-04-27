@@ -9,7 +9,7 @@ title: Blockstream Green
 
 :::note
 
-You need to [run the Nym Socks5 client](/docs/stable/use-external-apps/) before following the instructions on this page.
+You need to [run the Nym Socks5 client](/docs/next/use-external-apps/) before following the instructions on this page.
 
 :::
 

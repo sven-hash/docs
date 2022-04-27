@@ -75,7 +75,7 @@ module.exports = {
     },
     {
       type: 'category', 
-      label: 'Existing Apps', 
+      label: 'Use Existing Apps', 
       collapsed: 'true', 
       items: [
         {
@@ -89,7 +89,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Route External Apps',
+          label: 'Connect External Apps',
           collapsed: true,
           items: [
             "use-external-apps/index",

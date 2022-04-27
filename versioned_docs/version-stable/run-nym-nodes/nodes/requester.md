@@ -6,7 +6,7 @@ title: Network Requesters
 ---
 
 :::note
-The Nym network requester was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym network requester was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
 
@@ -16,14 +16,11 @@ The Network Requester is **not** an open proxy. It ships with a file called `all
 
 ### Running your nym client 
 
-Before initalising your Network Requester, you must initalise an instance of the nym-client binary for it to listen to.
+Before initalising your Network Requester, you must initalise an instance of the nym-client binary for it to listen to with. If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
 
-First of all, choose which gateway to connect your client to. Active gateways can be found in the 'Gateways' [section of the explorer](https://sandbox-explorer.nymtech.net/nym/gateways).
-
-Then initalise your nym client with the ID key of your gateway of choice: 
 
 ```
- ./nym-client init --id requester-client --gateway <GATEWAY_ID>
+ ./nym-client init --id <id>
 ```
 
 Which should return: 
@@ -36,7 +33,7 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 0.12.1)
+             (client - version 1.0.0-rc.1)
 
     
 Initialising client...
@@ -49,11 +46,15 @@ Client configuration completed.
 The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
-Now create a service file at `/etc/systemd/system/nym-client.service`: 
+:::note
+Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/next/run-nym-nodes/build-nym/) for more information.  
+:::
+
+Now create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -106,7 +107,7 @@ Now stop that process with `CTRL-C`, and create a service file for the requester
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -132,7 +133,7 @@ systemctl start nym-network-requester.service
 systemctl status nym-network-requester.service
 ```
 
-## Configure your firewall
+### Configure your firewall
 
 Although your requester is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
@@ -171,9 +172,9 @@ If you want, you can just use the domains in the default `allowed.list`, by runn
 
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
-  :::caution
-  If you change your `allowed.list`, make sure you restart the `nym-network-requester.service` to pick up the new allowed request list
-  :::
+:::caution
+If you change your `allowed.list`, make sure you restart the `nym-network-requester.service` to pick up the new allowed request list
+:::
 
 ### Adding URLs for other clients
 

@@ -1,22 +1,14 @@
 ---
-sidebar_label: Overview
+sidebar_label: Introduction
 hide_title: false
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
-title: "Overview"
+title: "Introduction"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-If you are a coder, we invite you to build **privacy enhanced applications** using Nym.
-
-Nym lets you build privacy respecting clients and services which use our network infrastructure. Your apps can then connect to other apps also using the Nym network. All app-to-app communication happens over a set of cooperating networked nodes called a mixnet.
-
-Mixnets give strong privacy guarantees against third-party observers.
-
-It is apparent to any external network adversary that a given machine has connected to Nym infrastructure. Beyond that, it should not be possible to infer what activity is taking place unless there are observable network side effects (i.e. a Service Provider that makes network requests on behalf of a Nym client).
-
-We'll get into the technical details more deeply in the next few sections, but before we do that, let's take a look at the steps involved in building and using a simple application.
+Before looking at the technical details of the various Nym Clients avaliable to you, let's take a look at the steps involved in building and using a simple application.
 
 ### Initialization
 

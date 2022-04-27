@@ -24,9 +24,17 @@ We have scripts which automatically include the Git commit hash and Git tag in t
 
 ### How can I tell my node is up and running and mixing traffic?
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://sandbox-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+First of all check the 'Mixnodes' section of either the Nym Network Explorers: 
+* [Mainnet](https://explorer.nymtech.net/overview) 
+* [Sandbox testnet](https://sandbox-explorer.nymtech.net/) 
 
-If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
+Enter your **identity key** to find your node. Check the contents of the 'mixnode stats' and 'uptime story' sections.
+
+There are 2 community explorers currently, which have been created by [Nodes Guru](https://nodes.guru): 
+* [Mainnet](https://mixnet.explorers.guru/)
+* [Sandbox testnet](https://sandbox.mixnet.explorers.guru/)
+
+If you want more information, or if your node isn't showing up on the explorer of your choice and you want to double-check, here are some examples on how to check if the node is configured properly.
 
 #### Check from your VPS
 
@@ -120,7 +128,7 @@ curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_no
 
 #### Check with testnet API
 
-We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation](docs/stable/run-nym-nodes/nodes/mixnodes).
+We currently have an API set up returning our metrics tests of the network. There are two endpoints to ping for information about your mixnode, `report` and `history`. Find more information about this in the [Mixnodes metrics documentation](docs/next/run-nym-nodes/nodes/mixnodes).
 
 ### Why is my node not mixing any packets?
 
@@ -289,12 +297,12 @@ If you are running into issues with an error including the following:
 thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address" }'
 ```
 
-Then you need to `--announce-host <public ip>` and ``--host <local ip>` on startup. This issue arises because of your use of a provider like AWS or Google Cloud, and the fact that your VPS' available bind address is not the same as the public IP address (see [Virtual IPs and hosting via Google and AWS](docs/stable/run-nym-nodes/nodes/mixnodes) for more information on this issue).
+Then you need to `--announce-host <public ip>` and ``--host <local ip>` on startup. This issue arises because of your use of a provider like AWS or Google Cloud, and the fact that your VPS' available bind address is not the same as the public IP address (see [Virtual IPs and hosting via Google and AWS](docs/next/run-nym-nodes/nodes/mixnodes) for more information on this issue).
 
 #### `rocket::launch` warnings
 These warnings are not an issue, please ignore them. Rocket is a web framework for rust which we are using to provide mixnodes with `/verloc` and `/description` http APIs.
 
-Find more information about this in the [Mixnodes metrics documentation](docs/stable/run-nym-nodes/nodes/mixnodes).
+Find more information about this in the [Mixnodes metrics documentation](docs/next/run-nym-nodes/nodes/mixnodes).
 
 Rocket runs on port `8000` by default. Although at this stage of the testnet we need Rocket to be reachable via this port, in the future customization of the particular port it uses will be possible.
 

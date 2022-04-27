@@ -8,7 +8,9 @@ title: Network Overview
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-We are currently running a [testnet](https://sandbox-explorer.nymtech.net/) with Nym validators and mixnodes. Together, the validators and mixnodes provide integrated access control and network privacy to users of the Nym platform. They are assisted by several other platform components: multiple types of clients, and gateway nodes.
+## Nym Network
+
+The [Nym Network](https://github.com/nymtech/nym) includes mixnodes, validators, gateways, and client code used for talking to the network. All of this is run in a decentralized, trustless fashion.
 
 Here's an overview of the entire network.
 
@@ -20,13 +22,13 @@ Here's an overview of the entire network.
   }}
 />
 
-The [Nym platform](https://github.com/nymtech/nym) includes mixnodes, validators, gateways, and client code used for talking to the network. All of this is run in a decentralized, trustless fashion.
+*Mix nodes* provide network security for network content _and_ metadata, making it impossible to see who is communicating with who.
 
-The mixnodes provide network security for network content _and_ metadata, making it impossible to see who is communicating with who.
+*Validators* secure the network with proof-of-stake Sybil defenses, determine which nodes are included within the network, and work together to create Coconut threshold credentials which provide anonymous access to data and resources.
 
-Validators secure the network with proof-of-stake Sybil defenses, determine which nodes are included within the network, and work together to create Coconut threshold credentials which provide anonymous access to data and resources.
+*Gateways* act as message storage for clients which may go offline and come back online again, and defend against denial of service attacks.
 
-Gateway nodes act as message storage for clients which may go offline and come back online again, and defend against denial of service attacks.
+You might notice the diagram above also contains the *Nyx Blockchain* - this will be discussed in more detail below. 
 
 But the Nym platform (blue) is just infrastructure. The interesting part are the privacy enhanced apps (yellow) which can be created by privacy developers or hooked into the network for existing applications. We've included some (fictional) examples of things we think people might build or integrate. Read our docs and use your imagination, and you may come up with many more!
 
@@ -50,18 +52,10 @@ All apps talk with Nym gateway nodes using Sphinx packets and a small set of sim
 
 We are currently focused on providing privacy for blockchain systems. But our ambitions are wider. In the medium term, we are actively working to bring together a range of new technologies that can enable strong privacy for the whole internet. There have not been many new widely-adopted privacy technologies to help internet users in the past 15 years. We are working hard to change that.
 
-### Current Status
+## Nyx Blockchain 
 
-The mixnet and validators are now working.
+The Nyx Blockchain - named after the Greek diety of of night - serves a few purposes. Initially, it was used only to house the CosmWasm smart contracts keeping track of Nym's network topology, token vesting contracts, and the NYM token itself. 
 
-Mixnet APIs have mostly stabilized, and at this point it's possible to start building applications.
+In recent months, we've decided to expand the role of Nyx and instead expand its role by making it an open smart contract platform for anyone to upload CosmWasm smart contracts to. It will also be where our Coconut Credential Scheme will be debuted and able to be used by developers. 
 
-Validators are now working in their most basic form. Later, validators will also generate Coconut credentials.
-
-There is currently a native mixnet client written in Rust. It runs in standalone fashion on desktops or servers. You can use this for connecting desktop or server apps to the Nym network, using any language that speaks websockets.
-
-A webassembly client also exists. Webassembly clients can be used within browser or mobile apps, and again communicate with gateways via websockets. The webassembly client is not complete (it does not yet send cover traffic), but it is working to a point where you should be able to use it for application development. Cover traffic, when it is set up, will happen transparently and you shouldn't need to worry about it as a Nym app developer.
-
-Lastly, a SOCKS5 client and Service Provider (called nym-network-requester) makes it easy to retrofit cryptocurrency wallets and other existing SOCKS-compatible applications to use Nym privacy infrastructure.
-
-In the next few sections, we'll look at network privacy and access privacy in more detail.
+_Expect a lot more here very soon._ 
