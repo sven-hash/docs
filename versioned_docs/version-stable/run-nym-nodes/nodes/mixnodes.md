@@ -416,7 +416,16 @@ Then reboot your server and restart your mixnode.
 
 ### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in either the [Sandbox testnet explorer](https://sandbox-explorer.nymtech.net/) or [Mainnet explorer](https://explorer.nymtech.net/), depending on what network your node is on. You can also check out the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the 'Mixnodes' section of either the Nym Network Explorers: 
+* [Mainnet](https://explorer.nymtech.net/overview) 
+* [Sandbox testnet](https://sandbox-explorer.nymtech.net/) 
+
+Enter your **identity key** to find your node. There are numerous statistics about your node on that page that are useful for checking your uptime history, packets mixed, and any delegations your node may have. 
+
+There are also 2 community explorers which have been created by [Nodes Guru](https://nodes.guru): 
+* [Mainnet](https://mixnet.explorers.guru/)
+* [Sandbox testnet](https://sandbox.mixnet.explorers.guru/)
+
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
