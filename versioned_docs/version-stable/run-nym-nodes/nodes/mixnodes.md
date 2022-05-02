@@ -141,7 +141,7 @@ OPTIONS:
             nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 ```
 
-Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode, and the `--wallet-address` with the address you used on the Milhon Testnet **which has been auto-generated and migrated to the Sandbox testnet**. 
+Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode, and the `--wallet-address` with the Nym address you created in the previous step. 
 
 ```
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --wallet-address <wallet-address>
