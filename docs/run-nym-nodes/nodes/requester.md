@@ -23,28 +23,18 @@ Before initalising your Network Requester, you must initalise an instance of the
  ./nym-client init --id <id>
 ```
 
-Which should return: 
+<details>
+  <summary>console output</summary>
 
-``` 
+      Initialising client...
+      Saved all generated keys
+      Saved configuration file to "/home/nym/.nym/clients/requester-client/config/config.toml"
+      Using gateway: 8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
+      Client configuration completed.
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+      The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 
-             (client - version 1.0.0-rc.1)
-
-    
-Initialising client...
-Saved all generated keys
-Saved configuration file to "/home/nym/.nym/clients/requester-client/config/config.toml"
-Using gateway: 8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-Client configuration completed.
-
-
-The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-```
+</details> 
 
 :::note
 Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/next/run-nym-nodes/build-nym/) for more information.  
@@ -94,12 +84,18 @@ Now that we have a running client for the requester to listen to, we can start i
 
 ```
  ./nym-network-requester 
-
-Starting socks5 service provider:
- 2021-08-11T13:28:02.767Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
-
-All systems go. Press CTRL-C to stop the server.
 ```
+
+<details>
+  <summary>console output</summary>
+
+      Starting socks5 service provider:
+      2021-08-11T13:28:02.767Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
+
+      All systems go. Press CTRL-C to stop the server.
+
+</details> 
+
 
 As you can see, it has connected to the nym client that we started before. 
 

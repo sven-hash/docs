@@ -19,7 +19,7 @@ Before you initialise and run your mixnode, head to our [website](https://nymtec
 
 If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a mixnode is 100 `NYM`, but make sure you have a bit more to account for gas costs. 
 
-`NYM` is currently present on several exchanges. Head to our [telegram channels](https://t.me/nymchan) to find out more on where to get `NYM` tokens. 
+`NYM` is currently present on several exchanges. Head to our [telegram channels](https://t.me/nymchan) to find out where to get `NYM` tokens. 
 
 :::note
 Remember that you can **only** use Cosmos `NYM` tokens to bond your mixnode. You **cannot** use ERC20 representations of `NYM` to run a node. 
@@ -28,120 +28,114 @@ Remember that you can **only** use Cosmos `NYM` tokens to bond your mixnode. You
 #### Sandbox testnet
 Make sure to download a wallet and create an account as outlined above. Then head to our [token faucet](https://faucet.nymtech.net/) and get some tokens to use to bond it. 
 
-### Initialising your mixnode
+### Viewing command help
+
 You can check that your binaries are properly compiled with:
 
 ```
 ./nym-mixnode --help
 ```
 
-Which should return a list of all avaliable commands:
+Which should return a list of all avaliable commands. 
+
+<details>
+  <summary>console output</summary>
+
+    nym-mixnode 1.0.0
+    Nymtech
+
+    Build Timestamp:    2022-04-27T15:11:57.656131671+00:00
+    Build Version:      1.0.0
+    Commit SHA:         a2313a457cf168833c28de202349e55df0106996
+    Commit Date:        2022-04-27T15:05:38+00:00
+    Commit Branch:      release/1.0.0
+    rustc Version:      1.60.0
+    rustc Channel:      stable
+    cargo Profile:      release
+
+    USAGE:
+        nym-mixnode <SUBCOMMAND>
+
+    OPTIONS:
+        -h, --help
+                Print help information
+
+        -V, --version
+                Print version information
+
+    SUBCOMMANDS:
+        describe
+                Describe your mixnode and tell people why they should delegate state to you
+        help
+                Print this message or the help of the given subcommand(s)
+        init
+                Initialise the mixnode
+        node-details
+                Show details of this mixnode
+        run
+                Starts the mixnode
+        sign
+                Sign text to prove ownership of this mixnode
+        upgrade
+                Try to upgrade the mixnode
+
+</details>
+
+You can also check the various arguments required for individual commands with: 
 
 ```
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (mixnode - version 1.0.0)
-
-    
-nym-mixnode 1.0.0
-Nymtech
-
-Build Timestamp:    2022-04-27T15:11:57.656131671+00:00
-Build Version:      1.0.0
-Commit SHA:         a2313a457cf168833c28de202349e55df0106996
-Commit Date:        2022-04-27T15:05:38+00:00
-Commit Branch:      release/1.0.0
-rustc Version:      1.60.0
-rustc Channel:      stable
-cargo Profile:      release
-
-USAGE:
-    nym-mixnode <SUBCOMMAND>
-
-OPTIONS:
-    -h, --help
-            Print help information
-
-    -V, --version
-            Print version information
-
-SUBCOMMANDS:
-    describe
-            Describe your mixnode and tell people why they should delegate state to you
-    help
-            Print this message or the help of the given subcommand(s)
-    init
-            Initialise the mixnode
-    node-details
-            Show details of this mixnode
-    run
-            Starts the mixnode
-    sign
-            Sign text to prove ownership of this mixnode
-    upgrade
-            Try to upgrade the mixnode
+./nym-mixnode <command> --help
 ```
 
-To check available configuration options use:
+
+### Initialising your mixnode
+To check available configuration options for initializing your node use:
 
 ```
 ./nym-mixnode init --help
 ```
 
-Which will return: 
+<details>
+  <summary>console output</summary>
 
-```
+    nym-mixnode-init 
+    Initialise the mixnode
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+    USAGE:
+        nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-             (mixnode - version 1.0.0)
+    OPTIONS:
+            --announce-host <ANNOUNCE_HOST>
+                The custom host that will be reported to the directory server
 
-    
-nym-mixnode-init 
-Initialise the mixnode
+        -h, --help
+                Print help information
 
-USAGE:
-    nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
+            --host <HOST>
+                The host on which the mixnode will be running
 
-OPTIONS:
-        --announce-host <ANNOUNCE_HOST>
-            The custom host that will be reported to the directory server
+            --http-api-port <HTTP_API_PORT>
+                The port on which the mixnode will be listening for http requests
 
-    -h, --help
-            Print help information
+            --id <ID>
+                Id of the mixnode we want to create config for
 
-        --host <HOST>
-            The host on which the mixnode will be running
+            --mix-port <MIX_PORT>
+                The port on which the mixnode will be listening for mix packets
 
-        --http-api-port <HTTP_API_PORT>
-            The port on which the mixnode will be listening for http requests
+            --validators <VALIDATORS>
+                Comma separated list of rest endpoints of the validators
 
-        --id <ID>
-            Id of the mixnode we want to create config for
+            --verloc-port <VERLOC_PORT>
+                The port on which the mixnode will be listening for verloc packets
 
-        --mix-port <MIX_PORT>
-            The port on which the mixnode will be listening for mix packets
+            --wallet-address <WALLET_ADDRESS>
+                The wallet address you will use to bond this mixnode, e.g.
+                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+</details>
 
-        --validators <VALIDATORS>
-            Comma separated list of rest endpoints of the validators
 
-        --verloc-port <VERLOC_PORT>
-            The port on which the mixnode will be listening for verloc packets
-
-        --wallet-address <WALLET_ADDRESS>
-            The wallet address you will use to bond this mixnode, e.g.
-            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
-```
-
-Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode, and the `--wallet-address` with the address you used on the Milhon Testnet **which has been auto-generated and migrated to the Sandbox testnet**. 
+Initalise your mixnode with the following command, replacing the value of `--id` with the moniker you wish to give your mixnode, and the `--wallet-address` with the Nym address you created earlier:
 
 ```
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --wallet-address <wallet-address>
@@ -160,7 +154,7 @@ Please note that the `init` command will refuse to destroy existing mixnode keys
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
 
 ### Bonding your mixnode
-Head over to your Nym Wallet and bond your mixnode via the interface there. Remember to keep some tokens in your wallet for gas costs!
+Now head over to your Nym Wallet and bond your mixnode via the interface there. _Remember to keep some tokens in your wallet to cover the gas cost of bonding your node, and allowing for you to unbond in the future!_  
 
 ### Running your mixnode
 
@@ -170,43 +164,36 @@ Now you've bonded your mixnode, run it with:
 ./nym-mixnode run --id winston-smithnode
 ```
 
-Which should return a nice clean startup:
+<details>
+  <summary>console output</summary>
 
-```
+    Starting mixnode winston-smithnode...
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (mixnode - version 1.0.0)
-
+    To bond your mixnode you will need to install the Nym wallet, go to https://nymtech.net/get-involved and select the Download button.
+    Select the correct version and install it to your machine. You will need to provide the following: 
     
-Starting mixnode winston-smithnode...
+    Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
+    Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
+    Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
+    Host: 62.240.134.46 (bind address: 62.240.134.46)
+    Version: 1.0.0
+    Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
-To bond your mixnode you will need to install the Nym wallet, go to https://nymtech.net/get-involved and select the Download button.
-Select the correct version and install it to your machine. You will need to provide the following: 
- 
-Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
-Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
-Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
-Host: 62.240.134.46 (bind address: 62.240.134.46)
-Version: 1.0.0
-Mix Port: 1789, Verloc port: 1790, Http Port: 8000
-
-You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
+    You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
 
 
- 2022-04-27T16:08:01.159Z INFO  nym_mixnode::node > Starting nym mixnode
- 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting node stats controller...
- 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
- 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting socket listener...
- 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node::listener > Running mix listener on "62.240.134.46:1789"
- 2022-04-27T16:08:01.490Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
-```
+    2022-04-27T16:08:01.159Z INFO  nym_mixnode::node > Starting nym mixnode
+    2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting node stats controller...
+    2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting packet delay-forwarder...
+    2022-04-27T16:08:01.490Z INFO  nym_mixnode::node > Starting socket listener...
+    2022-04-27T16:08:01.490Z INFO  nym_mixnode::node::listener > Running mix listener on "62.240.134.46:1789"
+    2022-04-27T16:08:01.490Z INFO  nym_mixnode::node           > Starting the round-trip-time measurer...
 
-If everything worked, you'll see your node running on the either the [Sandbox network explorer](https://sandbox-explorer.nymtech.net) or the [mainnet network explorer](https://explorer.nymtech.net), depending on which network you're running. 
+</details>
+
+
+
+If everything worked, you'll see your node running on the either the [Sandbox testnet network explorer](https://sandbox-explorer.nymtech.net) or the [mainnet network explorer](https://explorer.nymtech.net), depending on which network you're running. 
 
 Note that your node's public identity key is displayed during startup, you can use it to identify your node in the list.
 
@@ -222,26 +209,19 @@ In order to easily identify your node via human-readable information later on in
 ./nym-mixnode describe --id winston-smithnode
 ```
 
-Which will output something like this:
+<details>
+  <summary>console output</summary>
 
-```
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+    name: winston-smithnode
+    description: nym-mixnode hosted on Linode VPS in <location> with the following specs: <specs>.                                
+    link, e.g. https://mixnode.yourdomain.com: mixnode.mydomain.net
+    location, e.g. City: London, Country: UK: <your_location>
 
-             (mixnode - version 1.0.0)
+    This information will be shown in the mixnode's page in the Network Explorer, and help people make delegated staking decisions.
+
+</details>
 
     
-name: winston-smithnode
-description: nym-mixnode hosted on Linode VPS in <location> with the following specs: <specs>.                                
-link, e.g. https://mixnode.yourdomain.com: mixnode.mydomain.net
-location, e.g. City: London, Country: UK: <your_location>
-```
-
-This information will be shown in the mixnode's page in the Network Explorer, and help people make delegated staking decisions.
-
 ### Displaying mixnode information 
 
 You can always check the details of your mixnode with the `node-details` command: 
@@ -250,28 +230,19 @@ You can always check the details of your mixnode with the `node-details` command
 ./nym-mixnode node-details --id winston-smithnode
 ```
 
-Which returns:
+<details>
+  <summary>console output</summary>
 
-```
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+    Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
+    Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
+    Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
+    Host: 62.240.134.46 (bind address: 62.240.134.46)
+    Version: 1.0.0
+    Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
-             (mixnode - version 1.0.0)
+    You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
 
-    
-Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
-Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
-Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
-Host: 62.240.134.46 (bind address: 62.240.134.46)
-Version: 1.0.0
-Mix Port: 1789, Verloc port: 1790, Http Port: 8000
-
-You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
-
-```
+</details>
 
 ### Configure your firewall
 
@@ -428,19 +399,6 @@ There are also 2 community explorers which have been created by [Nodes Guru](htt
 
 For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
-### Viewing command help
-
-See all available options by running:
-
-```
-./nym-mixnode --help
-```
-
-Subcommand help is also available, e.g.:
-
-```
-./nym-mixnode upgrade --help
-```
 
 ### Virtual IPs and hosting via Google & AWS
 
