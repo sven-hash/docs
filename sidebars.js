@@ -1,11 +1,11 @@
 module.exports = {
   sidebar: [
-    "intro",
     {
       type: 'category',
       label: 'Overview',
       collapsed: true,
       items: [
+        "overview/intro",
         "overview/nym-platform",
         "overview/network-privacy",
         "overview/nym-other-systems",

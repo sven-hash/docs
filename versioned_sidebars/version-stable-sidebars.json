@@ -1,15 +1,15 @@
 {
     "version-stable/sidebar": [
       {
-        "type": "doc",
-        "id": "version-stable/intro"
-      },
-      {
         "type": "category",
         "collapsed": true,
         "collapsible": true,
         "label": "Overview",
         "items": [
+          {
+            "type": "doc",
+            "id": "version-stable/overview/intro"
+          },
           {
             "type": "doc",
             "id": "version-stable/overview/nym-platform"
