@@ -5,7 +5,7 @@ module.exports = {
       label: 'Overview',
       collapsed: true,
       items: [
-        "overview/intro",
+        "overview/index",
         "overview/nym-platform",
         "overview/network-privacy",
         "overview/nym-other-systems",

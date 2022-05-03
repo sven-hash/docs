@@ -59,7 +59,7 @@ module.exports = {
           type: 'localeDropdown',
           position: 'right',
         },
-        { to: '/docs/stable/overview/intro/', label: 'Docs', position: 'left' },
+        { to: '/docs/stable/overview/', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',

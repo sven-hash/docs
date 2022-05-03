@@ -8,7 +8,7 @@
         "items": [
           {
             "type": "doc",
-            "id": "version-stable/overview/intro"
+            "id": "version-stable/overview/index"
           },
           {
             "type": "doc",
@@ -209,4 +209,3 @@
       }
     ]
   }
-  
