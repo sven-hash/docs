@@ -28,7 +28,7 @@ Nym网络已经运行混合节点、`nym-network-requester`（Nym网络请求器
 
 :::note注意
 
-如果你还没有设置本地的socks5客户端，请先按照[这里](/docs/next/develop-with-nym/socks5-client)的说明设置客户端再继续下面的步骤。
+如果你还没有设置本地的socks5客户端，请先按照[这里](/docs/stable/developers/develop-with-nym/socks5-client)的说明设置客户端再继续下面的步骤。
 
 :::
 

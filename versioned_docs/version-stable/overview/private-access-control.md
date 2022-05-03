@@ -57,7 +57,7 @@ A slightly expanded view of Coconut is available [in this blog post](https://med
 
 ### Using Coconut for blockchain transaction privacy
 
-In the context of a blockchain currency system, Coconut allows us to create a privacy-enhanced Coconut credential which provably represents an amount under control of a given entity. The credential can then be "spent" anonymously, as if it were the original value. Double-spending protections apply to the credential, so it can only be spent once. Nym Validators can then unlock the value so it can be redeemed by the party holding the credential.
+In the context of a blockchain currency system, Coconut allows us to create a privacy-enhanced Coconut credential which provably represents an amount under control of a given entity. The credential can then be "spent" anonymously, as if it were the original value. Double-spending protections apply to the credential, so it can only be spent once. Nyx Validators can then unlock the value so it can be redeemed by the party holding the credential.
 
 Although there's still work to be done to integrate it against various blockchains, in principle Coconut can anonymise blockchain transactions in any system which provides multi-sig. We're working on [Cosmos](https://cosmos.network) integration at the moment. Bitcoin and Ethereum are also obvious targets here.
 

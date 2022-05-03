@@ -21,6 +21,12 @@ module.exports = {
       minHeadingLevel: 2,
       maxHeadingLevel: 5,
     },
+    algolia: {
+      appId: 'MNH5MI8L6O',
+      apiKey: '7b2a5d8b8ade99dd41c95a9537dd3fbf',
+      indexName: 'nymtech',
+      contextualSearch: true,
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
@@ -57,6 +63,10 @@ module.exports = {
         {
           href: 'https://github.com/nymtech',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          type: 'search',
           position: 'right',
         },
       ],
@@ -113,6 +123,10 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
+        sitemap: {
+          changefreq: 'daily',
+          priority: 0.5,
+        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: 'docs',
@@ -127,7 +141,7 @@ module.exports = {
               banner: 'unreleased',
             },
             'stable': {
-              label: 'v0.12.1 (stable)',
+              label: 'v1.0.0 (stable)',
               path: 'stable',
               banner: 'none',
             },

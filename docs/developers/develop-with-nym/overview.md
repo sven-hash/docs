@@ -1,22 +1,13 @@
 ---
-sidebar_label: Overview
+sidebar_label: Build Nym Apps
 hide_title: false
-description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
-title: "Overview"
+title: "Build Nym Apps"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-If you are a coder, we invite you to build **privacy enhanced applications** using Nym.
-
-Nym lets you build privacy respecting clients and services which use our network infrastructure. Your apps can then connect to other apps also using the Nym network. All app-to-app communication happens over a set of cooperating networked nodes called a mixnet.
-
-Mixnets give strong privacy guarantees against third-party observers.
-
-It is apparent to any external network adversary that a given machine has connected to Nym infrastructure. Beyond that, it should not be possible to infer what activity is taking place unless there are observable network side effects (i.e. a Service Provider that makes network requests on behalf of a Nym client).
-
-We'll get into the technical details more deeply in the next few sections, but before we do that, let's take a look at the steps involved in building and using a simple application.
+Before looking at the technical details of the various Nym Clients avaliable to you, let's take a look at the steps involved in building and using a simple application.
 
 ### Initialization
 
@@ -80,7 +71,7 @@ Messages are end-to-end encrypted. Although the gateway knows our app's IP when 
 The process for sending messages to other apps is exactly the same, you simply specify a different recipient address. Address discovery happens outside the Nym system: in the case of a Service Provider app, the service provider has presumably advertised its own address. If you're sending to a friend of yours, you'll need to get ahold of their address out of band, maybe through a private messaging app such as Signal.
 
 <ThemedImage
-  alt="Sending message to a peap"
+  alt="Sending message to a PEAP"
   sources={{
     light: useBaseUrl('/img/docs/application-flow/sp-request.png'),
     dark: useBaseUrl('/img/docs/application-flow/sp-request-dark.png'),
