@@ -84,7 +84,7 @@ El proceso para enviar mensajes a otras aplicaciones es exactamente el mismo, si
 
 
 <ThemedImage
-  alt="Envío de mensaje a un peap"
+  alt="Envío de mensaje a un PEAP"
   sources={{
     light: useBaseUrl('/img/docs/application-flow/sp-request.png'),
     dark: useBaseUrl('/img/docs/application-flow/sp-request-dark.png'),

@@ -10,50 +10,41 @@ The Nym network requester was built in the [building nym](/docs/stable/run-nym-n
 :::
 
 
-If you have access to a server, you can run the nym-network-requester, which allows Nym users to make outbound network requests from your server.
+If you have access to a server, you can run the Network Requester, which allows Nym users to make outbound network requests from your server.
 
-The nym-network-requester is NOT an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets.
+The Network Requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the whim of the maintainer of that instance.
 
 ### Running your nym client 
 
-Before initalising your nym-network-requester, you must initalise an instance of the nym-client binary for it to listen to.
+Before initalising your Network Requester, you must initalise an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/stable/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
 
-First of all, choose which gateway to connect your client to. Active gateways can be found in the 'Gateways' [section of the explorer](https://sandbox-explorer.nymtech.net/nym/gateways).
-
-Then initalise your nym client with the ID key of your gateway of choice: 
 
 ```
- ./nym-client init --id requester-client --gateway <GATEWAY_ID>
+ ./nym-client init --id <id>
 ```
 
-Which should return: 
+<details>
+  <summary>console output</summary>
 
-``` 
+      Initialising client...
+      Saved all generated keys
+      Saved configuration file to "/home/nym/.nym/clients/requester-client/config/config.toml"
+      Using gateway: 8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
+      Client configuration completed.
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+      The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 
-             (client - version 0.12.1)
+</details> 
 
-    
-Initialising client...
-Saved all generated keys
-Saved configuration file to "/home/nym/.nym/clients/requester-client/config/config.toml"
-Using gateway: 8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-Client configuration completed.
+:::note
+Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/stable/run-nym-nodes/build-nym/) for more information.  
+:::
 
-
-The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-```
-
-Now create a service file at `/etc/systemd/system/nym-client.service`: 
+Now create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -93,12 +84,18 @@ Now that we have a running client for the requester to listen to, we can start i
 
 ```
  ./nym-network-requester 
-
-Starting socks5 service provider:
- 2021-08-11T13:28:02.767Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
-
-All systems go. Press CTRL-C to stop the server.
 ```
+
+<details>
+  <summary>console output</summary>
+
+      Starting socks5 service provider:
+      2021-08-11T13:28:02.767Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
+
+      All systems go. Press CTRL-C to stop the server.
+
+</details> 
+
 
 As you can see, it has connected to the nym client that we started before. 
 
@@ -106,7 +103,7 @@ Now stop that process with `CTRL-C`, and create a service file for the requester
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -132,7 +129,7 @@ systemctl start nym-network-requester.service
 systemctl status nym-network-requester.service
 ```
 
-## Configure your firewall
+### Configure your firewall
 
 Although your requester is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
@@ -159,11 +156,11 @@ For more information about your requester's port configuration, check the [reque
 
 ### Using your network requester 
 
-You can safely share the address of your running nym-client with however you want - if you would like to run a nym-network-requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
+You can safely share the address of your running `nym-client` with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
 
 Is this safe to do? If it was an open proxy, this would be unsafe, because any Nym user could make network requests to any system on the internet.
 
-To make things a bit less stressful for administrators, nym-network-requester drops all incoming requests by default. In order for it to make requests, you need to add specific domains to the `allowed.list` file at `$HOME/.nym/service-providers/nym-network-requester/allowed.list`.
+To make things a bit less stressful for administrators, the Network Requester drops all incoming requests by default. In order for it to make requests, you need to add specific domains to the `allowed.list` file at `$HOME/.nym/service-providers/nym-network-requester/allowed.list`.
 
 If you want, you can just use the domains in the default `allowed.list`, by running this command from the top-level `nym` code directory:
 
@@ -171,9 +168,9 @@ If you want, you can just use the domains in the default `allowed.list`, by runn
 
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
-  :::caution
-  If you change your `allowed.list`, make sure you restart nym-network-requester.service to pick up the new allowed request list
-  :::
+:::caution
+If you change your `allowed.list`, make sure you restart the `nym-network-requester.service` to pick up the new allowed request list
+:::
 
 ### Adding URLs for other clients
 

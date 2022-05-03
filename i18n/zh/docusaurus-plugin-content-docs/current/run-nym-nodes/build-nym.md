@@ -58,7 +58,7 @@ cargo build --release
 
 1. [混合节点](/docs/next/run-nym-nodes/nodes/mixnodes)：`nym-mixnode`
 2. [网关](/docs/next/run-nym-nodes/nodes/gateways): `nym-gateway`
-3. [websocket客户端](/docs/next/develop-with-nym/websocket-client): `nym-client`
+3. [websocket客户端](/docs/next/developers/develop-with-nym/websocket-client): `nym-client`
 4. [socks5客户端](/docs/next/use-external-apps/index): `nym-socks5-client`
 5. [网络请求器](/docs/next/run-nym-nodes/nodes/requester): `nym-network-requester`
 6. [网络浏览器api](/docs/next/nym-apps/network-explorer): `explorer-api`

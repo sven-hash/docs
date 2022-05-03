@@ -82,7 +82,7 @@ Nym应用程序与Nym节点类型之间有一个稳定的、可能长期存在�
 向其他应用程序发送消息的过程是完全相同的，你只需要指定一个不同的收件人地址。地址的发现发生在Nym系统之外：如果是一个服务提供商的应用程序，服务提供商可能已经公布了自己的地址。如果你要给你的朋友发送信息，你需要掌握他们的地址，或许是通过一个私人信息应用，如Signal。
 
 <ThemedImage
-  alt="Sending message to a peap"
+  alt="Sending message to a PEAP"
   sources={{
     light: useBaseUrl('/img/docs/application-flow/sp-request.png'),
     dark: useBaseUrl('/img/docs/application-flow/sp-request-dark.png'),

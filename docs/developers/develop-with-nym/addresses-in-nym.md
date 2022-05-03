@@ -1,8 +1,8 @@
 ---
-sidebar_label: "The Nym Addressing System"
+sidebar_label: "Addressing System"
 description: "How addresses operate in Nym"
 hide_title: false
-title: The Nym Addressing System
+title: Addressing System
 ---
 
 When a Nym client is initalised, it generates and stores its own public/private keypair locally. When the client starts, it automatically connects to the Nym network and finds out what Nym infrastructure exists. It then chooses and connects to a specific Gateway node via websocket.

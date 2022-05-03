@@ -36,15 +36,74 @@
         "type": "category",
         "collapsed": true,
         "collapsible": true,
-        "label": "Run Nym Nodes",
+        "label": "Developers",
+        "items": [
+                    {
+                      "type": "category",
+                      "collapsed": true,
+                      "collapsible": true,
+                      "label": "Nym Mixnet",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "version-stable/developers/develop-with-nym/overview"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/developers/develop-with-nym/choose-a-client"
+                        },
+                        {
+                          "type": "category",
+                          "collapsed": true,
+                          "collapsible": true,
+                          "label": "Clients",
+                          "items": [
+                            {
+                              "type": "doc",
+                              "id": "version-stable/developers/develop-with-nym/websocket-client"
+                            },
+                            {
+                              "type": "doc", 
+                              "id": "version-stable/developers/develop-with-nym/socks5-client"
+                            },
+                            {
+                              "type": "doc", 
+                              "id": "version-stable/developers/develop-with-nym/wasm-client"
+                            }                          ]
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/developers/develop-with-nym/addresses-in-nym"
+                        }
+                      ]
+                    }, 
+                    {
+                      "type": "category",
+                      "collapsed": true,
+                      "collapsible": true,
+                      "label": "Nyx Blockchain",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "version-stable/developers/develop-with-nyx/overview"
+                        }
+                      ]
+                    }
+        ]
+      },
+      {
+        "type": "category",
+        "collapsed": true,
+        "collapsible": true,
+        "label": "Node Operators",
         "items": [
           {
             "type": "doc",
-            "id": "version-stable/run-nym-nodes/pre-built-binaries"
+            "id": "version-stable/run-nym-nodes/incentives"
           },
           {
             "type": "doc",
-            "id": "version-stable/run-nym-nodes/incentives"
+            "id": "version-stable/run-nym-nodes/pre-built-binaries"
           },
           {
             "type": "doc",
@@ -66,7 +125,7 @@
               },
               {
                 "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/validators"
+                "id": "version-stable/run-nym-nodes/nodes/gateways"
               },
               {
                 "type": "doc",
@@ -74,7 +133,11 @@
               },
               {
                 "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/gateways"
+                "id": "version-stable/run-nym-nodes/nodes/file-storage"
+              },
+              {
+                "type": "doc",
+                "id": "version-stable/run-nym-nodes/nodes/validators"
               }
             ]
           }
@@ -84,64 +147,44 @@
         "type": "category",
         "collapsed": true,
         "collapsible": true,
-        "label": "Use Nym Apps",
+        "label": "Applications",
         "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/nym-apps/wallet"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/nym-apps/network-explorer"
-          }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Develop with Nym",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/develop-with-nym/overview"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/develop-with-nym/choose-a-client"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/develop-with-nym/websocket-client"
-          },
-          {
-            "type": "doc", 
-            "id": "version-stable/develop-with-nym/socks5-client"
-          },
-          {
-            "type": "doc", 
-            "id": "version-stable/develop-with-nym/wasm-client"
-          }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Use External Apps",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/use-external-apps/index"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/use-external-apps/blockstream-green"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/use-external-apps/keybase"
-          }
+                    {
+                      "type": "category",
+                      "collapsed": true,
+                      "collapsible": true,
+                      "label": "Nym Apps",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "version-stable/nym-apps/wallet"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/nym-apps/network-explorer"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "category",
+                      "collapsed": true,
+                      "collapsible": true,
+                      "label": "Connect Apps",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "version-stable/use-external-apps/index"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/use-external-apps/blockstream-green"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "version-stable/use-external-apps/keybase"
+                        }
+                      ]
+                    }
         ]
       },
       {
@@ -166,4 +209,3 @@
       }
     ]
   }
-  

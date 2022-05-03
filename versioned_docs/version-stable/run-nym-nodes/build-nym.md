@@ -5,7 +5,7 @@ hide_title: false
 title: Building Nym
 ---
 
-Nym runs on Mac OS X, Linux, and Windows. Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
+Nym runs on Mac OS X, Linux, and Windows. All nodes **except the Desktop Wallet** on Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes. 
 
 ### Building Nym
 
@@ -18,7 +18,7 @@ Nym has two main codebases:
 This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/stable/run-nym-nodes/nodes/validators) instead.**
 :::
 
-### Prerequisites:
+### Prerequisites
 
 - (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`
 
@@ -33,7 +33,7 @@ We recommend using the [Rust shell script installer](https://www.rust-lang.org/t
 
 If you really don't want to use the shell script installer, the [Rust installation docs](https://forge.rust-lang.org/infra/other-installation-methods.html) contain instructions for many platforms.
 
-### Download & build Nym binaries:
+### Download and build Nym binaries
 
 The following commands will compile binaries into the `nym/target/release` directory:
 
@@ -44,20 +44,24 @@ cd nym
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-# Note: the default branch you clone from Github, `develop`, is guaranteed to be
-# broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.12.1` in order to join the testnet.
+# Note: the default branch you clone from Github, `develop`, may be
+# incompatible with both the mainnet and testnet. As such, make sure 
+# to checkout the current release: 
+# `git checkout tags/v1.0.0`.
 
-git checkout tags/v0.12.1
+git checkout tags/v1.0.0
+# this builds your binaries with mainnet configuration
 cargo build --release
+# to build your binaries with Sandbox testnet configuration, run this instead: 
+NETWORK=sandbox cargo build --release
 ```
 
 Quite a bit of stuff gets built. The key working parts are:
 
 1. the [mixnode](/docs/stable/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
 2. the [gateway node](/docs/stable/run-nym-nodes/nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/stable/develop-with-nym/websocket-client): `nym-client`
-4. the [socks5 client](/docs/stable/use-external-apps/index): `nym-socks5-client`
+3. the [websocket client](/docs/stable/developers/develop-with-nym/websocket-client): `nym-client`
+4. the [socks5 client](/docs/stable/developers/develop-with-nym/socks5-client): `nym-socks5-client`
 5. the [network requester](/docs/stable/run-nym-nodes/nodes/requester): `nym-network-requester`
 6. the [network explorer api](/docs/stable/nym-apps/network-explorer): `explorer-api`
 
@@ -66,3 +70,20 @@ The repository also contains two Typescript applications which aren't built in t
 :::note
 You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 
 :::
+
+### (Optional) build binaries with Ethereum features enabled
+
+If power users want to use Basic Bandwidth Credentials (BBCs), then they have to build the various binaries slightly differently. 
+
+:::warning
+This is an optional feature at the moment; users can utilise the mixnet without these as well. 
+:::
+
+To build the code repo with these features enabled, replace the `cargo build --release` command in the instructions above to: 
+
+```
+cargo build --release --features eth
+```
+
+This flag compiles and builds the `nym-client`, `nym-socks5-client`, and `gateway` binaries with `eth` features enabled. These features are a setting where clients and gateways are running expecting BBCs to create a connection and send packets through the mixnet. There will be a blogpost explaining these features very soon. 
+
