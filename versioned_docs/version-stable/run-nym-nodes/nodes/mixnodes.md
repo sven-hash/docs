@@ -6,7 +6,7 @@ title: Mixnodes
 ---
 
 :::note 
-The Nym mixnode was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mixnode was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
@@ -41,17 +41,18 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
-    nym-mixnode 1.0.0
+    nym-mixnode 1.0.1
     Nymtech
 
-    Build Timestamp:    2022-04-27T15:11:57.656131671+00:00
-    Build Version:      1.0.0
-    Commit SHA:         a2313a457cf168833c28de202349e55df0106996
-    Commit Date:        2022-04-27T15:05:38+00:00
-    Commit Branch:      release/1.0.0
+    Build Timestamp:    2022-05-06T13:07:45.000871255+00:00
+    Build Version:      1.0.1
+    Commit SHA:         945dda0c24f2f964f27066af320441446973e383
+    Commit Date:        2022-05-04T15:57:36+00:00
+    Commit Branch:      detached HEAD
     rustc Version:      1.60.0
     rustc Channel:      stable
     cargo Profile:      release
+
 
     USAGE:
         nym-mixnode <SUBCOMMAND>
@@ -176,7 +177,7 @@ Now you've bonded your mixnode, run it with:
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.0
+    Version: 1.0.1
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -237,7 +238,7 @@ You can always check the details of your mixnode with the `node-details` command
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.0
+    Version: 1.0.1
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -275,7 +276,7 @@ It's useful to have the mixnode automatically start at system boot time. Here's 
 
 ```ini
 [Unit]
-Description=Nym Mixnode (1.0.0-rc.1)
+Description=Nym Mixnode (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
