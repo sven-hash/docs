@@ -42,14 +42,14 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        nym-gateway 1.0.0
+        nym-gateway 1.0.1
         Nymtech
 
-        Build Timestamp:    2022-04-27T15:11:59.359957641+00:00
-        Build Version:      1.0.0
-        Commit SHA:         a2313a457cf168833c28de202349e55df0106996
-        Commit Date:        2022-04-27T15:05:38+00:00
-        Commit Branch:      release/1.0.0
+        Build Timestamp:    2022-05-06T13:07:46.187796508+00:00
+        Build Version:      1.0.1
+        Commit SHA:         945dda0c24f2f964f27066af320441446973e383
+        Commit Date:        2022-05-04T15:57:36+00:00
+        Commit Branch:      detached HEAD
         rustc Version:      1.60.0
         rustc Channel:      stable
         cargo Profile:      release
@@ -181,7 +181,7 @@ Example:
     Sphinx Key: HbqYJwjmtzDi4WzGp7ehj8Ns394sRvJnxtanX28upon
     Owner Signature: wRKxr1CnoyBB9AYPSaXgE4dCP757ffMz5gkja8EKaYR82a63FK9HYV3HXZnLcSaNXkzN3CJnxG2FREv1ZE9xwvx
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.0
+    Version: 1.0.1
     Mix Port: 1789, Clients port: 9000
     Data store is at: "/home/mx/.nym/gateways/supergateway/data/db.sqlite"
     2022-04-27T16:04:33.831Z INFO  nym_gateway::node > Starting nym gateway!
@@ -224,7 +224,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (1.0.0-rc.1)
+Description=Nym Gateway (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 

@@ -44,7 +44,7 @@ Now create a service file at `/etc/systemd/system/nym-client.service` so you don
 
 ```
 [Unit]
-Description=Nym Client (1.0.0-rc.1)
+Description=Nym Client (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -103,7 +103,7 @@ Now stop that process with `CTRL-C`, and create a service file for the requester
 
 ```
 [Unit]
-Description=Nym Client (1.0.0-rc.1)
+Description=Nym Client (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
