@@ -18,7 +18,7 @@ module.exports = {
       label: 'Developers', 
       collapsed: true, 
       items: [
-        "developers/overview",
+        "developers/getting-started",
         {
           type: 'category',
           label: 'Nym Mixnet',
@@ -37,7 +37,7 @@ module.exports = {
               ]
             },
             "developers/develop-with-nym/addresses-in-nym",
-            // "developers/develop-with-nym/demos"
+            "developers/develop-with-nym/demos"
           ],
         },
         {

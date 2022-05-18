@@ -1,7 +1,7 @@
 ---
-sidebar_label: Build Nym Apps
+sidebar_label: Getting started 
 hide_title: false
-title: "Build Nym Apps"
+title: "Getting started"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -34,13 +34,6 @@ Gateways serve a few different functions:
 - they send encrypted surb-acks for potentially offline recipients, to ensure reliable message delivery
 - they offer a stable addressing location for apps, although the IP may change frequently
 
-### A note on Nym addresses
-
-When the app is initalised, it generates and stores its own public/private keypair locally. When the app starts, it automatically connects to the Nym network and finds out what Nym infrastructure exists. It then chooses and connects to a Nym gateway node via websocket.
-
-All apps in the Nym network therefore have an address, in the format `user-identity-key.user-encryption-key@gateway-identity-key`. Clients print out their address at startup.
-
-Our app knows its own address, because it knows its own public key and the address of its gateway.
 
 ### Sending messages to ourself
 
