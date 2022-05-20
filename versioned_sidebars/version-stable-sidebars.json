@@ -39,6 +39,10 @@
         "label": "Developers",
         "items": [
                     {
+                      "type": "doc",
+                      "id": "version-stable/developers/getting-started"
+                    },
+                    {
                       "type": "category",
                       "collapsed": true,
                       "collapsible": true,
@@ -46,7 +50,7 @@
                       "items": [
                         {
                           "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/overview"
+                          "id": "version-stable/developers/develop-with-nym/understanding-nym-apps"
                         },
                         {
                           "type": "doc",
@@ -177,11 +181,7 @@
                         },
                         {
                           "type": "doc",
-                          "id": "version-stable/use-external-apps/blockstream-green"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/use-external-apps/keybase"
+                          "id": "version-stable/use-external-apps/examples"
                         }
                       ]
                     }
