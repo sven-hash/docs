@@ -27,7 +27,13 @@ The applications that are whitelisted in the example file located [here](https:/
  
 But **you can always add your own**, or remove any unwanted ones from the `allowed.list`. 
 
-## Examples
+## Desktop application connection examples
+These are two examples of connecting applications to your local socks5 proxy, and forward your traffic through the mixnet. 
+
+You can always try out other apps, such as Telegram. When trying to connect your app, generally the proxy settings are found in `settings->advanced` or `settings->connection`. 
+
+If you want to see these examples in the docs, create a pull request on the docs [Github repository](). 
+
 ### Blockstream Green Wallet 
 [Blockstream Green](https://blockstream.com/green/) is a BitCoin and Liquid wallet. Since it supports Socks5, it can use Nym. Set your proxy settings in Green as follows.
 
@@ -42,9 +48,9 @@ Most wallets and other applications will work basically the same way: find the n
 In some other applications, this might be written as **localhost:1080** if there's only one proxy entry field.
 
 ### Keybase
+We use KeyBase for our own internal chat. Feel free to try that out and say hello in our public keybase server!
 
-We have added support for KeyBase (which we use for our own internal chat). Feel free to try that out and say hello!
-
-The socks5 settings in KeyBase are under Settings > Advanced > Proxy Settings.
+The socks5 settings in KeyBase are under `Settings > Advanced > Proxy Settings`.
 
 ![Electrum settings](/img/docs/keybase-settings.gif)
+
