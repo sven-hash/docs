@@ -21,7 +21,7 @@ Many existing applications are able to use the SOCKS5 proxy protocol. They can u
 />
 
 :::note
-If you have not yet set up a local socks5 client, follow the instructions [here](/docs/next/developers/develop-with-nym/socks5-client) before continuing. 
+If you have not yet set up a local socks5 client, follow the instructions [here](/docs/stable/developers/develop-with-nym/socks5-client) before continuing. 
 :::
 
 The Nym SOCKS5 proxy, though, does something quite interesting and different. Rather than simply copy data between TCP streams and making requests directly from the machine it's running on, it does the following:

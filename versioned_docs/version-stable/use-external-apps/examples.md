@@ -7,7 +7,7 @@ title: Examples
 
 Any desktop application that can create a socks5 connection can bounce traffic through the mixnet. 
 
-At the moment, there is only one Service Provider that is able to forward traffic from the `nym-socks5-client` binary: the [Network Requester](/docs/next/run-nym-nodes/nodes/requester). 
+At the moment, there is only one Service Provider that is able to forward traffic from the `nym-socks5-client` binary: the [Network Requester](/docs/stable/run-nym-nodes/nodes/requester). 
 
 So long as the domain that the app is pinging is included in the whitelist of the Network Requester service provider your socks5 client is connected to, you'll be able to proxy traffic to and from this domain as normal - just hidden via the mixnet. 
 

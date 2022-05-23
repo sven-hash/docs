@@ -21,8 +21,8 @@ Once you've decided which part of the stack best serves your aims, you have to d
 
 ### Example Nym (Mixnet) PEAPs
 * Chat applications 
-* Crypto RPC requesters (think our [Network Requester](/docs/next/run-nym-nodes/nodes/network-requester), but for blockchain transactions)
-* Private file storage (see the winner and runners up from the previous Hackatom [here](/docs/next/run-nym-nodes/nodes/file-storage), who built just this)
+* Crypto RPC requesters (think our [Network Requester](/docs/stable/run-nym-nodes/nodes/requester), but for blockchain transactions)
+* Private file storage (see the winner and runners up from the previous Hackatom [here](/docs/stable/run-nym-nodes/nodes/file-storage), who built just this)
 * Mail server requesters (anonymously access mailboxes)
 * Private file backups 
 
@@ -34,7 +34,7 @@ Once you've decided which part of the stack best serves your aims, you have to d
 * Anything that requires access control that you wish to anonymise!
 
 ### Hack on Nym infrastructure 
-If you're wanting to develop on top of the infrastructure code itself and start adding additional features to existing nodes, check out the [Nym github repository](https://github.com/nymtech/nym). If you want to get to grips with running a node before starting this, check out the [Node Operators](/docs/next/run-nym-nodes/pre-built-binaries) section of these docs for more.  
+If you're wanting to develop on top of the infrastructure code itself and start adding additional features to existing nodes, check out the [Nym github repository](https://github.com/nymtech/nym). If you want to get to grips with running a node before starting this, check out the [Node Operators](/docs/stable/run-nym-nodes/pre-built-binaries) section of these docs for more.  
 
 ## Integrations with existing apps 
 If you're building an application that you think could benefit from utilising the Nym network, get in touch via [max@nymtech.net](mailto:max@nymtech.net). 

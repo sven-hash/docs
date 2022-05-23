@@ -21,7 +21,7 @@ Once you've decided which part of the stack best serves your aims, you have to d
 
 ### Example Nym (Mixnet) PEAPs
 * Chat applications 
-* Crypto RPC requesters (think our [Network Requester](/docs/next/run-nym-nodes/nodes/network-requester), but for blockchain transactions)
+* Crypto RPC requesters (think our [Network Requester](/docs/next/run-nym-nodes/nodes/requester), but for blockchain transactions)
 * Private file storage (see the winner and runners up from the previous Hackatom [here](/docs/next/run-nym-nodes/nodes/file-storage), who built just this)
 * Mail server requesters (anonymously access mailboxes)
 * Private file backups 
