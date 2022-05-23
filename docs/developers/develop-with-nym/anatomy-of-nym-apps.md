@@ -1,7 +1,7 @@
 ---
-sidebar_label: Build Nym Apps
+sidebar_label: Anatomy of a Nym app 
 hide_title: false
-title: "Build Nym Apps"
+title: "Anatomy of a Nym app"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -23,24 +23,17 @@ First, we need to initalise an app and connect it to Nym.
 
 At the bottom we have an app. It consists of two parts:
 
-1. your application specific logic (which you write in whatever language makes sense: Python, Go, C#, Java, JavaScript, Haskell, etc) in yellow
-2. Nym client code in blue
+* your application specific logic (which you write in whatever language makes sense: Python, Go, C#, Java, JavaScript, Haskell, etc) in yellow
+* Nym client code in blue
 
 Nym apps have a stable, potentially long-lasting relation to a Nym node type known as a gateway. An app registers itself with a gateway, and gets back an authentication token that it can then use to retrieve messages from the gateway.
 
 Gateways serve a few different functions:
 
-- they act as an end-to-end encrypted message store in case your app goes offline.
-- they send encrypted surb-acks for potentially offline recipients, to ensure reliable message delivery
-- they offer a stable addressing location for apps, although the IP may change frequently
+* they act as an end-to-end encrypted message store in case your app goes offline.
+* they send encrypted surb-acks for potentially offline recipients, to ensure reliable message delivery
+* they offer a stable addressing location for apps, although the IP may change frequently
 
-### A note on Nym addresses
-
-When the app is initalised, it generates and stores its own public/private keypair locally. When the app starts, it automatically connects to the Nym network and finds out what Nym infrastructure exists. It then chooses and connects to a Nym gateway node via websocket.
-
-All apps in the Nym network therefore have an address, in the format `user-identity-key.user-encryption-key@gateway-identity-key`. Clients print out their address at startup.
-
-Our app knows its own address, because it knows its own public key and the address of its gateway.
 
 ### Sending messages to ourself
 
@@ -77,30 +70,3 @@ The process for sending messages to other apps is exactly the same, you simply s
     dark: useBaseUrl('/img/docs/application-flow/sp-request-dark.png'),
   }}
 />
-
-### Clients vs Service Providers
-
-We expect that apps will typically fall into one of two broad categories:
-
-- client apps
-- Service Providers
-
-Client apps expose a UI for users to interact with Nym. Typically they'll run on user devices, such as laptops, phones, or tablets.
-
-Service Providers, on the other hand, will generally run on server machines. Most Service Providers will run 24/7 and take action on behalf of anonymous client apps connected to the mixnet.
-
-### Private Replies using surbs
-
-Surbs allow apps to reply to other apps anonymously.
-
-It will often be the case that a client app wants to interact with a Service Provider app. It sort of defeats the purpose of the whole system if your client app needs to reveal its own gateway public key and client public key in order to get a response from the Service Provider.
-
-Luckily, there are Single Use Reply Blocks, or _surbs_.
-
-A surb is a layer encrypted set of Sphinx headers detailing a reply path ending in the original app's address. Surbs are encrypted by the client, so the Service Provider can attach its response and send back the resulting Sphinx packet, but it never has sight of who it is replying to.
-
-### Offline / Online Apps
-
-If a message arrives at a gateway address but the app is offline, the gateway will store the messages for later delivery. When the recipient app comes online again, it will automatically download all the messages, and they'll be deleted from the gateway disk.
-
-If an app is online when a message arrives for it, the message is automatically pushed to the app down the websocket, instead of being stored to disk on the gateway.
