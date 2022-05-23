@@ -106,25 +106,16 @@ PORT     STATE SERVICE
 1789/tcp open  hello
 ```
 
-##### Query all nodes and parse with `jq`:
+
+##### Query online nodes: 
 
 ```
-curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq
+curl --location --request GET 'https://validator.nymtech.net/api/v1/mixnodes/'
 ```
 
-Should return a JSON object of all nodes currently online.
+Will return a list all nodes currently online.
 
-This command can be further parsed by various keys, such as location:
-
-```
-curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
-```
-
-or address:
-
-```
-curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
-```
+You can query gateways by replacing `mixnodes` with `gateways` in the above command, and can query for the mixnodes and gatways on the Sandbox testnet by replacing `validator` with `sandbox-validator`. 
 
 #### Check with testnet API
 
