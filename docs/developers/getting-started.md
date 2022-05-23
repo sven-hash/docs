@@ -14,7 +14,7 @@ Nym's infrastructure is complex, and might be a little overwhelming when you jus
 
 The list above isn't exhaustive, nor does it necessarily imagine that apps won't utilise Nym's technologies to provide anonymity at both the network and application levels, but it provides a rough direction in which to start when researching building something atop Nym. 
 
-If you're still looking for that 'hello world' app, check out the [demos](/docs/next/developers/develop-with-nym/demos) page to get an idea of the code examples we currently have in our codebase. 
+If you're still looking for that 'hello world' app, guides and example applications will be coming soon.  
 
 ## What to build?
 Once you've decided which part of the stack best serves your aims, you have to decide what to build. There are various options listed below to get started with.
