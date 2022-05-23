@@ -53,6 +53,10 @@
                           "id": "version-stable/developers/develop-with-nym/understanding-nym-apps"
                         },
                         {
+                          "type": "doc", 
+                          "id": "version-stable/developers/develop-with-nym/anatomy-of-nym-apps"
+                        },
+                        {
                           "type": "doc",
                           "id": "version-stable/developers/develop-with-nym/choose-a-client"
                         },
