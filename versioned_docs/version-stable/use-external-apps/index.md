@@ -32,3 +32,4 @@ The Nym SOCKS5 proxy, though, does something quite interesting and different. Ra
 * nym-network-requester reassembles the original TCP stream using the sequence numbers, and makes the intended request.
 * nym-network-requester then does the whole process in reverse, chopping up the response into Sphinx packets and sending it back through the mixnet to the crypto wallet.
 * The crypto wallet receives its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy.
+

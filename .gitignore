@@ -31,4 +31,7 @@ _site
 build
 dist
 
+# ----------
+# Developing
+# ----------
 todo.md

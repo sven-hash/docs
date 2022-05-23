@@ -6,12 +6,13 @@ title: Socks5 Client
 ---
 
 :::note
-The Nym Socks5 Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym Socks5 Client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
+
 
 ### Viewing command help
 
-You can check that your binaries are properly compiled with
+You can check that your binaries are properly compiled with:
 
 ```
 ./nym-socks5-client --help

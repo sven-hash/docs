@@ -18,13 +18,14 @@ module.exports = {
       label: 'Developers', 
       collapsed: true, 
       items: [
-        "developers/overview",
+        "developers/getting-started",
         {
           type: 'category',
           label: 'Nym Mixnet',
           collapsed: true,
           items: [
-            "developers/develop-with-nym/overview",
+            "developers/develop-with-nym/understanding-nym-apps",
+            "developers/develop-with-nym/anatomy-of-nym-apps",
             "developers/develop-with-nym/choose-a-client",
             {
               type: 'category',
@@ -37,7 +38,7 @@ module.exports = {
               ]
             },
             "developers/develop-with-nym/addresses-in-nym",
-            // "developers/develop-with-nym/demos"
+            "developers/develop-with-nym/demos"
           ],
         },
         {
@@ -93,8 +94,7 @@ module.exports = {
           collapsed: true,
           items: [
             "use-external-apps/index",
-            "use-external-apps/blockstream-green",
-            "use-external-apps/keybase"
+            "use-external-apps/examples"
           ],
         }
       ]
