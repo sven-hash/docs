@@ -7,50 +7,44 @@ title: Websocket客户端
 
 :::note注意
 
-Nym Websocket 客户端是在[构建Nym](/docs/next/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
+Nym Websocket 客户端是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)章节构建的。如果你还没有构建Nym但想运行这里的代码，请先去之前的章节。
 
 :::
+
+### 查看命令帮助
 
 你可以用以下方法检查你的二进制文件是否被正确编译了：
 
 
-```
-./nym-client --help
-```
+<details>
+  <summary>输出结果</summary>
 
-它会返回一系列的可用命令：
 
-```
+      Nym Client 1.0.1
+      Nymtech
+      Implementation of the Nym Client
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+      USAGE:
+          nym-client [SUBCOMMAND]
 
-             (client - version 0.12.1)
+      FLAGS:
+          -h, --help       Prints help information
+          -V, --version    Prints version information
 
-    
-Nym Client 0.12.1
-Nymtech
-Implementation of the Nym Client
+      SUBCOMMANDS:
+          help       Prints this message or the help of the given subcommand(s)
+          init       Initialise a Nym client. Do this first!
+          run        Run the Nym client with provided configuration client optionally overriding set parameters
+          upgrade    Try to upgrade the client
 
-USAGE:
-    nym-client [SUBCOMMAND]
 
-FLAGS:
-    -h, --help       Prints help information
-    -V, --version    Prints version information
+</details>
 
-SUBCOMMANDS:
-    help       Prints this message or the help of the given subcommand(s)
-    init       Initialise a Nym client. Do this first!
-    run        Run the Nym client with provided configuration client optionally overriding set parameters
-    upgrade    Try to upgrade the client
+:::note注意
+启用了`eth`功能来构建客户端的用户能在他们的控制台看到额外的参数标识。
+:::
 
-```
-
-两个你向客户发出的最重要的命令是：
+两个你向客户端发出的最重要的命令是：
 
 1. `init` -- 初始化一个新的客户端实例。
 2. `run`-- 运行一个混合网络客户端进程。
@@ -71,9 +65,35 @@ SUBCOMMANDS:
 ./nym-client init --id <client_id> 
 ```
 
+它会返回：
+<details>
+  <summary>输出结果</summary>
+
+
+      Initialising client...
+      Saved all generated keys
+      Saved configuration file to "/home/mx/.nym/clients/client/config/config.toml"
+      Using gateway: BNjYZPxzcJwczXHHgBxCAyVJKxN6LPteDRrKapxWmexv
+      Client configuration completed.
+
+
+
+
+      The address of this client is: 7bxykcEH1uGNMr8mxGABvLJA44nbYt6Rp7xXHhJ4wQVk.HpnFbaMJ8NN1cp5ZPdPTc2GoBDnG4Jd51Sti32tbf3tF@BNjYZPxzcJwczXHHgBxCAyVJKxN6LPteDRrKapxWmexv
+
+</details>
+
 上面例子中的`--id`是一个本地标识符，这样你就可以为你的客户端命名，名称**永远不会**在网络上传输。
 
-`--gateway`参数是一个可选参数，如果你想使用一个特定的网关，请浏览`https://sandbox-explorer.nymtech.net/network-components/gateways`并选择`Identity key`然后传递参数到：`--gateway CbxxDmmNCufXSsi7hqUnorchtsqqSLSZp7QfRJ5ugSRA`。另外，如果你不传递这个参数，程序会随机选择一个网关连接。
+如果你想使用一个特定的网关，记得加上`--gateway`这个标识，所提供的参数是你希望使用的网关的 "身份密钥"，你可以在[主网浏览器](https://explorer.nymtech.net/network-components/gateways)或[Sandbox测试网浏览器](https://sandbox-explorer.nymtech.net/network-components/gateways)上找到他们，具体的值取决于你所在的网络。
+
+另外，如果你不传递这个参数，程序会随机选择一个网关连接。
+
+用户如果启用了`eth`功能，需要添加如下几个参数，以便初始化他们的客户端。
+
+```
+./nym-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --id <id>
+```
 
 当你启动一个客户端实例时，它将生成一个配置目录并存储在`$HOME_DIR/.nym/clients/<client-name>/`。
 
@@ -102,9 +122,7 @@ SUBCOMMANDS:
 
 恭喜你，你刚刚为这个世界贡献了一丁点隐私！按下`<CTRL-C>`来停止客户端。
 
-当客户端第一次启动时，它将与Nym网络的验证节点通讯，并获得一个可用的Nym节点（网关、混合节点和验证节点）的列表，我们把这个节点列表称为网络*拓扑结构*。客户端这样做是为了知道如何连接，在网络上注册自己，并知道哪些混合节点可以路由Sphinx数据包。
-
-一旦客户端获得了网络拓扑结构，它就会自动发送一个注册请求给第一个可用的网关，网关会返回一个唯一的认证令牌，客户端会把这个令牌附在随后的每个请求上。
+当客户端第一次启动时，它将与Nym网络的验证节点通讯，并获得一个可用的Nym节点（网关、混合节点和验证节点）的列表，我们把这个节点列表称为网络*拓扑结构*。客户端这样做是为了知道如何连接Nym网络，在网络上注册自己，并知道哪些混合节点可以路由Sphinx数据包。
 
 #### 连接到本地的websocket
 
@@ -158,9 +176,9 @@ Nym本地客户端暴露了一个websocket接口，你的代码可以连接到�
 
 *以下所提供的链接参考了Nym的某一版本，如果你有任何问题，请查看最新版本的代码*。
 
-你也可以发送字节而不是JSON。为此，你必须发送一个二进制websocket的数据帧，其中包含了二进制编码的Nym的[`ClientRequest`](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L36)。关于正确的编码，请查阅[rust参考实现](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L216)，因为它在未来可能会改变。
+你也可以发送字节而不是JSON。为此，你必须发送一个二进制websocket的数据帧，其中包含了二进制编码的Nym的[`ClientRequest`](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L36)。关于正确的编码，请查阅[Rust实现参考](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L216)，因为它在未来可能会改变。
 
-作为响应，本地客户端将发送一个`ServerResponse`，它可以用类似的方式进行解码，更多细节请参考[rust参考实现](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L216)。
+作为响应，`native-client`将发送一个`ServerResponse`，它可以用类似的方式进行解码，更多细节请参考[Rust实现](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/responses.rs#L286)。
 
 Nym社区使用二进制API的一个例子项目是[BTC-BC](https://github.com/sgeisler/btcbc-rs/)：使用Nym的比特币交易，客户端和服务提供者用Rust编写。
 

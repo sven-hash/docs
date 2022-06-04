@@ -25,7 +25,17 @@ error: build failed
 
 ### 我怎样才能知道我的节点已经开始运行并混合了流量？
 
-首先检查测试网[数据面板](https://sandbox-explorer.nymtech.net/)的'Mixnodes'部分，并输入你的 **identity key**（身份密钥），你应该看到你的节点。另外，你也可以查看社区成员Evgeny Garanin在[Nodes Guru](https://nodes.guru)上创建的[排行榜界面](https://nodes.guru/nym/leaderboard)。
+首先检查Nym浏览器的'Mixnodes'部分:
+
+* [主网](https://explorer.nymtech.net/overview) 
+* [Sandbox测试网](https://sandbox-explorer.nymtech.net/) 
+
+输入你的 **identity key**（身份密钥），查看'mixnode stats'和'uptime story'章节
+
+另外，还有两个社区浏览器，由[Nodes Guru](https://nodes.guru)创建：
+
+* [主网](https://mixnet.explorers.guru/)
+* [Sandbox测试网](https://sandbox.mixnet.explorers.guru/)
 
 如果你想了解更多的信息，或者你的节点没有显示出来，但你想仔细检查，这里有一些关于如何检查节点是否被正确配置的例子。
 
@@ -121,7 +131,7 @@ curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_no
 
 #### 检查测试网的API
 
-我们目前建立了一个API，用于返回当前网络的指标。有两个端点可以ping到关于你的混合节点的信息，`report`和`history`。在 [混合节点指标文档](docs/next/run-nym-nodes/nodes/mixnodes) 中找到更多相关信息。
+我们目前建立了一个API，用于返回当前网络的指标。有两个端点可以ping到关于你的混合节点的信息，`report`和`history`。在 [混合节点指标文档](docs/stable/run-nym-nodes/nodes/mixnodes) 中找到更多相关信息。
 
 ### 为什么我的节点没有混合数据包？
 
@@ -165,7 +175,7 @@ sudo ufw status
 
 #### 不正确的绑定信息
 
-检查你在[网页钱包界面](https://sandbox-wallet.nymtech.net/)中绑定混合节点时提供的信息是否正确。如果有问题，请解除绑定，然后再重新绑定你的节点！
+检查你在[网页钱包界面](https://nymtech.net/token//)中绑定混合节点时提供的信息是否正确。如果有问题，请解除绑定，然后再重新绑定你的节点！
 
 #### 缺少`announce-host`标志
 
@@ -290,13 +300,13 @@ sudo systemctl status nym-mixnode
 thread 'tokio-runtime-worker' panicked at 'Failed to create TCP listener: Os { code: 99, kind: AddrNotAvailable, message: "Cannot assign requested address" }'
 ```
 
-那么你需要在启动时使用`---announce-host <public ip>`和`--host <local ip>`这两个标志。这个问题的出现是因为你使用了像AWS或谷歌云这样的供应商，或者你的VPS可用绑定地址与公共IP地址不一样（参见[通过谷歌和AWS的虚拟IP和主机](docs/next/run-nym-nodes/nodes/mixnodes)以获得更多关于这个问题的信息）。
+那么你需要在启动时使用`---announce-host <public ip>`和`--host <local ip>`这两个标志。这个问题的出现是因为你使用了像AWS或谷歌云这样的供应商，或者你的VPS可用绑定地址与公共IP地址不一样（参见[通过谷歌和AWS的虚拟IP和主机](docs/stable/run-nym-nodes/nodes/mixnodes)以获得更多关于这个问题的信息）。
 
 #### `rocket::launch` 警告
 
 这些警告不是问题，请忽略它们。Rocket是一个rust的web框架，我们用它来为混合节点提供`/verloc`和`/description`的http API。
 
-在[混合节点指标文档](docs/next/run-nym-nodes/nodes/mixnodes)中查看更多相关信息。
+在[混合节点指标文档](docs/stable/run-nym-nodes/nodes/mixnodes)中查看更多相关信息。
 
 Rocket默认运行在端口`8000`，虽然在测试网阶段，我们需要Rocket可以通过这个端口，但在未来，可能允许大家自定义该端口。
 

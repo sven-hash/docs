@@ -5,11 +5,10 @@ hide_title: false
 
 # 网络奖励
 
-节点操作员和委托人的奖励是根据[Nym白皮书](https://nymtech.net/nym-whitepaper.pdf)第6节中的规定确定的。
+节点操作员和委托人的奖励是根据[Nym白皮书](https://nymtech.net/nym-whitepaper.pdf)第6章节中的规定确定的。
 
 下面是用于计算每个周期的奖励所涉及的变量和公式的简要说明。最初的奖励池包含2.5亿个NYM代币，剩余的7.5亿NYM代币用作流通。
 
-<!-- |<span style="white-space:nowrap;">符号&emsp;&emsp;</span>|定义| -->
 |符号|定义|
 |--|--|
 |<img src="https://render.githubusercontent.com/render/math?math=R"></img>|全球的奖励份额，起始值为奖励池的2% |
@@ -18,7 +17,7 @@ hide_title: false
 |<img src="https://render.githubusercontent.com/render/math?math=\lambda_{i}"></img>|节点运营者质押数目对代币流通量的比率|
 |<img src="https://render.githubusercontent.com/render/math?math=\omega_{i}"></img>|节点`i`承担的总工作量的比例，在Sandbox测试网中设置为`1/k`|
 |<img src="https://render.githubusercontent.com/render/math?math=k"></img>|质押持有者由于激励所创建的节点数目，由验证节点设置，这是个治理问题，目前由奖励的规模决定，在Sandbox测试网中设置为720|
-|<img src="https://render.githubusercontent.com/render/math?math=\alpha"></img>|抵抗女巫攻击的参数 - 这个参数设置得越高，发动攻击的节点的竞争力降低就越多|
+|<img src="https://render.githubusercontent.com/render/math?math=\alpha"></img>|抵抗女巫攻击的参数 - 这个参数设置得越高，发动攻击的节点的竞争力降低的就越多|
 |<img src="https://render.githubusercontent.com/render/math?math=PM_{i}"></img>|节点`i`公布的利润率，在Sandbox测试网中默认为10%|
 |<img src="https://render.githubusercontent.com/render/math?math=PF_{i}"></img>| 节点`i`在奖励周期的在线时长，取值为0到1                      |
 |<img src="https://render.githubusercontent.com/render/math?math=PP_{i}"></img>|节点`i`在奖励周期期间的运行成本，当前Sandbox测试网中设置为40Nym代币|

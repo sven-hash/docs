@@ -1,31 +1,47 @@
 {
   "version.label": {
-    "message": "Next (in progress)",
-    "description": "The label for version current"
+    "message": "下一版本",
+    "description": "The label for version stable"
   },
   "sidebar.sidebar.category.Overview": {
     "message": "简介",
     "description": "The label for category Overview in sidebar sidebar"
   },
-  "sidebar.sidebar.category.Run Nym Nodes": {
-    "message": "运行Nym节点",
-    "description": "The label for category Run Nym Nodes in sidebar sidebar"
+  "sidebar.sidebar.category.Developers": {
+    "message": "开发者",
+    "description": "The label for category Developers in sidebar sidebar"
+  },
+  "sidebar.sidebar.category.Nym Mixnet": {
+    "message": "Nym混合网络",
+    "description": "The label for category Nym Mixnet in sidebar sidebar"
+  },
+  "sidebar.sidebar.category.Clients": {
+    "message": "客户端",
+    "description": "The label for category Clients in sidebar sidebar"
+  },
+  "sidebar.sidebar.category.Nyx Blockchain": {
+    "message": "Nyx区块链",
+    "description": "The label for category Nyx Blockchain in sidebar sidebar"
+  },
+  "sidebar.sidebar.category.Node Operators": {
+    "message": "节点运营商",
+    "description": "The label for category Node Operators in sidebar sidebar"
   },
   "sidebar.sidebar.category.Nodes": {
     "message": "节点",
     "description": "The label for category Nodes in sidebar sidebar"
   },
-  "sidebar.sidebar.category.Use Nym apps": {
-    "message": "Nym应用",
-    "description": "The label for category Use Nym apps in sidebar sidebar"
+  "sidebar.sidebar.category.Applications": {
+    "message": "应用",
+    "description": "The label for category Applications in sidebar sidebar"
   },
-  "sidebar.sidebar.category.Develop Nym Apps": {
-    "message": "开发Nym应用",
-    "description": "The label for category Develop Nym Apps in sidebar sidebar"
+  "sidebar.sidebar.category.Nym apps": {
+    "message": "Nym原生App",
+    "description": "The label for category Nym Apps in sidebar sidebar"
   },
-  "sidebar.sidebar.category.Use External Apps": {
-    "message": "外部应用",
-    "description": "The label for category Use External Apps in sidebar sidebar"
+  "sidebar.sidebar.category.Connect Apps": {
+    "message": "Nym第三方App",
+    "description": "The label for category Connect Apps in sidebar sidebar"
   },
   "sidebar.sidebar.category.Community": {
     "message": "社区",
