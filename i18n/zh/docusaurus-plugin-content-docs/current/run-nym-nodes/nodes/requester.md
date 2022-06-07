@@ -14,48 +14,42 @@ Nym请求器是在[构建Nym](/docs/next/run-nym-nodes/build-nym/)章节构建�
 
 如果你能访问一台服务器，那么你可以运行nym-network-requester（Nym网络请求器），它允许Nym用户从你的服务器向外发出网络请求。
 
-nym-network-requester不是一个开放的代理服务器。它带有一个名为`allowed.list.sample`的文件，其中包含Blockstream Green和Electrum加密钱包使用的URL。
+nym-network-requester不是一个开放的代理服务器。它带有一个名为`allowed.list.sample`的文件，其中包含Blockstream Green和Electrum加密钱包使用的URL，该文件可以根据该请求器的运营者的需求，修改允许连接的服务的URL。
 
 ### 运行你的nym客户端 
 
-在启动你的Nym网络请求器之前，你必须运行一个Nym客户端的二进制文件，让它来监听请求。
+在启动你的Nym网络请求器之前，你必须运行一个Nym客户端的二进制文件，让它来监听请求，在[这里](/docs/next/developers/develop-with-nym/websocket-client)查看相应的指南。
 
 首先，选择你的客户端要连接的网关，活跃的网关可以在[网络浏览器](https://sandbox-explorer.nymtech.net/nym/gateway)的'Gateways'栏目找到。
 
 然后用你选择的网关的ID密钥初始化你的nym客户端：
 
 ```
- ./nym-client init --id requester-client --gateway <GATEWAY_ID>
+ ./nym-client init --id <id>
 ```
 
-它会返回：
+<details>
+  <summary>输出结果</summary>
 
-``` 
+      Initialising client...
+      Saved all generated keys
+      Saved configuration file to "/home/nym/.nym/clients/requester-client/config/config.toml"
+      Using gateway: 8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
+      Client configuration completed.
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+      The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 
-             (client - version 0.12.1)
+</details> 
 
-    
-Initialising client...
-Saved all generated keys
-Saved configuration file to "/home/nym/.nym/clients/requester-client/config/config.toml"
-Using gateway: 8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-Client configuration completed.
+:::note注意
+启用`eth`功能构建文件的用户需要在命令里添加`--eth_endpoint`和 `--eth_private_key`标志。点击[这里](/docs/next/run-nym-nodes/build-nym/)查看更多信息。
+:::
 
-
-The address of this client is: BUVD1uAXEWSfMDdewwfxUAd6gSsEfHHPvnsV8LTfe9ZG.DaY9kqXREEkvpJ1Nv3nrfxF6HDamsJmtZQDFuyTAXwJZ@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
-```
-
-现在，在`/etc/systemd/system/nym-client.service`创建一个服务文件：
+现在，在`/etc/systemd/system/nym-client.service`创建一个服务文件，之后如果你的服务器重启或者Nym因为某些原因被杀死，你不需要手动重启你的客户端。
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -95,12 +89,17 @@ systemctl status nym-client.service
 
 ```
  ./nym-network-requester 
-
-Starting socks5 service provider:
- 2021-08-11T13:28:02.767Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
-
-All systems go. Press CTRL-C to stop the server.
 ```
+
+<details>
+  <summary>输出结果</summary>
+
+      Starting socks5 service provider:
+      2021-08-11T13:28:02.767Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
+
+      All systems go. Press CTRL-C to stop the server.
+
+</details> 
 
 你可以看到，它已经连接到我们之前启动的nym客户端。
 
@@ -108,7 +107,7 @@ All systems go. Press CTRL-C to stop the server.
 
 ```
 [Unit]
-Description=Nym Client (0.12.1)
+Description=Nym Client (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
