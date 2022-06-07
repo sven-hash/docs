@@ -18,65 +18,26 @@ Nym桌面钱包可以让你跟你的Nym节点交互，并将代币委托给其�
 
 ### 绕过安全警告
 
-在MacOS和Windows上，当你试图运行钱包时，你会看到一个安全警告。我们正在从苹果和微软获得应用商店的密钥，以便这种情况不会发生。有关绕过这些安全警告的细节，请参见下面的章节。同时，我们建议你使用文件哈希值来检查你下载的文件的真实性：
-
-* 在MacOS上运行
-`openssl md5 nym-wallet_0.12.1_macos_x64.dmg` 应当返回 `9a50644c51b01b2fa3d5e2bfd33183b9`
-
-* 在Ubuntu20上运行
-`openssl md5 nym-wallet_0.12.1_amd64_ubuntu_20.04.AppImage` 应当返回`52992fa34bf8ed1118010f9d423dfd4a`
-* 在Windows上运行
-`openssl md5 nym-wallet_windows_0.12.1_x64.msi` 应当返回 `6afa60c049bfd091fb48a5e099a91347`
+在Windows上，当你试图运行钱包时，你会收到一个安全警告，我们正在从微软获得应用程序商店的密钥，之样就不会发生这种情况。有关绕过这些警告的详细步骤，请参见下面的章节。
 
 
 #### Linux 
 
 你需要在终端对AppImage运行`chmod +x'（或在文件浏览器中给它执行权限），然后它才能运行。
 
-#### MacOS 
-
-* 将该应用程序拖到你的 "应用程序 "文件夹中。
-* 如果你双击该应用程序，你会看到以下警告：
-
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning1.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning1.png'),
-  }}
-/>
-
-点击取消并忽略它。
-
-- 进入你的系统偏好->安全和隐私->一般，解锁该应用程序。
-
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning2.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning2.png'),
-  }}
-/>
-
-* 右键单击该应用程序，点击 "打开"，然后点击 "仍然打开"。
-
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/mac_warning3.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/mac_warning3.png'),
-  }}
-/>
-
 #### Windows 
+
+_在Windows上打开钱包时，你仍然会遇到警告。这是因为 -- 尽管我们钱包得到了微软的批准 -- 但目前它的下载量还不到1万次。一旦钱包的下载量超过这个阈值，这个警告将消失。_
+
+跟着下面的步骤来绕过这些警告：
 
 * 点击msi安装程序后选择"更多信息"：
 
 <ThemedImage
   alt=""
   sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning1.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning1.png'),
+    light: useBaseUrl('/img/docs/wallet-warnings/windows_warningv1-0-2.png'),
+    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warningv1-0-2.png'),
   }}
 />
 
@@ -168,9 +129,23 @@ sudo apt install pkg-config build-essential libssl-dev curl jq
 - 当安装`NodeJS`时，请使用`current features`版本。
 - 建议使用像[Chocolatey](https://chocolatey.org/)这样的软件包管理器。
 
+### 在开发模式下删除签名错误
+
+如果你想自己建立钱包，你需要对位于`nym-wallet/src-tauri/tauri.conf.json`的文件做一些修改。这些修改与钱包被Mac和Windows应用商店接受有关，但在你自己构建和运行钱包时并不相关。
+
+在**所有**操作系统上：
+
+* 将第49行的值设置为`false`
+* 删除第50至54行  
+
+MacOS和Windows用户还需要修改：
+
+* MacOS用户还必须删除第39行 
+* Windows用户必须删除第42至46行 
+
 ### 安装
 
- 在`nym-wallet`目录下运行：
+ 当你修改过`tauri.conf.json`文件后，在`nym-wallet`目录下运行：
 
 ```
 yarn install
@@ -180,7 +155,7 @@ yarn install
 
 :::note注意
 
-确保你在运行之前将提供的".env.sample "的内容复制到一个新的".env "文件中。
+确保你在运行之前将提供的`.env.sample`的内容复制到一个新的`.env`文件中。
 
 :::
 
@@ -196,7 +171,7 @@ yarn dev
 
 :::note注意
 
-确保你在运行之前将提供的".env.sample "的内容复制到一个新的".env "文件中。
+确保你在运行之前将提供的`.env.sample`的内容复制到一个新的`.env`文件中。
 
 :::
 

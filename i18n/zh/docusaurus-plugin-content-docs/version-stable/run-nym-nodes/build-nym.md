@@ -46,12 +46,16 @@ cd nym
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-# Note: the default branch you clone from Github, `develop`, is guaranteed to be
-# broken and incompatible with the running testnet at all times. You *must*
-# `git checkout tags/v0.12.1` in order to join the testnet.
+# Note: the default branch you clone from Github, `develop`, may be
+# incompatible with both the mainnet and testnet. As such, make sure 
+# to checkout the current release: 
+# `git checkout tags/v1.0.0`.
 
-git checkout tags/v0.12.1
+git checkout tags/v1.0.0
+# this builds your binaries with mainnet configuration
 cargo build --release
+# to build your binaries with Sandbox testnet configuration, run this instead: 
+NETWORK=sandbox cargo build --release
 ```
 
 你会得到一些文件，关键的部分有：
@@ -70,3 +74,19 @@ cargo build --release
 你不能从GitHub发布页面上的.zip或.tar.gz归档文件进行安装 -- Nym的构建脚本在编译时会自动将当前git提交的哈希值包含在二进制文件中，所以如果你使用归档代码（这并不是一个Git仓库），构建将会失败。用`git clone`代替从github上查看代码。
 
 :::
+
+### 启用Ethereum功能构建Nym（可选项）
+
+如果有用户想要使用基本带宽凭证（BBCs），那么他们必须以稍微不同的方式构建各种二进制文件。
+
+:::warning警告
+目前这是一个可选的功能，用户也可以在没有这些设置下使用混合网络。
+:::
+
+要在启用这些功能的情况下构建代码库，请讲前面指南中的`cargo build --release`命令替换为：
+
+```
+cargo build --release --features eth
+```
+
+这个标识会在编译和构建`nym-client`, `nym-socks5-client`和`gateway`二进制文件时启用了`eth`功能。这些特性算是一种设置：BBC会在客户端和网关在运行时创建连接并通过混合网络发送数据包，我们很快会有一篇博文解释这些功能。

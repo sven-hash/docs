@@ -4,8 +4,10 @@ description: "Nym Validators provide privacy-enhanced credentials based on the t
 hide_title: false
 title: 验证节点
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Nym验证节点通过质押代币保护网络，使网络免受女巫攻击。
+Nym验证节点通过质押代币保护网络，使网络 免受女巫攻击。
 
 验证节点还可以根据一系列去中心化的、基于区块链的发行机构的证明，提供隐私增强的凭证。Nym验证节点使用名为[Coconut](https://arxiv.org/abs/1802.07344)的[签名方案](https://en.wikipedia.org/wiki/Digital_signature)来签发凭证。这允许隐私应用程序通过去中心化的机构生成匿名的资源证明，然后与服务提供商一起使用它们。
 
@@ -29,7 +31,7 @@ git version
 # Should return: git version X.Y.Z
 ```
 
-- `Go >= v1.15`
+- `Go `
 
 `Go`可以通过以下命令安装（摘自[Agoric SDK docs](https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go)）：
 
@@ -38,7 +40,7 @@ git version
 sudo rm -rf /usr/local/go
 
 # Install correct Go version
-curl https://dl.google.com/go/<CORRECT.GO.VERSION>.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+curl https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
 
 # Update environment variables to include go
 cat <<'EOF' >>$HOME/.profile
@@ -49,10 +51,6 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 EOF
 source $HOME/.profile
 ```
-
-记得用你在Go的发布页面里选择的版本替换`<CORRECT.GO.VERSION>`的值，例如：
-
-`<CORRECT.GO.VERSION>.linux-amd64.tar.gz`替换成`go1.15.7.linux-amd64.tar.gz`。
 
 验证`Go`是否安装了：
 
@@ -88,27 +86,65 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 #### 构建你的验证节点
 
-我们使用Cosmos验证节点的`wasmd`版本来运行我们的区块链。运行下面的命令来克隆、编译和构建它：
+我们使用Cosmos验证节点的`wasmd`版本来运行我们的区块链。首先选择下面正确的网络来确定正确的安装流程，因为从这里开始，说明、文件和端点都不同：
+
+
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      <code>
+        BECH32_PREFIX=nymt
+      </code>
+    </pre>
+        <pre>
+      <code>
+        WASMD_VERSION=v0.21.0
+      </code>
+    </pre>
+    <pre>
+      <code>
+      NYM_APP_NAME=nymd
+      </code>
+    </pre>
+    </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+      <pre>
+      <code>
+        BECH32_PREFIX=n
+      </code>
+    </pre>
+      <pre>
+      <code>
+        WASMD_VERSION=v0.26.0
+      </code>
+    </pre>
+        <pre>
+      <code>
+      NYM_APP_NAME=nyxd
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
+
+运行下面的命令来克隆、编译和构建它：
 
 ```
-WASMD_VERSION=v0.21.0
-BECH32_PREFIX=nymt
 git clone https://github.com/CosmWasm/wasmd.git
 cd wasmd
 git checkout ${WASMD_VERSION}
 mkdir build
-go build -o /tmp/nymd -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=nymd -X github.com/cosmos/cosmos-sdk/version.AppName=nymd -X github.com/CosmWasm/wasmd/app.NodeDir=.nymd -X github.com/cosmos/cosmos-sdk/version.Version={{ network_vars.validator.wasmdversion }} -X github.com/cosmos/cosmos-sdk/version.Commit={{ network_vars.validator.wasmdcommit}} -X github.com/CosmWasm/wasmd/app.Bech32Prefix={{ network_vars.generic.bech32_prefix_mixnet }} -X 'github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger'" -trimpath ./cmd/wasmd # noqa line-length
+go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=dc5ef6fe84f0a5e3b0894692a18cc48fb5b00adf -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
 ```
 
-执行完后，你的`build/`目录下有一个`nymd`二进制的副本，运行它来测试它是否被正确编译了：
+这时，你在`build/`文件夹下能看到`nymd`（Sandbox测试网）或者`nyxd`（主网）二进制文件，运行它来测试它是否被正确编译了：
 
 ```
-./build/nymd
+./build/${NYM_APP_NAME}
 ```
 
 你应该能看到输出了`nymd`帮助文本。
 
-`nymd`和`libwasmvm.so`共享对象库的二进制文件都已经被编译了，`libwasmvm.so`是wasm虚拟机，我们需要他来执行Nym智能合约。
+这说明我们已经成功编译了`nymd`或者`nyxd`，和`libwasmvm.so`共享对象库的二进制文件，`libwasmvm.so`是wasm虚拟机，我们需要他来执行Nym智能合约。
 
 :::caution警告
 
@@ -129,21 +165,9 @@ ls ${WASMVM_SO}
 '/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
 ```
 
-当你上传`nymd`二进制文件时，你需要在启动验证验证节点时告诉它`libwasmvm.so`的位置，否则`nymd`将无法运行。如果你已经在你的服务器上编译了它们，那么就没有必要了，因为编译后的`nymd`已经可以访问`libwasmvm.so`文件了。
+当你上传`nymd`或者`nyxd`二进制文件时，你需要在启动验证验证节点时告诉它`libwasmvm.so`的位置，否则`nymd`将无法运行。如果你已经在你的服务器上编译了它们，那么就没有必要了，因为编译后的`nymd`已经可以访问`libwasmvm.so`文件了。
 
-另外，你可以在<https://github.com/nymtech/nym>查看`nym`的仓库，并使用标签获取当前版本：
-
-```
-git clone https://github.com/nymtech/nym.git
-cd nym
-git reset --hard   # in case you made any changes on your branch
-git pull           # in case you've checked it out before
-git checkout tags/v0.12.1
-```
-
-在`validator`目录下，你会找到要使用的预编译二进制文件。
-
-把`nymd`和`libwasmvm.so`都上传到你的验证节点的机器。如果你试图在你的服务器上运行`./nymd`，如果`nymd`找不到`libwasmvm.so`，你可能会看到这样错误：
+把`nymd`/`nyxd`和`libwasmvm.so`都上传到你的验证节点的机器。如果你试图在你的服务器上运行`./nymd`，如果`nymd`找不到`libwasmvm.so`，你可能会看到这样错误：
 
 ```
 ./nymd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
@@ -152,19 +176,33 @@ git checkout tags/v0.12.1
 你需要在你的用户的`~/.bashrc`文件中设置`LD_LIBRARY_PATH`，并将其加入我们的路径，将下面的命令中的`/home/youruser/path/to/nym/binaries`替换为`nymd`和`libwasmvm.so`的位置，然后运行它。如果你已经在服务器上编译了这些东西，它们会保存在`build/`文件夹中。
 
 ```
-NYM_BINARIES=/home/youruser/path/to/nym/binaries
-echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYM_BINARIES >> ~/.bashrc
-echo 'export PATH=$PATH:'${NYM_BINARIES} >> ~/.bashrc
+NYX_BINARIES=/home/youruser/path/to/nym/binaries
+# if you are using another shell like zsh replace '.bashrc' with the relevant config file
+echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYX_BINARIES >> ~/.bashrc 
+echo 'export PATH=$PATH:'${NYX_BINARIES} >> ~/.bashrc
 source ~/.bashrc
 ```
 
 检查是否一切运行正常：
 
-```
-nymd
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      <code>
+        nymd  
+      </code>
+    </pre>
+    </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+      <pre>
+      <code>
+        nyxd      
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
-这应该会返回`nymd`的帮助文本。
+这应该会返回帮助文本。
 
 ### 初始化你的验证节点
 
@@ -175,9 +213,18 @@ nymd
 
 为你的验证节点起一个名字，并在下面的命令中用它来代替`yourname`：
 
-```
-nymd init yourname --chain-id testnet-nym-sandbox
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      nymd init YOUR_NAME --chain-id=nym-sandbox 
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      nyxd init YOUR_NAME --chain-id=nyx 
+    </pre>
+  </TabItem>
+</Tabs>
 
 :::caution警告
 
@@ -190,22 +237,63 @@ nymd init yourname --chain-id testnet-nym-sandbox
 
 :::
 
-在这一点上，你有一个新的验证节点，它有自己的genesis文件，位于`$HOME/.nymd/config/genesis.json`。你需要用Nym-Sandbox的[genesis文件](https://nymtech.net/testnets/sandbox/genesis.json)来**替换该文件的内容**。//<==== 这个文件在这里
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    这时，你有一个新的验证节点，它有自己的genesis文件，位于<code>$HOME/.nymd/config/genesis.json</code>。你需要用Nym-Sandbox的 <a href="https://nymtech.net/testnets/sandbox/genesis.json">genesis file</a>来**替换该文件的内容**。你可以使用下面的命令下载该文件：
+    <pre>
+      <code>
+      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
+      </code>
+      </pre>
+    </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+      这时，你有一个新的验证节点，它有自己的genesis文件，位于<code>$HOME/.nyxd/config/genesis.json</code>。你需要用Nym-Sandbox的 <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>来**替换该文件的内容**。你可以使用下面的命令下载该文件：
+      <pre>
+      <code>
+      wget  -O $HOME/.nyxd/config/genesis.json https://nymtech.net/genesis/genesis.json
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
-你可以用下面的命令来下载Milhon的那个文件：
+#### `config.toml`配置
 
-```
-wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    ​按照下面的内容编辑<code>$HOME/.nymd/config/config.toml</code>，将下面的Nym验证节点设置成一个持续可用的节 点，这样你的验证节点就可以从网络的其他地方同步区块：
+    <pre>
+      cors_allowed_origins = ["*"] 
+    </pre>
+    <pre>
+      persistent_peers = "d24ee58d85a65d34ad5adfc3302c3614b36e8b14@sandbox-validator.nymtech.net:26656" 
+    </pre>
+    <pre>
+      create_empty_blocks = false 
+    </pre>
+    <pre>
+      laddr = "tcp://0.0.0.0:26656" 
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    按照下面的内容​编辑<code>$HOME/.nyxd/config/config.toml</code>：
+    <pre>
+      persistent_peers = "dc0af6cde717420e9f8d35a3e0883aee0e5dbff3@15.235.14.66:26656" 
+    </pre>
+    <pre>
+      create_empty_blocks = false 
+    </pre>
+    <pre>
+      laddr = "tcp://0.0.0.0:26656" 
+    </pre>
+  </TabItem>
+</Tabs>
 
-#### `config.toml` 配置
-
-编辑`$HOME/.nymd/config/config.toml`中下面的配置选项，将Nym验证节点设置成一个持续可用的用户，这样你的验证节点就可以开始从网络的其他地方下载区块了：
+具体的配置如下：
 
 - `cors_allowed_origins = ["*"]`允许网络钱包向你的验证节点发出HTTPS请求
-- `persistent_peers = "d24ee58d85a65d34ad5adfc3302c3614b36e8b14@sandbox-validator.nymtech.net:26656"`允许你的验证节点开始从其他节点拉取区块
+- `persistent_peers = "<PEER_ADDRESS>@<DOMAIN>.nymtech.net:26656"` 允许你的验证节点开始从其他节点拉取区块
 - `create_empty_blocks = false`可以为你节省一点空间
-- `laddr = "tcp://0.0.0.0:26656"`在你的`p2p配置选项`中
+- `laddr = "tcp://0.0.0.0:26656"`是`p2p配置选项`
 
 
 另外，如果你想启用[Prometheus](https://prometheus.io/)指标，那么在`config.toml`中还必须匹配以下内容：
@@ -229,72 +317,94 @@ wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/ge
 
 在文件`$HOME/.nymd/config/app.toml`中，设置以下值:
 
-1. `minimum-gas-prices="0.025unymt"`（最低gas费用）
-1. 设置`[api]`小节中的`enable = true`以使API服务器运行
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      minimum-gas-prices = "0.025unymt" 
+    </pre>
+    <pre>
+      设置`[api]`下面的enable = true来运行API服务器
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      设置`[api]`下面的enable = true来运行API服务器
+    </pre>
+  </TabItem>
+</Tabs>
 
 ### 设置你的验证节点的管理员账户
 
 你需要一个管理员账户来负责你的验证节点，用以下方法设置：
 
-```
-nymd keys add nymd-admin
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      <code>
+      nymd keys add nymd-admin
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      <code>
+      nyxd keys add nyxd-admin
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
-这会把你的管理员账户的密钥添加到系统的钥匙串中。
-
-命令的输出应该是这样的：
-
-```
-$ nymd keys add nymd-admin
-Enter keyring passphrase:
-password must be at least 8 characters
-Enter keyring passphrase:
-Re-enter keyring passphrase:
-
-- name: nymd-admin
-type: local
-address: nymt1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
-pubkey: nymtpub1addwnpepqdfcf5786qry8g8ef9nad5vnl0rs5cmkcywzrwwvvdye27ktjmqw2ygr2hr
-mnemonic: ""
-threshold: 0
-pubkeys: []
-
-
-**Important** write this mnemonic phrase in a safe place.
-It is the only way to recover your account if you ever forget your password.
-
-design payment apple input doll left badge never toe claw coconut neither travel side castle know plate unit mercy weekend pelican stay fortune road
-```
-
-正如上面的指示中所说，记得**写下你的助记词**。
+这会把你的管理员账户的钥匙添加到系统的钥匙串中，并记录你的名字、地址、公钥和助记词。正如说明中所说，别忘了要**记下你的助记词**。
 
 你可以通过以下方式获得管理账户的地址：
 
-```
-nymd keys show nymd-admin -a
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      <code>
+      nymd keys show nymd-admin -a
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      <code>
+      nyxd keys show nyxd-admin -a
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
-输入你的密钥**密码**，而不是助记词，输出结果应该是这样的：
-
-```
-nymt1x4twq82ew2c49ctr36mafksyrtnxwvrkey939u
-```
+当被系统询问时，输入你的密钥串**密码**，而不是助记词
 
 ### 启动你的验证节点
 
 现在一切都应该准备好了，你已经搭建了验证节点，在`config.toml`和`app.toml`中做了所有的修改，Nym genesis文件被复制到合适的位置（替换了最初自动生成的文件）。现在让我们来验证整个设置：
 
-```
-nymd validate-genesis
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      <code>
+      nymd validate-genesis
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      <code>
+      nyxd validate-genesis
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
-如果该检查通过，你应该收到以下输出：
+如果该检查通过，你应该看到以下输出：
 
 ```
 File at /path/to/.nymd/config/genesis.json is a valid genesis file
 ```
 
-> 如果这个测试没有通过，请检查你是否将`/path/to/.nymd/config/genesis.json`的内容替换为[Nym-Sandbox genesis file](https://nymtech.net/testnets/milhon/genesis.json)。
+> 如果这个测试没有通过，请检查你是否将`/path/to/.nymd/config/genesis.json`的内容替换为正确的genesis文件。
 
 在运行节点之前，我们需要打开防火墙的端口：
 
@@ -315,43 +425,110 @@ sudo ufw status
 
 启动验证节点：
 
-```
-nymd start
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      <code>
+      nymd start
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      <code>
+      nyxd start
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
 
 一旦你的验证节点启动，它将开始向其他节点请求区块，这可能需要几个小时。一旦它同步完成，你就可以发出加入验证节点集群的请求：
 
-```
-PUB_KEY=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator) # e.g. nymtvalconspub1zcjduepqzw38hj6edjc5wldj3d37hwc4savn0t95uakhy6tmeqqz5wrfmntsnyehsq
-MONIKER="nym-secondary"                                                       # whatever you called your validator
-FROM_ACCOUNT="nymd-admin"                                                     # your keychain name
+> 如果你在升级验证节点的二进制文件时遇到问题，请尝试替换（或重新编译）`libwasmvm.so`文件，并在验证节点的服务器上替换它。
 
-nymd tx staking create-validator \
---amount=10000000unymt \
---fees=5000unymt \
---pubkey="${PUB_KEY}" \
---moniker=${MONIKER} \
---chain-id=nym-sandbox \
---commission-rate="0.10" \
---commission-max-rate="0.20" \
---commission-max-change-rate="0.01" \
---min-self-delegation="1" \
---gas="auto" \
---gas-adjustment=1.15 \
---from=${FROM_ACCOUNT} \
---node https://sandbox-validator.nymtech.net:443
-```
+:::warning警告
 
-你需要`unymt`币来完成这些。
+当加入共识时，不要质押大量不成比例的代币，这可能会扰乱（甚至中止）网络。
+
+请在验证节点开始时质押少量的代币（具体数额可以参考当前的验证节点），然后慢慢地把剩余的代币分批委托给自己。
+
+:::
+
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      nymd tx staking create-validator
+        --amount=10000000unyxt
+        --fees=5000unyxt
+        --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
+        --moniker="whatever you called your validator"
+        --chain-id=nym-sandbox
+        --commission-rate="0.10"
+        --commission-max-rate="0.20"
+        --commission-max-change-rate="0.01"
+        --min-self-delegation="1"
+        --gas="auto"
+        --gas-adjustment=1.15
+        --from="KEYCHAIN NAME"
+        --node https://sandbox-validator.nymtech.net:443 
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      nyxd tx staking create-validator
+        --amount=10000000unyx
+        --fees=0unyx 
+        --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
+        --moniker="whatever you called your validator"
+        --chain-id=nym
+        --commission-rate="0.10"
+        --commission-max-rate="0.20"
+        --commission-max-change-rate="0.01"
+        --min-self-delegation="1"
+        --gas="auto"
+        --gas-adjustment=1.15
+        --from="KEYCHAIN NAME"
+        --node https://rpc.nyx.nodes.guru:443     
+      </pre>
+  </TabItem>
+</Tabs>
+
+你需要质押`unyxt`（Sandbox测试网）或者`unyx`（主网）代币来完成这个操作。
 
 注意：我们目前正在努力建立一组封闭的信誉良好的验证节点。你可以向我们索要代币，但如果我们拒绝，请不要生气 -- 验证节点是我们系统核心安全的一部分，我们一开始会选择我们已经认识的或有良好声誉的人来运行节点。
 
-如果你想为你的节点编辑一些细节，你可以使用这样的命令：
+如果你想为你的节点添加一些说明，你可以使用如下的命令：
 
-```
-nymd tx staking edit-validator   --chain-id=nym-sandbox   --moniker=${MONIKER}   --details="Nym validator"   --security-contact="YOUREMAIL"   --identity="XXXXXXX"   --gas="auto"   --gas-adjustment=1.15   --from=${FROM_ACCOUNT} --fees 2000unymt
-```
-
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      nymd tx staking edit-validator   
+        --chain-id=nym-sandbox   
+        --moniker="whatever you called your validator"
+        --details="Nym validator"   
+        --security-contact="your email"   
+        --identity="your identity"   
+        --gas="auto"   
+        --gas-adjustment=1.15   
+        --from="KEYCHAIN NAME"
+        --fees 2000unyxt
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      nymd tx staking edit-validator   
+        --chain-id=nym   
+        --moniker="whatever you called your validator"
+        --details="Nym validator"   
+        --security-contact="your email"   
+        --identity="your identity"   
+        --gas="auto"   
+        --gas-adjustment=1.15   
+        --from="KEYCHAIN NAME"
+        --fees 2000unyx
+    </pre>
+  </TabItem>
+</Tabs>
 使用上述命令，你可以指定`gpg`钥匙的最后编号（会在`keybase`中使用）以及验证节点的细节和你的电子邮件，以便联系~。
 
 ### 使用systemd自启动你的验证节点
@@ -360,7 +537,7 @@ nymd tx staking edit-validator   --chain-id=nym-sandbox   --moniker=${MONIKER}  
 
 ```ini
 [Unit]
-Description=Nymd (0.12.1)
+Description=Nymd (1.0.0-rc.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -569,15 +746,30 @@ username        soft nofile 4096
 
 如果你的验证器被禁，你可以用下面的命令来修复它：
 
-```
-nymd tx slashing unjail \
-  --broadcast-mode=block \
-  --from=${FROM_ACCOUNT} \
-  --chain-id=nym-sandbox \
-  --gas=auto \
-  --gas-adjustment=1.4 \
-  --fees=7000unymt
-```
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      nymd tx slashing unjail 
+        --broadcast-mode=block 
+        --from="KEYCHAIN NAME"
+        --chain-id=nym-sandbox 
+        --gas=auto 
+        --gas-adjustment=1.4 
+        --fees=7000unyxt
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      nyxd tx slashing unjail 
+        --broadcast-mode=block 
+        --from="KEYCHAIN NAME"
+        --chain-id=nym 
+        --gas=auto 
+        --gas-adjustment=1.4 
+        --fees=7000unyx
+    </pre>
+  </TabItem>
+</Tabs>
 
 #### 验证节点被封禁的常见原因
 
@@ -589,29 +781,15 @@ nymd tx slashing unjail \
 
 ### 验证节点运行的第二天
 
-作为执行验证的一部分，验证节点能够获得一些奖励。
-
-通过这个命令，我们可以查询到我们的奖励：
+查询当前账户余额：
 
 ```
-nymd query distribution validator-outstanding-rewards <nymtvaloperaddress>
+nymd query bank balances ${ADDRESS}
 ```
 
-替换为前一个命令得到的奖励值，你可以取出所有奖励：
+比如，在Sandbox测试网会返回：
 
 ```
-nymd tx distribution withdraw-rewards <nymtvaloperaddress> --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id="nym-sandbox" --gas="auto" --gas-adjustment=1.15 --commission --fees 5000unymt
-```
-
-查看当前的余额：
-
-```
-nymd query bank balances nymt<address>
-```
-
-比如：
-
-```yaml
 balances:
 - amount: "919376"
 denom: unymt
@@ -622,13 +800,32 @@ total: "0"
 
 当然，你可以用下面命令把可用的余额质押回你的验证节点：
 
-```
-nymd tx staking delegate <nymtvaloperaddress> <amount>unymt --from ${FROM_ACCOUNT} --keyring-backend=os --chain-id "nym-sandbox" --gas="auto" --gas-adjustment=1.15 --fees 5000unymt
-```
+> 记得留一点代币支付手续费
 
-注意：用来代替`<amount>unymt`的数值可以从可用余额中计算出来。例如，如果你的余额有`999989990556`，那么你可以质押`999909990556`，注意第5位数字，已经从`8`改为`0`，以留下一些做手续费（金额乘以10^6）。
-
-同时记得用你的验证节点的地址替换`nymtvaloper`，用你在初始化时创建的用户替换`nym-admin`。
+<Tabs groupId="nym-network">
+  <TabItem value="sandbox" label="Sandbox（测试网）">
+    <pre>
+      nymd tx staking delegate VALOPERADDRESS AMOUNTunymt 
+        --from="KEYCHAIN NAME"
+        --keyring-backend=os 
+        --chain-id=nym-sandbox
+        --gas="auto" 
+        --gas-adjustment=1.15 
+        --fees 5000unyxt
+    </pre>
+  </TabItem>
+    <TabItem value="mainnet" label="Nyx（主网）">
+    <pre>
+      nyxd tx staking delegate VALOPERADDRESS AMOUNTunym 
+        --from="KEYCHAIN NAME"
+        --keyring-backend=os 
+        --chain-id=nym 
+        --gas="auto" 
+        --gas-adjustment=1.15 
+        --fees 5000unyx
+    </pre>
+  </TabItem>
+</Tabs>
 
 ### 验证节点端口参考表
 
@@ -637,7 +834,5 @@ nymd tx staking delegate <nymtvaloperaddress> <amount>unymt --from ${FROM_ACCOUN
 | 默认端口 | 用途                     |
 | -------- | ------------------------ |
 | 1317     | REST API服务器端点       |
-| 1790     | 监听VerLoc流量           |
-| 8000     | 指标的http API端点       |
 | 26656    | 监听传入的其他节点的连接 |
 | 26660    | 监听Prometheus的连接     |
