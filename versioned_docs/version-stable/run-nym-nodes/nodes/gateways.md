@@ -6,12 +6,12 @@ title: Gateways
 ---
 
 :::note
-The Nym gateway was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym gateway was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination, sort of like a mailbox, for messages.
 
-Nym clients connect to gateways. Messages are automatically piped to connected clients and deleted from the gateway's disk storage. If a client is offline when a message arrives, it will be stored for later retrieval. When the client connects, all messages will be delivered, and deleted from the gateway's disk. As of release 0.8.x gateways use end-to-end encryption, so they cannot see the content of what they're storing for users.
+Nym clients connect to gateways. Messages are automatically piped to connected clients and deleted from the gateway's disk storage. If a client is offline when a message arrives, it will be stored for later retrieval. When the client connects, all messages will be delivered, and deleted from the gateway's disk. 
 
 When it starts up, a client registers itself with a gateway, and the gateway returns an access token. The access token plus the gateway's IP can then be used as a form of addressing for delivering packets.
 
@@ -23,10 +23,10 @@ Before you initialise and run your gateway, head to our [website](https://nymtec
 
 If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a gateway is 100 `NYM`, but make sure you have a bit more to account for gas costs. 
 
-`NYM` is currently present on several exchanges. Head to our [telegram channels](https://t.me/nymchan) to find out where to get `NYM` tokens. 
+`NYM` is currently present on several exchanges. Head to our [telegram](https://t.me/nymchan) or [Discord](Discord.gg/nym) channels to find out where to get `NYM` tokens. 
 
 :::note
-Remember that you can **only** use Cosmos `NYM` tokens to bond your gateway. You **cannot** use ERC20 representations of `NYM` to run a node. 
+Remember that you can **only** use native Cosmos `NYM` tokens to bond your gateway. You **cannot** use ERC20 representations of `NYM` to run a node. 
 :::
 
 #### Sandbox testnet
@@ -159,7 +159,24 @@ Users who have `eth` features enabled will have to add several flags to this com
 ```
 
 ### Bonding your gateway
-Now head over to your Nym Wallet and bond your gateway via the interface there. _Remember to keep some tokens in your wallet to cover the gas cost of bonding your node, and allowing for you to unbond in the future!_  
+#### Via the Desktop wallet (recommended)
+You can bond your gateway via the Desktop wallet. 
+
+Open your wallet, and head to the `Bond` page, then select the node type and input your node details. 
+
+#### Via the CLI (power users)
+
+Power users might wish to interact directly with the Mixnet smart contract itself. 
+
+You can do this via a call that looks like this via the validator binary. Below is an example command to execute this command on the mainnet:  
+
+```
+nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g 
+'{"bond_gateway":{"gateway":{"host":"HOST", "mix_port":1789, "verloc_port":1790, 
+"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY", 
+"version":"1.0.1"}, "owner_signature":"OWNER_SIG"}}' --from YOUR_ADDRESS 
+--chain-id nyx --amount 100000000unym
+```
 
 ### Running your gateway
 
