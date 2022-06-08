@@ -20,9 +20,12 @@ The webassembly client lets you deliver web apps that build and send Sphinx pack
 
 ### Building apps with nym-client-wasm
 
-There are two example applications located in the directory `clients/webassembly` in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. The `react-example` is a nicer-looking chat app done in React and Typescript.
+There are two example applications located in the directory `clients/webassembly` in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. 
 
-
+:::note 
+Example code coming very soon! 
+:::
+<!-- 
 :::caution
 Please note that this example code is temporarily out of date: it will be updated soon! 
 :::
@@ -84,7 +87,7 @@ Anonymous replies using surbs don't yet work in the webassembly client. They sho
 
 ### JSON
 
-Sending JSON is fairly simple. If you're playing with the wasm example app, just stick it into the message box and send it (or send it programmatically as the `message` content of `client.sendMessage(message, recipient)` in your own application code.
+Sending JSON is fairly simple. If you're playing with the wasm example app, just stick it into the message box and send it (or send it programmatically as the `message` content of `client.sendMessage(message, recipient)` in your own application code. -->
 
 ### Think about what you're sending!
 

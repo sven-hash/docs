@@ -47,7 +47,8 @@ module.exports = {
       logo: {
         alt: 'Nym Logo',
         src: 'img/docs/FAVICON.png',
-        href: 'https://nymtech.net'
+        href: 'https://nymtech.net', 
+        srcDark: 'img/docs/FAVICON_DARK.png'
       },
       items: [
         {
@@ -84,7 +85,10 @@ module.exports = {
               label: 'Keybase',
               href: 'https://keybase.io/team/nymtech.friends',
             },
-
+            {
+              label: 'Discord', 
+              href: 'https://Discord.gg/nym'
+            },
           ],
         },
         {
@@ -98,6 +102,10 @@ module.exports = {
               label: 'Telegram',
               href: 'https://t.me/nymchan',
             },
+            {
+              label: 'Blog',
+              href: 'https://medium.com/nymtech',
+            }
           ],
         },
         {
@@ -105,10 +113,6 @@ module.exports = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/nymproject/',
-            },
-            {
-              label: 'Blog',
-              href: 'https://medium.com/nymtech',
             },
           ]
         },
