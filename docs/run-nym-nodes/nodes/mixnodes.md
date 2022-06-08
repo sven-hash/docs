@@ -1,12 +1,12 @@
 ---
-sidebar_label: "Mixnodes"
-description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
+sidebar_label: "Mix nodes"
+description: "Mix nodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 hide_title: false
-title: Mixnodes
+title: Mix nodes
 ---
 
 :::note 
-The Nym mixnode was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mix node binary was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
@@ -154,8 +154,25 @@ Please note that the `init` command will refuse to destroy existing mixnode keys
 
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
 
-### Bonding your mixnode
-Now head over to your Nym Wallet and bond your mixnode via the interface there. _Remember to keep some tokens in your wallet to cover the gas cost of bonding your node, and allowing for you to unbond in the future!_  
+### Bonding your mix node
+#### Via the Desktop wallet (recommended)
+You can bond your mix node via the Desktop wallet. 
+
+Open your wallet, and head to the `Bond` page, then select the node type and input your node details. 
+
+#### Via the CLI (power users)
+
+Power users might wish to interact directly with the Mixnet smart contract itself. 
+
+You can do this via a call that looks like this via the validator binary. Below is an example command to execute this command on the mainnet:  
+
+```
+nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g 
+'{"bond_mixnode":{"mix_node":{"host":"HOST", "mix_port":1789, "verloc_port":1790, 
+"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY", 
+profit_margin_percent":PROFIT_MARGIN, "version":"1.0.1"}, "owner_signature":"OWNER_SIG"}}' 
+--from YOUR_ADDRESS --chain-id nyx --amount 100000000unym
+```
 
 ### Running your mixnode
 
