@@ -84,7 +84,10 @@ module.exports = {
               label: 'Keybase',
               href: 'https://keybase.io/team/nymtech.friends',
             },
-
+            {
+              label: 'Discord', 
+              href: 'https://Discord.gg/nym'
+            },
           ],
         },
         {
@@ -98,6 +101,10 @@ module.exports = {
               label: 'Telegram',
               href: 'https://t.me/nymchan',
             },
+            {
+              label: 'Blog',
+              href: 'https://medium.com/nymtech',
+            }
           ],
         },
         {
@@ -105,10 +112,6 @@ module.exports = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/nymproject/',
-            },
-            {
-              label: 'Blog',
-              href: 'https://medium.com/nymtech',
             },
           ]
         },
