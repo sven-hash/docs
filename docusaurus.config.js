@@ -47,7 +47,8 @@ module.exports = {
       logo: {
         alt: 'Nym Logo',
         src: 'img/docs/FAVICON.png',
-        href: 'https://nymtech.net'
+        href: 'https://nymtech.net', 
+        srcDark: 'img/docs/FAVICON_DARK.png'
       },
       items: [
         {
