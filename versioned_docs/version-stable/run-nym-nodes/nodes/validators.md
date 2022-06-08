@@ -515,7 +515,7 @@ If you want to edit some details for your node you will use a command like this:
   </TabItem>
 </Tabs>
 
-With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact~
+With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact. 
 
 ### Automating your validator with systemd
 You will most likely want to automate your validator restarting if your server reboots. Below is a systemd unit file to place at `/etc/systemd/system/nymd.service`:
