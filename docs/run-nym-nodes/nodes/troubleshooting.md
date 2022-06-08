@@ -1,8 +1,8 @@
 ---
-sidebar_label: "Mixnodes FAQ"
+sidebar_label: "Mix nodes FAQ"
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
 hide_title: false
-title: Mixnodes FAQ
+title: Mix nodes FAQ
 ---
 
 ### I am trying to build from the GitHub archive files and the build fails

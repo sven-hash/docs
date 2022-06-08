@@ -169,8 +169,9 @@ You can do this via a call that looks like this via the validator binary. Below 
 ```
 nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g 
 '{"bond_mixnode":{"mix_node":{"host":"HOST", "mix_port":1789, "verloc_port":1790, 
-"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY", profit_margin_percent":PROFIT_MARGIN, "version":"1.0.1"}, "owner_signature":"OWNER_SIG"}}' --from YOUR_ADDRESS 
---chain-id nyx --amount 100000000unym
+"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY", 
+profit_margin_percent":PROFIT_MARGIN, "version":"1.0.1"}, "owner_signature":"OWNER_SIG"}}' 
+--from YOUR_ADDRESS --chain-id nyx --amount 100000000unym
 ```
 
 ### Running your mixnode
