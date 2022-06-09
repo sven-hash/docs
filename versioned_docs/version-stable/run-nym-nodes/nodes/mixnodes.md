@@ -239,6 +239,10 @@ In order to easily identify your node via human-readable information later on in
 
 </details>
 
+:::caution 
+Remember to restart your mix node process in order for the new description to be propogated
+:::
+
     
 ### Displaying mixnode information 
 
