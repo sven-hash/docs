@@ -419,7 +419,7 @@ There are also 2 community explorers which have been created by [Nodes Guru](htt
 * [Mainnet](https://mixnet.explorers.guru/)
 * [Sandbox testnet](https://sandbox.mixnet.explorers.guru/)
 
-For more details see [Troubleshooting FAQ](https://nymtech.net/docs/run-nym-nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
+For more details see [Troubleshooting FAQ](https://nymtech.net/docs/stable/run-nym-nodes/nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
 
 ### Virtual IPs and hosting via Google & AWS
