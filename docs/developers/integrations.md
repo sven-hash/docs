@@ -42,8 +42,8 @@ There is also a script you can use with ansible, which sets up a new chain, with
     * Users of Ethereum, Bitcoin, etc are used to setting: 
         * An amount of gas to use for the transaction
         * A fee per unit of gas, in order for mempool prioritisation of txs. 
-    * Cosmos SDK chains work slightly differently: 
-        * Tendermint (the consensus protocol used by Cosmos SDK blockchains) does not have fee prioritisation built into it, but instead relies on First In First Out (FIFO) rules, with support for additional rules being added at the application layer as discussed [here](https://medium.com/tendermint/tendermint-v0-35-introduces-prioritized-mempool-a-makeover-to-the-peer-to-peer-network-more-61eea6ec572d). 
+        * Cosmos SDK chains work slightly differently: 
+            * Tendermint (the consensus protocol used by Cosmos SDK blockchains) does not have fee prioritisation built into it, but instead relies on First In First Out (FIFO) rules, with support for additional rules being added at the application layer as discussed [here](https://medium.com/tendermint/tendermint-v0-35-introduces-prioritized-mempool-a-makeover-to-the-peer-to-peer-network-more-61eea6ec572d). 
     * Gas price is a per validator setting, and is not being exposed anywhere. Most of our validator have their `minimum-gas-price` set to `0.025unyx,0.025unym`, meaning you can pay in either currency. We recommend you pay in `unyx`.  
     * We recommend to use a combination of the `gas=auto` and `gas-adjustment` flags as our validator documentation specifies, and using the `fees` flag as a cap for the amount of tokens you're willing to spend on a transaction. 
         * `gas=auto` will simulate the transaction, and use this simulation to input an amount of gas to be used. 
