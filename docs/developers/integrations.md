@@ -33,7 +33,7 @@ There is also a script you can use with ansible, which sets up a new chain, with
     * When testing, use `test`. Otherwise, use `pass`  
 * I want to script checking for transactions sent to and from particular address(es) - is there a command for this?
     * `nyxd query txs --events "coin_received.receiver=${address}"` will return all transactions to `address`
-    * `./nyxd query txs --events 'message.sender=n1hzn28p2c6pzr98r85jp3h53fy8mju5w7ndd5vh'` will return all transactions sent from `address`. Note the `''` around the value of the `--events` flag!
+    * `nyxd query txs --events 'message.sender=n1hzn28p2c6pzr98r85jp3h53fy8mju5w7ndd5vh'` will return all transactions sent from `address`. Note the `''` around the value of the `--events` flag!
     * You can find the full list of events concerning each module in its respective directory of the Cosmos SDK github repository. Here is the `bank` one as an example, which is the module used for sending tokens between accounts: https://github.com/cosmos/cosmos-sdk/blob/6f070623741fe0d6851d79ada41e6e2b1c67e236/x/bank/spec/04_events.md
     * There is an explainer of Cosmos SDK chain's module-based setup [here](https://docs.cosmos.network/main/modules/). 
 
