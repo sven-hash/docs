@@ -6,7 +6,7 @@ title: Integration FAQ
 ---
 
 :::note
-This is an evolving document. If you do not see questions or information for your relevant integration, let us know by dropping an issue in the [docs repository](https://github.com/nymtech/docs/issues) or via the nymtech.friends channel on Keybase, or the #integrations channel in Discord. 
+This is an evolving document. If you do not see questions or information for your relevant integration, let us know by dropping an issue in the [docs repository](https://github.com/nymtech/docs/issues) or via the `nymtech.friends` channel on Keybase, or the `#integrations` channel in Discord. 
 :::
 
 ### Integrating Nym for cryptocurrency payments 
