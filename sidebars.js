@@ -49,6 +49,7 @@ module.exports = {
             "developers/develop-with-nyx/overview",
           ],
         },
+        "developers/integrations"
       ],
     },
     {
