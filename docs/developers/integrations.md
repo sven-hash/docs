@@ -61,10 +61,12 @@ However, Cosmos SDK chains work slightly differently. Tendermint (the consensus 
     * `gas=auto` will simulate the transaction, and use this simulation to input an amount of gas to be used. 
     * The value of the `gas-adjustment` flag will multiply the simulated amount of gas by itself in case the simulation understimates the amount of gas necessary, which is a known issue with Cosmos SDK chains. 
     * `fees` flag sets an upper limit to the amount you're willing to pay, denominated in `unym`.
-    * Example tx from our documentation: 
-    ```
-    nyxd tx slashing unjail --broadcast-mode=block --from="KEYRING_NAME" --chain-id=nyx --gas=auto --gas-adjustment=1.4 --fees=7000unyx
-    ```
+    
+Using these flags together in a transaction will look something like this:
+
+```
+nyxd tx bank send FROM_ADDRESS TO_ADDRESS AMOUNTunyx --chain-id=nyx --gas="auto" --gas-adjustment=1.15 --fees FEE_AMOUNTunyx
+```
 
 We are aware this approach is not the most efficient way of handling transaction costs in an automated fashion. However, since these inefficiences equate to < ~$1cent, we believe this is fine for the moment. The Cosmos SDK will hopefully become more exact in its gas estimation in the future. 
 
