@@ -20,11 +20,11 @@ This page details how to build the main Nym platform code. **If you want to buil
 
 ### Prerequisites
 
-- (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`
+- (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`, `git`
 
 ```
 sudo apt update
-sudo apt install pkg-config build-essential libssl-dev curl jq
+sudo apt install pkg-config build-essential libssl-dev curl jq git
 ```
 
 - `Rust & cargo >= v1.56`
