@@ -14,6 +14,10 @@ If you have access to a server, you can run the Network Requester, which allows 
 
 The Network Requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the whim of the maintainer of that instance.
 
+:::note 
+Instructions for setting up and running your Network Requester as part of a Service Grant will be coming soon. 
+::: 
+
 ### Running your nym client 
 
 Before initalising your Network Requester, you must initalise an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/stable/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
