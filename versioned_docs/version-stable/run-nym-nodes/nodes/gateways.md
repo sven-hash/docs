@@ -17,6 +17,10 @@ When it starts up, a client registers itself with a gateway, and the gateway ret
 
 The default gateway implementation included in the Nym platform code holds packets for later retrieval. For many applications (such as simple chat), this is usable out of the box, as it provides a place that potentially offline clients can retrieve packets from. The access token allows clients to pull messages from the gateway node.
 
+:::note 
+Instructions for setting up and running your Gateway as part of a Service Grant will be coming soon. 
+::: 
+
 ### Wallet preparation 
 #### Mainnet
 Before you initialise and run your gateway, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/nym-apps/wallet). 
