@@ -27,7 +27,7 @@ Before you initialise and run your gateway, head to our [website](https://nymtec
 
 If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a gateway is 100 `NYM`, but make sure you have a bit more to account for gas costs. 
 
-`NYM` is currently present on several exchanges. Head to our [telegram](https://t.me/nymchan) or [Discord](Discord.gg/nym) channels to find out where to get `NYM` tokens. 
+`NYM` is currently present on several exchanges. Head to our [telegram](https://t.me/nymchan) or [Discord](https://discord.com/invite/nym) channels to find out where to get `NYM` tokens. 
 
 :::note
 Remember that you can **only** use native Cosmos `NYM` tokens to bond your gateway. You **cannot** use ERC20 representations of `NYM` to run a node. 

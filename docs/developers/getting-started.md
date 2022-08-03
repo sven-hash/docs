@@ -37,4 +37,4 @@ Once you've decided which part of the stack best serves your aims, you have to d
 If you're wanting to develop on top of the infrastructure code itself and start adding additional features to existing nodes, check out the [Nym github repository](https://github.com/nymtech/nym). If you want to get to grips with running a node before starting this, check out the [Node Operators](/docs/next/run-nym-nodes/pre-built-binaries) section of these docs for more.  
 
 ## Integrations with existing apps 
-If you're building an application that you think could benefit from utilising the Nym network, get in touch via [max@nymtech.net](mailto:max@nymtech.net) or via [Discord](Discord.gg/nym) or Keybase (search for the `nymtech.friends` teams).  
+If you're building an application that you think could benefit from utilising the Nym network, get in touch via [max@nymtech.net](mailto:max@nymtech.net) or via [Discord](https://discord.com/invite/nym) or Keybase (search for the `nymtech.friends` teams).  
