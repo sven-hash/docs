@@ -13,6 +13,12 @@ After your build is finished, the `nym-mixnode` binary will be located in `/path
 
 Alternatively, you can fetch the binaries from our [releases page](https://github.com/nymtech/nym/releases).
 
+## Preliminary steps 
+
+There are a couple of steps that need completing before starting to set up your mix node: 
+* preparing your wallet 
+* requisitioning a VPS (Virtual Private Server) 
+
 ### Wallet preparation 
 #### Mainnet
 Before you initialise and run your mixnode, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/nym-apps/wallet). 
@@ -27,6 +33,21 @@ Remember that you can **only** use Cosmos `NYM` tokens to bond your mixnode. You
 
 #### Sandbox testnet
 Make sure to download a wallet and create an account as outlined above. Then head to our [token faucet](https://faucet.nymtech.net/) and get some tokens to use to bond it. 
+
+### VPS Hardware Specs
+You will need to rent a VPS to run your mix node on. One key reason for this is that your node **must be able to send TCP data using both IPv4 and IPv6** (as other nodes you talk to may use either protocol. 
+
+For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput, so don't bother provisioning a beastly server with multiple cores. This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better. 
+
+For now, see the below rough specs:
+
+- Processors: 2 cores are fine. Get the fastest CPUs you can afford.
+- RAM: Memory requirements are very low - typically a mix node may use only a few hundred MB of RAM.
+- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
+
+## Mix node setup and maintenance
+
+Now that you have built the codebase, set up your wallet, and have a VPS with the `nym-mixnode` binary, you can set up your mix node with the instructions below. 
 
 ### Viewing command help
 
@@ -89,7 +110,7 @@ You can also check the various arguments required for individual commands with:
 ```
 
 
-### Initialising your mixnode
+### Initialising your mix node
 To check available configuration options for initializing your node use:
 
 ```
@@ -142,14 +163,16 @@ Initalise your mixnode with the following command, replacing the value of `--id`
 ./nym-mixnode init --id winston-smithnode --host $(curl ifconfig.me) --wallet-address <wallet-address>
 ```
 
+Your `--host` must be publicly routable on the internet in order to mix packets, and can be either an Ipv4 or IPv6 address. 
+
 :::caution
-Please make sure you have access to the `--wallet-address` account, and download the Desktop Wallet [here](https://nymtech.net/get-involved) if you have not already done so, in order to be able to interact with your node!
+Your node **must** be able to send TCP data using **both** IPv4 and IPv6 (as other nodes you talk to may use either protocol).
 :::
 
-Your `--host` must be publicly routable on the internet in order to mix packets, and can be either an Ipv4 or IPv6 address. Your node _must_ be able to send TCP data using _both_ IPv4 and IPv6 (as other nodes you talk to may use either protocol). The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
-:::caution
-Please note that the `init` command will refuse to destroy existing mixnode keys.
+:::note
+The `init` command will refuse to destroy existing mix node keys.
 :::
 
 During the `init` process you will have the option to change the `http_api`, `verloc` and `mixnode` ports from their default settings. If you wish to change these in the future you can edit their values in the `config.toml` file created by the initialization process, which is located at `~/.nym/mixnodes/<your-id>/`.
@@ -174,9 +197,9 @@ profit_margin_percent":PROFIT_MARGIN, "version":"1.0.1"}, "owner_signature":"OWN
 --from YOUR_ADDRESS --chain-id nyx --amount 100000000unym
 ```
 
-### Running your mixnode
+### Running your mix node
 
-Now you've bonded your mixnode, run it with: 
+Now you've bonded your mix node, run it with: 
 
 ```
 ./nym-mixnode run --id winston-smithnode
@@ -219,7 +242,7 @@ Keep reading to find out more about configuration options or troubleshooting if 
 
 Also have a look at the saved configuration files in `$HOME/.nym/mixnodes/` to see more configuration options.
 
-### Describe your mixnode (optional)
+### Describe your mix node (optional)
 
 In order to easily identify your node via human-readable information later on in the development of the testnet when delegated staking is implemented, you can `describe` your mixnode with the following command:
 
@@ -244,9 +267,9 @@ Remember to restart your mix node process in order for the new description to be
 :::
 
     
-### Displaying mixnode information 
+### Displaying mix node information 
 
-You can always check the details of your mixnode with the `node-details` command: 
+You can always check the details of your mix node with the `node-details` command: 
 
 ```
 ./nym-mixnode node-details --id winston-smithnode
@@ -281,7 +304,7 @@ sudo ufw enable
 sudo ufw status
 ```
 
-Finally open your mixnode's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
+Finally open your mix node's p2p port, as well as ports for ssh, http, and https connections, and ports `8000` and `1790` for verloc and measurement pings:
 
 ```
 sudo ufw allow 1789,1790,8000,22,80,443/tcp
@@ -289,11 +312,11 @@ sudo ufw allow 1789,1790,8000,22,80,443/tcp
 sudo ufw status
 ```
 
-For more information about your mixnode's port configuration, check the [mixnode port reference table](#mixnode-port-reference) below.
+For more information about your mix node's port configuration, check the [mix node port reference table](#mixnode-port-reference) below.
 
-### Automating your mixnode with systemd
+### Automating your mix node with systemd
 
-It's useful to have the mixnode automatically start at system boot time. Here's a systemd service file to do that:
+It's useful to have the mix node automatically start at system boot time. Here's a systemd service file to do that:
 
 ```ini
 [Unit]
@@ -315,7 +338,7 @@ WantedBy=multi-user.target
 
 Put the above file onto your system at `/etc/systemd/system/nym-mixnode.service`.
 
-Change the path in `ExecStart` to point at your mixnode binary (`nym-mixnode`), and the `User` so it is the user you are running as.
+Change the path in `ExecStart` to point at your mix node binary (`nym-mixnode`), and the `User` so it is the user you are running as.
 
 If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this:
 
@@ -348,7 +371,7 @@ This lets your operating system know it's ok to reload the service configuration
 #### Setting the ulimit
 Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
 
-`ulimit` is 1024 by default on most systems. It needs to be set higher, because mixnodes make and receive a lot of connections to other nodes.
+`ulimit` is 1024 by default on most systems. It needs to be set higher, because mix nodes make and receive a lot of connections to other nodes.
 
 If you see errors such as:
 
@@ -360,7 +383,7 @@ This means that the operating system is preventing network connections from bein
 
 ##### Set the ulimit via `systemd` service file
 
-Query the `ulimit` of your mixnode with:
+Query the `ulimit` of your mix node with:
 
 ```
 grep -i "open files" /proc/$(ps -A -o pid,cmd|grep nym-mixnode | grep -v grep |head -n 1 | awk '{print $1}')/limits
@@ -407,9 +430,10 @@ username        soft nofile 4096
 
 Then reboot your server and restart your mixnode.
 
-### Checking that your node is mixing correctly
 
-Once you've started your mixnode and it connects to the testnet validator, your node will automatically show up in the 'Mixnodes' section of either the Nym Network Explorers: 
+## Checking that your node is mixing correctly
+### Network explorers 
+Once you've started your mix node and it connects to the testnet validator, your node will automatically show up in the 'Mix nodes' section of either the Nym Network Explorers: 
 * [Mainnet](https://explorer.nymtech.net/overview) 
 * [Sandbox testnet](https://sandbox-explorer.nymtech.net/) 
 
@@ -436,25 +460,16 @@ ens4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
 
 The `ens4` interface has the IP `10.126.5.7`. But this isn't the public IP of the machine, it's the IP of the machine on Google's internal network. Google uses virtual routing, so the public IP of this machine is something else, maybe `36.68.243.18`.
 
-`nym-mixnode init --host 10.126.5.7`, initalises the mixnode, but no packets will be routed because `10.126.5.7` is not on the public internet.
+`nym-mixnode init --host 10.126.5.7`, initalises the mix node, but no packets will be routed because `10.126.5.7` is not on the public internet.
 
-Trying `nym-mixnode init --host 36.68.243.18`, you'll get back a startup error saying `AddrNotAvailable`. This is because the mixnode doesn't know how to bind to a host that's not in the output of `ifconfig`.
+Trying `nym-mixnode init --host 36.68.243.18`, you'll get back a startup error saying `AddrNotAvailable`. This is because the mix node doesn't know how to bind to a host that's not in the output of `ifconfig`.
 
 The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 --announce-host 36.68.243.18`.
 
-This will bind the mixnode to the available host `10.126.5.7`, but announce the mixnode's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
+This will bind the mix node to the available host `10.126.5.7`, but announce the mix node's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
-### Mixnode Hardware Specs
 
-For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput. So don't bother provisioning a beastly server with multiple cores.
-
-- Processors: 2 cores are fine. Get the fastest CPUs you can afford.
-- RAM: Memory requirements are very low - typically a mixnode may use only a few hundred MB of RAM.
-- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
-
-This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
-
-### Metrics
+## Metrics
 Here is an overview of the commands for getting information about a particular node via `curl`:  
 
 | Endpoint             | Description                                                                           | Command                                                                                        |
@@ -479,10 +494,10 @@ There are also several endpoints which return information about all mixnodes in 
 | `/blacklist`         | Returns a list of mixnodes that failed connectivity checks in the previous round      | `curl https://validator.nymtech.net/api/v1/mixnodes/blacklisted`                               |
 | `/active`            | Returns the active set                                                                | `curl https://validator.nymtech.net/api/v1/mixnodes/active`                                    |
 
-#### Metrics of interest 
+### Metrics of interest 
 Although some of the endpoints return information that is fairly self-explanatory, there are some which are more complex, which are explained in more detail here. 
 
-##### `/report` 
+#### `/report` 
 This endpoint returns different metrics returned regarding your mixnode's uptime and package-mixing capabilities:
 
 - `identity`: the identity key of the mixnode.
@@ -490,7 +505,7 @@ This endpoint returns different metrics returned regarding your mixnode's uptime
 - `last_hour`: uptime over the last hour as a percentage. 
 - `last_day`: uptime over the last 24 hours as a percentage. 
 
-##### `/reward-estimation`
+#### `/reward-estimation`
 This endpoint returns different metrics returned regarding your mixnode's currently estimated rewards:
 
 - `estimated_total_node_reward`: the estimated total reward in `uNYM` that the mixnode will recieve for this epoch to be split between the operator and the delegator(s), if any.  
@@ -501,16 +516,16 @@ This endpoint returns different metrics returned regarding your mixnode's curren
 - `current_epoch_uptime`: the uptime of the mixnode for the current epoch, represented as a percentage. 
 - `as_at`: the UNIX timestamp when the metrics information cache was last refreshed.  
 
-##### `/core-status-count`
+#### `/core-status-count`
 This endpoint returns the number of times that the node has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network. 
 
 - `identity`: the identity key of the mixnode. 
 - `count`: the number of times it has been used for network testing. 
 
 
-### Mixnode port reference
+### Mix node port reference
 
-All mixnode-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mixnode.
+All mix node-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mix node.
 
 | Default port | Use                       |                                                                                                                                            
 |--------------|---------------------------|
