@@ -14,10 +14,6 @@ If you have access to a server, you can run the Network Requester, which allows 
 
 The Network Requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the whim of the maintainer of that instance.
 
-:::note 
-Instructions for setting up and running your Network Requester as part of a Service Grant will be coming soon. 
-::: 
-
 ## Anatomy of a network requester service 
 
 A network requester service is comprised of 2 Nym binaries running on one VPS: 
@@ -26,11 +22,11 @@ A network requester service is comprised of 2 Nym binaries running on one VPS:
 
 The `nym-network-requester` binary listens and sends responses to the `nym-client`, which is how it connects to the mixnet. 
 
-## Nym Client 
+## Nym client 
 
 ### Initialising your nym client 
 
-Before initalising your Network Requester, you must initalise an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/next/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
+Before initalising your Network Requester, you must initalise and run an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/next/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
 
 
 ```
@@ -54,11 +50,37 @@ Before initalising your Network Requester, you must initalise an instance of the
 Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/next/run-nym-nodes/build-nym/) for more information.  
 :::
 
-## add command t ocheck it runs properly !
+You can check that your client is initialised correctly by running the following command and checking it starts up correctly: 
+
+```
+  ./nym-client run --id <id>
+```
+
+<details>
+  <summary>console output</summary>
+
+
+          _ __  _   _ _ __ ___
+        | '_ \| | | | '_ \ _ \
+        | | | | |_| | | | | | |
+        |_| |_|\__, |_| |_| |_|
+                |___/
+
+                (client - version 1.0.1)
+
+        
+    2022-08-09T15:06:03.276Z INFO  nym_client::client > Starting nym client
+    2022-08-09T15:06:03.293Z INFO  nym_client::client > Obtaining initial network topology
+    2022-08-09T15:06:04.957Z INFO  nym_client::client > Starting topology refresher...
+    2022-08-09T15:06:04.957Z INFO  nym_client::client > Starting received messages buffer controller...
+
+</details> 
+
+
 
 ### Automating your client with systemd
 
-Now create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
+Stop the running process with `CTRL-C`, and create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
 
 ```
 [Unit]
@@ -96,6 +118,7 @@ Make a note of the client's address:
  2021-07-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: BLJ6SrgbaYjb7Px32G7zSZnocuim3HT9n3ocKcwQHETd.4WAAh7xRxWVeiohcw44G8wQ5bGHMEvq8j9LctDkGKUC7@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
+## Network requester 
 ### Running your network requester (standard mode)
 
 :::caution
@@ -264,7 +287,7 @@ sudo ufw status
 
 For more information about your requester's port configuration, check the [requester port reference table](#requester-port-reference) below.
 
-### Using your network requester 
+## Using your network requester 
 
 You can safely share the address of your running `nym-client` with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
 
@@ -274,7 +297,9 @@ To make things a bit less stressful for administrators, the Network Requester dr
 
 If you want, you can just use the domains in the default `allowed.list`, by running this command from the top-level `nym` code directory:
 
-`cp service-providers/network-requester/allowed.list.sample ~/.nym/service-providers/network-requester/allowed.list`
+```
+cp service-providers/network-requester/allowed.list.sample ~/.nym/service-providers/network-requester/allowed.list
+```
 
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
@@ -304,9 +329,10 @@ If you are adding custom domains, please note that whilst they may appear in the
 
 ### Running an open proxy
 
-If you really, really want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
+If you really, *really* want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
 
 
+## Ports
 ### Requester port reference
 
 All requester-specific port configuration can be found in `$HOME/.nym/clients/<YOUR_ID>/config/config.toml` & `$HOME/.nym/service-providers/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.
