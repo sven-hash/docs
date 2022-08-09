@@ -17,9 +17,12 @@ When it starts up, a client registers itself with a gateway, and the gateway ret
 
 The default gateway implementation included in the Nym platform code holds packets for later retrieval. For many applications (such as simple chat), this is usable out of the box, as it provides a place that potentially offline clients can retrieve packets from. The access token allows clients to pull messages from the gateway node.
 
-:::note 
-Instructions for setting up and running your Gateway as part of a Service Grant will be coming soon. 
-::: 
+## Preliminary steps
+
+There are a couple of steps that need completing before starting to set up your gateway:
+
+- preparing your wallet
+- requisitioning a VPS (Virtual Private Server)
 
 ### Wallet preparation 
 #### Mainnet
@@ -35,6 +38,21 @@ Remember that you can **only** use native Cosmos `NYM` tokens to bond your gatew
 
 #### Sandbox testnet
 Make sure to download a wallet and create an account as outlined above. Then head to our [token faucet](https://faucet.nymtech.net/) and get some tokens to use to bond it. 
+
+### VPS Hardware Specs
+
+You will need to rent a VPS to run your mix node on. One key reason for this is that your node **must be able to send TCP data using both IPv4 and IPv6** (as other nodes you talk to may use either protocol.
+
+We currently have these _rough_ specs for VPS hardware: 
+
+- Processors: 2 cores are fine. Get the fastest CPUs you can afford.
+- RAM: Memory requirements depend on the amount of users your Gateway will be serving at any one time. If you're just going to be using it yourself, then minimal RAM is fine. **If you're running your Gateway as part of a Service Grant, get something with at least 4GB RAM.** 
+- Disks: much like the amount of RAM your Gateway could use, the amount of disc space required will vary with the amount of users your Gateway is serving. **If you're running your Gateway as part of a Service Grant, get something with at least 40GB storage.** 
+
+
+## Gateway setup and maintenance
+
+Now that you have built the codebase, set up your wallet, and have a VPS with the `nym-gateway` binary, you can set up your gateway with the instructions below.
 
 ### Viewing command help
 

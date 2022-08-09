@@ -18,7 +18,17 @@ The Network Requester is **not** an open proxy. It ships with a file called `all
 Instructions for setting up and running your Network Requester as part of a Service Grant will be coming soon. 
 ::: 
 
-### Running your nym client 
+## Anatomy of a network requester service 
+
+A network requester service is comprised of 2 Nym binaries running on one VPS: 
+* `nym-client` 
+* `nym-network-requester`
+
+The `nym-network-requester` binary listens and sends responses to the `nym-client`, which is how it connects to the mixnet. 
+
+## Nym Client 
+
+### Initialising your nym client 
 
 Before initalising your Network Requester, you must initalise an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/next/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
 
@@ -43,6 +53,10 @@ Before initalising your Network Requester, you must initalise an instance of the
 :::note
 Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/next/run-nym-nodes/build-nym/) for more information.  
 :::
+
+## add command t ocheck it runs properly !
+
+### Automating your client with systemd
 
 Now create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
 
@@ -82,9 +96,13 @@ Make a note of the client's address:
  2021-07-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: BLJ6SrgbaYjb7Px32G7zSZnocuim3HT9n3ocKcwQHETd.4WAAh7xRxWVeiohcw44G8wQ5bGHMEvq8j9LctDkGKUC7@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
-### Running your network requester 
+### Running your network requester (standard mode)
 
-Now that we have a running client for the requester to listen to, we can start it with the following command : 
+:::caution
+If you are following these instructions to set up a requester as part of a Service Grant, **ignore these instructions and jump to the step [below](requester#running-your-network-requester-stats-mode)**
+:::
+
+Now that we have a running client for the requester to listen to, we can start it with the following command: 
 
 ```
  ./nym-network-requester 
@@ -100,10 +118,97 @@ Now that we have a running client for the requester to listen to, we can start i
 
 </details> 
 
+As you can see, it has connected to the nym client that we started before. 
+
+### Running your network requester (stats mode)
+
+Now that we have a running client for the requester to listen to, we can start it with the following command. 
+
+```
+ ./nym-network-requester --enable-statistics
+```
+
+<details>
+  <summary>console output</summary>
+
+    THE NETWORK REQUESTER STATISTICS ARE ENABLED. IT WILL COLLECT AND SEND ANONYMIZED STATISTICS TO A CENTRAL SERVER. PLEASE QUIT IF YOU DON'T WANT THIS TO HAPPEN AND START WITHOUT THE enable-statistics FLAG .
+
+    Starting socks5 service provider:
+    2022-08-09T12:26:45.154Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
+
+    All systems go. Press CTRL-C to stop the server.
+
+</details> 
 
 As you can see, it has connected to the nym client that we started before. 
 
-Now stop that process with `CTRL-C`, and create a service file for the requester as we did with our client instance previously at `/etc/systemd/system/nym-network-requester.service`:
+The `--enable statistics` flag starts the requester in a mode which reports very minimal usage statistics - the amount of unique but anonymised users are using the requester - to a service we run, as part of the Nym-Connect Beta testing. 
+
+If you want to see what exactly is being recorded, you can send the data to yourself by using the `--statistics-recipient` flag. **If you are running your network requester as part of a Service Grant, then don't set this flag**. You can see what data is being collected using the following command to ping our stats service (remember to change the 'until' date): 
+
+```
+curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST http://mainnet-stats.nymte.ch:8090/v1/all-statistics
+```
+
+<details>
+  <summary>console output</summary>
+
+      [
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":294,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:55:44.459257091"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":890,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"api-0.core.keybaseapi.com:443",
+              "request_processed_bytes":1473,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:46:34.148075290"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"2BuMSfMW3zpeAjKXyKLhmY4QW1DXurrtSPEJ6CjX3SEh",
+              "inbox_count":6,
+              "timestamp":"2022-07-26 12:46:51.578765358"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:47:34.149270862"
+            }
+        }
+      ]                            
+
+</details> 
+
+### Automating your network requester with systemd
+
+Stop the running process with `CTRL-C`, and create a service file for the requester as we did with our client instance previously at `/etc/systemd/system/nym-network-requester.service`:
 
 ```
 [Unit]
@@ -132,6 +237,7 @@ systemctl start nym-network-requester.service
 # you can always check your requester has succesfully started with: 
 systemctl status nym-network-requester.service
 ```
+
 
 ### Configure your firewall
 
