@@ -534,9 +534,11 @@ This endpoint returns the number of times that the node has been selected from t
 - `identity`: the identity key of the mixnode.
 - `count`: the number of times it has been used for network testing.
 
-### Mix node port reference
+## Ports 
 
 All mix node-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mix node.
+
+### Mix node port reference
 
 | Default port | Use                       |
 | ------------ | ------------------------- |
