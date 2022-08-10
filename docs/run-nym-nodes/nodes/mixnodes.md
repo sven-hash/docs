@@ -42,15 +42,13 @@ Make sure to download a wallet and create an account as outlined above. Then hea
 
 You will need to rent a VPS to run your mix node on. One key reason for this is that your node **must be able to send TCP data using both IPv4 and IPv6** (as other nodes you talk to may use either protocol.
 
-You will need to requisition a VPS to run your mix node on. One key reason for this is that your node **must be able to send TCP data using both IPv4 and IPv6** (as other nodes you talk to may use either protocol.
-
 For the moment, we haven't put a great amount of effort into optimizing concurrency to increase throughput, so don't bother provisioning a beastly server with multiple cores. This will change when we get a chance to start doing performance optimizations in a more serious way. Sphinx packet decryption is CPU-bound, so once we optimise, more fast cores will be better.
 
 For now, see the below rough specs:
 
 - Processors: 2 cores are fine. Get the fastest CPUs you can afford.
 - RAM: Memory requirements are very low - typically a mix node may use only a few hundred MB of RAM.
-- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
+- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files. 
 
 ## Mix node setup and maintenance
 
@@ -536,9 +534,11 @@ This endpoint returns the number of times that the node has been selected from t
 - `identity`: the identity key of the mixnode.
 - `count`: the number of times it has been used for network testing.
 
-### Mix node port reference
+## Ports 
 
 All mix node-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mix node.
+
+### Mix node port reference
 
 | Default port | Use                       |
 | ------------ | ------------------------- |
