@@ -209,11 +209,11 @@ nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3
 If you are following these instructions to set up a gateway as part of a Service Grant, **ignore these instructions and jump to the step [below](gateways#running-your-gateway-stats-mode)**
 :::
 
-The `run` command starts the gateway.
+The `run` command starts the gateway:
 
-Example:
-
-`./nym-gateway run --id supergateway`
+```
+./nym-gateway run --id supergateway
+```
 
 <details>
   <summary>console output</summary>
@@ -241,7 +241,11 @@ Example:
 
 ### Running your gateway (stats mode)
 
-The `--enable statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
+```
+./nym-gateway run --id supergateway --enabled-statistics true`
+```
+
+The `--enabled-statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
 
 If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
 
