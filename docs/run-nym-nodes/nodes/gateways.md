@@ -47,7 +47,7 @@ We currently have these _rough_ specs for VPS hardware:
 
 - Processors: 2 cores are fine. Get the fastest CPUs you can afford.
 - RAM: Memory requirements depend on the amount of users your Gateway will be serving at any one time. If you're just going to be using it yourself, then minimal RAM is fine. **If you're running your Gateway as part of a Service Grant, get something with at least 4GB RAM.** 
-- Disks: much like the amount of RAM your Gateway could use, the amount of disc space required will vary with the amount of users your Gateway is serving. **If you're running your Gateway as part of a Service Grant, get something with at least 40GB storage.** 
+- Disks: much like the amount of RAM your Gateway could use, the amount of disk space required will vary with the amount of users your Gateway is serving. **If you're running your Gateway as part of a Service Grant, get something with at least 40GB storage.** 
 
 
 ## Gateway setup and maintenance
@@ -241,7 +241,7 @@ Example:
 
 ### Running your gateway (stats mode)
 
-The `--enable statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym-Connect Beta testing. 
+The `--enable statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
 
 If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
 
@@ -327,7 +327,7 @@ Running `init` again is necessary to update your gateway config file with new fi
     * update the `version` to `1.0.2`
     * add the following to the `additional gateway config options` section 
 ```
-    # Wheather gateway collects and sends anonymized statistics
+    # Whether gateway collects and sends anonymized statistics
     enabled_statistics = false
 
     # Domain address of the statistics service
@@ -432,7 +432,7 @@ This endpoint returns the number of times that the gateway has been selected fro
 
 ## Ports 
 
-All gateway-specific port configuration can be found in `$HOME/.nym/gateways/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your gateway.
+All gateway specific port configuration can be found in `$HOME/.nym/gateways/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your gateway.
 
 ### Gateway port reference
 

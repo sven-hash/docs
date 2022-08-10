@@ -164,7 +164,7 @@ Now that we have a running client for the requester to listen to, we can start i
 
 As you can see, it has connected to the nym client that we started before. 
 
-The `--enable statistics` flag starts the requester in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym-Connect Beta testing. 
+The `--enable statistics` flag starts the requester in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
 
 If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
 
@@ -334,7 +334,7 @@ If you are adding custom domains, please note that whilst they may appear in the
 
 ### Running an open proxy
 
-If you really, *really* want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
+If you *really* want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
 
 
 ## Ports
