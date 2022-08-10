@@ -12,10 +12,10 @@ The Nym network requester was built in the [building nym](/docs/next/run-nym-nod
 
 If you have access to a server, you can run the Network Requester, which allows Nym users to make outbound network requests from your server.
 
-The Network Requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the whim of the maintainer of that instance.
-
 ## Anatomy of a network requester service 
 
+The network requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the maintainer of that instance.
+ 
 A network requester service is comprised of 2 Nym binaries running on one VPS: 
 * `nym-client` 
 * `nym-network-requester`
@@ -24,9 +24,11 @@ The `nym-network-requester` binary listens and sends responses to the `nym-clien
 
 ## Nym client 
 
+Before initalising your Network Requester, you must initalise and run an instance of the `nym-client` binary for it to listen to. This would have been built in the same `build` process that built the `network-requester`. 
+
 ### Initialising your nym client 
 
-Before initalising your Network Requester, you must initalise and run an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/next/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
+First initialise your client with the command below (if you want to connect to a specific gateway, include the `--gateway` flag): 
 
 
 ```
@@ -165,9 +167,11 @@ Now that we have a running client for the requester to listen to, we can start i
 
 As you can see, it has connected to the nym client that we started before. 
 
-The `--enable statistics` flag starts the requester in a mode which reports very minimal usage statistics - the amount of unique but anonymised users are using the requester - to a service we run, as part of the Nym-Connect Beta testing. 
+The `--enable statistics` flag starts the requester in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym-Connect Beta testing. 
 
-If you want to see what exactly is being recorded, you can send the data to yourself by using the `--statistics-recipient` flag. **If you are running your network requester as part of a Service Grant, then don't set this flag**. You can see what data is being collected using the following command to ping our stats service (remember to change the 'until' date): 
+If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
+
+**If you are running your network requester as part of a Service Grant, then don't set this flag** and use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
 
 ```
 curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST http://mainnet-stats.nymte.ch:8090/v1/all-statistics
@@ -288,6 +292,10 @@ sudo ufw status
 For more information about your requester's port configuration, check the [requester port reference table](#requester-port-reference) below.
 
 ## Using your network requester 
+
+:::caution
+Service Grant grantees should only whitelist a single application - edit your `allowed.list` accordingly!
+:::
 
 You can safely share the address of your running `nym-client` with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
 
