@@ -6,7 +6,7 @@ title: Mix nodes
 ---
 
 :::note
-The Nym mix node binary was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mix node binary was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
@@ -48,7 +48,7 @@ For now, see the below rough specs:
 
 - Processors: 2 cores are fine. Get the fastest CPUs you can afford.
 - RAM: Memory requirements are very low - typically a mix node may use only a few hundred MB of RAM.
-- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files
+- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files. 
 
 ## Mix node setup and maintenance
 
@@ -67,11 +67,11 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
-    nym-mixnode 1.0.1
+    nym-mixnode 1.0.2
     Nymtech
 
     Build Timestamp:    2022-05-06T13:07:45.000871255+00:00
-    Build Version:      1.0.1
+    Build Version:      1.0.2
     Commit SHA:         945dda0c24f2f964f27066af320441446973e383
     Commit Date:        2022-05-04T15:57:36+00:00
     Commit Branch:      detached HEAD
@@ -200,7 +200,7 @@ You can do this via a call that looks like this via the validator binary. Below 
 nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g
 '{"bond_mixnode":{"mix_node":{"host":"HOST", "mix_port":1789, "verloc_port":1790,
 "http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY",
-profit_margin_percent":PROFIT_MARGIN, "version":"1.0.1"}, "owner_signature":"OWNER_SIG"}}'
+profit_margin_percent":PROFIT_MARGIN, "version":"1.0.2"}, "owner_signature":"OWNER_SIG"}}'
 --from YOUR_ADDRESS --chain-id nyx --amount 100000000unym
 ```
 
@@ -224,7 +224,7 @@ Now you've bonded your mix node, run it with:
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.0.2
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -286,7 +286,7 @@ You can always check the details of your mix node with the `node-details` comman
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.0.2
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -324,7 +324,7 @@ It's useful to have the mix node automatically start at system boot time. Here's
 
 ```ini
 [Unit]
-Description=Nym Mixnode (1.0.1)
+Description=Nym Mixnode (1.0.2)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -534,9 +534,11 @@ This endpoint returns the number of times that the node has been selected from t
 - `identity`: the identity key of the mixnode.
 - `count`: the number of times it has been used for network testing.
 
-### Mix node port reference
+## Ports 
 
 All mix node-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mix node.
+
+### Mix node port reference
 
 | Default port | Use                       |
 | ------------ | ------------------------- |

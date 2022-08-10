@@ -23,7 +23,7 @@ You can check that your binaries are properly compiled with:
   <summary>console output</summary>
 
 
-      Nym Client 1.0.1
+      Nym Client 1.0.2
       Nymtech
       Implementation of the Nym Client
 
