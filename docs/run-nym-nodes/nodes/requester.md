@@ -48,9 +48,6 @@ First initialise your client with the command below (if you want to connect to a
 
 </details> 
 
-:::note
-Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/next/run-nym-nodes/build-nym/) for more information.  
-:::
 
 You can check that your client is initialised correctly by running the following command and checking it starts up correctly: 
 

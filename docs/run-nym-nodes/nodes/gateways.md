@@ -164,9 +164,6 @@ To check available configuration options use:
 
 </details>
 
-:::note
-Users who have built the repository with `eth` features enabled will see additional flags output in their console. 
-:::
 
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
 
@@ -175,12 +172,6 @@ The following command returns a gateway on your current IP with the `id` of `sup
 ```
 
 The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
-
-Users who have `eth` features enabled will have to add several flags to this command in order to initialise a gateway: 
-
-```
-./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --eth-endpoint <ETH_ENDPOINT> --mnemonic <MNEMONIC>
-```
 
 ### Initialising your gateway (stats mode)
 

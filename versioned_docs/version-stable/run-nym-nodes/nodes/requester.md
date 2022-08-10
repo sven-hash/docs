@@ -40,9 +40,6 @@ Before initalising your Network Requester, you must initalise an instance of the
 
 </details> 
 
-:::note
-Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/stable/run-nym-nodes/build-nym/) for more information.  
-:::
 
 Now create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
 

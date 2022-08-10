@@ -71,19 +71,4 @@ The repository also contains two Typescript applications which aren't built in t
 You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 
 :::
 
-### (Optional) build binaries with Ethereum features enabled
-
-If power users want to use Basic Bandwidth Credentials (BBCs), then they have to build the various binaries slightly differently. 
-
-:::warning
-This is an optional feature at the moment; users can utilise the mixnet without these as well. 
-:::
-
-To build the code repo with these features enabled, replace the `cargo build --release` command in the instructions above to: 
-
-```
-cargo build --release --features eth
-```
-
-This flag compiles and builds the `nym-client`, `nym-socks5-client`, and `gateway` binaries with `eth` features enabled. These features are a setting where clients and gateways are running expecting BBCs to create a connection and send packets through the mixnet. There will be a blogpost explaining these features very soon. 
 

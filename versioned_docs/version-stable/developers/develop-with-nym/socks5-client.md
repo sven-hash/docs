@@ -59,11 +59,7 @@ The `--id` in the example above is a local identifier so that you can name your 
 
 The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you can't find one from the community, you'll have to [run your own](/docs/stable/run-nym-nodes/nodes/requester/). A nicer way of discovering public Service Providers is incoming, but at the moment just ask around in community channels and someone will give you an address to use. 
 
-Users who have `eth` features enabled will have to add several flags to this command in order to initialise their client: 
 
-```
-nym-socks5-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --id <id> --provider <provider>
-```
 ### Running the socks5 client
 
 You can run the initalised client by doing this:
