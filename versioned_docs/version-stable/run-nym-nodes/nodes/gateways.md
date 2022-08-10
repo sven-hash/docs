@@ -317,7 +317,7 @@ There are two methods to upgrade from `v1.0.1` to `v1.0.2`:
 * re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
 * restart your gateway process with the new binary. 
 
-Running `init` again is necessary to update your gateway config file with new fields and values that come with this release, which relate to whether the gateway is gathering data on the amount of requests transferred through it. This is to help us beta-test [NymConnect](https://blog.nymtech.net/announcing-nymconnect-in-beta-f84ed8598f26) and is described in more details [above](gateways#running-your-gateway-stats-mode). 
+Running `init` again is necessary to update your gateway config file with new fields and values that come with this release, such as whether the gateway is running in `statistics-enabled` mode. **This mode is off by default**. This is to help us beta-test [NymConnect](https://blog.nymtech.net/announcing-nymconnect-in-beta-f84ed8598f26) and is described in more details [above](gateways#running-your-gateway-stats-mode). 
 
 
 **Manual method:**
