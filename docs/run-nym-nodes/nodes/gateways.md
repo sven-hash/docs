@@ -109,7 +109,11 @@ You can also check the various arguments required for individual commands with:
 ```
 
 
-### Initialising your gateway
+### Initialising your gateway (standard mode)
+
+:::caution
+If you are following these instructions to set up a gateway as part of a Service Grant, **ignore these instructions and jump to the step [below](gateways#initialising-your-gateway-stats-mode)**
+:::
 
 To check available configuration options use:
 
@@ -167,18 +171,26 @@ Users who have built the repository with `eth` features enabled will see additio
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```
-./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC> 
+./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC> --enabled-statistics true
 ```
 
 The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
-
-Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
 
 Users who have `eth` features enabled will have to add several flags to this command in order to initialise a gateway: 
 
 ```
 ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --eth-endpoint <ETH_ENDPOINT> --mnemonic <MNEMONIC>
 ```
+
+### Initialising your gateway (stats mode)
+
+The following command returns a gateway on your current IP with the `id` of `supergateway` with statistics enabled:
+
+```
+./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC> --enabled-statistics true
+```
+
+The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
 ### Bonding your gateway
 #### Via the Desktop wallet (recommended)
@@ -200,7 +212,11 @@ nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3
 --chain-id nyx --amount 100000000unym
 ```
 
-### Running your gateway
+### Running your gateway (standard mode)
+
+:::caution
+If you are following these instructions to set up a gateway as part of a Service Grant, **ignore these instructions and jump to the step [below](gateways#running-your-gateway-stats-mode)**
+:::
 
 The `run` command starts the gateway.
 
@@ -232,7 +248,104 @@ Example:
 
 </details>
 
-#### Configure your firewall
+### Running your gateway (stats mode)
+
+The `--enable statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym-Connect Beta testing. 
+
+If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
+
+**If you are running your gateway as part of a Service Grant, then don't set this flag** and use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
+
+```
+curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST http://mainnet-stats.nymte.ch:8090/v1/all-statistics
+```
+
+<details>
+  <summary>console output</summary>
+
+      [
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":294,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:55:44.459257091"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":890,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"api-0.core.keybaseapi.com:443",
+              "request_processed_bytes":1473,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:46:34.148075290"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"2BuMSfMW3zpeAjKXyKLhmY4QW1DXurrtSPEJ6CjX3SEh",
+              "inbox_count":6,
+              "timestamp":"2022-07-26 12:46:51.578765358"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:47:34.149270862"
+            }
+        }
+      ]                            
+
+</details> 
+
+### Upgrading your gateway 
+
+There are two methods to upgrade from `v1.0.1` to `v1.0.2`: 
+
+**Simple method:**
+* pause your gateway process 
+* replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
+* re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
+* restart your gateway process with the new binary. 
+
+Running `init` again is necessary to update your gateway config file with new fields and values that come with this release, which relate to whether the gateway is gathering data on the amount of requests transferred through it. This is to help us beta-test [NymConnect](https://blog.nymtech.net/announcing-nymconnect-in-beta-f84ed8598f26) and is described in more details [above](gateways#running-your-gateway-stats-mode). 
+
+
+**Manual method:**
+* pause your gateway process
+* replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
+* manually edit `$HOME/.nym/gateways/<your-id>/config/config.toml` to include the following: 
+    * update the `version` to `1.0.2`
+    * add the following to the `additional gateway config options` section 
+```
+    # Wheather gateway collects and sends anonymized statistics
+    enabled_statistics = false
+
+    # Domain address of the statistics service
+    statistics_service_url = 'http://127.0.0.1:8090/'
+```
+* restart your gateway process with the new binary. 
+
+
+### Configure your firewall
 
 Although your gateway is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
@@ -326,9 +439,11 @@ This endpoint returns the number of times that the gateway has been selected fro
 - `identity`: the identity key of the gateway. 
 - `count`: the number of times it has been used for network testing. 
 
-### Gateway port reference
+## Ports 
 
 All gateway-specific port configuration can be found in `$HOME/.nym/gateways/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your gateway.
+
+### Gateway port reference
 
 | Default port | Use                       |
 |--------------|---------------------------|
