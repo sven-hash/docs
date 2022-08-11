@@ -12,15 +12,23 @@ The Nym network requester was built in the [building nym](/docs/stable/run-nym-n
 
 If you have access to a server, you can run the Network Requester, which allows Nym users to make outbound network requests from your server.
 
-The Network Requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the whim of the maintainer of that instance.
+## Anatomy of a network requester service 
 
-:::note 
-Instructions for setting up and running your Network Requester as part of a Service Grant will be coming soon. 
-::: 
+The network requester is **not** an open proxy. It ships with a file called `allowed.list.sample`, which contains URLs used by the Blockstream Green and Electrum cryptographic wallets, which can be modified with the URLs of the web services it will connect to according to the maintainer of that instance.
+ 
+A network requester service is comprised of 2 Nym binaries running on one VPS: 
+* `nym-client` 
+* `nym-network-requester`
 
-### Running your nym client 
+The `nym-network-requester` binary listens and sends responses to the `nym-client`, which is how it connects to the mixnet. 
 
-Before initalising your Network Requester, you must initalise an instance of the `nym-client` binary for it to listen to with ([instructions here](/docs/stable/developers/develop-with-nym/websocket-client)). If you want to use a specific gateway, include the `--gateway` flag. If not, then just run: 
+## Nym client 
+
+Before initalising your Network Requester, you must initalise and run an instance of the `nym-client` binary for it to listen to. This would have been built in the same `build` process that built the `network-requester`. 
+
+### Initialising your nym client 
+
+First initialise your client with the command below (if you want to connect to a specific gateway, include the `--gateway` flag): 
 
 
 ```
@@ -40,15 +48,42 @@ Before initalising your Network Requester, you must initalise an instance of the
 
 </details> 
 
-:::note
-Users who have built the repository with `eth` features enabled will be required to add the `--eth_endpoint` and `--eth_private_key` flags to this command. See [here](/docs/stable/run-nym-nodes/build-nym/) for more information.  
-:::
 
-Now create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
+You can check that your client is initialised correctly by running the following command and checking it starts up correctly: 
+
+```
+  ./nym-client run --id <id>
+```
+
+<details>
+  <summary>console output</summary>
+
+
+          _ __  _   _ _ __ ___
+        | '_ \| | | | '_ \ _ \
+        | | | | |_| | | | | | |
+        |_| |_|\__, |_| |_| |_|
+                |___/
+
+                (client - version 1.0.2)
+
+        
+    2022-08-09T15:06:03.276Z INFO  nym_client::client > Starting nym client
+    2022-08-09T15:06:03.293Z INFO  nym_client::client > Obtaining initial network topology
+    2022-08-09T15:06:04.957Z INFO  nym_client::client > Starting topology refresher...
+    2022-08-09T15:06:04.957Z INFO  nym_client::client > Starting received messages buffer controller...
+
+</details> 
+
+
+
+### Automating your client with systemd
+
+Stop the running process with `CTRL-C`, and create a service file at `/etc/systemd/system/nym-client.service` so you don't have to manually restart your client if your server reboots or the process is killed for some reason: 
 
 ```
 [Unit]
-Description=Nym Client (1.0.1)
+Description=Nym Client (1.0.2)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -82,9 +117,14 @@ Make a note of the client's address:
  2021-07-10T14:45:50.131 INFO  nym_client::client              > The address of this client is: BLJ6SrgbaYjb7Px32G7zSZnocuim3HT9n3ocKcwQHETd.4WAAh7xRxWVeiohcw44G8wQ5bGHMEvq8j9LctDkGKUC7@8yGFbT5feDpPmH66TveVjonpUn3tpvjobdvEWRbsTH9i
 ```
 
-### Running your network requester 
+## Network requester 
+### Running your network requester (standard mode)
 
-Now that we have a running client for the requester to listen to, we can start it with the following command : 
+:::caution
+If you are following these instructions to set up a requester as part of a Service Grant, **ignore these instructions and jump to the step [below](requester#running-your-network-requester-stats-mode)**
+:::
+
+Now that we have a running client for the requester to listen to, we can start it with the following command: 
 
 ```
  ./nym-network-requester 
@@ -100,14 +140,103 @@ Now that we have a running client for the requester to listen to, we can start i
 
 </details> 
 
+As you can see, it has connected to the nym client that we started before. 
+
+### Running your network requester (stats mode)
+
+Now that we have a running client for the requester to listen to, we can start it with the following command. 
+
+```
+ ./nym-network-requester --enabled-statistics
+```
+
+<details>
+  <summary>console output</summary>
+
+    THE NETWORK REQUESTER STATISTICS ARE ENABLED. IT WILL COLLECT AND SEND ANONYMIZED STATISTICS TO A CENTRAL SERVER. PLEASE QUIT IF YOU DON'T WANT THIS TO HAPPEN AND START WITHOUT THE enable-statistics FLAG .
+
+    Starting socks5 service provider:
+    2022-08-09T12:26:45.154Z INFO  nym_network_requester::core > * connected to local websocket server at ws://localhost:1977
+
+    All systems go. Press CTRL-C to stop the server.
+
+</details> 
 
 As you can see, it has connected to the nym client that we started before. 
 
-Now stop that process with `CTRL-C`, and create a service file for the requester as we did with our client instance previously at `/etc/systemd/system/nym-network-requester.service`:
+The `--enable statistics` flag starts the requester in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
+
+If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
+
+**If you are running your network requester as part of a Service Grant, then don't set this flag** and use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
+
+```
+curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST http://mainnet-stats.nymte.ch:8090/v1/all-statistics
+```
+
+<details>
+  <summary>console output</summary>
+
+      [
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":294,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:55:44.459257091"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":890,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"api-0.core.keybaseapi.com:443",
+              "request_processed_bytes":1473,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:46:34.148075290"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"2BuMSfMW3zpeAjKXyKLhmY4QW1DXurrtSPEJ6CjX3SEh",
+              "inbox_count":6,
+              "timestamp":"2022-07-26 12:46:51.578765358"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:47:34.149270862"
+            }
+        }
+      ]                            
+
+</details> 
+
+### Automating your network requester with systemd
+
+Stop the running process with `CTRL-C`, and create a service file for the requester as we did with our client instance previously at `/etc/systemd/system/nym-network-requester.service`:
 
 ```
 [Unit]
-Description=Nym Client (1.0.1)
+Description=Nym Client (1.0.2)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -132,6 +261,7 @@ systemctl start nym-network-requester.service
 # you can always check your requester has succesfully started with: 
 systemctl status nym-network-requester.service
 ```
+
 
 ### Configure your firewall
 
@@ -158,7 +288,11 @@ sudo ufw status
 
 For more information about your requester's port configuration, check the [requester port reference table](#requester-port-reference) below.
 
-### Using your network requester 
+## Using your network requester 
+
+:::caution
+Service Grant grantees should only whitelist a single application - edit your `allowed.list` accordingly!
+:::
 
 You can safely share the address of your running `nym-client` with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
 
@@ -168,7 +302,9 @@ To make things a bit less stressful for administrators, the Network Requester dr
 
 If you want, you can just use the domains in the default `allowed.list`, by running this command from the top-level `nym` code directory:
 
-`cp service-providers/network-requester/allowed.list.sample ~/.nym/service-providers/network-requester/allowed.list`
+```
+cp service-providers/network-requester/allowed.list.sample ~/.nym/service-providers/network-requester/allowed.list
+```
 
 Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
 
@@ -198,9 +334,10 @@ If you are adding custom domains, please note that whilst they may appear in the
 
 ### Running an open proxy
 
-If you really, really want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
+If you *really* want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
 
 
+## Ports
 ### Requester port reference
 
 All requester-specific port configuration can be found in `$HOME/.nym/clients/<YOUR_ID>/config/config.toml` & `$HOME/.nym/service-providers/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.

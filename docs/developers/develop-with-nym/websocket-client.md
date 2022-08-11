@@ -43,10 +43,6 @@ You can check that your binaries are properly compiled with:
 
 </details>
 
-:::note
-Users who have built the repository with `eth` features enabled will see additional flags output in their console. 
-:::
-
 
 The two most important commands you will issue to the client are: 
 
@@ -92,11 +88,6 @@ There is an optional `--gateway` flag that you can use if you want to use a spec
 
 Not passing this argument will randomly select a gateway for your client.
 
-Users who have `eth` features enabled will have to add several flags to this command in order to initialise their client: 
-
-```
-./nym-client init --eth_endpoint <eth_endpoint> --eth_private_key <eth_private_key> --id <id>
-```
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
