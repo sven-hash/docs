@@ -83,7 +83,7 @@ Stop the running process with `CTRL-C`, and create a service file at `/etc/syste
 
 ```
 [Unit]
-Description=Nym Client (1.0.1)
+Description=Nym Client (1.0.2)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -234,7 +234,7 @@ Stop the running process with `CTRL-C`, and create a service file for the reques
 
 ```
 [Unit]
-Description=Nym Client (1.0.1)
+Description=Nym Network Requester (1.0.2)
 StartLimitInterval=350
 StartLimitBurst=10
 
