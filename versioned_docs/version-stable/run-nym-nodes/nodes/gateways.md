@@ -248,12 +248,9 @@ The `run` command starts the gateway:
 ./nym-gateway run --id supergateway --enabled-statistics true`
 ```
 
-
 The `--enabled-statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
 
-If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
-
-**If you are running your gateway as part of a Service Grant, then don't set this flag** and use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
+Use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
 
 ```
 curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST http://mainnet-stats.nymte.ch:8090/v1/all-statistics
@@ -339,7 +336,7 @@ Running `init` again is necessary to update your gateway config file with new fi
     enabled_statistics = false
 
     # Domain address of the statistics service
-    statistics_service_url = 'http://127.0.0.1:8090/'
+    statistics_service_url = 'https://mainnet-stats.nymte.ch:8090/'
 ```
 * restart your gateway process with the new binary. 
 
