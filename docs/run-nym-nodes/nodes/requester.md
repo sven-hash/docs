@@ -147,7 +147,7 @@ As you can see, it has connected to the nym client that we started before.
 Now that we have a running client for the requester to listen to, we can start it with the following command. 
 
 ```
- ./nym-network-requester --enabled-statistics
+ ./nym-network-requester --enable-statistics
 ```
 
 <details>
