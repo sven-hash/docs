@@ -160,8 +160,6 @@ ls ${WASMVM_SO}
 
 **Note**
 
-<!-- https://stackoverflow.com/questions/55196053/ldd-r-equivalent-on-macos -->
-
 if you are on Mac OSX
 
 ```
