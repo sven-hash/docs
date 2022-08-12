@@ -47,9 +47,8 @@ git pull # in case you've checked it out before
 # Note: the default branch you clone from Github, `develop`, may be
 # incompatible with both the mainnet and testnet. As such, make sure 
 # to checkout the current release: 
-# `git checkout tags/v1.0.2`.
+git checkout tags/nym-binaries-1.0.2  
 
-git checkout tags/v1.0.2
 # this builds your binaries with mainnet configuration
 cargo build --release
 # to build your binaries with Sandbox testnet configuration, run this instead: 
