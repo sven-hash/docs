@@ -147,7 +147,7 @@ As you can see, it has connected to the nym client that we started before.
 Now that we have a running client for the requester to listen to, we can start it with the following command. 
 
 ```
- ./nym-network-requester --enabled-statistics
+ ./nym-network-requester --enable-statistics
 ```
 
 <details>
@@ -164,11 +164,9 @@ Now that we have a running client for the requester to listen to, we can start i
 
 As you can see, it has connected to the nym client that we started before. 
 
-The `--enable statistics` flag starts the requester in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
+The `--enable-statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
 
-If you want to see what exactly is being recorded, you can send the data to a client you control by using the `--statistics-recipient` flag. 
-
-**If you are running your network requester as part of a Service Grant, then don't set this flag** and use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
+Use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
 
 ```
 curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST http://mainnet-stats.nymte.ch:8090/v1/all-statistics
@@ -243,6 +241,7 @@ StartLimitBurst=10
 [Service]
 User=nym # replace this with whatever user you wish 
 LimitNOFILE=65536
+# remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary 
 ExecStart=/home/nym/nym-network-requester # remember to check the path to your nym-network-requester binary 
 KillSignal=SIGINT
 Restart=on-failure
