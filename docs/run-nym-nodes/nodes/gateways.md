@@ -242,7 +242,7 @@ The `run` command starts the gateway:
 ### Running your gateway (stats mode)
 
 ```
-./nym-gateway run --id supergateway --enabled-statistics true`
+./nym-gateway run --id supergateway --enabled-statistics true
 ```
 
 The `--enabled-statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
@@ -387,11 +387,15 @@ WantedBy=multi-user.target
 
 Put the above file onto your system at `/etc/systemd/system/nym-gateway.service`.
 
+If you want to enable statistics mode, the start command would be: 
+`ExecStart=/home/nym/nym-gateway run --id supergateway --enabled-statistics true`
+  
 Change the path in `ExecStart` to point at your gateway binary (`nym-gateway`), and the `User` so it is the user you are running as.
 
 If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this:
 
 `ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id`. Basically, you want the full `/path/to/nym-gateway run --id whatever-your-node-id-is`
+  
 
 Then run:
 
