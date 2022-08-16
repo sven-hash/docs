@@ -158,20 +158,23 @@ WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}
 ```
 
-**Note**
+This will output something like:
 
-if you are on Mac OSX
+```
+'/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
+```
+
+:::note
+
+if you are on Mac OSX use this command instead:
 
 ```
 WASMVM_SO=$(otool -L build/nymd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}
 ```
 
-This will output something like:
-
-```
-'/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
-```
+To get the location of the `libwasmvm.so` file.
+:::
 
 When you upload your `nymd`/`nyxd` binary, you'll need to tell it where `libwasmvm.so` is when you start your validator, or it will not run. If you have compiled them on your server then this is not necessary, as the compiled `nymd`/`nyxd` already has access to `libwasmvm.so`.
 
