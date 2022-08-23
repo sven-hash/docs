@@ -1,68 +1,67 @@
 module.exports = {
   sidebar: [
     {
-      type: 'category',
-      label: 'Overview',
+      type: "category",
+      label: "Overview",
       collapsed: true,
       items: [
         "overview/index",
+        "overview/quickstart",
         "overview/nym-platform",
         "overview/network-privacy",
         "overview/nym-other-systems",
         "overview/private-access-control",
-        "overview/links"
+        "overview/links",
       ],
-    }, 
-    { 
-      type: 'category', 
-      label: 'Developers', 
-      collapsed: true, 
+    },
+    {
+      type: "category",
+      label: "Developers",
+      collapsed: true,
       items: [
         "developers/getting-started",
         {
-          type: 'category',
-          label: 'Nym Mixnet',
+          type: "category",
+          label: "Nym Mixnet",
           collapsed: true,
           items: [
             "developers/develop-with-nym/understanding-nym-apps",
             "developers/develop-with-nym/anatomy-of-nym-apps",
             "developers/develop-with-nym/choose-a-client",
             {
-              type: 'category',
-              label: 'Clients',
+              type: "category",
+              label: "Clients",
               collapsed: true,
               items: [
                 "developers/develop-with-nym/websocket-client",
                 "developers/develop-with-nym/socks5-client",
-                "developers/develop-with-nym/wasm-client", 
-              ]
+                "developers/develop-with-nym/wasm-client",
+              ],
             },
             "developers/develop-with-nym/addresses-in-nym",
-            "developers/develop-with-nym/demos"
+            "developers/develop-with-nym/demos",
           ],
         },
         {
-          type: 'category',
-          label: 'Nyx Blockchain',
+          type: "category",
+          label: "Nyx Blockchain",
           collapsed: true,
-          items: [
-            "developers/develop-with-nyx/overview",
-          ],
+          items: ["developers/develop-with-nyx/overview"],
         },
-        "developers/integrations"
+        "developers/integrations",
       ],
     },
     {
-      type: 'category',
-      label: 'Node Operators',
+      type: "category",
+      label: "Node Operators",
       collapsed: true,
       items: [
         "run-nym-nodes/incentives",
         "run-nym-nodes/pre-built-binaries",
         "run-nym-nodes/build-nym",
         {
-          type: 'category',
-          label: 'Nodes',
+          type: "category",
+          label: "Nodes",
           collapsed: true,
           items: [
             "run-nym-nodes/nodes/mixnodes",
@@ -70,46 +69,39 @@ module.exports = {
             "run-nym-nodes/nodes/gateways",
             "run-nym-nodes/nodes/requester",
             "run-nym-nodes/nodes/file-storage",
-            "run-nym-nodes/nodes/validators"
+            "run-nym-nodes/nodes/validators",
           ],
         },
       ],
     },
     {
-      type: 'category', 
-      label: 'Applications', 
-      collapsed: 'true', 
+      type: "category",
+      label: "Applications",
+      collapsed: "true",
       items: [
         {
-          type: 'category',
-          label: 'Nym apps',
+          type: "category",
+          label: "Nym apps",
           collapsed: true,
-          items: [
-            'nym-apps/wallet', 
-            'nym-apps/network-explorer'
-          ],
+          items: ["nym-apps/wallet", "nym-apps/network-explorer"],
         },
         {
-          type: 'category',
-          label: 'Connect Apps',
+          type: "category",
+          label: "Connect Apps",
           collapsed: true,
-          items: [
-            "use-external-apps/index",
-            "use-external-apps/examples"
-          ],
-        }
-      ]
+          items: ["use-external-apps/index", "use-external-apps/examples"],
+        },
+      ],
     },
     {
-      type: 'category',
-      label: 'Community',
+      type: "category",
+      label: "Community",
       collapsed: true,
       items: [
         "community/index",
         "community/code-of-conduct",
-        "community/licensing"
+        "community/licensing",
       ],
     },
-  ]
+  ],
 };
-
