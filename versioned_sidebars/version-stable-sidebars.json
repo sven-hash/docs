@@ -12,10 +12,6 @@
         },
         {
           "type": "doc",
-          "id": "version-stable/overview/quickstart"
-        },
-        {
-          "type": "doc",
           "id": "version-stable/overview/nym-platform"
         },
         {
@@ -33,6 +29,17 @@
         {
           "type": "doc",
           "id": "version-stable/overview/links"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "label":  "Quick Start",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/telegram"
         }
       ]
     },

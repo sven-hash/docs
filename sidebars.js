@@ -6,13 +6,20 @@ module.exports = {
       collapsed: true,
       items: [
         "overview/index",
-        "overview/quickstart",
         "overview/nym-platform",
         "overview/network-privacy",
         "overview/nym-other-systems",
         "overview/private-access-control",
         "overview/links",
       ],
+    },
+    {
+      type: "category",
+      label: "Quick Start",
+      collapsed: true,
+      items: [
+        "quickstart/telegram"
+      ]
     },
     {
       type: "category",
