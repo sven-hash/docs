@@ -18,8 +18,10 @@ module.exports = {
       label: "Quick Start",
       collapsed: true,
       items: [
-        "quickstart/telegram"
-      ]
+        "quickstart/connect",
+        "quickstart/keybase",
+        "quickstart/telegram",
+      ],
     },
     {
       type: "category",

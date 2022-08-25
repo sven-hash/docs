@@ -35,8 +35,16 @@
     {
       "type": "category",
       "collapsed": true,
-      "label":  "Quick Start",
+      "label": "Quick Start",
       "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/connect"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/keybase"
+        },
         {
           "type": "doc",
           "id": "version-stable/quickstart/telegram"
