@@ -39,15 +39,15 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-stable/quickstart/connect"
+          "id": "version-stable/quickstart/introduction"
         },
         {
           "type": "doc",
-          "id": "version-stable/quickstart/keybase"
+          "id": "version-stable/quickstart/nym-connect"
         },
         {
           "type": "doc",
-          "id": "version-stable/quickstart/telegram"
+          "id": "version-stable/quickstart/sock5"
         }
       ]
     },

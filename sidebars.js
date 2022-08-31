@@ -18,9 +18,9 @@ module.exports = {
       label: "Quick Start",
       collapsed: true,
       items: [
-        "quickstart/connect",
-        "quickstart/keybase",
-        "quickstart/telegram",
+        "quickstart/introduction",
+        "quickstart/nym-connect",
+        "quickstart/sock5",
       ],
     },
     {
