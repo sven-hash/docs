@@ -1,215 +1,235 @@
 {
-    "version-stable/sidebar": [
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Overview",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/overview/index"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/overview/nym-platform"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/overview/network-privacy"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/overview/nym-other-systems"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/overview/private-access-control"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/overview/links"
-          }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Developers",
-        "items": [
-                    {
-                      "type": "doc",
-                      "id": "version-stable/developers/getting-started"
-                    },
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Nym Mixnet",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/understanding-nym-apps"
-                        },
-                        {
-                          "type": "doc", 
-                          "id": "version-stable/developers/develop-with-nym/anatomy-of-nym-apps"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/choose-a-client"
-                        },
-                        {
-                          "type": "category",
-                          "collapsed": true,
-                          "collapsible": true,
-                          "label": "Clients",
-                          "items": [
-                            {
-                              "type": "doc",
-                              "id": "version-stable/developers/develop-with-nym/websocket-client"
-                            },
-                            {
-                              "type": "doc", 
-                              "id": "version-stable/developers/develop-with-nym/socks5-client"
-                            },
-                            {
-                              "type": "doc", 
-                              "id": "version-stable/developers/develop-with-nym/wasm-client"
-                            }                          ]
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/addresses-in-nym"
-                        }
-                      ]
-                    }, 
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Nyx Blockchain",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nyx/overview"
-                        }
-                      ]
-                    }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Node Operators",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/incentives"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/pre-built-binaries"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/build-nym"
-          },
-          {
-            "type": "category",
-            "collapsed": true,
-            "collapsible": true,
-            "label": "Nodes",
-            "items": [
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/mixnodes"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/troubleshooting"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/gateways"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/requester"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/file-storage"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/validators"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Applications",
-        "items": [
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Nym Apps",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/nym-apps/wallet"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/nym-apps/network-explorer"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Connect Apps",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/use-external-apps/index"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/use-external-apps/examples"
-                        }
-                      ]
-                    }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Community",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/community/index"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/community/code-of-conduct"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/community/licensing"
-          }
-        ]
-      }
-    ]
-  }
+  "version-stable/sidebar": [
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Overview",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/overview/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/overview/nym-platform"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/overview/network-privacy"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/overview/nym-other-systems"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/overview/private-access-control"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/overview/links"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "label": "Quick Start",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/introduction"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/nym-connect"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/sock5"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Developers",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/developers/getting-started"
+        },
+        {
+          "type": "category",
+          "collapsed": true,
+          "collapsible": true,
+          "label": "Nym Mixnet",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-stable/developers/develop-with-nym/understanding-nym-apps"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/developers/develop-with-nym/anatomy-of-nym-apps"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/developers/develop-with-nym/choose-a-client"
+            },
+            {
+              "type": "category",
+              "collapsed": true,
+              "collapsible": true,
+              "label": "Clients",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-stable/developers/develop-with-nym/websocket-client"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-stable/developers/develop-with-nym/socks5-client"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-stable/developers/develop-with-nym/wasm-client"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/developers/develop-with-nym/addresses-in-nym"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "collapsed": true,
+          "collapsible": true,
+          "label": "Nyx Blockchain",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-stable/developers/develop-with-nyx/overview"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Node Operators",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/run-nym-nodes/incentives"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/run-nym-nodes/pre-built-binaries"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/run-nym-nodes/build-nym"
+        },
+        {
+          "type": "category",
+          "collapsed": true,
+          "collapsible": true,
+          "label": "Nodes",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/mixnodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/gateways"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/requester"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/file-storage"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/validators"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Applications",
+      "items": [
+        {
+          "type": "category",
+          "collapsed": true,
+          "collapsible": true,
+          "label": "Nym Apps",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-stable/nym-apps/wallet"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/nym-apps/network-explorer"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "collapsed": true,
+          "collapsible": true,
+          "label": "Connect Apps",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-stable/use-external-apps/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/use-external-apps/examples"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Community",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/community/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/community/code-of-conduct"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/community/licensing"
+        }
+      ]
+    }
+  ]
+}

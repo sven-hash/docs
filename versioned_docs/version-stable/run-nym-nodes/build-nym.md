@@ -5,7 +5,7 @@ hide_title: false
 title: Building Nym
 ---
 
-Nym runs on Mac OS X, Linux, and Windows. All nodes **except the Desktop Wallet** on Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes. 
+Nym runs on Mac OS X, Linux, and Windows. All nodes **except the Desktop Wallet** on Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes.
 
 ### Building Nym
 
@@ -45,13 +45,13 @@ git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
 # Note: the default branch you clone from Github, `develop`, may be
-# incompatible with both the mainnet and testnet. As such, make sure 
-# to checkout the current release: 
+# incompatible with both the mainnet and testnet. As such, make sure
+# to checkout the current release:
 git checkout tags/nym-binaries-1.0.2 # git commit c7fdcf0a79d7adfe45e879f152a90e6fa0bfc29e
 
 # this builds your binaries with mainnet configuration
 cargo build --release
-# to build your binaries with Sandbox testnet configuration, run this instead: 
+# to build your binaries with Sandbox testnet configuration, run this instead:
 NETWORK=sandbox cargo build --release
 ```
 
@@ -64,10 +64,8 @@ Quite a bit of stuff gets built. The key working parts are:
 5. the [network requester](/docs/stable/run-nym-nodes/nodes/requester): `nym-network-requester`
 6. the [network explorer api](/docs/stable/nym-apps/network-explorer): `explorer-api`
 
-The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/nym-apps/wallet) and the [Network Explorer UI](docs/stable/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
+The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/nym-apps/wallet) and the [Network Explorer UI](docs/stable/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages.
 
 :::note
-You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 
+You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead.
 :::
-
-
