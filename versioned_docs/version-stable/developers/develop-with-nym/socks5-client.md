@@ -9,7 +9,6 @@ title: Socks5 Client
 The Nym Socks5 Client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
-
 ### Viewing command help
 
 You can check that your binaries are properly compiled with:
@@ -38,13 +37,12 @@ You can check that your binaries are properly compiled with:
             run        Run the Nym client with provided configuration client optionally overriding set parameters
             upgrade    Try to upgrade the client
 
-    
 </details>
 
 You can check the necessary parameters for the available commands by running:
 
 ```
-./nym-client <command> --help 
+./nym-client <command> --help
 ```
 
 ### Initialising a new client instance
@@ -57,8 +55,7 @@ nym-socks5-client init --id <id> --provider <provider>
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you can't find one from the community, you'll have to [run your own](/docs/stable/run-nym-nodes/nodes/requester/). A nicer way of discovering public Service Providers is incoming, but at the moment just ask around in community channels and someone will give you an address to use. 
-
+The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you can't find one from the community, you'll have to [run your own](/docs/stable/run-nym-nodes/nodes/requester/). A nicer way of discovering public Service Providers is incoming, but at the moment just ask around in community channels and someone will give you an address to use.
 
 ### Running the socks5 client
 
@@ -71,7 +68,6 @@ nym-socks5-client run --id <id>
 <details>
   <summary>console output</summary>
 
-    
         2022-04-27T16:15:45.843Z INFO  nym_socks5_client::client > Starting nym client
         2022-04-27T16:15:45.889Z INFO  nym_socks5_client::client > Obtaining initial network topology
         2022-04-27T16:15:51.470Z INFO  nym_socks5_client::client > Starting topology refresher...
@@ -90,10 +86,8 @@ nym-socks5-client run --id <id>
 
 </details>
 
-
-
 ### Using the socks5 client
 
-This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`. You can now route application traffic through the Nym mixnet! 
+This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`. You can now route application traffic through the Nym mixnet!
 
-To have a look at examples of how to attach some existing applications to your client, please see the [Use External Apps](/docs/stable/use-external-apps/) section. 
+To have a look at examples of how to attach some existing applications to your client, please see the [Use External Apps](/docs/stable/use-external-apps/) section.
