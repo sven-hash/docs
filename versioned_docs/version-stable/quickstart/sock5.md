@@ -33,25 +33,7 @@ If you really don't want to use the shell script installer, the [Rust installati
 
 ### Download and build Nym binaries
 
-The following commands will compile binaries into the `nym/target/release` directory:
-
-```
-rustup update
-git clone https://github.com/nymtech/nym.git
-cd nym
-git reset --hard # in case you made any changes on your branch
-git pull # in case you've checked it out before
-
-# Note: the default branch you clone from Github, `develop`, may be
-# incompatible with both the mainnet and testnet. As such, make sure
-# to checkout the current release:
-git checkout tags/nym-binaries-1.0.2 # git commit c7fdcf0a79d7adfe45e879f152a90e6fa0bfc29e
-
-# this builds your binaries with mainnet configuration
-cargo build --release
-# to build your binaries with Sandbox testnet configuration, run this instead:
-NETWORK=sandbox cargo build --release
-```
+Please refer to [building nym section](stable/run-nym-nodes/build-nym) on how to build from source.
 
 ### Verify setup
 
@@ -123,5 +105,3 @@ nym-socks5-client run --id <id>
         2022-04-27T16:15:51.707Z INFO  nym_socks5_client::socks::server > Serving Connections...
 
 </details>
-
-![Nym connect app](/img/docs/keybase-settings.gif)

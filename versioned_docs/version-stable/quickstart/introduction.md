@@ -16,6 +16,6 @@ Nym Connect is a one-button interface that is easy to use. Presently Nym Connect
 
 ### Nym Sock5
 
-Many existing applications are able to use SOCK5 Proxy protocol. With `nym-sock5-client`, applications can bounce their traffic through NYM network. The Nym Sock5 proxy protocol takes a TCP data stream. The stream of data is chopped up into multiple Sphinx packets and numbers are assigned to them.
+Many existing applications are able to use SOCK5 Proxy protocol. With `nym-sock5-client`, applications can bounce their traffic through Nym network. The Nym Sock5 proxy protocol takes a TCP data stream. The stream of data is chopped up into multiple Sphinx packets and numbers are assigned to them.
 
 **For a more detailed explanation, please see [connecting with existing apps](/docs/stable/use-external-apps/).**
