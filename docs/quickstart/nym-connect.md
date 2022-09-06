@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Nym Connect"
 description: "Getting started with Nym connect"
-hide_title: false
+hide_title:  false
 ---
 
 # Nym Connect

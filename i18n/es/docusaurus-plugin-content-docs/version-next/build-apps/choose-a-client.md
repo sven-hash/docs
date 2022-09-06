@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Elige un cliente"
-hide_title: false
+hide_title:  false
 description: "Hay múltiples tipos de cliente Nym. Cada uno es útil en diferentes situaciones. Aquí te explicamos cómo elegir"
 title: "Elige un cliente"
 ---

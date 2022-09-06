@@ -1,7 +1,7 @@
 ---
 sidebar_label: Network Privacy
 description: "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet."
-hide_title: false
+hide_title:  false
 title: Network Privacy
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: Getting started
 description: "Overview of areas of potential development."
-hide_title: false
+hide_title:  false
 title: "Getting started" 
 ---
 

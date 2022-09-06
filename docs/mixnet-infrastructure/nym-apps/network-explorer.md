@@ -1,7 +1,7 @@
 ---
 sidebar_label: Nym Network Explorer
 description: "Install and use the Nym Network Explorer."
-hide_title: false
+hide_title:  false
 title: Nym Network Explorer
 ---
 

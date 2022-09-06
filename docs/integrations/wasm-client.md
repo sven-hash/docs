@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Webassembly client"
-hide_title: false
+hide_title:  false
 description: "How to integrate the Nym webassembly client into your own applications to enable strong privacy for your users"
 title: "Webassembly client"
 ---

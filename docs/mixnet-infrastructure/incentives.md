@@ -1,7 +1,8 @@
 ---
 sidebar_label: "Network Incentives"
 description: "Why should you run Nym nodes?"
-hide_title: true
+hide_title:  false
+title: Network Incentives
 ---
 
 The Nym network has some of the same overall goals as [Tor](https://tor-project.org). But we want to enable Nym to scale in response to increased demand (and shrink when demand drops, so as not to waste resources). To do this in a decentralized way, nodes are included in the network based on their _pledge_, an amount of `NYM` tokens they provide to stake their node into the system, as well as a system of delegated staking.

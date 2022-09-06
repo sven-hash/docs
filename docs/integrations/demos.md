@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Demos"
-hide_title: false
+hide_title:  false
 description: "Example code for interacting with the Nym privacy network, in multiple languages."
 title: "Demos"
 ---

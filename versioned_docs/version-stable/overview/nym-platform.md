@@ -1,7 +1,7 @@
 ---
 sidebar_label: Network Overview
 description: "An overview of the Nym platform architecture"
-hide_title: false
+hide_title:  false
 title: Network Overview
 ---
 

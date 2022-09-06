@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Introduction"
 description: "Nym connect quickstart"
-hide_title: false
+hide_title:  false
 ---
 
 # Introduction

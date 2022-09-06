@@ -1,8 +1,7 @@
 ---
 sidebar_label: "Integration FAQ"
 description: "Common questions you might have when integrating with Nym"
-hide_title: false
-title: Integration FAQ
+hide_title: true
 ---
 
 :::note

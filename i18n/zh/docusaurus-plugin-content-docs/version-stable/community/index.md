@@ -1,6 +1,6 @@
 ---
 sidebar_label: 社区
-hide_title: false
+hide_title:  false
 description: "Some (slowly expanding) notes on the Nym project, its community and governance."
 title: 社区
 ---

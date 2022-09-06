@@ -1,6 +1,6 @@
 ---
 sidebar_label: Understanding Nym apps 
-hide_title: false
+hide_title:  false
 title: "Understanding Nym apps"
 ---
 

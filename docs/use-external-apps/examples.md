@@ -1,7 +1,7 @@
 ---
 sidebar_label: Examples
 description: Example list for desktop apps to use with socks5 
-hide_title: false
+hide_title:  false
 title: Examples
 ---
 

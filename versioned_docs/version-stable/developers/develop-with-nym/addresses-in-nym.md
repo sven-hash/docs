@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Addressing System"
 description: "How addresses operate in Nym"
-hide_title: false
+hide_title:  false
 title: Addressing System
 ---
 

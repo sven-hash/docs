@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Websocket client"
-hide_title: false
+hide_title:  false
 description: "How to run the Nym websocket client on a desktop or server machine."
 title: Websocket client
 ---

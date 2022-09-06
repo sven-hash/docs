@@ -1,6 +1,6 @@
 ---
 sidebar_label: 构建Nyx应用 (敬请期待)
-hide_title: false
+hide_title:  false
 description: ""
 title: 构建Nyx应用 (敬请期待)
 ---

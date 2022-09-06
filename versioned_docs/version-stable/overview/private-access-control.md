@@ -1,7 +1,7 @@
 ---
 sidebar_label: Coconut
 description: "Nym ensures access control privacy using a sophisticated signature scheme called Coconut."
-hide_title: false
+hide_title:  false
 title: Coconut
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Gateways"
 description: "Las pasarelas proporcionan un destino para los paquetes mixnet. La mayor parte de Internet no utiliza paquetes Sphinx encriptados, por lo que la pasarela actúa como destino del tráfico Sphinx."
-hide_title: false
+hide_title:  false
 título: Pasarelas
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: Encrypted Cloud Storage
 description: "Install and use the File Storage Service Provider."
-hide_title: false
+hide_title:  false
 title: Encrypted Cloud Storage
 ---
 

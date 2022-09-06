@@ -1,6 +1,6 @@
 ---
 sidebar_label: 许可
-hide_title: false
+hide_title:  false
 description: "Nym is free software released under the Apache License V2"
 title: 许可
 ---

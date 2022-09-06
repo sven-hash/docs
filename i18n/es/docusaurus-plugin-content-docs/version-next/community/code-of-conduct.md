@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Código de Conducta"
-hide_title: false
+hide_title:  false
 description: "Nym se compromete a proporcionar un entorno amigable, seguro y acogedor para todos. Este es nuestro código de conducta, por favor, síguelo si quieres participar en nuestra comunidad."
 ---
 

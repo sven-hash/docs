@@ -1,7 +1,7 @@
 ---
 sidebar_label: 网络概述
 description: "An overview of the Nym platform architecture"
-hide_title: false
+hide_title:  false
 title: 网络概述
 ---
 

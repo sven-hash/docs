@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Build Nyx Apps (coming soon)"
-hide_title: false
+hide_title:  false
 description: ""
 title: Build Nyx Apps (coming soon)
 ---

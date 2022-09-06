@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Mix nodes FAQ"
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
-hide_title: false
+hide_title:  false
 title: Mix nodes FAQ
 ---
 

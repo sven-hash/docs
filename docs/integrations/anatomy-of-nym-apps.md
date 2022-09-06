@@ -1,6 +1,6 @@
 ---
 sidebar_label: Anatomy of a Nym app 
-hide_title: false
+hide_title:  false
 title: "Anatomy of a Nym app"
 ---
 

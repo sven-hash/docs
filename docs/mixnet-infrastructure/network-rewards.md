@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Network Rewards"
-hide_title: true
+hide_title:  false
 ---
 
 # Network Rewards

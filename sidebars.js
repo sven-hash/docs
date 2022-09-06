@@ -1,19 +1,6 @@
 module.exports = {
   sidebar: [
-    "getting-started",
-    {
-      type: "category",
-      label: "Architecture",
-      collapsed: true,
-      items: [
-        "architecture/network-overview",
-        "architecture/data-flow",
-        "architecture/loopix",
-        "architecture/nym-other-systems",
-        "architecture/private-access-control",
-        "architecture/links",
-      ],
-    },
+    "introduction",
     {
       type: "category",
       label: "Quick Start",
@@ -26,44 +13,51 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Developers",
+      label: "Mixnet Architecture",
       collapsed: true,
       items: [
-        "developers/getting-started",
+        "mixnet-architecture/network-overview",
+        "mixnet-architecture/data-flow",
+        "mixnet-architecture/loopix",
+        "mixnet-architecture/nym-other-systems",
+        "mixnet-architecture/links",
+      ],
+    },
+    "coconut",
+    {
+      type: "category",
+      label: "Integrations",
+      collapsed: true,
+      items: [
+        "integrations/getting-started",
         {
           type: "category",
           label: "Nym Mixnet",
           collapsed: true,
           items: [
-            "developers/develop-with-nym/understanding-nym-apps",
-            "developers/develop-with-nym/anatomy-of-nym-apps",
-            "developers/develop-with-nym/choose-a-client",
+            "integrations/understanding-nym-apps",
+            "integrations/anatomy-of-nym-apps",
+            "integrations/choose-a-client",
             {
               type: "category",
               label: "Clients",
               collapsed: true,
               items: [
-                "developers/develop-with-nym/websocket-client",
-                "developers/develop-with-nym/socks5-client",
-                "developers/develop-with-nym/wasm-client",
+                "integrations/websocket-client",
+                "integrations/socks5-client",
+                "integrations/wasm-client",
               ],
             },
-            "developers/develop-with-nym/addresses-in-nym",
-            "developers/develop-with-nym/demos",
+            "integrations/addresses-in-nym",
+            "integrations/demos",
+            "integrations/integrating-for-payments"
           ],
         },
-        {
-          type: "category",
-          label: "Nyx Blockchain",
-          collapsed: true,
-          items: ["developers/develop-with-nyx/overview"],
-        },
-        "developers/integrations",
       ],
     },
     {
       type: "category",
-      label: "Mixnet Infrastructure",
+      label: "Mixnet Nodes",
       collapsed: true,
       items: [
         "mixnet-infrastructure/incentives",
@@ -82,6 +76,15 @@ module.exports = {
             "mixnet-infrastructure/nodes/validators",
           ],
         },
+        {
+          type: "category", 
+          label: "Nym Apps", 
+          collapsed: true, 
+          items: [
+            "mixnet-infrastructure/nym-apps/network-explorer", 
+            "mixnet-infrastructure/nym-apps/wallet"
+          ]
+        }
       ],
     },
     {
@@ -89,12 +92,6 @@ module.exports = {
       label: "Applications",
       collapsed: "true",
       items: [
-        {
-          type: "category",
-          label: "Nym apps",
-          collapsed: true,
-          items: ["nym-apps/wallet", "nym-apps/network-explorer"],
-        },
         {
           type: "category",
           label: "Connect Apps",
