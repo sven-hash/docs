@@ -86,9 +86,9 @@ module.exports = {
         },
       ],
     },
-    footer: {
-      style: 'dark',
-      links: [
+    // footer: {
+    //   style: 'dark',
+    //   links: [
         // {
         //   items: [
         //     {
@@ -123,8 +123,8 @@ module.exports = {
         //   ],
         // },
 
-      ],
-    },
+    //   ],
+    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
