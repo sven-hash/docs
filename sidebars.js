@@ -1,16 +1,17 @@
 module.exports = {
   sidebar: [
+    "getting-started",
     {
       type: "category",
-      label: "Overview",
+      label: "Architecture",
       collapsed: true,
       items: [
-        "overview/index",
-        "overview/nym-platform",
-        "overview/network-privacy",
-        "overview/nym-other-systems",
-        "overview/private-access-control",
-        "overview/links",
+        "architecture/network-overview",
+        "architecture/data-flow",
+        "architecture/loopix",
+        "architecture/nym-other-systems",
+        "architecture/private-access-control",
+        "architecture/links",
       ],
     },
     {
@@ -62,23 +63,23 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Node Operators",
+      label: "Mixnet Infrastructure",
       collapsed: true,
       items: [
-        "run-nym-nodes/incentives",
-        "run-nym-nodes/pre-built-binaries",
-        "run-nym-nodes/build-nym",
+        "mixnet-infrastructure/incentives",
+        "mixnet-infrastructure/pre-built-binaries",
+        "mixnet-infrastructure/build-nym",
         {
           type: "category",
           label: "Nodes",
           collapsed: true,
           items: [
-            "run-nym-nodes/nodes/mixnodes",
-            "run-nym-nodes/nodes/troubleshooting",
-            "run-nym-nodes/nodes/gateways",
-            "run-nym-nodes/nodes/requester",
-            "run-nym-nodes/nodes/file-storage",
-            "run-nym-nodes/nodes/validators",
+            "mixnet-infrastructure/nodes/mixnodes",
+            "mixnet-infrastructure/nodes/troubleshooting",
+            "mixnet-infrastructure/nodes/gateways",
+            "mixnet-infrastructure/nodes/requester",
+            "mixnet-infrastructure/nodes/file-storage",
+            "mixnet-infrastructure/nodes/validators",
           ],
         },
       ],
