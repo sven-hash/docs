@@ -1,7 +1,8 @@
 ---
 sidebar_label: "Introduction"
 description: "Example list for desktop apps to use with socks5"
-hide_title:  true
+hide_title:  false
+title: "Introduction"
 ---
 
 This is Nym's technical documentation, containing information about the various pieces of Nym software such as different mixnet infrastructure nodes, application clients, and existing Nym applications like the Desktop Wallet and Mixnet Network Explorer. 
