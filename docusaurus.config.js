@@ -66,11 +66,11 @@ module.exports = {
           label: 'Shipyard (Grants)', 
           position: 'left'
         },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-          dropdownActiveClassDisabled: true,
-        },
+        // {
+        //   type: 'docsVersionDropdown',
+        //   position: 'right',
+        //   dropdownActiveClassDisabled: true,
+        // },
         { 
           type: 'localeDropdown',
           position: 'right',
@@ -142,21 +142,21 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: 'docs',
           showLastUpdateTime: true,
-          disableVersioning: false,
+          disableVersioning: true,
           includeCurrentVersion: true,
           lastVersion: undefined,
-          versions: {
-            current: {
-              label: 'Next (in progress)',
-              path: 'next',
-              banner: 'unreleased',
-            },
-            'stable': {
-              label: 'v1.0.2 (stable)',
-              path: 'stable',
-              banner: 'none',
-            },
-          },
+          // versions: {
+          //   // current: {
+          //   //   label: 'Next (in progress)',
+          //   //   path: 'next',
+          //   //   banner: 'unreleased',
+          //   // },
+          //   'stable': {
+          //     label: 'v1.0.2 (stable)',
+          //     path: 'stable',
+          //     banner: 'none',
+          //   },
+          // },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
