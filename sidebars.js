@@ -3,103 +3,78 @@ module.exports = {
     "introduction",
     {
       type: "category",
-      label: "Quick Start",
+      label: "Architecture",
       collapsed: true,
       items: [
-        "quickstart/introduction",
-        "quickstart/nym-connect",
-        "quickstart/sock5",
+        "architecture/network-overview",
+        "architecture/traffic-flow",
+        "architecture/loopix",
+        "architecture/nym-other-systems",
+        // "architecture/incentives",
+        "architecture/network-rewards"
+        // "architecture/links",
       ],
     },
     {
       type: "category",
-      label: "Mixnet Architecture",
+      label: "Quick Start",
       collapsed: true,
       items: [
-        "mixnet-architecture/network-overview",
-        "mixnet-architecture/data-flow",
-        "mixnet-architecture/loopix",
-        "mixnet-architecture/nym-other-systems",
-        "mixnet-architecture/links",
+        "quickstart/overview",
+        "quickstart/socks5",
+        "quickstart/nym-connect",
       ],
     },
-    "coconut",
     {
       type: "category",
       label: "Integrations",
       collapsed: true,
       items: [
-        "integrations/getting-started",
+        // "integrations/getting-started",
+        // "integrations/understanding-nym-apps",
+        "integrations/mixnet-integration-overview",
+        "integrations/choose-a-client",
         {
           type: "category",
-          label: "Nym Mixnet",
+          label: "Clients",
           collapsed: true,
           items: [
-            "integrations/understanding-nym-apps",
-            "integrations/anatomy-of-nym-apps",
-            "integrations/choose-a-client",
-            {
-              type: "category",
-              label: "Clients",
-              collapsed: true,
-              items: [
-                "integrations/websocket-client",
-                "integrations/socks5-client",
-                "integrations/wasm-client",
-              ],
-            },
-            "integrations/addresses-in-nym",
-            "integrations/demos",
-            "integrations/integrating-for-payments"
+            "integrations/websocket-client",
+            "integrations/socks5-client",
+            "integrations/wasm-client",
           ],
         },
+        "integrations/addresses-in-nym",
+        "integrations/demos",
+        // "integrations/integrating-for-payments" // this needs a rework, excluding for the moment 
       ],
     },
     {
       type: "category",
-      label: "Mixnet Nodes",
+      label: "Run Nodes",
       collapsed: true,
       items: [
-        "mixnet-infrastructure/incentives",
-        "mixnet-infrastructure/pre-built-binaries",
-        "mixnet-infrastructure/build-nym",
+        // "mixnet-infrastructure/incentives", //moved to architecture 
+        "run-nodes/pre-built-binaries",
+        "run-nodes/build-nym",
         {
           type: "category",
           label: "Nodes",
           collapsed: true,
           items: [
-            "mixnet-infrastructure/nodes/mixnodes",
-            "mixnet-infrastructure/nodes/troubleshooting",
-            "mixnet-infrastructure/nodes/gateways",
-            "mixnet-infrastructure/nodes/requester",
-            "mixnet-infrastructure/nodes/file-storage",
-            "mixnet-infrastructure/nodes/validators",
+            "run-nodes/nodes/mixnodes",
+            "run-nodes/nodes/troubleshooting",
+            "run-nodes/nodes/gateways",
+            "run-nodes/nodes/requester",
+            "run-nodes/nodes/file-storage",
+            "run-nodes/nodes/validators",
+            "run-nodes/nodes/network-explorer"
           ],
         },
-        {
-          type: "category", 
-          label: "Nym Apps", 
-          collapsed: true, 
-          items: [
-            "mixnet-infrastructure/nym-apps/network-explorer", 
-            "mixnet-infrastructure/nym-apps/wallet"
-          ]
-        }
       ],
     },
-    {
-      type: "category",
-      label: "Applications",
-      collapsed: "true",
-      items: [
-        {
-          type: "category",
-          label: "Connect Apps",
-          collapsed: true,
-          items: ["use-external-apps/index", "use-external-apps/examples"],
-        },
-      ],
-    },
+    "wallet",
+    "coconut",
     {
       type: "category",
       label: "Community",
