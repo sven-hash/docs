@@ -90,8 +90,6 @@ nym-socks5-client run --id <id>
 
 </details>
 
-
-
 ### Using the socks5 client
 
 This will start up a SOCKS5 proxy on your local machine, at `localhost:1080`. You can now route application traffic through the Nym mixnet! 

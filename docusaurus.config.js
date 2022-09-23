@@ -53,17 +53,17 @@ module.exports = {
       items: [
         { 
           to: '/docs/stable/overview/', // this obviously needs to be created
-          label: 'Technical Docs', 
+          label: 'Docs', 
           position: 'left' 
         },
-        {
-          to: 'https://developers.nymtech.net', 
-          label: 'Developer Portal', 
-          position: 'left'
-        },
+        // {
+        //   to: 'https://developers.nymtech.net', 
+        //   label: 'Developer Portal', 
+        //   position: 'left'
+        // },
         { 
           href: 'https://shipyard.nymtech.net', 
-          label: 'Shipyard Grants', 
+          label: 'Shipyard (Grants)', 
           position: 'left'
         },
         {
