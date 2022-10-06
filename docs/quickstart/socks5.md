@@ -37,46 +37,17 @@ You will need 2 things to get started:
 
 ### Init and run network requester 
 
-* proper documentation can be found here[LINK] but these commands will get you started. **These commands should be run on a VPS**. 
+Initialise and start a Nym Client and Network Requester on a VPS, as per the instructions [here](/docs/next/run-nodes/nodes/requester). **Be sure to make a note of the address of the Nym Client printed in the console on startup**. 
 
-```
-block 
-command 
-for 
-setting 
-up a 
-client 
-and a 
-NR 
-on 
-a 
-box 
-via 
-screen or tmux 
+For ease of testing you may want to run it in `--open-proxy` mode, so you don't have to edit its whitelist if you are trying to quickly connect a new application. Remember not to do this in production. 
 
-``` 
+### Init and run a local socks5 client 
 
-Since the NR has a whitelist of domains it will forward traffic to, for testing purposes we are running it in `--open-proxy` mode so we don't have to edit this whitelist. Don't do this in prod - there's a whitelist for a reason!
-
-### Init and run socks5 client 
-
-* proper documentation can be found here[LINK] but these commands will get you started. **These commands should be run on your local machine**. 
-
-```
-block 
-command 
-for 
-setting 
-up a 
-client 
-with NR set up previously as --provider
-
-``` 
-
+Now initialise and start a local Socks5 Client on your desktop machine as per the instructions [here](/docs/next/integrations/socks5-client). **Use the address of the Nym Client you collected earlier as the value of the `--provider` flag on initialisation**. 
 
 ## Proxying traffic
 
-After completing the steps above, your socks5client will be listening on `localhost:1080` ready to proxy traffic to your Network Requester. 
+After completing the steps above, your local Socks5 Client will be listening on `localhost:1080` ready to proxy traffic to your Network Requester. 
 
 You can always try out other apps, such as Signal, Telegram, or desktop crypto wallets. When trying to connect your app, generally the proxy settings are found in `settings->advanced` or `settings->connection`. 
 
