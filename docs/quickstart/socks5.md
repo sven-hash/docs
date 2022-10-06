@@ -78,8 +78,6 @@ with NR set up previously as --provider
 
 After completing the steps above, your socks5client will be listening on `localhost:1080` ready to proxy traffic to your Network Requester. 
 
-These are two examples of connecting applications to your local socks5 proxy, and forward your traffic through the mixnet. 
-
 You can always try out other apps, such as Signal, Telegram, or desktop crypto wallets. When trying to connect your app, generally the proxy settings are found in `settings->advanced` or `settings->connection`. 
 
 Here is an example of setting the proxy connecting in Blockstream Green:
