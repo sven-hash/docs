@@ -11,7 +11,7 @@ module.exports = {
         "architecture/loopix",
         "architecture/nym-other-systems",
         // "architecture/incentives",
-        "architecture/network-rewards"
+        // "architecture/network-rewards"
         // "architecture/links",
       ],
     },
@@ -68,9 +68,11 @@ module.exports = {
             "run-nodes/nodes/requester",
             "run-nodes/nodes/file-storage",
             "run-nodes/nodes/validators",
+            "run-nodes/nodes/rpc-node",
             "run-nodes/nodes/network-explorer"
           ],
         },
+      "run-nodes/network-rewards",
       ],
     },
     "wallet",
