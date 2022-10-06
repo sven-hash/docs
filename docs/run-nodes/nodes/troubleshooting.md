@@ -1,8 +1,13 @@
 ---
-sidebar_label: "Mix nodes FAQ"
+sidebar_label: "Troubleshooting"
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
-hide_title: true
+hide_title: false 
+title: "Troubleshooting" 
 ---
+
+:::tip
+Although this troubleshooting mainly focusses on Mix Nodes, many of the debugging methods can be adapted to all node types
+::: 
 
 ### I am trying to build from the GitHub archive files and the build fails
 

@@ -1,10 +1,11 @@
 ---
-sidebar_label: Mixnet Design (Loopix)
+sidebar_label: Loopix Mixnet Design 
 description: "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet."
-hide_title: true
+hide_title: false
+title: "Loopix Mixnet Design"
 ---
 
-The Nym mixnet re-orders encrypted, indistinguishable [Sphinx](https://cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf) packets as they travel through the gateways and mix nodes. Our mixnet design is based on the [Loopix Anonymity System](https://arxiv.org/abs/1703.00536), somewhat modified to provide better quality of service guarantees. 
+Our mixnet design is based on the [Loopix Anonymity System](https://arxiv.org/abs/1703.00536), somewhat modified to provide better quality of service guarantees. 
 
 This short video features our Head of Research and author of the original Lopoix paper Ania Piotrowska discussing the Loopix mixnet design in detail at USENix 2017.
 

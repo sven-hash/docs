@@ -7,7 +7,7 @@ title: "Anatomy of a Nym app"
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-Before looking at the technical details of the various Nym Clients avaliable to you, let's take a look at the steps involved in building and using a simple application.
+Before looking at the technical details of the various Nym clients avaliable to you, let's take a look at the steps involved in building and using a simple application.
 
 ### Initialization
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Gateways"
 description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
-hide_title: true
+hide_title: false
 ---
 
 :::note

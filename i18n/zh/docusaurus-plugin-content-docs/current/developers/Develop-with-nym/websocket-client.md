@@ -32,7 +32,7 @@ Nym Websocket 客户端是在[构建Nym](/docs/next/run-nym-nodes/build-nym/)章
     
 Nym Client 1.0.0
 Nymtech
-Implementation of the Nym Client
+Implementation of the Nym client
 
 USAGE:
     nym-client [SUBCOMMAND]

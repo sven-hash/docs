@@ -1,7 +1,8 @@
 ---
 sidebar_label: Network Overview
 description: "An overview of the Nym platform architecture"
-hide_title: true
+hide_title: false
+title: "Network Overview"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -15,9 +16,9 @@ The Nym platform knits together several privacy technologies, integrating them i
 
 At a high level, our technologies include:
 
-1. a privacy enhancing signature scheme called _Coconut_. Coconut allows a shift in thinking about resource access control, from an identity-based paradigm based on _who you are_ to a privacy-preserving paradigm based on _right to use_.
-2. _Sphinx_, a way of transmitting armoured, layer-encrypted information packets which are indistinguishable from each other at a binary level.
-3. a _mixnet_, which encrypts and mixes Sphinx packet traffic so that it cannot be determined who is communicating with whom. Our mixnet is based on a modified version of the _Loopix_ design.
+1. a _mixnet_, which encrypts and mixes Sphinx packet traffic so that it cannot be determined who is communicating with whom. Our mixnet is based on a modified version of the _Loopix_ design.
+2. a privacy enhancing signature scheme called _Coconut_. Coconut allows a shift in thinking about resource access control, from an identity-based paradigm based on _who you are_ to a privacy-preserving paradigm based on _right to use_.
+3. _Sphinx_, a way of transmitting armoured, layer-encrypted information packets which are indistinguishable from each other at a binary level.
 4. the _Nyx_ blockchain, a general-purpose CosmWasm-enabled smart contract platform, and the home of the smart contracts which keep track of the mixnet. 
 
 The most important thing to note is that these technologies ensure privacy at two different levels of the stack: **network data transmission**, and **transactions**.

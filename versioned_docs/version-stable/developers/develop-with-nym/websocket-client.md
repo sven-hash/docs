@@ -25,7 +25,7 @@ You can check that your binaries are properly compiled with:
 
       Nym Client 1.0.2
       Nymtech
-      Implementation of the Nym Client
+      Implementation of the Nym client
 
       USAGE:
           nym-client [SUBCOMMAND]
