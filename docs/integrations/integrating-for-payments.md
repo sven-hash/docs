@@ -18,12 +18,12 @@ For users coming from outside of the Cosmos SDK ecosystem, and/or the Proof of S
 
 
 ### 'Validator' vs 'full node' vs 'CLI wallet'
-If you have already read our validator setup and maintenance [documentation](/docs/next/run-nym-nodes/nodes/validators) you will have seen that we compile and use the `nyxd` binary primarily for our validators. This binary can however be used for many other tasks, such as creating and using keypairs for wallets, or automated setups that require the signing and broadcasting of transactions. 
+If you have already read our validator setup and maintenance [documentation](/docs/next/run-nodes/nodes/validators) you will have seen that we compile and use the `nyxd` binary primarily for our validators. This binary can however be used for many other tasks, such as creating and using keypairs for wallets, or automated setups that require the signing and broadcasting of transactions. 
 
 The difference between a full node and a validator in the context of a Cosmos SDK blockchain is that: 
-* A full node holds the entire blockchain state, but **does not** participate in consensus by signing and producing blocks. You can set this up by following our [documentation](https://nymtech.net/docs/stable/run-nym-nodes/nodes/validators/) but **stopping after** the `nyxd start` command. 
-* A validator is a full node that has staked `NYX` tokens, and joined consensus. You can set this up by following our [documentation](https://nymtech.net/docs/stable/run-nym-nodes/nodes/validators/) as usual. 
-* You can also use the `nyxd` as a minimal CLI wallet if you want to set up an account (or multiple accounts). Just compile the binary as per the documentation, **stopping after** the [building your validator](http://localhost:3000/docs/next/run-nym-nodes/nodes/validators#building-your-validator) step is complete. You can then run `nyxd keys --help` to see how you can set up and store different keypairs with which to interact with the Nyx blockchain. 
+* A full node holds the entire blockchain state, but **does not** participate in consensus by signing and producing blocks. You can set this up by following our [documentation](https://nymtech.net/docs/stable/run-nodes/nodes/validators/) but **stopping after** the `nyxd start` command. 
+* A validator is a full node that has staked `NYX` tokens, and joined consensus. You can set this up by following our [documentation](https://nymtech.net/docs/stable/run-nodes/nodes/validators/) as usual. 
+* You can also use the `nyxd` as a minimal CLI wallet if you want to set up an account (or multiple accounts). Just compile the binary as per the documentation, **stopping after** the [building your validator](/docs/next/run-nodes/nodes/validators#building-your-validator) step is complete. You can then run `nyxd keys --help` to see how you can set up and store different keypairs with which to interact with the Nyx blockchain. 
 
 These differences might be a little alien for those used to blockchains that use Proof of Work for consensus, where running a full node means you are also producing blocks. Given that Nyx is a Proof of Stake blockchain, this difference becomes important. 
 

@@ -5,7 +5,7 @@ hide_title: false
 ---
 
 :::note
-The Nym mix node binary was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mix node binary was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
@@ -450,7 +450,7 @@ There are also 2 community explorers which have been created by [Nodes Guru](htt
 - [Mainnet](https://mixnet.explorers.guru/)
 - [Sandbox testnet](https://sandbox.mixnet.explorers.guru/)
 
-For more details see [Troubleshooting FAQ](https://nymtech.net/docs/stable/run-nym-nodes/nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
+For more details see [Troubleshooting FAQ](https://nymtech.net/docs/stable/run-nodes/nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
 ### Virtual IPs and hosting via Google & AWS
 

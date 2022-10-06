@@ -28,7 +28,7 @@ Traffic to send through the mixnet is broken up into uniformly-sized packets, en
 At each 'hop' (i.e. as a packet is forwarded from one node in the sequence to another) a layer of decryption is removed from the Sphinx packet the packet is held by the node for a variable amount of time, before being forwarded on to the next node in the route. 
 
 :::note
-For more information on this, check out the [Loopix](docs/architecture/loopix) design document on the next page. 
+For more information on this, check out the [Loopix](/docs/next/architecture/loopix) design document on the next page. 
 ::: 
 
 Traffic always travels through the nodes of the mixnet like such:
