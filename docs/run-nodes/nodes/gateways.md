@@ -420,20 +420,9 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
-### Metrics 
-This is currently only one metrics endpoint for the gateway. It can be accessed via `curl` like this: 
+## Gateway related Validator API endpoints 
 
-```
-# For gateways on the Sandbox testnet
-curl https://sandbox-validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
-# For gateways on the Mainnet
-curl https://validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
-```
-
-This endpoint returns the number of times that the gateway has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network. 
-
-- `identity`: the identity key of the gateway. 
-- `count`: the number of times it has been used for network testing. 
+Numerous gateway related API endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
 ## Ports 
 
@@ -445,4 +434,3 @@ All gateway specific port configuration can be found in `$HOME/.nym/gateways/<yo
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
-

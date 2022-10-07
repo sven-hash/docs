@@ -474,16 +474,27 @@ The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 -
 
 This will bind the mix node to the available host `10.126.5.7`, but announce the mix node's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
-## Metrics
+## Metrics / API endpoints
 
-Here is an overview of the commands for getting information about a particular node via `curl`:
+The mix node binary exposes several API endpoints that can be pinged in order to gather information about the node, and the Validator API exposes numerous mix node related endpoints which provide network-wide information about mix nodes, the network topology (the list of avaliable mix nodes for packet routing), and information regarding uptime monitoring and rewarding history. 
+
+### Mix node API endpoints 
+
+Since the mix node binary exposes several API endpoints itself, you can ping these easily via curl: 
 
 | Endpoint             | Description                                                                           | Command                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `/description`       | Returns the description of the node set with the `describe` command                   | `curl <NODE_IP_ADDRESS>:8000/description`                                              |
 | `/hardware`          | Returns the hardware information of the node                                          | `curl <NODE_IP_ADDRESS>:8000/hardware`                                                 |
 | `/verloc`            | Returns the verloc information of the node, updated every 12 hours                    | `curl <NODE_IP_ADDRESS>:8000/verloc`                                                   |
-| `/report`            | Returns the most recent node status test report                                       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
+
+The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/develop/mixnode/src/node/http). 
+
+### Mix node related Validator API endpoints 
+
+Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
+
+<!-- | `/report`            | Returns the most recent node status test report                                       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
 | `/history`           | Returns all previous test reports                                                     | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/history`           |
 | `/status`            | Returns the status of the node                                                        | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/status`            |
 | `/reward-estimation` | Returns various reward estimation statistics                                          | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/reward-estimation` |
@@ -531,7 +542,7 @@ This endpoint returns different metrics returned regarding your mixnode's curren
 This endpoint returns the number of times that the node has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network.
 
 - `identity`: the identity key of the mixnode.
-- `count`: the number of times it has been used for network testing.
+- `count`: the number of times it has been used for network testing. -->
 
 ## Ports 
 
