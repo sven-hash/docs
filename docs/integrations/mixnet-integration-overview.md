@@ -1,7 +1,7 @@
 ---
-sidebar_label: Sending traffic through the Mixnet 
+sidebar_label: Integrating with Nym for network privacy 
 hide_title:  false
-title: "Sending traffic through the Mixnet" 
+title: "Integrating with Nym for network privacy" 
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
