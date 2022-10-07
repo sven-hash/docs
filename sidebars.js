@@ -46,7 +46,7 @@ module.exports = {
         },
         "integrations/addresses-in-nym",
         "integrations/demos",
-        // "integrations/integrating-for-payments" // this needs a rework, excluding for the moment 
+        "integrations/payment-integration-overview" // this needs a rework, excluding for the moment 
       ],
     },
     {
@@ -76,6 +76,7 @@ module.exports = {
       ],
     },
     "wallet",
+    "nym-cli",
     "coconut",
     {
       type: "category",
