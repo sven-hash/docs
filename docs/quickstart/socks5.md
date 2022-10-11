@@ -8,48 +8,37 @@ title: "SOCKS5 proxy (CLI)"
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-## Overview
+## REWRITE: add a codeblock for initialising a socks5 client locally with the provider set as an NR we run with whitelist for a load of apps, LIST what apps and domains people can try out via this  
 
-Many existing applications are able to use the SOCKS5 proxy protocol. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
+The Nym socks5 client allows you to proxy traffic from a desktop application through the mixnet, meaning you can send and receive information from remote application servers without leaking metadata which can be used to deanonymise you, even if you're using an encrypted application such as Signal. 
 
-<ThemedImage
-  alt="Overview diagram of the Nym network"
-  sources={{
-    light: useBaseUrl('/img/docs/nym-socks5-architecture.png'),
-    dark: useBaseUrl('/img/docs/nym-socks5-architecture-dark.png'),
-  }}
-/>
+## Download or compile socks5 client 
 
-There are 2 pieces of software that work together to send SOCKS5 traffic through the mixnet: the `nym-socks5-client`, and the `nym-network-requester`. 
+If you are using OSX or a Debian-based operating system, you can download the `nym-socks5-client` binary from our [Github releases page](https://github.com/nymtech/nym/releases).
 
-The `nym-socks5-client` allows you to do the following from your local machine:
-* Take a TCP data stream from a application that can send traffic via SOCKS5. 
-* Chop up the TCP stream into multiple Sphinx packets, assigning sequence numbers to them, while leaving the TCP connection open for more data
-* Send the Sphinx packets through the mixnet to a [Nym Network Requester](/docs/next/run-nodes/nodes/requester). Packets are shuffled and mixed as they transit the mixnet.
+If you are using a different operating system, head over to the [Building Nym](/docs/next/run-nodes/build-nym) page for instructions on how to build the repository from source. 
 
-The `nym-network-requester` then reassembles the original TCP stream using the packets' sequence numbers, and make the intended request. It will then chop up the response into Sphinx packets and send them back through the mixnet to your  `nym-socks5-client`. The application will then receive its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy!
+## Initialise your socks5 client 
 
-## Getting started 
+Use the following command to initialise your socks5 client with the address of a Nym-operated [Network Requester](/docs/next/run-nodes/nodes/requester) as a provider (the endpoint that will be proxying your traffic out of the mixnet) for ease: 
 
-You will need 2 things to get started: 
-- a network requester to forward traffic from the mixnet to the endpoint your app wants to hit (e.g. a message server)
-- a running socks5 client running on your local machine connected to this network requester 
+```
+./nym-socks5-client init --id quickstart --provider 3Z2381J3pHyHUoEKT2QuQmVguUh8jPy5xnHQ8LoSr8W5.BGRuuTkEug4sQpU7VhnwPXDZVkwTSCBB3epzHYqzqUZx@9Byd9VAtyYMnbVAcqdoQxJnq76XEg2dbxbiF5Aa5Jj9J 
+```
 
-### Init and run network requester 
+## Start your socks5 client 
 
-Initialise and start a Nym Client and Network Requester on a VPS, as per the instructions [here](/docs/next/run-nodes/nodes/requester). **Be sure to make a note of the address of the Nym Client printed in the console on startup**. 
+Now your client is initialised, start it with the following: 
 
-For ease of testing you may want to run it in `--open-proxy` mode, so you don't have to edit its whitelist if you are trying to quickly connect a new application. Remember not to do this in production. 
-
-### Init and run a local socks5 client 
-
-Now initialise and start a local Socks5 Client on your desktop machine as per the instructions [here](/docs/next/integrations/socks5-client). **Use the address of the Nym Client you collected earlier as the value of the `--provider` flag on initialisation**. 
+```
+./nym-socks5-client run --id quickstart
+```
 
 ## Proxying traffic
 
-After completing the steps above, your local Socks5 Client will be listening on `localhost:1080` ready to proxy traffic to your Network Requester. 
+After completing the steps above, your local socks5 Client will be listening on `localhost:1080` ready to proxy traffic to the Network Requester set as the `--provider` when initialising. 
 
-You can always try out other apps, such as Signal, Telegram, or desktop crypto wallets. When trying to connect your app, generally the proxy settings are found in `settings->advanced` or `settings->connection`. 
+When trying to connect your app, generally the proxy settings are found in `settings->advanced` or `settings->connection`. 
 
 Here is an example of setting the proxy connecting in Blockstream Green:
 
@@ -59,4 +48,6 @@ Most wallets and other applications will work basically the same way: find the n
 
 In some other applications, this might be written as **localhost:1080** if there's only one proxy entry field.
 
+## Further reading 
 
+If you want to dig more into the architecture and use of the socks5 client check out its documentation [here](/docs/next/integrations/socks5-client).
