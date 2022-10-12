@@ -102,7 +102,7 @@
       "type": "category",
       "collapsed": true,
       "collapsible": true,
-      "label": "Node Operators",
+      "label": "Run Nodes",
       "items": [
         {
           "type": "doc",

@@ -10,9 +10,6 @@ module.exports = {
         "architecture/traffic-flow",
         "architecture/loopix",
         "architecture/nym-other-systems",
-        // "architecture/incentives",
-        // "architecture/network-rewards"
-        // "architecture/links",
       ],
     },
     {
@@ -45,7 +42,7 @@ module.exports = {
         },
         "integrations/addresses-in-nym",
         "integrations/demos",
-        "integrations/payment-integration-overview" // this needs a rework, excluding for the moment 
+        "integrations/payment-integration-overview" 
       ],
     },
     {
@@ -53,7 +50,6 @@ module.exports = {
       label: "Run Nodes",
       collapsed: true,
       items: [
-        // "mixnet-infrastructure/incentives", //moved to architecture 
         "run-nodes/pre-built-binaries",
         "run-nodes/build-nym",
         {
