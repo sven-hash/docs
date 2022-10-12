@@ -2,7 +2,7 @@
   "version-stable/sidebar": [
     {
           "type": "doc",
-          "id": "version-stable/introduction"
+          "id": "version-stable/overview"
     },
     {
       "type": "category",
