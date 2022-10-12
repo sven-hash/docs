@@ -1,12 +1,11 @@
 ---
 sidebar_label: "Gateways"
 description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
-hide_title:  false
-title: Gateways
+hide_title: false
 ---
 
 :::note
-The Nym gateway was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym gateway was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination, sort of like a mailbox, for messages.
@@ -64,11 +63,11 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        nym-gateway 1.0.2
+        nym-gateway 1.0.1
         Nymtech
 
         Build Timestamp:    2022-05-06T13:07:46.187796508+00:00
-        Build Version:      1.0.2
+        Build Version:      1.0.1
         Commit SHA:         945dda0c24f2f964f27066af320441446973e383
         Commit Date:        2022-05-04T15:57:36+00:00
         Commit Branch:      detached HEAD
@@ -128,7 +127,7 @@ To check available configuration options use:
     Initialise the gateway
 
     USAGE:
-        nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS> 
+        nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC>
 
     OPTIONS:
             --announce-host <ANNOUNCE_HOST>
@@ -178,7 +177,7 @@ The `$(curl ifconfig.me)` command above returns your IP automatically using an e
 The following command returns a gateway on your current IP with the `id` of `supergateway` with statistics enabled:
 
 ```
-./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --enabled-statistics true
+./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC> --enabled-statistics true
 ```
 
 The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
@@ -190,18 +189,7 @@ You can bond your gateway via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details. 
 
 #### Via the CLI (power users)
-
-Power users might wish to interact directly with the Mixnet smart contract itself. 
-
-You can do this via a call that looks like this via the validator binary. Below is an example command to execute this command on the mainnet:  
-
-```
-nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g 
-'{"bond_gateway":{"gateway":{"host":"HOST", "mix_port":1789, "verloc_port":1790, 
-"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY", 
-"version":"1.0.2"}, "owner_signature":"OWNER_SIG"}}' --from YOUR_ADDRESS 
---chain-id nyx --amount 100000000unym
-```
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
 
 ### Running your gateway (standard mode)
 
@@ -215,7 +203,6 @@ The `run` command starts the gateway:
 ./nym-gateway run --id supergateway
 ```
 
-
 <details>
   <summary>console output</summary>
 
@@ -228,7 +215,7 @@ The `run` command starts the gateway:
     Sphinx Key: HbqYJwjmtzDi4WzGp7ehj8Ns394sRvJnxtanX28upon
     Owner Signature: wRKxr1CnoyBB9AYPSaXgE4dCP757ffMz5gkja8EKaYR82a63FK9HYV3HXZnLcSaNXkzN3CJnxG2FREv1ZE9xwvx
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.2
+    Version: 1.0.1
     Mix Port: 1789, Clients port: 9000
     Data store is at: "/home/mx/.nym/gateways/supergateway/data/db.sqlite"
     2022-04-27T16:04:33.831Z INFO  nym_gateway::node > Starting nym gateway!
@@ -242,15 +229,13 @@ The `run` command starts the gateway:
 
 ### Running your gateway (stats mode)
 
-The `run` command starts the gateway:
-
 ```
-./nym-gateway run --id supergateway --enabled-statistics true`
+./nym-gateway run --id supergateway --enabled-statistics true
 ```
 
 The `--enabled-statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
 
-Use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
+Use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date):  
 
 ```
 curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST https://mainnet-stats.nymte.ch:8090/v1/all-statistics
@@ -372,7 +357,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (1.0.2)
+Description=Nym Gateway (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -390,11 +375,15 @@ WantedBy=multi-user.target
 
 Put the above file onto your system at `/etc/systemd/system/nym-gateway.service`.
 
+If you want to enable statistics mode, the start command would be: 
+`ExecStart=/home/nym/nym-gateway run --id supergateway --enabled-statistics true`
+  
 Change the path in `ExecStart` to point at your gateway binary (`nym-gateway`), and the `User` so it is the user you are running as.
 
 If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this:
 
 `ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id`. Basically, you want the full `/path/to/nym-gateway run --id whatever-your-node-id-is`
+  
 
 Then run:
 
@@ -420,20 +409,9 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
-### Metrics 
-This is currently only one metrics endpoint for the gateway. It can be accessed via `curl` like this: 
+## Gateway related Validator API endpoints 
 
-```
-# For gateways on the Sandbox testnet
-curl https://sandbox-validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
-# For gateways on the Mainnet
-curl https://validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
-```
-
-This endpoint returns the number of times that the gateway has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network. 
-
-- `identity`: the identity key of the gateway. 
-- `count`: the number of times it has been used for network testing. 
+Numerous gateway related API endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
 ## Ports 
 
@@ -445,4 +423,3 @@ All gateway specific port configuration can be found in `$HOME/.nym/gateways/<yo
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
-

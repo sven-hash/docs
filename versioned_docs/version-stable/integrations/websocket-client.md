@@ -7,7 +7,7 @@ title: Websocket client
 
 
 :::note
-The Nym Websocket Client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym Websocket Client was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
 
@@ -23,7 +23,7 @@ You can check that your binaries are properly compiled with:
   <summary>console output</summary>
 
 
-      Nym Client 1.0.2
+      Nym client 1.0.1
       Nymtech
       Implementation of the Nym client
 
@@ -42,7 +42,6 @@ You can check that your binaries are properly compiled with:
 
 
 </details>
-
 
 
 The two most important commands you will issue to the client are: 
@@ -88,6 +87,7 @@ The `--id` in the example above is a local identifier so that you can name your 
 There is an optional `--gateway` flag that you can use if you want to use a specific gateway. The supplied argument is the `Identity Key` of the gateway you wish to use, which can be found on the [mainnet Network Explorer](https://explorer.nymtech.net/network-components/gateways) or [Sandbox Testnet Explorer](https://sandbox-explorer.nymtech.net/network-components/gateways) depending on which network you are on. 
 
 Not passing this argument will randomly select a gateway for your client.
+
 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 

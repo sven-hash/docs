@@ -30,8 +30,7 @@ module.exports = {
       label: "Integrations",
       collapsed: true,
       items: [
-        // "integrations/getting-started",
-        // "integrations/understanding-nym-apps",
+        "integrations/overview",
         "integrations/mixnet-integration-overview",
         "integrations/choose-a-client",
         {

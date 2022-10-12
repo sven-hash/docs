@@ -1,12 +1,16 @@
 ---
-sidebar_label: Coconut
+sidebar_label: Coconut (Coming Soon)
 description: "Nym ensures access control privacy using a sophisticated signature scheme called Coconut."
-hide_title:  false
-title: Coconut
+hide_title: false 
+title: "Coconut (Coming Soon)"
 ---
 
 
-### Introducing Coconut
+### Coconut
+
+:::info
+Coconut is in active development - stay tuned for code and integration examples
+:::
 
 Coconut is a cryptographic signature scheme that produces privacy-enhanced credentials. It lets application programmers who are concerned with resource access control to think and code in a new way.
 

@@ -1,8 +1,7 @@
 ---
 sidebar_label: "Validators"
 description: "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities."
-hide_title:  false
-title: Validators
+hide_title: false
 ---
 
 import Tabs from '@theme/Tabs';
@@ -17,7 +16,6 @@ The validator is built using [Cosmos SDK](https://cosmos.network) and [Tendermin
 ### Building the Nym validator
 
 #### Prerequisites
-
 - `git`
 
 ```
@@ -86,8 +84,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 #### Building your validator
-
-We use the `wasmd` version of the Cosmos validator to run our blockchain. First define the correct variables by selecting the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in:
+We use the `wasmd` version of the Cosmos validator to run our blockchain. First define the correct variables by selecting the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in: 
 
 <Tabs groupId="nym-network">
     <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -147,6 +144,7 @@ You should see help text print out.
 
 Both the `nymd` or `nyxd` binary and the `libwasmvm.so` shared object library binary have been compiled. `libwasmvm.so` is the wasm virtual machine which is needed to execute smart contracts.
 
+
 :::caution
 If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.**
 :::
@@ -155,7 +153,7 @@ To locate these files on your local system run:
 
 ```
 WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
-ls ${WASMVM_SO}
+ls ${WASMVM_SO}      
 ```
 
 This will output something like:
@@ -189,7 +187,7 @@ You'll need to set `LD_LIBRARY_PATH` in your user's `~/.bashrc` file, and add th
 ```
 NYX_BINARIES=/home/youruser/path/to/nym/binaries
 # if you are using another shell like zsh replace '.bashrc' with the relevant config file
-echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYX_BINARIES >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYX_BINARIES >> ~/.bashrc 
 echo 'export PATH=$PATH:'${NYX_BINARIES} >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -216,7 +214,6 @@ Test everything worked:
 This should return the regular help text.
 
 ### Initialising your validator
-
 Prerequisites:
 
 - FQDN Domain name
@@ -238,10 +235,10 @@ Choose a name for your validator and use it in place of `YOUR_NAME` in the follo
 </Tabs>
 
 :::caution
-`init` generates `priv_validator_key.json` and `node_key.json`.
+`init` generates `priv_validator_key.json` and `node_key.json`.  
 
-If you have already set up a validator on a previous testnet, **make sure to back up the key located at**
-`~/.nymd/config/priv_validator_key.json`.
+If you have already set up a validator on a previous testnet, **make sure to back up the key located at** 
+`~/.nymd/config/priv_validator_key.json`. 
 
 If you don't save the validator key, then it can't sign blocks and will be jailed all the time, and
 there is no way to deterministically (re)generate this key.  
@@ -267,7 +264,6 @@ there is no way to deterministically (re)generate this key.
 </Tabs>
 
 #### `config.toml` configuration
-
 <Tabs groupId="nym-network">
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     Edit the following config options in <code>$HOME/.nyxd/config/config.toml</code> to match the information below:
@@ -298,11 +294,10 @@ there is no way to deterministically (re)generate this key.
   </TabItem>
 </Tabs>
 
-These affect the following:
-
-- `persistent_peers = "<PEER_ADDRESS>@<DOMAIN>.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
-- `create_empty_blocks = false` will save space
-- `laddr = "tcp://0.0.0.0:26656"` is in your p2p configuration options
+These affect the following: 
+* `persistent_peers = "<PEER_ADDRESS>@<DOMAIN>.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
+* `create_empty_blocks = false` will save space 
+* `laddr = "tcp://0.0.0.0:26656"` is in your p2p configuration options 
 
 Optionally, if you want to enable [Prometheus](https://prometheus.io/) metrics then the following must also match in the `config.toml`:
 
@@ -320,7 +315,6 @@ And if you wish to add a human-readable moniker to your node:
 Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentation.html) on your server, change the `grpc` port from `9090` as this is the port used by Cockpit.
 
 #### `app.toml` configuration
-
 In the file `$HOME/.${NYM_APP_NAME}/config/app.toml`, set the following values:
 
 <Tabs groupId="nym-network">
@@ -339,8 +333,8 @@ In the file `$HOME/.${NYM_APP_NAME}/config/app.toml`, set the following values:
   </TabItem>
 </Tabs>
 
-### Setting up your validator's admin user
 
+### Setting up your validator's admin user
 You'll need an admin account to be in charge of your validator. Set that up with:
 
 <Tabs groupId="nym-network">
@@ -381,10 +375,9 @@ You can get the admin account's address with:
   </TabItem>
 </Tabs>
 
-Type in your keychain **password**, not the mnemonic, when asked.
+Type in your keychain **password**, not the mnemonic, when asked. 
 
 ### Starting your validator
-
 Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
 
 <Tabs groupId="nym-network">
@@ -403,6 +396,7 @@ Everything should now be ready to go. You've got the validator set up, all chang
     </pre>
   </TabItem>
 </Tabs>
+
 
 If this check passes, you should receive the following output:
 
@@ -431,31 +425,30 @@ For more information about your validator's port configuration, check the [valid
 
 Start the validator:
 <Tabs groupId="nym-network">
-<TabItem value="mainnet" label="Nyx (Mainnet)">
-
-<pre>
-<code>
-nyxd start
-</code>
-</pre>
-</TabItem>
-<TabItem value="sandbox" label="Sandbox (Testnet)">
-<pre>
-<code>
-nymd start
-</code>
-</pre>
-</TabItem>
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd start
+      </code>
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd start
+      </code>
+    </pre>
+  </TabItem>
 </Tabs>
 
-Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set with the command below.
+Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set with the command below. 
 
 > If you are having trouble upgrading your validator binary, try replacing (or re-compile) the `libwasmvm.so` file and replace it on your validator server.
 
 :::warning
-When joining consensus, make sure that you do not disrupt (or worse - halt) the network by coming in with a disproportionately large amount of staked tokens.
+When joining consensus, make sure that you do not disrupt (or worse - halt) the network by coming in with a disproportionately large amount of staked tokens. 
 
-Please initially stake a small amount of tokens compared to existing validators, then delegate to yourself in tranches over time.
+Please initially stake a small amount of tokens compared to existing validators, then delegate to yourself in tranches over time. 
 :::
 
 <Tabs groupId="nym-network">
@@ -534,15 +527,14 @@ If you want to edit some details for your node you will use a command like this:
   </TabItem>
 </Tabs>
 
-With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact.
+With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact. 
 
 ### Automating your validator with systemd
-
 You will most likely want to automate your validator restarting if your server reboots. Below is a systemd unit file to place at `/etc/systemd/system/nymd.service`:
 
 ```ini
 [Unit]
-Description=Nymd (1.0.2)
+Description=Nymd (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -569,9 +561,7 @@ journalctl -f           # to monitor system logs showing the service start
 ```
 
 ### Installing and configuring nginx for HTTPS
-
 #### Setup
-
 [Nginx](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.) is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.
 
 Install `nginx` and allow the 'Nginx Full' rule in your firewall:
@@ -683,11 +673,11 @@ Your validator's metrics will be available to you at the returned 'Metrics URL'.
     # HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
     # TYPE go_memstats_gc_sys_bytes gauge
     go_memstats_gc_sys_bytes 1.3884192e+07
-
+    
 </details>
 
-### Setting the ulimit
 
+### Setting the ulimit
 Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
 
 `ulimit` is 1024 by default on most systems. It needs to be set higher, because validators make and receive a lot of connections to other nodes.
@@ -701,7 +691,6 @@ Failed to accept incoming connection - Os { code: 24, kind: Other, message: "Too
 This means that the operating system is preventing network connections from being made.
 
 ##### Set the ulimit via `systemd` service file
-
 Query the `ulimit` of your validator with:
 
 ```
@@ -737,7 +726,6 @@ echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf
 Reboot your machine and restart your node. When it comes back, use `cat /proc/$(pidof nym-validator)/limits | grep "Max open files"` to make sure the limit has changed to 65535.
 
 ##### Set the ulimit on `non-systemd` based distributions
-
 Edit `etc/security/conf` and add the following lines:
 
 ```
@@ -750,7 +738,6 @@ username        soft nofile 4096
 Then reboot your server and restart your validator.
 
 ### Unjailing your validator
-
 If your validator gets jailed, you can fix it with the following command:
 
 <Tabs groupId="nym-network">
@@ -798,16 +785,16 @@ For example, on the Sanbox testnet this would return:
 
 ```yaml
 balances:
-  - amount: "919376"
+- amount: "919376"
 denom: unymt
 pagination:
 next_key: null
 total: "0"
 ```
 
-You can, of course, stake back the available balance to your validator with the following command.
+You can, of course, stake back the available balance to your validator with the following command. 
 
-> Remember to save some tokens for gas costs!
+> Remember to save some tokens for gas costs! 
 
 <Tabs groupId="nym-network">
   <TabItem value="mainnet" label="Nyx (Mainnet)">
@@ -835,11 +822,10 @@ You can, of course, stake back the available balance to your validator with the 
 </Tabs>
 
 ### Validator port reference
-
 All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
 
 | Default port | Use                                  |
-| ------------ | ------------------------------------ |
+|--------------|--------------------------------------|
 | 1317         | REST API server endpoint             |
 | 26656        | Listen for incoming peer connections |
 | 26660        | Listen for Prometheus connections    |

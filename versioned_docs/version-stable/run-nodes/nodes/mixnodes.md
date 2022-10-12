@@ -1,12 +1,11 @@
 ---
 sidebar_label: "Mix nodes"
 description: "Mix nodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
-hide_title:  false
-title: Mix nodes
+hide_title: false
 ---
 
 :::note
-The Nym mix node binary was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mix node binary was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
@@ -67,11 +66,11 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
-    nym-mixnode 1.0.2
+    nym-mixnode 1.0.1
     Nymtech
 
     Build Timestamp:    2022-05-06T13:07:45.000871255+00:00
-    Build Version:      1.0.2
+    Build Version:      1.0.1
     Commit SHA:         945dda0c24f2f964f27066af320441446973e383
     Commit Date:        2022-05-04T15:57:36+00:00
     Commit Branch:      detached HEAD
@@ -191,18 +190,7 @@ You can bond your mix node via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details.
 
 #### Via the CLI (power users)
-
-Power users might wish to interact directly with the Mixnet smart contract itself.
-
-You can do this via a call that looks like this via the validator binary. Below is an example command to execute this command on the mainnet:
-
-```
-nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g
-'{"bond_mixnode":{"mix_node":{"host":"HOST", "mix_port":1789, "verloc_port":1790,
-"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY",
-profit_margin_percent":PROFIT_MARGIN, "version":"1.0.2"}, "owner_signature":"OWNER_SIG"}}'
---from YOUR_ADDRESS --chain-id nyx --amount 100000000unym
-```
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
 
 ### Running your mix node
 
@@ -224,7 +212,7 @@ Now you've bonded your mix node, run it with:
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.2
+    Version: 1.0.1
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -286,7 +274,7 @@ You can always check the details of your mix node with the `node-details` comman
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.2
+    Version: 1.0.1
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -324,7 +312,7 @@ It's useful to have the mix node automatically start at system boot time. Here's
 
 ```ini
 [Unit]
-Description=Nym Mixnode (1.0.2)
+Description=Nym Mixnode (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -451,7 +439,7 @@ There are also 2 community explorers which have been created by [Nodes Guru](htt
 - [Mainnet](https://mixnet.explorers.guru/)
 - [Sandbox testnet](https://sandbox.mixnet.explorers.guru/)
 
-For more details see [Troubleshooting FAQ](https://nymtech.net/docs/stable/run-nym-nodes/nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
+For more details see [Troubleshooting FAQ](https://nymtech.net/docs/stable/run-nodes/nodes/troubleshooting/#how-can-i-tell-my-node-is-up-and-running-and-mixing-traffic)
 
 ### Virtual IPs and hosting via Google & AWS
 
@@ -475,16 +463,27 @@ The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 -
 
 This will bind the mix node to the available host `10.126.5.7`, but announce the mix node's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
-## Metrics
+## Metrics / API endpoints
 
-Here is an overview of the commands for getting information about a particular node via `curl`:
+The mix node binary exposes several API endpoints that can be pinged in order to gather information about the node, and the Validator API exposes numerous mix node related endpoints which provide network-wide information about mix nodes, the network topology (the list of avaliable mix nodes for packet routing), and information regarding uptime monitoring and rewarding history. 
+
+### Mix node API endpoints 
+
+Since the mix node binary exposes several API endpoints itself, you can ping these easily via curl: 
 
 | Endpoint             | Description                                                                           | Command                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `/description`       | Returns the description of the node set with the `describe` command                   | `curl <NODE_IP_ADDRESS>:8000/description`                                              |
 | `/hardware`          | Returns the hardware information of the node                                          | `curl <NODE_IP_ADDRESS>:8000/hardware`                                                 |
 | `/verloc`            | Returns the verloc information of the node, updated every 12 hours                    | `curl <NODE_IP_ADDRESS>:8000/verloc`                                                   |
-| `/report`            | Returns the most recent node status test report                                       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
+
+The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/develop/mixnode/src/node/http). 
+
+### Mix node related Validator API endpoints 
+
+Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
+
+<!-- | `/report`            | Returns the most recent node status test report                                       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
 | `/history`           | Returns all previous test reports                                                     | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/history`           |
 | `/status`            | Returns the status of the node                                                        | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/status`            |
 | `/reward-estimation` | Returns various reward estimation statistics                                          | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/reward-estimation` |
@@ -532,7 +531,7 @@ This endpoint returns different metrics returned regarding your mixnode's curren
 This endpoint returns the number of times that the node has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network.
 
 - `identity`: the identity key of the mixnode.
-- `count`: the number of times it has been used for network testing.
+- `count`: the number of times it has been used for network testing. -->
 
 ## Ports 
 
