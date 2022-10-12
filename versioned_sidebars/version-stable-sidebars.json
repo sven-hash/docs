@@ -106,11 +106,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-stable/run-nodes/pre-built-binaries"
+          "id": "version-stable/run-nym-nodes/pre-built-binaries"
         },
         {
           "type": "doc",
-          "id": "version-stable/run-nodes/build-nym"
+          "id": "version-stable/run-nym-nodes/build-nym"
         },
         {
           "type": "category",
@@ -120,41 +120,41 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/mixnodes"
+              "id": "version-stable/run-nym-nodes/nodes/mixnodes"
             },
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/troubleshooting"
+              "id": "version-stable/run-nym-nodes/nodes/troubleshooting"
             },
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/gateways"
+              "id": "version-stable/run-nym-nodes/nodes/gateways"
             },
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/requester"
+              "id": "version-stable/run-nym-nodes/nodes/requester"
             },
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/file-storage"
+              "id": "version-stable/run-nym-nodes/nodes/file-storage"
             },
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/validators"
+              "id": "version-stable/run-nym-nodes/nodes/validators"
             }, 
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/rpc-node"
+              "id": "version-stable/run-nym-nodes/nodes/rpc-node"
             }, 
             {
               "type": "doc",
-              "id": "version-stable/run-nodes/nodes/network-explorer"
+              "id": "version-stable/run-nym-nodes/nodes/network-explorer"
             }
           ]
         },
         {
           "type": "doc", 
-          "id": "version-stable/run-nodes/network-rewards"
+          "id": "version-stable/run-nym-nodes/network-rewards"
         }
       ]
     },

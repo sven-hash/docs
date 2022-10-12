@@ -11,7 +11,7 @@ If you are new to Nym, and want to learn about how to quickly connect to the mix
 
 If you want to integrate with Nym, check out the [Integrations](/docs/next/integrations/overview) section. 
 
-If you want to run Nym infrastructure, check out the [Run Nodes](/docs/next/run-nodes/pre-built-binaries) section. 
+If you want to run Nym infrastructure, check out the [Run Nodes](/docs/next/run-nym-nodes/pre-built-binaries) section. 
 
 If you are looking for information on grants and beta-release Nym apps, check out the [Shipyard](https://shipyard.nymtech.net) site. 
 

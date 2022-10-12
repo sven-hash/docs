@@ -9,7 +9,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 
 :::note
-The Nym Socks5 Client was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym Socks5 Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
 Many existing applications are able to use the SOCKS5 proxy protocol. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
@@ -27,7 +27,7 @@ There are 2 pieces of software that work together to send SOCKS5 traffic through
 The `nym-socks5-client` allows you to do the following from your local machine:
 * Take a TCP data stream from a application that can send traffic via SOCKS5. 
 * Chop up the TCP stream into multiple Sphinx packets, assigning sequence numbers to them, while leaving the TCP connection open for more data
-* Send the Sphinx packets through the mixnet to a [Nym Network Requester](/docs/next/run-nodes/nodes/requester). Packets are shuffled and mixed as they transit the mixnet.
+* Send the Sphinx packets through the mixnet to a [Nym Network Requester](/docs/next/run-nym-nodes/nodes/requester). Packets are shuffled and mixed as they transit the mixnet.
 
 The `nym-network-requester` then reassembles the original TCP stream using the packets' sequence numbers, and make the intended request. It will then chop up the response into Sphinx packets and send them back through the mixnet to your  `nym-socks5-client`. The application will then receive its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy!
 
@@ -79,7 +79,7 @@ Before you can use the client, you need to initalise a new instance of it, which
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you can't find one from the community, you'll have to [run your own](/docs/next/run-nodes/nodes/requester). A nicer way of discovering public Service Providers is incoming, but at the moment just ask around in community channels and someone will give you an address to use. 
+The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you can't find one from the community, you'll have to [run your own](/docs/next/run-nym-nodes/nodes/requester). A nicer way of discovering public Service Providers is incoming, but at the moment just ask around in community channels and someone will give you an address to use. 
 
 
 ### Running the socks5 client

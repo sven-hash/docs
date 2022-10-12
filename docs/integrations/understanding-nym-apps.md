@@ -11,7 +11,7 @@ import ThemedImage from '@theme/ThemedImage';
 We expect that apps will typically fall into one of two broad categories:
 
 * **Client apps** will expose a GUI for users to interact with Nym. Typically they'll run on user devices, such as laptops, phones, or tablets.
-* **Service Providers** will generally run on server machines, or be hosted on some decentralised network such as Akash. Most Service Providers will run 24/7 and take action on behalf of anonymous client apps connected to the mixnet. Examples of these are the Nym [Network Requester](/docs/next/run-nodes/nodes/requester), and the PoC [File Storage](/docs/next/run-nodes/nodes/file-storage) Service Providers. 
+* **Service Providers** will generally run on server machines, or be hosted on some decentralised network such as Akash. Most Service Providers will run 24/7 and take action on behalf of anonymous client apps connected to the mixnet. Examples of these are the Nym [Network Requester](/docs/next/run-nym-nodes/nodes/requester), and the PoC [File Storage](/docs/next/run-nym-nodes/nodes/file-storage) Service Providers. 
 
 _**All** Nym apps - PEAPs - will listen for and send messages to the mixnet via a Nym client running on the same machine as the application. A high-level overview of this connection, and the different types of clients available to developers, is covered on the next few pages._ 
 
