@@ -5,7 +5,7 @@ hide_title: false
 ---
 
 :::note
-The Nym gateway was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym gateway was built in the [building nym](/docs/stable/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination, sort of like a mailbox, for messages.
@@ -189,7 +189,7 @@ You can bond your gateway via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details. 
 
 #### Via the CLI (power users)
-If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/stable/nym-cli) tool. 
 
 ### Running your gateway (standard mode)
 

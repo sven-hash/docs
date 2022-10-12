@@ -6,7 +6,7 @@ title: "Network Requesters"
 ---
 
 :::note
-The Nym network requester was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym network requester was built in the [building nym](/docs/stable/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
 

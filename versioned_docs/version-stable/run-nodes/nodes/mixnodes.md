@@ -5,7 +5,7 @@ hide_title: false
 ---
 
 :::note
-The Nym mix node binary was built in the [building nym](/docs/next/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mix node binary was built in the [building nym](/docs/stable/run-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
@@ -190,7 +190,7 @@ You can bond your mix node via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details.
 
 #### Via the CLI (power users)
-If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/stable/nym-cli) tool. 
 
 ### Running your mix node
 

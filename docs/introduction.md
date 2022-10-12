@@ -9,7 +9,7 @@ This is Nym's technical documentation, containing information about the various 
 
 If you are new to Nym, and want to learn about how to quickly connect to the mixnet and get started connecting and/or building apps, check out the [Quick Start](/docs/next/quickstart/overview) section. 
 
-If you want to integrate with Nym, check out the [Integrations](/docs/next/integrations/mixnet-integration-overview) section. 
+If you want to integrate with Nym, check out the [Integrations](/docs/next/integrations/overview) section. 
 
 If you want to run Nym infrastructure, check out the [Run Nodes](/docs/next/run-nodes/pre-built-binaries) section. 
 
