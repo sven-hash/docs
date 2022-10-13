@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Introducción"
-hide_title: false
+hide_title:  false
 description: "Tutoriales para construir aplicaciones con privacidad mejorada (o integrar las apps existentes con Nym)"
 title: Construir aplicaciones Nym
 ---

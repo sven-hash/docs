@@ -1,7 +1,7 @@
 ---
 sidebar_label: 简介
 description: "Overview of areas of potential development."
-hide_title: false
+hide_title:  false
 title: 简介
 ---
 

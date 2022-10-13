@@ -1,7 +1,7 @@
 ---
 sidebar_label: 网络激励
 description: "Why should you run Nym nodes?"
-hide_title: false
+hide_title:  false
 title: 网络激励
 ---
 

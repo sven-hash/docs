@@ -1,7 +1,7 @@
 ---
 sidebar_label: "La Plataforma Nym"
 description: "Nym es una plataforma de privacidad basada en blockchain. Proporciona una fuerte privacidad a nivel de red contra atacantes sofisticados de extremo a extremo, y un control de acceso anónimo utilizando credenciales ciegas, re-aleatorias y descentralizadas."
-hide_title: false
+hide_title:  false
 title: La plataforma Nym
 ---
 

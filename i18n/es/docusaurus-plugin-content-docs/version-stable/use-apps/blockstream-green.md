@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Blockstream Green"
 description: "Puedes proteger tus transacciones de Blockstream Green de los fisgones de la red utilizando el mixnet de Nym. Aquí se explica cómo"
-hide_title: false
+hide_title:  false
 title: Blockstream Green
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Incentivos"
 description: "¿Por qué deberías ejecutar los nodos Nym?"
-hide_title: false
+hide_title:  false
 title: Incentivos
 ---
 

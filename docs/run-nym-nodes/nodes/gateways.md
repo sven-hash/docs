@@ -2,7 +2,6 @@
 sidebar_label: "Gateways"
 description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
 hide_title: false
-title: Gateways
 ---
 
 :::note
@@ -26,7 +25,7 @@ There are a couple of steps that need completing before starting to set up your 
 
 ### Wallet preparation 
 #### Mainnet
-Before you initialise and run your gateway, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/nym-apps/wallet). 
+Before you initialise and run your gateway, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/wallet). 
 
 If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a gateway is 100 `NYM`, but make sure you have a bit more to account for gas costs. 
 
@@ -190,18 +189,7 @@ You can bond your gateway via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details. 
 
 #### Via the CLI (power users)
-
-Power users might wish to interact directly with the Mixnet smart contract itself. 
-
-You can do this via a call that looks like this via the validator binary. Below is an example command to execute this command on the mainnet:  
-
-```
-nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g 
-'{"bond_gateway":{"gateway":{"host":"HOST", "mix_port":1789, "verloc_port":1790, 
-"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY", 
-"version":"1.0.1"}, "owner_signature":"OWNER_SIG"}}' --from YOUR_ADDRESS 
---chain-id nyx --amount 100000000unym
-```
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
 
 ### Running your gateway (standard mode)
 
@@ -421,20 +409,9 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
-### Metrics 
-This is currently only one metrics endpoint for the gateway. It can be accessed via `curl` like this: 
+## Gateway related Validator API endpoints 
 
-```
-# For gateways on the Sandbox testnet
-curl https://sandbox-validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
-# For gateways on the Mainnet
-curl https://validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
-```
-
-This endpoint returns the number of times that the gateway has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network. 
-
-- `identity`: the identity key of the gateway. 
-- `count`: the number of times it has been used for network testing. 
+Numerous gateway related API endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
 ## Ports 
 
@@ -446,4 +423,3 @@ All gateway specific port configuration can be found in `$HOME/.nym/gateways/<yo
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
-

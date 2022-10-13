@@ -1,6 +1,6 @@
 ---
 sidebar_label: Websocket客户端
-hide_title: false
+hide_title:  false
 description: "How to run the Nym websocket client on a desktop or server machine."
 title: Websocket客户端
 ---
@@ -22,7 +22,7 @@ Nym Websocket 客户端是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)�
 
       Nym Client 1.0.1
       Nymtech
-      Implementation of the Nym Client
+      Implementation of the Nym client
 
       USAGE:
           nym-client [SUBCOMMAND]

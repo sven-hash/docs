@@ -1,7 +1,7 @@
 ---
 sidebar_label: Nym钱包
 description: "Install and use the Nym Wallet."
-hide_title: false
+hide_title:  false
 title: Nym钱包
 ---
 

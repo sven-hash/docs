@@ -1,7 +1,7 @@
 ---
 sidebar_label: 加密云存储
 description: "Install and use the File Storage Service Provider."
-hide_title: false
+hide_title:  false
 title: 加密云存储
 ---
 

@@ -1,6 +1,6 @@
 ---
 sidebar_label: Nym应用程序剖析
-hide_title: false
+hide_title:  false
 description: "Tutorials for building Privacy Enhanced Applications (or integrating existing apps with Nym)"
 title: Nym应用程序剖析
 ---

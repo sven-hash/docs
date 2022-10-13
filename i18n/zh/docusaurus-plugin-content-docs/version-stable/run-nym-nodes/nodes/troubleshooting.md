@@ -1,7 +1,7 @@
 ---
 sidebar_label: 常见问题和解决方案
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
-hide_title: false
+hide_title:  false
 title: 常见问题和解决方案
 ---
 

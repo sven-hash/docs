@@ -1,6 +1,6 @@
 ---
 sidebar_label: Socks5客户端
-hide_title: false
+hide_title:  false
 description: "How to run the Nym Socks5 client on a desktop or server machine."
 title: Socks5客户端
 ---

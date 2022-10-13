@@ -1,6 +1,6 @@
 ---
 sidebar_label: 网络奖励
-hide_title: false
+hide_title:  false
 ---
 
 # 网络奖励

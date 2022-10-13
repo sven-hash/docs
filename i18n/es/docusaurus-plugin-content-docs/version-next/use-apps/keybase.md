@@ -1,7 +1,7 @@
 ---
 sidebar_label: KeyBase
 description: "Puedes proteger tu tráfico de chat de KeyBase de los curiosos de la red utilizando el mixnet de Nym. Aquí se explica cómo"
-hide_title: false
+hide_title:  false
 title: Keybase
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Enlaces"
 description: "Aquí hay algunos enlaces que pueden resultar útiles para empezar a explorar Nym, y la comunidad Nym"
-hide_title: false
+hide_title:  false
 title: Enlaces
 ---
 

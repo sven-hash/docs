@@ -1,7 +1,7 @@
 ---
 sidebar_label: 链接
 description: "Here are some links that may prove handy as you start exploring Nym, and the Nym community."
-hide_title: false
+hide_title:  false
 title: 链接
 ---
 

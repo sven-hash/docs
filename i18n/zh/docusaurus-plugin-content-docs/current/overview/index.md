@@ -1,7 +1,7 @@
 ---
 sidebar_label: 介绍
 description: "Nym is a blockchain-based privacy platform. It provides strong network-level privacy against sophisticated end-to-end attackers, and anonymous access control using blinded, re-randomizable, decentralized credentials."
-hide_title: false
+hide_title:  false
 ---
 
 # Nym平台

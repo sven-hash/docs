@@ -1,7 +1,7 @@
 ---
 sidebar_label: Nym请求器
 description: "Run a requester proxy for the benefit of the community."
-hide_title: false
+hide_title:  false
 title: Nym请求器
 ---
 
