@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Comunidad"
-hide_title: false
+hide_title:  false
 description: "Algunos apuntes (que se van ampliando poco a poco) sobre el proyecto Nym, su comunidad y su gobernanza"
 title: Comunidad
 ---

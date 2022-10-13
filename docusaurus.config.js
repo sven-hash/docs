@@ -51,6 +51,21 @@ module.exports = {
         srcDark: 'img/docs/FAVICON_DARK.png'
       },
       items: [
+        { 
+          to: '/docs/stable/overview/', // this obviously needs to be created
+          label: 'Docs', 
+          position: 'left' 
+        },
+        // {
+        //   to: 'https://developers.nymtech.net', 
+        //   label: 'Developer Portal', 
+        //   position: 'left'
+        // },
+        { 
+          href: 'https://shipyard.nymtech.net', 
+          label: 'Shipyard (Grants)', 
+          position: 'left'
+        },
         {
           type: 'docsVersionDropdown',
           position: 'right',
@@ -59,16 +74,6 @@ module.exports = {
         { 
           type: 'localeDropdown',
           position: 'right',
-        },
-        { 
-          to: '/docs/stable/overview/', 
-          label: 'Docs', 
-          position: 'left' 
-        },
-        { 
-          href: 'https://shipyard.nymtech.net', 
-          label: 'Shipyard', 
-          position: 'left'
         },
         {
           href: 'https://github.com/nymtech',
@@ -81,52 +86,45 @@ module.exports = {
         },
       ],
     },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          items: [
-            {
-              label: 'Website',
-              href: 'https://nymtech.net/'
-            },
-            {
-              label: 'Keybase',
-              href: 'https://keybase.io/team/nymtech.friends',
-            },
-            {
-              label: 'Discord', 
-              href: 'https://Discord.gg/nym'
-            },
-          ],
-        },
-        {
-          items: [
-            {
-              href: 'https://github.com/nymtech',
-              label: 'GitHub',
-              position: 'right',
-            },
-            {
-              label: 'Telegram',
-              href: 'https://t.me/nymchan',
-            },
-            {
-              label: 'Blog',
-              href: 'https://medium.com/nymtech',
-            }
-          ],
-        },
-        {
-          items: [
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/nymproject/',
-            },
-          ]
-        },
-      ],
-    },
+    // footer: {
+    //   style: 'dark',
+    //   links: [
+        // {
+        //   items: [
+        //     {
+        //       label: 'Website',
+        //       href: 'https://nymtech.net/'
+        //     },
+        //     {
+        //       label: 'Keybase',
+        //       href: 'https://keybase.io/team/nymtech.friends',
+        //     },
+        //     {
+        //       label: 'Discord', 
+        //       href: 'https://Discord.gg/nym'
+        //     },
+        //   ],
+        // },
+        // {
+        //   items: [
+        //     {
+        //       href: 'https://github.com/nymtech',
+        //       label: 'GitHub',
+        //       position: 'right',
+        //     },
+        //     {
+        //       label: 'Telegram',
+        //       href: 'https://t.me/nymchan',
+        //     },
+        //     {
+        //       label: 'Blog',
+        //       href: 'https://medium.com/nymtech',
+        //     }
+        //   ],
+        // },
+
+    //   ],
+    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,

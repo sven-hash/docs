@@ -1,6 +1,6 @@
 ---
 sidebar_label: 了解Nym应用程序 
-hide_title: false
+hide_title:  false
 title: "了解Nym应用程序"
 ---
 

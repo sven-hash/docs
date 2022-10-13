@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Building Nym"
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
-hide_title: false
+hide_title:  false
 title: Building Nym
 ---
 
@@ -20,11 +20,11 @@ This page details how to build the main Nym platform code. **If you want to buil
 
 ### Prerequisites
 
-- (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`
+- (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`, `git`
 
 ```
 sudo apt update
-sudo apt install pkg-config build-essential libssl-dev curl jq
+sudo apt install pkg-config build-essential libssl-dev curl jq git
 ```
 
 - `Rust & cargo >= v1.56`
@@ -59,15 +59,14 @@ Quite a bit of stuff gets built. The key working parts are:
 
 1. the [mixnode](/docs/stable/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
 2. the [gateway node](/docs/stable/run-nym-nodes/nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/stable/developers/develop-with-nym/websocket-client): `nym-client`
-4. the [socks5 client](/docs/stable/developers/develop-with-nym/socks5-client): `nym-socks5-client`
+3. the [websocket client](/docs/stable/integrations/websocket-client): `nym-client`
+4. the [socks5 client](/docs/stable/integrations/socks5-client): `nym-socks5-client`
 5. the [network requester](/docs/stable/run-nym-nodes/nodes/requester): `nym-network-requester`
-6. the [network explorer api](/docs/stable/nym-apps/network-explorer): `explorer-api`
+6. the [network explorer api](/docs/stable/run-nym-nodes/nodes/network-explorer): `explorer-api`
 
-The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/nym-apps/wallet) and the [Network Explorer UI](docs/stable/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
+The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/wallet) and the [Network Explorer UI](docs/stable/run-nym-nodes/nodes/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
 
 :::note
 You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 
 :::
-
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Preguntas frecuentes sobre la solución de problemas de Mixnode"
 description: "Esta página le ayudará a encontrar respuestas a los problemas más comunes con la configuración y el mantenimiento de los mixnodes"
-hide_title: false
+hide_title:  false
 title: Preguntas frecuentes sobre la solución de problemas de Mixnode
 ---
 

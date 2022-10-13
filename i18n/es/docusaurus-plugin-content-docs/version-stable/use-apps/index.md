@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Use Apps"
 description: "Tutoriales para construir aplicaciones mejoradas de privacidad (o integrar apps existentes con Nym)"
-hide_title: false
+hide_title:  false
 title: Usar aplicaciones con Nym
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Coco"
 description: "Nym garantiza la privacidad del control de acceso mediante un sofisticado esquema de firma llamado Coconut"
-hide_title: false
+hide_title:  false
 title: Coconut
 ---
 

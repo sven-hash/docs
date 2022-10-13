@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Mixnodes"
 description: "Mixnodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
-hide_title: false
+hide_title:  false
 title: Mixnodes
 ---
 

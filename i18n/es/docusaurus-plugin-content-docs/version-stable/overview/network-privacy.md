@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Privacidad de la red"
 description: "Nym asegura la privacidad de la red utilizando paquetes Sphinx encriptados por capas y una red mixta Loopix"
-hide_title: false
+hide_title:  false
 title: Privacidad de la red
 ---
 

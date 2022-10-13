@@ -1,7 +1,7 @@
 ---
 sidebar_label: Electrum
 description: "Puedes proteger tus transacciones de Electrum de los curiosos de la red utilizando el mixnet de Nym. Aquí se explica cómo"
-hide_title: false
+hide_title:  false
 título: Electrum
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: 预构建的二进制文件
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
-hide_title: false
+hide_title:  false
 title: 预构建的二进制文件
 ---
 

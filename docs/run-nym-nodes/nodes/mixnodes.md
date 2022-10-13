@@ -2,7 +2,6 @@
 sidebar_label: "Mix nodes"
 description: "Mix nodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 hide_title: false
-title: Mix nodes
 ---
 
 :::note
@@ -24,7 +23,7 @@ There are a couple of steps that need completing before starting to set up your 
 
 #### Mainnet
 
-Before you initialise and run your mixnode, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/nym-apps/wallet).
+Before you initialise and run your mixnode, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/wallet).
 
 If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a mixnode is 100 `NYM`, but make sure you have a bit more to account for gas costs.
 
@@ -191,18 +190,7 @@ You can bond your mix node via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details.
 
 #### Via the CLI (power users)
-
-Power users might wish to interact directly with the Mixnet smart contract itself.
-
-You can do this via a call that looks like this via the validator binary. Below is an example command to execute this command on the mainnet:
-
-```
-nyxd tx wasm execute n14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sjyvg3g
-'{"bond_mixnode":{"mix_node":{"host":"HOST", "mix_port":1789, "verloc_port":1790,
-"http_api_port":8000, "sphinx_key":"SPHINX_KEY", "identity_key":"IDENTITY_KEY",
-profit_margin_percent":PROFIT_MARGIN, "version":"1.0.1"}, "owner_signature":"OWNER_SIG"}}'
---from YOUR_ADDRESS --chain-id nyx --amount 100000000unym
-```
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
 
 ### Running your mix node
 
@@ -475,16 +463,27 @@ The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 -
 
 This will bind the mix node to the available host `10.126.5.7`, but announce the mix node's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
-## Metrics
+## Metrics / API endpoints
 
-Here is an overview of the commands for getting information about a particular node via `curl`:
+The mix node binary exposes several API endpoints that can be pinged in order to gather information about the node, and the Validator API exposes numerous mix node related endpoints which provide network-wide information about mix nodes, the network topology (the list of avaliable mix nodes for packet routing), and information regarding uptime monitoring and rewarding history. 
+
+### Mix node API endpoints 
+
+Since the mix node binary exposes several API endpoints itself, you can ping these easily via curl: 
 
 | Endpoint             | Description                                                                           | Command                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `/description`       | Returns the description of the node set with the `describe` command                   | `curl <NODE_IP_ADDRESS>:8000/description`                                              |
 | `/hardware`          | Returns the hardware information of the node                                          | `curl <NODE_IP_ADDRESS>:8000/hardware`                                                 |
 | `/verloc`            | Returns the verloc information of the node, updated every 12 hours                    | `curl <NODE_IP_ADDRESS>:8000/verloc`                                                   |
-| `/report`            | Returns the most recent node status test report                                       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
+
+The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/develop/mixnode/src/node/http). 
+
+### Mix node related Validator API endpoints 
+
+Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
+
+<!-- | `/report`            | Returns the most recent node status test report                                       | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/report`            |
 | `/history`           | Returns all previous test reports                                                     | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/history`           |
 | `/status`            | Returns the status of the node                                                        | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/status`            |
 | `/reward-estimation` | Returns various reward estimation statistics                                          | `curl https://validator.nymtech.net/api/v1/status/mixnode/<NODE_ID>/reward-estimation` |
@@ -532,7 +531,7 @@ This endpoint returns different metrics returned regarding your mixnode's curren
 This endpoint returns the number of times that the node has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network.
 
 - `identity`: the identity key of the mixnode.
-- `count`: the number of times it has been used for network testing.
+- `count`: the number of times it has been used for network testing. -->
 
 ## Ports 
 

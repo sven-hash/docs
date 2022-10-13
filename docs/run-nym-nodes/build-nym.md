@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Building Nym"
 description: "How to build the Nym platform. Nym is relatively simple to build and run on Mac OS X, Linux, and Windows."
-hide_title: false
+hide_title:  false
 title: Building Nym
 ---
 
@@ -59,12 +59,12 @@ Quite a bit of stuff gets built. The key working parts are:
 
 1. the [mixnode](/docs/next/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
 2. the [gateway node](/docs/next/run-nym-nodes/nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/next/developers/develop-with-nym/websocket-client): `nym-client`
-4. the [socks5 client](/docs/next/developers/develop-with-nym/socks5-client): `nym-socks5-client`
+3. the [websocket client](/docs/next/integrations/websocket-client): `nym-client`
+4. the [socks5 client](/docs/next/integrations/socks5-client): `nym-socks5-client`
 5. the [network requester](/docs/next/run-nym-nodes/nodes/requester): `nym-network-requester`
-6. the [network explorer api](/docs/next/nym-apps/network-explorer): `explorer-api`
+6. the [network explorer api](/docs/next/run-nym-nodes/nodes/network-explorer): `explorer-api`
 
-The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/next/nym-apps/wallet) and the [Network Explorer UI](docs/next/nym-apps/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
+The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/next/wallet) and the [Network Explorer UI](docs/next/run-nym-nodes/nodes/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
 
 :::note
 You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 

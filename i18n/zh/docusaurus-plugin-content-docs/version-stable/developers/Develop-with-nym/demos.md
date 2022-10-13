@@ -1,6 +1,6 @@
 ---
 sidebar_label: 演示样例
-hide_title: false
+hide_title:  false
 description: "Example code for interacting with the Nym privacy network, in multiple languages."
 title: 演示样例
 ---

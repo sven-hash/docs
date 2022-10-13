@@ -1,215 +1,194 @@
 {
-    "version-stable/sidebar": [
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Overview",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/overview/index"
+  "version-stable/sidebar": [
+    {
+          "type": "doc",
+          "id": "version-stable/overview"
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Architecture",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/architecture/network-overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/architecture/traffic-flow"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/architecture/loopix"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/architecture/nym-other-systems"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "label": "Quick Start",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/quickstart/socks5"
+        },
+        {
+          "type": "doc", 
+          "id": "version-stable/quickstart/nym-connect"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Integrations",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/integrations/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/integrations/mixnet-integration-overview"
+        },{
+          "type": "doc",
+          "id": "version-stable/integrations/choose-a-client"
+        },
+        {
+              "type": "category",
+              "collapsed": true,
+              "collapsible": true,
+              "label": "Clients",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-stable/integrations/websocket-client"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-stable/integrations/socks5-client"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-stable/integrations/wasm-client"
+                }
+              ]
           },
           {
-            "type": "doc",
-            "id": "version-stable/overview/nym-platform"
+            "type":"doc",
+            "id": "version-stable/integrations/addresses-in-nym"
           },
           {
-            "type": "doc",
-            "id": "version-stable/overview/network-privacy"
+            "type":"doc",
+            "id": "version-stable/integrations/demos"
           },
           {
-            "type": "doc",
-            "id": "version-stable/overview/nym-other-systems"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/overview/private-access-control"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/overview/links"
+            "type":"doc",
+            "id": "version-stable/integrations/payment-integration-overview"
           }
         ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Developers",
-        "items": [
-                    {
-                      "type": "doc",
-                      "id": "version-stable/developers/getting-started"
-                    },
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Nym Mixnet",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/understanding-nym-apps"
-                        },
-                        {
-                          "type": "doc", 
-                          "id": "version-stable/developers/develop-with-nym/anatomy-of-nym-apps"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/choose-a-client"
-                        },
-                        {
-                          "type": "category",
-                          "collapsed": true,
-                          "collapsible": true,
-                          "label": "Clients",
-                          "items": [
-                            {
-                              "type": "doc",
-                              "id": "version-stable/developers/develop-with-nym/websocket-client"
-                            },
-                            {
-                              "type": "doc", 
-                              "id": "version-stable/developers/develop-with-nym/socks5-client"
-                            },
-                            {
-                              "type": "doc", 
-                              "id": "version-stable/developers/develop-with-nym/wasm-client"
-                            }                          ]
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nym/addresses-in-nym"
-                        }
-                      ]
-                    }, 
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Nyx Blockchain",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/developers/develop-with-nyx/overview"
-                        }
-                      ]
-                    }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Node Operators",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/incentives"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/pre-built-binaries"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/run-nym-nodes/build-nym"
-          },
-          {
-            "type": "category",
-            "collapsed": true,
-            "collapsible": true,
-            "label": "Nodes",
-            "items": [
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/mixnodes"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/troubleshooting"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/gateways"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/requester"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/file-storage"
-              },
-              {
-                "type": "doc",
-                "id": "version-stable/run-nym-nodes/nodes/validators"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Applications",
-        "items": [
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Nym Apps",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/nym-apps/wallet"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/nym-apps/network-explorer"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "category",
-                      "collapsed": true,
-                      "collapsible": true,
-                      "label": "Connect Apps",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "version-stable/use-external-apps/index"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "version-stable/use-external-apps/examples"
-                        }
-                      ]
-                    }
-        ]
-      },
-      {
-        "type": "category",
-        "collapsed": true,
-        "collapsible": true,
-        "label": "Community",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-stable/community/index"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/community/code-of-conduct"
-          },
-          {
-            "type": "doc",
-            "id": "version-stable/community/licensing"
-          }
-        ]
-      }
-    ]
-  }
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Run Nodes",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/run-nym-nodes/pre-built-binaries"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/run-nym-nodes/build-nym"
+        },
+        {
+          "type": "category",
+          "collapsed": true,
+          "collapsible": true,
+          "label": "Nodes",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/mixnodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/gateways"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/requester"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/file-storage"
+            },
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/validators"
+            }, 
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/rpc-node"
+            }, 
+            {
+              "type": "doc",
+              "id": "version-stable/run-nym-nodes/nodes/network-explorer"
+            }
+          ]
+        },
+        {
+          "type": "doc", 
+          "id": "version-stable/run-nym-nodes/network-rewards"
+        }
+      ]
+    },
+    {
+          "type": "doc", 
+          "id": "version-stable/wallet"
+    }, 
+    {
+          "type": "doc", 
+          "id": "version-stable/nym-cli"
+    },
+    {
+          "type": "doc", 
+          "id": "version-stable/coconut"
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Community",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/community/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/community/code-of-conduct"
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/community/licensing"
+        }
+      ]
+    }
+  ]
+}

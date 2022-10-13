@@ -1,7 +1,7 @@
 ---
 sidebar_label: 地址系统
 description: "How addresses operate in Nym"
-hide_title: false
+hide_title:  false
 title: 地址系统
 
 ---

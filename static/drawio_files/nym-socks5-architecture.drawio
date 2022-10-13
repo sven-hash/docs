@@ -105,7 +105,7 @@
                 <mxCell id="FZZbGPHIDtacTVHWTllX-1413" value="&lt;h1&gt;Network Requester&lt;/h1&gt;&lt;p&gt;Makes requests on your behalf, and sends the response back through the mixnet.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="640" y="414" width="190" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="FZZbGPHIDtacTVHWTllX-1414" value="&lt;h1&gt;Nym Client&lt;/h1&gt;&lt;p&gt;Acts as a sending/receiving address for the Network Requester. Communicates with the mixnet.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                <mxCell id="FZZbGPHIDtacTVHWTllX-1414" value="&lt;h1&gt;Nym client&lt;/h1&gt;&lt;p&gt;Acts as a sending/receiving address for the Network Requester. Communicates with the mixnet.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="640" y="65" width="190" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="FZZbGPHIDtacTVHWTllX-1415" value="&lt;h1&gt;External systems&lt;/h1&gt;&lt;p&gt;The things Alice wants to interact with.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">

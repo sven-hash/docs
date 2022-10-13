@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Cliente Websocket"
-hide_title: false
+hide_title:  false
 description: "Cómo ejecutar el cliente de websocket Nym en una máquina de escritorio o servidor"
 title: Cliente Websocket
 ---

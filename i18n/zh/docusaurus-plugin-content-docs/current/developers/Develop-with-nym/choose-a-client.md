@@ -1,6 +1,6 @@
 ---
 sidebar_label: 选择你的客户端
-hide_title: false
+hide_title:  false
 description: "There are multiple kinds of Nym client. Each is useful in different situations. Here's how to choose."
 title: 选择你的客户端
 ---

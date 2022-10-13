@@ -1,7 +1,7 @@
 ---
 sidebar_label: Solicitantes
 description: "Ejecutar un proxy de solicitantes en beneficio de la comunidad"
-hide_title: false
+hide_title:  false
 title: Solicitante 
 ---
 
