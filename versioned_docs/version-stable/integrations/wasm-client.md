@@ -16,7 +16,7 @@ npm i @nymproject/nym-client-wasm
 
 The `nym-client-wasm` package allows easy creation of Sphinx packets from within mobile apps and browser-based client-side apps (including Electron or similar). Browser extensions should also work.
 
-The webassembly client lets you deliver web apps that build and send Sphinx packets solely in a web browser window. However, note that all the normal constraints of [browser-based key storage](https://pomcor.com/2017/06/02/keys-in-browser/) and same-origin rules (which are there for good reason) make it difficult to structure pure webapps apps securely. We are still assessing what can be done here.
+The webassembly client lets you deliver web apps that build and send Sphinx packets solely in a web browser window. 
 
 ### Building apps with nym-client-wasm
 
