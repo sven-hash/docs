@@ -38,7 +38,7 @@ Traffic always travels through the nodes of the mixnet like such:
   alt="Overview diagram of the Nym network"
   sources={{
     light: useBaseUrl('/img/docs/traffic-flow.png'),
-    dark: useBaseUrl('/img/docs/traffic-flow.png'),
+    dark: useBaseUrl('/img/docs/traffic-flow-dark.png'),
   }}
 />
 
