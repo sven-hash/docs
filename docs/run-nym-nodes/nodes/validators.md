@@ -95,7 +95,7 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
     </pre>
       <pre>
       <code>
-        WASMD_VERSION=v0.26.0
+        WASMD_VERSION=v0.26.1
       </code>
     </pre>
         <pre>
@@ -127,8 +127,8 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
 Then run this to clone, compile, and build your validator:
 
 ```
-git clone https://github.com/CosmWasm/wasmd.git
-cd wasmd
+git clone git@github.com:nymtech/dragonberry-nymd.git
+cd dragonberry-nymd
 git checkout ${WASMD_VERSION}
 mkdir build
 go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=dc5ef6fe84f0a5e3b0894692a18cc48fb5b00adf -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
@@ -149,10 +149,10 @@ Both the `nymd` or `nyxd` binary and the `libwasmvm.so` shared object library bi
 If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.**
 :::
 
-To locate these files on your local system run:
+To locate these files on your local system run (replace `nyxd` with `nymd` for Sandbox testnet builds):
 
 ```
-WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
+WASMVM_SO=$(ldd build/nyxd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}      
 ```
 
