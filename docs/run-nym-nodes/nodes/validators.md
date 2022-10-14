@@ -39,7 +39,7 @@ git version
 sudo rm -rf /usr/local/go
 
 # Install correct Go version
-curl https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+curl https://dl.google.com/go/go1.19.2.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
 
 # Update environment variables to include go
 cat <<'EOF' >>$HOME/.profile
@@ -55,7 +55,7 @@ Verify `Go` is installed with:
 
 ```
 go version
-# Should return: go version go1.17.5 linux/amd64
+# Should return: go version go1.19.2 linux/amd64
 ```
 
 - `gcc`
@@ -127,8 +127,8 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
 Then run this to clone, compile, and build your validator:
 
 ```
-git clone git@github.com:nymtech/dragonberry-nymd.git
-cd dragonberry-nymd
+git clone git@github.com:nymtech/nyxd.git
+cd nyxd
 git checkout ${WASMD_VERSION}
 mkdir build
 go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=dc5ef6fe84f0a5e3b0894692a18cc48fb5b00adf -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
