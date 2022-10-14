@@ -39,7 +39,7 @@ git version
 sudo rm -rf /usr/local/go
 
 # Install correct Go version
-curl https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+curl https://dl.google.com/go/go1.19.2.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
 
 # Update environment variables to include go
 cat <<'EOF' >>$HOME/.profile
@@ -55,7 +55,7 @@ Verify `Go` is installed with:
 
 ```
 go version
-# Should return: go version go1.17.5 linux/amd64
+# Should return: go version go1.19.2 linux/amd64
 ```
 
 - `gcc`
@@ -95,7 +95,7 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
     </pre>
       <pre>
       <code>
-        WASMD_VERSION=v0.26.0
+        WASMD_VERSION=v0.26.1
       </code>
     </pre>
         <pre>
@@ -127,8 +127,8 @@ We use the `wasmd` version of the Cosmos validator to run our blockchain. First 
 Then run this to clone, compile, and build your validator:
 
 ```
-git clone https://github.com/CosmWasm/wasmd.git
-cd wasmd
+git clone git@github.com:nymtech/nyxd.git
+cd nyxd
 git checkout ${WASMD_VERSION}
 mkdir build
 go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags "netgo,ledger" -ldflags "-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=dc5ef6fe84f0a5e3b0894692a18cc48fb5b00adf -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \"github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\"" -trimpath ./cmd/wasmd
@@ -149,10 +149,10 @@ Both the `nymd` or `nyxd` binary and the `libwasmvm.so` shared object library bi
 If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.**
 :::
 
-To locate these files on your local system run:
+To locate these files on your local system run (replace `nyxd` with `nymd` for Sandbox testnet builds)::
 
 ```
-WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }')
+WASMVM_SO=$(ldd build/nyxd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}      
 ```
 
@@ -268,7 +268,7 @@ there is no way to deterministically (re)generate this key.
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     Edit the following config options in <code>$HOME/.nyxd/config/config.toml</code> to match the information below:
     <pre>
-      persistent_peers = "dc0af6cde717420e9f8d35a3e0883aee0e5dbff3@15.235.14.66:26656" 
+      persistent_peers = "ee03a6777fb76a2efd0106c3769daaa064a3fcb5@51.79.21.187:26656" 
     </pre>
     <pre>
       create_empty_blocks = false 
