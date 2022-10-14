@@ -268,7 +268,7 @@ there is no way to deterministically (re)generate this key.
     <TabItem value="mainnet" label="Nyx (Mainnet)">
     Edit the following config options in <code>$HOME/.nyxd/config/config.toml</code> to match the information below:
     <pre>
-      persistent_peers = "dc0af6cde717420e9f8d35a3e0883aee0e5dbff3@15.235.14.66:26656" 
+      persistent_peers = "ee03a6777fb76a2efd0106c3769daaa064a3fcb5@51.79.21.187:26656" 
     </pre>
     <pre>
       create_empty_blocks = false 
