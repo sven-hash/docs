@@ -534,15 +534,15 @@ You will most likely want to automate your validator restarting if your server r
 
 ```ini
 [Unit]
-Description=Nymd (1.0.1)
+Description=Nyxd (1.0.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
 [Service]
 User=nym                                                          # change to your user
 Type=simple
-Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nym/binaries" # change to correct path
-ExecStart=/home/youruser/path/to/nym/binaries/nymd start          # change to correct path
+Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nyxd/binaries" # change to correct path
+ExecStart=/home/youruser/path/to/nyxd/binaries/nyxd start          # change to correct path
 Restart=on-failure
 RestartSec=30
 LimitNOFILE=infinity
