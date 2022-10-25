@@ -29,7 +29,7 @@ If you don't have server admin skills, or the desire to write a PEAP, you can st
 The Nym core team is small, and we are thrilled to get help from the wider community.
 
 ##### Technical
-
+g
 - Rust
 - JavaScript
 - HTML/CSS work
