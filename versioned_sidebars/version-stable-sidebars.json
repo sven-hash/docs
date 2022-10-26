@@ -189,6 +189,10 @@
           "id": "version-stable/community/licensing"
         }
       ]
+    },
+    {
+      "type": "doc", 
+      "id": "version-stable/glossary"
     }
   ]
 }
