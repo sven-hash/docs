@@ -17,7 +17,7 @@ In this documentation, you will:
 
 This video is a short introduction into the next generation of global privacy.
 
-<iframe width="560" height="380" src="https://www.youtube.com/watch?v=JUyIbKccMi0&t=76s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="380" src="https://www.youtube.com/embed/JUyIbKccMi0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br /><br />
 
 If you are new to Nym, and want to learn about how to quickly connect to the mixnet check out the [Quick Start](/docs/stable/quickstart/overview) section. 
