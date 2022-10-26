@@ -83,6 +83,6 @@ module.exports = {
         "community/licensing",
       ],
     },
-    "Glossary"
+    "glossary"
   ],
 };
