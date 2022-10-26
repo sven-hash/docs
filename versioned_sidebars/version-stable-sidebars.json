@@ -25,7 +25,11 @@
         {
           "type": "doc",
           "id": "version-stable/architecture/nym-other-systems"
-        }
+        },
+        {
+          "type": "doc",
+          "id": "version-stable/architecture/links"
+        },
       ]
     },
     {

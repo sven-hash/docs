@@ -10,6 +10,7 @@ module.exports = {
         "architecture/traffic-flow",
         "architecture/loopix",
         "architecture/nym-other-systems",
+        "architecture/links",
       ],
     },
     {
