@@ -83,7 +83,7 @@ module.exports = {
         "community/licensing",
       ],
     },
-    "glossary",
+    // "glossary",
     "links"
   ],
 };
