@@ -5,7 +5,6 @@ description: "Some (slowly expanding) notes on the Nym project, its community an
 title: Community
 ---
 
- 
 
 ### Get involved!
 

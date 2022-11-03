@@ -345,3 +345,25 @@ All requester-specific port configuration can be found in `$HOME/.nym/clients/<Y
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
+
+
+## Testing your Network Requester
+
+1. Add `nymtech.net` to your `allowed.list` (remember to restart you Network Requester). 
+
+2. Initialise a local socks5 client with the address of your NR as the --provider, following instructions [here](https://docs.nymtech.net/docs/stable/integrations/socks5-client)
+
+3. In another terminal window, run the following: 
+
+```
+curl -x socks5h://localhost:1080 https://nymtech.net/.wellknown/connect/healthcheck.json 
+```
+
+This command should return the following:
+
+<details>
+  <summary>console output</summary>
+
+{ "status": "ok" }
+
+</details>

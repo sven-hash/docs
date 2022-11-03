@@ -9,7 +9,7 @@ module.exports = {
         "architecture/network-overview",
         "architecture/traffic-flow",
         "architecture/loopix",
-        "architecture/nym-other-systems",
+        "architecture/nym-other-systems"
       ],
     },
     {
@@ -83,5 +83,7 @@ module.exports = {
         "community/licensing",
       ],
     },
+    // "glossary",
+    "links"
   ],
 };

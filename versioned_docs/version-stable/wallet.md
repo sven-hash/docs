@@ -201,3 +201,26 @@ Binary output directory structure
 │   │─  nym-wallet_*_.msi
 ```
 
+### Importing or creating account(s) when you have signed in with mnemonic
+
+To import or create a new account, first you need to create a password for your wallet:
+
+1. Log out of your wallet
+2. Click on “Sign in with mnemonic”
+3. On the next screen select “Create a password for your account”
+4. Sign in to the wallet with your new password
+5. Click on your account name, you can now create new accounts or import existing ones  
+
+### Importing or creating account(s) when you have signed in with mnemonic but a password already exists on your machine
+
+To import or create a new account, you need to log in with your existing password or create a new password. 
+
+:::note
+Creating a new password will overwrite any old one stored on your machine. Make sure you have saved any mnemonics associated with the password before creating a new one.
+:::
+
+1. Log out
+2. Click on “Forgot password” 
+3. On the next screen select “Create new password”
+4. Follow the instructions and create a new password
+5. Sign in using your new password
