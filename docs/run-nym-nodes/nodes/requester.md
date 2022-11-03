@@ -345,3 +345,34 @@ All requester-specific port configuration can be found in `$HOME/.nym/clients/<Y
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
+
+
+## Testing your Network Requester
+### What is the connectivity checking script? 
+
+This is a script that is simply looping through the list of Network Requesters used by NymConnect are found [here](https://nymtech.net/.wellknown/connect/service-providers.json), starting a local socks5 client for each, and then using `curl` to retrieve a piece of json data located [here](https://nymtech.net/.wellknown/connect/healthcheck.json).
+
+The script is being run on a VPS once a day, starting at 06:00 CEST. It takes an indeterminate amount of time to run, as currently the Network Requester doesn't send error messages back to the Nym Client if it is unable to connect (e.g. if the domain you're attempting to ping is not on the `allowed.list`), so it has to wait for an unsuccessful connection to timeout before moving onto the next NR in the list. 
+
+### Why your NR might be failing this connectivity check?
+
+If you are able to regularly connect to your NR service (e.g. use telegram locally via your Network Requester) but your node is failing the connectivity check for days in a row please check you have whitelisted `nymtech.net` and restarted your NR service.
+
+### How you can check your NR yourself?
+
+1. Initialise a local socks5 client with the address of your NR as the --provider, following instructions [here](https://docs.nymtech.net/docs/stable/integrations/socks5-client)
+
+2. In another terminal window, run the following: 
+
+```
+curl -x socks5h://localhost:1080 https://nymtech.net/.wellknown/connect/healthcheck.json 
+```
+
+This command should return the following:
+
+<details>
+  <summary>console output</summary>
+
+{ "status": "ok" }
+
+</details>
