@@ -165,7 +165,7 @@ This will then start the Wallet GUI and produce a binary in `nym-wallet/target/d
 Make sure you copy over the contents of the provided `.env.sample` to a new `.env` file before proceeding
 :::
 
-To build and install the wallet, run the following terminal command from the `nym-wallet` folder
+To build and install the wallet, run the following terminal command from the `nym-wallet` folder.
 
 ```
 yarn build
@@ -224,3 +224,17 @@ Creating a new password will overwrite any old one stored on your machine. Make 
 3. On the next screen select “Create new password”
 4. Follow the instructions and create a new password
 5. Sign in using your new password
+
+### CLI tool for wallet encrypted file (password) recovery:
+
+The mnemonics that are stored in the local password protected file can also be decrypted and recovered through a simple CLI tool, ``nym-wallet-recovery-cli``. 
+
+```
+nym-wallet-recovery –file saved-wallet.json –password foo
+```
+
+The saved wallet file can be found in `$XDG_DATA_HOME` or `$HOME/.local/share` on Linux, `$HOME/Library/Application Support` on Mac, and `C:\Users\username\AppData\Local` on Windows.
+
+
+
+
