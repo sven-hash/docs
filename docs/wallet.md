@@ -225,9 +225,9 @@ Creating a new password will overwrite any old one stored on your machine. Make 
 4. Follow the instructions and create a new password
 5. Sign in using your new password
 
-### CLI tool for wallet encryted file (password) recovery:
+### CLI tool for wallet encrypted file (password) recovery:
 
-The mnemonics that are stored in the local password protected file can also be decrypted and recovered through a simple CLI tool, nym-wallet-recovery-cli. 
+The mnemonics that are stored in the local password protected file can also be decrypted and recovered through a simple CLI tool, ``nym-wallet-recovery-cli``. 
 
 ```
 nym-wallet-recovery –file saved-wallet.json –password foo
