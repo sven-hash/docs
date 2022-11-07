@@ -10,7 +10,6 @@ title: Websocket client
 The Nym Websocket Client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
-
 ### Viewing command help
 
 You can check that your binaries are properly compiled with:
@@ -88,7 +87,7 @@ There is an optional `--gateway` flag that you can use if you want to use a spec
 
 Not passing this argument will randomly select a gateway for your client.
 
-
+### Configuration
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
 ```
@@ -100,9 +99,10 @@ When you initalise a client instance, a configuration directory will be generate
     └── public_identity.pem
 ```
 
-The file `config.toml` contains client configuration options, while the two `pem` files contain client key information.
+The `config.toml` file contains client configuration options, while the two `pem` files contain client key information.
 
-The generated files contain the client name, public/private keypairs, and gateway address. The name `<client_id>` in the example above is just a local identifier so that you can name your clients; it is **never** transmitted over the network.
+The generated files contain the client name, public/private keypairs, and gateway address. The name `<client_id>` in the example above is just a local identifier so that you can name your clients.
+
 
 ### Running the native client
 
@@ -112,68 +112,26 @@ You can run the initalised client by doing this:
 ./nym-client run --id <client_id>
 ```
 
-When you run the client, it immediately starts generating (fake) cover traffic and sending it to the Nym testnet.
-
-Congratulations, you have just contributed a tiny bit of privacy to the world! `<CTRL-C>` to stop the client.
+When you run the client, it immediately starts generating (fake) cover traffic and sending it to the mixnet.
 
 When the client is first started, it will reach out to the Nym network's validators, and get a list of available Nym nodes (gateways, mixnodes, and validators). We call this list of nodes the network _topology_. The client does this so that it knows how to connect, register itself with the network, and know which mixnodes it can route Sphinx packets through.
 
+### Connecting to the local websocket
 
-#### Connecting to the local websocket
+The Nym native client exposes a websocket interface that your code connects to. To program your app, choose a websocket library for whatever language you're using. The **default** websocket port is `1977`, you can override that in the client config if you want.
 
-The Nym native client exposes a websocket interface that your code connects to. To program your app, choose a websocket library for whatever language you're using. The default websocket port is `1977`, you can override that in the client config if you want.
+The Nym monorepo includes websocket client example code for Rust, Go, Javacript, and Python, all of which can be found [here](https://github.com/nymtech/nym/tree/develop/clients/native/examples)
 
-<!-- ### A simple example PEAP
+> Rust users can run the examples with `cargo run --example <rust_file>.rs`, as the examples are not organised in the same way as the other examples, due to already being inside a cargo project. 
 
-Let's write some code. Sometimes when you're learning something new it's easiest to see a short working example. Here's a simple app written in Python. This example is packaged with the Nym platform, dig around in the `python-examples` directory inside `clients/native`
+All of these code examples will do the following: 
+1. connect to a running websocket client on port 1977
+2. format a message to send in either JSON or Binary format. Nym messages have defined JSON formats.
+3. send the message into the websocket. The native client packages the message into a Sphinx packet and sends it to the mixnet
+4. wait for confirmation that the message hit the native client
+5. wait to receive messages from other Nym apps
 
-```python
-import asyncio
-import json
-import websockets
-
-self_address_request = json.dumps({"type": "selfAddress"})
-
-
-async def send_text():
-    message = "Hello Nym!"
-
-    uri = "ws://localhost:1977"
-    async with websockets.connect(uri) as websocket:  # 1
-        await websocket.send(self_address_request)
-        self_address = json.loads(await websocket.recv())
-        print("our address is: {}".format(self_address["address"]))
-
-        text_send = json.dumps(
-            {  # 2
-                "type": "send",
-                "message": message,
-                "recipient": self_address["address"],
-            }
-        )
-
-        print("sending '{}' over the mix network...".format(message))
-        await websocket.send(text_send)  # 3
-        msg_send_confirmation = json.loads(await websocket.recv())  # 4
-        assert msg_send_confirmation["type"], "send"
-
-        print("waiting to receive a message from the mix network...")
-        received_message = await websocket.recv()  # 5
-        print("received {} from the mix network!".format(received_message))
-
-
-asyncio.get_event_loop().run_until_complete(send_text())
-```
-
-The Python code does the following.
-
-1. connects to the websocket on port 1977
-2. formats a message to send. Nym messages have defined JSON formats.
-3. sends the message into the websocket. The native client packages the message into a Sphinx packet and sends it to the mixnet
-4. waits for confirmation that the message hit the native client
-5. waits to receive messages from other Nym apps
-
-By varying the message content, you can easily build sophisticated Service Provider apps. For example, instead of `print("received {} from the mix network!".format(received_message))` your Service Provider might take some action on behalf of the user - perhaps initiating a network request, a blockchain transaction, or writing to a local data store. -->
+By varying the message content, you can easily build sophisticated Service Provider apps. For example, instead of printing the response received from the mixnet, your Service Provider might take some action on behalf of the user - perhaps initiating a network request, a blockchain transaction, or writing to a local data store.
 
 ### Message Types
 
@@ -187,7 +145,7 @@ If you want to send text information through the mixnet, format a message like t
 {
   "type": "send",
   "message": "the message",
-  "recipient_address": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
+  "recipient": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
 }
 ```
 
@@ -197,10 +155,10 @@ In some applications, e.g. where people are chatting with friends who they know,
 {
   "type": "send",
   "message": {
-    "sender": "198427b63ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm",
+    "recipient": "198427b63ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm",
     "chatMessage": "hi julia!"
   },
-  "recipient_address": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
+  recipient: "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
 }
 ```
 
@@ -210,30 +168,36 @@ This provides an easy way for the receiving chat to then turn around and send a 
 {
   "type": "send",
   "message": {
-    "sender": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm",
+    "recipient": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm",
     "chatMessage": "winston, so lovely to hear from you! shall we meet at the antiques shop?"
   },
-  "recipient_address": "198427b63ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
+  "sender": "198427b63ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
 }
 ```
 
-If that fits your security model, good. However, it may be the case that you want to send anonymous replies using Single Use Reply Blocks, or _surbs_. These will be available soon.
+If that fits your security model, good. However, it may be the case that you want to send **anonymous replies using Single Use Reply Blocks (SURBs)**.
+
+```json
+{
+    type: send, 
+    message: {
+      recipient: 71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm 
+      chatMessage: "something you want to keep secret"
+      withReplySurb: true
+    }
+}
+```
+You can read more about SURBs [here](/docs/stable/architecture/traffic-flow#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address! 
+
 
 #### Sending binary data
 
-*The provided links reference a certain version of Nym, please look for the up-to-date versions of the referenced code
-parts if you have any problems.*
-
 You can also send bytes instead of JSON. For that you have to send a binary websocket frame containing a binary encoded
-Nym [`ClientRequest`](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L36).
-For the correct encoding please refer to the [rust reference implementation](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/requests.rs#L216)
-as it is likely to change in the future.
+Nym [`ClientRequest`](https://github.com/nymtech/nym/blob/develop/clients/native/websocket-requests/src/requests.rs#L25) containing the same information. 
 
-As a response the `native-client` will send a `ServerResponse`, which can be decoded in a similar manner, please refer
-to the [rust implementation](https://github.com/nymtech/nym/blob/6f8ae53f0c47aa82b14e96bc313f47643c505063/clients/native/websocket-requests/src/responses.rs#L286)
-for further details.
+As a response the `native-client` will send a `ServerResponse` to be decoded. 
 
-One example project from the Nym community using the binary API is [BTC-BC](https://github.com/sgeisler/btcbc-rs/): Bitcoin transaction transmission via Nym, client and service provider written in Rust.
+You can find examples of sending and receiving binary data in the Rust, Python and Go [code examples](https://github.com/nymtech/nym/tree/develop/clients/native/examples), and an example project from the Nym community [BTC-BC](https://github.com/sgeisler/btcbc-rs/): Bitcoin transaction transmission via Nym, a client and service provider written in Rust.
 
 #### Receiving messages
 
@@ -277,4 +241,5 @@ Errors from the app's client, or from the gateway, will be sent down the websock
   "type": "error",
   "message": "string message"
 }
-```
+
+
