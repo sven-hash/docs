@@ -122,7 +122,7 @@ The Nym native client exposes a websocket interface that your code connects to. 
 
 The Nym monorepo includes websocket client example code for Rust, Go, Javacript, and Python, all of which can be found [here](https://github.com/nymtech/nym/tree/develop/clients/native/examples)
 
-> Rust users can run the examples with `cargo run --example <rust_file>.rs`, as the examples are not organised in the same way as the other examples, due to already being inside a cargo project. 
+> Rust users can run the examples with `cargo run --example <rust_file>.rs`, as the examples are not organised in the same way as the other examples, due to already being inside a Cargo project. 
 
 All of these code examples will do the following: 
 1. connect to a running websocket client on port 1977
@@ -225,5 +225,5 @@ Errors from the app's client, or from the gateway, will be sent down the websock
   "type": "error",
   "message": "string message"
 }
-
+```
 
