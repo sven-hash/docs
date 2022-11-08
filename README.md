@@ -15,6 +15,10 @@ The directory structure produced by Docusaurus (see below) can be initially conf
 
 > All of the raw diagram files are located in `static/drawio_files/`. VSCode has a nice [plugin](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) for editing [draw.io](https://app.diagrams.net/) files directly in your editor, or you can edit in the browser. 
 
+## Note on versioning 
+
+If you are documenting a new component version, make sure to include the new version on the version compatibility table in `compatibility-table.md`.  
+
 ## Building
 
 This site is built with [Docusaurus](https://docusaurus.io/), which is managed via `npm`. 
