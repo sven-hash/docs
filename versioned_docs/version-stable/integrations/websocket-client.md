@@ -149,29 +149,16 @@ If you want to send text information through the mixnet, format a message like t
 }
 ```
 
-In some applications, e.g. where people are chatting with friends who they know, you might want to include unencrypted reply information in the message field, like so:
+In some applications, e.g. where people are chatting with friends who they know, you might want to include unencrypted reply information in the message field. This provides an easy way for the receiving chat to then turn around and send a reply message:
 
 ```json
 {
   "type": "send",
   "message": {
-    "recipient": "198427b63ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm",
+    "sender": "198427b63ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm",
     "chatMessage": "hi julia!"
   },
-  recipient: "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
-}
-```
-
-This provides an easy way for the receiving chat to then turn around and send a reply message:
-
-```json
-{
-  "type": "send",
-  "message": {
-    "recipient": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm",
-    "chatMessage": "winston, so lovely to hear from you! shall we meet at the antiques shop?"
-  },
-  "sender": "198427b63ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
+  "recipient": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
 }
 ```
 
@@ -179,15 +166,13 @@ If that fits your security model, good. However, it may be the case that you wan
 
 ```json
 {
-    type: send, 
-    message: {
-      recipient: 71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm 
-      chatMessage: "something you want to keep secret"
-      withReplySurb: true
-    }
+    "type": "send", 
+    "message": "something you want to keep secret"
+    "recipient": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
+    "withReplySurb": "true"
 }
 ```
-You can read more about SURBs [here](/docs/stable/architecture/traffic-flow#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address! 
+You can read more about SURBs [here](/docs/next/architecture/traffic-flow#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address.
 
 
 #### Sending binary data
