@@ -1,8 +1,8 @@
 ---
-sidebar_label: Software Compatibility Table
+sidebar_label: Version Compatibility Table  
 description: "Compatibility table for Nym apps, platform releases and smart contracts"
 hide_title: false 
-title: Software Compatibility Table
+title: Version Compatibility Table
 ---
 
 There are numerous components to Nym, new releases of which are released at different times. 
