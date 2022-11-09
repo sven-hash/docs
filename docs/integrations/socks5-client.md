@@ -43,7 +43,7 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        Nym Socks5 Proxy 1.0.1
+        Nym Socks5 Proxy 1.1.0
         Nymtech
         A Socks5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 

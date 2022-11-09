@@ -46,11 +46,11 @@ Nym平台代码中包含的默认网关的实现可以保存数据包，以便�
 <details>
   <summary>输出结果</summary>
 
-        nym-gateway 1.0.1
+        nym-gateway 1.1.0
         Nymtech
 
         Build Timestamp:    2022-05-06T13:07:46.187796508+00:00
-        Build Version:      1.0.1
+        Build Version:      1.1.0
         Commit SHA:         945dda0c24f2f964f27066af320441446973e383
         Commit Date:        2022-05-04T15:57:36+00:00
         Commit Branch:      detached HEAD
@@ -187,7 +187,7 @@ Nym平台代码中包含的默认网关的实现可以保存数据包，以便�
     Sphinx Key: HbqYJwjmtzDi4WzGp7ehj8Ns394sRvJnxtanX28upon
     Owner Signature: wRKxr1CnoyBB9AYPSaXgE4dCP757ffMz5gkja8EKaYR82a63FK9HYV3HXZnLcSaNXkzN3CJnxG2FREv1ZE9xwvx
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.1.0
     Mix Port: 1789, Clients port: 9000
     Data store is at: "/home/mx/.nym/gateways/supergateway/data/db.sqlite"
     2022-04-27T16:04:33.831Z INFO  nym_gateway::node > Starting nym gateway!

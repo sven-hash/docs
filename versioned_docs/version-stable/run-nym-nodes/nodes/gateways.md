@@ -63,11 +63,11 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        nym-gateway 1.0.1
+        nym-gateway 1.1.0
         Nymtech
 
         Build Timestamp:    2022-05-06T13:07:46.187796508+00:00
-        Build Version:      1.0.1
+        Build Version:      1.1.0
         Commit SHA:         945dda0c24f2f964f27066af320441446973e383
         Commit Date:        2022-05-04T15:57:36+00:00
         Commit Branch:      detached HEAD
@@ -215,7 +215,7 @@ The `run` command starts the gateway:
     Sphinx Key: HbqYJwjmtzDi4WzGp7ehj8Ns394sRvJnxtanX28upon
     Owner Signature: wRKxr1CnoyBB9AYPSaXgE4dCP757ffMz5gkja8EKaYR82a63FK9HYV3HXZnLcSaNXkzN3CJnxG2FREv1ZE9xwvx
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.1.0
     Mix Port: 1789, Clients port: 9000
     Data store is at: "/home/mx/.nym/gateways/supergateway/data/db.sqlite"
     2022-04-27T16:04:33.831Z INFO  nym_gateway::node > Starting nym gateway!
@@ -314,7 +314,7 @@ Running `init` again is necessary to update your gateway config file with new fi
 * pause your gateway process
 * replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
 * manually edit `$HOME/.nym/gateways/<your-id>/config/config.toml` to include the following: 
-    * update the `version` to `1.0.2`
+    * update the `version` to `1.1.0`
     * add the following to the `additional gateway config options` section 
 ```
     # Whether gateway collects and sends anonymized statistics
@@ -357,7 +357,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (1.0.1)
+Description=Nym Gateway (1.1.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
