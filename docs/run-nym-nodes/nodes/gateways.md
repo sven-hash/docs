@@ -299,7 +299,7 @@ curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:
 
 ### Upgrading your gateway 
 
-There are two methods to upgrade from `v1.0.1` to `v1.0.2`: 
+There are two methods to upgrade from `v1.0.2` to `v1.1.0`: 
 
 **Simple method:**
 * pause your gateway process 
