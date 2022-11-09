@@ -5,18 +5,15 @@ hide_title: false
 title: Version Compatibility Table
 ---
 
-There are numerous components to Nym which are increasingly released (semi)independently of one another. 
+There are numerous components to Nym which are released independently of one another aside from when breaking changes occur in the [core platform code](https://github.com/nymtech/nym/tree/nym-binaries-1.0.2) - mix nodes, gateways, and clients.  
 
-Whilst in general it recommended to be running the most recent version of any software, if you cannot do that for whatever reason this table will tell you which versions of different components are mutually compatible with the most up to date version of the platform code running on Mainnet and the Sandbox testnet. 
+Whilst in general it recommended to be running the most recent version of any software, if you cannot do that for whatever reason this table will tell you which versions of different components are mutually compatible with which platform code releases.
 
-| Platform (clients and nodes) | Wallet | NymConnect | Network Explorer | Mixnet contract | Vesting contract  | 
-| ---------------------------- | ------ | ---------- | ---------------- | --------------- | ----------------- |
-| 1.1.0                        |        |            |                  | 2.0.0           |                   |       
-| 1.0.2                        | 1.0.9  | 1.0.2      |                  |                 |                   |  
-|                              | 1.0.8  | 1.0.1      |                  |                 |                   |        
-|                              | 1.0.7  | 1.0.0      |                  |                 |                   |     
-|                              | ...    |            |                  |                 |                   |     
-| 1.0.1                        | 1.0.3  |            |                  |                 |                   |
-| 1.0.0                        | 1.0.2  |            | 1.0.0            | 1.0.0           | 1.0.0             |
+| Platform                                                                                 | Wallet          | NymConnect        | Network Explorer | Mixnet contract | Vesting contract  | 
+| ---------------------------------------------------------------------------------------- | --------------- | ----------------- | ---------------- | --------------- | ----------------- |
+| 1.1.0 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.0/CHANGELOG.md))     | 1.1.0           | 1.1.0             | 1.1.0            | 1.1.0           | 1.1.0             |       
+| 1.0.2 ([CHANGELOG](https://github.com/nymtech/nym/blob/nym-binaries-1.0.2/CHANGELOG.md)) | 1.0.2 > 1.0.9   | 1.0.0 > 1.0.2     | 1.0.0            | 1.0.1           | 1.0.1             |  
+| 1.0.1 ([CHANGELOG](https://github.com/nymtech/nym/blob/nym-binaries-1.0.1/CHANGELOG.md)) | 1.0.2 > 1.0.8   | 1.0.0 > 1.0.1     | 1.0.0            | 1.0.0           | 1.0.0             |
+| 1.0.0 ([CHANGELOG](https://github.com/nymtech/nym/blob/nym-binaries-1.0.0/CHANGELOG.md)) | 1.0.2           | 1.0.0             | 1.0.0            | 1.0.0           | 1.0.0             |
 
 
