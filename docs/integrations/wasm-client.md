@@ -5,6 +5,7 @@ description: "How to integrate the Nym webassembly client into your own applicat
 title: "Webassembly client"
 ---
 
+**TODO add link to upcoming 1.1.1 release and add some prep docs**
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 
