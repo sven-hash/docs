@@ -27,6 +27,6 @@ Instructions on how to do so can be found on the [`nym-cli` docs page](/docs/nex
 #### Nyxd binary 
 The `nyxd` binary, although more complex to compile and use, offers the full range of commands availiable to users of CosmosSDK chains. Use this if you are (e.g.) wanting to perform more granular queries about transactions from the CLI. 
 
-Instructions on how to do so can be found on the [`nyxd` docs page](/docs/next/run-nym-nodes/nodes/rpc-node).
+You can use the instructions on how to do this on from the [`gaiad` docs page](https://hub.cosmos.network/main/delegators/delegator-guide-cli.html#querying-the-state).
 
 
