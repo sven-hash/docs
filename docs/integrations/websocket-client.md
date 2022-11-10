@@ -22,23 +22,40 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-      Nym client 1.1.0
-      Nymtech
-      Implementation of the Nym client
+             (client - version 1.0.2)
 
-      USAGE:
-          nym-client [SUBCOMMAND]
+    
+nym-client 1.0.2
+Nymtech
+Implementation of the Nym Client
 
-      FLAGS:
-          -h, --help       Prints help information
-          -V, --version    Prints version information
+USAGE:
+    nym-client [OPTIONS] <SUBCOMMAND>
 
-      SUBCOMMANDS:
-          help       Prints this message or the help of the given subcommand(s)
-          init       Initialise a Nym client. Do this first!
-          run        Run the Nym client with provided configuration client optionally overriding set parameters
-          upgrade    Try to upgrade the client
+OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Path pointing to an env file that configures the client
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    completions          Generate shell completions
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise a Nym client. Do this first!
+    run                  Run the Nym client with provided configuration client optionally
+                             overriding set parameters
+    upgrade              Try to upgrade the client
 
 
 </details>
