@@ -66,44 +66,49 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
+
+  
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 1.0.2)
+
+    
+nym-mixnode 1.0.2
+Nymtech
+Implementation of a Loopix-based Mixnode
+
+USAGE:
+    nym-mixnode [OPTIONS] <SUBCOMMAND>
+
+OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Path pointing to an env file that configures the mixnode
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    completions          Generate shell completions
+    describe             Describe your mixnode and tell people why they should delegate state to
+                             you
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise the mixnode
+    node-details         Show details of this mixnode
+    run                  Starts the mixnode
+    sign                 Sign text to prove ownership of this mixnode
+    upgrade              Try to upgrade the mixnode
+
     nym-mixnode 1.1.0
     Nymtech
 
-    Build Timestamp:    2022-05-06T13:07:45.000871255+00:00
-    Build Version:      1.1.0
-    Commit SHA:         945dda0c24f2f964f27066af320441446973e383
-    Commit Date:        2022-05-04T15:57:36+00:00
-    Commit Branch:      detached HEAD
-    rustc Version:      1.60.0
-    rustc Channel:      stable
-    cargo Profile:      release
-
-
-    USAGE:
-        nym-mixnode <SUBCOMMAND>
-
-    OPTIONS:
-        -h, --help
-                Print help information
-
-        -V, --version
-                Print version information
-
-    SUBCOMMANDS:
-        describe
-                Describe your mixnode and tell people why they should delegate state to you
-        help
-                Print this message or the help of the given subcommand(s)
-        init
-                Initialise the mixnode
-        node-details
-                Show details of this mixnode
-        run
-                Starts the mixnode
-        sign
-                Sign text to prove ownership of this mixnode
-        upgrade
-                Try to upgrade the mixnode
 
 </details>
 
