@@ -63,41 +63,41 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        nym-gateway 1.1.0
-        Nymtech
+        _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-        Build Timestamp:    2022-05-06T13:07:46.187796508+00:00
-        Build Version:      1.1.0
-        Commit SHA:         945dda0c24f2f964f27066af320441446973e383
-        Commit Date:        2022-05-04T15:57:36+00:00
-        Commit Branch:      detached HEAD
-        rustc Version:      1.60.0
-        rustc Channel:      stable
-        cargo Profile:      release
+             (gateway - version 1.0.2)
 
-        USAGE:
-            nym-gateway <SUBCOMMAND>
+    
+nym-gateway 1.0.2
+Nymtech
+Implementation of the Nym Mixnet Gateway
 
-        OPTIONS:
-            -h, --help
-                    Print help information
+USAGE:
+    nym-gateway [OPTIONS] <SUBCOMMAND>
 
-            -V, --version
-                    Print version information
+OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Path pointing to an env file that configures the gateway
 
-        SUBCOMMANDS:
-            help
-                    Print this message or the help of the given subcommand(s)
-            init
-                    Initialise the gateway
-            node-details
-                    Show details of this gateway
-            run
-                    Starts the gateway
-            sign
-                    Sign text to prove ownership of this mixnode
-            upgrade
-                    Try to upgrade the gateway
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    completions          Generate shell completions
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise the gateway
+    node-details         Show details of this gateway
+    run                  Starts the gateway
+    sign                 Sign text to prove ownership of this mixnode
+    upgrade              Try to upgrade the gateway
 
 </details>
 
