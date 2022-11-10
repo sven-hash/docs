@@ -9,7 +9,6 @@ The Mixnet smart contract is a core piece of the Nym system, functioning as the 
 
 ### Functionality 
 The Mixnet contract has multiple functions: 
-**TODO ADD LINKS TO RELEVANT BITS OF CODE IN BULLETPOINTS**
 * storing bonded mix node and gateway information (and removing this on unbonding).
 * providing the network-topology to the (cached) validator API endpoint used by clients on startup for routing information. 
 * storing delegation and bond amounts.
