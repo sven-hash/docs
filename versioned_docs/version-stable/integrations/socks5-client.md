@@ -43,24 +43,44 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        Nym Socks5 Proxy 1.0.1
-        Nymtech
-        A Socks5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-        USAGE:
-            nym-socks5-client [SUBCOMMAND]
+             (socks5 proxy - version 1.1.0)
 
-        FLAGS:
-            -h, --help       Prints help information
-            -V, --version    Prints version information
+    
+nym-socks5-client 1.1.0
+Nymtech
+A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
-        SUBCOMMANDS:
-            help       Prints this message or the help of the given subcommand(s)
-            init       Initialise a Nym client. Do this first!
-            run        Run the Nym client with provided configuration client optionally overriding set parameters
+USAGE:
+    nym-socks5-client [OPTIONS] <SUBCOMMAND>
+
+OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Path pointing to an env file that configures the client
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    completions          Generate shell completions
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise a Nym client. Do this first!
+    run                  Run the Nym client with provided configuration client optionally
+                             overriding set parameters
+    upgrade              Try to upgrade the client
             upgrade    Try to upgrade the client
 
     
+      
 </details>
 
 You can check the necessary parameters for the available commands by running:

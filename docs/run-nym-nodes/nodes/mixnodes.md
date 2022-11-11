@@ -2,6 +2,7 @@
 sidebar_label: "Mix nodes"
 description: "Mix nodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 hide_title: false
+title: Mix nodes 
 ---
 
 :::note
@@ -66,44 +67,47 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
-    nym-mixnode 1.0.1
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 1.1.0)
+
+    
+nym-mixnode 1.1.0
+Nymtech
+Implementation of a Loopix-based Mixnode
+
+USAGE:
+    nym-mixnode [OPTIONS] <SUBCOMMAND>
+
+OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Path pointing to an env file that configures the mixnode
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    completions          Generate shell completions
+    describe             Describe your mixnode and tell people why they should delegate state to
+                             you
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise the mixnode
+    node-details         Show details of this mixnode
+    run                  Starts the mixnode
+    sign                 Sign text to prove ownership of this mixnode
+    upgrade              Try to upgrade the mixnode
+
+    nym-mixnode 1.1.0
     Nymtech
 
-    Build Timestamp:    2022-05-06T13:07:45.000871255+00:00
-    Build Version:      1.0.1
-    Commit SHA:         945dda0c24f2f964f27066af320441446973e383
-    Commit Date:        2022-05-04T15:57:36+00:00
-    Commit Branch:      detached HEAD
-    rustc Version:      1.60.0
-    rustc Channel:      stable
-    cargo Profile:      release
-
-
-    USAGE:
-        nym-mixnode <SUBCOMMAND>
-
-    OPTIONS:
-        -h, --help
-                Print help information
-
-        -V, --version
-                Print version information
-
-    SUBCOMMANDS:
-        describe
-                Describe your mixnode and tell people why they should delegate state to you
-        help
-                Print this message or the help of the given subcommand(s)
-        init
-                Initialise the mixnode
-        node-details
-                Show details of this mixnode
-        run
-                Starts the mixnode
-        sign
-                Sign text to prove ownership of this mixnode
-        upgrade
-                Try to upgrade the mixnode
 
 </details>
 
@@ -124,40 +128,49 @@ To check available configuration options for initializing your node use:
 <details>
   <summary>console output</summary>
 
-    nym-mixnode-init
-    Initialise the mixnode
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-    USAGE:
-        nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
+             (mixnode - version 1.1.0)
 
-    OPTIONS:
-            --announce-host <ANNOUNCE_HOST>
-                The custom host that will be reported to the directory server
+    
+nym-mixnode-init 
+Initialise the mixnode
 
-        -h, --help
-                Print help information
+USAGE:
+    nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-            --host <HOST>
-                The host on which the mixnode will be running
+OPTIONS:
+        --announce-host <ANNOUNCE_HOST>
+            The custom host that will be reported to the directory server
 
-            --http-api-port <HTTP_API_PORT>
-                The port on which the mixnode will be listening for http requests
+    -h, --help
+            Print help information
 
-            --id <ID>
-                Id of the mixnode we want to create config for
+        --host <HOST>
+            The host on which the mixnode will be running
 
-            --mix-port <MIX_PORT>
-                The port on which the mixnode will be listening for mix packets
+        --http-api-port <HTTP_API_PORT>
+            The port on which the mixnode will be listening for http requests
 
-            --validators <VALIDATORS>
-                Comma separated list of rest endpoints of the validators
+        --id <ID>
+            Id of the mixnode we want to create config for
 
-            --verloc-port <VERLOC_PORT>
-                The port on which the mixnode will be listening for verloc packets
+        --mix-port <MIX_PORT>
+            The port on which the mixnode will be listening for mix packets
 
-            --wallet-address <WALLET_ADDRESS>
-                The wallet address you will use to bond this mixnode, e.g.
-                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+        --validators <VALIDATORS>
+            Comma separated list of rest endpoints of the validators
+
+        --verloc-port <VERLOC_PORT>
+            The port on which the mixnode will be listening for verloc packets
+
+        --wallet-address <WALLET_ADDRESS>
+            The wallet address you will use to bond this mixnode, e.g.
+            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
 </details>
 
@@ -212,7 +225,7 @@ Now you've bonded your mix node, run it with:
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.1.0
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -274,7 +287,7 @@ You can always check the details of your mix node with the `node-details` comman
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.1.0
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -312,7 +325,7 @@ It's useful to have the mix node automatically start at system boot time. Here's
 
 ```ini
 [Unit]
-Description=Nym Mixnode (1.0.1)
+Description=Nym Mixnode (1.1.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
