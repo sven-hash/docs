@@ -192,6 +192,10 @@ During the `init` process you will have the option to change the `http_api`, `ve
 
 ### Bonding your mix node
 
+:::caution
+From this release, if you unbond your mixnode that means you are leaving the mixnet and you will lose all your delegations (permanently). You can join again with the same identity key, however, you will start with no delegations.
+:::
+
 #### Via the Desktop wallet (recommended)
 
 You can bond your mix node via the Desktop wallet.
