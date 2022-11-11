@@ -75,10 +75,10 @@ Which should return a list of all avaliable commands.
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.0.2)
+             (mixnode - version 1.1.0)
 
     
-nym-mixnode 1.0.2
+nym-mixnode 1.1.0
 Nymtech
 Implementation of a Loopix-based Mixnode
 

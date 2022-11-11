@@ -49,10 +49,10 @@ You can check that your binaries are properly compiled with:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (socks5 proxy - version 1.0.2)
+             (socks5 proxy - version 1.1.0)
 
     
-nym-socks5-client 1.0.2
+nym-socks5-client 1.1.0
 Nymtech
 A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
