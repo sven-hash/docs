@@ -12,7 +12,7 @@ The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-node
 
 
 ### Viewing command help
-
+  
 You can check that your binaries are properly compiled with:
 
 ```

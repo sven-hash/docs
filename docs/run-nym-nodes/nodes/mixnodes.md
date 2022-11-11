@@ -67,8 +67,6 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
-
-  
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
@@ -130,40 +128,49 @@ To check available configuration options for initializing your node use:
 <details>
   <summary>console output</summary>
 
-    nym-mixnode-init
-    Initialise the mixnode
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-    USAGE:
-        nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
+             (mixnode - version 1.1.0)
 
-    OPTIONS:
-            --announce-host <ANNOUNCE_HOST>
-                The custom host that will be reported to the directory server
+    
+nym-mixnode-init 
+Initialise the mixnode
 
-        -h, --help
-                Print help information
+USAGE:
+    nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-            --host <HOST>
-                The host on which the mixnode will be running
+OPTIONS:
+        --announce-host <ANNOUNCE_HOST>
+            The custom host that will be reported to the directory server
 
-            --http-api-port <HTTP_API_PORT>
-                The port on which the mixnode will be listening for http requests
+    -h, --help
+            Print help information
 
-            --id <ID>
-                Id of the mixnode we want to create config for
+        --host <HOST>
+            The host on which the mixnode will be running
 
-            --mix-port <MIX_PORT>
-                The port on which the mixnode will be listening for mix packets
+        --http-api-port <HTTP_API_PORT>
+            The port on which the mixnode will be listening for http requests
 
-            --validators <VALIDATORS>
-                Comma separated list of rest endpoints of the validators
+        --id <ID>
+            Id of the mixnode we want to create config for
 
-            --verloc-port <VERLOC_PORT>
-                The port on which the mixnode will be listening for verloc packets
+        --mix-port <MIX_PORT>
+            The port on which the mixnode will be listening for mix packets
 
-            --wallet-address <WALLET_ADDRESS>
-                The wallet address you will use to bond this mixnode, e.g.
-                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+        --validators <VALIDATORS>
+            Comma separated list of rest endpoints of the validators
+
+        --verloc-port <VERLOC_PORT>
+            The port on which the mixnode will be listening for verloc packets
+
+        --wallet-address <WALLET_ADDRESS>
+            The wallet address you will use to bond this mixnode, e.g.
+            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
 </details>
 

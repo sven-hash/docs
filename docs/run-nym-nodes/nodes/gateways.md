@@ -2,7 +2,6 @@
 sidebar_label: "Gateways"
 description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
 hide_title: false
-title: Gateways
 ---
 
 :::note
@@ -64,7 +63,8 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        _ __  _   _ _ __ ___
+
+      _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
@@ -99,7 +99,7 @@ SUBCOMMANDS:
     run                  Starts the gateway
     sign                 Sign text to prove ownership of this mixnode
     upgrade              Try to upgrade the gateway
-
+ 
 </details>
 
 You can also check the various arguments required for individual commands with: 
@@ -124,43 +124,63 @@ To check available configuration options use:
 <details>
   <summary>console output</summary>
 
-    nym-gateway-init 
-    Initialise the gateway
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-    USAGE:
-        nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC>
+             (gateway - version 1.1.0)
 
-    OPTIONS:
-            --announce-host <ANNOUNCE_HOST>
-                The host that will be reported to the directory server
+    
+nym-gateway-init 
+Initialise the gateway
 
-            --clients-port <CLIENTS_PORT>
-                The port on which the gateway will be listening for clients gateway-requests
+USAGE:
+    nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-            --datastore <DATASTORE>
-                Path to sqlite database containing all gateway persistent data
+OPTIONS:
+        --announce-host <ANNOUNCE_HOST>
+            The host that will be reported to the directory server
 
-        -h, --help
-                Print help information
+        --clients-port <CLIENTS_PORT>
+            The port on which the gateway will be listening for clients gateway-requests
 
-            --host <HOST>
-                The custom host on which the gateway will be running for receiving sphinx packets
+        --datastore <DATASTORE>
+            Path to sqlite database containing all gateway persistent data
 
-            --id <ID>
-                Id of the gateway we want to create config for
+        --enabled-statistics <ENABLED_STATISTICS>
+            Enable/disable gateway anonymized statistics that get sent to a statistics aggregator
+            server
 
-            --mix-port <MIX_PORT>
-                The port on which the gateway will be listening for sphinx packets
+    -h, --help
+            Print help information
 
-            --mnemonic <MNEMONIC>
-                Cosmos wallet mnemonic needed for double spending protection
+        --host <HOST>
+            The custom host on which the gateway will be running for receiving sphinx packets
 
-            --validator-apis <VALIDATOR_APIS>
-                Comma separated list of endpoints of the validators APIs
+        --id <ID>
+            Id of the gateway we want to create config for
 
-            --wallet-address <WALLET_ADDRESS>
-                The wallet address you will use to bond this gateway, e.g.
-                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+        --mix-port <MIX_PORT>
+            The port on which the gateway will be listening for sphinx packets
+
+        --mnemonic <MNEMONIC>
+            Cosmos wallet mnemonic needed for double spending protection
+
+        --statistics-service-url <STATISTICS_SERVICE_URL>
+            URL where a statistics aggregator is running. The default value is a Nym aggregator
+            server
+
+        --validator-apis <VALIDATOR_APIS>
+            Comma separated list of endpoints of the validators APIs
+
+        --validators <VALIDATORS>
+            Comma separated list of endpoints of the validator
+
+        --wallet-address <WALLET_ADDRESS>
+            The wallet address you will use to bond this gateway, e.g.
+            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
 </details>
 
