@@ -69,10 +69,10 @@ You can check that your binaries are properly compiled with:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 1.0.2)
+             (gateway - version 1.1.0)
 
     
-nym-gateway 1.0.2
+nym-gateway 1.1.0
 Nymtech
 Implementation of the Nym Mixnet Gateway
 
