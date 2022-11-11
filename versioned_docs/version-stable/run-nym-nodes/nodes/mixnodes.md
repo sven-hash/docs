@@ -67,46 +67,45 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
-    nym-mixnode 1.1.0
-    Nymtech
+     _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-    Build Timestamp:    2022-05-06T13:07:45.000871255+00:00
-    Build Version:      1.1.0
-    Commit SHA:         945dda0c24f2f964f27066af320441446973e383
-    Commit Date:        2022-05-04T15:57:36+00:00
-    Commit Branch:      detached HEAD
-    rustc Version:      1.60.0
-    rustc Channel:      stable
-    cargo Profile:      release
+             (mixnode - version 1.1.0)
 
+    
+nym-mixnode 1.1.0
+Nymtech
+Implementation of a Loopix-based Mixnode
 
-    USAGE:
-        nym-mixnode <SUBCOMMAND>
+USAGE:
+    nym-mixnode [OPTIONS] <SUBCOMMAND>
 
-    OPTIONS:
-        -h, --help
-                Print help information
+OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Path pointing to an env file that configures the mixnode
 
-        -V, --version
-                Print version information
+    -h, --help
+            Print help information
 
-    SUBCOMMANDS:
-        describe
-                Describe your mixnode and tell people why they should delegate state to you
-        help
-                Print this message or the help of the given subcommand(s)
-        init
-                Initialise the mixnode
-        node-details
-                Show details of this mixnode
-        run
-                Starts the mixnode
-        sign
-                Sign text to prove ownership of this mixnode
-        upgrade
-                Try to upgrade the mixnode
+    -V, --version
+            Print version information
 
-</details>
+SUBCOMMANDS:
+    completions          Generate shell completions
+    describe             Describe your mixnode and tell people why they should delegate state to
+                             you
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise the mixnode
+    node-details         Show details of this mixnode
+    run                  Starts the mixnode
+    sign                 Sign text to prove ownership of this mixnode
+    upgrade              Try to upgrade the mixnode
+
+ </details>
 
 You can also check the various arguments required for individual commands with:
 
@@ -125,40 +124,49 @@ To check available configuration options for initializing your node use:
 <details>
   <summary>console output</summary>
 
-    nym-mixnode-init
-    Initialise the mixnode
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-    USAGE:
-        nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
+             (mixnode - version 1.1.0)
 
-    OPTIONS:
-            --announce-host <ANNOUNCE_HOST>
-                The custom host that will be reported to the directory server
+    
+nym-mixnode-init 
+Initialise the mixnode
 
-        -h, --help
-                Print help information
+USAGE:
+    nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-            --host <HOST>
-                The host on which the mixnode will be running
+OPTIONS:
+        --announce-host <ANNOUNCE_HOST>
+            The custom host that will be reported to the directory server
 
-            --http-api-port <HTTP_API_PORT>
-                The port on which the mixnode will be listening for http requests
+    -h, --help
+            Print help information
 
-            --id <ID>
-                Id of the mixnode we want to create config for
+        --host <HOST>
+            The host on which the mixnode will be running
 
-            --mix-port <MIX_PORT>
-                The port on which the mixnode will be listening for mix packets
+        --http-api-port <HTTP_API_PORT>
+            The port on which the mixnode will be listening for http requests
 
-            --validators <VALIDATORS>
-                Comma separated list of rest endpoints of the validators
+        --id <ID>
+            Id of the mixnode we want to create config for
 
-            --verloc-port <VERLOC_PORT>
-                The port on which the mixnode will be listening for verloc packets
+        --mix-port <MIX_PORT>
+            The port on which the mixnode will be listening for mix packets
 
-            --wallet-address <WALLET_ADDRESS>
-                The wallet address you will use to bond this mixnode, e.g.
-                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+        --validators <VALIDATORS>
+            Comma separated list of rest endpoints of the validators
+
+        --verloc-port <VERLOC_PORT>
+            The port on which the mixnode will be listening for verloc packets
+
+        --wallet-address <WALLET_ADDRESS>
+            The wallet address you will use to bond this mixnode, e.g.
+            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
 </details>
 

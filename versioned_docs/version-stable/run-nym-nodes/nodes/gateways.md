@@ -64,41 +64,42 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-        nym-gateway 1.1.0
-        Nymtech
 
-        Build Timestamp:    2022-05-06T13:07:46.187796508+00:00
-        Build Version:      1.1.0
-        Commit SHA:         945dda0c24f2f964f27066af320441446973e383
-        Commit Date:        2022-05-04T15:57:36+00:00
-        Commit Branch:      detached HEAD
-        rustc Version:      1.60.0
-        rustc Channel:      stable
-        cargo Profile:      release
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-        USAGE:
-            nym-gateway <SUBCOMMAND>
+             (gateway - version 1.1.0)
 
-        OPTIONS:
-            -h, --help
-                    Print help information
+    
+nym-gateway 1.1.0
+Nymtech
+Implementation of the Nym Mixnet Gateway
 
-            -V, --version
-                    Print version information
+USAGE:
+    nym-gateway [OPTIONS] <SUBCOMMAND>
 
-        SUBCOMMANDS:
-            help
-                    Print this message or the help of the given subcommand(s)
-            init
-                    Initialise the gateway
-            node-details
-                    Show details of this gateway
-            run
-                    Starts the gateway
-            sign
-                    Sign text to prove ownership of this mixnode
-            upgrade
-                    Try to upgrade the gateway
+OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Path pointing to an env file that configures the gateway
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    completions          Generate shell completions
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise the gateway
+    node-details         Show details of this gateway
+    run                  Starts the gateway
+    sign                 Sign text to prove ownership of this mixnode
+    upgrade              Try to upgrade the gateway
 
 </details>
 
@@ -124,45 +125,65 @@ To check available configuration options use:
 <details>
   <summary>console output</summary>
 
-    nym-gateway-init 
-    Initialise the gateway
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-    USAGE:
-        nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC>
+             (gateway - version 1.1.0)
 
-    OPTIONS:
-            --announce-host <ANNOUNCE_HOST>
-                The host that will be reported to the directory server
+    
+nym-gateway-init 
+Initialise the gateway
 
-            --clients-port <CLIENTS_PORT>
-                The port on which the gateway will be listening for clients gateway-requests
+USAGE:
+    nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-            --datastore <DATASTORE>
-                Path to sqlite database containing all gateway persistent data
+OPTIONS:
+        --announce-host <ANNOUNCE_HOST>
+            The host that will be reported to the directory server
 
-        -h, --help
-                Print help information
+        --clients-port <CLIENTS_PORT>
+            The port on which the gateway will be listening for clients gateway-requests
 
-            --host <HOST>
-                The custom host on which the gateway will be running for receiving sphinx packets
+        --datastore <DATASTORE>
+            Path to sqlite database containing all gateway persistent data
 
-            --id <ID>
-                Id of the gateway we want to create config for
+        --enabled-statistics <ENABLED_STATISTICS>
+            Enable/disable gateway anonymized statistics that get sent to a statistics aggregator
+            server
 
-            --mix-port <MIX_PORT>
-                The port on which the gateway will be listening for sphinx packets
+    -h, --help
+            Print help information
 
-            --mnemonic <MNEMONIC>
-                Cosmos wallet mnemonic needed for double spending protection
+        --host <HOST>
+            The custom host on which the gateway will be running for receiving sphinx packets
 
-            --validator-apis <VALIDATOR_APIS>
-                Comma separated list of endpoints of the validators APIs
+        --id <ID>
+            Id of the gateway we want to create config for
 
-            --wallet-address <WALLET_ADDRESS>
-                The wallet address you will use to bond this gateway, e.g.
-                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+        --mix-port <MIX_PORT>
+            The port on which the gateway will be listening for sphinx packets
 
-</details>
+        --mnemonic <MNEMONIC>
+            Cosmos wallet mnemonic needed for double spending protection
+
+        --statistics-service-url <STATISTICS_SERVICE_URL>
+            URL where a statistics aggregator is running. The default value is a Nym aggregator
+            server
+
+        --validator-apis <VALIDATOR_APIS>
+            Comma separated list of endpoints of the validators APIs
+
+        --validators <VALIDATORS>
+            Comma separated list of endpoints of the validator
+
+        --wallet-address <WALLET_ADDRESS>
+            The wallet address you will use to bond this gateway, e.g.
+            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+
+ </details>
 
 
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
