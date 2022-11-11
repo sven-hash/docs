@@ -116,7 +116,6 @@ Currently supported features include:
     * issue credentials
     * verify credentials
 
-
 ### Example Usage 
 Below we have listed some example commands for some of the features listed above. 
 
@@ -256,6 +255,20 @@ TODO
 ```
 NOTE : The same command can be applied with a gateway.Just replace `mixnode` with `gateway`.
 
+**Unbound a gateway**
+
+Unbound from a gateway on the mixnet.
+
+```
+./nym-cli mixnet operators gateway unbound --mnemonic <YOUR_MNEMONIC>
+```
+
+*Result:*
+```
+TODO
+```
+NOTE : The same command can be applied with a mixnode.Just replace `gateway` with `mixnode`.
+
 **Claim a vesting reward for a mixnode**
 
 Claim rewards for a mixnode bonded with locked tokens.
@@ -356,3 +369,42 @@ Signature verify.
 ```
 TODO
 ```
+
+**Create a Vesting Schedule**
+
+Creates a vesting schedule.
+
+```
+./nym-cli vesting-schedule create --mnemonic <YOUR_MNEMONIC> --address <ADDRESS> --amount <AMOUNT>
+```
+
+*Result:*
+```
+ 2022-11-11T12:42:07.795Z INFO  nym_cli_commands::validator::vesting::create_vesting_schedule > Creating vesting schedule!
+TODO
+```
+
+**Query a Vesting Schedule**
+
+Query for vesting schedule.
+
+```
+./nym-cli vesting-schedule query --mnemonic <YOUR_MNEMONIC>
+```
+
+*Result:*
+```
+2022-11-11T12:59:22.146Z INFO  nym_cli_commands::validator::vesting::query_vesting_schedule > Getting vesting schedule information for <FOUND_ADDRESS>...
+
+(ERRORS HERE)
+
+The main account n1yt63g0fmfm39zeq87scjchujqc222ltfxhvdy8 also has a regular balance of:
+<BALANCE>
+```
+
+
+
+
+
+
+
