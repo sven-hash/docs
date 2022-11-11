@@ -72,6 +72,7 @@ module.exports = {
     },
     "wallet",
     "nym-cli",
+    "compatibility-table",
     "coconut",
     {
       type: "category",

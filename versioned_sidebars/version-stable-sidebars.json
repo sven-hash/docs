@@ -168,6 +168,10 @@
     },
     {
           "type": "doc", 
+          "id": "version-stable/compatibility-table"
+    },
+    {
+          "type": "doc", 
           "id": "version-stable/coconut"
     },
     {
