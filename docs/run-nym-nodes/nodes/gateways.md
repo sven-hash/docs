@@ -2,6 +2,7 @@
 sidebar_label: "Gateways"
 description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
 hide_title: false
+title: Gateways
 ---
 
 :::note
@@ -357,7 +358,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (1.1.)
+Description=Nym Gateway (1.1.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
