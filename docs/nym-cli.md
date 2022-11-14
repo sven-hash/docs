@@ -30,7 +30,7 @@ You can see all available commands with:
         A client for interacting with Nym smart contracts and the Nyx blockchain
 
         USAGE:
-            nym-cli [OPTIONS] <SUBCOMMAND>
+            nym-cli [OPTIONS] <subcommand>
 
         OPTIONS:
                 --config-env-file <CONFIG_ENV_FILE>
@@ -60,7 +60,7 @@ You can see all available commands with:
                     Overrides the vesting contract address provided either as an environment variable or in
                     a config file
 
-        SUBCOMMANDS:
+        subcommandS:
             account             Query and manage Nyx blockchain accounts
             block               Query chain blocks
             cosmwasm            Manage and execute WASM smart contracts
@@ -115,3 +115,296 @@ Currently supported features include:
 * **Coconut (coming soon)**
     * issue credentials
     * verify credentials
+
+### Example Usage 
+Below we have listed some example commands for some of the features listed above. 
+
+If ever in doubt what you need to type, or if you want to see alternative parameters for a command, use the `nym-cli <subcommand_NAME> --help` to view all available options.
+
+Example:
+```
+./nym-cli account create --help     
+```
+
+<details>
+  <summary>console output</summary>
+
+    Create a new mnemonic - note, this account does not appear on the chain until the account id is used in a transaction
+
+    USAGE:
+        nym-cli account create [OPTIONS]
+
+    OPTIONS:
+        --config-env-file <CONFIG_ENV_FILE>
+            Overrides configuration as a file of environment variables. Note: individual env vars take precedence over this file.
+
+    -h, --help
+            Print help information
+
+        --mixnet-contract-address <MIXNET_CONTRACT_ADDRESS>
+            Overrides the mixnet contract address provided either as an environment variable or in a
+            config file
+
+        --mnemonic <MNEMONIC>
+            Provide the mnemonic for your account. You can also provide this is an env var called
+            MNEMONIC.
+
+        --nymd-url <NYMD_URL>
+            Overrides the nymd URL provided either as an environment variable NYMD_VALIDATOR or in a
+            config file
+
+        --validator-api-url <VALIDATOR_API_URL>
+            Overrides the validator API URL provided either as an environment variable API_VALIDATOR
+            or in a config file
+
+        --vesting-contract-address <VESTING_CONTRACT_ADDRESS>
+            Overrides the vesting contract address provided either as an environment variable or in
+            a config file
+
+        --word-count <WORD_COUNT>
+    
+</details>
+
+**Create account**
+
+Creates an account with a random Mnemonic and a new address.
+
+```
+./nym-cli account create     
+```
+*Result:*
+
+```
+# Mnemonic
+assist jungle spoil domain saddle energy box carpet toy resist castle faith talent note outdoor inform cage lecture syrup trigger dress oppose slender museum
+# Address
+n132tpw4kkfas7ah0vmq78dwurhxljf2f869tlf5
+```
+Note : NEVER share your mnemonic with anyone. Keep it stored in a safe and secure location.
+
+**Check the current balance of an account**
+
+Queries the existing balance of an account.
+
+```
+# Using adddress below for example purposes.
+./nym-cli account balance n1hzn28p2c6pzr98r85jp3h53fy8mju5w7ndd5vh     
+```
+*Result:*
+
+```
+2022-11-10T10:28:54.009Z INFO  nym_cli_commands::validator::account::balance > Getting balance for n1hzn28p2c6pzr98r85jp3h53fy8mju5w7ndd5vh...
+
+# Balance for each token will be listed here
+0.264 nym
+1921.995 nyx
+```
+
+You can also query an accounts balance by using its mnemonic:
+
+```
+./nym-cli account balance --mnemonic <mnemonic>  
+```
+
+**Check the current balance of an account**
+
+Queries the existing balance of an account.
+
+```
+./nym-cli account send <ADDRESS> <AMOUNT>
+```
+
+**Get the current height of a block**
+
+Queries the current height balance of an block.
+
+```
+./nym-cli block current-height --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+Current block height:
+<BLOCK_HEIGHT>
+```
+
+**Query for a mixnode**
+
+Query a mixnode on the mixnet.
+
+```
+./nym-cli mixnet query mixnodes --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+TODO
+```
+
+**Bond to a mixnode**
+
+Bond a mixnode on the mixnet.
+
+```
+nym-cli mixnet operators mixnode bond --mnemonic <mnemonic> --host <HOST> --signature <SIGNATURE> --sphinx-key <SPHINX_KEY> --identity-key <IDENTITY_KEY> --version <VERSION> --amount <AMOUNT>
+```
+
+*Result:*
+```
+TODO
+```
+NOTE : The same command can be applied with a gateway.Just replace `mixnode` with `gateway`.
+
+**Unbound a gateway**
+
+Unbound from a gateway on the mixnet.
+
+```
+./nym-cli mixnet operators gateway unbound --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+TODO
+```
+NOTE : The same command can be applied with a mixnode.Just replace `gateway` with `mixnode`.
+
+**Claim a vesting reward for a mixnode**
+
+Claim rewards for a mixnode bonded with locked tokens.
+
+```
+./nym-cli mixnet operators mixnode rewards vesting-claim --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+TODO
+```
+
+**Claim a reward for a mixnode**
+
+Claim rewards for a mixnode.
+
+```
+./nym-cli mixnet operators mixnode rewards --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+TODO
+```
+
+**Manage Mixnode Settings**
+
+Manage your mixnode settings stored in the directory.
+
+```
+./nym-cli mixnet operators mixnode settings update-config --version <VERSION_NUMBER>
+```
+
+**Delegate Stake**
+
+Delegate stake to a mixnode.
+
+```
+./nym-cli mixnet delegators delegate --amount <AMOUNT> –mix-id <MIX_ID> --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+nym_cli_commands::validator::mixnet::delegators::delegate_to_mixnode > Starting delegation to mixnode
+TODO
+```
+
+**Undelegate Stake**
+
+Remove stake from a mixnode.
+
+```
+./nym-cli mixnet delegators undelegate --mix-id <MIX-ID> --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+nym_cli_commands::validator::mixnet::delegators::undelegate_from_mixnode > removing stake from mix-node
+TODO
+```
+
+**Query a reward for a delegator**
+
+Claim rewards accumulated during the delegation of unlocked tokens.
+
+```
+./nym-cli mixnet delegators rewards claim --mix-id <MIX-ID> --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+2022-11-09T16:19:54.270Z INFO  nym_cli_commands::validator::mixnet::delegators::rewards::claim_delegator_reward > Claim delegator reward
+TODO
+```
+
+**Signature Generation : Send a message**
+
+Sign a message.
+
+```
+./nym-cli signature sign --mnemonic <mnemonic> <MESSAGE>
+```
+
+*Result:*
+```
+{"account_id":<ACCOUNT_ID>,"public_key":{"@type":"/cosmos.crypto.secp256k1.PubKey","key":<PUBLIC_KEY>},"signature":"<OUTPUT_SIGNATURE>"}
+```
+**Signature Generation : Verify a signature**
+
+Signature verify.
+
+```
+./nym-cli signature verify  --mnemonic <mnemonic> <PUBLIC_KEY_OR_ADDRESS> <SIGNATURE_AS_HEX> <MESSAGE> 
+```
+
+*Result:*
+```
+TODO
+```
+
+**Create a Vesting Schedule**
+
+Creates a vesting schedule.
+
+```
+./nym-cli vesting-schedule create --mnemonic <mnemonic> --address <ADDRESS> --amount <AMOUNT>
+```
+
+*Result:*
+```
+ 2022-11-11T12:42:07.795Z INFO  nym_cli_commands::validator::vesting::create_vesting_schedule > Creating vesting schedule!
+TODO
+```
+
+**Query a Vesting Schedule**
+
+Query for vesting schedule.
+
+```
+./nym-cli vesting-schedule query --mnemonic <mnemonic>
+```
+
+*Result:*
+```
+2022-11-11T12:59:22.146Z INFO  nym_cli_commands::validator::vesting::query_vesting_schedule > Getting vesting schedule information for <FOUND_ADDRESS>...
+
+(ERRORS HERE)
+
+The main account n1yt63g0fmfm39zeq87scjchujqc222ltfxhvdy8 also has a regular balance of:
+<balance>
+```
+
+
+
+
+
+
+
