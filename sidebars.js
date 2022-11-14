@@ -41,7 +41,6 @@ module.exports = {
           ],
         },
         "integrations/addresses-in-nym",
-        "integrations/demos",
         "integrations/payment-integration-overview" 
       ],
     },

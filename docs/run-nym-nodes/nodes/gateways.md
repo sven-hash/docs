@@ -73,33 +73,33 @@ You can check that your binaries are properly compiled with:
              (gateway - version 1.1.0)
 
     
-nym-gateway 1.1.0
-Nymtech
-Implementation of the Nym Mixnet Gateway
+    nym-gateway 1.1.0
+    Nymtech
+    Implementation of the Nym Mixnet Gateway
 
-USAGE:
-    nym-gateway [OPTIONS] <SUBCOMMAND>
+    USAGE:
+        nym-gateway [OPTIONS] <SUBCOMMAND>
 
-OPTIONS:
-        --config-env-file <CONFIG_ENV_FILE>
-            Path pointing to an env file that configures the gateway
+    OPTIONS:
+            --config-env-file <CONFIG_ENV_FILE>
+                Path pointing to an env file that configures the gateway
 
-    -h, --help
-            Print help information
+        -h, --help
+                Print help information
 
-    -V, --version
-            Print version information
+        -V, --version
+                Print version information
 
-SUBCOMMANDS:
-    completions          Generate shell completions
-    generate-fig-spec    Generate Fig specification
-    help                 Print this message or the help of the given subcommand(s)
-    init                 Initialise the gateway
-    node-details         Show details of this gateway
-    run                  Starts the gateway
-    sign                 Sign text to prove ownership of this mixnode
-    upgrade              Try to upgrade the gateway
- 
+    SUBCOMMANDS:
+        completions          Generate shell completions
+        generate-fig-spec    Generate Fig specification
+        help                 Print this message or the help of the given subcommand(s)
+        init                 Initialise the gateway
+        node-details         Show details of this gateway
+        run                  Starts the gateway
+        sign                 Sign text to prove ownership of this mixnode
+        upgrade              Try to upgrade the gateway
+    
 </details>
 
 You can also check the various arguments required for individual commands with: 
@@ -133,54 +133,54 @@ To check available configuration options use:
              (gateway - version 1.1.0)
 
     
-nym-gateway-init 
-Initialise the gateway
+    nym-gateway-init 
+    Initialise the gateway
 
-USAGE:
-    nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
+    USAGE:
+        nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-OPTIONS:
-        --announce-host <ANNOUNCE_HOST>
-            The host that will be reported to the directory server
+    OPTIONS:
+            --announce-host <ANNOUNCE_HOST>
+                The host that will be reported to the directory server
 
-        --clients-port <CLIENTS_PORT>
-            The port on which the gateway will be listening for clients gateway-requests
+            --clients-port <CLIENTS_PORT>
+                The port on which the gateway will be listening for clients gateway-requests
 
-        --datastore <DATASTORE>
-            Path to sqlite database containing all gateway persistent data
+            --datastore <DATASTORE>
+                Path to sqlite database containing all gateway persistent data
 
-        --enabled-statistics <ENABLED_STATISTICS>
-            Enable/disable gateway anonymized statistics that get sent to a statistics aggregator
-            server
+            --enabled-statistics <ENABLED_STATISTICS>
+                Enable/disable gateway anonymized statistics that get sent to a statistics aggregator
+                server
 
-    -h, --help
-            Print help information
+        -h, --help
+                Print help information
 
-        --host <HOST>
-            The custom host on which the gateway will be running for receiving sphinx packets
+            --host <HOST>
+                The custom host on which the gateway will be running for receiving sphinx packets
 
-        --id <ID>
-            Id of the gateway we want to create config for
+            --id <ID>
+                Id of the gateway we want to create config for
 
-        --mix-port <MIX_PORT>
-            The port on which the gateway will be listening for sphinx packets
+            --mix-port <MIX_PORT>
+                The port on which the gateway will be listening for sphinx packets
 
-        --mnemonic <MNEMONIC>
-            Cosmos wallet mnemonic needed for double spending protection
+            --mnemonic <MNEMONIC>
+                Cosmos wallet mnemonic needed for double spending protection
 
-        --statistics-service-url <STATISTICS_SERVICE_URL>
-            URL where a statistics aggregator is running. The default value is a Nym aggregator
-            server
+            --statistics-service-url <STATISTICS_SERVICE_URL>
+                URL where a statistics aggregator is running. The default value is a Nym aggregator
+                server
 
-        --validator-apis <VALIDATOR_APIS>
-            Comma separated list of endpoints of the validators APIs
+            --validator-apis <VALIDATOR_APIS>
+                Comma separated list of endpoints of the validators APIs
 
-        --validators <VALIDATORS>
-            Comma separated list of endpoints of the validator
+            --validators <VALIDATORS>
+                Comma separated list of endpoints of the validator
 
-        --wallet-address <WALLET_ADDRESS>
-            The wallet address you will use to bond this gateway, e.g.
-            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+            --wallet-address <WALLET_ADDRESS>
+                The wallet address you will use to bond this gateway, e.g.
+                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
 </details>
 

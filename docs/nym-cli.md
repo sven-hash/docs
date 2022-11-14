@@ -30,7 +30,7 @@ You can see all available commands with:
         A client for interacting with Nym smart contracts and the Nyx blockchain
 
         USAGE:
-            nym-cli [OPTIONS] <SUBCOMMAND>
+            nym-cli [OPTIONS] <subcommand>
 
         OPTIONS:
                 --config-env-file <CONFIG_ENV_FILE>
@@ -60,7 +60,7 @@ You can see all available commands with:
                     Overrides the vesting contract address provided either as an environment variable or in
                     a config file
 
-        SUBCOMMANDS:
+        subcommandS:
             account             Query and manage Nyx blockchain accounts
             block               Query chain blocks
             cosmwasm            Manage and execute WASM smart contracts
@@ -119,7 +119,7 @@ Currently supported features include:
 ### Example Usage 
 Below we have listed some example commands for some of the features listed above. 
 
-If ever in doubt what you need to type, or if you want to see alternative parameters for a command, use the `nym-cli <SUBCOMMAND_NAME> --help` to view all available options.
+If ever in doubt what you need to type, or if you want to see alternative parameters for a command, use the `nym-cli <subcommand_NAME> --help` to view all available options.
 
 Example:
 ```
@@ -203,7 +203,7 @@ Queries the existing balance of an account.
 You can also query an accounts balance by using its mnemonic:
 
 ```
-./nym-cli account balance --mnemonic <YOUR_MNEMONIC>  
+./nym-cli account balance --mnemonic <mnemonic>  
 ```
 
 **Check the current balance of an account**
@@ -219,7 +219,7 @@ Queries the existing balance of an account.
 Queries the current height balance of an block.
 
 ```
-./nym-cli block current-height --mnemonic <YOUR_MNEMONIC>
+./nym-cli block current-height --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -233,7 +233,7 @@ Current block height:
 Query a mixnode on the mixnet.
 
 ```
-./nym-cli mixnet query mixnodes --mnemonic <YOUR_MNEMONIC>
+./nym-cli mixnet query mixnodes --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -246,7 +246,7 @@ TODO
 Bond a mixnode on the mixnet.
 
 ```
-nym-cli mixnet operators mixnode bond --mnemonic <YOUR_MNEMONIC> --host <HOST> --signature <SIGNATURE> --sphinx-key <SPHINX_KEY> --identity-key <IDENTITY_KEY> --version <VERSION> --amount <AMOUNT>
+nym-cli mixnet operators mixnode bond --mnemonic <mnemonic> --host <HOST> --signature <SIGNATURE> --sphinx-key <SPHINX_KEY> --identity-key <IDENTITY_KEY> --version <VERSION> --amount <AMOUNT>
 ```
 
 *Result:*
@@ -260,7 +260,7 @@ NOTE : The same command can be applied with a gateway.Just replace `mixnode` wit
 Unbound from a gateway on the mixnet.
 
 ```
-./nym-cli mixnet operators gateway unbound --mnemonic <YOUR_MNEMONIC>
+./nym-cli mixnet operators gateway unbound --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -274,7 +274,7 @@ NOTE : The same command can be applied with a mixnode.Just replace `gateway` wit
 Claim rewards for a mixnode bonded with locked tokens.
 
 ```
-./nym-cli mixnet operators mixnode rewards vesting-claim --mnemonic <YOUR_MNEMONIC>
+./nym-cli mixnet operators mixnode rewards vesting-claim --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -287,7 +287,7 @@ TODO
 Claim rewards for a mixnode.
 
 ```
-./nym-cli mixnet operators mixnode rewards --mnemonic <YOUR_MNEMONIC>
+./nym-cli mixnet operators mixnode rewards --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -308,7 +308,7 @@ Manage your mixnode settings stored in the directory.
 Delegate stake to a mixnode.
 
 ```
-./nym-cli mixnet delegators delegate --amount <AMOUNT> –mix-id <MIX_ID> --mnemonic <YOUR_MNEMONIC>
+./nym-cli mixnet delegators delegate --amount <AMOUNT> –mix-id <MIX_ID> --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -322,7 +322,7 @@ TODO
 Remove stake from a mixnode.
 
 ```
-./nym-cli mixnet delegators undelegate --mix-id <MIX-ID> --mnemonic <YOUR_MNEMONIC>
+./nym-cli mixnet delegators undelegate --mix-id <MIX-ID> --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -336,7 +336,7 @@ TODO
 Claim rewards accumulated during the delegation of unlocked tokens.
 
 ```
-./nym-cli mixnet delegators rewards claim --mix-id <MIX-ID> --mnemonic <YOUR_MNEMONIC>
+./nym-cli mixnet delegators rewards claim --mix-id <MIX-ID> --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -350,7 +350,7 @@ TODO
 Sign a message.
 
 ```
-./nym-cli signature sign --mnemonic <YOUR_MNEMONIC> <MESSAGE>
+./nym-cli signature sign --mnemonic <mnemonic> <MESSAGE>
 ```
 
 *Result:*
@@ -362,7 +362,7 @@ Sign a message.
 Signature verify.
 
 ```
-./nym-cli signature verify  --mnemonic <YOUR_MNEMONIC> <PUBLIC_KEY_OR_ADDRESS> <SIGNATURE_AS_HEX> <MESSAGE> 
+./nym-cli signature verify  --mnemonic <mnemonic> <PUBLIC_KEY_OR_ADDRESS> <SIGNATURE_AS_HEX> <MESSAGE> 
 ```
 
 *Result:*
@@ -375,7 +375,7 @@ TODO
 Creates a vesting schedule.
 
 ```
-./nym-cli vesting-schedule create --mnemonic <YOUR_MNEMONIC> --address <ADDRESS> --amount <AMOUNT>
+./nym-cli vesting-schedule create --mnemonic <mnemonic> --address <ADDRESS> --amount <AMOUNT>
 ```
 
 *Result:*
@@ -389,7 +389,7 @@ TODO
 Query for vesting schedule.
 
 ```
-./nym-cli vesting-schedule query --mnemonic <YOUR_MNEMONIC>
+./nym-cli vesting-schedule query --mnemonic <mnemonic>
 ```
 
 *Result:*
@@ -399,7 +399,7 @@ Query for vesting schedule.
 (ERRORS HERE)
 
 The main account n1yt63g0fmfm39zeq87scjchujqc222ltfxhvdy8 also has a regular balance of:
-<BALANCE>
+<balance>
 ```
 
 

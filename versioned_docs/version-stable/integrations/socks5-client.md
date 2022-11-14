@@ -51,33 +51,32 @@ You can check that your binaries are properly compiled with:
 
              (socks5 proxy - version 1.1.0)
 
-    
-nym-socks5-client 1.1.0
-Nymtech
-A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
+        
+        nym-socks5-client 1.1.0
+        Nymtech
+        A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
-USAGE:
-    nym-socks5-client [OPTIONS] <SUBCOMMAND>
+        USAGE:
+        nym-socks5-client [OPTIONS] <SUBCOMMAND>
 
-OPTIONS:
-        --config-env-file <CONFIG_ENV_FILE>
-            Path pointing to an env file that configures the client
+        OPTIONS:
+                --config-env-file <CONFIG_ENV_FILE>
+                Path pointing to an env file that configures the client
 
-    -h, --help
-            Print help information
+        -h, --help
+                Print help information
 
-    -V, --version
-            Print version information
+        -V, --version
+                Print version information
 
-SUBCOMMANDS:
-    completions          Generate shell completions
-    generate-fig-spec    Generate Fig specification
-    help                 Print this message or the help of the given subcommand(s)
-    init                 Initialise a Nym client. Do this first!
-    run                  Run the Nym client with provided configuration client optionally
-                             overriding set parameters
-    upgrade              Try to upgrade the client
-            upgrade    Try to upgrade the client
+        SUBCOMMANDS:
+        completions          Generate shell completions
+        generate-fig-spec    Generate Fig specification
+        help                 Print this message or the help of the given subcommand(s)
+        init                 Initialise a Nym client. Do this first!
+        run                  Run the Nym client with provided configuration client optionally
+                                overriding set parameters
+        upgrade              Try to upgrade the client
 
     
       

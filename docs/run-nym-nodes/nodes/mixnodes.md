@@ -75,38 +75,38 @@ Which should return a list of all avaliable commands.
 
              (mixnode - version 1.1.0)
 
-    
-nym-mixnode 1.1.0
-Nymtech
-Implementation of a Loopix-based Mixnode
-
-USAGE:
-    nym-mixnode [OPTIONS] <SUBCOMMAND>
-
-OPTIONS:
-        --config-env-file <CONFIG_ENV_FILE>
-            Path pointing to an env file that configures the mixnode
-
-    -h, --help
-            Print help information
-
-    -V, --version
-            Print version information
-
-SUBCOMMANDS:
-    completions          Generate shell completions
-    describe             Describe your mixnode and tell people why they should delegate state to
-                             you
-    generate-fig-spec    Generate Fig specification
-    help                 Print this message or the help of the given subcommand(s)
-    init                 Initialise the mixnode
-    node-details         Show details of this mixnode
-    run                  Starts the mixnode
-    sign                 Sign text to prove ownership of this mixnode
-    upgrade              Try to upgrade the mixnode
-
+        
     nym-mixnode 1.1.0
     Nymtech
+    Implementation of a Loopix-based Mixnode
+
+    USAGE:
+        nym-mixnode [OPTIONS] <SUBCOMMAND>
+
+    OPTIONS:
+            --config-env-file <CONFIG_ENV_FILE>
+                Path pointing to an env file that configures the mixnode
+
+        -h, --help
+                Print help information
+
+        -V, --version
+                Print version information
+
+    SUBCOMMANDS:
+        completions          Generate shell completions
+        describe             Describe your mixnode and tell people why they should delegate state to
+                                you
+        generate-fig-spec    Generate Fig specification
+        help                 Print this message or the help of the given subcommand(s)
+        init                 Initialise the mixnode
+        node-details         Show details of this mixnode
+        run                  Starts the mixnode
+        sign                 Sign text to prove ownership of this mixnode
+        upgrade              Try to upgrade the mixnode
+
+        nym-mixnode 1.1.0
+        Nymtech
 
 
 </details>
@@ -136,41 +136,41 @@ To check available configuration options for initializing your node use:
 
              (mixnode - version 1.1.0)
 
-    
-nym-mixnode-init 
-Initialise the mixnode
+        
+    nym-mixnode-init 
+    Initialise the mixnode
 
-USAGE:
-    nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
+    USAGE:
+        nym-mixnode init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-OPTIONS:
-        --announce-host <ANNOUNCE_HOST>
-            The custom host that will be reported to the directory server
+    OPTIONS:
+            --announce-host <ANNOUNCE_HOST>
+                The custom host that will be reported to the directory server
 
-    -h, --help
-            Print help information
+        -h, --help
+                Print help information
 
-        --host <HOST>
-            The host on which the mixnode will be running
+            --host <HOST>
+                The host on which the mixnode will be running
 
-        --http-api-port <HTTP_API_PORT>
-            The port on which the mixnode will be listening for http requests
+            --http-api-port <HTTP_API_PORT>
+                The port on which the mixnode will be listening for http requests
 
-        --id <ID>
-            Id of the mixnode we want to create config for
+            --id <ID>
+                Id of the mixnode we want to create config for
 
-        --mix-port <MIX_PORT>
-            The port on which the mixnode will be listening for mix packets
+            --mix-port <MIX_PORT>
+                The port on which the mixnode will be listening for mix packets
 
-        --validators <VALIDATORS>
-            Comma separated list of rest endpoints of the validators
+            --validators <VALIDATORS>
+                Comma separated list of rest endpoints of the validators
 
-        --verloc-port <VERLOC_PORT>
-            The port on which the mixnode will be listening for verloc packets
+            --verloc-port <VERLOC_PORT>
+                The port on which the mixnode will be listening for verloc packets
 
-        --wallet-address <WALLET_ADDRESS>
-            The wallet address you will use to bond this mixnode, e.g.
-            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+            --wallet-address <WALLET_ADDRESS>
+                The wallet address you will use to bond this mixnode, e.g.
+                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
 </details>
 

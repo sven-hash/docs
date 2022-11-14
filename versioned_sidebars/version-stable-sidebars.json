@@ -90,10 +90,6 @@
           },
           {
             "type":"doc",
-            "id": "version-stable/integrations/demos"
-          },
-          {
-            "type":"doc",
             "id": "version-stable/integrations/payment-integration-overview"
           }
         ]
