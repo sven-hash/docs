@@ -155,6 +155,26 @@
       ]
     },
     {
+        "type": "category",
+        "collapsed": true, 
+        "collapsible": true, 
+        "label": "Smart Contracts", 
+        "items": [
+          {
+            "type": "doc", 
+            "id": "version-stable/smart-contracts/overview"
+          }, 
+          {
+            "type": "doc", 
+            "id": "version-stable/smart-contracts/mixnet"
+          }, 
+          {
+            "type": "doc", 
+            "id": "version-stable/smart-contracts/vesting"
+          }
+        ]
+    },
+    {
           "type": "doc", 
           "id": "version-stable/wallet"
     }, 
