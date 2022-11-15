@@ -272,6 +272,17 @@ In order to easily identify your node via human-readable information later on in
 Remember to restart your mix node process in order for the new description to be propogated
 :::
 
+### Upgrading your mix node 
+
+* pause your mix node process 
+* replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
+* re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
+* restart your mix node process with the new binary. 
+
+> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in the next release. 
+
+
+
 ### Displaying mix node information
 
 You can always check the details of your mix node with the `node-details` command:
