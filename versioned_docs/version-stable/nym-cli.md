@@ -179,7 +179,7 @@ assist jungle spoil domain saddle energy box carpet toy resist castle faith tale
 # Address
 n132tpw4kkfas7ah0vmq78dwurhxljf2f869tlf5
 ```
-Note : NEVER share your mnemonic with anyone. Keep it stored in a safe and secure location.
+> NEVER share your mnemonic with anyone. Keep it stored in a safe and secure location.
 
 #### Check the current balance of an account
 
@@ -235,10 +235,6 @@ Query a mixnode on the mixnet.
 ./nym-cli mixnet query mixnodes --mnemonic <mnemonic>
 ```
 
-*Result:*
-```
-TODO
-```
 
 #### Bond a mix node
 
@@ -248,7 +244,7 @@ Bond a mix node.
 nym-cli mixnet operators mixnode bond --mnemonic <mnemonic> --host <HOST> --signature <SIGNATURE> --sphinx-key <SPHINX_KEY> --identity-key <IDENTITY_KEY> --version <VERSION> --amount <AMOUNT>
 ```
 
-> The same command can be applied with a gateway.Just replace `mixnode` with `gateway`.
+> The same command can be applied with a gateway. Just replace `mixnode` with `gateway`.
 
 #### Unbond a gateway
 
@@ -258,7 +254,7 @@ Unbond from a gateway.
 ./nym-cli mixnet operators gateway unbound --mnemonic <mnemonic>
 ```
 
-> The same command can be applied with a mixnode.Just replace `gateway` with `mixnode`.
+> The same command can be applied with a mixnode. Just replace `gateway` with `mixnode`.
 
 #### Claim a vesting reward for a mixnode
 
