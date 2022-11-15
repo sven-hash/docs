@@ -320,32 +320,12 @@ curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:
 
 ### Upgrading your gateway 
 
-There are two methods to upgrade from `v1.0.2` to `v1.1.0`: 
-
-**Simple method:**
 * pause your gateway process 
 * replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
 * re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
 * restart your gateway process with the new binary. 
 
-Running `init` again is necessary to update your gateway config file with new fields and values that come with this release, such as whether the gateway is running in `statistics-enabled` mode. **This mode is off by default**. This is to help us beta-test [NymConnect](https://blog.nymtech.net/announcing-nymconnect-in-beta-f84ed8598f26) and is described in more details [above](gateways#running-your-gateway-stats-mode). 
-
-
-**Manual method:**
-* pause your gateway process
-* replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
-* manually edit `$HOME/.nym/gateways/<your-id>/config/config.toml` to include the following: 
-    * update the `version` to `1.1.0`
-    * add the following to the `additional gateway config options` section 
-```
-    # Whether gateway collects and sends anonymized statistics
-    enabled_statistics = false
-
-    # Domain address of the statistics service
-    statistics_service_url = 'https://mainnet-stats.nymte.ch:8090/'
-```
-* restart your gateway process with the new binary. 
-
+> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in the next release. 
 
 ### Configure your firewall
 
