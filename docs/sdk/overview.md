@@ -7,8 +7,6 @@ title: "Overview"
  
 The Nym Typescript SDK allows developers to start building browser-based Mixnet applications quickly, by simply importing the SDK into their code via NPM. 
 
-// TODO add more of an explanation of the different things you can do with it _right now_ 
-
 The SDK will be made up of several components, each allowing developers to interact with different parts of Nym's infrastructure: 
 
 | Component | Usecase                                                   | Released | 
