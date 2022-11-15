@@ -37,6 +37,6 @@ Support for environments such as NodeJS, and environments with different bundler
 | ---------------- | --------- | 
 | Browser          |  ✔️        |
 | Headless NodeJS  |  ❌       |
-| Electrum Desktop |  ❌       |
+| Electron Desktop |  ❌       |
 
 
