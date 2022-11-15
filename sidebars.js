@@ -23,6 +23,14 @@ module.exports = {
       ],
     },
     {
+        type: "category", 
+        label: "SDK", 
+        collapsed: true, 
+        items: [
+            "sdk/overview"
+        ],
+    },
+    {
       type: "category",
       label: "Integrations",
       collapsed: true,
