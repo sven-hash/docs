@@ -18,11 +18,15 @@ The SDK will be made up of several components, each allowing developers to inter
 
 ### What is currently supported (and why) 
 Currently there are examples for several different frameworks which can be run in the browser: 
-* Plain html example **LINK**
-* Create-react-app example **LINK**
-* Vanilla Typescript **LINK** 
+* [Plain html](https://github.com/nymtech/nym/tree/release/v1.1.1/sdk/typescript/examples/plain-html)
+* [Create-react-app](https://github.com/nymtech/nym/tree/release/v1.1.1/sdk/typescript/examples/react-webpack-with-theme-example) 
+* [Vanilla Typescript](https://github.com/fmtabbara/nym-sdk-vanilla-template) 
 
-You may want to run this via a framework that isn't on this list, such as Angular, or NodeJS. **Here be dragons**, as these frameworks will probably use a different bundler than the examples listed above, which are all using [Webpack](LINK). The choice of bundler relates to a key aspect of how the SDK functions, as it runs the Wasm blob created from the Rust code in LINK TO CLIENT REPO, and places it in a web worker. This allows us to keep the work done by the client - such as the heavy lifting of creating and multiply-encrypting Sphinx packets - in a seperate thread from our UI for useability. The SDK exposes an interface that allows developers to interact with the Wasm blob inside the webworker. 
+You may want to run this via a framework that isn't on this list, such as Angular, or NodeJS. **Here be dragons**, as these frameworks will probably use a different bundler than the examples listed above, which are all using Webpack. 
+
+The choice of bundler relates to a key aspect of how the SDK functions, as it runs the Wasm blob created from the Rust code in LINK TO CLIENT REPO, and places it in a web worker. This allows us to keep the work done by the client - such as the heavy lifting of creating and multiply-encrypting Sphinx packets - in a seperate thread from our UI for useability. 
+
+The SDK exposes an interface that allows developers to interact with the Wasm blob inside the webworker. 
 
 Support for environments such as NodeJS, and environments with different bundlers will be added soon. 
 
