@@ -11,7 +11,7 @@ The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-node
 :::
 
 ### Viewing command help
-
+  
 You can check that your binaries are properly compiled with:
 
 ```
@@ -21,23 +21,40 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-      Nym client 1.0.1
+             (client - version 1.1.0)
+
+    
+      nym-client 1.1.0
       Nymtech
-      Implementation of the Nym client
+      Implementation of the Nym Client
 
       USAGE:
-          nym-client [SUBCOMMAND]
+          nym-client [OPTIONS] <SUBCOMMAND>
 
-      FLAGS:
-          -h, --help       Prints help information
-          -V, --version    Prints version information
+      OPTIONS:
+              --config-env-file <CONFIG_ENV_FILE>
+                  Path pointing to an env file that configures the client
+
+          -h, --help
+                  Print help information
+
+          -V, --version
+                  Print version information
 
       SUBCOMMANDS:
-          help       Prints this message or the help of the given subcommand(s)
-          init       Initialise a Nym client. Do this first!
-          run        Run the Nym client with provided configuration client optionally overriding set parameters
-          upgrade    Try to upgrade the client
+          completions          Generate shell completions
+          generate-fig-spec    Generate Fig specification
+          help                 Print this message or the help of the given subcommand(s)
+          init                 Initialise a Nym client. Do this first!
+          run                  Run the Nym client with provided configuration client optionally
+                                  overriding set parameters
+          upgrade              Try to upgrade the client
 
 
 </details>

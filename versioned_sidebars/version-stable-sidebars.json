@@ -90,10 +90,6 @@
           },
           {
             "type":"doc",
-            "id": "version-stable/integrations/demos"
-          },
-          {
-            "type":"doc",
             "id": "version-stable/integrations/payment-integration-overview"
           }
         ]
@@ -159,12 +155,36 @@
       ]
     },
     {
+        "type": "category",
+        "collapsed": true, 
+        "collapsible": true, 
+        "label": "Smart Contracts", 
+        "items": [
+          {
+            "type": "doc", 
+            "id": "version-stable/smart-contracts/overview"
+          }, 
+          {
+            "type": "doc", 
+            "id": "version-stable/smart-contracts/mixnet"
+          }, 
+          {
+            "type": "doc", 
+            "id": "version-stable/smart-contracts/vesting"
+          }
+        ]
+    },
+    {
           "type": "doc", 
           "id": "version-stable/wallet"
     }, 
     {
           "type": "doc", 
           "id": "version-stable/nym-cli"
+    },
+    {
+          "type": "doc", 
+          "id": "version-stable/compatibility-table"
     },
     {
           "type": "doc", 
