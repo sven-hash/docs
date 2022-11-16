@@ -9,12 +9,12 @@ The Nym Typescript SDK allows developers to start building browser-based Mixnet 
 
 The SDK will be made up of several components, each allowing developers to interact with different parts of Nym's infrastructure: 
 
-| Component | Usecase                                                   | Released | 
-| --------- | --------------------------------------------------------- | -------- |
-| Mixnet    | Create clients, subscribe to Mixnet events, send messages |  ✔️       |
-| Coconut   | Create & verify Coconut credentials                       |  ❌      | 
-| Validator | Sign & broadcast blockchain transactions, query the       |  ❌      | 
-|           | blockchain, subscribe to new blocks                       |          | 
+| Component | Usecase                                                                                                               | Released | 
+| --------- | --------------------------------------------------------------------------------------------------------------------- | -------- |
+| Mixnet    | Create clients, subscribe to Mixnet events, send messages                                                             |  ✔️       |
+| Coconut   | Create & verify Coconut credentials                                                                                   |  ❌      | 
+| Validator | Sign & broadcast blockchain transactions, query the https://docs-release-1-1-1.ci.nymte.ch/docs/stable/overview/      |  ❌      | 
+
 
 ### What is currently supported (and why) 
 Currently there are examples for several different frameworks which can be run in the browser: 
