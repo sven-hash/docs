@@ -322,8 +322,8 @@ curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:
 
 * pause your gateway process 
 * replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
-* re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
-* restart your gateway process with the new binary. 
+* restart your gateway process with the new binary.
+* rebond your gateway, updating the version number.  
 
 > Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in the next release. 
 
