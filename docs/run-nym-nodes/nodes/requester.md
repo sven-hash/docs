@@ -131,7 +131,7 @@ If you are following these instructions to set up a requester as part of a Servi
 Now that we have a running client for the requester to listen to, we can start it with the following command: 
 
 ```
- ./nym-network-requester 
+ ./nym-network-requester run  
 ```
 
 <details>
@@ -151,7 +151,7 @@ As you can see, it has connected to the nym client that we started before.
 Now that we have a running client for the requester to listen to, we can start it with the following command. 
 
 ```
- ./nym-network-requester --enable-statistics
+ ./nym-network-requester run --enable-statistics
 ```
 
 <details>
@@ -246,7 +246,7 @@ StartLimitBurst=10
 User=nym # replace this with whatever user you wish 
 LimitNOFILE=65536
 # remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary 
-ExecStart=/home/nym/nym-network-requester  
+ExecStart=/home/nym/nym-network-requester run 
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
