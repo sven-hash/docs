@@ -403,6 +403,32 @@ The main account n1yt63g0fmfm39zeq87scjchujqc222ltfxhvdy8 also has a regular bal
 ```
 
 
+**Staking on someone's behalf (for custodians)**
+
+
+There is a limitation the the staking address can only perform the following actions (and are visiblke via the Nym Wallet Application:
+
+- Bond on the gateway's or mixnode's behalf.
+- Delegate or Undelegate (to a mixnode in order to begin receiving rewards)
+- Claiming the rewards on the account
+
+:::note
+The staking address has no ability to withdraw any coins from the parent's account.
+:::
+
+The staking address must maintain the same level of security as the parent mnemonic; while the parent mnemonic's delegations and bonding events will be visible to the parent owner, the staking address will be the only account capable of undoing the bonding and delegating from the mixnodes or gateway.
+
+Query for staking on behlaf of someone else
+```
+./nym-cli --config-env-file 'path/to/env/file' --mnemonic <staking address mnemonic>  mixnet delegators delegate --mix-id <input> --identity-key <input> --amount <input>
+```
+
+*Result:*
+```
+
+```
+
+
 
 
 
