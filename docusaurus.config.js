@@ -31,16 +31,6 @@ module.exports = {
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
-      switchConfig: {
-        darkIcon: '🌙',
-        darkIconStyle: {
-          marginLeft: '1px',
-        },
-        lightIcon: '☀️',
-        lightIconStyle: {
-          marginLeft: '1px',
-        },
-      },
     },
     navbar: {
       title: 'Nym',

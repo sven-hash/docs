@@ -13,7 +13,13 @@ The directory structure produced by Docusaurus (see below) can be initially conf
 * To contribute to an *existing* translation, edit files in `i18n/<LANGUAGE>/docusaurus-plugin-content-docs/<VERSION>/` 
 * To contribute tranlsations in a *new* language, please get in touch via max@nymtech.net or via our [Keybase](https://keybase.io/team/nymtech.friends) channel. When developing for another locale, run `npm run build` and serve the build files locally via nginx for ease. 
 
-> All of the raw diagram files are located in `static/drawio_files/`. VSCode has a nice [plugin](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) for editing [draw.io](https://app.diagrams.net/) files directly in your editor, or you can edit in the browser. 
+> All of the raw diagram files are located in `static/drawio_files/`. VSCode has a nice [plugin](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) for editing [draw.io](https://app.diagrams.net/) files directly in your editor, or you can edit in the browser.
+
+## Cutting a new version
+
+Please check the update commands [here](https://docusaurus.io/docs/versioning#tagging-a-new-version). The tl;dr of these instructions is: 
+* make sure that `docs/` is ready to be frozen 
+* run `npm run docusaurus docs:version <new_version_number>`
 
 ## Note on versioning 
 
