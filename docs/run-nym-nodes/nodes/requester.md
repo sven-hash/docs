@@ -5,8 +5,12 @@ hide_title: false
 title: "Network Requesters"
 ---
 
-:::note
+<!-- :::note
 The Nym network requester was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+::: -->
+
+:::caution
+The most recent Network Requester version is `1.1.1` - please checkout and build the repository according to instructions on the [building nym](/docs/stable/run-nym-nodes/build-nym/) page, **but checking out to `tags/nym-binaries-1.1.0-network-requester`** instead of the `v1.1.0` release
 :::
 
 
@@ -127,7 +131,7 @@ If you are following these instructions to set up a requester as part of a Servi
 Now that we have a running client for the requester to listen to, we can start it with the following command: 
 
 ```
- ./nym-network-requester run 
+ ./nym-network-requester run  
 ```
 
 <details>
@@ -242,7 +246,7 @@ StartLimitBurst=10
 User=nym # replace this with whatever user you wish 
 LimitNOFILE=65536
 # remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary 
-ExecStart=/home/nym/nym-network-requester run
+ExecStart=/home/nym/nym-network-requester run 
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30

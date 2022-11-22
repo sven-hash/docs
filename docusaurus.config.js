@@ -31,16 +31,6 @@ module.exports = {
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
-      switchConfig: {
-        darkIcon: '🌙',
-        darkIconStyle: {
-          marginLeft: '1px',
-        },
-        lightIcon: '☀️',
-        lightIconStyle: {
-          marginLeft: '1px',
-        },
-      },
     },
     navbar: {
       title: 'Nym',
@@ -86,45 +76,6 @@ module.exports = {
         },
       ],
     },
-    // footer: {
-    //   style: 'dark',
-    //   links: [
-        // {
-        //   items: [
-        //     {
-        //       label: 'Website',
-        //       href: 'https://nymtech.net/'
-        //     },
-        //     {
-        //       label: 'Keybase',
-        //       href: 'https://keybase.io/team/nymtech.friends',
-        //     },
-        //     {
-        //       label: 'Discord', 
-        //       href: 'https://Discord.gg/nym'
-        //     },
-        //   ],
-        // },
-        // {
-        //   items: [
-        //     {
-        //       href: 'https://github.com/nymtech',
-        //       label: 'GitHub',
-        //       position: 'right',
-        //     },
-        //     {
-        //       label: 'Telegram',
-        //       href: 'https://t.me/nymchan',
-        //     },
-        //     {
-        //       label: 'Blog',
-        //       href: 'https://medium.com/nymtech',
-        //     }
-        //   ],
-        // },
-
-    //   ],
-    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
