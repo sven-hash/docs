@@ -1,84 +1,99 @@
 module.exports = {
   sidebar: [
+    "overview",
     {
-      type: 'category',
-      label: 'Overview',
+      type: "category",
+      label: "Architecture",
       collapsed: true,
       items: [
-        "overview/index",
-        "overview/nym-platform",
-        "overview/network-privacy",
-        "overview/nym-other-systems",
-        "overview/private-access-control",
-        "overview/links"
+        "architecture/network-overview",
+        "architecture/traffic-flow",
+        "architecture/loopix",
+        "architecture/nym-other-systems"
       ],
-    }, 
+    },
     {
-      type: 'category',
-      label: 'Run Nym Nodes',
+      type: "category",
+      label: "Quick Start",
+      collapsed: true,
+      items: [
+        "quickstart/overview",
+        "quickstart/socks5",
+        "quickstart/nym-connect",
+      ],
+    },
+    {
+      type: "category",
+      label: "Integrations",
+      collapsed: true,
+      items: [
+        "integrations/overview",
+        "integrations/mixnet-integration-overview",
+        "integrations/choose-a-client",
+        {
+          type: "category",
+          label: "Clients",
+          collapsed: true,
+          items: [
+            "integrations/websocket-client",
+            "integrations/socks5-client",
+            "integrations/wasm-client",
+          ],
+        },
+        "integrations/addresses-in-nym",
+        "integrations/payment-integration-overview" 
+      ],
+    },
+    {
+      type: "category",
+      label: "Run Nodes",
       collapsed: true,
       items: [
         "run-nym-nodes/pre-built-binaries",
-        "run-nym-nodes/incentives",
-        "run-nym-nodes/network-rewards",
-        "run-nym-nodes/addresses-in-nym",
         "run-nym-nodes/build-nym",
         {
-          type: 'category',
-          label: 'Nodes',
+          type: "category",
+          label: "Nodes",
           collapsed: true,
           items: [
             "run-nym-nodes/nodes/mixnodes",
             "run-nym-nodes/nodes/troubleshooting",
             "run-nym-nodes/nodes/gateways",
-            "run-nym-nodes/nodes/validators",
             "run-nym-nodes/nodes/requester",
+            "run-nym-nodes/nodes/file-storage",
+            "run-nym-nodes/nodes/validators",
+            "run-nym-nodes/nodes/rpc-node",
+            "run-nym-nodes/nodes/network-explorer"
           ],
         },
+      "run-nym-nodes/network-rewards",
       ],
     },
     {
-      type: 'category',
-      label: 'Use Nym apps',
-      collapsed: true,
-      items: [
-        'nym-apps/wallet', 
-        'nym-apps/network-explorer',  
-      ],
+        type: "category", 
+        label: "Smart Contracts", 
+        collapsed: true, 
+        items: [
+            "smart-contracts/overview",
+            "smart-contracts/mixnet", 
+            "smart-contracts/vesting"
+        ],
     },
+    "wallet",
+    "nym-cli",
+    "compatibility-table",
+    "coconut",
     {
-      type: 'category',
-      label: 'Develop Nym Apps',
-      collapsed: true,
-      items: [
-        "develop-with-nym/overview",
-        "develop-with-nym/choose-a-client",
-        "develop-with-nym/websocket-client",
-        "develop-with-nym/socks5-client",
-        "develop-with-nym/wasm-client", 
-        // "develop-with-nym/demos"
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Use External Apps',
-      collapsed: true,
-      items: [
-        "use-external-apps/index",
-        "use-external-apps/blockstream-green",
-        "use-external-apps/keybase"
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Community',
+      type: "category",
+      label: "Community",
       collapsed: true,
       items: [
         "community/index",
         "community/code-of-conduct",
-        "community/licensing"
+        "community/licensing",
       ],
     },
-  ]
+    // "glossary",
+    "links"
+  ],
 };
-

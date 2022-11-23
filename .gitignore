@@ -30,3 +30,8 @@ _site
 .docusaurus
 build
 dist
+
+# ----------
+# Developing
+# ----------
+todo.md

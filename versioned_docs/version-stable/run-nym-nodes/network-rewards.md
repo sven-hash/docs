@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Network Rewards"
-hide_title: false
+hide_title:  false
 ---
 
 # Network Rewards
@@ -39,7 +39,7 @@ and
 
 Operator of node `i` is credited with the following amount:
 
-<img src="https://render.githubusercontent.com/render/math?math=min\{PP_{i},R_{i})\} %2b max\{0, (PM_{i} %2b (1 - PM_{i}) \cdot \lambda_{i}/\delta_{i}) \cdot (R_{i} - PP_{i})\}"></img>
+<img src="https://render.githubusercontent.com/render/math?math=min\{PP_{i},R_{i}\} %2b max\{0, (PM_{i} %2b (1 - PM_{i}) \cdot \lambda_{i}/\delta_{i}) \cdot (R_{i} - PP_{i})\}"></img>
 
 
 Delegate with stake `s` recieves:

@@ -1,9 +1,11 @@
 ---
 sidebar_label: Coconut简介
 description: "Nym ensures access control privacy using a sophisticated signature scheme called Coconut."
-hide_title: false
+hide_title:  false
 title: Coconut简介
 ---
+
+### 介绍Coconut
 
 Coconut是一个加密签名方案，可以产生隐私增强的凭证，它让关注资源访问控制的应用程序开发员以一种新的方式来思考和编程。
 

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Cliente Websocket"
-hide_title: false
+hide_title:  false
 description: "Cómo ejecutar el cliente de websocket Nym en una máquina de escritorio o servidor"
 title: Cliente Websocket
 ---
@@ -87,7 +87,7 @@ Una vez que el cliente ha obtenido la topología de la red, envía automáticame
 
 El cliente nativo de Nym expone una interfaz de websocket a la que su código se conecta. Para programar tu aplicación, elige una biblioteca de websocket para el lenguaje que estés utilizando. El puerto de websocket por defecto es `1977`, puedes anularlo en la configuración del cliente si lo deseas.
 
-### Un simple ejemplo peap
+### Un simple ejemplo PEAP
 
 Vamos a escribir algo de código. A veces, cuando estás aprendiendo algo nuevo, es más fácil ver un ejemplo corto que funcione. Aquí hay una simple aplicación escrita en Python. Este ejemplo está empaquetado con la plataforma Nym, busca en el directorio `python-examples` dentro de `clients/native`.
 

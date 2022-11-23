@@ -1,7 +1,7 @@
 ---
 sidebar_label: 网络隐私
 description: "Nym ensures network privacy using layer encrypted Sphinx packets and a Loopix mixnet."
-hide_title: false
+hide_title:  false
 title: 网络隐私
 ---
 
@@ -43,6 +43,6 @@ Nym混合网络通过在网络节点内混合信息来解决这个问题，这�
 
 Nym混合网络通过_loop_流量来缓解恶意节点的丢包攻击，并确保服务质量。客户端发送的信息会回传给自己，这使客户能够保证信息被正确地传递。它还提供_覆盖流量_，以确保有足够的消息通过系统来提供隐私。
 
-需要抵御网络级监控的隐私增强应用程序（简称Peaps）可以使用Nym混合网络。
+需要抵御网络级监控的隐私增强应用程序（简称PEAPs）可以使用Nym混合网络。
 
-最终的结果是，即使对手能够记录所有的互联网流量，也无法监控使用Nym的隐私增强型应用（Peaps），对手可以知道用户的Peap已经连接到混合网络，除此之外，无法判断他们是否在进行加密聊天、文件传输或与另一个Peap互动。
+最终的结果是，即使对手能够记录所有的互联网流量，也无法监控使用Nym的隐私增强型应用（PEAPs），对手可以知道用户的PEAP已经连接到混合网络，除此之外，无法判断他们是否在进行加密聊天、文件传输或与另一个PEAP互动。

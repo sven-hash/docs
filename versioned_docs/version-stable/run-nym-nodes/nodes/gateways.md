@@ -5,35 +5,65 @@ hide_title: false
 title: Gateways
 ---
 
- 
-
 :::note
-
 The Nym gateway was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
-
 :::
-
-
 
 Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination, sort of like a mailbox, for messages.
 
-Nym clients connect to gateways. Messages are automatically piped to connected clients and deleted from the gateway's disk storage. If a client is offline when a message arrives, it will be stored for later retrieval. When the client connects, all messages will be delivered, and deleted from the gateway's disk. As of release 0.8.x gateways use end-to-end encryption, so they cannot see the content of what they're storing for users.
+Nym clients connect to gateways. Messages are automatically piped to connected clients and deleted from the gateway's disk storage. If a client is offline when a message arrives, it will be stored for later retrieval. When the client connects, all messages will be delivered, and deleted from the gateway's disk. 
 
 When it starts up, a client registers itself with a gateway, and the gateway returns an access token. The access token plus the gateway's IP can then be used as a form of addressing for delivering packets.
 
 The default gateway implementation included in the Nym platform code holds packets for later retrieval. For many applications (such as simple chat), this is usable out of the box, as it provides a place that potentially offline clients can retrieve packets from. The access token allows clients to pull messages from the gateway node.
 
-### Initialising your gateway
+## Preliminary steps
+
+There are a couple of steps that need completing before starting to set up your gateway:
+
+- preparing your wallet
+- requisitioning a VPS (Virtual Private Server)
+
+### Wallet preparation 
+#### Mainnet
+Before you initialise and run your gateway, head to our [website](https://nymtech.net/download/) and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren't availiable, you can build the wallet yourself with instructions [here](/docs/stable/wallet). 
+
+If you don't already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a gateway is 100 `NYM`, but make sure you have a bit more to account for gas costs. 
+
+`NYM` is currently present on several exchanges. Head to our [telegram](https://t.me/nymchan) or [Discord](https://discord.com/invite/nym) channels to find out where to get `NYM` tokens. 
+
+:::note
+Remember that you can **only** use native Cosmos `NYM` tokens to bond your gateway. You **cannot** use ERC20 representations of `NYM` to run a node. 
+:::
+
+#### Sandbox testnet
+Make sure to download a wallet and create an account as outlined above. Then head to our [token faucet](https://faucet.nymtech.net/) and get some tokens to use to bond it. 
+
+### VPS Hardware Specs
+
+You will need to rent a VPS to run your mix node on. One key reason for this is that your node **must be able to send TCP data using both IPv4 and IPv6** (as other nodes you talk to may use either protocol.
+
+We currently have these _rough_ specs for VPS hardware: 
+
+- Processors: 2 cores are fine. Get the fastest CPUs you can afford.
+- RAM: Memory requirements depend on the amount of users your Gateway will be serving at any one time. If you're just going to be using it yourself, then minimal RAM is fine. **If you're running your Gateway as part of a Service Grant, get something with at least 4GB RAM.** 
+- Disks: much like the amount of RAM your Gateway could use, the amount of disk space required will vary with the amount of users your Gateway is serving. **If you're running your Gateway as part of a Service Grant, get something with at least 40GB storage.** 
+
+
+## Gateway setup and maintenance
+
+Now that you have built the codebase, set up your wallet, and have a VPS with the `nym-gateway` binary, you can set up your gateway with the instructions below.
+
+### Viewing command help
 
 You can check that your binaries are properly compiled with:
 
 ```
-./nym-gateway
+./nym-gateway --help
 ```
+<details>
+  <summary>console output</summary>
 
-Which should return:
-
-```
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -41,22 +71,59 @@ Which should return:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.1)
+             (gateway - version 1.1.0)
 
+        
+        nym-gateway 1.1.0
+        Nymtech
+        Implementation of the Nym Mixnet Gateway
 
+        USAGE:
+            nym-gateway [OPTIONS] <SUBCOMMAND>
 
-usage: --help to see available options.
+        OPTIONS:
+                --config-env-file <CONFIG_ENV_FILE>
+                    Path pointing to an env file that configures the gateway
+
+            -h, --help
+                    Print help information
+
+            -V, --version
+                    Print version information
+
+        SUBCOMMANDS:
+            completions          Generate shell completions
+            generate-fig-spec    Generate Fig specification
+            help                 Print this message or the help of the given subcommand(s)
+            init                 Initialise the gateway
+            node-details         Show details of this gateway
+            run                  Starts the gateway
+            sign                 Sign text to prove ownership of this mixnode
+            upgrade              Try to upgrade the gateway
+
+</details>
+
+You can also check the various arguments required for individual commands with: 
 
 ```
+./nym-gateway <command> --help
+```
+
+
+### Initialising your gateway (standard mode)
+
+:::caution
+If you are following these instructions to set up a gateway as part of a Service Grant, **ignore these instructions and jump to the step [below](gateways#initialising-your-gateway-stats-mode)**
+:::
 
 To check available configuration options use:
 
 ```
  ./nym-gateway init --help
 ```
-Which will return the following: 
 
-```
+<details>
+  <summary>console output</summary>
 
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
@@ -64,125 +131,205 @@ Which will return the following:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 0.12.1)
+             (gateway - version 1.1.0)
 
-    
-nym-gateway-init 
-Initialise the gateway
+            
+        nym-gateway-init 
+        Initialise the gateway
 
-USAGE:
-    nym-gateway init [FLAGS]  [OPTIONS] --host <host> --id <id> --wallet-address <wallet-address>
+        USAGE:
+            nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-FLAGS:
-    -h, --help            Prints help information
+        OPTIONS:
+                --announce-host <ANNOUNCE_HOST>
+                    The host that will be reported to the directory server
 
-    -V, --version         Prints version information
+                --clients-port <CLIENTS_PORT>
+                    The port on which the gateway will be listening for clients gateway-requests
 
-OPTIONS:
-        --announce-host <announce-host>      The host that will be reported to the directory server
-        --clients-port <clients-port>        The port on which the gateway will be listening for clients gateway-
-                                             requests
-        --datastore <datastore>              Path to sqlite database containing all gateway persistent data
-        --host <host>                        The custom host on which the gateway will be running for receiving sphinx packets
-        --id <id>                            Id of the gateway we want to create config for.
-        --mix-port <mix-port>                The port on which the gateway will be listening for sphinx packets
-        --mnemonic <mnemonic>                Cosmos wallet mnemonic
-        --validator-apis <validator-apis>    Comma separated list of endpoints of the validators APIs
-        --validators <validators>            Comma separated list of endpoints of the validator
-        --wallet-address <wallet-address>    The wallet address you will use to bond this gateway, e.g.
-                                             nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+                --datastore <DATASTORE>
+                    Path to sqlite database containing all gateway persistent data
 
-```
+                --enabled-statistics <ENABLED_STATISTICS>
+                    Enable/disable gateway anonymized statistics that get sent to a statistics aggregator
+                    server
+
+            -h, --help
+                    Print help information
+
+                --host <HOST>
+                    The custom host on which the gateway will be running for receiving sphinx packets
+
+                --id <ID>
+                    Id of the gateway we want to create config for
+
+                --mix-port <MIX_PORT>
+                    The port on which the gateway will be listening for sphinx packets
+
+                --mnemonic <MNEMONIC>
+                    Cosmos wallet mnemonic needed for double spending protection
+
+                --statistics-service-url <STATISTICS_SERVICE_URL>
+                    URL where a statistics aggregator is running. The default value is a Nym aggregator
+                    server
+
+                --validator-apis <VALIDATOR_APIS>
+                    Comma separated list of endpoints of the validators APIs
+
+                --validators <VALIDATORS>
+                    Comma separated list of endpoints of the validator
+
+                --wallet-address <WALLET_ADDRESS>
+                    The wallet address you will use to bond this gateway, e.g.
+                    nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+
+ </details>
+
 
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
 
 ```
- ./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <wallet_address>
+./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --enabled-statistics true
 ```
 
 The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
 
-Gateways **must** also be capable of addressing IPv6, which is something that is hard to come by with many ISPs. Running a gateway from behind your router will be tricky because of this, and we strongly recommend to run your gateway on a VPS. Additional to IPv6 connectivity, this will help maintain better uptime and connectivity.
+### Initialising your gateway (stats mode)
 
-Remember to bond your node via the Nym wallet, which can be downloaded [here](https://github.com/nymtech/nym/releases/). This is required for the blockchain to recognize your node and its software version, and include your gateway in the mixnet. 
-
-### Running your gateway
-
-The `run` command runs the gateway.
-
-Example:
-
-`./nym-gateway run --id supergateway`
-
-Results in:
+The following command returns a gateway on your current IP with the `id` of `supergateway` with statistics enabled:
 
 ```
- ./nym-gateway run --id supergateway
-
-
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (gateway - version 0.12.1)
-
-
-Starting gateway supergateway...
-Public sphinx key: Gk1WYjVAGuyMFitJGxUGKH3TuvFvKx6B9amP7kzbFrSe
-
-Public identity key: 398BwaVTnnA4Drv878Znmdiat1fGbQ1qgzxd3rZEfqRA
-
-Validator servers: ["http://sandbox-validator.nymtech.net:1317"]
-Listening for incoming packets on 172.105.67.104
-Announcing the following address: 172.105.67.104
-Inboxes directory is: "/home/nym/.nym/gateways/supergateway/data/inboxes"
-Clients ledger is stored at: "/home/nym/.nym/gateways/supergateway/data/client_ledger.sled"
- 2021-07-20T15:08:36.751Z INFO  nym_gateway::node > Starting nym gateway!
- 2021-07-20T15:08:36.849Z INFO  nym_gateway::node > Starting mix packet forwarder...
- 2021-07-20T15:08:36.849Z INFO  nym_gateway::node > Starting clients handler
- 2021-07-20T15:08:36.850Z INFO  nym_gateway::node > Starting mix socket listener...
- 2021-07-20T15:08:36.850Z INFO  nym_gateway::node::mixnet_handling::receiver::listener > Running mix listener on "172.105.67.104:1789"
- 2021-07-20T15:08:36.850Z INFO  nym_gateway::node::mixnet_handling::receiver::listener > Starting mixnet listener at 172.105.67.104:1789
- 2021-07-20T15:08:36.850Z INFO  nym_gateway::node                                      > Starting client [web]socket listener...
- 2021-07-20T15:08:36.850Z INFO  nym_gateway::node::client_handling::websocket::listener > Starting websocket listener at 172.105.67.104:9000
- 2021-07-20T15:08:36.850Z INFO  nym_gateway::node                                       > Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
-
+./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address <WALLET_ADDRESS> --mnemonic <MNEMONIC> --enabled-statistics true
 ```
 
-If you ever want to check the version details of your node, run:  
+The `$(curl ifconfig.me)` command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP **without** any port information.
+
+### Bonding your gateway
+#### Via the Desktop wallet (recommended)
+You can bond your gateway via the Desktop wallet. 
+
+Open your wallet, and head to the `Bond` page, then select the node type and input your node details. 
+
+#### Via the CLI (power users)
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/stable/nym-cli) tool. 
+
+### Running your gateway (standard mode)
+
+:::caution
+If you are following these instructions to set up a gateway as part of a Service Grant, **ignore these instructions and jump to the step [below](gateways#running-your-gateway-stats-mode)**
+:::
+
+The `run` command starts the gateway:
 
 ```
-./nym-gateway --version 
+./nym-gateway run --id supergateway
 ```
 
-This prints various bits of information about your node: 
+<details>
+  <summary>console output</summary>
 
-```
+    Starting gateway supergateway...
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
-
-             (gateway - version 0.12.1)
-
+    To bond your gateway you will need to install the Nym wallet, go to https://nymtech.net/get-involved and select the Download button.
+    Select the correct version and install it to your machine. You will need to provide the following: 
     
-Nym Mixnet Gateway 
-Build Timestamp:    2021-12-17T16:59:54.243831464+00:00
-Build Version:      0.12.1
-Commit SHA:         96aa814a6106d6d5bbc1245cdc21b5b554d47b5f
-Commit Date:        2021-12-17T14:30:04+00:00
-Commit Branch:      detached HEAD
-rustc Version:      1.56.1
-rustc Channel:      stable
-cargo Profile:      release
+    Identity Key: 6jWSJZsQ888jwzi1CBfkHefiDdUEjgwfeMfJU4RNhDuk
+    Sphinx Key: HbqYJwjmtzDi4WzGp7ehj8Ns394sRvJnxtanX28upon
+    Owner Signature: wRKxr1CnoyBB9AYPSaXgE4dCP757ffMz5gkja8EKaYR82a63FK9HYV3HXZnLcSaNXkzN3CJnxG2FREv1ZE9xwvx
+    Host: 62.240.134.46 (bind address: 62.240.134.46)
+    Version: 1.1.0
+    Mix Port: 1789, Clients port: 9000
+    Data store is at: "/home/mx/.nym/gateways/supergateway/data/db.sqlite"
+    2022-04-27T16:04:33.831Z INFO  nym_gateway::node > Starting nym gateway!
+    2022-04-27T16:04:34.268Z INFO  nym_gateway::node > Starting mix packet forwarder...
+    2022-04-27T16:04:34.269Z INFO  nym_gateway::node > Starting mix socket listener...
+    2022-04-27T16:04:34.269Z INFO  nym_gateway::node::mixnet_handling::receiver::listener > Running mix listener on "62.240.134.46:1789"
+    2022-04-27T16:04:34.269Z INFO  nym_gateway::node                                      > Starting client [web]socket listener...
+    2022-04-27T16:04:34.269Z INFO  nym_gateway::node                                      > Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
+
+</details>
+
+### Running your gateway (stats mode)
 
 ```
+./nym-gateway run --id supergateway --enabled-statistics true
+```
 
-#### Configure your firewall
+The `--enabled-statistics` flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
+
+Use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date):  
+
+```
+curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST https://mainnet-stats.nymte.ch:8090/v1/all-statistics
+```
+
+<details>
+  <summary>console output</summary>
+
+      [
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":294,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:55:44.459257091"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"chat-0.core.keybaseapi.com:443",
+              "request_processed_bytes":890,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Service":{
+              "requested_service":"api-0.core.keybaseapi.com:443",
+              "request_processed_bytes":1473,
+              "response_processed_bytes":0,
+              "interval_seconds":60,
+              "timestamp":"2022-07-26 12:56:44.459333653"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:46:34.148075290"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"2BuMSfMW3zpeAjKXyKLhmY4QW1DXurrtSPEJ6CjX3SEh",
+              "inbox_count":6,
+              "timestamp":"2022-07-26 12:46:51.578765358"
+            }
+        },
+        {
+            "Gateway":{
+              "gateway_id":"Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf",
+              "inbox_count":8,
+              "timestamp":"2022-07-26 12:47:34.149270862"
+            }
+        }
+      ]                            
+
+</details>
+
+
+### Upgrading your gateway 
+
+* pause your gateway process 
+* replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
+* re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
+* restart your gateway process with the new binary. 
+
+> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in the next release. 
+
+### Configure your firewall
 
 Although your gateway is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
@@ -213,7 +360,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (0.12.1)
+Description=Nym Gateway (1.1.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -231,11 +378,15 @@ WantedBy=multi-user.target
 
 Put the above file onto your system at `/etc/systemd/system/nym-gateway.service`.
 
+If you want to enable statistics mode, the start command would be: 
+`ExecStart=/home/nym/nym-gateway run --id supergateway --enabled-statistics true`
+  
 Change the path in `ExecStart` to point at your gateway binary (`nym-gateway`), and the `User` so it is the user you are running as.
 
 If you have built nym on your server, and your username is `jetpanther`, then the start command might look like this:
 
 `ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id`. Basically, you want the full `/path/to/nym-gateway run --id whatever-your-node-id-is`
+  
 
 Then run:
 
@@ -261,25 +412,17 @@ systemctl daemon-reload
 
 This lets your operating system know it's ok to reload the service configuration.
 
-### Metrics 
-This is currently only one metrics endpoint for the gateway. It can be accessed via `curl` like this: 
+## Gateway related Validator API endpoints 
 
-```
-curl https://sandbox-validator.nymtech.net/api/v1/status/gateway/<GATEWAY_ID>/core-status-count
-```
+Numerous gateway related API endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
-This endpoint returns the number of times that the gateway has been selected from the rewarded set and had 1000 packets sent to it, before being used by the network monitor to test the rest of the network. 
+## Ports 
 
-- `identity`: the identity key of the gateway. 
-- `count`: the number of times it has been used for network testing. 
-
+All gateway specific port configuration can be found in `$HOME/.nym/gateways/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your gateway.
 
 ### Gateway port reference
-
-All gateway-specific port configuration can be found in `$HOME/.nym/gateways/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your gateway.
 
 | Default port | Use                       |
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
-

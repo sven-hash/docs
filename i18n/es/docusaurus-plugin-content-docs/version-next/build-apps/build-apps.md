@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Introducción"
-hide_title: false
+hide_title:  false
 description: "Tutoriales para construir aplicaciones con privacidad mejorada (o integrar las apps existentes con Nym)"
 title: Construir aplicaciones Nym
 ---
@@ -84,7 +84,7 @@ El proceso para enviar mensajes a otras aplicaciones es exactamente el mismo, si
 
 
 <ThemedImage
-  alt="Envío de mensaje a un peap"
+  alt="Envío de mensaje a un PEAP"
   sources={{
     light: useBaseUrl('/img/docs/application-flow/sp-request.png'),
     dark: useBaseUrl('/img/docs/application-flow/sp-request-dark.png'),

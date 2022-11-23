@@ -1,7 +1,7 @@
 ---
 sidebar_label: Nym与其他加密系统对比
 description: "A comparison of Nym and other privacy systems"
-hide_title: false
+hide_title:  false
 title: Nym与其他加密系统对比
 ---
 

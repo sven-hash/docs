@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Nym frente a otros sistemas"
 description: "Una comparación de Nym y otros sistemas de privacidad"
-hide_title: false
+hide_title:  false
 title: Nym frente a otros sistemas
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Validadores"
 description: "Los validadores de Nym proporcionan credenciales de privacidad mejorada basadas en el testimonio de un conjunto de autoridades emisoras descentralizadas y basadas en blockchain."
-hide_title: false
+hide_title:  false
 title: Validadores
 ---
 

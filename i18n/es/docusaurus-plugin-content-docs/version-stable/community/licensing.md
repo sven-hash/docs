@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Licencia"
-hide_title: false
+hide_title:  false
 description: "Nym es software libre liberado bajo la Licencia Apache V2"
 title: Licencia
 ---

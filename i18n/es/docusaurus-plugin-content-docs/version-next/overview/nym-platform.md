@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Visión general de la red"
 description: "Una visión general de la arquitectura de la plataforma Nym"
-hide_title: false
+hide_title:  false
 title: Visión general de la red
 ---
 

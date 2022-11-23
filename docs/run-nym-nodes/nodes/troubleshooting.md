@@ -1,9 +1,13 @@
 ---
-sidebar_label: "Mixnodes FAQ"
+sidebar_label: "Troubleshooting"
 description: "This page will help you find answers to common issues with setting up and maintaining mixnodes"
-hide_title: false
-title: Mixnodes FAQ
+hide_title: false 
+title: "Troubleshooting" 
 ---
+
+:::tip
+Although this troubleshooting mainly focusses on Mix Nodes, many of the debugging methods can be adapted to all node types
+::: 
 
 ### I am trying to build from the GitHub archive files and the build fails
 
@@ -24,9 +28,17 @@ We have scripts which automatically include the Git commit hash and Git tag in t
 
 ### How can I tell my node is up and running and mixing traffic?
 
-First of all check the 'Mixnodes' section of the testnet [dashboard](https://sandbox-explorer.nymtech.net/) and enter your **identity key**, and you should see your node. Alternatively you can check the [leaderboard interface](https://nodes.guru/nym/leaderboard) created by community member Evgeny Garanin from [Nodes Guru](https://nodes.guru).
+First of all check the 'Mixnodes' section of either the Nym Network Explorers: 
+* [Mainnet](https://explorer.nymtech.net/overview) 
+* [Sandbox testnet](https://sandbox-explorer.nymtech.net/) 
 
-If you want more information, or if your node isn't showing up and you want to double-check, here are some examples on how to check if the node is configured properly.
+Enter your **identity key** to find your node. Check the contents of the 'mixnode stats' and 'uptime story' sections.
+
+There are 2 community explorers currently, which have been created by [Nodes Guru](https://nodes.guru): 
+* [Mainnet](https://mixnet.explorers.guru/)
+* [Sandbox testnet](https://sandbox.mixnet.explorers.guru/)
+
+If you want more information, or if your node isn't showing up on the explorer of your choice and you want to double-check, here are some examples on how to check if the node is configured properly.
 
 #### Check from your VPS
 
@@ -98,25 +110,16 @@ PORT     STATE SERVICE
 1789/tcp open  hello
 ```
 
-##### Query all nodes and parse with `jq`:
+##### Query online nodes: 
 
 ```
-curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq
+curl --location --request GET 'https://validator.nymtech.net/api/v1/mixnodes/'
 ```
 
-Should return a JSON object of all nodes currently online.
+Will return a list all nodes currently online.
 
-This command can be further parsed by various keys, such as location:
+You can query gateways by replacing `mixnodes` with `gateways` in the above command, and can query for the mixnodes and gatways on the Sandbox testnet by replacing `validator` with `sandbox-validator`. 
 
-```
-curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.location == "London")'
-```
-
-or address:
-
-```
-curl https://sandbox-explorer.nymtech.net/data/mixnodes.json | jq -r '.[].mix_node | select(.host | startswith("65.21")) | .host'
-```
 
 #### Check with testnet API
 
@@ -371,6 +374,6 @@ You don't have to do any additional configuration for your node to implement thi
 
 ### Where can I get more help?
 
-The fastest way to reach one of us or get a help from the community, visit our [Telegram help chat](https://t.me/nymchan_help_chat).
+The fastest way to reach one of us or get a help from the community, visit our [Telegram help chat](https://t.me/nymchan_help_chat) or head to our [Discord](https://Discord.gg/nym)
 
-For more tech heavy questions join our Keybase channel. Get Keybase [here](https://keybase.io/), then click Teams -> Join a team. Type nymtech.friends into the team name and hit continue. For general chat, hang out in the #general channel. Our development takes places in the #dev channel.
+For more tech heavy questions join our Keybase channel. Get Keybase [here](https://keybase.io/), then click Teams -> Join a team. Type nymtech.friends into the team name and hit continue. For general chat, hang out in the #general channel. 

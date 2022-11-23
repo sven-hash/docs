@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Ejecutar nodos Nym"
 description: "Cómo construir la plataforma Nym. Nym es relativamente sencillo de construir y ejecutar en Mac OS X, Linux y Windows."
-hide_title: false
+hide_title:  false
 title: Ejecutar los nodos Nym
 ---
 
