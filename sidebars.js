@@ -22,6 +22,15 @@ module.exports = {
         "quickstart/nym-connect",
       ],
     },
+    // {
+    //     type: "category", 
+    //     label: "SDK", 
+    //     collapsed: true, 
+    //     items: [
+    //         "sdk/overview"
+    //     ],
+    // },
+    "sdk/overview",
     {
       type: "category",
       label: "Integrations",
