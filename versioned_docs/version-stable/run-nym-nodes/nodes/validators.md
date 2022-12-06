@@ -2,7 +2,7 @@
 sidebar_label: "Validators"
 description: "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities."
 hide_title: false
-title: Validators
+title: Validators 
 ---
 
 import Tabs from '@theme/Tabs';
@@ -150,7 +150,7 @@ Both the `nymd` or `nyxd` binary and the `libwasmvm.so` shared object library bi
 If you have compiled these files locally you need to upload both of them to the server on which the validator will run. **If you have instead compiled them on the server skip to the step outlining setting `LD_LIBRARY PATH` below.**
 :::
 
-To locate these files on your local system run (replace `nyxd` with `nymd` for Sandbox testnet builds)::
+To locate these files on your local system run (replace `nyxd` with `nymd` for Sandbox testnet builds):
 
 ```
 WASMVM_SO=$(ldd build/nyxd | grep libwasmvm.so | awk '{ print $3 }')
@@ -535,15 +535,15 @@ You will most likely want to automate your validator restarting if your server r
 
 ```ini
 [Unit]
-Description=Nyxd (1.1.0)
+Description=Nymd (1.1.0)
 StartLimitInterval=350
 StartLimitBurst=10
 
 [Service]
 User=nym                                                          # change to your user
 Type=simple
-Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nyxd/binaries" # change to correct path
-ExecStart=/home/youruser/path/to/nyxd/binaries/nyxd start          # change to correct path
+Environment="LD_LIBRARY_PATH=/home/youruser/path/to/nym/binaries" # change to correct path
+ExecStart=/home/youruser/path/to/nym/binaries/nymd start          # change to correct path
 Restart=on-failure
 RestartSec=30
 LimitNOFILE=infinity

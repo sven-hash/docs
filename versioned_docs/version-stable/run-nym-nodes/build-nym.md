@@ -15,7 +15,7 @@ Nym has two main codebases:
 - the Nym validators, written in Go.
 
 :::note
-This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/stable/run-nym-nodes/nodes/validators) instead.**
+This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](/docs/next/run-nym-nodes/nodes/validators) instead.**
 :::
 
 ### Prerequisites
@@ -41,30 +41,27 @@ The following commands will compile binaries into the `nym/target/release` direc
 rustup update
 git clone https://github.com/nymtech/nym.git
 cd nym
+
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-# Note: the default branch you clone from Github, `develop`, may be
-# incompatible with both the mainnet and testnet. As such, make sure 
-# to checkout the current release: 
-git checkout release/v1.1.0 
+git checkout release/v1.1.0 # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
 
-# this builds your binaries with mainnet configuration
-cargo build --release
-# to build your binaries with Sandbox testnet configuration, run this instead: 
-NETWORK=sandbox cargo build --release
+cargo build --release # build your binaries with **mainnet** configuration
+NETWORK=sandbox cargo build --release # build your binaries with **sandbox** configuration 
 ```
 
 Quite a bit of stuff gets built. The key working parts are:
 
-1. the [mixnode](/docs/stable/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
-2. the [gateway node](/docs/stable/run-nym-nodes/nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/stable/integrations/websocket-client): `nym-client`
-4. the [socks5 client](/docs/stable/integrations/socks5-client): `nym-socks5-client`
-5. the [network requester](/docs/stable/run-nym-nodes/nodes/requester): `nym-network-requester`
-6. the [network explorer api](/docs/stable/run-nym-nodes/nodes/network-explorer): `explorer-api`
+1. the [mixnode](/docs/next/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
+2. the [gateway node](/docs/next/run-nym-nodes/nodes/gateways): `nym-gateway`
+3. the [websocket client](/docs/next/integrations/websocket-client): `nym-client`
+4. the [socks5 client](/docs/next/integrations/socks5-client): `nym-socks5-client`
+5. the [network requester](/docs/next/run-nym-nodes/nodes/requester): `nym-network-requester`
+6. the [network explorer api](/docs/next/run-nym-nodes/nodes/network-explorer): `explorer-api`
+7. the [nym-cli tool](/docs/next/nym-cli): `nym-cli` 
 
-The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/stable/wallet) and the [Network Explorer UI](docs/stable/run-nym-nodes/nodes/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
+The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/next/wallet) and the [Network Explorer UI](docs/next/run-nym-nodes/nodes/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
 
 :::note
 You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 

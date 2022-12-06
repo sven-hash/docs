@@ -2,11 +2,10 @@
 sidebar_label: "Gateways"
 description: "Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination for Sphinx traffic."
 hide_title: false
-title: Gateways
 ---
 
 :::note
-The Nym gateway was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym gateway was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 Gateways provide a destination for mixnet packets. Most of the internet doesn't use encrypted Sphinx packets, so the gateway acts as a destination, sort of like a mailbox, for messages.
@@ -73,34 +72,34 @@ You can check that your binaries are properly compiled with:
 
              (gateway - version 1.1.0)
 
-        
-        nym-gateway 1.1.0
-        Nymtech
-        Implementation of the Nym Mixnet Gateway
+    
+    nym-gateway 1.1.0
+    Nymtech
+    Implementation of the Nym Mixnet Gateway
 
-        USAGE:
-            nym-gateway [OPTIONS] <SUBCOMMAND>
+    USAGE:
+        nym-gateway [OPTIONS] <SUBCOMMAND>
 
-        OPTIONS:
-                --config-env-file <CONFIG_ENV_FILE>
-                    Path pointing to an env file that configures the gateway
+    OPTIONS:
+            --config-env-file <CONFIG_ENV_FILE>
+                Path pointing to an env file that configures the gateway
 
-            -h, --help
-                    Print help information
+        -h, --help
+                Print help information
 
-            -V, --version
-                    Print version information
+        -V, --version
+                Print version information
 
-        SUBCOMMANDS:
-            completions          Generate shell completions
-            generate-fig-spec    Generate Fig specification
-            help                 Print this message or the help of the given subcommand(s)
-            init                 Initialise the gateway
-            node-details         Show details of this gateway
-            run                  Starts the gateway
-            sign                 Sign text to prove ownership of this mixnode
-            upgrade              Try to upgrade the gateway
-
+    SUBCOMMANDS:
+        completions          Generate shell completions
+        generate-fig-spec    Generate Fig specification
+        help                 Print this message or the help of the given subcommand(s)
+        init                 Initialise the gateway
+        node-details         Show details of this gateway
+        run                  Starts the gateway
+        sign                 Sign text to prove ownership of this mixnode
+        upgrade              Try to upgrade the gateway
+    
 </details>
 
 You can also check the various arguments required for individual commands with: 
@@ -133,57 +132,57 @@ To check available configuration options use:
 
              (gateway - version 1.1.0)
 
-            
-        nym-gateway-init 
-        Initialise the gateway
+    
+    nym-gateway-init 
+    Initialise the gateway
 
-        USAGE:
-            nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
+    USAGE:
+        nym-gateway init [OPTIONS] --id <ID> --host <HOST> --wallet-address <WALLET_ADDRESS>
 
-        OPTIONS:
-                --announce-host <ANNOUNCE_HOST>
-                    The host that will be reported to the directory server
+    OPTIONS:
+            --announce-host <ANNOUNCE_HOST>
+                The host that will be reported to the directory server
 
-                --clients-port <CLIENTS_PORT>
-                    The port on which the gateway will be listening for clients gateway-requests
+            --clients-port <CLIENTS_PORT>
+                The port on which the gateway will be listening for clients gateway-requests
 
-                --datastore <DATASTORE>
-                    Path to sqlite database containing all gateway persistent data
+            --datastore <DATASTORE>
+                Path to sqlite database containing all gateway persistent data
 
-                --enabled-statistics <ENABLED_STATISTICS>
-                    Enable/disable gateway anonymized statistics that get sent to a statistics aggregator
-                    server
+            --enabled-statistics <ENABLED_STATISTICS>
+                Enable/disable gateway anonymized statistics that get sent to a statistics aggregator
+                server
 
-            -h, --help
-                    Print help information
+        -h, --help
+                Print help information
 
-                --host <HOST>
-                    The custom host on which the gateway will be running for receiving sphinx packets
+            --host <HOST>
+                The custom host on which the gateway will be running for receiving sphinx packets
 
-                --id <ID>
-                    Id of the gateway we want to create config for
+            --id <ID>
+                Id of the gateway we want to create config for
 
-                --mix-port <MIX_PORT>
-                    The port on which the gateway will be listening for sphinx packets
+            --mix-port <MIX_PORT>
+                The port on which the gateway will be listening for sphinx packets
 
-                --mnemonic <MNEMONIC>
-                    Cosmos wallet mnemonic needed for double spending protection
+            --mnemonic <MNEMONIC>
+                Cosmos wallet mnemonic needed for double spending protection
 
-                --statistics-service-url <STATISTICS_SERVICE_URL>
-                    URL where a statistics aggregator is running. The default value is a Nym aggregator
-                    server
+            --statistics-service-url <STATISTICS_SERVICE_URL>
+                URL where a statistics aggregator is running. The default value is a Nym aggregator
+                server
 
-                --validator-apis <VALIDATOR_APIS>
-                    Comma separated list of endpoints of the validators APIs
+            --validator-apis <VALIDATOR_APIS>
+                Comma separated list of endpoints of the validators APIs
 
-                --validators <VALIDATORS>
-                    Comma separated list of endpoints of the validator
+            --validators <VALIDATORS>
+                Comma separated list of endpoints of the validator
 
-                --wallet-address <WALLET_ADDRESS>
-                    The wallet address you will use to bond this gateway, e.g.
-                    nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+            --wallet-address <WALLET_ADDRESS>
+                The wallet address you will use to bond this gateway, e.g.
+                nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
 
- </details>
+</details>
 
 
 The following command returns a gateway on your current IP with the `id` of `supergateway`:
@@ -211,7 +210,7 @@ You can bond your gateway via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details. 
 
 #### Via the CLI (power users)
-If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/stable/nym-cli) tool. 
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
 
 ### Running your gateway (standard mode)
 
@@ -237,7 +236,7 @@ The `run` command starts the gateway:
     Sphinx Key: HbqYJwjmtzDi4WzGp7ehj8Ns394sRvJnxtanX28upon
     Owner Signature: wRKxr1CnoyBB9AYPSaXgE4dCP757ffMz5gkja8EKaYR82a63FK9HYV3HXZnLcSaNXkzN3CJnxG2FREv1ZE9xwvx
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.1.0
+    Version: 1.1.
     Mix Port: 1789, Clients port: 9000
     Data store is at: "/home/mx/.nym/gateways/supergateway/data/db.sqlite"
     2022-04-27T16:04:33.831Z INFO  nym_gateway::node > Starting nym gateway!
@@ -317,8 +316,7 @@ curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:
         }
       ]                            
 
-</details>
-
+</details> 
 
 ### Upgrading your gateway 
 

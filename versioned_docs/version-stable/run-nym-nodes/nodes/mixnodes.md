@@ -2,11 +2,11 @@
 sidebar_label: "Mix nodes"
 description: "Mix nodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
 hide_title: false
-title: Mix nodes
+title: Mix nodes 
 ---
 
 :::note
-The Nym mix node binary was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
+The Nym mix node binary was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
 :::
 
 After your build is finished, the `nym-mixnode` binary will be located in `/path/to/nym/target/release/` directory. You may move or copy it to wherever you wish (for example, you may wish to compile your binaries once locally and then move them to different machines).
@@ -67,7 +67,7 @@ Which should return a list of all avaliable commands.
 <details>
   <summary>console output</summary>
 
-     _ __  _   _ _ __ ___
+      _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
@@ -105,7 +105,11 @@ Which should return a list of all avaliable commands.
         sign                 Sign text to prove ownership of this mixnode
         upgrade              Try to upgrade the mixnode
 
- </details>
+        nym-mixnode 1.1.0
+        Nymtech
+
+
+</details>
 
 You can also check the various arguments required for individual commands with:
 
@@ -203,7 +207,7 @@ You can bond your mix node via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details.
 
 #### Via the CLI (power users)
-If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/stable/nym-cli) tool. 
+If you want to bond your Gateway via the CLI, then check out the [Nym CLI](/docs/next/nym-cli) tool. 
 
 ### Running your mix node
 
@@ -280,7 +284,6 @@ Remember to restart your mix node process in order for the new description to be
 * restart your mix node process with the new binary. 
 
 > Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in the next release. 
-
 
 
 ### Displaying mix node information

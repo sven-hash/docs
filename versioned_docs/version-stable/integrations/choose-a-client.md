@@ -19,6 +19,8 @@ A large proportion of the Nym mixnet's functionality is implemented client-side,
 * sending Sphinx packets with real messages
 * sending Sphinx packet _cover traffic_ when no real messages are being sent
 
+Nym clients now all also support packet _retransmission_. What this means is that if a client sends 100 packets to a gateway, but only receives an acknowledgement ('ack') for 95 of them, it will resend those 5 packets to the gateway again, to make sure that all packets are received.  
+
 In the next few sections we will discuss how to integrate Nym clients into your apps.
 
 ### Types of Nym clients

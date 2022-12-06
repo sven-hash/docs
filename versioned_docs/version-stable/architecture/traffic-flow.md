@@ -25,10 +25,10 @@ The Nym mixnet re-orders encrypted, indistinguishable [Sphinx](https://cypherpun
 
 Traffic to send through the mixnet is broken up into uniformly-sized packets, encrypted in the Sphinx packet format according to the route the packet will take, and sent through the mixnet to be mixed among other real traffic and fake - but identical - 'dummy traffic'. 
 
-At each 'hop' (i.e. as a packet is forwarded from one node in the sequence to another) a layer of decryption is removed from the Sphinx packet, revealing the address of the next hop, and another Sphinx packet. The packet is then held by the node for a variable amount of time, before being forwarded on to the next node in the route.
+At each 'hop' (i.e. as a packet is forwarded from one node in the sequence to another) a layer of decryption is removed from the Sphinx packet, revealing the address of the next hop, and another Sphinx packet. The packet is then held by the node for a variable amount of time, before being forwarded on to the next node in the route. 
 
 :::note
-For more information on this, check out the [Loopix](/docs/stable/architecture/loopix) design document on the next page. 
+For more information on this, check out the [Loopix](/docs/next/architecture/loopix) design document on the next page. 
 ::: 
 
 Traffic always travels through the nodes of the mixnet like such:
