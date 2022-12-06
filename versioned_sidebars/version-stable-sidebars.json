@@ -210,7 +210,19 @@
         }
       ]
     },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Tutorials",
+      "items": [
         {
+          "type": "doc",
+          "id": "version-stable/nym-simple-websocket-tutorial"
+        }
+      ]
+    },
+    {
       "type": "doc", 
       "id": "version-stable/links"
     }
