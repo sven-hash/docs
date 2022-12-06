@@ -9,15 +9,16 @@ There are numerous components to Nym which are released independently of one ano
 
 Whilst in general it recommended to be running the most recent version of any software, if you cannot do that for whatever reason this table will tell you which versions of different components are mutually compatible with which platform code releases.
 
-| Mix node | Gateway | Clients | Network Requester | SDK   | Wallet        | NymConnect    | Network Explorer | Mixnet contract | Vesting contract |
-| -------- | ------- | ------- | ----------------- | ----- | ------------- | ------------- | ---------------- | --------------- | ---------------- |
-| 1.1.1    | 1.1.1   | 1.1.1   | 1.1.0 - 1.1.1     | 1.1.4 |               |               |                  |                 |                  |
-| 1.1.0    | 1.1.0   | 1.1.0   | 1.1.0 - 1.1.1     |       | 1.1.0 - 1.1.1 | 1.1.0         | 1.1.0            | 1.1.0           | 1.1.0            |
-| 1.1.0    | 1.1.0   | 1.1.0   | 1.1.0             |       | 1.1.0         | 1.1.0         | 1.1.0            | 1.1.0           | 1.1.0            |
-|          |         |         |                   |       | 1.0.2 - 1.0.9 | 1.0.0 - 1.0.2 | 1.0.0            | 1.0.1           | 1.0.1            |
-|          |         |         |                   |       | 1.0.2 - 1.0.8 | 1.0.0 - 1.0.1 | 1.0.0            | 1.0.0           | 1.0.0            |
-|          |         |         |                   |       | 1.0.2         | 1.0.0         | 1.0.0            | 1.0.0           | 1.0.0            |
+| Mix node      | Gateway       | Clients       | Network Requester | SDK   | Wallet | NymConnect    | Network Explorer | Mixnet contract | Vesting contract |
+| ------------- | ------------- | ------------- | ----------------- | ----- | ------ | ------------- | ---------------- | --------------- | ---------------- |
+| 1.1.0 - 1.1.1 | 1.1.0 - 1.1.2 | 1.1.0 - 1.1.2 | 1.1.0 - 1.1.1     | 1.1.4 | 1.1.1  | 1.1.0 - 1.1.1 | 1.1.0            | 1.1.0           | 1.1.0            |
+| 1.1.0 - 1.1.1 | 1.1.0 - 1.1.1 | 1.1.0 - 1.1.1 | 1.1.0 - 1.1.1     | 1.1.4 | 1.1.0  | 1.1.0 - 1.1.1 | 1.1.0            | 1.1.0           | 1.1.0            |
+| 1.1.0         | 1.1.0         | 1.1.0         | 1.1.0 - 1.1.1     | x     | 1.1.0  | 1.1.0         | 1.1.0            | 1.1.0           | 1.1.0            |
+| 1.1.0         | 1.1.0         | 1.1.0         | 1.1.0             | x     | 1.1.0  | 1.1.0         | 1.1.0            | 1.1.0           | 1.1.0            |
 
+<!-- |          |         |         |                   |       | 1.0.2 - 1.0.9 | 1.0.0 - 1.0.2 | 1.0.0            | 1.0.1           | 1.0.1            | -->
+<!-- |          |         |         |                   |       | 1.0.2 - 1.0.8 | 1.0.0 - 1.0.1 | 1.0.0            | 1.0.0           | 1.0.0            | -->
+<!-- |          |         |         |                   |       | 1.0.2         | 1.0.0         | 1.0.0            | 1.0.0           | 1.0.0            | -->
 
 | Platform release changelog                                                                       |
 | ------------------------------------------------------------------------------------------------ |
