@@ -132,7 +132,7 @@ After this , go ahead and create a new folder to start your project in and give 
 
     <img src="/img/tutorials/simple-websocket/image4.png"/>
 
-    This will result in the above output. Open your browser to see the results. You should now have a running web application!
+    This will result in the above output. Open your browser to see the results (localhost:1234). You should now have a running web application!
 
     
 ### Building the User Client
@@ -171,7 +171,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
     We are also declaring our `main()` function , where we will be calling logic that will initialize and run our application when executed.
 
  2. Next, we will implement the functions that will handle DOM manipulation (code which will alter our UI depending on 
-    how we are interacting with our application).Paste or type the below code into index.ts, below our main function:
+    how we are interacting with our application).Paste or type the below code into index.ts, below our `main()` function:
  
     ```
     /*
@@ -225,7 +225,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 
     ```
 
-    This may look like a big chunk of code, but dont worry, the majority of it relates to adjusting HTML elements of our `index.ts`. The next thing we then want to do is define some key variables that we will want to utilize in our application.
+    This may look like a big chunk of code, but dont worry, the majority of it relates to adjusting HTML elements of our `index.html`. The next thing we then want to do is define some key variables that we will want to utilize in our application.
 
 3.  Above our main function , paste or type the following code:
 
@@ -248,7 +248,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 
     These three variables will be the three main global variables of our application.
 
-    `ourAddress` will be populated once we get a response from the initialization of our Nym Websocket Client (which we will cover later)
+    `ourAddress` will be populated once we get a response from the initialization of our Nym Websocket Client (which we will cover later).
 
     `targetAddress` will be set by us later in the tutorial, once we boot up the Service Providers nym client.
 
@@ -284,7 +284,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 
     ```
 
-    Accompanying this, lets provide it with the function that we currently have not defined yet - `sendSelfAddressRequest()`:
+    Accompanying this, lets provide it with the function that we currently have not defined yet - `sendSelfAddressRequest()`. Lets place it under our `main()` function:
 
     ```
     /*
@@ -309,7 +309,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
     - Call our newly added function , `sendSelfAddressRequest()` where we send a object with an attribute, `type : selfAddress`to get the address of our Nym Websocket Client.
     - Listen to a Send button on your `index.html` (which we will implement soon) that when its pressed, it will grab whatever data we want to send and send it through the mixnet. This will be done in a new function we will now create, `sendMessageToMixnet()`.
 
-5.  Under our sendSelfAddressRequest() function , paste or type out the code below:
+5.  Under our `sendSelfAddressRequest()` function , paste or type out the code below:
 
     ```
     /*
@@ -498,7 +498,7 @@ This address you see (along with the other addresses in this tutorial) will be d
 :::
 
 We can see from this output that this command does the following:
-- Saves a `config.toml`  file on our computers users directory within the folder `.nym` (dont worry too much about this for now)
+- Saves a `config.toml`  file on our computers users directory within the folder `.nym` (dont worry too much about this for now).
 - Starts using a gateway on the mixnet.
 - Generates and address for our Nym Websocket Client.
 
