@@ -15,7 +15,9 @@ Please check the update commands [here](https://docusaurus.io/docs/versioning#ta
 * make sure that `docs/` is ready to be frozen 
     * make sure that the compatibility table is updated. 
     * make sure that you have updated the build instructions on the `building nym` page. 
-* run `npm run docusaurus docs:version <new_version_number>`
+* copy over the new files to `/versioned_docs/version-stable/`
+* update the version numbers in `/docusaurus.config.js`
+* update the versioned sidebar in `versioned_sidebars/version-stable-sidebars.json` 
 
 ### Contributing to an existing (stable) version 
 If you want to make a fix to a `stable` doc, make an edit in the relevant file in `/versioned_docs/<VERSION>/`. 
