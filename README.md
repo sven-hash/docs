@@ -4,26 +4,31 @@ Documentation for the Nym privacy platform. Docs can be viewed at https://nymtec
 
 ## Contributing
 
-Contributions to our documentation are very welcome. 
+Contributions to our documentation are very welcome. There are a few different ways to contribute: 
 
-The directory structure produced by Docusaurus (see below) can be initially confusing; please check the list below to make sure you are making edits in the correct place. 
+### Contributing to a new (upcoming) version 
 
-* To contribute to the `next (unreleased)` version, edit files in `docs/`
-* To contribute to the `stable` version, edit files in `versioned_docs/<VERSION>/`
-* To contribute to an *existing* translation, edit files in `i18n/<LANGUAGE>/docusaurus-plugin-content-docs/<VERSION>/` 
-* To contribute tranlsations in a *new* language, please get in touch via max@nymtech.net or via our [Keybase](https://keybase.io/team/nymtech.friends) channel. When developing for another locale, run `npm run build` and serve the build files locally via nginx for ease. 
+Edit files in `/docs/`. 
 
-> All of the raw diagram files are located in `static/drawio_files/`. VSCode has a nice [plugin](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) for editing [draw.io](https://app.diagrams.net/) files directly in your editor, or you can edit in the browser.
-
-## Cutting a new version
-
+### Cutting a new version
 Please check the update commands [here](https://docusaurus.io/docs/versioning#tagging-a-new-version). The tl;dr of these instructions is: 
 * make sure that `docs/` is ready to be frozen 
+    * make sure that the compatibility table is updated. 
+    * make sure that you have updated the build instructions on the `building nym` page. 
 * run `npm run docusaurus docs:version <new_version_number>`
 
-## Note on versioning 
+### Contributing to an existing (stable) version 
+If you want to make a fix to a `stable` doc, make an edit in the relevant file in `/versioned_docs/<VERSION>/`. 
 
-If you are documenting a new component version, make sure to include the new version on the version compatibility table in `compatibility-table.md`.  
+Make sure to change the corresponding file in `docs/` as well. 
+
+### Contributing to an existing translation 
+To contribute to an *existing* translation, edit files in `i18n/<LANGUAGE>/docusaurus-plugin-content-docs/<VERSION>/` 
+
+### Contributing a new translation 
+To contribute tranlsations in a *new* language, please get in touch via our [Keybase](https://keybase.io/team/nymtech.friends) or Discord channels. When developing for another locale, run `npm run build` and serve the build files locally via nginx for ease. 
+
+> All of the raw diagram files are located in `static/drawio_files/`. VSCode has a nice [plugin](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) for editing [draw.io](https://app.diagrams.net/) files directly in your editor, or you can edit in the browser.
 
 ## Building
 
