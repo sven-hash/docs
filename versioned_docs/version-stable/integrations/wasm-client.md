@@ -8,86 +8,16 @@ title: "Webassembly client"
 
 The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
 
-You can install [@nymproject/nym-client-wasm](https://www.npmjs.com/package/@nymproject/nym-client-wasm) via `npm` from its package page, or with:
+You can install [@nymproject/sdk](https://www.npmjs.com/package/@nymproject/sdk) via `npm` from its package page, or with:
 
 ```
-npm i @nymproject/nym-client-wasm
+npm i @nymproject/sdk
 ```
 
-The `nym-client-wasm` package allows easy creation of Sphinx packets from within mobile apps and browser-based client-side apps (including Electron or similar). Browser extensions should also work.
+The `@nymproject/sdk` package allows easy creation of Sphinx packets from within mobile apps and browser-based client-side apps (including Electron or similar). Browser extensions should also work.
 
-The webassembly client lets you deliver web apps that build and send Sphinx packets solely in a web browser window. 
+The webassembly inside the client lets you deliver web apps that build and send Sphinx packets solely in a web browser window. 
 
-### Building apps with nym-client-wasm
-
-There are two example applications located in the directory `clients/webassembly` in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. 
-
-:::note 
-Example code coming very soon! 
-:::
-<!-- 
-:::caution
-Please note that this example code is temporarily out of date: it will be updated soon! 
-:::
-
-#### Initialising a new Nym identity
-
-The main methods you'll use from the NPM package are:
-
-```js
-let identity = new Identity();
-```
-
-This generates a new Nym identity, consisting of a public/private keypair and a Nym gateway address.
-
-#### Constructing a Nym client
-
-```js
-let client = new Client(directoryUrl, identity, authToken);
-```
-
-This returns a Nym client which connects to a Nym gateway via websocket. All communication with the Nym network happens through this client.
-
-The `directoryUrl` of the Nym testnet is `http://sandbox-validator.nymtech.net:8081`. Use that if you want to connect to the running testnet.
-
-#### Running the Nym client
-
-```js
-client.start();
-```
-
-This will cause the client to retrieve a network topology from the defined `directoryUrl`, and connect to its gateway via websocket. Cover traffic is not yet sent, but message sends should work after client start.
-
-#### Sending messages
-
-```js
-client.sendMessage(message, recipient);
-```
-
-Sends a message up the websocket to this client's Nym gateway.
-
-NOTE: the webassembly client currently does not implement chunking. Messages over ~1KB will cause a panic. This will be fixed in a future version.
-
-`message` must be a string at the moment. Binary `Blob` and `ArrayBuffer`
-will be supported soon.
-
-`recipient` is a Nym address as a string.
-
-### Getting the client's address
-
-Given a client, to get its address, you can call:
-
-```js
-client.formatAsRecipient();
-```
-
-### Single Use Reply Blocks (SURBs)
-
-Anonymous replies using surbs don't yet work in the webassembly client. They should be available in the next release.
-
-### JSON
-
-Sending JSON is fairly simple. If you're playing with the wasm example app, just stick it into the message box and send it (or send it programmatically as the `message` content of `client.sendMessage(message, recipient)` in your own application code. -->
 
 ### Think about what you're sending!
 

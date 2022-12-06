@@ -205,9 +205,9 @@ You can also query an accounts balance by using its mnemonic:
 ./nym-cli account balance --mnemonic <mnemonic>  
 ```
 
-#### Check the current balance of an account
+#### Send tokens to an account
 
-Queries the existing balance of an account.
+Sends tokens to an account using an address.
 
 ```
 ./nym-cli account send <ADDRESS> <AMOUNT>
@@ -338,6 +338,29 @@ Query for vesting schedule.
 ```
 ./nym-cli vesting-schedule query --mnemonic <mnemonic>
 ```
+
+
+### Staking on someone's behalf (for custodians)
+
+
+There is a limitation the the staking address can only perform the following actions (and are visible via the Nym Wallet:
+
+- Bond on the gaƒteway's or mix node's behalf.
+- Delegate or Undelegate (to a mix node in order to begin receiving rewards)
+- Claiming the rewards on the account
+
+:::note
+The staking address has no ability to withdraw any coins from the parent's account.
+:::
+
+The staking address must maintain the same level of security as the parent mnemonic; while the parent mnemonic's delegations and bonding events will be visible to the parent owner, the staking address will be the only account capable of undoing the bonding and delegating from the mix nodes or gateway.
+
+Query for staking on behlaf of someone else
+```
+./nym-cli --config-env-file 'path/to/env/file' --mnemonic <staking address mnemonic>  mixnet delegators delegate --mix-id <input> --identity-key <input> --amount <input>
+```
+
+
 
 
 

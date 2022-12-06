@@ -103,7 +103,7 @@ module.exports = {
               banner: 'unreleased',
             },
             'stable': {
-              label: 'v1.1.0 (stable)',
+              label: 'v1.1.1 (stable)',
               path: 'stable',
               banner: 'none',
             },

@@ -205,9 +205,9 @@ You can also query an accounts balance by using its mnemonic:
 ./nym-cli account balance --mnemonic <mnemonic>  
 ```
 
-#### Check the current balance of an account
+#### Send tokens to an account
 
-Queries the existing balance of an account.
+Sends tokens to an account using an address.
 
 ```
 ./nym-cli account send <ADDRESS> <AMOUNT>
