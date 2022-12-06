@@ -98,7 +98,7 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: 'v1.1.1 (in progress)',
+              label: 'v1.1.2 (in progress)',
               path: 'next',
               banner: 'unreleased',
             },
