@@ -27,10 +27,10 @@ You can check that your binaries are properly compiled with:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 1.1.0)
+             (client - version 1.1.1)
 
     
-      nym-client 1.1.0
+      nym-client 1.1.1
       Nymtech
       Implementation of the Nym Client
 
