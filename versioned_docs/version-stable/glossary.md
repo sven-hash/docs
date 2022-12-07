@@ -5,12 +5,11 @@ hide_title:  false
 title: Glossary
 ---
 
+**[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters generated from a client keypair. Used to identify clients in the mixnet. 
 
-**[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters that is generated and stored in its own public/private keypair locally.
+**[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a packet hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
 
-**[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
-
-**[Blockchain](https://nymtech.net/docs/stable/smart-contracts/overview/)** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
+**Blockchain** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
 
 **[Coconut](https://nymtech.net/docs/stable/coconut/)** - A distributed cryptographic signing scheme providing a high degree of privacy for its users.
 
@@ -18,7 +17,7 @@ title: Glossary
 
 **Credentials** - Unique values that prove the legitimacy of a user or individual.
 
-**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority.
+**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority, or small group of authorities.
 
 **[Delegating NYM](https://medium.com/coinmonks/what-you-have-to-know-about-staking-and-delegating-458b6d2300a5)** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
 
@@ -53,8 +52,6 @@ title: Glossary
 **Pledge** - The number of tokens that are put up by node operators on their nodes as their commitment to provide good quality of service and insure against future bad behaviour.
 
 **Proof-of-Mixing** - The reward of NYM tokens is based on the good quality of service carried out by node operators.
-
-**Public Key** - A large numerical value that is used to encrypt data.
 
 **Sphinx** - A cryptographic message format used to relay anonymised messages within the mixnet, also used by the Lightning Network or something similar.
 
