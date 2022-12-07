@@ -57,6 +57,13 @@ const main = async () => {
 };
 ```
 
+You can send a message to another user (you will need to know their address at a Gateway) with: 
+```javascript
+const payload = 'Hello mixnet';
+const recipient = '<< RECIPIENT ADDRESS GOES HERE >>';
+await nym.client.sendMessage({ payload, recipient });
+```
+
 There are also examples for several different frameworks which can be run in the browser: 
 * [Plain html](https://github.com/nymtech/nym/tree/release/v1.1.1/sdk/typescript/examples/plain-html)
 * [Create-react-app](https://github.com/nymtech/nym/tree/release/v1.1.1/sdk/typescript/examples/react-webpack-with-theme-example) 
