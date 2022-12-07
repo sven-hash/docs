@@ -32,9 +32,9 @@ title: Glossary
 
 **[Metadata](https://www.opendatasoft.com/en/blog/what-is-metadata-and-why-is-it-important-data)** - A set of data that describes and gives information about other data such as IP addresses, device types, geolocations etc.
 
-**[Mixnet](https://nymtech.net/docs/stable/architecture/traffic-flow/)** - Routing protocols that create hard-to-trace communications by using a chain of proxy servers known as mixes which take in messages from multiple senders, shuffle them, and send them back out in random order to the next destination.
+**[Mixnet](https://nymtech.net/docs/stable/architecture/traffic-flow/)** - A routing protocol which encrypts and mixes Sphinx packet traffic so that it cannot be determined who is communicating with whom. 
 
-**[Mix Nodes](https://blog.nymtech.net/nym-mixnodes-deep-dive-d2b91917f097)** - A individual node within the mixnet where network traffic passes through as part of the infrastructure on the Nym Mixnet.
+**[Mix Nodes](https://blog.nymtech.net/nym-mixnodes-deep-dive-d2b91917f097)** - The backbone of the Nym infrastructure, that are organised in a three-layer network referred to as the mixnet that network traffic passes through. It mixes, hides and reorders traffic and are rewarded in NYM tokens for their quality of service.
 
 **[Mix node Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/mixnodes/#bonding-your-mix-node)** - The action of node operators bonding their stake (in the form of NYM tokens) to a Mix node in order to join the network topology and begin routing traffic through.
 
