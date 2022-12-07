@@ -450,6 +450,66 @@ username        soft nofile 4096
 
 Then reboot your server and restart your mixnode.
 
+## Node Families 
+Mix nodes can now be arranged into 'families': a group of mix nodes which publically annouce that they are run by the same organisation. All nodes in family that are selected to mixmine during an epoch will be included in the same layer of the mixnet, to avoid a single family creating a full 3 hop route for any packets. 
+
+Each family has a family 'head' - the first mix node in the group. This node will be used to generate signatures for nodes wishing to join the family. It doesn't matter which of your nodes you choose to be the head, it will most likely be the first fully-saturated node you have in your setup, with subsequent nodes being members of the family.  
+
+### Prepare your environment
+
+* In order to call the commands outlined below you must use the `nyxd` binary ([setup instructions here](/docs/stable/run-nym-nodes/nodes/rpc-node)).
+
+* import your keys for signing transactions 
+```
+./nyxd keys add -i mix0-famhead # the head of the mix node family 
+./nyxd keys add -i mix1 # the first member of the mix node family  
+```
+
+* set the address of the mixnet contract and the validator endpoint as variables. These can be found in the [network config file](https://github.com/nymtech/nym/tree/develop/common/network-defaults/src) of the relevant network: 
+```
+VALIDATOR-ENDPOINT=https://rpc.nymtech.net
+MIXNET-CONTRACT=n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr
+```
+
+* set the signature created by the family head as a variable:
+```
+SIGNATURE="TS3Z1uhkJ8R3qgaJJ5s8HeYtfQex4yJSNHXskth1bGbFVnFpxcsNMREF9y3xvPY3LgPMmvbsoE2aVwsr27WwpWV"
+```
+
+
+### Creating a family
+
+Use the same signature as used when bonding the mixnode, give it any label you want. 
+
+The `--from` is the **mnemonic** of the family head you loaded into your `nyxd` keyring:
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"create_family": {"owner_signature": ${SIGNATURE}, "label": "my-family-name"}}' --node ${VALIDATOR-ENDPOINT} --from mix0-famhead --chain-id nymnet --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
+### Joining a family 
+
+Ssh into the vps of the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to join the family: 
+
+```
+./nym-mixnode sign --id mixnode --text 4Yr4qmEHd9sgsuQ83191FR2hD88RfsbMmB4tzhhZWriz
+```
+
+This will return a signature which is going to be used below - in this example it is `3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq`. 
+
+The `--from` is going to be the mnemonic of the member wanting to join the family: 
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nymnet --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
+### Leaving a family 
+
+If wanting to leave, run the same initial command as above, followed by:
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"leave_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nymnet --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
 ## Checking that your node is mixing correctly
 
 ### Network explorers
