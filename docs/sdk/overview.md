@@ -65,8 +65,8 @@ await nym.client.sendMessage({ payload, recipient });
 ```
 
 There are also examples for several different frameworks which can be run in the browser: 
-* [Plain html](https://github.com/nymtech/nym/tree/release/v1.1.1/sdk/typescript/examples/plain-html)
-* [Create-react-app](https://github.com/nymtech/nym/tree/release/v1.1.1/sdk/typescript/examples/react-webpack-with-theme-example) 
+* [Plain html](https://github.com/nymtech/nym/tree/release/v1.1.2/sdk/typescript/examples/plain-html)
+* [Create-react-app](https://github.com/nymtech/nym/tree/release/v1.1.2/sdk/typescript/examples/react-webpack-with-theme-example) 
 * [Vanilla Typescript](https://github.com/fmtabbara/nym-sdk-vanilla-template) 
 
 ### How it works
