@@ -73,7 +73,7 @@ module.exports = {
     "wallet",
     "nym-cli",
     "coconut",
-    "glossary",
+    "glossary"
     {
       type: "category",
       label: "Community",
@@ -84,7 +84,6 @@ module.exports = {
         "community/licensing",
       ],
     },
-    "glossary",
     "links"
   ],
 };
