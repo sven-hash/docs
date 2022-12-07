@@ -202,8 +202,8 @@
           "id": "version-stable/coconut"
     },
     {
-      "type": "doc", 
-      "id": "version-stable/glossary"
+          "type": "doc", 
+          "id": "version-stable/glossary"
     },
     {
       "type": "category",

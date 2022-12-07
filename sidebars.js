@@ -92,6 +92,7 @@ module.exports = {
     "nym-cli",
     "compatibility-table",
     "coconut",
+    "glossary",
     {
       type: "category",
       label: "Community",
