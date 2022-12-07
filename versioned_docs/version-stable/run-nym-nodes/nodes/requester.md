@@ -9,7 +9,6 @@ title: "Network Requesters"
 The Nym network requester was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
-
 If you have access to a server, you can run the Network Requester, which allows Nym users to make outbound network requests from your server.
 
 ## Anatomy of a network requester service 
@@ -65,7 +64,7 @@ You can check that your client is initialised correctly by running the following
         |_| |_|\__, |_| |_| |_|
                 |___/
 
-                (client - version 1.0.1)
+                (client - version 1.1.1)
 
         
     2022-08-09T15:06:03.276Z INFO  nym_client::client > Starting nym client
@@ -83,7 +82,7 @@ Stop the running process with `CTRL-C`, and create a service file at `/etc/syste
 
 ```
 [Unit]
-Description=Nym Client (1.0.2)
+Description=Nym Client (1.1.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -127,7 +126,7 @@ If you are following these instructions to set up a requester as part of a Servi
 Now that we have a running client for the requester to listen to, we can start it with the following command: 
 
 ```
- ./nym-network-requester 
+ ./nym-network-requester run  
 ```
 
 <details>
@@ -147,7 +146,7 @@ As you can see, it has connected to the nym client that we started before.
 Now that we have a running client for the requester to listen to, we can start it with the following command. 
 
 ```
- ./nym-network-requester --enable-statistics
+ ./nym-network-requester run --enable-statistics
 ```
 
 <details>
@@ -234,7 +233,7 @@ Stop the running process with `CTRL-C`, and create a service file for the reques
 
 ```
 [Unit]
-Description=Nym Network Requester (1.0.2)
+Description=Nym Network Requester (1.1.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -242,7 +241,7 @@ StartLimitBurst=10
 User=nym # replace this with whatever user you wish 
 LimitNOFILE=65536
 # remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary 
-ExecStart=/home/nym/nym-network-requester  
+ExecStart=/home/nym/nym-network-requester run 
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
@@ -345,3 +344,25 @@ All requester-specific port configuration can be found in `$HOME/.nym/clients/<Y
 |--------------|---------------------------|
 | 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
+
+
+## Testing your Network Requester
+
+1. Add `nymtech.net` to your `allowed.list` (remember to restart you Network Requester). 
+
+2. Initialise a local socks5 client with the address of your NR as the --provider, following instructions [here](https://docs.nymtech.net/docs/stable/integrations/socks5-client)
+
+3. In another terminal window, run the following: 
+
+```
+curl -x socks5h://localhost:1080 https://nymtech.net/.wellknown/connect/healthcheck.json 
+```
+
+This command should return the following:
+
+<details>
+  <summary>console output</summary>
+
+{ "status": "ok" }
+
+</details>

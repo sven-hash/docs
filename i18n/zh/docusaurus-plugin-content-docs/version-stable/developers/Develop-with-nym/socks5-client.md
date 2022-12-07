@@ -23,7 +23,7 @@ Nym Socks5客户端是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)章�
 <details>
   <summary>输出结果</summary>
 
-        Nym Socks5 Proxy 1.0.1
+        Nym Socks5 Proxy 1.1.0
         Nymtech
         A Socks5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 

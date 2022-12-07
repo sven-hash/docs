@@ -12,10 +12,10 @@ module.exports = {
   favicon: 'img/docs/FAVICON.png',
   organizationName: 'nymtech',
   projectName: 'docs',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'zh'], 
-  },
+  // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['en', 'zh'], 
+  // },
   themeConfig: {
     tableOfContents: {
       minHeadingLevel: 2,
@@ -31,16 +31,6 @@ module.exports = {
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
-      switchConfig: {
-        darkIcon: '🌙',
-        darkIconStyle: {
-          marginLeft: '1px',
-        },
-        lightIcon: '☀️',
-        lightIconStyle: {
-          marginLeft: '1px',
-        },
-      },
     },
     navbar: {
       title: 'Nym',
@@ -86,45 +76,6 @@ module.exports = {
         },
       ],
     },
-    // footer: {
-    //   style: 'dark',
-    //   links: [
-        // {
-        //   items: [
-        //     {
-        //       label: 'Website',
-        //       href: 'https://nymtech.net/'
-        //     },
-        //     {
-        //       label: 'Keybase',
-        //       href: 'https://keybase.io/team/nymtech.friends',
-        //     },
-        //     {
-        //       label: 'Discord', 
-        //       href: 'https://Discord.gg/nym'
-        //     },
-        //   ],
-        // },
-        // {
-        //   items: [
-        //     {
-        //       href: 'https://github.com/nymtech',
-        //       label: 'GitHub',
-        //       position: 'right',
-        //     },
-        //     {
-        //       label: 'Telegram',
-        //       href: 'https://t.me/nymchan',
-        //     },
-        //     {
-        //       label: 'Blog',
-        //       href: 'https://medium.com/nymtech',
-        //     }
-        //   ],
-        // },
-
-    //   ],
-    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
@@ -147,12 +98,12 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: 'Next (in progress)',
+              label: 'v1.1.3 (in progress)',
               path: 'next',
               banner: 'unreleased',
             },
-            'stable': {
-              label: 'v1.0.2 (stable)',
+            stable: {
+              label: 'v1.1.2 (stable)',
               path: 'stable',
               banner: 'none',
             },
