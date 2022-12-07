@@ -6,9 +6,9 @@ title: Glossary
 ---
 
 
-**[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters that is generated and stored in its won public/private keypair locally.
+**[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters that is generated and stored in its own public/private keypair locally.
 
-**[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". 
+**[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
 
 **[Blockchain](https://nymtech.net/docs/stable/smart-contracts/overview/)** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
 
@@ -20,7 +20,7 @@ title: Glossary
 
 **Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority.
 
-**Delegating NYM** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
+**[Delegating NYM](https://medium.com/coinmonks/what-you-have-to-know-about-staking-and-delegating-458b6d2300a5)** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
 
 **Decentralisation** - Refers to the transfer of control and decision-making from a centralised entity (individual, organization, or group thereof) to a distributed network.
 
@@ -28,15 +28,15 @@ title: Glossary
 
 **[Gateways](https://blog.nymtech.net/gateways-to-privacy-51196005bf5)** - The entrance to the mixnet that encrypted packets must pass through before being forwarded to mix nodes. They also act as a sort of mailbox for messages.
 
-**[Gateway Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/gateways/#bonding-your-gateway)** - A action for node operators to bond their gateway to their Nym Wallet.
+**[Gateway Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/gateways/#bonding-your-gateway)** - The action of node operators to bond their stake (in the form of NYM tokens) to a Gateway in order to join the network topology and begin routing traffic through.
 
-**Metadata** - A set of data that describes and gives information about other data such as IP addresses, device types, geolocations etc.
+**[Metadata](https://www.opendatasoft.com/en/blog/what-is-metadata-and-why-is-it-important-data)** - A set of data that describes and gives information about other data such as IP addresses, device types, geolocations etc.
 
 **[Mixnet](https://nymtech.net/docs/stable/architecture/traffic-flow/)** - Routing protocols that create hard-to-trace communications by using a chain of proxy servers known as mixes which take in messages from multiple senders, shuffle them, and send them back out in random order to the next destination.
 
 **[Mix Nodes](https://blog.nymtech.net/nym-mixnodes-deep-dive-d2b91917f097)** - A individual node within the mixnet where network traffic passes through as part of the infrastructure on the Nym Mixnet.
 
-**[Mix node Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/mixnodes/#bonding-your-mix-node)** - A action for node operators to bond their mix node to their Nym Wallet.
+**[Mix node Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/mixnodes/#bonding-your-mix-node)** - The action of node operators bonding their stake (in the form of NYM tokens) to a Mix node in order to join the network topology and begin routing traffic through.
 
 **Nym** - The in-text name of the organisation.
 
@@ -56,10 +56,10 @@ title: Glossary
 
 **Public Key** - A large numerical value that is used to encrypt data.
 
-**Sphinx** - A cryptographic message format used to relay anonymised messages within a mix of networks, lightning networks, etc.
+**Sphinx** - A cryptographic message format used to relay anonymised messages within the mixnet, also used by the Lightning Network or something similar.
 
-**[Socks5](https://nymtech.net/docs/stable/quickstart/socks5/)** - An Internet protocol that exchanges network packets between a client and server through a proxy server.
+**[Socks5](https://en.wikipedia.org/wiki/SOCKS)** - An proxy protocol that exchanges network packets between a client and server through a proxy server.
 
-**[Validators](https://nymtech.net/docs/stable/run-nym-nodes/nodes/validators/)** - Secure the network with a staking token, defending the network from attacks.
+**[Validators](https://nymtech.net/docs/stable/run-nym-nodes/nodes/validators/)** - Secures the Nyx blockchain with a staking token, defending the network from attacks.
 
 **Zero Knowledge Proofs** - Cryptographic techniques that make it possible to prove something to be true without having to reveal the evidence. 
