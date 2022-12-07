@@ -24,7 +24,7 @@ There are two ways to interact with the deployed smart contract:
 #### Nym-cli tool (recommended in most cases) 
 The `nym-cli` tool is a binary offering a simple interface for interacting with deployed smart contract (for instance, bonding and unbonding a mix node from the CLI), as well as creating and managing accounts and keypairs, sending tokens, and querying the blockchain. 
 
-Instructions on how to do so can be found on the [`nym-cli` docs page](/docs/next/nym-cli).
+Instructions on how to do so can be found on the [`nym-cli` docs page](/docs/stable/nym-cli).
 
 #### Nyxd binary 
 The `nyxd` binary, although more complex to compile and use, offers the full range of commands availiable to users of CosmosSDK chains. Use this if you are (e.g.) wanting to perform more granular queries about transactions from the CLI. 

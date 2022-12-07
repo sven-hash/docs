@@ -7,7 +7,7 @@ title: Websocket client
 
 
 :::note
-The Nym Websocket Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym Websocket Client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
 ### Viewing command help
@@ -189,7 +189,7 @@ If that fits your security model, good. However, it may be the case that you wan
     "withReplySurb": "true"
 }
 ```
-You can read more about SURBs [here](/docs/next/architecture/traffic-flow#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address. 
+You can read more about SURBs [here](/docs/stable/architecture/traffic-flow#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address. 
 
 #### Sending binary data
 
