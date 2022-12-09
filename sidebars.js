@@ -93,6 +93,14 @@ module.exports = {
         "community/licensing",
       ],
     },
+    {
+      type: "category",
+      label: "Tutorials",
+      collapsed: true,
+      items: [
+        "nym-simple-websocket-tutorial",
+      ],
+    },
     // "glossary",
     "links"
   ],
