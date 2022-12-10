@@ -23,6 +23,15 @@ module.exports = {
       ],
     },
     {
+        type: "category", 
+        label: "SDK", 
+        collapsed: true, 
+        items: [
+            "sdk/overview"
+        ],
+    },
+    "sdk/overview",
+    {
       type: "category",
       label: "Integrations",
       collapsed: true,
@@ -83,6 +92,7 @@ module.exports = {
     "nym-cli",
     "compatibility-table",
     "coconut",
+    "glossary",
     {
       type: "category",
       label: "Community",
@@ -101,7 +111,7 @@ module.exports = {
         "nym-simple-websocket-tutorial",
       ],
     },
-    // "glossary",
+    "glossary",
     "links"
   ],
 };

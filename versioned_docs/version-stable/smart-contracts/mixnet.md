@@ -5,7 +5,7 @@ hide_title: false
 title: Mixnet Contract
 ---
 
-The Mixnet smart contract is a core piece of the Nym system, functioning as the mixnet directory and keeping track of delegations and rewards: the core functionality required by an incentivised mixnet. You can find the code and build instructions [here](https://github.com/nymtech/nym/tree/release/v1.1.0/contracts/mixnet).
+The Mixnet smart contract is a core piece of the Nym system, functioning as the mixnet directory and keeping track of delegations and rewards: the core functionality required by an incentivised mixnet. You can find the code and build instructions [here](https://github.com/nymtech/nym/tree/release/v1.1.2/contracts/mixnet).
 
 ### Functionality 
 The Mixnet contract has multiple functions: 
@@ -14,7 +14,7 @@ The Mixnet contract has multiple functions:
 * storing delegation and bond amounts.
 * storing reward amounts. 
 
-The addresses of deployed smart contracts can be found in the [`network-defaults`](https://github.com/nymtech/nym/blob/release/v1.1.0/common/network-defaults/src/mainnet.rs) directory of the codebase alongside other network default values.
+The addresses of deployed smart contracts can be found in the [`network-defaults`](https://github.com/nymtech/nym/blob/release/v1.1.2/common/network-defaults/src/mainnet.rs) directory of the codebase alongside other network default values.
 
 ### Interacting with the contract 
 There are two ways to interact with the deployed smart contract: 
@@ -24,7 +24,7 @@ There are two ways to interact with the deployed smart contract:
 #### Nym-cli tool (recommended in most cases) 
 The `nym-cli` tool is a binary offering a simple interface for interacting with deployed smart contract (for instance, bonding and unbonding a mix node from the CLI), as well as creating and managing accounts and keypairs, sending tokens, and querying the blockchain. 
 
-Instructions on how to do so can be found on the [`nym-cli` docs page](/docs/next/nym-cli).
+Instructions on how to do so can be found on the [`nym-cli` docs page](/docs/stable/nym-cli).
 
 #### Nyxd binary 
 The `nyxd` binary, although more complex to compile and use, offers the full range of commands availiable to users of CosmosSDK chains. Use this if you are (e.g.) wanting to perform more granular queries about transactions from the CLI. 

@@ -5,14 +5,9 @@ hide_title: false
 title: "Network Requesters"
 ---
 
-<!-- :::note
+:::note
 The Nym network requester was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
-::: -->
-
-:::caution
-The most recent Network Requester version is `1.1.1` - please checkout and build the repository according to instructions on the [building nym](/docs/stable/run-nym-nodes/build-nym/) page, **but checking out to `tags/nym-binaries-1.1.0-network-requester`** instead of the `v1.1.0` release
 :::
-
 
 If you have access to a server, you can run the Network Requester, which allows Nym users to make outbound network requests from your server.
 
@@ -69,7 +64,7 @@ You can check that your client is initialised correctly by running the following
         |_| |_|\__, |_| |_| |_|
                 |___/
 
-                (client - version 1.1.0)
+                (client - version 1.1.1)
 
         
     2022-08-09T15:06:03.276Z INFO  nym_client::client > Starting nym client
@@ -87,7 +82,7 @@ Stop the running process with `CTRL-C`, and create a service file at `/etc/syste
 
 ```
 [Unit]
-Description=Nym Client (1.1.0)
+Description=Nym Client (1.1.1)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -238,7 +233,7 @@ Stop the running process with `CTRL-C`, and create a service file for the reques
 
 ```
 [Unit]
-Description=Nym Network Requester (1.1.0)
+Description=Nym Network Requester (1.1.1)
 StartLimitInterval=350
 StartLimitBurst=10
 

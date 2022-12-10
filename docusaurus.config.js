@@ -12,10 +12,10 @@ module.exports = {
   favicon: 'img/docs/FAVICON.png',
   organizationName: 'nymtech',
   projectName: 'docs',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'zh'], 
-  },
+  // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['en', 'zh'], 
+  // },
   themeConfig: {
     tableOfContents: {
       minHeadingLevel: 2,
@@ -98,12 +98,12 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: 'Next (unreleased)',
+              label: 'v1.1.3 (in progress)',
               path: 'next',
               banner: 'unreleased',
             },
-            'stable': {
-              label: 'v1.1.1 (stable)',
+            stable: {
+              label: 'v1.1.2 (stable)',
               path: 'stable',
               banner: 'none',
             },

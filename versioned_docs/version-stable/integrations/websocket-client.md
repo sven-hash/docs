@@ -11,7 +11,7 @@ The Nym Websocket Client was built in the [building nym](/docs/stable/run-nym-no
 :::
 
 ### Viewing command help
-
+  
 You can check that your binaries are properly compiled with:
 
 ```
@@ -21,42 +21,42 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (client - version 1.1.0)
+             (client - version 1.1.1)
 
-        
-    nym-client 1.1.0
-    Nymtech
-    Implementation of the Nym Client
-
-    USAGE:
-        nym-client [OPTIONS] <SUBCOMMAND>
-
-    OPTIONS:
-            --config-env-file <CONFIG_ENV_FILE>
-                Path pointing to an env file that configures the client
-
-        -h, --help
-                Print help information
-
-        -V, --version
-                Print version information
-
-    SUBCOMMANDS:
-        completions          Generate shell completions
-        generate-fig-spec    Generate Fig specification
-        help                 Print this message or the help of the given subcommand(s)
-        init                 Initialise a Nym client. Do this first!
-        run                  Run the Nym client with provided configuration client optionally
-                                overriding set parameters
-        upgrade              Try to upgrade the client
     
+      nym-client 1.1.1
+      Nymtech
+      Implementation of the Nym Client
+
+      USAGE:
+          nym-client [OPTIONS] <SUBCOMMAND>
+
+      OPTIONS:
+              --config-env-file <CONFIG_ENV_FILE>
+                  Path pointing to an env file that configures the client
+
+          -h, --help
+                  Print help information
+
+          -V, --version
+                  Print version information
+
+      SUBCOMMANDS:
+          completions          Generate shell completions
+          generate-fig-spec    Generate Fig specification
+          help                 Print this message or the help of the given subcommand(s)
+          init                 Initialise a Nym client. Do this first!
+          run                  Run the Nym client with provided configuration client optionally
+                                  overriding set parameters
+          upgrade              Try to upgrade the client
+
+
 </details>
 
 
@@ -189,8 +189,7 @@ If that fits your security model, good. However, it may be the case that you wan
     "withReplySurb": "true"
 }
 ```
-You can read more about SURBs [here](/docs/next/architecture/traffic-flow#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address.
-
+You can read more about SURBs [here](/docs/stable/architecture/traffic-flow#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address. 
 
 #### Sending binary data
 

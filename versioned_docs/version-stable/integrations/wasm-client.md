@@ -5,22 +5,17 @@ description: "How to integrate the Nym webassembly client into your own applicat
 title: "Webassembly client"
 ---
 
+The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network, for uses in edge computing and browser-based applications. 
 
-The Nym webassembly client allows any webassembly-capable runtime to build and send Sphinx packets to the Nym network.
+This is currently packaged and distributed for ease of use via the [Nym Typescript SDK library](/docs/stable/sdk/overview). 
 
-You can install [@nymproject/sdk](https://www.npmjs.com/package/@nymproject/sdk) via `npm` from its package page, or with:
+The webassembly client allows for the easy creation of Sphinx packets from within mobile apps and browser-based client-side apps (including Electron or similar). 
 
-```
-npm i @nymproject/sdk
-```
+### Building apps with nym-client-wasm
 
-The `@nymproject/sdk` package allows easy creation of Sphinx packets from within mobile apps and browser-based client-side apps (including Electron or similar). Browser extensions should also work.
-
-The webassembly inside the client lets you deliver web apps that build and send Sphinx packets solely in a web browser window. 
-
+Check out the [examples section](/docs/stable/sdk/overview#using-the-sdk) of the SDK docs for examples of simple application framework setups. There are also two example applications located in the `clients/webassembly` directory in the main Nym platform codebase. The `js-example` is a simple, bare-bones JavaScript app. 
 
 ### Think about what you're sending!
-
 :::caution
 Think about what information your app sends. That goes for whatever you put into your Sphinx packet messages as well as what your app's environment may leak.
 :::

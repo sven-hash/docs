@@ -50,6 +50,17 @@
     {
       "type": "category",
       "collapsed": true,
+      "label": "SDK",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/sdk/overview"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
       "collapsible": true,
       "label": "Integrations",
       "items": [
@@ -189,6 +200,10 @@
     {
           "type": "doc", 
           "id": "version-stable/coconut"
+    },
+    {
+          "type": "doc", 
+          "id": "version-stable/glossary"
     },
     {
       "type": "category",

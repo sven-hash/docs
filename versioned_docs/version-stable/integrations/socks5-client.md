@@ -43,16 +43,16 @@ You can check that your binaries are properly compiled with:
 <details>
   <summary>console output</summary>
 
-      _ __  _   _ _ __ ___
-     | '_ \| | | | '_ \ _ \
-     | | | | |_| | | | | | |
-     |_| |_|\__, |_| |_| |_|
-            |___/
+         _ __  _   _ _ __ ___
+        | '_ \| | | | '_ \ _ \
+        | | | | |_| | | | | | |
+        |_| |_|\__, |_| |_| |_|
+                |___/
 
-             (socks5 proxy - version 1.1.0)
+                (socks5 proxy - version 1.1.1)
 
-        
-        nym-socks5-client 1.1.0
+    
+        nym-socks5-client 1.1.1
         Nymtech
         A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
@@ -77,9 +77,9 @@ You can check that your binaries are properly compiled with:
         run                  Run the Nym client with provided configuration client optionally
                                 overriding set parameters
         upgrade              Try to upgrade the client
+                upgrade    Try to upgrade the client
 
     
-      
 </details>
 
 You can check the necessary parameters for the available commands by running:
