@@ -61,8 +61,8 @@ sudo apt-get install -y nodejs
 ```
 Ensure that after installing Node.js of any of the above operating systems , type and enter the following into your terminal to check if the install was successful :
 ```
-$ node --version
-$ npm --version
+node --version
+npm --version
 ```
 
 
@@ -72,7 +72,7 @@ We want to make sure that wer have the correct packages and required technologie
 
 Inside your terminal, type and enter:
 ```
-$ npm install -g typescript
+npm install -g typescript
 ```
 This will install typescript for us globally. The `--g` directive tells npm to install the package in the global shared `node_modules` folder usually at the root folder in your computer
 
@@ -92,7 +92,7 @@ Continue to then do the following:
 1. Open your terminal in the 'User Client' folder you created (or by `cd`'ing to the directory), type and enter:
 
     ```
-   $ npm init
+    npm init
     ```
     The following chunk of output (seen below) will then be presented to you. The terminal will prompt your to provide some input for the the sections name to  license. You can simply just press enter `↵` after each prompt (like the example below) and it will work just fine.
 
@@ -141,7 +141,7 @@ Continue to then do the following:
  2. Continuing with our terminal, type and enter:
     
     ```
-    $ npm install typescript
+    npm install typescript
     ```
     After this point , we should open up our chosen IDE (VSCode, Sublime Text, etc) and open up the folder we are working in (User Client).
     Check the contents of the `package.json` file, it should look something like this:
@@ -170,7 +170,7 @@ Continue to then do the following:
  3. Back in our terminal, type and enter:
     
     ```
-    $ npm install ts-node --save-dev
+    npm install ts-node --save-dev
     ```
     This package (`ts-node`) allows us to build a typescript application in a node environment.
 
@@ -195,7 +195,7 @@ Continue to then do the following:
     Back in your terminal, type and enter:
 
     ```
-    $ npm install --global parcel-bundler
+    npm install --global parcel-bundler
     ```
 
     After the npm install has finished, create a new folder called `src` in the same level as our `tsconfig.json` and `package.json` (User Client). Inside there , create 2 new files. One called `index.html` and one called `index.ts`.
@@ -239,7 +239,7 @@ Continue to then do the following:
 
     We're just looking to make sure we have our typescript file working when we run the application in the browser. We'll check this is just a moment.
     
-    Once we have done that , navigate into our `package.json` and in the scripts section, just above the test command,  paste the following:
+    Once we have done that , navigate into our `package.json` and in the "scripts" section, just above the test command,  paste the following:
 
     ```
     "start": "parcel src/index.html"
@@ -249,7 +249,7 @@ Continue to then do the following:
 
     <img src="/img/tutorials/simple-websocket/image4.png"/>
 
-    This will result in the above output. Open your browser to see the results [(localhost:1234)](http://localhost:1234/). You should now have a running web application!
+    This will result in the above output. Open your browser to see the results [(localhost:1234)](http://localhost:1234/). You should now have a running web application with 'Test' printed on the browser window!
 
     The `console.log` statement in the above code can be checked by right clicking ⇧ on the browser and selecting 'Inspect' and navigating to the 'Console' section of the pane that appears. You should see 'test log' printed there. 
 
@@ -260,7 +260,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 
  Remember that our aim is to get two Typescript applications running in the first [diagram we saw](#what-are-we-building) (the blue boxes left and right of the image). Everything in the middle (the Mixnet aka the green box in the diagram) has already been taken care of for us. The first place to to start will be implementing the code that connects our Typescript Client to our Nym Websocket Client (the orange box to the right of our 'User Client').
 
- 1. In our `index.ts` paste or type in the following code : 
+ 1. In our `index.ts`, remove the existing `console.log` statement an paste or type in the following code : 
     
     ```
     async function main() {
@@ -290,7 +290,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
  2. Next, we will implement the functions that will handle DOM manipulation (code which will alter our UI depending on 
     how we are interacting with our application).
     
-    Underneath our `main()` function in the editor, lets paste or type the following:
+    Underneath our `main()` declaration function in the editor, lets paste or type the following:
  
     ```
     /*
@@ -346,7 +346,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 
     This may look like a big chunk of code, but dont worry, the majority of it relates to adjusting HTML elements of our `index.html`. The next thing we then want to do is define some key variables that we will want to utilize in our application.
 
-3.  Above our main function , paste or type the following code:
+3.  Above our `main()` declaration function , paste or type the following code:
 
     ```
     /*
@@ -384,7 +384,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
         websocketConnection = await connectWebsocket(localClientUrl).then(function (c) {
             return c;
         }).catch(function (err) {
-            displayClientMessage("Websocket connection error. Is the client running with <pre>--connection-type WebSocket</pre> on port + port + "?");
+            displayClientMessage("Websocket connection error. Is the client running with <pre>--connection-type WebSocket</pre> on port " + port + "?");
         })
 
         websocketConnection.onmessage = function (e) {
@@ -588,7 +588,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
     Save the file in the editor and lets go back to our console window. Lets go ahead and type :
 
     ```
-    $ npm start
+    npm start
     ```
     Then, lets go back to [localhost:1234](http://localhost:1234/) and check the result. We should now have a new UI for our application!
 
@@ -615,7 +615,7 @@ Once we have this up and running, we can get to the real nitty gritty of connect
     ├─ nym-client
 :::
 
-Over in your terminal, `cd` to the root folder and execute the following command:
+Over in your terminal, `cd` to the root folder (Simple Mixnet Websocket Client) and execute the following command:
 
 ```
 ./nym-client init --id websocket-client
@@ -646,7 +646,7 @@ You should then see output in the terminal looking something like this:
 <img src="/img/tutorials/simple-websocket/image8.png"/>
 
 Our Nym Websocket Client for our Typescript Script is now up and running! Let's have a look at what is happening in our 
-Web Application on [localhost:1234](http://localhost:1234/) in the browser.
+Web Application on [localhost:1234](http://localhost:1234/) in the browser. Give the page a refresh (F5).
 
 <img src="/img/tutorials/simple-websocket/image9.png"/>
 
@@ -688,7 +688,7 @@ Continue to then do the following:
 1. Open up a second terminal on your screen, working in the 'Service Provider' folder you created (or by `cd`'ing to the directory), type and enter:
 
     ```
-   $ npm init
+    npm init
     ```
     The following chunk of output (seen below) will then be presented to you. The terminal will prompt your to provide some input for the the sections name to  license. You can simply just press enter `↵` after each prompt (like the example below) and it will work just fine.
 
@@ -737,7 +737,7 @@ Continue to then do the following:
 2. Continuing with our terminal, type and enter:
     
     ```
-    $ npm install typescript
+    npm install typescript
     ```
     After this point , we should open up our chosen IDE (VSCode, Sublime Text, etc) and open up the folder we are working in (Service Provider).
     Check the contents of the `package.json` file, it should look something like this:
@@ -765,7 +765,7 @@ Continue to then do the following:
 3. Back in our terminal, type and enter:
     
     ```
-    $ npm install ts-node --save-dev
+    npm install ts-node --save-dev
     ```
     This package (`ts-node`) allows us to build a typescript application in a node environment.
 
@@ -790,10 +790,10 @@ Continue to then do the following:
     Back in your terminal, type and enter:
 
     ```
-    $ npm install --global parcel-bundler
+    npm install --global parcel-bundler
     ```
 
-    After the npm install has finished, create a new folder called `src` in the same level as our `tsconfig.json` and `package.json` (Service Provider). Inside there , create 2 new files. One called `index.html` and one called `index.ts`.
+    After the npm install has finished, create a new folder called `src` in the same level as our `tsconfig.json` and `package.json` (Service Provider folder). Inside there , create 2 new files. One called `index.html` and one called `index.ts`.
 
     :::note
         Our Folder Structure (so far)
@@ -828,7 +828,7 @@ So lets fill out our code for our `index.ts`. Below you'll find the entire logic
 <details>
     <summary>index.ts Code</summary>      
 
-    ```
+    
     interface MessageData {
         name : string;
         service : string;
@@ -989,7 +989,7 @@ So lets fill out our code for our `index.ts`. Below you'll find the entire logic
 
     main();
 
-    ```
+    
     
 </details>
 
@@ -1021,7 +1021,7 @@ Its time to fill out our `index.html` code for our Service Provider so we can ge
 <details>
     <summary>index.html Code</summary>    
 
-    ```
+    
     <!doctype html>
     <html>
         <head>
@@ -1076,11 +1076,10 @@ Its time to fill out our `index.html` code for our Service Provider so we can ge
             <script src="index.ts"></script>
         </body>
     </html>
-    ```
-
-    Save the file and lets continue to get our websocket websocket connection up and running.
-
+    
 </details>
+
+Save the file and lets continue to get our websocket websocket connection up and running.
 
 #### Getting the Service Provider connected.
 
@@ -1090,7 +1089,7 @@ In our project our Service Provider folder, open up a second terminal and execut
 
 
 ```
-$ npm start
+npm start
 ```
 :::note
     Our Folder Structure (Recap)
@@ -1120,14 +1119,14 @@ So we can see that the Service Provider is wanting to listen to a websocket conn
 
 That's our cue to open up another terminal window in our project root folder (Simple Mixnet Websocket Project) and get ourselves a second instance of our Nym Websocket Client running. Once again, will be executing the same commands as last time with the `nym-client` file, but this time with a different `--port` and `--id`.
 
-Go back to the folder where you placed your `nym-client` file and open up a new terminal there.
+Go back to the folder where you placed your `nym-client` file (Simple Mixnet Websocket Project) and open up a new terminal window there.
 Type and enter the following
 
 ```
 ./nym-client init --id service-provider --port 1978
 ./nym-client run --id service-provider
 ```
-We then have our second Nym Websocket Client up and running. Lets go back to our browser back to our Service Provider tab and look at what's changed:
+We then have our second Nym Websocket Client up and running. Lets go back to our browser back to our Service Provider tab and look at what's changed. Give the browser window a refresh (F5):
 
 <img src="/img/tutorials/simple-websocket/image12.png"/>
 
