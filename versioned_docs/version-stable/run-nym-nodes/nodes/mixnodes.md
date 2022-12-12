@@ -484,10 +484,10 @@ Use the same signature as used when bonding the mixnode, give it any label you w
 The `--from` is the **mnemonic** of the family head you loaded into your `nyxd` keyring:
 
 ```
-./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"create_family": {"owner_signature": ${SIGNATURE}, "label": "my-family-name"}}' --node ${VALIDATOR-ENDPOINT} --from mix0-famhead --chain-id nymnet --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"create_family": {"owner_signature": ${SIGNATURE}, "label": "my-family-name"}}' --node ${VALIDATOR-ENDPOINT} --from mix0-famhead --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
 ```
 
-### Joining a family 
+### Joining a family
 
 Ssh into the vps of the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to join the family: 
 
@@ -500,14 +500,14 @@ This will return a signature which is going to be used below - in this example i
 The `--from` is going to be the mnemonic of the member wanting to join the family: 
 
 ```
-./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nymnet --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
 ```
 
 ### Leaving a family 
 
 If wanting to leave, run the same initial command as above, followed by:
 ```
-./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"leave_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nymnet --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"leave_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
 ```
 
 ## Checking that your node is mixing correctly
