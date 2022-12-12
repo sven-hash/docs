@@ -5,20 +5,18 @@ hide_title:  false
 title: Simple User Client and Service Provider (Websocket).
 ---
 
-### Introduction
 
-Welcome to this tutorial on how to build your very first Nym Websocket Typescript application. In this tutorial, you'll get a taste iof the technology that Nym has to offer for developers who wish to create applications that have fully private communication protocols as their priority feature. Since Nym operates on a blockchain based architecture, blockchain developers can use their creative faculties to make use of this infrastructure to create their next applications!
+In this tutorial, you'll get a taste of the technology that Nym has to offer for developers who wish to create applications that have fully private communication protocols as their priority feature. 
 
 #### What are we building?
 
-Today, I’m going to teach you how to build a Typescript User Client along with a Service Provider, which will receive messages from the former. Ill also be showing you how to set up a pair of Nym Websocket Clients, an exclusive technology developed here at Nym, which will work with both our Client and Service Provider.
+You will be building two pieces of application code with which you can send messages through the mixnet: 
+- A Typescript User Client that can send messages to the mixnet.
+- A Typescript Service Provider that can receive messages the mixnet.
+
+You will also learn how to set up a pair of Nym Websocket Clients, which our application code will use to connect to the mixnet.
 
 <img src="/img/tutorials/simple-websocket/nym-websocket-demo-2.png"/>
-
-We'll be creating:
-
-- A Typescript User Client that can send messages to the mixnet.
-- A Typescript Service Provider that can receive messages from a client from the mixnet.
 
 We'll be learning:
 
@@ -45,26 +43,6 @@ So lets get to it!
 ### Prerequisites
 
 * Node.js (and Node Package Manager)
-
-#### Node & npm Installation 
-
-(Windows and macOS)
-Go to https://nodejs.org/en/download/
-
-(Linux - Ubuntu)
-Type and enter the following in your terminal:
-
-```
-sudo apt install curl
-curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-Ensure that after installing Node.js of any of the above operating systems , type and enter the following into your terminal to check if the install was successful :
-```
-node --version
-npm --version
-```
-
 
 #### Installing Typescript and Bundling our Application
 
