@@ -580,6 +580,7 @@ Lets go ahead and get ourselves a copy of the Nym Websocket Client (the orange b
 
 Go to [Nym's releases page](https://github.com/nymtech/nym/releases), find the latest Binaries release , expand the ▶ Assets section and click on the ❒ `nym-client` option (Ubuntu or macOS).
 
+Alternatively if your having issue's (Or if your'e a Windows User), go to [this article](https://nymtech.net/docs/stable/run-nym-nodes/build-nym) where you can build the binaries from a monorepo. This is recommended if you get confused by following the above line.
 
 
 Once we have this up and running, we can get to the real nitty gritty of connecting and executing of our websocket functionality. Make sure you place the `nym-client` in the 'Simple Mixnet Websocket' folder also known as the project 'root' folder. However. this can be put in any folder on your computer and it will still work with the following instruction!
