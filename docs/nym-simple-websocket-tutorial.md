@@ -7,20 +7,17 @@ title: Simple Service Provider (Websocket).
 
 You can get the ready built codebase [here](https://github.com/nymtech/developer-tutorials). You'll find the code in the 'Simple Service Provider Tutorial' folder .Feel free to cross-reference your code or simply just get the code in this existing repository up and running.
 
-### Introduction
-
-Welcome to this tutorial on how to build your very first Nym Websocket Typescript application. In this tutorial, you'll get a taste iof the technology that Nym has to offer for developers who wish to create applications that have fully private communication protocols as their priority feature. Since Nym operates on a blockchain based architecture, blockchain developers can use their creative faculties to make use of this infrastructure to create their next applications!
+In this tutorial, you'll get a taste of the technology that Nym has to offer for developers who wish to create applications that have fully private communication protocols as their priority feature.
 
 #### What are we building?
 
-Today, I’m going to teach you how to build a Typescript User Client along with a Service Provider, which will receive messages from the former. Ill also be showing you how to set up a pair of Nym Websocket Clients, an exclusive technology developed here at Nym, which will work with both our Client and Service Provider.
+You will be building two pieces of application code with which you can send messages through the mixnet: 
+- A Typescript User Client that can send messages to the mixnet.
+- A Typescript Service Provider that can receive messages the mixnet.
+
+You will also learn how to set up a pair of Nym Websocket Clients, which our application code will use to connect to the mixnet.
 
 <img src="/img/tutorials/simple-websocket/nym-websocket-demo-2.png"/>
-
-We'll be creating:
-
-- A Typescript User Client that can send messages to the mixnet.
-- A Typescript Service Provider that can receive messages from a client from the mixnet.
 
 We'll be learning:
 
@@ -581,7 +578,9 @@ At this point, we should have all our code at this point be able to make the fir
 Lets go ahead and get ourselves a copy of the Nym Websocket Client (the orange boxes that we see in our initial [diagram](#what-are-we-building), to the right of the blue 'User Client' box).
 
 
-Go to [Nym's releases page](https://github.com/nymtech/nym/releases), find the latest Binaries release , expand the ▶ Assets section and click on the ❒ `nym-client` option.
+Go to [Nym's releases page](https://github.com/nymtech/nym/releases), find the latest Binaries release , expand the ▶ Assets section and click on the ❒ `nym-client` option (Ubuntu or macOS).
+
+
 
 Once we have this up and running, we can get to the real nitty gritty of connecting and executing of our websocket functionality. Make sure you place the `nym-client` in the 'Simple Mixnet Websocket' folder also known as the project 'root' folder. However. this can be put in any folder on your computer and it will still work with the following instruction!
 
