@@ -186,6 +186,18 @@
         ]
     },
     {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Tutorials",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-stable/tutorials/nym-simple-websocket-tutorial"
+        }
+      ]
+    },
+    {
           "type": "doc", 
           "id": "version-stable/wallet"
     }, 
@@ -222,18 +234,6 @@
         {
           "type": "doc",
           "id": "version-stable/community/licensing"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "collapsed": true,
-      "collapsible": true,
-      "label": "Tutorials",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-stable/tutorials/nym-simple-websocket-tutorial"
         }
       ]
     },
