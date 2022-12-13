@@ -1,8 +1,8 @@
 ---
-sidebar_label: Simple Service Provider (Websocket).
+sidebar_label: Simple Service Provider 
 description: "Simple Service Provider"
 hide_title:  false
-title: Simple Service Provider (Websocket).
+title: Simple Service Provider 
 ---
 
 :::note
