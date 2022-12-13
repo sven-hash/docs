@@ -5,57 +5,58 @@ hide_title:  false
 title: Simple Service Provider (Websocket).
 ---
 
-You can get the ready built codebase [here](https://github.com/nymtech/developer-tutorials). You'll find the code in the 'Simple Service Provider Tutorial' folder .Feel free to cross-reference your code or simply just get the code in this existing repository up and running.
+:::note
+You can find the full code for this tutorial [here](https://github.com/nymtech/developer-tutorials). Feel free to cross-reference your code as you build or just pull it and follow along as you go through the tutorial.
+:::
 
-In this tutorial, you'll get a taste of the technology that Nym has to offer for developers who wish to create applications that have fully private communication protocols as their priority feature.
+In this tutorial, you'll get a taste of the technology that Nym has to offer for developers who wish to create applications provide their users with the privacy features of the mixnet.
 
 #### What are we building?
 
 You will be building two pieces of application code with which you can send messages through the mixnet: 
-- A Typescript User Client that can send messages to the mixnet.
-- A Typescript Service Provider that can receive messages the mixnet.
+- A Typescript 'User Client' that can send messages to the mixnet. This allows us to access the mixnet through a browser on our local machine. 
+- A Typescript Service Provider that can receive messages from the mixnet. 
 
 You will also learn how to set up a pair of Nym Websocket Clients, which our application code will use to connect to the mixnet.
+
+:::note
+In production, Service Providers should generally be deployed on a remote server in order to take action on our behalf without leaking metadata such as our IP. For this tutorial through, it will also run on our local machine - we will just be looping messages through the mixnet and then back to ourselves to demonstrate how to send messages through, and listen to messages from, the mixnet. 
+
+Subsequent tutorials will look at deploying to servers, and creating more production-ready code. 
+:::
 
 <img src="/img/tutorials/simple-websocket/nym-websocket-demo-2.png"/>
 
 We'll be learning:
-
 - How to build a Typescript application from Scratch.
 - How to initialize a Nym Websocket Client and connect it to the mixnet.
-- How to send a message to the mixnet in a format that it will understand.
+- How to send a message through the mixnet in a format that the Service Provider can parse. 
 
 Don’t worry if you are rusty with Javascript or Typescript, there will be plenty to copy and paste here!
 
 
 #### What do we want to achieve?
 
-We want to be able to have our User Client present us a simple form (in the web browser) which we can enter data into. Then, once we have filled the form out, press a 'Send' button that will then send that data straight to our Service Provider, via the mixnet. We will then be able to see the data we went within the UI of the Service Provider in the web browser.
+We want to be able to have our User Client present us a simple form (in the web browser) which we can enter data into. Then, once we have filled the form out, press a 'Send' button that will then send that data straight to our Service Provider, via the mixnet. We will then be able to see the data we sent within the UI of the Service Provider in the web browser.
 
 
 #### What is a Service Provider
+'Service Providers' are the name given to any type of app that can communicate with the mixnet via a Nym Client. The [Network Requester](/docs/stable/run-nym-nodes/nodes/requester) is an app that takes an outbound network request from the mixnet, performs that request (e.g. authenticating with a message server and recieving new messages) and then passes the response back to the user who requested it, sheilding their metadata from the message server. 
 
-A Web Service Provider is an application that creates and carries out a particular 'job' or service that is requested User. Typically, a provider publishes information about their organization and the services they offer in a Web Service. These services can be queried by members of the organization or possibly by other businesses, customers or general internet users. The term 'Service' can refer to almost any processed that can be achieved over a computer with an internet connection, although you can also make a Service Provider that can even work offline depending on what the service offers.
-
-In this context, it will be useful to have Service Providers built on Nym privacy technologies. The naturally complex architecture can be made accessible to almost anyone if a good Service Provider (that acts as the middle man) is easy to use and provides a useful service.
-
-So lets get to it! 
+The Service Provider covered in this tutorial is far more simple than this, as it just aims to show developers how to approach building something that can:
+* connect to the mixnet, 
+* listen for messages, and 
+* perform some action with them (in this case, show them on a UI). 
 
 ### Prerequisites
+* `node` & `npm` 
+* `Typescript` 
 
-#### Installing Typescript
+#### Preparing your Typescript environment  
 
-We want to make sure that wer have the correct packages and required technologies available to us to build our application. For this, we are going to want to install Typescript onto our computer! 
+Create a new directory to start your project inside of. For this tutorial we are naming ours `Service Provider Tutorial`.  
 
-Inside your terminal, type and enter:
-```
-npm install -g typescript
-```
-This will install typescript for us globally. The `--g` directive tells npm to install the package in the global shared `node_modules` folder usually at the root folder in your computer
-
-After this , go to your regular directory you like to do your development tasks in and create a new folder to start your project inside of. Give it an good name eg; ‘Simple Service Provider Tutorial’. 
-
-Inside this folder , create a new one name 'User Client'. This is the first application were going to build.
+Inside here, create another directory named `User Client`. This is the first application we're going to build.
 
 :::note
     Our Folder Structure (so far)
@@ -66,7 +67,7 @@ Inside this folder , create a new one name 'User Client'. This is the first appl
 
 Continue to then do the following:
 
-1. Open your terminal in the 'User Client' folder you created (or by `cd`'ing to the directory), type and enter:
+1. Open your terminal in the `User Client` folder you created (or by `cd`'ing to the directory), type and enter:
 
     ```
     npm init
@@ -238,7 +239,7 @@ Continue to then do the following:
 
 We will focus mainly on the logic of the `index.ts` file in this section. It is where we want to establish our logic which connects our application to the mixnet, construct messages that we want to send and then send it to the mixnet for a service provider to receive.
 
- Remember that our aim is to get two Typescript applications running in the first [diagram we saw](#what-are-we-building) (the blue boxes left and right of the image). Everything in the middle (the Mixnet aka the green box in the diagram) has already been taken care of for us. The first place to to start will be implementing the code that connects our Typescript Client to our Nym Websocket Client (the orange box to the right of our 'User Client').
+ Remember that our aim is to get two Typescript applications running, represented by the blue boxes in the diagram [above](#what-are-we-building). Everything in the middle (the mixnet) has already been taken care of for us. The first place to to start will be implementing the code that connects our Typescript Client to our Nym Websocket Client (the orange box to the right of our 'User Client').
 
  1. In our `index.ts`, remove the existing `console.log` statement an paste or type in the following code : 
     
@@ -383,7 +384,7 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 
     ```
 
-    Accompanying this, lets provide it with the function that we currently have not defined yet - `sendSelfAddressRequest()`. Lets paste  it under our `main()`function, above the `displayClientMessage()` function that we declared earlier :
+    Accompanying this, lets provide it with the function that we currently have not defined yet - `sendSelfAddressRequest()`. Lets paste  it under our `main()`function, above the `displayClientMessage()` function that we declared earlier:
 
     ```
     /*
@@ -404,10 +405,10 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 
     So far, our added logic into our `main()` function will do the following:
 
-    - State the Port (set to 1977, which our Nym Websocket Client listens to by default) and Local client url (which we point to localhost (127.0.0.1)).
+    - State the port (set to `1977`, which our Websocket Client listens to by default) and local client url (which we point to `localhost` (`127.0.0.1`)).
     - Call our `connectWebsocket()` function and assign the value it returns to `websocketConnection`, the global variable which we created earlier.
     - Handle any responses which come back from our websocket and handle it accoredinlgy depending what value is present in its type attribute within the `handleResponse()` function.
-    - Call our newly added function , `sendSelfAddressRequest()` where we send a object with an attribute, `type : selfAddress`to get the address of our Nym Websocket Client.
+    - Call our newly added function , `sendSelfAddressRequest()` where we send a object with an attribute, `type : selfAddress`to get the address of our  Websocket Client.
     - Listen to a Send button on your `index.html` (which we will implement soon) that when its pressed, it will grab whatever data we want to send and send it through the mixnet. This will be done in a new function we will now create, `sendMessageToMixnet()`.
 
 5.  Its time to write our next important function. Underneath our `sendSelfAddressRequest()` function in the editor, paste 
@@ -575,15 +576,14 @@ We will focus mainly on the logic of the `index.ts` file in this section. It is 
 ### Connecting our Nym Websocket Client
 
 At this point, we should have all our code at this point be able to make the first simple websocket connection that we are looking for. 
-Lets go ahead and get ourselves a copy of the Nym Websocket Client (the orange boxes that we see in our initial [diagram](#what-are-we-building), to the right of the blue 'User Client' box).
+Lets go ahead and get ourselves a copy of the Websocket Client (the orange boxes that we see in our initial [diagram](#what-are-we-building), to the right of the blue 'User Client' box).
 
 
-Go to [Nym's releases page](https://github.com/nymtech/nym/releases), find the latest Binaries release , expand the ▶ Assets section and click on the ❒ `nym-client` option (Ubuntu or macOS).
+Go to [the Github releases page](https://github.com/nymtech/nym/releases), find the latest binaries release , expand the ▶ Assets section and click on the ❒ `nym-client` option (Ubuntu or macOS).
 
-Alternatively if your having issue's (Or if your'e a Windows User), go to [this article](https://nymtech.net/docs/stable/run-nym-nodes/build-nym) where you can build the binaries from a monorepo. This is recommended if you get confused by following the above line.
+Alternatively if your having issues (or using a different operating system), go [here](https://nymtech.net/docs/stable/run-nym-nodes/build-nym) and follow instructions to build the binaries from the monorepo. 
 
-
-Once we have this up and running, we can get to the real nitty gritty of connecting and executing of our websocket functionality. Make sure you place the `nym-client` in the 'Simple Mixnet Websocket' folder also known as the project 'root' folder. However. this can be put in any folder on your computer and it will still work with the following instruction!
+Once we have this up and running, we can get to the real nitty gritty of connecting and executing of our websocket functionality. For ease of showing the folder structure, we are placing the `nym-client` in the 'Simple Mixnet Websocket' folder for this demo. Place it wherever you want on your computer, and execute it by running the following commands from that directory. 
 
 :::note
     Our Folder Structure (so far)
@@ -598,7 +598,7 @@ Once we have this up and running, we can get to the real nitty gritty of connect
     ├─ nym-client
 :::
 
-Over in your terminal, `cd` to the folder you placed your  and execute the following command:
+Over in your terminal, `cd` to the folder you placed your `nym-client` binary and execute the following command:
 
 ```
 ./nym-client init --id websocket-client
@@ -616,7 +616,7 @@ This address you see in the screenshots (along with the other addresses in this 
 
 We can see from this output that this command does the following:
 - Starts using a gateway on the mixnet.
-- Generates and address for our Nym Websocket Client.
+- Generates and address for our Websocket Client.
 
 Next, within the same terminal, lets run the following command:
 
@@ -624,8 +624,8 @@ Next, within the same terminal, lets run the following command:
 ./nym-client run --id websocket-client 
 ```
 
-Our Nym Websocket Client for our Typescript Script is now up and running! Let's have a look at what is happening in our 
-Web Application on [localhost:1234](http://localhost:1234/) in the browser. Give the page a refresh (F5).
+Our Websocket Client for our Typescript Script is now up and running! Let's have a look at what is happening in our 
+application on [localhost:1234](http://localhost:1234/) in the browser. Give the page a refresh. 
 
 <img src="/img/tutorials/simple-websocket/image9.png"/>
 
@@ -643,9 +643,9 @@ So now we can get on to connecting it to a Service Provider.
 
 ### Adding our Service Provider
 
-Its time to get a full circle of websocket functionality up and running. Like our User Client , the Service Provider is a typescript application, bundles using Parcel and has the same npm dependencies. Lets re-iterate the same steps we went earlier.
+Its time to get a full circle of websocket functionality up and running. Like our User Client, the Service Provider is a Typescript application, bundled using Parcel, and has the same npm dependencies. Lets re-iterate the same steps we went through earlier.
 
-Lets go ahead back to our root folder 'Simple Service Provider Tutorial' and create a new folder, 'Service Provider'
+Lets go ahead back to our root folder 'Simple Service Provider Tutorial' and create a new directory, 'Service Provider'
 
 :::note
     Our Folder Structure (so far)
@@ -664,7 +664,7 @@ Lets go ahead back to our root folder 'Simple Service Provider Tutorial' and cre
 
 Continue to then do the following:
 
-1. Open up a second terminal on your screen, working in the 'Service Provider' folder you created (or by `cd`'ing to the directory), type and enter:
+1. Open up a second terminal on your screen, working in the 'Service Provider' directory you created (or by `cd`'ing to the directory), type and enter:
 
     ```
     npm init
@@ -1062,9 +1062,9 @@ Save the file and lets continue to get our websocket websocket connection up and
 
 #### Getting the Service Provider connected.
 
-Lets get get our Service Provider's Nym Websocket Client up and running.
+Lets get get our Service Provider's Websocket Client up and running.
 
-In our project our Service Provider folder, open up a second terminal and execute the following command
+In our `Service Provider` folder, open up a second terminal and execute the following command
 
 
 ```
@@ -1094,18 +1094,18 @@ We should then have the following screen appear when we open a new tab in the we
 
 <img src="/img/tutorials/simple-websocket/image11.png"/>
 
-So we can see that the Service Provider is wanting to listen to a websocket connection on port 1978 but currently it cant find one. 
+So we can see that the Service Provider is wanting to listen to a websocket connection on port `1978` but currently it cant find one. 
 
 That's our cue to open up another terminal window in our project root folder (Simple Service Provider Tutorial) and get ourselves a second instance of our Nym Websocket Client running. Once again, will be executing the same commands as last time with the `nym-client` file, but this time with a different `--port` and `--id`.
 
-Go back to the folder where you placed your `nym-client` file (Simple Service Provider Tutorial) and open up a new terminal window there.
+Go back to the folder where you placed your `nym-client` file and open up a new terminal window there.
 Type and enter the following
 
 ```
 ./nym-client init --id service-provider --port 1978
 ./nym-client run --id service-provider
 ```
-We then have our second Nym Websocket Client up and running. Lets go back to our browser back to our Service Provider tab and look at what's changed. Give the browser window a refresh (F5):
+We then have our second Nym Websocket Client up and running. Lets go back to our browser back to our Service Provider tab and look at what's changed. Give the browser window a refresh:
 
 <img src="/img/tutorials/simple-websocket/image12.png"/>
 

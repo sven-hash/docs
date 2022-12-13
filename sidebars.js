@@ -108,7 +108,7 @@ module.exports = {
       label: "Tutorials",
       collapsed: true,
       items: [
-        "nym-simple-websocket-tutorial",
+        "tutorials/nym-simple-websocket-tutorial",
       ],
     },
     "glossary",
