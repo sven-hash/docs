@@ -12,7 +12,7 @@ import ThemedImage from '@theme/ThemedImage';
 The Nym Socks5 Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
-Many existing applications are able to use the SOCKS5 proxy protocol. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
+Many existing applications are able to use either the SOCKS4, SOCKS4A, or SOCKS5 proxy protocols. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
 
 <ThemedImage
   alt="Overview diagram of the Nym network"
@@ -22,7 +22,7 @@ Many existing applications are able to use the SOCKS5 proxy protocol. If you wan
   }}
 />
 
-There are 2 pieces of software that work together to send SOCKS5 traffic through the mixnet: the `nym-socks5-client`, and the `nym-network-requester`. 
+There are 2 pieces of software that work together to send SOCKS traffic through the mixnet: the `nym-socks5-client`, and the `nym-network-requester`. 
 
 The `nym-socks5-client` allows you to do the following from your local machine:
 * Take a TCP data stream from a application that can send traffic via SOCKS5. 

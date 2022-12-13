@@ -8,6 +8,9 @@ title: "SOCKS5 proxy (CLI)"
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
+:::note 
+The `socks5` client now also supports SOCKS4 and SOCKS4A protocols as well as SOCKS5! 
+:::
 
 The Nym socks5 client allows you to proxy traffic from a desktop application through the mixnet, meaning you can send and receive information from remote application servers without leaking metadata which can be used to deanonymise you, even if you're using an encrypted application such as Signal. 
 
