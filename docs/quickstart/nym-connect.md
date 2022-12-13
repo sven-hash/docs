@@ -7,7 +7,7 @@ title: "NymConnect"
 
 NymConnect is a one-button GUI application that wraps around the `nym-socks5-client` for proxying application traffic through the Mixnet. 
 
-Install NymConnect and select an application that you want to privacy-enhance from the dropdown menu. For now, NymConnect can be used with Electrum Wallet, Keybase and desktop Telegram. Configure these to run via a SOCKS5 proxy and send their data through the Nym mixnet!
+Install NymConnect and select an application that you want to privacy-enhance from the dropdown menu. For now, NymConnect can be used with Electrum Wallet, Keybase, desktop Telegram and Blockstream Green. Configure these to run via a SOCKS5 proxy and send their data through the Nym mixnet!
 
 **Please note that NymConnect is currently released in beta. Please report bugs via Github**. 
 
