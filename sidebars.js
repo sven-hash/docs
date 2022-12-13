@@ -88,6 +88,14 @@ module.exports = {
             "smart-contracts/vesting"
         ],
     },
+    {
+      type: "category",
+      label: "Tutorials",
+      collapsed: true,
+      items: [
+        "tutorials/nym-simple-websocket-tutorial",
+      ],
+    },
     "wallet",
     "nym-cli",
     "compatibility-table",
