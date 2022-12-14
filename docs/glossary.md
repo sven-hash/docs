@@ -6,11 +6,11 @@ title: Glossary
 ---
 
 
-**[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters generated from a client keypair. Used to identify clients in the mixnet. 
+**[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters that is generated and stored in its own public/private keypair locally.
 
-**[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a packet hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
+**[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
 
-**Blockchain** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
+**[Blockchain](https://nymtech.net/docs/stable/smart-contracts/overview/)** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
 
 **[Coconut](https://nymtech.net/docs/stable/coconut/)** - A distributed cryptographic signing scheme providing a high degree of privacy for its users.
 
@@ -18,7 +18,7 @@ title: Glossary
 
 **Credentials** - Unique values that prove the legitimacy of a user or individual.
 
-**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority, or small group of authorities.
+**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority.
 
 **[Delegating NYM](https://medium.com/coinmonks/what-you-have-to-know-about-staking-and-delegating-458b6d2300a5)** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
 
@@ -38,7 +38,11 @@ title: Glossary
 
 **[Mix node Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/mixnodes/#bonding-your-mix-node)** - The action of node operators bonding their stake (in the form of NYM tokens) to a Mix node in order to join the network topology and begin routing traffic through.
 
+**[Network Requester](https://blog.nymtech.net/tech-deepdive-network-requesters-e5359a6cc31c)** - Is a binary that can be ran alongside a Nym Client on a VPS, which allows for private network requests to be made outside the mixnet from you local Nym client
+
 **Nym** - The in-text name of the organisation.
+
+**[Nym Typescript SDK](https://nymtech.net/docs/stable/sdk/overview)** - A Typescript software development kit which allows developers to build browser-based Mixnet application.
 
 **[NYM](https://nymtech.net/docs/stable/nym-cli/#send-tokens-to-an-account)** - Natively distributed token. 
 
@@ -54,10 +58,18 @@ title: Glossary
 
 **Proof-of-Mixing** - The reward of NYM tokens is based on the good quality of service carried out by node operators.
 
+**Public Key** - A large numerical value that is used to encrypt data.
+
+**SDK** - Stands for Software Development Kit
+
 **Sphinx** - A cryptographic message format used to relay anonymised messages within the mixnet, also used by the Lightning Network or something similar.
 
 **[Socks5](https://en.wikipedia.org/wiki/SOCKS)** - An proxy protocol that exchanges network packets between a client and server through a proxy server.
 
+**[Service Provider](https://nymtech.net/docs/stable/tutorials/nym-simple-websocket-tutorial/)** - Any type of app that can communicate with the mixnet via a Nym Client.
+
 **[Validators](https://nymtech.net/docs/stable/run-nym-nodes/nodes/validators/)** - Secures the Nyx blockchain with a staking token, defending the network from attacks.
+
+**[VPS](https://en.wikipedia.org/wiki/Virtual_private_server)** - Stands for Virtual Private Server. Its a virtual machine that acts as an isolated virtual environment on a physical server operated by a cloud, web or internet hosting provider.
 
 **Zero Knowledge Proofs** - Cryptographic techniques that make it possible to prove something to be true without having to reveal the evidence. 
