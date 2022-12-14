@@ -46,11 +46,11 @@ Nym混合节点是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)章节构
 <details>
   <summary>输出结果</summary>
 
-    nym-mixnode 1.0.1
+    nym-mixnode 1.1.0
     Nymtech
 
     Build Timestamp:    2022-05-06T13:07:45.000871255+00:00
-    Build Version:      1.0.1
+    Build Version:      1.1.0
     Commit SHA:         945dda0c24f2f964f27066af320441446973e383
     Commit Date:        2022-05-04T15:57:36+00:00
     Commit Branch:      detached HEAD
@@ -182,7 +182,7 @@ Nym混合节点是在[构建Nym](/docs/stable/run-nym-nodes/build-nym/)章节构
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.1.0
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -250,7 +250,7 @@ location, e.g. City: London, Country: UK: <your_location>
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.0.1
+    Version: 1.1.0
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6

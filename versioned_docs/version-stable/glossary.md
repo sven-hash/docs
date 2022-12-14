@@ -5,11 +5,17 @@ hide_title:  false
 title: Glossary
 ---
 
+**[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters generated from a client keypair. Used to identify clients in the mixnet. 
 
+<<<<<<< HEAD
 **[Address](https://nymtech.net/docs/stable/integrations/addresses-in-nym/)** - A unique string of characters generated from a client keypair. Used to identify clients in the mixnet. 
 
 **[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a packet hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
 
+=======
+**[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a packet hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
+
+>>>>>>> refs/remotes/origin/feature/glossary
 **Blockchain** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
 
 **[Coconut](https://nymtech.net/docs/stable/coconut/)** - A distributed cryptographic signing scheme providing a high degree of privacy for its users.

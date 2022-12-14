@@ -11,9 +11,9 @@ This is Nym's technical documentation, containing information about the various 
 
 - Obtain an understanding of our privacy infastructure and how components of the architecture interact with each other.
 - Explore different integration possibilties. 
-- Learn how to set up, run and maintain key Nym components and tools using your machine.
+- Learn how to set up, run and maintain key Nym components and tools using your machine. -->
 
-### But first, what is Nym?
+<!-- ### But first, what is Nym?
 
 This video is a short introduction into the next generation of global privacy.
 
@@ -28,4 +28,5 @@ If you want to run Nym infrastructure, check out the [Run Nodes](/docs/stable/ru
 
 If you are looking for information on grants and beta-release Nym apps, check out the [Shipyard](https://shipyard.nymtech.net) site.
 
-<!-- If you are unsure of any Nym terminology, check out the [Glossary](/docs/stable/glossary) section.  -->
+If you are unsure of any Nym terminology, check out the [Glossary](/docs/stable/glossary) section.
+

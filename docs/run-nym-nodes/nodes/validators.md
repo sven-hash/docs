@@ -2,6 +2,7 @@
 sidebar_label: "Validators"
 description: "Nym Validators provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities."
 hide_title: false
+title: Validators 
 ---
 
 import Tabs from '@theme/Tabs';
@@ -534,7 +535,7 @@ You will most likely want to automate your validator restarting if your server r
 
 ```ini
 [Unit]
-Description=Nymd (1.0.1)
+Description=Nymd (1.1.0)
 StartLimitInterval=350
 StartLimitBurst=10
 

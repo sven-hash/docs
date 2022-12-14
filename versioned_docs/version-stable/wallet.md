@@ -14,7 +14,7 @@ The Nym Desktop Wallet lets you interact with your Nym node and to delegate stak
 
 You can download it for Mac, Windows, or Linux.
 
-[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v1.0.2)
+[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v1.1.1)
 
 ### Bypassing security warnings
 

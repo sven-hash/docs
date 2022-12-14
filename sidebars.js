@@ -23,6 +23,15 @@ module.exports = {
       ],
     },
     {
+        type: "category", 
+        label: "SDK", 
+        collapsed: true, 
+        items: [
+            "sdk/overview"
+        ],
+    },
+    "sdk/overview",
+    {
       type: "category",
       label: "Integrations",
       collapsed: true,
@@ -41,7 +50,6 @@ module.exports = {
           ],
         },
         "integrations/addresses-in-nym",
-        "integrations/demos",
         "integrations/payment-integration-overview" 
       ],
     },
@@ -70,8 +78,19 @@ module.exports = {
       "run-nym-nodes/network-rewards",
       ],
     },
+    {
+        type: "category", 
+        label: "Smart Contracts", 
+        collapsed: true, 
+        items: [
+            "smart-contracts/overview",
+            "smart-contracts/mixnet", 
+            "smart-contracts/vesting"
+        ],
+    },
     "wallet",
     "nym-cli",
+    "compatibility-table",
     "coconut",
     "glossary"
     {
