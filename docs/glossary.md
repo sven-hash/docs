@@ -38,7 +38,11 @@ title: Glossary
 
 **[Mix node Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/mixnodes/#bonding-your-mix-node)** - The action of node operators bonding their stake (in the form of NYM tokens) to a Mix node in order to join the network topology and begin routing traffic through.
 
+**[Network Requester](https://blog.nymtech.net/tech-deepdive-network-requesters-e5359a6cc31c)** - Is a binary that can be ran alongside a Nym Client on a VPS, which allows for private network requests to be made outside the mixnet from you local Nym client
+
 **Nym** - The in-text name of the organisation.
+
+**[Nym Typescript SDK](https://nymtech.net/docs/stable/sdk/overview)** - A Typescript software development kit which allows developers to build browser-based Mixnet application.
 
 **[NYM](https://nymtech.net/docs/stable/nym-cli/#send-tokens-to-an-account)** - Natively distributed token. 
 
@@ -56,10 +60,16 @@ title: Glossary
 
 **Public Key** - A large numerical value that is used to encrypt data.
 
+**SDK** - Stands for Software Development Kit
+
 **Sphinx** - A cryptographic message format used to relay anonymised messages within the mixnet, also used by the Lightning Network or something similar.
 
 **[Socks5](https://en.wikipedia.org/wiki/SOCKS)** - An proxy protocol that exchanges network packets between a client and server through a proxy server.
 
+**[Service Provider](https://nymtech.net/docs/stable/tutorials/nym-simple-websocket-tutorial/)** - Any type of app that can communicate with the mixnet via a Nym Client.
+
 **[Validators](https://nymtech.net/docs/stable/run-nym-nodes/nodes/validators/)** - Secures the Nyx blockchain with a staking token, defending the network from attacks.
+
+**[VPS](https://en.wikipedia.org/wiki/Virtual_private_server)** - Stands for Virtual Private Server. Its a virtual machine that acts as an isolated virtual environment on a physical server operated by a cloud, web or internet hosting provider.
 
 **Zero Knowledge Proofs** - Cryptographic techniques that make it possible to prove something to be true without having to reveal the evidence. 
