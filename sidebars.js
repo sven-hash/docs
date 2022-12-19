@@ -100,7 +100,7 @@ module.exports = {
     "nym-cli",
     "compatibility-table",
     "coconut",
-    "glossary",
+    "glossary"
     {
       type: "category",
       label: "Community",
@@ -111,7 +111,6 @@ module.exports = {
         "community/licensing",
       ],
     },
-    "glossary",
     "links"
   ],
 };
