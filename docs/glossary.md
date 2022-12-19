@@ -20,7 +20,7 @@ title: Glossary
 
 **Credentials** - Unique values that prove the legitimacy of a user or individual.
 
-**Crytography** -  Is a practice and study of protecting information and communications through the use of codes, so that only those for whom the information is intended can read and process it.
+**[Crytography](https://en.wikipedia.org/wiki/Cryptography)** -  Is a practice and study of protecting information and communications through the use of codes, so that only those for whom the information is intended can read and process it.
 
 **[Delegating NYM](https://medium.com/coinmonks/what-you-have-to-know-about-staking-and-delegating-458b6d2300a5)** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
 
