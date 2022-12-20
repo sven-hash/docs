@@ -58,13 +58,13 @@ title: Glossary
 
 **[Nyx](https://nymtech.net/docs/stable/integrations/payment-integration-overview/)** - A CosmWasm-enabled blockchain smart contracts platform that functions as the backbone of the Nym network, used to keep track and provide the history of the NYM token's transactions.
 
-**[Packets](https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-packet/)** - A collection of data that can be used by computers which need to communicate with each other, usually as part of a network. 
+**[Packets](https://cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf)** - A collection of data that can be used by computers which need to communicate with each other, usually as part of a network in the packet format of sphinx.
 
 **Payload** - The carrying capacity of a packet or other transmission data unit.
 
 **Pledge** - The number of tokens that are put up by node operators on their nodes as their commitment to provide good quality of service and insure against future bad behaviour.
 
-**[PEAPs](https://nymtech.net/docs/stable/architecture/network-overview/)** - An acroynym for Privacy-Enhanced Applications. PEAPs use a Nym client to connect to the network in order to retrieve the available Network Topology for traffic routing, and send/receive packets to other users and services.
+**[PEAPs](https://nymtech.net/docs/stable/architecture/network-overview/)** - An acroynym for Privacy-Enhanced Applications. PEAPs use a Nym client to connect to the network in order to retrieve the available Network Topology for traffic routing. They also send/receive and encrypt/decrypt packets to other users and services.
 
 **Private Key** - A large numerical value that is used to decrypt data.
 
