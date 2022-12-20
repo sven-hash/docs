@@ -73,10 +73,10 @@ Which should return a list of all avaliable commands.
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.1.1)
+             (mixnode - version 1.1.4)
 
         
-    nym-mixnode 1.1.1
+    nym-mixnode 1.1.4
     Nymtech
     Implementation of a Loopix-based Mixnode
 
@@ -105,7 +105,7 @@ Which should return a list of all avaliable commands.
         sign                 Sign text to prove ownership of this mixnode
         upgrade              Try to upgrade the mixnode
 
-        nym-mixnode 1.1.1
+        nym-mixnode 1.1.4
         Nymtech
 
 
@@ -134,7 +134,7 @@ To check available configuration options for initializing your node use:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (mixnode - version 1.1.1)
+             (mixnode - version 1.1.4)
 
         
     nym-mixnode-init 
@@ -229,7 +229,7 @@ Now you've bonded your mix node, run it with:
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.1.1
+    Version: 1.1.4
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -301,7 +301,7 @@ You can always check the details of your mix node with the `node-details` comman
     Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
     Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
     Host: 62.240.134.46 (bind address: 62.240.134.46)
-    Version: 1.1.1
+    Version: 1.1.4
     Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
     You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -339,7 +339,7 @@ It's useful to have the mix node automatically start at system boot time. Here's
 
 ```ini
 [Unit]
-Description=Nym Mixnode (1.1.1)
+Description=Nym Mixnode (1.1.4)
 StartLimitInterval=350
 StartLimitBurst=10
 

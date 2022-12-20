@@ -9,7 +9,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 
 :::note
-The Nym Socks5 Client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym socks5 client was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
 Many existing applications are able to use either the SOCKS4, SOCKS4A, or SOCKS5 proxy protocols. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
@@ -49,10 +49,10 @@ You can check that your binaries are properly compiled with:
         |_| |_|\__, |_| |_| |_|
                 |___/
 
-                (socks5 proxy - version 1.1.1)
+                (socks5 proxy - version 1.1.4)
 
     
-        nym-socks5-client 1.1.1
+        nym-socks5-client 1.1.4
         Nymtech
         A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
@@ -100,6 +100,15 @@ The `--id` in the example above is a local identifier so that you can name your 
 
 The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you can't find one from the community, you'll have to [run your own](/docs/stable/run-nym-nodes/nodes/requester). A nicer way of discovering public Service Providers is incoming, but at the moment just ask around in community channels and someone will give you an address to use. 
 
+:::caution
+Please note that the `nym-socks5-client` currently **does not** have [multiSURBs](/docs/next/architecture/traffic-flow#private-replies-using-surbs) enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`. This should be enabled in the next release once requesters have had time to update without interrupting network services. 
+
+If you **know** that your client is communicating with a network requester which is >= `v1.1.4` then `init` your `nym-socks5-client` binary with the `--use-anonymous-sender-tag` flag like so: 
+
+```
+./nym-socks5-client init --id <id> --provider <provider> --use-anonymous-sender-tag
+```
+::: 
 
 ### Running the socks5 client
 

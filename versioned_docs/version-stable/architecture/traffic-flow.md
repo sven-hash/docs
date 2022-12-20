@@ -68,6 +68,10 @@ It will often be the case that a client app wants to interact with a service of 
 
 Luckily, SURBs allow for anonymous replies. A SURB is a layer encrypted set of Sphinx headers detailing a reply path ending in the original app's address. SURBs are encrypted by the client, so the recieving service/app can attach its response and send back the resulting Sphinx packet, but it **never has sight of who it is replying to**.
 
-:::caution
-Single SURBs are implemented in the mixnet. However, this doesn't allow for a lot of information to be sent back to a client anonymously (such as a picture). MultiSURBs able to deal with larger files and responses are in active development - more information on their usage will be coming soon
-:::
+MultiSURBs were implemented in `v1.1.4`. Clients, when sending a message to another client, attach a bundle of SURBs which can be used by the receiver to construct large anonymous replies, such as files. If a reply is too large still (i.e. it would use more SURBs than sent with the original message), the receiver will use a SURB to ask the sender for more SURBs. 
+
+What this means in practice is that files can now be sent via anonymous replies. 
+
+:::note
+Please note that the `nym-socks5-client` currently **does not** have multiSURBs enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`
+::: 
