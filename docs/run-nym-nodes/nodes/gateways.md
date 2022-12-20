@@ -70,10 +70,10 @@ You can check that your binaries are properly compiled with:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 1.1.1)
+             (gateway - version 1.1.4)
 
     
-    nym-gateway 1.1.1
+    nym-gateway 1.1.4
     Nymtech
     Implementation of the Nym Mixnet Gateway
 
@@ -130,7 +130,7 @@ To check available configuration options use:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (gateway - version 1.1.1)
+             (gateway - version 1.1.4)
 
     
     nym-gateway-init 
@@ -358,7 +358,7 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
-Description=Nym Gateway (1.1.1)
+Description=Nym Gateway (1.1.4)
 StartLimitInterval=350
 StartLimitBurst=10
 
