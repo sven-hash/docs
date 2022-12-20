@@ -16,9 +16,11 @@ title: Glossary
 
 **[CLI](https://nymtech.net/docs/stable/nym-cli/)** - A command-line interface (CLI) is a text-based user interface (UI) used to run programs, manage computer files and interact with the computer.
 
+**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority, or small group of authorities.
+
 **Credentials** - Unique values that prove the legitimacy of a user or individual.
 
-**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority, or small group of authorities.
+**[Crytography](https://en.wikipedia.org/wiki/Cryptography)** -  Is a practice and study of protecting information and communications through the use of codes, so that only those for whom the information is intended can read and process it.
 
 **[Delegating NYM](https://medium.com/coinmonks/what-you-have-to-know-about-staking-and-delegating-458b6d2300a5)** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
 
@@ -30,6 +32,8 @@ title: Glossary
 
 **[Gateway Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/gateways/#bonding-your-gateway)** - The action of node operators to bond their stake (in the form of NYM tokens) to a Gateway in order to join the network topology and begin routing traffic through.
 
+**[Hop](https://nymtech.net/docs/stable/architecture/traffic-flow/)** - When a packet is traversing from one node in the network to another.
+
 **[Metadata](https://www.opendatasoft.com/en/blog/what-is-metadata-and-why-is-it-important-data)** - A set of data that describes and gives information about other data such as IP addresses, device types, geolocations etc.
 
 **[Mixnet](https://nymtech.net/docs/stable/architecture/traffic-flow/)** - A routing protocol which encrypts and mixes Sphinx packet traffic so that it cannot be determined who is communicating with whom. 
@@ -39,6 +43,8 @@ title: Glossary
 **[Mix node Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/mixnodes/#bonding-your-mix-node)** - The action of node operators bonding their stake (in the form of NYM tokens) to a Mix node in order to join the network topology and begin routing traffic through.
 
 **[Network Requester](https://nymtech.net/docs/stable/run-nym-nodes/nodes/requester)** - Is a binary that can be ran alongside a Nym Client on a VPS, which allows for private network requests to be made outside the mixnet from you local Nym client
+
+**Network Topology** - The arrangements, either physical or logical, of nodes and connections within a network
 
 **Nym** - The in-text name of the organisation.
 
@@ -52,9 +58,13 @@ title: Glossary
 
 **[Nyx](https://nymtech.net/docs/stable/integrations/payment-integration-overview/)** - A CosmWasm-enabled blockchain smart contracts platform that functions as the backbone of the Nym network, used to keep track and provide the history of the NYM token's transactions.
 
+**[Packets](https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-packet/)** - A collection of data that can be used by computers which need to communicate with each other, usually as part of a network. Within our infrastructure we use Sphinx as the packet format.
+
 **Payload** - The carrying capacity of a packet or other transmission data unit.
 
 **Pledge** - The number of tokens that are put up by node operators on their nodes as their commitment to provide good quality of service and insure against future bad behaviour.
+
+**[PEAPs](https://nymtech.net/docs/stable/architecture/network-overview/)** - An acroynym for Privacy-Enhanced Applications. PEAPs use a Nym client to connect to the network in order to retrieve the available Network Topology for traffic routing. They also send/receive and encrypt/decrypt packets to other users and services.
 
 **Private Key** - A large numerical value that is used to decrypt data.
 
