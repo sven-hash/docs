@@ -27,7 +27,7 @@ sudo apt update
 sudo apt install pkg-config build-essential libssl-dev curl jq git
 ```
 
-- `Rust & cargo >= v1.56`
+- `Rust & cargo >= v1.66`
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
 
@@ -45,7 +45,7 @@ cd nym
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-git checkout release/v1.1.3 # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
+git checkout release/v1.1.5 # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
 
 cargo build --release # build your binaries with **mainnet** configuration
 NETWORK=sandbox cargo build --release # build your binaries with **sandbox** configuration 
@@ -53,15 +53,18 @@ NETWORK=sandbox cargo build --release # build your binaries with **sandbox** con
 
 Quite a bit of stuff gets built. The key working parts are:
 
-1. the [mixnode](/docs/next/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
-2. the [gateway node](/docs/next/run-nym-nodes/nodes/gateways): `nym-gateway`
-3. the [websocket client](/docs/next/integrations/websocket-client): `nym-client`
-4. the [socks5 client](/docs/next/integrations/socks5-client): `nym-socks5-client`
-5. the [network requester](/docs/next/run-nym-nodes/nodes/requester): `nym-network-requester`
-6. the [network explorer api](/docs/next/run-nym-nodes/nodes/network-explorer): `explorer-api`
-7. the [nym-cli tool](/docs/next/nym-cli): `nym-cli` 
+* the [mixnode](/docs/next/run-nym-nodes/nodes/mixnodes): `nym-mixnode`
+* the [gateway node](/docs/next/run-nym-nodes/nodes/gateways): `nym-gateway`
+* the [websocket client](/docs/next/integrations/websocket-client): `nym-client`
+* the [socks5 client](/docs/next/integrations/socks5-client): `nym-socks5-client`
+* the [network requester](/docs/next/run-nym-nodes/nodes/requester): `nym-network-requester`
+* the [network explorer api](/docs/next/run-nym-nodes/nodes/network-explorer): `explorer-api`
+* the [nym-cli tool](/docs/next/nym-cli): `nym-cli` 
 
-The repository also contains two Typescript applications which aren't built in this process: the [Nym Wallet](docs/next/wallet) and the [Network Explorer UI](docs/next/run-nym-nodes/nodes/network-explorer). Both of these can be built by following the instructions on their respective docs pages. 
+The repository also contains Typescript applications which aren't built in this process. These can be built by following the instructions on their respective docs pages.  
+* the [Nym Wallet](docs/next/wallet) 
+* [Nym Connect](/docs/next/quickstart.nym-connect)
+* [Network Explorer UI](docs/next/run-nym-nodes/nodes/network-explorer). 
 
 :::note
 You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 
