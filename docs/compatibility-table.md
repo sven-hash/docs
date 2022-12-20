@@ -22,7 +22,7 @@ Whilst in general it recommended to be running the most recent version of any so
 
 | Platform release changelog                                                                       |
 | ------------------------------------------------------------------------------------------------ |
-| 1.1.4 ([CHANGELOG]())                                                                            | 
+| 1.1.4 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.4/CHANGELOG.md))             | 
 | 1.1.3 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.3/CHANGELOG.md))             |
 | 1.1.2 ([CHANGELOG](https://github.com/nymtech/nym/blob/develop/CHANGELOG.md))                    |
 | 1.1.1 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/nym-connect-v1.1.1/CHANGELOG.md)) |
