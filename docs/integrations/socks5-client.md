@@ -9,8 +9,12 @@ import ThemedImage from '@theme/ThemedImage';
 
 
 :::note
-The Nym Socks5 Client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+The Nym socks5 client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
+
+:::caution
+Please note that the `nym-socks5-client` currently **does not** have [multiSURBs](/docs/next/architecture/traffic-flow#private-replies-using-surbs) enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`. This should be enabled in the next release once requesters have had time to update without interrupting network services. 
+::: 
 
 Many existing applications are able to use either the SOCKS4, SOCKS4A, or SOCKS5 proxy protocols. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
 
