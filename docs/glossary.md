@@ -58,7 +58,7 @@ title: Glossary
 
 **[Nyx](https://nymtech.net/docs/stable/integrations/payment-integration-overview/)** - A CosmWasm-enabled blockchain smart contracts platform that functions as the backbone of the Nym network, used to keep track and provide the history of the NYM token's transactions.
 
-**[Packets](https://cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf)** - A collection of data that can be used by computers which need to communicate with each other, usually as part of a network in the packet format of sphinx.
+**[Packets](https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-packet/)** - A collection of data that can be used by computers which need to communicate with each other, usually as part of a network. Within our infrastructure we use Sphinx as the packet format.
 
 **Payload** - The carrying capacity of a packet or other transmission data unit.
 
