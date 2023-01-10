@@ -24,9 +24,9 @@ title: Glossary
 
 **Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority, or small group of authorities.
 
-**[CosWasm](https://cosmwasm.com)** - Cosmos WebAssembly is a WebAssembly (Wasm) interpreter that is used in the Cosmos SDK, a framework for building decentralised applications (dApps) on the Cosmos network.
+**[CosmWasm](https://cosmwasm.com)** - Cosmos WebAssembly is a WebAssembly (Wasm) interpreter that is used in the Cosmos SDK, a framework for building decentralised applications (dApps) on the Cosmos network. It allows us to write smart contracts in Rust and then compile them to webassembly to be uploaded on the blockchain.
 
-**DAO** - Stands for Decentralised Autonomous Organisation. A type of organisation made up of smart contracts on a blockchain. It operates on a set if rules encoded in a computer program, and is governed by the people who use it, rather than by a central authority.
+**DAO** - Stands for Decentralised Autonomous Organisation. A type of organisation made up of smart contracts on a blockchain. It operates on a set of rules encoded in a computer program, and is governed by the people who use it, rather than by a central authority.
 
 **[Delegating NYM](https://medium.com/coinmonks/what-you-have-to-know-about-staking-and-delegating-458b6d2300a5)** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
 
