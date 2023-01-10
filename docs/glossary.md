@@ -12,7 +12,7 @@ title: Glossary
 
 **Attacker** - A person or entity who attempts to gain unauthorised access to a computer system, network, or other information resource.
 
-**Binary** - IS a type of computer file that contains machine code, which is a set of instructions that a computer can execute directly. The file consists of a series of 1s and 0s, which are the two digits used in the binary number system.
+**Binary** - Is a type of computer file that contains machine code, which is a set of instructions that a computer can execute directly. The file consists of a series of 1s and 0s, which are the two digits used in the binary number system.
 
 **Blockchain** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
 
