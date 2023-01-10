@@ -10,17 +10,23 @@ title: Glossary
 
 **[Ack](https://nymtech.net/docs/stable/architecture/traffic-flow/#acks)** - Short for "acknowledgement". Whenever a hop is completed, the recieving node will send back an 'ack', so that the sending node knows that the packet was recieved.
 
+**Attacker** - A person or entity who attempts to gain unauthorised access to a computer system, network, or other information resource.
+
+**Binary** - IS a type of computer file that contains machine code, which is a set of instructions that a computer can execute directly. The file consists of a series of 1s and 0s, which are the two digits used in the binary number system.
+
 **Blockchain** - A distributed database that maintains a continuously growing list of ordered records, called blocks.
 
 **[Coconut](https://nymtech.net/docs/stable/coconut/)** - A distributed cryptographic signing scheme providing a high degree of privacy for its users.
 
 **[CLI](https://nymtech.net/docs/stable/nym-cli/)** - A command-line interface (CLI) is a text-based user interface (UI) used to run programs, manage computer files and interact with the computer.
 
-**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority, or small group of authorities.
-
 **Credentials** - Unique values that prove the legitimacy of a user or individual.
 
-**[Crytography](https://en.wikipedia.org/wiki/Cryptography)** -  Is a practice and study of protecting information and communications through the use of codes, so that only those for whom the information is intended can read and process it.
+**Centralisation** - Refers to the concentration of control of an activity or organisation under a single authority, or small group of authorities.
+
+**[CosWasm](https://cosmwasm.com)** - Cosmos WebAssembly is a WebAssembly (Wasm) interpreter that is used in the Cosmos SDK, a framework for building decentralised applications (dApps) on the Cosmos network.
+
+**DAO** - Stands for Decentralised Autonomous Organisation. A type of organisation made up of smart contracts on a blockchain. It operates on a set if rules encoded in a computer program, and is governed by the people who use it, rather than by a central authority.
 
 **[Delegating NYM](https://medium.com/coinmonks/what-you-have-to-know-about-staking-and-delegating-458b6d2300a5)** - Similar to bonding but by non-operators and as proof of their trust in a node operator providing a good quality of service. 
 
@@ -32,7 +38,7 @@ title: Glossary
 
 **[Gateway Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/gateways/#bonding-your-gateway)** - The action of node operators to bond their stake (in the form of NYM tokens) to a Gateway in order to join the network topology and begin routing traffic through.
 
-**[Hop](https://nymtech.net/docs/stable/architecture/traffic-flow/)** - When a packet is traversing from one node in the network to another.
+**IPFS** - Stands for InterPlanetary File System. It's a decentralised, peer-to-peer protocol for sharing and storing files. It is designed to make it easier to share and access large amounts of data in a distributed manner, without the need for a central server or authority
 
 **[Metadata](https://www.opendatasoft.com/en/blog/what-is-metadata-and-why-is-it-important-data)** - A set of data that describes and gives information about other data such as IP addresses, device types, geolocations etc.
 
@@ -43,8 +49,6 @@ title: Glossary
 **[Mix node Bonding](https://nymtech.net/docs/stable/run-nym-nodes/nodes/mixnodes/#bonding-your-mix-node)** - The action of node operators bonding their stake (in the form of NYM tokens) to a Mix node in order to join the network topology and begin routing traffic through.
 
 **[Network Requester](https://nymtech.net/docs/stable/run-nym-nodes/nodes/requester)** - Is a binary that can be ran alongside a Nym Client on a VPS, which allows for private network requests to be made outside the mixnet from you local Nym client
-
-**Network Topology** - The arrangements, either physical or logical, of nodes and connections within a network
 
 **Nym** - The in-text name of the organisation.
 
@@ -58,17 +62,15 @@ title: Glossary
 
 **[Nyx](https://nymtech.net/docs/stable/integrations/payment-integration-overview/)** - A CosmWasm-enabled blockchain smart contracts platform that functions as the backbone of the Nym network, used to keep track and provide the history of the NYM token's transactions.
 
-**[Packets](https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-packet/)** - A collection of data that can be used by computers which need to communicate with each other, usually as part of a network. Within our infrastructure we use Sphinx as the packet format.
-
 **Payload** - The carrying capacity of a packet or other transmission data unit.
 
 **Pledge** - The number of tokens that are put up by node operators on their nodes as their commitment to provide good quality of service and insure against future bad behaviour.
 
-**[PEAPs](https://nymtech.net/docs/stable/architecture/network-overview/)** - An acroynym for Privacy-Enhanced Applications. PEAPs use a Nym client to connect to the network in order to retrieve the available Network Topology for traffic routing. They also send/receive and encrypt/decrypt packets to other users and services.
-
 **Private Key** - A large numerical value that is used to decrypt data.
 
 **Proof-of-Mixing** - The reward of NYM tokens is based on the good quality of service carried out by node operators.
+
+**POC** - Stands for Proof of Concept. It's a demonstration that a proposed product, system, or service can be built and will work as intended. It is a way of teting whether an idea is feasible and likely to succeed.
 
 **Public Key** - A large numerical value that is used to encrypt data.
 
@@ -78,8 +80,16 @@ title: Glossary
 
 **[Service Provider](https://nymtech.net/docs/stable/tutorials/nym-simple-websocket-tutorial/)** - Any type of app that can communicate with the mixnet via a Nym Client.
 
+**[SURBs](https://nymtech.net/docs/stable/architecture/traffic-flow)** - Stands for 'Single Use Reply Blocks'. They are a type of crytographic construct used to facilitate secure communication between parties and are designed to allow a sender to send a message to a recipient in sucha a way that the message can only be read by the intended recipient, and cannot be read by anyone else.
+
+**Sybil** - In the context of computer networks, a Sybil attach is a type of security attack in which an attacker creates multiple fake identities or "sybils" and uses them to manipulate a network thus gaining control of a network by overwhelming it.
+
+**Tokenomics** - Is the study of the economic and financial aspects of a cryptocurrency or blockchain-based project. It involves the creation, distribution, and management of tokens, which are digital assets that represent a certain value of utility whithin a particular ecosystem.
+
 **[Validators](https://nymtech.net/docs/stable/run-nym-nodes/nodes/validators/)** - Secures the Nyx blockchain with a staking token, defending the network from attacks.
 
 **[VPS](https://en.wikipedia.org/wiki/Virtual_private_server)** - Stands for Virtual Private Server. Its a virtual machine that acts as an isolated virtual environment on a physical server operated by a cloud, web or internet hosting provider.
+
+**Websocket** - A computer communications protocol that provides a full-duplex channel over a single TCP connection. It is designed to be used as a base for real-time, two-way communication between a client and a server over the web.
 
 **Zero Knowledge Proofs** - Cryptographic techniques that make it possible to prove something to be true without having to reveal the evidence. 
