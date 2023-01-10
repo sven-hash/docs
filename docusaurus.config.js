@@ -98,12 +98,12 @@ module.exports = {
           lastVersion: undefined,
           versions: {
             current: {
-              label: 'v1.1.6',
+              label: 'v1.1.5 (in progress)',
               path: 'next',
-              banner: 'none',
+              banner: 'unreleased',
             },
             stable: {
-              label: 'v1.1.5 (stable)',
+              label: 'v1.1.4 (stable)',
               path: 'stable',
               banner: 'none',
             },
