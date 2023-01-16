@@ -194,7 +194,7 @@ As a response the `native-client` will send a `ServerResponse` to be decoded.
 You can find examples of sending and receiving binary data in the Rust, Python and Go [code examples](https://github.com/nymtech/nym/tree/release/{{release_version}}/clients/native/examples), and an example project from the Nym community [BTC-BC](https://github.com/sgeisler/btcbc-rs/): Bitcoin transaction transmission via Nym, a client and service provider written in Rust.
 
 #### Receiving messages
-When another PEAP sends a message to you, all extraneous information is stripped and you just get the message. So if an app sends the following message:
+When another PEAPP sends a message to you, all extraneous information is stripped and you just get the message. So if an app sends the following message:
 
 ```json
 {
