@@ -19,7 +19,7 @@ sudo apt update
 sudo apt install pkg-config build-essential libssl-dev curl jq git
 ```
 
-- `Rust & cargo >= v1.66`
+- `Rust & cargo >= {{minimum_rust_version}}`
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
 
@@ -37,7 +37,7 @@ cd nym
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-git checkout release/v1.1.5 # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
+git checkout release/{{release_version}} # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
 
 cargo build --release # build your binaries with **mainnet** configuration
 NETWORK=sandbox cargo build --release # build your binaries with **sandbox** configuration 

@@ -26,7 +26,7 @@ sudo apt install pkg-config build-essential libssl-dev curl jq
 
 - `NodeJS` (use `nvm install` to automatically install the correct version) and `npm`
 
-- `Rust & cargo >= v1.56`
+- `Rust & cargo >= {{minimum_rust_version}}`
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
 
@@ -97,7 +97,7 @@ User=nym
 Type=simple
 Environment="API_STATE_FILE=/home/nym/network-explorer/explorer-api-state.json"
 Environment="GEO_IP_SERVICE_API_KEY=c69155d0-25f6-11ec-80bc-75e5dbd322c3"
-ExecStart={{ explorer_api_location }}
+ExecStart=explorer/api/location
 Restart=on-failure
 RestartSec=30
 
@@ -151,8 +151,8 @@ Replace the default nginx configuration at `/etc/nginx/sites-available/` with:
 server {
   listen 80;
   listen [::]:80;
-  server_name {{ domain }};
-  root {{ html_location }};
+  server_name domain;
+  root html_location;
   location / {
     try_files /$uri /$uri/index.html /index.html =404;
   }
