@@ -56,7 +56,7 @@ You can check that your client is initialised correctly by running the following
   |_| |_|\__, |_| |_| |_|
         |___/
 
-        (client - version 1.1.4)
+        (client - version {{release_version}})
 
         
 2022-08-09T15:06:03.276Z INFO  nym_client::client > Starting nym client
@@ -72,7 +72,7 @@ Stop the running process with `CTRL-C`, and create a service file at `/etc/syste
 
 ```ini
 [Unit]
-Description=Nym Client (1.1.4)
+Description=Nym Client ({{release_version}})
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -219,7 +219,7 @@ Stop the running process with `CTRL-C`, and create a service file for the reques
 
 ```ini
 [Unit]
-Description=Nym Network Requester (1.1.4)
+Description=Nym Network Requester ({{release_version}})
 StartLimitInterval=350
 StartLimitBurst=10
 

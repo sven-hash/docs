@@ -19,16 +19,19 @@ command = "mdbook-admonish"
 assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
 
 # variables preprocessor: import variables into files 
-# https://gitlab.com/tglman/mdbook-variables/tree/20ecf7e10403278098e1f85a206fc249e92f1ebb/
+# https://gitlab.com/tglman/mdbook-variables/
 [preprocessor.variables.variables]
-variable_example = "`variable example: TODO REMOVE`"
 release_version = "v1.1.5"
 minimum_rust_version = "1.66"
 
-# more pre-processor plugins to look into from https://github.com/rust-lang/mdBook/wiki/Third-party-plugins
+# look into getting this to work properly... might be out of date? 
+# [preprocessor.extended-markdown-table]
+
+# more pre-processor plugins to look into from https://github.com/rust-lang/mdBook/wiki/Third-party-plugins & https://lib.rs/keywords/mdbook-preprocessor
 # mdbook-mermaid - use mermaid to make diagrams from text!
 # mdbook-i18n
 # mdbook-theme - we might have to remove the existing pagetoc preprocessor as its bundled in it 
+# https://lib.rs/crates/mdbook-last-changed
 
 #########
 # BUILD #
@@ -49,13 +52,13 @@ extra-watch-dirs = []             # directories to watch for triggering builds
 default-theme = "coal"
 preferred-dark-theme = "coal"
 curly-quotes = true
-# mathjax-support = false # useful if we want to pull equations in 
+# mathjax-support = false # useful if we want to pull equations in ? 
 copy-fonts = true
 no-section-label = false
 additional-css = ["theme/pagetoc.css", "././mdbook-admonish.css"]
 additional-js  = ["theme/pagetoc.js"]
-# git-repository-url = "https://github.com/rust-lang/mdBook"
-# git-repository-icon = "fa-github"
+git-repository-url = "https://github.com/nymtech/docs"
+git-repository-icon = "fa-github"
 # edit-url-template = "https://github.com/rust-lang/mdBook/edit/master/guide/{path}"
 # site-url = "/example-book/"
 # cname = "myproject.rs"

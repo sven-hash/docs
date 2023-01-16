@@ -2,7 +2,7 @@
  
 The Nym Typescript SDK allows developers to start building browser-based Mixnet applications quickly, by simply importing the SDK into their code via NPM as they would any other Typescript library. 
 
-You can find the source code [here](https://github.com/nymtech/nym/tree/develop/sdk) and the library on NPM [here](https://www.npmjs.com/package/@nymproject/sdk). 
+You can find the source code [here](https://github.com/nymtech/nym/tree/release/{{release_version}}/sdk) and the library on NPM [here](https://www.npmjs.com/package/@nymproject/sdk). 
 
 Currently developers can use the SDK to do the following **entirely in the browser**: 
 * Create a client
@@ -60,12 +60,12 @@ await nym.client.sendMessage({ payload, recipient });
 ```
 
 There are also examples for several different frameworks which can be run in the browser: 
-* [Plain html](https://github.com/nymtech/nym/tree/release/v1.1.2/sdk/typescript/examples/plain-html)
-* [Create-react-app](https://github.com/nymtech/nym/tree/release/v1.1.2/sdk/typescript/examples/react-webpack-with-theme-example) 
+* [Plain html](https://github.com/nymtech/nym/tree/release/{{release_version}}/sdk/typescript/examples/plain-html)
+* [Create-react-app](https://github.com/nymtech/nym/tree/release/{{release_version}}/sdk/typescript/examples/react-webpack-with-theme-example) 
 * [Vanilla Typescript](https://github.com/fmtabbara/nym-sdk-vanilla-template) 
 
 ### How it works
-The SDK can be thought of as a 'wrapper' around the compiled [WebAssembly client](https://github.com/nymtech/nym/tree/develop/clients/webassembly) code: it runs the client (a Wasm blob) in a web worker. This allows us to keep the work done by the client - such as the heavy lifting of creating and multiply-encrypting Sphinx packets - in a seperate thread from our UI, enabling you to build reactive frontends without worrying about the work done under the hood by the client eating your processing power. 
+The SDK can be thought of as a 'wrapper' around the compiled [WebAssembly client](https://github.com/nymtech/nym/tree/release/{{release_version}}/clients/webassembly) code: it runs the client (a Wasm blob) in a web worker. This allows us to keep the work done by the client - such as the heavy lifting of creating and multiply-encrypting Sphinx packets - in a seperate thread from our UI, enabling you to build reactive frontends without worrying about the work done under the hood by the client eating your processing power. 
 
 The SDK exposes an interface that allows developers to interact with the Wasm blob inside the webworker from frontend code.  
 
@@ -79,18 +79,18 @@ Support for environments with different bundlers will be added in subsequent rel
 | Webpack | ✔️        |
 | Packer  | ❌        |
 
-
+<!--      
 | Environment      | Supported | 
 | ---------------- | --------- | 
 | Browser          |  ✔️       |
 | Headless NodeJS  |  ❌       |
-| Electron Desktop |  ❌       |
+| Electron Desktop |  ❌       | -->
 
 
 ### Think about what you're sending!
-:::caution
+```admonish caution
 Think about what information your app sends. That goes for whatever you put into your Sphinx packet messages as well as what your app's environment may leak.
-:::
+```
 
 Whenever you write client PEAPs using HTML/JavaScript, we recommend that you do not load external resources from CDNs. Webapp developers do this all the time, to save load time for common resources, or just for convenience. But when you're writing privacy apps it's better not to make these kinds of requests. Pack everything locally.
 

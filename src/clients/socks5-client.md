@@ -1,6 +1,6 @@
 # Socks5 Client 
 
-> The Nym socks5 client was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
+> The Nym socks5 client was built in the [building nym](../binaries/building-nym.md) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 
 Many existing applications are able to use either the SOCKS4, SOCKS4A, or SOCKS5 proxy protocols. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
 
@@ -17,7 +17,7 @@ There are 2 pieces of software that work together to send SOCKS traffic through 
 The `nym-socks5-client` allows you to do the following from your local machine:
 * Take a TCP data stream from a application that can send traffic via SOCKS5. 
 * Chop up the TCP stream into multiple Sphinx packets, assigning sequence numbers to them, while leaving the TCP connection open for more data
-* Send the Sphinx packets through the mixnet to a [Nym Network Requester](/docs/next/run-nym-nodes/nodes/requester). Packets are shuffled and mixed as they transit the mixnet.
+* Send the Sphinx packets through the mixnet to a [network requester](../nodes/network-requester-setup.md). Packets are shuffled and mixed as they transit the mixnet.
 
 The `nym-network-requester` then reassembles the original TCP stream using the packets' sequence numbers, and make the intended request. It will then chop up the response into Sphinx packets and send them back through the mixnet to your  `nym-socks5-client`. The application will then receive its data, without even noticing that it wasn't talking to a "normal" SOCKS5 proxy!
 
@@ -39,10 +39,10 @@ You can check that your binaries are properly compiled with:
         |_| |_|\__, |_| |_| |_|
                 |___/
 
-                (socks5 proxy - version 1.1.4)
+                (socks5 proxy - version {{release_version}})
 
     
-        nym-socks5-client 1.1.4
+        nym-socks5-client {{release_version}}
         Nymtech
         A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
@@ -65,7 +65,7 @@ You can check that your binaries are properly compiled with:
         help                 Print this message or the help of the given subcommand(s)
         init                 Initialise a Nym client. Do this first!
         run                  Run the Nym client with provided configuration client optionally
-                                overriding set parameters
+                             overriding set parameters
         upgrade              Try to upgrade the client
 
     

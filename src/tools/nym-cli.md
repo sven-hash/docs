@@ -68,7 +68,7 @@ subcommandS:
 ~~~
 
 ## Features 
-You can use this binary for account management, querying and sending transactions to the mixnet [smart contracts](https://github.com/nymtech/nym/tree/develop/contracts). 
+You can use this binary for account management, querying and sending transactions to the mixnet [smart contracts](https://github.com/nymtech/nym/tree/release/{{release_version}}/contracts). 
 
 Currently supported features include: 
 
