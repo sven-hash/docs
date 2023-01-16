@@ -18,10 +18,16 @@ additional-js  = ["theme/pagetoc.js"]
 command = "mdbook-admonish"
 assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
 
+# variables preprocessor: import variables into files 
+# https://gitlab.com/tglman/mdbook-variables/tree/20ecf7e10403278098e1f85a206fc249e92f1ebb/
+[preprocessor.variables.variables]
+variable_example = "`variable example: TODO REMOVE`"
+release_version = "v1.1.5"
+minimum_rust_version = "1.66"
+
 # more pre-processor plugins to look into from https://github.com/rust-lang/mdBook/wiki/Third-party-plugins
 # mdbook-mermaid - use mermaid to make diagrams from text!
 # mdbook-i18n
-# variables preprocessor https://gitlab.com/tglman/mdbook-variables/tree/20ecf7e10403278098e1f85a206fc249e92f1ebb/
 # mdbook-theme - we might have to remove the existing pagetoc preprocessor as its bundled in it 
 
 #########
