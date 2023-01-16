@@ -1,0 +1,82 @@
+[book]
+title = "Nym Docs"
+authors = ["Max Hampshire"]
+description = "Nym technical documentation"
+language = "en"
+multilingual = false # for the moment - ideally work on chinese, brazillian, spanish next  
+src = "src"
+
+#################
+# PREPROCESSORS #
+################# 
+
+[preprocessor.pagetoc]
+additional-css = ["theme/pagetoc.css"]
+additional-js  = ["theme/pagetoc.js"]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
+
+# more pre-processor plugins to look into from https://github.com/rust-lang/mdBook/wiki/Third-party-plugins
+# mdbook-mermaid - use mermaid to make diagrams from text!
+# mdbook-i18n
+# variables preprocessor https://gitlab.com/tglman/mdbook-variables/tree/20ecf7e10403278098e1f85a206fc249e92f1ebb/
+# mdbook-theme - we might have to remove the existing pagetoc preprocessor as its bundled in it 
+
+#########
+# BUILD #
+#########
+
+[build]
+build-dir = "book"                # the directory where the output is placed
+create-missing = true             # whether or not to create missing pages
+use-default-preprocessors = true  # use the default preprocessors
+extra-watch-dirs = []             # directories to watch for triggering builds
+
+##########
+# OUTPUT #
+########## 
+
+[output.html]
+# theme = "my-theme"
+default-theme = "coal"
+preferred-dark-theme = "coal"
+curly-quotes = true
+# mathjax-support = false # useful if we want to pull equations in 
+copy-fonts = true
+no-section-label = false
+additional-css = ["theme/pagetoc.css", "././mdbook-admonish.css"]
+additional-js  = ["theme/pagetoc.js"]
+# git-repository-url = "https://github.com/rust-lang/mdBook"
+# git-repository-icon = "fa-github"
+# edit-url-template = "https://github.com/rust-lang/mdBook/edit/master/guide/{path}"
+# site-url = "/example-book/"
+# cname = "myproject.rs"
+# input-404 = "not-found.md"
+
+[output.html.fold]
+enable = true    # whether or not to enable section folding
+level = 0        # the depth to start folding
+
+# controlling rust sample code blocks 
+[output.html.playground]
+editable = false         # allows editing the source code
+copyable = true          # include the copy button for copying code snippets
+copy-js = true           # includes the JavaScript for the code editor
+line-numbers = false     # displays line numbers for editable code
+runnable = true          # displays a run button for rust code
+
+# options for the built in text search 
+[output.html.search]
+enable = true            # enables the search feature
+limit-results = 30       # maximum number of search results
+teaser-word-count = 30   # number of words used for a search result teaser
+use-boolean-and = true   # multiple search terms must all match
+boost-title = 2          # ranking boost factor for matches in headers
+boost-hierarchy = 1      # ranking boost factor for matches in page names
+boost-paragraph = 1      # ranking boost factor for matches in text
+expand = true            # partial words will match longer terms
+heading-split-level = 3  # link results to heading levels
+copy-js = true           # include Javascript code for search
+

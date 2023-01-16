@@ -1,0 +1,569 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js coal">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Gateway - Nym Docs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Nym technical documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../introduction.html">Introduction</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/network-overview.html"><strong aria-hidden="true">1.</strong> Network Overview</a></li><li class="chapter-item "><a href="../architecture/traffic-flow.html"><strong aria-hidden="true">2.</strong> Mixnet Traffic Flow</a></li><li class="chapter-item "><a href="../architecture/network-rewards.html"><strong aria-hidden="true">3.</strong> Network Rewards</a></li><li class="chapter-item affix "><li class="part-title">Binaries</li><li class="chapter-item "><a href="../binaries/pre-built-binaries.html"><strong aria-hidden="true">4.</strong> Pre-built Binaries</a></li><li class="chapter-item "><a href="../binaries/building-nym.html"><strong aria-hidden="true">5.</strong> Building from Source</a></li><li class="chapter-item "><a href="../binaries/init-and-config.html"><strong aria-hidden="true">6.</strong> Binary Initialisation and Configuration</a></li><li class="chapter-item "><a href="../binaries/version-compatiblity.html"><strong aria-hidden="true">7.</strong> Version Compatibility Table</a></li><li class="chapter-item affix "><li class="part-title">Nodes</li><li class="chapter-item expanded "><a href="../nodes/setup-guides.html"><strong aria-hidden="true">8.</strong> Node Setup Guides</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nodes/mix-node-setup.html"><strong aria-hidden="true">8.1.</strong> Mix Node</a></li><li class="chapter-item expanded "><a href="../nodes/gateway-setup.html" class="active"><strong aria-hidden="true">8.2.</strong> Gateway</a></li><li class="chapter-item "><a href="../nodes/network-requester-setup.html"><strong aria-hidden="true">8.3.</strong> Network Requester</a></li><li class="chapter-item "><a href="../nodes/validator-setup.html"><strong aria-hidden="true">8.4.</strong> Validator</a></li></ol></li><li class="chapter-item "><a href="../nodes/troubleshooting.html"><strong aria-hidden="true">9.</strong> Troubleshooting</a></li><li class="chapter-item affix "><li class="part-title">Clients</li><li class="chapter-item "><a href="../clients/overview.html"><strong aria-hidden="true">10.</strong> Clients Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clients/websocket-client.html"><strong aria-hidden="true">10.1.</strong> Websocket</a></li><li class="chapter-item "><a href="../clients/socks5-client.html"><strong aria-hidden="true">10.2.</strong> Socks5</a></li><li class="chapter-item "><a href="../clients/webassembly-client.html"><strong aria-hidden="true">10.3.</strong> Webassembly</a></li></ol></li><li class="chapter-item "><a href="../clients/addressing-system.html"><strong aria-hidden="true">11.</strong> Addressing System</a></li><li class="chapter-item affix "><li class="part-title">SDK</li><li class="chapter-item "><a href="../sdk/typescript.html"><strong aria-hidden="true">12.</strong> Typescript SDK</a></li><li class="chapter-item "><a href="../sdk/rust.html"><strong aria-hidden="true">13.</strong> Rust SDK (coming soon)</a></li><li class="chapter-item affix "><li class="part-title">Wallet</li><li class="chapter-item "><a href="../wallet/desktop-wallet.html"><strong aria-hidden="true">14.</strong> Desktop Wallet</a></li><li class="chapter-item "><a href="../wallet/cli-wallet.html"><strong aria-hidden="true">15.</strong> CLI Wallet</a></li><li class="chapter-item affix "><li class="part-title">Explorers</li><li class="chapter-item "><a href="../explorers/mixnet-explorer.html"><strong aria-hidden="true">16.</strong> Mixnet Explorer</a></li><li class="chapter-item "><div><strong aria-hidden="true">17.</strong> Blockchain Explorers</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">17.1.</strong> Nodes Guru</div></li><li class="chapter-item "><div><strong aria-hidden="true">17.2.</strong> TODO Others</div></li></ol></li><li class="chapter-item "><li class="part-title">Nyx Blockchain</li><li class="chapter-item "><a href="../nyx/interacting-with-chain.html"><strong aria-hidden="true">18.</strong> Interacting with Nyx Chain and Smart Contracts</a></li><li class="chapter-item "><a href="../nyx/smart-contracts.html"><strong aria-hidden="true">19.</strong> Smart Contracts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nyx/mixnet-contract.html"><strong aria-hidden="true">19.1.</strong> Mixnet Contract</a></li><li class="chapter-item "><a href="../nyx/vesting-contract.html"><strong aria-hidden="true">19.2.</strong> Vesting Contract</a></li></ol></li><li class="chapter-item "><a href="../nyx/rpc-node.html"><strong aria-hidden="true">20.</strong> RPC Nodes</a></li><li class="chapter-item affix "><li class="part-title">Tools</li><li class="chapter-item "><a href="../tools/nym-cli.html"><strong aria-hidden="true">21.</strong> NymCLI</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Misc.</li><li class="chapter-item "><a href="../coc.html"><strong aria-hidden="true">22.</strong> Code of Conduct</a></li><li class="chapter-item "><a href="../licensing.html"><strong aria-hidden="true">23.</strong> Licensing</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Nym Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="gateways"><a class="header" href="#gateways">Gateways</a></h1>
+<blockquote>
+<p>The Nym gateway was built in the <a href="../binaries/building-nym.html">building nym</a> section. If you haven’t yet built Nym and want to run the code, go there first.</p>
+</blockquote>
+<h2 id="preliminary-steps"><a class="header" href="#preliminary-steps">Preliminary steps</a></h2>
+<p>There are a couple of steps that need completing before starting to set up your gateway:</p>
+<ul>
+<li>preparing your wallet</li>
+<li>requisitioning a VPS (Virtual Private Server)</li>
+</ul>
+<h3 id="wallet-preparation"><a class="header" href="#wallet-preparation">Wallet preparation</a></h3>
+<h4 id="mainnet"><a class="header" href="#mainnet">Mainnet</a></h4>
+<p>Before you initialise and run your gateway, head to our <a href="https://nymtech.net/download/">website</a> and download the Nym wallet for your operating system. If pre-compiled binaries for your operating system aren’t availiable, you can build the wallet yourself with instructions <a href="../wallet/desktop-wallet.html">here</a>. </p>
+<p>If you don’t already have one, please create a Nym address using the wallet, and fund it with tokens. The minimum amount required to bond a gateway is 100 <code>NYM</code>, but make sure you have a bit more to account for gas costs. </p>
+<p><code>NYM</code> is currently present on several exchanges. Head to our <a href="https://t.me/nymchan">telegram</a> or <a href="https://discord.com/invite/nym">Discord</a> channels to find out where to get <code>NYM</code> tokens. </p>
+<blockquote>
+<p>Remember that you can <strong>only</strong> use native Cosmos <code>NYM</code> tokens to bond your gateway. You <strong>cannot</strong> use ERC20 representations of <code>NYM</code> to run a node. </p>
+</blockquote>
+<h4 id="sandbox-testnet"><a class="header" href="#sandbox-testnet">Sandbox testnet</a></h4>
+<p>Make sure to download a wallet and create an account as outlined above. Then head to our <a href="https://faucet.nymtech.net/">token faucet</a> and get some tokens to use to bond it. </p>
+<h3 id="vps-hardware-specs"><a class="header" href="#vps-hardware-specs">VPS Hardware Specs</a></h3>
+<p>You will need to rent a VPS to run your mix node on. One key reason for this is that your node <strong>must be able to send TCP data using both IPv4 and IPv6</strong> (as other nodes you talk to may use either protocol.</p>
+<p>We currently have these <em>rough</em> specs for VPS hardware: </p>
+<ul>
+<li>Processors: 2 cores are fine. Get the fastest CPUs you can afford.</li>
+<li>RAM: Memory requirements depend on the amount of users your Gateway will be serving at any one time. If you’re just going to be using it yourself, then minimal RAM is fine. <strong>If you’re running your Gateway as part of a Service Grant, get something with at least 4GB RAM.</strong> </li>
+<li>Disks: much like the amount of RAM your Gateway could use, the amount of disk space required will vary with the amount of users your Gateway is serving. <strong>If you’re running your Gateway as part of a Service Grant, get something with at least 40GB storage.</strong> </li>
+</ul>
+<h2 id="gateway-setup"><a class="header" href="#gateway-setup">Gateway setup</a></h2>
+<p>Now that you have built the codebase, set up your wallet, and have a VPS with the <code>nym-gateway</code> binary, you can set up your gateway with the instructions below.</p>
+<h3 id="viewing-command-help"><a class="header" href="#viewing-command-help">Viewing command help</a></h3>
+<p>You can check that your binaries are properly compiled with:</p>
+<pre><code>./nym-gateway --help
+</code></pre>
+<details id="admonition-console-output" class="admonition example">
+<summary class="admonition-title">
+<p>Console output</p>
+<p><a class="admonition-anchor-link" href="#admonition-console-output"></a></p>
+</summary>
+<div>
+<pre><code>  _ __  _   _ _ __ ___
+ | '_ \| | | | '_ \ _ \
+ | | | | |_| | | | | | |
+ |_| |_|\__, |_| |_| |_|
+        |___/
+
+         (gateway - version 1.1.4)
+
+    
+nym-gateway 1.1.4
+Nymtech
+Implementation of the Nym Mixnet Gateway
+
+USAGE:
+    nym-gateway [OPTIONS] &lt;SUBCOMMAND&gt;
+
+OPTIONS:
+        --config-env-file &lt;CONFIG_ENV_FILE&gt;
+            Path pointing to an env file that configures the gateway
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+SUBCOMMANDS:
+    completions          Generate shell completions
+    generate-fig-spec    Generate Fig specification
+    help                 Print this message or the help of the given subcommand(s)
+    init                 Initialise the gateway
+    node-details         Show details of this gateway
+    run                  Starts the gateway
+    sign                 Sign text to prove ownership of this mixnode
+    upgrade              Try to upgrade the gateway
+    
+</code></pre>
+</div>
+</details>
+<p>You can also check the various arguments required for individual commands with: </p>
+<pre><code>./nym-gateway &lt;command&gt; --help
+</code></pre>
+<h3 id="initialising-your-gateway-standard-mode"><a class="header" href="#initialising-your-gateway-standard-mode">Initialising your gateway (standard mode)</a></h3>
+<div id="admonition-caution" class="admonition warning">
+<div class="admonition-title">
+<p>Caution</p>
+<p><a class="admonition-anchor-link" href="#admonition-caution"></a></p>
+</div>
+<div>
+<p>If you are following these instructions to set up a gateway as part of a Service Grant, <strong>ignore these instructions and jump to the step <a href="./gateway-setup.html#initialising-your-gateway-stats-mode">below</a></strong></p>
+</div>
+</div>
+<p>To check available configuration options use:</p>
+<pre><code> ./nym-gateway init --help
+</code></pre>
+<details id="admonition-console-output-1" class="admonition example">
+<summary class="admonition-title">
+<p>Console output</p>
+<p><a class="admonition-anchor-link" href="#admonition-console-output-1"></a></p>
+</summary>
+<div>
+<pre><code>
+  _ __  _   _ _ __ ___
+ | '_ \| | | | '_ \ _ \
+ | | | | |_| | | | | | |
+ |_| |_|\__, |_| |_| |_|
+        |___/
+
+         (gateway - version 1.1.4)
+
+    
+nym-gateway-init 
+Initialise the gateway
+
+USAGE:
+    nym-gateway init [OPTIONS] --id &lt;ID&gt; --host &lt;HOST&gt; --wallet-address &lt;WALLET_ADDRESS&gt;
+
+OPTIONS:
+        --announce-host &lt;ANNOUNCE_HOST&gt;
+            The host that will be reported to the directory server
+
+        --clients-port &lt;CLIENTS_PORT&gt;
+            The port on which the gateway will be listening for clients gateway-requests
+
+        --datastore &lt;DATASTORE&gt;
+            Path to sqlite database containing all gateway persistent data
+
+        --enabled-statistics &lt;ENABLED_STATISTICS&gt;
+            Enable/disable gateway anonymized statistics that get sent to a statistics aggregator server
+
+    -h, --help
+            Print help information
+
+        --host &lt;HOST&gt;
+            The custom host on which the gateway will be running for receiving sphinx packets
+
+        --id &lt;ID&gt;
+            Id of the gateway we want to create config for
+
+        --mix-port &lt;MIX_PORT&gt;
+            The port on which the gateway will be listening for sphinx packets
+
+        --mnemonic &lt;MNEMONIC&gt;
+            Cosmos wallet mnemonic needed for double spending protection
+
+        --statistics-service-url &lt;STATISTICS_SERVICE_URL&gt;
+            URL where a statistics aggregator is running. The default value is a Nym aggregator server
+
+        --validator-apis &lt;VALIDATOR_APIS&gt;
+            Comma separated list of endpoints of the validators APIs
+
+        --validators &lt;VALIDATORS&gt;
+            Comma separated list of endpoints of the validator
+
+        --wallet-address &lt;WALLET_ADDRESS&gt;
+            The wallet address you will use to bond this gateway, e.g.
+            nymt1z9egw0knv47nmur0p8vk4rcx59h9gg4zuxrrr9
+</code></pre>
+</div>
+</details>
+<p>The following command returns a gateway on your current IP with the <code>id</code> of <code>supergateway</code>:</p>
+<pre><code>./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address &lt;WALLET_ADDRESS&gt; --enabled-statistics true
+</code></pre>
+<p>The <code>$(curl ifconfig.me)</code> command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP <strong>without</strong> any port information.</p>
+<h3 id="initialising-your-gateway-stats-mode"><a class="header" href="#initialising-your-gateway-stats-mode">Initialising your gateway (stats mode)</a></h3>
+<p>The following command returns a gateway on your current IP with the <code>id</code> of <code>supergateway</code> with statistics enabled:</p>
+<pre><code>./nym-gateway init --id supergateway --host $(curl ifconfig.me) --wallet-address &lt;WALLET_ADDRESS&gt; --mnemonic &lt;MNEMONIC&gt; --enabled-statistics true
+</code></pre>
+<p>The <code>$(curl ifconfig.me)</code> command above returns your IP automatically using an external service. Alternatively, you can enter your IP manually wish. If you do this, remember to enter your IP <strong>without</strong> any port information.</p>
+<h3 id="bonding-your-gateway"><a class="header" href="#bonding-your-gateway">Bonding your gateway</a></h3>
+<h4 id="via-the-desktop-wallet-recommended"><a class="header" href="#via-the-desktop-wallet-recommended">Via the Desktop wallet (recommended)</a></h4>
+<p>You can bond your gateway via the Desktop wallet. </p>
+<p>Open your wallet, and head to the <code>Bond</code> page, then select the node type and input your node details. </p>
+<h4 id="via-the-cli-power-users"><a class="header" href="#via-the-cli-power-users">Via the CLI (power users)</a></h4>
+<p>If you want to bond your Gateway via the CLI, then check out the <a href="../tools/nym-cli.html">Nym CLI</a> tool. </p>
+<h3 id="running-your-gateway-standard-mode"><a class="header" href="#running-your-gateway-standard-mode">Running your gateway (standard mode)</a></h3>
+<div id="admonition-caution-1" class="admonition warning">
+<div class="admonition-title">
+<p>Caution</p>
+<p><a class="admonition-anchor-link" href="#admonition-caution-1"></a></p>
+</div>
+<div>
+<p>If you are following these instructions to set up a gateway as part of a Service Grant, <strong>ignore these instructions and jump to the step <a href="./gateway-setup.html#running-your-gateway-stats-mode">below</a></strong></p>
+</div>
+</div>
+<p>The <code>run</code> command starts the gateway:</p>
+<pre><code>./nym-gateway run --id supergateway
+</code></pre>
+<details id="admonition-console-output-2" class="admonition example">
+<summary class="admonition-title">
+<p>Console output</p>
+<p><a class="admonition-anchor-link" href="#admonition-console-output-2"></a></p>
+</summary>
+<div>
+<pre><code>Starting gateway supergateway...
+
+To bond your gateway you will need to install the Nym wallet, go to https://nymtech.net/get-involved and select the Download button.
+Select the correct version and install it to your machine. You will need to provide the following: 
+
+Identity Key: 6jWSJZsQ888jwzi1CBfkHefiDdUEjgwfeMfJU4RNhDuk
+Sphinx Key: HbqYJwjmtzDi4WzGp7ehj8Ns394sRvJnxtanX28upon
+Owner Signature: wRKxr1CnoyBB9AYPSaXgE4dCP757ffMz5gkja8EKaYR82a63FK9HYV3HXZnLcSaNXkzN3CJnxG2FREv1ZE9xwvx
+Host: 62.240.134.46 (bind address: 62.240.134.46)
+Version: 1.1.
+Mix Port: 1789, Clients port: 9000
+Data store is at: &quot;/home/mx/.nym/gateways/supergateway/data/db.sqlite&quot;
+2022-04-27T16:04:33.831Z INFO  nym_gateway::node &gt; Starting nym gateway!
+2022-04-27T16:04:34.268Z INFO  nym_gateway::node &gt; Starting mix packet forwarder...
+2022-04-27T16:04:34.269Z INFO  nym_gateway::node &gt; Starting mix socket listener...
+2022-04-27T16:04:34.269Z INFO  nym_gateway::node::mixnet_handling::receiver::listener &gt; Running mix listener on &quot;62.240.134.46:1789&quot;
+2022-04-27T16:04:34.269Z INFO  nym_gateway::node              
+&gt; Starting client [web]socket listener...
+2022-04-27T16:04:34.269Z INFO  nym_gateway::node                                      &gt; Finished nym gateway startup procedure - it should now be able to receive mix and client traffic!
+
+</code></pre>
+</div>
+</details>
+<h3 id="running-your-gateway-stats-mode"><a class="header" href="#running-your-gateway-stats-mode">Running your gateway (stats mode)</a></h3>
+<pre><code>./nym-gateway run --id supergateway --enabled-statistics true
+</code></pre>
+<p>The <code>--enabled-statistics</code> flag starts the gateway in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. </p>
+<p>Use the following command to ping our stats service to see what it has recorded (remember to change the <code>'until'</code> date):</p>
+<pre><code>curl -d '{&quot;since&quot;:&quot;2022-07-26T12:46:00.000000+00:00&quot;, &quot;until&quot;:&quot;2022-07-26T12:57:00.000000+00:00&quot;}' -H &quot;Content-Type: application/json&quot; -X POST https://mainnet-stats.nymte.ch:8090/v1/all-statistics
+</code></pre>
+<details id="admonition-console-output-3" class="admonition example">
+<summary class="admonition-title">
+<p>Console output</p>
+<p><a class="admonition-anchor-link" href="#admonition-console-output-3"></a></p>
+</summary>
+<div>
+<pre><code>      [
+        {
+            &quot;Service&quot;:{
+              &quot;requested_service&quot;:&quot;chat-0.core.keybaseapi.com:443&quot;,
+              &quot;request_processed_bytes&quot;:294,
+              &quot;response_processed_bytes&quot;:0,
+              &quot;interval_seconds&quot;:60,
+              &quot;timestamp&quot;:&quot;2022-07-26 12:55:44.459257091&quot;
+            }
+        },
+        {
+            &quot;Service&quot;:{
+              &quot;requested_service&quot;:&quot;chat-0.core.keybaseapi.com:443&quot;,
+              &quot;request_processed_bytes&quot;:890,
+              &quot;response_processed_bytes&quot;:0,
+              &quot;interval_seconds&quot;:60,
+              &quot;timestamp&quot;:&quot;2022-07-26 12:56:44.459333653&quot;
+            }
+        },
+        {
+            &quot;Service&quot;:{
+              &quot;requested_service&quot;:&quot;api-0.core.keybaseapi.com:443&quot;,
+              &quot;request_processed_bytes&quot;:1473,
+              &quot;response_processed_bytes&quot;:0,
+              &quot;interval_seconds&quot;:60,
+              &quot;timestamp&quot;:&quot;2022-07-26 12:56:44.459333653&quot;
+            }
+        },
+        {
+            &quot;Gateway&quot;:{
+              &quot;gateway_id&quot;:&quot;Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf&quot;,
+              &quot;inbox_count&quot;:8,
+              &quot;timestamp&quot;:&quot;2022-07-26 12:46:34.148075290&quot;
+            }
+        },
+        {
+            &quot;Gateway&quot;:{
+              &quot;gateway_id&quot;:&quot;2BuMSfMW3zpeAjKXyKLhmY4QW1DXurrtSPEJ6CjX3SEh&quot;,
+              &quot;inbox_count&quot;:6,
+              &quot;timestamp&quot;:&quot;2022-07-26 12:46:51.578765358&quot;
+            }
+        },
+        {
+            &quot;Gateway&quot;:{
+              &quot;gateway_id&quot;:&quot;Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf&quot;,
+              &quot;inbox_count&quot;:8,
+              &quot;timestamp&quot;:&quot;2022-07-26 12:47:34.149270862&quot;
+            }
+        }
+      ]                            
+</code></pre>
+</div>
+</details>
+<h3 id="upgrading-your-gateway"><a class="header" href="#upgrading-your-gateway">Upgrading your gateway</a></h3>
+<ul>
+<li>pause your gateway process </li>
+<li>replace the existing binary with the newest binary (which you can either compile yourself or grab from our <a href="https://github.com/nymtech/nym/releases">releases page</a>)</li>
+<li>restart your gateway process with the new binary.</li>
+<li>rebond your gateway, updating the version number.</li>
+</ul>
+<blockquote>
+<p>Do <strong>not</strong> use the <code>upgrade</code> command: there is a known error with the command that will be fixed in the next release. </p>
+</blockquote>
+<h2 id="vps-setup-and-automation"><a class="header" href="#vps-setup-and-automation">VPS Setup and Automation</a></h2>
+<h3 id="configure-your-firewall"><a class="header" href="#configure-your-firewall">Configure your firewall</a></h3>
+<p>Although your gateway is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using <code>ufw</code>:</p>
+<pre><code># check if you have ufw installed
+ufw version
+# if it is not installed, install with
+sudo apt install ufw -y
+# enable ufw
+sudo ufw enable
+# check the status of the firewall
+sudo ufw status
+</code></pre>
+<p>Finally open your gateway’s p2p port, as well as ports for ssh and incoming traffic connections:</p>
+<pre><code>sudo ufw allow 1789,22,9000/tcp
+# check the status of the firewall
+sudo ufw status
+</code></pre>
+<p>For more information about your gateway’s port configuration, check the <a href="#gateway-port-reference">gateway port reference table</a> below.</p>
+<h3 id="automating-your-gateway-with-systemd"><a class="header" href="#automating-your-gateway-with-systemd">Automating your gateway with systemd</a></h3>
+<p>Although it’s not totally necessary, it’s useful to have the gateway automatically start at system boot time. Here’s a systemd service file to do that:</p>
+<pre><code class="language-ini">[Unit]
+Description=Nym Gateway (1.1.4)
+StartLimitInterval=350
+StartLimitBurst=10
+
+[Service]
+User=nym
+LimitNOFILE=65536
+ExecStart=/home/nym/nym-gateway run --id supergateway
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Put the above file onto your system at <code>/etc/systemd/system/nym-gateway.service</code>.</p>
+<p>If you want to enable statistics mode, the start command would be: 
+<code>ExecStart=/home/nym/nym-gateway run --id supergateway --enabled-statistics true</code></p>
+<p>Change the path in <code>ExecStart</code> to point at your gateway binary (<code>nym-gateway</code>), and the <code>User</code> so it is the user you are running as.</p>
+<p>If you have built nym on your server, and your username is <code>jetpanther</code>, then the start command might look like this:</p>
+<p><code>ExecStart=/home/jetpanther/nym/target/release/nym-gateway run --id your-id</code>. Basically, you want the full <code>/path/to/nym-gateway run --id whatever-your-node-id-is</code></p>
+<p>Then run:</p>
+<pre><code>systemctl enable nym-gateway.service
+</code></pre>
+<p>Start your node:</p>
+<pre><code>service nym-gateway start
+</code></pre>
+<p>This will cause your node to start at system boot time. If you restart your machine, the node will come back up automatically.</p>
+<p>You can also do <code>service nym-gateway stop</code> or <code>service nym-gateway restart</code>.</p>
+<p>Note: if you make any changes to your systemd script after you’ve enabled it, you will need to run:</p>
+<pre><code>systemctl daemon-reload
+</code></pre>
+<p>This lets your operating system know it’s ok to reload the service configuration.</p>
+<h2 id="gateway-related-validator-api-endpoints"><a class="header" href="#gateway-related-validator-api-endpoints">Gateway related Validator API endpoints</a></h2>
+<p>Numerous gateway related API endpoints are documented on the Validator API’s <a href="https://validator.nymtech.net/api/swagger/index.html">Swagger Documentation</a>. There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. </p>
+<h2 id="ports"><a class="header" href="#ports">Ports</a></h2>
+<p>All gateway specific port configuration can be found in <code>$HOME/.nym/gateways/&lt;your-id&gt;/config/config.toml</code>. If you do edit any port configs, remember to restart your gateway.</p>
+<h3 id="gateway-port-reference"><a class="header" href="#gateway-port-reference">Gateway port reference</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Default port</th><th>Use</th></tr></thead><tbody>
+<tr><td>1789</td><td>Listen for Mixnet traffic</td></tr>
+<tr><td>9000</td><td>Listen for Client traffic</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../nodes/mix-node-setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../nodes/network-requester-setup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../nodes/mix-node-setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../nodes/network-requester-setup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/pagetoc.js"></script>
+
+
+    </body>
+</html>

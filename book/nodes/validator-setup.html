@@ -1,0 +1,893 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js coal">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Validator - Nym Docs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Nym technical documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../introduction.html">Introduction</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/network-overview.html"><strong aria-hidden="true">1.</strong> Network Overview</a></li><li class="chapter-item "><a href="../architecture/traffic-flow.html"><strong aria-hidden="true">2.</strong> Mixnet Traffic Flow</a></li><li class="chapter-item "><a href="../architecture/network-rewards.html"><strong aria-hidden="true">3.</strong> Network Rewards</a></li><li class="chapter-item affix "><li class="part-title">Binaries</li><li class="chapter-item "><a href="../binaries/pre-built-binaries.html"><strong aria-hidden="true">4.</strong> Pre-built Binaries</a></li><li class="chapter-item "><a href="../binaries/building-nym.html"><strong aria-hidden="true">5.</strong> Building from Source</a></li><li class="chapter-item "><a href="../binaries/init-and-config.html"><strong aria-hidden="true">6.</strong> Binary Initialisation and Configuration</a></li><li class="chapter-item "><a href="../binaries/version-compatiblity.html"><strong aria-hidden="true">7.</strong> Version Compatibility Table</a></li><li class="chapter-item affix "><li class="part-title">Nodes</li><li class="chapter-item expanded "><a href="../nodes/setup-guides.html"><strong aria-hidden="true">8.</strong> Node Setup Guides</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nodes/mix-node-setup.html"><strong aria-hidden="true">8.1.</strong> Mix Node</a></li><li class="chapter-item "><a href="../nodes/gateway-setup.html"><strong aria-hidden="true">8.2.</strong> Gateway</a></li><li class="chapter-item "><a href="../nodes/network-requester-setup.html"><strong aria-hidden="true">8.3.</strong> Network Requester</a></li><li class="chapter-item expanded "><a href="../nodes/validator-setup.html" class="active"><strong aria-hidden="true">8.4.</strong> Validator</a></li></ol></li><li class="chapter-item "><a href="../nodes/troubleshooting.html"><strong aria-hidden="true">9.</strong> Troubleshooting</a></li><li class="chapter-item affix "><li class="part-title">Clients</li><li class="chapter-item "><a href="../clients/overview.html"><strong aria-hidden="true">10.</strong> Clients Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clients/websocket-client.html"><strong aria-hidden="true">10.1.</strong> Websocket</a></li><li class="chapter-item "><a href="../clients/socks5-client.html"><strong aria-hidden="true">10.2.</strong> Socks5</a></li><li class="chapter-item "><a href="../clients/webassembly-client.html"><strong aria-hidden="true">10.3.</strong> Webassembly</a></li></ol></li><li class="chapter-item "><a href="../clients/addressing-system.html"><strong aria-hidden="true">11.</strong> Addressing System</a></li><li class="chapter-item affix "><li class="part-title">SDK</li><li class="chapter-item "><a href="../sdk/typescript.html"><strong aria-hidden="true">12.</strong> Typescript SDK</a></li><li class="chapter-item "><a href="../sdk/rust.html"><strong aria-hidden="true">13.</strong> Rust SDK (coming soon)</a></li><li class="chapter-item affix "><li class="part-title">Wallet</li><li class="chapter-item "><a href="../wallet/desktop-wallet.html"><strong aria-hidden="true">14.</strong> Desktop Wallet</a></li><li class="chapter-item "><a href="../wallet/cli-wallet.html"><strong aria-hidden="true">15.</strong> CLI Wallet</a></li><li class="chapter-item affix "><li class="part-title">Explorers</li><li class="chapter-item "><a href="../explorers/mixnet-explorer.html"><strong aria-hidden="true">16.</strong> Mixnet Explorer</a></li><li class="chapter-item "><div><strong aria-hidden="true">17.</strong> Blockchain Explorers</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">17.1.</strong> Nodes Guru</div></li><li class="chapter-item "><div><strong aria-hidden="true">17.2.</strong> TODO Others</div></li></ol></li><li class="chapter-item "><li class="part-title">Nyx Blockchain</li><li class="chapter-item "><a href="../nyx/interacting-with-chain.html"><strong aria-hidden="true">18.</strong> Interacting with Nyx Chain and Smart Contracts</a></li><li class="chapter-item "><a href="../nyx/smart-contracts.html"><strong aria-hidden="true">19.</strong> Smart Contracts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nyx/mixnet-contract.html"><strong aria-hidden="true">19.1.</strong> Mixnet Contract</a></li><li class="chapter-item "><a href="../nyx/vesting-contract.html"><strong aria-hidden="true">19.2.</strong> Vesting Contract</a></li></ol></li><li class="chapter-item "><a href="../nyx/rpc-node.html"><strong aria-hidden="true">20.</strong> RPC Nodes</a></li><li class="chapter-item affix "><li class="part-title">Tools</li><li class="chapter-item "><a href="../tools/nym-cli.html"><strong aria-hidden="true">21.</strong> NymCLI</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Misc.</li><li class="chapter-item "><a href="../coc.html"><strong aria-hidden="true">22.</strong> Code of Conduct</a></li><li class="chapter-item "><a href="../licensing.html"><strong aria-hidden="true">23.</strong> Licensing</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Nym Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="validators"><a class="header" href="#validators">Validators</a></h1>
+<p>The validator is built using <a href="https://cosmos.network">Cosmos SDK</a> and <a href="https://tendermint.com">Tendermint</a>, with a <a href="https://cosmwasm.com">CosmWasm</a> smart contract controlling the directory service, node bonding, and delegated mixnet staking.</p>
+<h2 id="building-your-validator"><a class="header" href="#building-your-validator">Building your validator</a></h2>
+<h3 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h3>
+<ul>
+<li><code>git</code></li>
+</ul>
+<pre><code>sudo apt update
+sudo apt install git
+</code></pre>
+<p>Verify <code>git</code> is installed with:</p>
+<pre><code>git version
+# Should return: git version X.Y.Z
+</code></pre>
+<ul>
+<li><code>Go</code></li>
+</ul>
+<p><code>Go</code> can be installed via the following commands (taken from the <a href="https://github.com/Agoric/agoric-sdk/wiki/Validator-Guide-for-Incentivized-Testnet#install-go">Agoric SDK docs</a>):</p>
+<pre><code># First remove any existing old Go installation
+sudo rm -rf /usr/local/go
+
+# Install correct Go version
+curl https://dl.google.com/go/go1.19.2.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+
+# Update environment variables to include go
+cat &lt;&lt;'EOF' &gt;&gt;$HOME/.profile
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GO111MODULE=on
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+EOF
+source $HOME/.profile
+</code></pre>
+<p>Verify <code>Go</code> is installed with:</p>
+<pre><code>go version
+# Should return: go version go1.19.2 linux/amd64
+</code></pre>
+<ul>
+<li><code>gcc</code></li>
+</ul>
+<p><code>gcc</code> can be installed with:</p>
+<pre><code>sudo apt install build-essential
+# Optional additional manual pages can be installed with:
+sudo apt-get install manpages-dev
+</code></pre>
+<p>Verify <code>gcc</code> is installed with:</p>
+<pre><code>gcc --version
+</code></pre>
+<p>Which should return something like:</p>
+<pre><code>gcc (Ubuntu 7.4.0-1ubuntu1~18.04) 7.4.0
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre>
+<h3 id="building-your-validator-1"><a class="header" href="#building-your-validator-1">Building your validator</a></h3>
+<p>We use the <code>wasmd</code> version of the Cosmos validator to run our blockchain. First define the correct variables by selecting the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in: </p>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+      <pre>
+      <code>
+        BECH32_PREFIX=n
+      </code>
+    </pre>
+      <pre>
+      <code>
+        WASMD_VERSION=v0.26.1
+      </code>
+    </pre>
+        <pre>
+      <code>
+      NYM_APP_NAME=nyxd
+      </code>
+    </pre>
+  </TabItem>
+<TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+        BECH32_PREFIX=nymt
+      </code>
+    </pre>
+        <pre>
+      <code>
+        WASMD_VERSION=v0.21.0
+      </code>
+    </pre>
+    <pre>
+      <code>
+      NYM_APP_NAME=nymd
+      </code>
+    </pre>
+    </TabItem>
+</Tabs>
+<p>Then run this to clone, compile, and build your validator:</p>
+<pre><code>git clone git@github.com:nymtech/nyxd.git
+cd nyxd
+git checkout ${WASMD_VERSION}
+mkdir build
+go build -o ./build/${NYM_APP_NAME} -mod=readonly -tags &quot;netgo,ledger&quot; -ldflags &quot;-X github.com/cosmos/cosmos-sdk/version.Name=${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.AppName=${NYM_APP_NAME} -X github.com/CosmWasm/wasmd/app.NodeDir=.${NYM_APP_NAME} -X github.com/cosmos/cosmos-sdk/version.Version=${WASMD_VERSION} -X github.com/cosmos/cosmos-sdk/version.Commit=2582f0aab7b2cbf66ade066fe570a4622cf0b098 -X github.com/CosmWasm/wasmd/app.Bech32Prefix=${BECH32_PREFIX} -X \&quot;github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger\&quot;&quot; -trimpath ./cmd/wasmd
+</code></pre>
+<p>At this point, you will have a copy of the <code>nymd</code> (for sandbox) or <code>nyxd</code> (for mainnet) binary in your <code>build/</code> directory. Test that it’s compiled properly by running:</p>
+<pre><code>./build/${NYM_APP_NAME}
+</code></pre>
+<p>You should see help text print out.</p>
+<p>Both the <code>nymd</code> or <code>nyxd</code> binary and the <code>libwasmvm.so</code> shared object library binary have been compiled. <code>libwasmvm.so</code> is the wasm virtual machine which is needed to execute smart contracts.</p>
+<div id="admonition-caution" class="admonition warning">
+<div class="admonition-title">
+<p>Caution</p>
+<p><a class="admonition-anchor-link" href="#admonition-caution"></a></p>
+</div>
+<div>
+<p>If you have compiled these files locally you need to upload both of them to the server on which the validator will run. <strong>If you have instead compiled them on the server skip to the step outlining setting <code>LD_LIBRARY PATH</code> below.</strong></p>
+</div>
+</div>
+<p>To locate these files on your local system run (replace <code>nyxd</code> with <code>nymd</code> for Sandbox testnet builds):</p>
+<pre><code>WASMVM_SO=$(ldd build/nyxd | grep libwasmvm.so | awk '{ print $3 }')
+ls ${WASMVM_SO}      
+</code></pre>
+<p>This will output something like:</p>
+<pre><code>'/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
+</code></pre>
+<p>:::note</p>
+<p>if you are on Mac OSX use this command instead:</p>
+<pre><code>WASMVM_SO=$(otool -L build/nymd | grep libwasmvm.so | awk '{ print $3 }')
+ls ${WASMVM_SO}
+</code></pre>
+<p>To get the location of the <code>libwasmvm.so</code> file.
+:::</p>
+<p>When you upload your <code>nymd</code>/<code>nyxd</code> binary, you’ll need to tell it where <code>libwasmvm.so</code> is when you start your validator, or it will not run. If you have compiled them on your server then this is not necessary, as the compiled <code>nymd</code>/<code>nyxd</code> already has access to <code>libwasmvm.so</code>.</p>
+<p>Upload both <code>nymd</code>/<code>nyxd</code> and <code>libwasmvm.so</code> to your validator machine. If <code>nymd</code>/<code>nyxd</code> can’t find <code>libwasmvm.so</code> you will see an error like the following:</p>
+<pre><code>./nyxd: error while loading shared libraries: libwasmvm.so: cannot open shared object file: No such file or directory
+</code></pre>
+<p>You’ll need to set <code>LD_LIBRARY_PATH</code> in your user’s <code>~/.bashrc</code> file, and add that to our path. Replace <code>/home/youruser/path/to/nym/binaries</code> in the command below to the locations of <code>nymd</code> and <code>libwasmvm.so</code> and run it. If you have compiled these on the server, they will be in the <code>build/</code> folder:</p>
+<pre><code>NYX_BINARIES=/home/youruser/path/to/nym/binaries
+# if you are using another shell like zsh replace '.bashrc' with the relevant config file
+echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:'NYX_BINARIES &gt;&gt; ~/.bashrc 
+echo 'export PATH=$PATH:'${NYX_BINARIES} &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+<p>Test everything worked:</p>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+      <pre>
+      <code>
+        nyxd      
+      </code>
+    </pre>
+  </TabItem>
+    <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+        nymd  
+      </code>
+    </pre>
+    </TabItem>
+</Tabs>
+<p>This should return the regular help text.</p>
+<h3 id="initialising-your-validator"><a class="header" href="#initialising-your-validator">Initialising your validator</a></h3>
+<p>Prerequisites:</p>
+<ul>
+<li>FQDN Domain name</li>
+<li>IPv4 and IPv6 connectivity</li>
+</ul>
+<p>Choose a name for your validator and use it in place of <code>YOUR_NAME</code> in the following command:</p>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      nyxd init YOUR_NAME --chain-id=nyx 
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      nymd init YOUR_NAME --chain-id=nym-sandbox 
+    </pre>
+  </TabItem>
+</Tabs>
+<div id="admonition-caution-1" class="admonition warning">
+<div class="admonition-title">
+<p>Caution</p>
+<p><a class="admonition-anchor-link" href="#admonition-caution-1"></a></p>
+</div>
+<div>
+<p><code>init</code> generates <code>priv_validator_key.json</code> and <code>node_key.json</code>.</p>
+<p>If you have already set up a validator on a previous testnet, <strong>make sure to back up the key located at</strong> 
+<code>~/.nymd/config/priv_validator_key.json</code>. </p>
+<p>If you don’t save the validator key, then it can’t sign blocks and will be jailed all the time, and
+there is no way to deterministically (re)generate this key.</p>
+</div>
+</div>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+      At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nyxd/config/genesis.json</code>. You will need to replace the contents of that file that with the Nyx Mainnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>. You can use the following command to download the one for the Nyx Mainnet:
+      <pre>
+      <code>
+      wget  -O $HOME/.nyxd/config/genesis.json https://nymtech.net/genesis/genesis.json
+      </code>
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/testnets/sandbox/genesis.json">genesis file</a>. You can use the following command to download the one for the Sandbox testnet:
+    <pre>
+      <code>
+      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
+      </code>
+      </pre>
+  </TabItem>
+</Tabs>
+<h3 id="configtoml-configuration"><a class="header" href="#configtoml-configuration"><code>config.toml</code> configuration</a></h3>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    Edit the following config options in <code>$HOME/.nyxd/config/config.toml</code> to match the information below:
+    <pre>
+      persistent_peers = "ee03a6777fb76a2efd0106c3769daaa064a3fcb5@51.79.21.187:26656" 
+    </pre>
+    <pre>
+      create_empty_blocks = false 
+    </pre>
+    <pre>
+      laddr = "tcp://0.0.0.0:26656" 
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in <code>$HOME/.nymd/config/config.toml</code> to match the information below:
+    <pre>
+      cors_allowed_origins = ["*"] 
+    </pre>
+    <pre>
+      persistent_peers = "d24ee58d85a65d34ad5adfc3302c3614b36e8b14@sandbox-validator.nymtech.net:26656" 
+    </pre>
+    <pre>
+      create_empty_blocks = false 
+    </pre>
+    <pre>
+      laddr = "tcp://0.0.0.0:26656" 
+    </pre>
+  </TabItem>
+</Tabs>
+<p>These affect the following: </p>
+<ul>
+<li><code>persistent_peers = &quot;&lt;PEER_ADDRESS&gt;@&lt;DOMAIN&gt;.nymtech.net:26656&quot;</code> allows your validator to start pulling blocks from other validators</li>
+<li><code>create_empty_blocks = false</code> will save space </li>
+<li><code>laddr = &quot;tcp://0.0.0.0:26656&quot;</code> is in your p2p configuration options </li>
+</ul>
+<p>Optionally, if you want to enable <a href="https://prometheus.io/">Prometheus</a> metrics then the following must also match in the <code>config.toml</code>:</p>
+<ul>
+<li><code>prometheus = true</code></li>
+<li><code>prometheus_listen_addr = &quot;:26660&quot;</code></li>
+</ul>
+<blockquote>
+<p>Remember to enable metrics in the ‘Configuring Prometheus metrics’ section below as well.</p>
+</blockquote>
+<p>And if you wish to add a human-readable moniker to your node:</p>
+<ul>
+<li><code>moniker = &quot;yourname&quot;</code></li>
+</ul>
+<p>Finally, if you plan on using <a href="https://cockpit-project.org/documentation.html">Cockpit</a> on your server, change the <code>grpc</code> port from <code>9090</code> as this is the port used by Cockpit.</p>
+<h3 id="apptoml-configuration"><a class="header" href="#apptoml-configuration"><code>app.toml</code> configuration</a></h3>
+<p>In the file <code>$HOME/.${NYM_APP_NAME}/config/app.toml</code>, set the following values:</p>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      enable = true in the `[api]` section to get the API server running
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      minimum-gas-prices = "0.025unymt" 
+    </pre>
+    <pre>
+      enable = true` in the `[api]` section to get the API server running
+    </pre>
+  </TabItem>
+</Tabs>
+<h3 id="setting-up-your-validators-admin-user"><a class="header" href="#setting-up-your-validators-admin-user">Setting up your validator’s admin user</a></h3>
+<p>You’ll need an admin account to be in charge of your validator. Set that up with:</p>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd keys add nyxd-admin
+      </code>
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd keys add nymd-admin
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
+<p>This will add keys for your administrator account to your system’s keychain and log your name, address, public key, and mnemonic. As the instructions say, remember to <strong>write down your mnemonic</strong>.</p>
+<p>You can get the admin account’s address with:</p>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd keys show nyxd-admin -a
+      </code>
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd keys show nymd-admin -a
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
+<p>Type in your keychain <strong>password</strong>, not the mnemonic, when asked. </p>
+<h3 id="starting-your-validator"><a class="header" href="#starting-your-validator">Starting your validator</a></h3>
+<p>Everything should now be ready to go. You’ve got the validator set up, all changes made in <code>config.toml</code> and <code>app.toml</code>, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let’s validate the whole setup:</p>
+<Tabs groupId="nym-network">
+    <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      <code>
+      nyxd validate-genesis
+      </code>
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      <code>
+      nymd validate-genesis
+      </code>
+    </pre>
+  </TabItem>
+</Tabs>
+<p>If this check passes, you should receive the following output:</p>
+<pre><code>File at /path/to/genesis.json is a valid genesis file
+</code></pre>
+<blockquote>
+<p>If this test did not pass, check that you have replaced the contents of <code>/path/to/.nymd/config/genesis.json</code> with that of the correct genesis file.</p>
+</blockquote>
+<p>Before starting the validator, we will need to open the firewall ports:</p>
+<pre><code># if ufw is not already installed:
+sudo apt install ufw
+sudo ufw enable
+sudo ufw allow 1317,26656,26660,22,80,443/tcp
+# to check everything worked
+sudo ufw status
+</code></pre>
+<p>Ports <code>22</code>, <code>80</code>, and <code>443</code> are for ssh, http, and https connections respectively. The rest of the ports are documented <a href="https://docs.cosmos.network/v0.42/core/grpc_rest.html">here</a>.</p>
+<p>For more information about your validator’s port configuration, check the <a href="#validator-port-reference">validator port reference table</a> below.</p>
+<blockquote>
+<p>If you are planning to use <a href="https://cockpit-project.org/">Cockpit</a> on your validator server then you will have defined a different <code>grpc</code> port in your <code>config.toml</code> above: remember to open this port as well.</p>
+</blockquote>
+<p>Start the validator:
+<Tabs groupId="nym-network">
+<TabItem value="mainnet" label="Nyx (Mainnet)">
+<pre>
+<code>
+nyxd start
+</code>
+</pre>
+</TabItem>
+<TabItem value="sandbox" label="Sandbox (Testnet)">
+<pre>
+<code>
+nymd start
+</code>
+</pre>
+</TabItem>
+</Tabs></p>
+<p>Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it’s up to date, you can issue a request to join the validator set with the command below. </p>
+<blockquote>
+<p>If you are having trouble upgrading your validator binary, try replacing (or re-compile) the <code>libwasmvm.so</code> file and replace it on your validator server.</p>
+</blockquote>
+<div id="admonition-caution-2" class="admonition warning">
+<div class="admonition-title">
+<p>Caution</p>
+<p><a class="admonition-anchor-link" href="#admonition-caution-2"></a></p>
+</div>
+<div>
+<p>When joining consensus, make sure that you do not disrupt (or worse - halt) the network by coming in with a disproportionately large amount of staked tokens. </p>
+<p>Please initially stake a small amount of tokens compared to existing validators, then delegate to yourself in tranches over time.</p>
+</div>
+</div>
+<Tabs groupId="nym-network">
+  <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      nyxd tx staking create-validator
+        --amount=10000000unyx
+        --fees=0unyx 
+        --pubkey=$(/home/youruser/path/to/nyxd/binaries/nyxd tendermint show-validator | jq -r '.["key"]')
+        --moniker="whatever you called your validator"
+        --chain-id=nyx
+        --commission-rate="0.10"
+        --commission-max-rate="0.20"
+        --commission-max-change-rate="0.01"
+        --min-self-delegation="1"
+        --gas="auto"
+        --gas-adjustment=1.15
+        --from="KEYRING_NAME"
+        --node https://rpc-1.nyx.nodes.guru:443     
+      </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      nymd tx staking create-validator
+        --amount=10000000unyxt
+        --fees=5000unyxt
+        --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
+        --moniker="whatever you called your validator"
+        --chain-id=nym-sandbox
+        --commission-rate="0.10"
+        --commission-max-rate="0.20"
+        --commission-max-change-rate="0.01"
+        --min-self-delegation="1"
+        --gas="auto"
+        --gas-adjustment=1.15
+        --from="KEYRING_NAME"
+        --node https://sandbox-validator.nymtech.net:443 
+    </pre>
+  </TabItem>
+</Tabs>
+<p>You’ll need either <code>unyxt</code> tokens on Sandbox, or <code>unyx</code> tokens on mainnet to perform this command.</p>
+<p>Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don’t be offended if we say no - validators are part of our system’s core security and we are starting out with people we already know or who have a solid reputation.</p>
+<p>If you want to edit some details for your node you will use a command like this:</p>
+<Tabs groupId="nym-network">
+  <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      nymd tx staking edit-validator   
+        --chain-id=nym   
+        --moniker="whatever you called your validator"
+        --details="Nym validator"   
+        --security-contact="your email"   
+        --identity="your identity"   
+        --gas="auto"   
+        --gas-adjustment=1.15   
+        --from="KEYRING_NAME"
+        --fees 2000unyx
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      nymd tx staking edit-validator   
+        --chain-id=nym-sandbox   
+        --moniker="whatever you called your validator"
+        --details="Nym validator"   
+        --security-contact="your email"   
+        --identity="your identity"   
+        --gas="auto"   
+        --gas-adjustment=1.15   
+        --from="KEYRING_NAME"
+        --fees 2000unyxt
+    </pre>
+  </TabItem>
+</Tabs>
+<p>With above command you can specify the <code>gpg</code> key last numbers (as used in <code>keybase</code>) as well as validator details and your email for security contact. </p>
+<h3 id="automating-your-validator-with-systemd"><a class="header" href="#automating-your-validator-with-systemd">Automating your validator with systemd</a></h3>
+<p>You will most likely want to automate your validator restarting if your server reboots. Below is a systemd unit file to place at <code>/etc/systemd/system/nymd.service</code>:</p>
+<pre><code class="language-ini">[Unit]
+Description=Nymd (1.1.0)
+StartLimitInterval=350
+StartLimitBurst=10
+
+[Service]
+User=nym                                                          # change to your user
+Type=simple
+Environment=&quot;LD_LIBRARY_PATH=/home/youruser/path/to/nym/binaries&quot; # change to correct path
+ExecStart=/home/youruser/path/to/nym/binaries/nymd start          # change to correct path
+Restart=on-failure
+RestartSec=30
+LimitNOFILE=infinity
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Proceed to start it with:</p>
+<pre><code>systemctl daemon-reload # to pickup the new unit file
+systemctl enable nymd   # to enable the service
+systemctl start nymd    # to actually start the service
+journalctl -f           # to monitor system logs showing the service start
+</code></pre>
+<h3 id="installing-and-configuring-nginx-for-https"><a class="header" href="#installing-and-configuring-nginx-for-https">Installing and configuring nginx for HTTPS</a></h3>
+<h4 id="setup"><a class="header" href="#setup">Setup</a></h4>
+<p><a href="https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,%2C%20media%20streaming%2C%20and%20more.&amp;text=In%20addition%20to%20its%20HTTP,%2C%20TCP%2C%20and%20UDP%20servers.">Nginx</a> is an open source software used for operating high-performance web servers. It allows us to set up reverse proxying on our validator server to improve performance and security.</p>
+<p>Install <code>nginx</code> and allow the ‘Nginx Full’ rule in your firewall:</p>
+<pre><code>sudo ufw allow 'Nginx Full'
+</code></pre>
+<p>Check nginx is running via systemctl:</p>
+<pre><code>systemctl status nginx
+</code></pre>
+<p>Which should return:</p>
+<pre><code>● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2018-04-20 16:08:19 UTC; 3 days ago
+     Docs: man:nginx(8)
+ Main PID: 2369 (nginx)
+    Tasks: 2 (limit: 1153)
+   CGroup: /system.slice/nginx.service
+           ├─2369 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+           └─2380 nginx: worker process
+</code></pre>
+<h4 id="configuration"><a class="header" href="#configuration">Configuration</a></h4>
+<p>Proxying your validator’s port <code>26657</code> to nginx port <code>80</code> can then be done by creating a file with the following at <code>/etc/nginx/conf.d/validator.conf</code>:</p>
+<pre><code>server {
+  listen 80;
+  listen [::]:80;
+  server_name &quot;{{ domain }}&quot;;
+
+  location / {
+    proxy_pass http://127.0.0.1:26657;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}
+</code></pre>
+<p>Followed by:</p>
+<pre><code>sudo apt install certbot nginx python3
+certbot --nginx -d nym-validator.yourdomain.com -m you@yourdomain.com --agree-tos --noninteractive --redirect
+</code></pre>
+<div id="admonition-caution-3" class="admonition warning">
+<div class="admonition-title">
+<p>Caution</p>
+<p><a class="admonition-anchor-link" href="#admonition-caution-3"></a></p>
+</div>
+<div>
+<p>If using a VPS running Ubuntu 20: replace <code>certbot nginx python3</code> with <code>python3-certbot-nginx</code></p>
+</div>
+</div>
+<p>These commands will get you an https encrypted nginx proxy in front of the API.</p>
+<h3 id="configuring-prometheus-metrics-optional"><a class="header" href="#configuring-prometheus-metrics-optional">Configuring Prometheus metrics (optional)</a></h3>
+<p>Configure Prometheus with the following commands (adapted from NodesGuru’s <a href="https://nodes.guru/agoric/setup-guide/en">Agoric setup guide</a>):</p>
+<pre><code>echo 'export OTEL_EXPORTER_PROMETHEUS_PORT=9464' &gt;&gt; $HOME/.bashrc
+source ~/.bashrc
+sed -i '/\[telemetry\]/{:a;n;/enabled/s/false/true/;Ta}' $HOME/.nymd/config/app.toml
+sed -i &quot;s/prometheus-retention-time = 0/prometheus-retention-time = 60/g&quot; $HOME/.nymd/config/app.toml
+sudo ufw allow 9464
+echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
+</code></pre>
+<p>Your validator’s metrics will be available to you at the returned ‘Metrics URL’.</p>
+<details>
+  <summary>console output</summary>
+<pre><code># HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile=&quot;0&quot;} 6.7969e-05
+go_gc_duration_seconds{quantile=&quot;0.25&quot;} 7.864e-05
+go_gc_duration_seconds{quantile=&quot;0.5&quot;} 8.4591e-05
+go_gc_duration_seconds{quantile=&quot;0.75&quot;} 0.000115919
+go_gc_duration_seconds{quantile=&quot;1&quot;} 0.001137591
+go_gc_duration_seconds_sum 0.356555301
+go_gc_duration_seconds_count 2448
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 668
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version=&quot;go1.15.7&quot;} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 1.62622216e+08
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 2.09341707264e+11
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 5.612319e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 2.828263344e+09
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 0.03357798610671518
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 1.3884192e+07
+</code></pre>
+</details>
+<h3 id="setting-the-ulimit"><a class="header" href="#setting-the-ulimit">Setting the ulimit</a></h3>
+<p>Linux machines limit how many open files a user is allowed to have. This is called a <code>ulimit</code>.</p>
+<p><code>ulimit</code> is 1024 by default on most systems. It needs to be set higher, because validators make and receive a lot of connections to other nodes.</p>
+<p>If you see errors such as:</p>
+<pre><code>Failed to accept incoming connection - Os { code: 24, kind: Other, message: &quot;Too many open files&quot; }
+</code></pre>
+<p>This means that the operating system is preventing network connections from being made.</p>
+<h5 id="set-the-ulimit-via-systemd-service-file"><a class="header" href="#set-the-ulimit-via-systemd-service-file">Set the ulimit via <code>systemd</code> service file</a></h5>
+<p>Query the <code>ulimit</code> of your validator with:</p>
+<pre><code>grep -i &quot;open files&quot; /proc/$(ps -A -o pid,cmd|grep nymd | grep -v grep |head -n 1 | awk '{print $1}')/limits
+</code></pre>
+<p>You’ll get back the hard and soft limits, which looks something like this:</p>
+<pre><code>Max open files            65536                65536                files
+</code></pre>
+<p>If your output is <strong>the same as above</strong>, your node will not encounter any <code>ulimit</code> related issues.</p>
+<p>However if either value is <code>1024</code>, you must raise the limit via the systemd service file. Add the line:</p>
+<pre><code>LimitNOFILE=65536
+</code></pre>
+<p>Reload the daemon:</p>
+<pre><code>systemctl daemon-reload
+</code></pre>
+<p>or execute this as root for system-wide setting of <code>ulimit</code>:</p>
+<pre><code>echo &quot;DefaultLimitNOFILE=65535&quot; &gt;&gt; /etc/systemd/system.conf
+</code></pre>
+<p>Reboot your machine and restart your node. When it comes back, use <code>cat /proc/$(pidof nym-validator)/limits | grep &quot;Max open files&quot;</code> to make sure the limit has changed to 65535.</p>
+<h5 id="set-the-ulimit-on-non-systemd-based-distributions"><a class="header" href="#set-the-ulimit-on-non-systemd-based-distributions">Set the ulimit on <code>non-systemd</code> based distributions</a></h5>
+<p>Edit <code>etc/security/conf</code> and add the following lines:</p>
+<pre><code># Example hard limit for max opened files
+username        hard nofile 4096
+# Example soft limit for max opened files
+username        soft nofile 4096
+</code></pre>
+<p>Then reboot your server and restart your validator.</p>
+<h3 id="unjailing-your-validator"><a class="header" href="#unjailing-your-validator">Unjailing your validator</a></h3>
+<p>If your validator gets jailed, you can fix it with the following command:</p>
+<Tabs groupId="nym-network">
+  <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      nyxd tx slashing unjail 
+        --broadcast-mode=block 
+        --from="KEYRING_NAME"
+        --chain-id=nyx 
+        --gas=auto 
+        --gas-adjustment=1.4 
+        --fees=7000unyx
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      nymd tx slashing unjail 
+        --broadcast-mode=block 
+        --from="KEYRING_NAME"
+        --chain-id=nym-sandbox 
+        --gas=auto 
+        --gas-adjustment=1.4 
+        --fees=7000unyxt
+    </pre>
+  </TabItem>
+</Tabs>
+<h4 id="common-reasons-for-your-validator-being-jailed"><a class="header" href="#common-reasons-for-your-validator-being-jailed">Common reasons for your validator being jailed</a></h4>
+<p>The most common reason for your validator being jailed is that your validator is out of memory because of bloated syslogs.</p>
+<p>Running the command <code>df -H</code> will return the size of the various partitions of your VPS.</p>
+<p>If the <code>/dev/sda</code> partition is almost full, try pruning some of the <code>.gz</code> syslog archives and restart your validator process.</p>
+<h3 id="day-2-operations-with-your-validator"><a class="header" href="#day-2-operations-with-your-validator">Day 2 operations with your validator</a></h3>
+<p>You can check your current balances with:</p>
+<pre><code>nymd query bank balances ${ADDRESS}
+</code></pre>
+<p>For example, on the Sanbox testnet this would return:</p>
+<pre><code class="language-yaml">balances:
+- amount: &quot;919376&quot;
+denom: unymt
+pagination:
+next_key: null
+total: &quot;0&quot;
+</code></pre>
+<p>You can, of course, stake back the available balance to your validator with the following command. </p>
+<blockquote>
+<p>Remember to save some tokens for gas costs! </p>
+</blockquote>
+<Tabs groupId="nym-network">
+  <TabItem value="mainnet" label="Nyx (Mainnet)">
+    <pre>
+      nyxd tx staking delegate VALOPERADDRESS AMOUNTunym 
+        --from="KEYRING_NAME"
+        --keyring-backend=os 
+        --chain-id=nyx 
+        --gas="auto" 
+        --gas-adjustment=1.15 
+        --fees 5000unyx
+    </pre>
+  </TabItem>
+  <TabItem value="sandbox" label="Sandbox (Testnet)">
+    <pre>
+      nymd tx staking delegate VALOPERADDRESS AMOUNTunymt 
+        --from="KEYRING_NAME"
+        --keyring-backend=os 
+        --chain-id=nym-sandbox
+        --gas="auto" 
+        --gas-adjustment=1.15 
+        --fees 5000unyxt
+    </pre>
+  </TabItem>
+</Tabs>
+<h3 id="validator-port-reference"><a class="header" href="#validator-port-reference">Validator port reference</a></h3>
+<p>All validator-specific port configuration can be found in <code>$HOME/.nymd/config/config.toml</code>. If you do edit any port configs, remember to restart your validator.</p>
+<div class="table-wrapper"><table><thead><tr><th>Default port</th><th>Use</th></tr></thead><tbody>
+<tr><td>1317</td><td>REST API server endpoint</td></tr>
+<tr><td>26656</td><td>Listen for incoming peer connections</td></tr>
+<tr><td>26660</td><td>Listen for Prometheus connections</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../nodes/network-requester-setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../nodes/troubleshooting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../nodes/network-requester-setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../nodes/troubleshooting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/pagetoc.js"></script>
+
+
+    </body>
+</html>
