@@ -1,2 +1,8 @@
-book
+# mdbook files
+book/
+theme/index.hbs
+theme/pagetoc.css
+theme/pagetoc.js
+
+# misc. files 
 todo.md
