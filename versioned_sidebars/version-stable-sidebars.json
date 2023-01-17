@@ -70,6 +70,10 @@
         },
         {
           "type": "doc",
+          "id": "version-stable/integrations/integration-faqs"
+        },
+        {
+          "type": "doc",
           "id": "version-stable/integrations/mixnet-integration-overview"
         },{
           "type": "doc",

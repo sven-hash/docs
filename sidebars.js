@@ -37,6 +37,7 @@ module.exports = {
       collapsed: true,
       items: [
         "integrations/overview",
+        "integrations/integration-faqs",
         "integrations/mixnet-integration-overview",
         "integrations/choose-a-client",
         {
