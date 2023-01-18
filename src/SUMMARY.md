@@ -37,9 +37,6 @@
 
 # Explorers 
 - [Mixnet Explorer](explorers/mixnet-explorer.md)
-- [Blockchain Explorers]()
-    - [Nodes Guru]()
-    - [TODO Others]()
 
 # Nyx Blockchain
 - [Interacting with Nyx Chain and Smart Contracts](nyx/interacting-with-chain.md)
