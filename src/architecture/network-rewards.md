@@ -2,8 +2,6 @@
 
 Node operator and delegator rewards are determined according to the principles laid out in the section 6 of [Nym Whitepaper](https://nymtech.net/nym-whitepaper.pdf). 
 
-**TODO REMOVE SANDBOX REFERENCES** 
-
 Below is a TLDR of the variables and formulas involved in calculating these rewards per epoch. The initial reward pool contains 250 million NYM, leaving a circulating supply of 750 million NYM.
 
 |Symbol|Definition|
@@ -12,12 +10,12 @@ Below is a TLDR of the variables and formulas involved in calculating these rewa
 |<img src="https://render.githubusercontent.com/render/math?math=R_{i}"></img>|node reward for mixnode `i`.
 |<img src="https://render.githubusercontent.com/render/math?math=\sigma_{i}"></img>|ratio of total node stake (node bond + all delegations) to the token circulating supply.
 |<img src="https://render.githubusercontent.com/render/math?math=\lambda_{i}"></img>|ratio of stake operator has pledged to their node to the token circulating supply.
-|<img src="https://render.githubusercontent.com/render/math?math=\omega_{i}"></img>|fraction of total effort undertaken by node `i`, set to `1/k` in testnet Sandbox.
-|<img src="https://render.githubusercontent.com/render/math?math=k"></img>|number of nodes stakeholders are incentivised to create, set by the validators, a matter of governance. Currently determined by the reward set size, and set to 720 in testnet Sandbox.
+|<img src="https://render.githubusercontent.com/render/math?math=\omega_{i}"></img>|fraction of total effort undertaken by node `i`.
+|<img src="https://render.githubusercontent.com/render/math?math=k"></img>|number of nodes stakeholders are incentivised to create, set by the validators, a matter of governance. Currently determined by the reward set size.
 |<img src="https://render.githubusercontent.com/render/math?math=\alpha"></img>|Sybil attack resistance parameter - the higher this parameter is set the stronger the reduction in competitivness gets for a Sybil attacker.
-|<img src="https://render.githubusercontent.com/render/math?math=PM_{i}"></img>|declared profit margin of operator `i`, defaults to 10% in testnet Sandbox.
+|<img src="https://render.githubusercontent.com/render/math?math=PM_{i}"></img>|declared profit margin of operator `i`.
 |<img src="https://render.githubusercontent.com/render/math?math=PF_{i}"></img>|uptime of node `i`, scaled to 0 - 1, for the rewarding epoch
-|<img src="https://render.githubusercontent.com/render/math?math=PP_{i}"></img>|cost of operating node `i` for the duration of the rewarding eopoch, set to 40 Nym for testnet Sandbox.
+|<img src="https://render.githubusercontent.com/render/math?math=PP_{i}"></img>|cost of operating node `i` for the duration of the rewarding eopoch.
 
 Node reward for node `i` is determined as:
 
