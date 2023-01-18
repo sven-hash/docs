@@ -4,13 +4,7 @@
 
 Many existing applications are able to use either the SOCKS4, SOCKS4A, or SOCKS5 proxy protocols. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
 
-<ThemedImage
-  alt="Overview diagram of the Nym network"
-  sources={{
-    light: useBaseUrl('/img/docs/nym-socks5-architecture.png'),
-    dark: useBaseUrl('/img/docs/nym-socks5-architecture-dark.png'),
-  }}
-/>
+![Socks5 Archuitecture](../images/nym-socks5-architecture-dark.png)
 
 There are 2 pieces of software that work together to send SOCKS traffic through the mixnet: the `nym-socks5-client`, and the `nym-network-requester`. 
 
@@ -137,7 +131,7 @@ When trying to connect your app, generally the proxy settings are found in `sett
 
 Here is an example of setting the proxy connecting in Blockstream Green:
 
-![Blockstream Green settings](/img/docs/wallet-proxy-settings/blockstream-green.gif)
+![Blockstream Green settings](../images/wallet-proxy-settings/blockstream-green.gif)
 
 Most wallets and other applications will work basically the same way: find the network proxy settings, enter the proxy url (host: **localhost**, port: **1080**).
 
