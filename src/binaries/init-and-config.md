@@ -1,7 +1,5 @@
 # Binary Initialisation and Configuration
 
-**TODO ADD NOTES ON CYCLE: ALL BINARIES ARE INIT-ED BEFORE THEY'RE RUN. INIT GIVES YOU CONFIG AND KEYPAIR CREATION (IF DOESNT ALREADY EXIST) IN ~/.NYM/ETCETCETC .tHEN YOU RUN THE BINARIES**
-
 All Nym binaries must first be initialised before being `run`. 
 
 The `init` command is ususally where you pass flags specifying arguments such as the gateway you wish to communicate with, the ports you wish your binary to listen on, etc. 
