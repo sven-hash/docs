@@ -10,7 +10,7 @@ src = "src"
 # PREPROCESSORS #
 ################# 
 
-# removed in place of preprocessor.theme 
+# todo remove in place of preprocessor.theme 
 [preprocessor.pagetoc]
 additional-css = ["theme/pagetoc.css"]
 additional-js  = ["theme/pagetoc.js"]
@@ -61,8 +61,17 @@ assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
 # variables preprocessor: import variables into files 
 # https://gitlab.com/tglman/mdbook-variables/
 [preprocessor.variables.variables]
-release_version = "v1.1.5"
+# Code prerequisites versions
 minimum_rust_version = "1.66"
+# minimum_node_version = ""
+# Nym binary versions 
+platform_release_version = "v1.1.5"
+# sdk_version = ""
+# mixnet_contract_version = ""
+# vesting_contract_version = ""
+# wallet_version = ""
+# nym_connect_version = "" 
+# network_explorer_version = "" 
 
 [preprocessor.last-changed]
 command = "mdbook-last-changed"
@@ -91,7 +100,6 @@ extra-watch-dirs = []             # directories to watch for triggering builds
 ########## 
 
 [output.html]
-# theme = "my-theme"
 default-theme = "coal"
 preferred-dark-theme = "coal"
 curly-quotes = true
@@ -105,7 +113,7 @@ git-repository-icon = "fa-github"
 # edit-url-template = "https://github.com/rust-lang/mdBook/edit/master/guide/{path}"
 # site-url = "/example-book/"
 # cname = "myproject.rs"
-# input-404 = "not-found.md"
+# input-404 = "not-found.md" # todo make custom 404 page 
 
 [output.html.fold]
 enable = true    # whether or not to enable section folding
