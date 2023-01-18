@@ -6,6 +6,4 @@ There are currently two smart contracts on the Nyx chain:
 * the [Mixnet contract](/docs/next/smart-contracts/mixnet) which manages the network topology of the mixnet, tracking delegations and rewarding. 
 * the [Vesting contract](/docs/next/smart-contracts/vesting) which manages `NYM` token vesting functionality.  
 
-:::note
-Users will soon be able to create and upload their own CosmWasm smart contracts to Nyx and take advantage of applications such as [Coconut](/docs/next/coconut) - more to be announced regarding this very soon.
-:::
+> Users will soon be able to create and upload their own CosmWasm smart contracts to Nyx and take advantage of applications such as the Coconut Credential Scheme - more to be announced regarding this very soon.
