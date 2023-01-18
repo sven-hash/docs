@@ -5,7 +5,7 @@ The Nym Desktop Wallet lets you interact with your Nym node and to delegate stak
 
 You can download it for Mac, Windows, or Linux.
 
-[![download nym wallet](/img/docs/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-v1.1.1)
+[![download nym wallet](../images/download-wallet.png)](https://github.com/nymtech/nym/releases/tag/nym-wallet-{{platform_release_version}})
 
 ### Bypassing security warnings
 
@@ -23,50 +23,19 @@ Follow the steps below to bypass the warnings.
 
 * Select more-info after clicking the msi installer app: 
 
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/windows_warningv1-0-2.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warningv1-0-2.png'),
-  }}
-/>
+![Windows Warning](../images/wallet-warnings/windows_warningv1-0-2.png)
 
 * Proceed to 'run-anyway':
 
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning2.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning2.png'),
-  }}
-/>
+![Windows Warning](../images/wallet-warnings/windows_warning2.png)
 
 * Follow the installer instructions: 
 
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning3.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning3.png'),
-  }}
-/>
+![Windows Warning](../images/wallet-warnings/windows_warning3.png)
 
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning4.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning4.png'),
-  }}
-/>
+![Windows Warning](../images/wallet-warnings/windows_warning4.png)
 
-<ThemedImage
-  alt=""
-  sources={{
-    light: useBaseUrl('/img/docs/wallet-warnings/windows_warning5.png'),
-    dark: useBaseUrl('/img/docs/wallet-warnings/windows_warning5.png'),
-  }}
-/>
-
+![Windows Warning](../images/wallet-warnings/windows_warning5.png)
 
 ### For developers
 
