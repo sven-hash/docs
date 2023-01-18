@@ -7,9 +7,7 @@ Even if the content of a network request is encrypted, observers can still see t
 
 The Nym mixnet provides very strong security guarantees against this sort of surveillance. It _packetizes_ and _mixes_ together IP traffic from many users inside the _mixnet_. 
 
-:::note
-If you're into comparisons, the Nym mixnet is conceptually similar to other systems such as Tor, but provides improved protections against end-to-end timing attacks which can de-anonymize users. When Tor was first fielded, in 2002, those kinds of attacks were regarded as science fiction. But the future is now here.
-:::
+> If you're into comparisons, the Nym mixnet is conceptually similar to other systems such as Tor, but provides improved protections against end-to-end timing attacks which can de-anonymize users. When Tor was first fielded, in 2002, those kinds of attacks were regarded as science fiction. But the future is now here.
 
 ## Mixnet Traffic Flow
 The Nym mixnet re-orders encrypted, indistinguishable [Sphinx](https://cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf) packets as they travel through the gateways and mix nodes. 
@@ -18,20 +16,9 @@ Traffic to send through the mixnet is broken up into uniformly-sized packets, en
 
 At each 'hop' (i.e. as a packet is forwarded from one node in the sequence to another) a layer of decryption is removed from the Sphinx packet, revealing the address of the next hop, and another Sphinx packet. The packet is then held by the node for a variable amount of time, before being forwarded on to the next node in the route. 
 
-:::note
-For more information on this, check out the [Loopix](/docs/next/architecture/loopix) design document on the next page. 
-::: 
-
 Traffic always travels through the nodes of the mixnet like such:
 
-
-<ThemedImage
-  alt="Overview diagram of the Nym network"
-  sources={{
-    light: useBaseUrl('/img/docs/traffic-flow.png'),
-    dark: useBaseUrl('/img/docs/traffic-flow-dark.png'),
-  }}
-/>
+![Traffic Flow](../images/traffic-flow-dark.png)
 
 From your Nym client, your encrypted traffic is sent to:
 * the gateway your client has registered with,  
@@ -41,9 +28,7 @@ From your Nym client, your encrypted traffic is sent to:
 * the recipient's gateway, which forwards it finally to...
 * the recipient's Nym client, which communicates with an application.  
 
-:::note
-If the recipient's Nym client is offline at the time then the packets will be held by the Gateway their Nym client has registered with until they come online.
-::: 
+> If the recipient's Nym client is offline at the time then the packets will be held by the Gateway their Nym client has registered with until they come online.
 
 Whatever is on the 'other side' of the mixnet from your client, all traffic will travel this way through the mixnet. If you are sending traffic to a service external to Nym (such as a chat application's servers) then your traffic will be sent from the recieving Nym client to an application that will proxy it 'out' of the mixnet to these servers, shielding your metadata from them. P2P (peer-to-peer) applications, unlike the majority of apps, might want to keep all of their traffic entirely 'within' the mixnet, as they don't have to necessarily make outbound network requests to application servers. They would simply have their local application code communicate with their Nym clients, and not forward traffic anywhere 'outside' of the mixnet. 
 
