@@ -15,10 +15,7 @@ The most important thing to note is that these technologies ensure privacy at tw
 
 Here's an overview diagram of the different types of nodes making up the network: 
 
-**TODO SEE WHY THIS ISN'T WORKING** 
-![Nym Platform](../../images/nym-platform-dark.png)
-![other test](../../images/conversation.gif)
-![try again](../../images/nym-logo.svg)
+![Nym Platform](../images/nym-platform-dark.png)
 
 Developers can think of the network as being comprised of **infrastructure nodes** and **clients** for interacting with this infrastructure via privacy-enhanced applications (PEAPPPs). 
 
