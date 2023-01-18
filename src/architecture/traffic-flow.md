@@ -66,8 +66,4 @@ MultiSURBs were implemented in `v1.1.4`. Clients, when sending a message to anot
 
 What this means in practice is that files can now be sent via anonymous replies. 
 
-**TODO EDIT THIS : NOT ENABLED BY DEFAULT ANYWHERE YET - MAKE NOTE OF WHAT FLAG TO USE** 
-
-:::note
-Please note that the `nym-socks5-client` currently **does not** have multiSURBs enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`
-::: 
+> Please note that the `nym-socks5-client` currently **does not** have multiSURBs enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`

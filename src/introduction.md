@@ -2,7 +2,7 @@
 
 This is Nym's technical documentation, containing information and setup guides about the various pieces of Nym software such as different mixnet infrastructure nodes, application clients, and existing applications like the desktop wallet and mixnet explorer. 
 
-If you are new to Nym and want to learn about the mixnet, how to integrate with the network, developer tutorials and quickstart guides, check out the [Developer Portal](). **TODO ADD LINK**  
+If you are new to Nym and want to learn about the mixnet, how to integrate with the network, developer tutorials and quickstart guides, check out the Developer Portal (coming soon!). 
 
 If you are looking for information on grants and beta-release Nym apps, check out the [Shipyard](https://shipyard.nymtech.net) site.
 

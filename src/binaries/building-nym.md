@@ -5,13 +5,12 @@ Nym runs on Mac OS X, Linux, and Windows. All nodes **except the Desktop Wallet 
 ## Building Nym
 Nym has two main codebases:
 
-- the Nym platform **TODO ADD LINK**, written in Rust. This contains all of our code _except_ for the validators.
-- the Nym validators **TODO ADD LINK**, written in Go.
+- the [Nym platform](https://github.com/nymtech/nym), written in Rust. This contains all of our code _except_ for the validators.
+- the [Nym validators](https://github.com/nymtech/nyxd), written in Go.
 
 > This page details how to build the main Nym platform code. **If you want to build and run a validator, [go here](../nodes/validator-setup.md) instead.**
 
 ## Prerequisites
-**TODO ADD FOR MAC AND ARCH BASED SYSTEMS?** 
 - (Debian/Ubuntu) `pkg-config`, `build-essential`, `libssl-dev`, `curl`, `jq`, `git`
 
 ```
@@ -26,7 +25,6 @@ We recommend using the [Rust shell script installer](https://www.rust-lang.org/t
 If you really don't want to use the shell script installer, the [Rust installation docs](https://forge.rust-lang.org/infra/other-installation-methods.html) contain instructions for many platforms.
 
 ## Download and build Nym binaries
-**TODO ADD VARIABLES FOR VERSIONS, MOST RECENT BRANCH, ETC**
 The following commands will compile binaries into the `nym/target/release` directory:
 
 ```
