@@ -39,8 +39,8 @@ When it starts up, a client registers itself with a gateway, and the gateway ret
 
 There are two basic kinds of privacy enhanced applications:
 
-1. **Client apps** running on mobile or desktop devices. These will typically expose a user interface (UI) to a human user. These might be existing apps such as crypto wallets that communicate with Nym via our SOCKS5 proxy, or entirely new apps.
-2. **Service Providers**, which will usually run on a server, and take actions on behalf of users without knowing who they are.
+* **Client apps** running on mobile or desktop devices. These will typically expose a user interface (UI) to a human user. These might be existing apps such as crypto wallets that communicate with Nym via our SOCKS5 proxy, or entirely new apps.
+* **Service Providers**, which will usually run on a server, and take actions on behalf of users without knowing who they are.
 
 Service Providers (SPs) may interact with external systems on behalf of a user. For example, an SP might submit a Bitcoin, Ethereum or Cosmos transaction, proxy a network request, talk to a chat server, or provide anonymous access to a medical system such as a [privacy-friendly coronavirus tracker](https://constructiveproof.com/posts/2020-04-24-coronavirus-tracking-app-privacy/).
 
