@@ -499,6 +499,8 @@ Since the mix node binary exposes several API endpoints itself, you can ping the
 
 The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/release/{{platform_release_version}}/mixnode/src/node/http). 
 
+> You can get more detailed info by appending `?debug` to the URL, like so: `curl http://<NODE_IP_ADDRESS>:8000/stats?debug`
+
 ### Mix node related Validator API endpoints 
 Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
