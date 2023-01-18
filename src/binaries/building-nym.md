@@ -37,7 +37,7 @@ cd nym
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-git checkout release/{{release_version}} # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
+git checkout release/{{platform_release_version}} # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
 
 cargo build --release # build your binaries with **mainnet** configuration
 NETWORK=sandbox cargo build --release # build your binaries with **sandbox** configuration 
@@ -55,7 +55,7 @@ Quite a bit of stuff gets built. The key working parts are:
 The repository also contains Typescript applications which aren't built in this process. These can be built by following the instructions on their respective docs pages.  
 * [Nym Wallet](../wallet/desktop-wallet.md) 
 * [Nym Connect]()
-* [Network Explorer UI](../explorers/mixnet-explorer.md). 
+* [Network Explorer UI](../explorers/mixnet-explorer.md) 
 
 > You cannot build from GitHub's .zip or .tar.gz archive files on the releases page - the Nym build scripts automatically include the current git commit hash in the built binary during compilation, so the build will fail if you use the archive code (which isn't a Git repository). Check the code out from github using `git clone` instead. 
 

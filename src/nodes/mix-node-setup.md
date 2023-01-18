@@ -59,10 +59,10 @@ Which should return a list of all avaliable commands.
  |_| |_|\__, |_| |_| |_|
         |___/
 
-         (mixnode - version {{release_version}})
+         (mixnode - version {{platform_release_version}})
 
         
-nym-mixnode {{release_version}}
+nym-mixnode {{platform_release_version}}
 Nymtech
 Implementation of a Loopix-based Mixnode
 
@@ -90,7 +90,7 @@ SUBCOMMANDS:
     sign                 Sign text to prove ownership of this mixnode
     upgrade              Try to upgrade the mixnode
 
-    nym-mixnode {{release_version}}
+    nym-mixnode {{platform_release_version}}
     Nymtech
 ```
 ~~~
@@ -117,7 +117,7 @@ To check available configuration options for initializing your node use:
  |_| |_|\__, |_| |_| |_|
         |___/
 
-         (mixnode - version {{release_version}})
+         (mixnode - version {{platform_release_version}})
 
         
 nym-mixnode-init 
@@ -202,7 +202,7 @@ Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
 Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
 Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
 Host: 62.240.134.46 (bind address: 62.240.134.46)
-Version: {{release_version}}
+Version: {{platform_release_version}}
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
 You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -273,7 +273,7 @@ Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
 Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
 Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
 Host: 62.240.134.46 (bind address: 62.240.134.46)
-Version: {{release_version}}
+Version: {{platform_release_version}}
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
 You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -312,7 +312,7 @@ It's useful to have the mix node automatically start at system boot time. Here's
 
 ```ini
 [Unit]
-Description=Nym Mixnode ({{release_version}})
+Description=Nym Mixnode ({{platform_release_version}})
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -497,7 +497,7 @@ Since the mix node binary exposes several API endpoints itself, you can ping the
 | `/hardware`          | Returns the hardware information of the node                                          | `curl <NODE_IP_ADDRESS>:8000/hardware`                                                 |
 | `/verloc`            | Returns the verloc information of the node, updated every 12 hours                    | `curl <NODE_IP_ADDRESS>:8000/verloc`                                                   |
 
-The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/release/{{release_version}}/mixnode/src/node/http). 
+The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/release/{{platform_release_version}}/mixnode/src/node/http). 
 
 ### Mix node related Validator API endpoints 
 Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
