@@ -17,10 +17,10 @@ Here's an overview diagram of the different types of nodes making up the network
 
 ![Nym Platform](../images/nym-platform-dark.png)
 
-Developers can think of the network as being comprised of **infrastructure nodes** and **clients** for interacting with this infrastructure via privacy-enhanced applications (PEAPPPs). 
+Developers can think of the network as being comprised of **infrastructure nodes** and **clients** for interacting with this infrastructure via **P**rivacy-**e**nhanced **app**lications (PEApps). 
 
 ## Mixnet Infrastructure 
-The mixnet - the different pieces of software that your traffic will pass through when using an privacy-enhanced app (PEAPPP) - is made up of several different types of nodes:
+The mixnet - the different pieces of software that your traffic will pass through when using an privacy-enhanced app (PEApp) - is made up of several different types of nodes:
 
 * **Mix Nodes** provide network security for network content _and_ metadata, making it impossible to see who is communicating with who, by performing packet-mixing on traffic travelling through the network. 
 
