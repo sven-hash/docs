@@ -75,43 +75,18 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ### Building your validator
 We use the `wasmd` version of the Cosmos validator to run our blockchain. First define the correct variables by selecting the correct network below, as the instructions, files, and endpoints differ in the instructions from here on in: 
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-      <pre>
-      <code>
-        BECH32_PREFIX=n
-      </code>
-    </pre>
-      <pre>
-      <code>
-        WASMD_VERSION=v0.26.1
-      </code>
-    </pre>
-        <pre>
-      <code>
-      NYM_APP_NAME=nyxd
-      </code>
-    </pre>
-  </TabItem>
-
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      <code>
-        BECH32_PREFIX=nymt
-      </code>
-    </pre>
-        <pre>
-      <code>
-        WASMD_VERSION=v0.21.0
-      </code>
-    </pre>
-    <pre>
-      <code>
-      NYM_APP_NAME=nymd
-      </code>
-    </pre>
-    </TabItem>
-</Tabs>
+```
+# Mainnet 
+BECH32_PREFIX=n
+WASMD_VERSION=v0.26.1
+NYM_APP_NAME=nyxd
+```
+```
+# Sandbox
+BECH32_PREFIX=nymt
+WASMD_VERSION=v0.21.0
+NYM_APP_NAME=nymd
+```
 
 Then run this to clone, compile, and build your validator:
 
@@ -151,17 +126,15 @@ This will output something like:
 '/home/username/go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.13.0/api/libwasmvm.so'
 ```
 
-:::note
+~~~admonish note
 
 if you are on Mac OSX use this command instead:
-
 ```
 WASMVM_SO=$(otool -L build/nymd | grep libwasmvm.so | awk '{ print $3 }')
 ls ${WASMVM_SO}
 ```
-
 To get the location of the `libwasmvm.so` file.
-:::
+~~~
 
 When you upload your `nymd`/`nyxd` binary, you'll need to tell it where `libwasmvm.so` is when you start your validator, or it will not run. If you have compiled them on your server then this is not necessary, as the compiled `nymd`/`nyxd` already has access to `libwasmvm.so`.
 
@@ -183,22 +156,14 @@ source ~/.bashrc
 
 Test everything worked:
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-      <pre>
-      <code>
-        nyxd      
-      </code>
-    </pre>
-  </TabItem>
-    <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      <code>
-        nymd  
-      </code>
-    </pre>
-    </TabItem>
-</Tabs>
+```
+# Mainnet 
+nyxd
+```
+```
+# Sandbox 
+nymd
+```
 
 This should return the regular help text.
 
@@ -208,20 +173,11 @@ Prerequisites:
 - FQDN Domain name
 - IPv4 and IPv6 connectivity
 
-Choose a name for your validator and use it in place of `YOUR_NAME` in the following command:
+Choose a name for your validator and use it in place of `<ID>` in the following command:
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
-      nyxd init YOUR_NAME --chain-id=nyx 
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      nymd init YOUR_NAME --chain-id=nym-sandbox 
-    </pre>
-  </TabItem>
-</Tabs>
+```
+nyxd init <ID> --chain-id=nyx 
+```
 
 ```admonish caution
 `init` generates `priv_validator_key.json` and `node_key.json`.  
@@ -233,55 +189,39 @@ If you don't save the validator key, then it can't sign blocks and will be jaile
 there is no way to deterministically (re)generate this key.  
 ```
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-      At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nyxd/config/genesis.json</code>. You will need to replace the contents of that file that with the Nyx Mainnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a>. You can use the following command to download the one for the Nyx Mainnet:
-      <pre>
-      <code>
-      wget  -O $HOME/.nyxd/config/genesis.json https://nymtech.net/genesis/genesis.json
-      </code>
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    At this point, you have a new validator, with its own genesis file located at <code>$HOME/.nymd/config/genesis.json</code>. You will need to replace the contents of that file that with the Sandbox Testnet <a href="https://nymtech.net/testnets/sandbox/genesis.json">genesis file</a>. You can use the following command to download the one for the Sandbox testnet:
-    <pre>
-      <code>
-      wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
-      </code>
-      </pre>
-  </TabItem>
-</Tabs>
+
+At this point, you have a new validator, with its own genesis file located at <code>$HOME/${NYM_APP_NAME}/config/genesis.json</code>. You will need to replace the contents of that file that with either the Nyx Mainnet <a href="https://nymtech.net/genesis/genesis.json">genesis file</a> or Sandbox Sandbox Testnet <a href="https://nymtech.net/testnets/sandbox/genesis.json">genesis file</a>. 
+
+You can use the following command to download them for the correct network:
+
+```
+# Mainnet 
+wget  -O $HOME/.nyxd/config/genesis.json https://nymtech.net/genesis/genesis.json
+```
+
+```
+# Sandbox Testnet
+wget  -O $HOME/.nymd/config/genesis.json https://nymtech.net/testnets/sandbox/genesis.json
+```
 
 ### `config.toml` configuration
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    Edit the following config options in <code>$HOME/.nyxd/config/config.toml</code> to match the information below:
-    <pre>
-      persistent_peers = "ee03a6777fb76a2efd0106c3769daaa064a3fcb5@51.79.21.187:26656" 
-    </pre>
-    <pre>
-      create_empty_blocks = false 
-    </pre>
-    <pre>
-      laddr = "tcp://0.0.0.0:26656" 
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    Add the Nym validator as a persistent peer so that your validator can start pulling blocks from the rest of the network, by editing the following config options in <code>$HOME/.nymd/config/config.toml</code> to match the information below:
-    <pre>
-      cors_allowed_origins = ["*"] 
-    </pre>
-    <pre>
-      persistent_peers = "d24ee58d85a65d34ad5adfc3302c3614b36e8b14@sandbox-validator.nymtech.net:26656" 
-    </pre>
-    <pre>
-      create_empty_blocks = false 
-    </pre>
-    <pre>
-      laddr = "tcp://0.0.0.0:26656" 
-    </pre>
-  </TabItem>
-</Tabs>
+
+Edit the following config options in `$HOME/.nyxd/config/config.toml` to match the information below for your network:
+
+```
+# Mainnet
+persistent_peers = "ee03a6777fb76a2efd0106c3769daaa064a3fcb5@51.79.21.187:26656" 
+create_empty_blocks = false 
+laddr = "tcp://0.0.0.0:26656" 
+```
+
+```
+# Sandbox Testnet 
+cors_allowed_origins = ["*"] 
+persistent_peers = "d24ee58d85a65d34ad5adfc3302c3614b36e8b14@sandbox-validator.nymtech.net:26656" 
+create_empty_blocks = false 
+laddr = "tcp://0.0.0.0:26656" 
+```
 
 These affect the following: 
 * `persistent_peers = "<PEER_ADDRESS>@<DOMAIN>.nymtech.net:26656"` allows your validator to start pulling blocks from other validators
@@ -304,86 +244,40 @@ Finally, if you plan on using [Cockpit](https://cockpit-project.org/documentatio
 ### `app.toml` configuration
 In the file `$HOME/.${NYM_APP_NAME}/config/app.toml`, set the following values:
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
-      enable = true in the `[api]` section to get the API server running
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      minimum-gas-prices = "0.025unymt" 
-    </pre>
-    <pre>
-      enable = true` in the `[api]` section to get the API server running
-    </pre>
-  </TabItem>
-</Tabs>
-
+```
+# Mainnet 
+minimum-gas-prices = "0.025unym" 
+enable = true in the `[api]` section to get the API server running
+```
+```
+# Sandbox Testnet
+minimum-gas-prices = "0.025unymt" 
+enable = true` in the `[api]` section to get the API server running
+```
 
 ### Setting up your validator's admin user
 You'll need an admin account to be in charge of your validator. Set that up with:
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
-      <code>
-      nyxd keys add nyxd-admin
-      </code>
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      <code>
-      nymd keys add nymd-admin
-      </code>
-    </pre>
-  </TabItem>
-</Tabs>
+```
+${NYM_APP_NAME} keys add nyxd-admin
+```
 
 This will add keys for your administrator account to your system's keychain and log your name, address, public key, and mnemonic. As the instructions say, remember to **write down your mnemonic**.
 
 You can get the admin account's address with:
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
-      <code>
-      nyxd keys show nyxd-admin -a
-      </code>
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      <code>
-      nymd keys show nymd-admin -a
-      </code>
-    </pre>
-  </TabItem>
-</Tabs>
+```
+${NYM_APP_NAME} keys show nyxd-admin -a
+```
 
 Type in your keychain **password**, not the mnemonic, when asked. 
 
 ### Starting your validator
 Everything should now be ready to go. You've got the validator set up, all changes made in `config.toml` and `app.toml`, the Nym genesis file copied into place (replacing the initial auto-generated one). Now let's validate the whole setup:
 
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
-      <code>
-      nyxd validate-genesis
-      </code>
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      <code>
-      nymd validate-genesis
-      </code>
-    </pre>
-  </TabItem>
-</Tabs>
-
+```
+${NYM_APP_NAME} validate-genesis
+```
 
 If this check passes, you should receive the following output:
 
@@ -411,22 +305,10 @@ For more information about your validator's port configuration, check the [valid
 > If you are planning to use [Cockpit](https://cockpit-project.org/) on your validator server then you will have defined a different `grpc` port in your `config.toml` above: remember to open this port as well.
 
 Start the validator:
-<Tabs groupId="nym-network">
-    <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
-      <code>
-      nyxd start
-      </code>
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
-      <code>
-      nymd start
-      </code>
-    </pre>
-  </TabItem>
-</Tabs>
+
+```
+${NYM_APP_NAME} start
+```
 
 Once your validator starts, it will start requesting blocks from other validators. This may take several hours. Once it's up to date, you can issue a request to join the validator set with the command below. 
 
@@ -438,9 +320,9 @@ When joining consensus, make sure that you do not disrupt (or worse - halt) the 
 Please initially stake a small amount of tokens compared to existing validators, then delegate to yourself in tranches over time. 
 ```
 
-<Tabs groupId="nym-network">
-  <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
+```
+# Mainnet 
+
       nyxd tx staking create-validator
         --amount=10000000unyx
         --fees=0unyx 
@@ -455,10 +337,10 @@ Please initially stake a small amount of tokens compared to existing validators,
         --gas-adjustment=1.15
         --from="KEYRING_NAME"
         --node https://rpc-1.nyx.nodes.guru:443     
-      </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
+```
+```
+# Sandbox Testnet 
+
       nymd tx staking create-validator
         --amount=10000000unyxt
         --fees=5000unyxt
@@ -473,19 +355,16 @@ Please initially stake a small amount of tokens compared to existing validators,
         --gas-adjustment=1.15
         --from="KEYRING_NAME"
         --node https://sandbox-validator.nymtech.net:443 
-    </pre>
-  </TabItem>
-</Tabs>
+```
 
 You'll need either `unyxt` tokens on Sandbox, or `unyx` tokens on mainnet to perform this command.
 
-Note: we are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
+> We are currently working towards building up a closed set of reputable validators. You can ask us for coins to get in, but please don't be offended if we say no - validators are part of our system's core security and we are starting out with people we already know or who have a solid reputation.
 
 If you want to edit some details for your node you will use a command like this:
 
-<Tabs groupId="nym-network">
-  <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
+```
+# Mainnet
       nymd tx staking edit-validator   
         --chain-id=nym   
         --moniker="whatever you called your validator"
@@ -496,10 +375,9 @@ If you want to edit some details for your node you will use a command like this:
         --gas-adjustment=1.15   
         --from="KEYRING_NAME"
         --fees 2000unyx
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
+```
+```
+# Sandbox Testnet
       nymd tx staking edit-validator   
         --chain-id=nym-sandbox   
         --moniker="whatever you called your validator"
@@ -510,9 +388,7 @@ If you want to edit some details for your node you will use a command like this:
         --gas-adjustment=1.15   
         --from="KEYRING_NAME"
         --fees 2000unyxt
-    </pre>
-  </TabItem>
-</Tabs>
+```
 
 With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact. 
 
@@ -624,9 +500,8 @@ echo 'Metrics URL: http://'$(curl -s ifconfig.me)':26660/metrics'
 
 Your validator's metrics will be available to you at the returned 'Metrics URL'.
 
-<details>
-  <summary>console output</summary>
-
+~~~admonish example collapsible=true title="Console output"
+```
     # HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
     # TYPE go_gc_duration_seconds summary
     go_gc_duration_seconds{quantile="0"} 6.7969e-05
@@ -660,9 +535,8 @@ Your validator's metrics will be available to you at the returned 'Metrics URL'.
     # HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
     # TYPE go_memstats_gc_sys_bytes gauge
     go_memstats_gc_sys_bytes 1.3884192e+07
-    
-</details>
-
+```
+~~~
 
 ### Setting the ulimit
 Linux machines limit how many open files a user is allowed to have. This is called a `ulimit`.
@@ -727,9 +601,8 @@ Then reboot your server and restart your validator.
 ### Unjailing your validator
 If your validator gets jailed, you can fix it with the following command:
 
-<Tabs groupId="nym-network">
-  <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
+```
+# Mainnet
       nyxd tx slashing unjail 
         --broadcast-mode=block 
         --from="KEYRING_NAME"
@@ -737,10 +610,9 @@ If your validator gets jailed, you can fix it with the following command:
         --gas=auto 
         --gas-adjustment=1.4 
         --fees=7000unyx
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
+```
+```
+# Sandbox Testnet
       nymd tx slashing unjail 
         --broadcast-mode=block 
         --from="KEYRING_NAME"
@@ -748,9 +620,7 @@ If your validator gets jailed, you can fix it with the following command:
         --gas=auto 
         --gas-adjustment=1.4 
         --fees=7000unyxt
-    </pre>
-  </TabItem>
-</Tabs>
+```
 
 #### Common reasons for your validator being jailed
 
@@ -783,9 +653,8 @@ You can, of course, stake back the available balance to your validator with the 
 
 > Remember to save some tokens for gas costs! 
 
-<Tabs groupId="nym-network">
-  <TabItem value="mainnet" label="Nyx (Mainnet)">
-    <pre>
+```
+# Mainnet
       nyxd tx staking delegate VALOPERADDRESS AMOUNTunym 
         --from="KEYRING_NAME"
         --keyring-backend=os 
@@ -793,10 +662,9 @@ You can, of course, stake back the available balance to your validator with the 
         --gas="auto" 
         --gas-adjustment=1.15 
         --fees 5000unyx
-    </pre>
-  </TabItem>
-  <TabItem value="sandbox" label="Sandbox (Testnet)">
-    <pre>
+```
+```
+# Sandbox Testnet
       nymd tx staking delegate VALOPERADDRESS AMOUNTunymt 
         --from="KEYRING_NAME"
         --keyring-backend=os 
@@ -804,9 +672,7 @@ You can, of course, stake back the available balance to your validator with the 
         --gas="auto" 
         --gas-adjustment=1.15 
         --fees 5000unyxt
-    </pre>
-  </TabItem>
-</Tabs>
+```
 
 ### Validator port reference
 All validator-specific port configuration can be found in `$HOME/.nymd/config/config.toml`. If you do edit any port configs, remember to restart your validator.
