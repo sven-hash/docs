@@ -322,39 +322,37 @@ Please initially stake a small amount of tokens compared to existing validators,
 
 ```
 # Mainnet 
-
-      nyxd tx staking create-validator
-        --amount=10000000unyx
-        --fees=0unyx 
-        --pubkey=$(/home/youruser/path/to/nyxd/binaries/nyxd tendermint show-validator | jq -r '.["key"]')
-        --moniker="whatever you called your validator"
-        --chain-id=nyx
-        --commission-rate="0.10"
-        --commission-max-rate="0.20"
-        --commission-max-change-rate="0.01"
-        --min-self-delegation="1"
-        --gas="auto"
-        --gas-adjustment=1.15
-        --from="KEYRING_NAME"
-        --node https://rpc-1.nyx.nodes.guru:443     
+nyxd tx staking create-validator
+  --amount=10000000unyx
+  --fees=0unyx 
+  --pubkey=$(/home/youruser/path/to/nyxd/binaries/nyxd tendermint show-validator | jq -r '.["key"]')
+  --moniker="whatever you called your validator"
+  --chain-id=nyx
+  --commission-rate="0.10"
+  --commission-max-rate="0.20"
+  --commission-max-change-rate="0.01"
+  --min-self-delegation="1"
+  --gas="auto"
+  --gas-adjustment=1.15
+  --from="KEYRING_NAME"
+  --node https://rpc-1.nyx.nodes.guru:443     
 ```
 ```
 # Sandbox Testnet 
-
-      nymd tx staking create-validator
-        --amount=10000000unyxt
-        --fees=5000unyxt
-        --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
-        --moniker="whatever you called your validator"
-        --chain-id=nym-sandbox
-        --commission-rate="0.10"
-        --commission-max-rate="0.20"
-        --commission-max-change-rate="0.01"
-        --min-self-delegation="1"
-        --gas="auto"
-        --gas-adjustment=1.15
-        --from="KEYRING_NAME"
-        --node https://sandbox-validator.nymtech.net:443 
+nymd tx staking create-validator
+  --amount=10000000unyxt
+  --fees=5000unyxt
+  --pubkey=$(/home/youruser/path/to/nym/binaries/nymd tendermint show-validator)
+  --moniker="whatever you called your validator"
+  --chain-id=nym-sandbox
+  --commission-rate="0.10"
+  --commission-max-rate="0.20"
+  --commission-max-change-rate="0.01"
+  --min-self-delegation="1"
+  --gas="auto"
+  --gas-adjustment=1.15
+  --from="KEYRING_NAME"
+  --node https://sandbox-validator.nymtech.net:443 
 ```
 
 You'll need either `unyxt` tokens on Sandbox, or `unyx` tokens on mainnet to perform this command.
@@ -365,29 +363,29 @@ If you want to edit some details for your node you will use a command like this:
 
 ```
 # Mainnet
-      nymd tx staking edit-validator   
-        --chain-id=nym   
-        --moniker="whatever you called your validator"
-        --details="Nym validator"   
-        --security-contact="your email"   
-        --identity="your identity"   
-        --gas="auto"   
-        --gas-adjustment=1.15   
-        --from="KEYRING_NAME"
-        --fees 2000unyx
+nymd tx staking edit-validator   
+  --chain-id=nym   
+  --moniker="whatever you called your validator"
+  --details="Nym validator"   
+  --security-contact="your email"   
+  --identity="your identity"   
+  --gas="auto"   
+  --gas-adjustment=1.15   
+  --from="KEYRING_NAME"
+  --fees 2000unyx
 ```
 ```
 # Sandbox Testnet
-      nymd tx staking edit-validator   
-        --chain-id=nym-sandbox   
-        --moniker="whatever you called your validator"
-        --details="Nym validator"   
-        --security-contact="your email"   
-        --identity="your identity"   
-        --gas="auto"   
-        --gas-adjustment=1.15   
-        --from="KEYRING_NAME"
-        --fees 2000unyxt
+nymd tx staking edit-validator   
+  --chain-id=nym-sandbox   
+  --moniker="whatever you called your validator"
+  --details="Nym validator"   
+  --security-contact="your email"   
+  --identity="your identity"   
+  --gas="auto"   
+  --gas-adjustment=1.15   
+  --from="KEYRING_NAME"
+  --fees 2000unyxt
 ```
 
 With above command you can specify the `gpg` key last numbers (as used in `keybase`) as well as validator details and your email for security contact. 
@@ -502,39 +500,39 @@ Your validator's metrics will be available to you at the returned 'Metrics URL'.
 
 ~~~admonish example collapsible=true title="Console output"
 ```
-    # HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
-    # TYPE go_gc_duration_seconds summary
-    go_gc_duration_seconds{quantile="0"} 6.7969e-05
-    go_gc_duration_seconds{quantile="0.25"} 7.864e-05
-    go_gc_duration_seconds{quantile="0.5"} 8.4591e-05
-    go_gc_duration_seconds{quantile="0.75"} 0.000115919
-    go_gc_duration_seconds{quantile="1"} 0.001137591
-    go_gc_duration_seconds_sum 0.356555301
-    go_gc_duration_seconds_count 2448
-    # HELP go_goroutines Number of goroutines that currently exist.
-    # TYPE go_goroutines gauge
-    go_goroutines 668
-    # HELP go_info Information about the Go environment.
-    # TYPE go_info gauge
-    go_info{version="go1.15.7"} 1
-    # HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
-    # TYPE go_memstats_alloc_bytes gauge
-    go_memstats_alloc_bytes 1.62622216e+08
-    # HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
-    # TYPE go_memstats_alloc_bytes_total counter
-    go_memstats_alloc_bytes_total 2.09341707264e+11
-    # HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
-    # TYPE go_memstats_buck_hash_sys_bytes gauge
-    go_memstats_buck_hash_sys_bytes 5.612319e+06
-    # HELP go_memstats_frees_total Total number of frees.
-    # TYPE go_memstats_frees_total counter
-    go_memstats_frees_total 2.828263344e+09
-    # HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
-    # TYPE go_memstats_gc_cpu_fraction gauge
-    go_memstats_gc_cpu_fraction 0.03357798610671518
-    # HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
-    # TYPE go_memstats_gc_sys_bytes gauge
-    go_memstats_gc_sys_bytes 1.3884192e+07
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 6.7969e-05
+go_gc_duration_seconds{quantile="0.25"} 7.864e-05
+go_gc_duration_seconds{quantile="0.5"} 8.4591e-05
+go_gc_duration_seconds{quantile="0.75"} 0.000115919
+go_gc_duration_seconds{quantile="1"} 0.001137591
+go_gc_duration_seconds_sum 0.356555301
+go_gc_duration_seconds_count 2448
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 668
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.15.7"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 1.62622216e+08
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 2.09341707264e+11
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 5.612319e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 2.828263344e+09
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 0.03357798610671518
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 1.3884192e+07
 ```
 ~~~
 
@@ -603,23 +601,23 @@ If your validator gets jailed, you can fix it with the following command:
 
 ```
 # Mainnet
-      nyxd tx slashing unjail 
-        --broadcast-mode=block 
-        --from="KEYRING_NAME"
-        --chain-id=nyx 
-        --gas=auto 
-        --gas-adjustment=1.4 
-        --fees=7000unyx
+nyxd tx slashing unjail 
+  --broadcast-mode=block 
+  --from="KEYRING_NAME"
+  --chain-id=nyx 
+  --gas=auto 
+  --gas-adjustment=1.4 
+  --fees=7000unyx
 ```
 ```
 # Sandbox Testnet
-      nymd tx slashing unjail 
-        --broadcast-mode=block 
-        --from="KEYRING_NAME"
-        --chain-id=nym-sandbox 
-        --gas=auto 
-        --gas-adjustment=1.4 
-        --fees=7000unyxt
+nymd tx slashing unjail 
+  --broadcast-mode=block 
+  --from="KEYRING_NAME"
+  --chain-id=nym-sandbox 
+  --gas=auto 
+  --gas-adjustment=1.4 
+  --fees=7000unyxt
 ```
 
 #### Common reasons for your validator being jailed
@@ -655,23 +653,23 @@ You can, of course, stake back the available balance to your validator with the 
 
 ```
 # Mainnet
-      nyxd tx staking delegate VALOPERADDRESS AMOUNTunym 
-        --from="KEYRING_NAME"
-        --keyring-backend=os 
-        --chain-id=nyx 
-        --gas="auto" 
-        --gas-adjustment=1.15 
-        --fees 5000unyx
+nyxd tx staking delegate VALOPERADDRESS AMOUNTunym 
+  --from="KEYRING_NAME"
+  --keyring-backend=os 
+  --chain-id=nyx 
+  --gas="auto" 
+  --gas-adjustment=1.15 
+  --fees 5000unyx
 ```
 ```
 # Sandbox Testnet
-      nymd tx staking delegate VALOPERADDRESS AMOUNTunymt 
-        --from="KEYRING_NAME"
-        --keyring-backend=os 
-        --chain-id=nym-sandbox
-        --gas="auto" 
-        --gas-adjustment=1.15 
-        --fees 5000unyxt
+nymd tx staking delegate VALOPERADDRESS AMOUNTunymt 
+  --from="KEYRING_NAME"
+  --keyring-backend=os 
+  --chain-id=nym-sandbox
+  --gas="auto" 
+  --gas-adjustment=1.15 
+  --fees 5000unyxt
 ```
 
 ### Validator port reference
