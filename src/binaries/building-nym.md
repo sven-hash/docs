@@ -1,6 +1,6 @@
 # Building from Source
 
-Nym runs on Mac OS X, Linux, and Windows. All nodes **except the Desktop Wallet and NymConnect** on Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes. 
+> Nym runs on Mac OS X, Linux, and Windows. All nodes **except the Desktop Wallet and NymConnect** on Windows should be considered experimental - it works fine if you're an app developer but isn't recommended for running nodes. 
 
 ## Building Nym
 Nym has two main codebases:
