@@ -1,8 +1,8 @@
 # Binary Initialisation and Configuration
 
-All Nym binaries must first be initialised before being `run`. 
+All Nym binaries must first be initialised with `init` before being `run`. 
 
-The `init` command is ususally where you pass flags specifying arguments such as the gateway you wish to communicate with, the ports you wish your binary to listen on, etc. 
+The `init` command is usually where you pass flags specifying configuration arguments such as the gateway you wish to communicate with, the ports you wish your binary to listen on, etc. 
 
 The `init` command will also create the necessary keypairs and configuration files at `~/.nym/<BINARY_TYPE>/<BINARY_ID>/` if these files do not already exist. **It will not overwrite existing keypairs if they are present.** 
 
@@ -10,4 +10,4 @@ You can reconfigure your binaries at any time by editing the config file located
 
 Once you have run `init`, you can start your binary with the `run` command, usually only accompanied by the `id` of the binary that you specified. 
 
-This `id` is never transmitted over the network, and is used to select which config and keys to use. 
+This `id` is **never** transmitted over the network, and is used to select which local config and key files to use for startup. 
