@@ -4,7 +4,8 @@
 # Architecture
 - [Network Overview](architecture/network-overview.md)
 - [Mixnet Traffic Flow](architecture/traffic-flow.md)
-- [Network Rewards](architecture/network-rewards.md)
+<!-- todo reintroduce this with themed images  -->
+<!-- - [Network Rewards](architecture/network-rewards.md) --> 
 
 # Binaries
 - [Pre-built Binaries](binaries/pre-built-binaries.md)
