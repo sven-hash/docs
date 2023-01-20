@@ -13,7 +13,7 @@ Use the following instructions to be able to interact with the Nyx blockchain - 
 
 ## Prepare your Ledger App 
 * Plug in your Ledger device                                                    
-* Install the Cosmos app **TODO add instructions here: I (Max) can't check because my ledger won't connect for some reason**                                                
+* Install the Cosmos app by following the instructions [here](https://hub.cosmos.network/main/resources/ledger.html)                                                
 * On the device, navigate to the Cosmos app and open it    
 
 ## Create a keypair 
