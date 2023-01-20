@@ -13,7 +13,7 @@ Use the following instructions to be able to interact with the Nyx blockchain - 
 
 ## Prepare your Ledger App 
 * Plug in your Ledger device                                                    
-* Install the Cosmos app by following the instructions [here](https://hub.cosmos.network/main/resources/ledger.html)                                                
+* Install the `Cosmos (ATOM)` app by following the instructions [here](https://hub.cosmos.network/main/resources/ledger.html). This app allows you to interact with **any** Cosmos SDK chain - you can manage your ATOM, OSMOSIS, NYM tokens, etc.                                              
 * On the device, navigate to the Cosmos app and open it    
 
 ## Create a keypair 
@@ -53,21 +53,33 @@ Nym-specific commands and queries, like bonding a mix node or delegating unveste
 
 ```
 # Executing commands
-nyxd tx wasm execute ${CONTRACT_ADDRESS} ${JSON_MSG}
+nyxd tx wasm execute $CONTRACT_ADDRESS $JSON_MSG
 
 # Querying the state of a smart contract 
-nyxd query wasm contract-state smart ${CONTRACT_ADDRESS} ${JSON_MSG}
+nyxd query wasm contract-state smart $CONTRACT_ADDRESS $JSON_MSG
 ```
 
-You can find the value of `${CONTRACT_ADDRESS}` in the [`network defaults`](https://github.com/nymtech/nym/blob/release/v1.1.6/common/network-defaults/src/mainnet.rs) file. 
+You can find the value of `$CONTRACT_ADDRESS` in the [`network defaults`](https://github.com/nymtech/nym/blob/release/v1.1.6/common/network-defaults/src/mainnet.rs) file. 
 
-The value of `${JSON_MSG}` will be a blog of `json` formatted as defined for each command and query. You can find these definitions for the mixnet smart contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/mixnet-contract/src/msg.rs) and for the vesting contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/vesting-contract/src/messages.rs) under `ExecuteMsg` and `QueryMsg`. 
+The value of `$JSON_MSG` will be a blog of `json` formatted as defined for each command and query. You can find these definitions for the mixnet smart contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/mixnet-contract/src/msg.rs) and for the vesting contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/vesting-contract/src/messages.rs) under `ExecuteMsg` and `QueryMsg`. 
 
 ### Example command execution: 
-This example will call the `bond_mixnde` function in the mixnet smart contract: 
+#### 
+
+#### Bond a mix node
+You can bond a mix node from the CLI using `nyxd` and signing the transaction with your ledger by filling in the values of this example: 
 ```
 CONTRACT_ADDRESS=mixnet_contract_address
-JSON_MSG='{"bond_mixnode":{"mix_node": {"host": "foo", "version": "v1.0.1", <OTHER FIELDS HERE> }, "owner_signature": "value"}'
 
-nymd tx wasm execute ${CONTRACT_ADDRESS} ${JSON_MSG} --ledger --from admin --chain-id qa-net --gas-prices 0.025unymt --gas auto -b block
+nyxd tx wasm execute $CONTRACT_ADDRESS '{"bond_mixnode":{"mix_node": {"host": "foo", "version": "v1.0.1", <OTHER FIELDS HERE> }, "owner_signature": "value"} ' --ledger --from admin --node https://rpc.dev.nymte.ch:443 --gas-prices 0.025unymt --gas auto -b block
 ```
+> By replacing the value of `CONTRACT_ADDRESS` with the address of the vesting contract, you could use the above command to bond a mix node using tokens held in the vesting contract. 
+
+#### Query a vesting schedule 
+You can query for (e.g.) seeing the current vesting period of an address by filling in the values of the following: 
+```
+CONTRACT_ADDRESS=vesting_contract_address
+
+nyxd query wasm contract-state smart $CONTRACT_ADDRESS '{"get_current_vesting_period"}:{"address": "address_to_query_for"}' --ledger --from admin --node https://rpc.dev.nymte.ch:443 --chain-id qa-net --gas-prices 0.025unymt --gas auto -b block  
+```
+
