@@ -53,16 +53,21 @@ Nym-specific commands and queries, like bonding a mix node or delegating unveste
 
 ```
 # Executing commands
-nyxd tx wasm execute $CONTRACT_ADDRESS $JSON_MSG
+nyxd tx wasm execute ${CONTRACT_ADDRESS} ${JSON_MSG}
 
 # Querying the state of a smart contract 
-nyxd query wasm contract-state smart $CONTRACT_ADDRESS $JSON_MSG
+nyxd query wasm contract-state smart ${CONTRACT_ADDRESS} ${JSON_MSG}
 ```
 
-You can find the value of `$CONTRACT_ADDRESS` in the [`network defaults`](https://github.com/nymtech/nym/blob/release/v1.1.6/common/network-defaults/src/mainnet.rs) file. 
+You can find the value of `${CONTRACT_ADDRESS}` in the [`network defaults`](https://github.com/nymtech/nym/blob/release/v1.1.6/common/network-defaults/src/mainnet.rs) file. 
 
-The value of `$JSON_MSG` will be a blog of `json` formatted as defined for each command and query. You can find these definitions for the mixnet smart contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/mixnet-contract/src/msg.rs) and for the vesting contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/vesting-contract/src/messages.rs) under `ExecuteMsg` and `QueryMsg`. 
+The value of `${JSON_MSG}` will be a blog of `json` formatted as defined for each command and query. You can find these definitions for the mixnet smart contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/mixnet-contract/src/msg.rs) and for the vesting contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/vesting-contract/src/messages.rs) under `ExecuteMsg` and `QueryMsg`. 
 
 ### Example command execution: 
+This example will call the `bond_mixnde` function in the mixnet smart contract: 
+```
+CONTRACT_ADDRESS=mixnet_contract_address
+JSON_MSG='{"bond_mixnode":{"mix_node": {"host": "foo", "version": "v1.0.1", <OTHER FIELDS HERE> }, "owner_signature": "value"}'
 
-**TODO**
+nymd tx wasm execute ${CONTRACT_ADDRESS} ${JSON_MSG} --ledger --from admin --chain-id qa-net --gas-prices 0.025unymt --gas auto -b block
+```
