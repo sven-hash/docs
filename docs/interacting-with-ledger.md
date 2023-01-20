@@ -66,14 +66,14 @@ The value of `$JSON_MSG` will be a blog of `json` formatted as defined for each 
 ### Example command execution: 
 #### 
 
-#### Bond a mix node
-You can bond a mix node from the CLI using `nyxd` and signing the transaction with your ledger by filling in the values of this example: 
+#### Delegate to a mix node
+You can delegate to a mix node from the CLI using `nyxd` and signing the transaction with your ledger by filling in the values of this example: 
 ```
 CONTRACT_ADDRESS=mixnet_contract_address
 
-nyxd tx wasm execute $CONTRACT_ADDRESS '{"bond_mixnode":{"mix_node": {"host": "foo", "version": "v1.0.1", <OTHER FIELDS HERE> }, "owner_signature": "value"} ' --ledger --from admin --node https://rpc.dev.nymte.ch:443 --gas-prices 0.025unymt --gas auto -b block
-```
-> By replacing the value of `CONTRACT_ADDRESS` with the address of the vesting contract, you could use the above command to bond a mix node using tokens held in the vesting contract. 
+./nyxd tx wasm execute $CONTRACT_ADDRESS '{"delegate_to_mixnode":{"mix_identity":"MIX_NODE_IDENTITY","amount":{"amount":"100000000000","denom":"unym"}}}' --ledger --from admin --node https://rpc.dev.nymte.ch:443 --gas-prices 0.025unymt --gas auto -b block```
+
+> By replacing the value of `CONTRACT_ADDRESS` with the address of the vesting contract, you could use the above command to use tokens held in the vesting contract. 
 
 #### Query a vesting schedule 
 You can query for (e.g.) seeing the current vesting period of an address by filling in the values of the following: 
