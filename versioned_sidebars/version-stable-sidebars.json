@@ -211,6 +211,10 @@
     },
     {
           "type": "doc", 
+          "id": "version-stable/interacting-with-ledger"
+    },
+    {
+          "type": "doc", 
           "id": "version-stable/compatibility-table"
     },
     {
