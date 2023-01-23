@@ -99,6 +99,7 @@ module.exports = {
     },
     "wallet",
     "nym-cli",
+    "interacting-with-ledger",
     "compatibility-table",
     "coconut",
     "glossary",
