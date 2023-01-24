@@ -11,7 +11,7 @@ Whilst in general it recommended to be running the most recent version of any so
 
 | Mix node      | Gateway       | Clients       | Network Requester | SDK   | Wallet        | NymConnect    | Network Explorer | Mixnet contract | Vesting contract |
 | ------------- | ------------- | ------------- | ----------------- | ----- | ------------- | ------------- | ---------------- | --------------- | ---------------- |
-| 1.1.0 - 1.1.5 | 1.1.0 - 1.1.5 | 1.1.0 - 1.1.5 | 1.1.0 - 1.1.5     | 1.1.5 | 1.1.0 - 1.1.5 | 1.1.0 - 1.1.5 | 1.1.0 - 1.1.2    | 1.1.0           | 1.1.0            |
+| 1.1.0 - 1.1.7 | 1.1.0 - 1.1.7 | 1.1.0 - 1.1.7 | 1.1.0 - 1.1.7     | 1.1.5 | 1.1.0 - 1.1.5 | 1.1.0 - 1.1.7 | 1.1.0 - 1.1.2    | 1.1.0           | 1.1.0            |
 | 1.1.0 - 1.1.4 | 1.1.0 - 1.1.4 | 1.1.0 - 1.1.4 | 1.1.0 - 1.1.4     | 1.1.5 | 1.1.0 - 1.1.4 | 1.1.0 - 1.1.4 | 1.1.0 - 1.1.2    | 1.1.0           | 1.1.0            |
 | 1.1.0 - 1.1.3 | 1.1.0 - 1.1.3 | 1.1.0 - 1.1.3 | 1.1.0 - 1.1.3     | 1.1.4 | 1.1.0 - 1.1.3 | 1.1.0 - 1.1.3 | 1.1.0 - 1.1.2    | 1.1.0           | 1.1.0            |
 | 1.1.0 - 1.1.2 | 1.1.0 - 1.1.2 | 1.1.0 - 1.1.2 | 1.1.0 - 1.1.2     | 1.1.4 | 1.1.0 - 1.1.3 | 1.1.0 - 1.1.3 | 1.1.0 - 1.1.2    | 1.1.0           | 1.1.0            |
@@ -23,6 +23,7 @@ Whilst in general it recommended to be running the most recent version of any so
 
 | Platform release changelog                                                                       |
 | ------------------------------------------------------------------------------------------------ |
+| 1.1.6 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.6/CHANGELOG.md))             | 
 | 1.1.5 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.5/CHANGELOG.md))             | 
 | 1.1.4 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.4/CHANGELOG.md))             | 
 | 1.1.3 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.3/CHANGELOG.md))             |
