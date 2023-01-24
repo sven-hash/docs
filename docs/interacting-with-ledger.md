@@ -59,7 +59,7 @@ nyxd tx wasm execute $CONTRACT_ADDRESS $JSON_MSG
 nyxd query wasm contract-state smart $CONTRACT_ADDRESS $JSON_MSG
 ```
 
-You can find the value of `$CONTRACT_ADDRESS` in the [`network defaults`](https://github.com/nymtech/nym/blob/release/v1.1.6/common/network-defaults/src/mainnet.rs) file. 
+You can find the value of `$CONTRACT_ADDRESS` in the [`network defaults`](https://github.com/nymtech/nym/blob/release/v1.1.7/common/network-defaults/src/mainnet.rs) file. 
 
 The value of `$JSON_MSG` will be a blog of `json` formatted as defined for each command and query. You can find these definitions for the mixnet smart contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/mixnet-contract/src/msg.rs) and for the vesting contract [here](https://github.com/nymtech/nym/blob/develop/common/cosmwasm-smart-contracts/vesting-contract/src/messages.rs) under `ExecuteMsg` and `QueryMsg`. 
 
