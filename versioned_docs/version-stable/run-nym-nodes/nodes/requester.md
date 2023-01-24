@@ -9,7 +9,7 @@ title: "Network Requesters"
 The Nym network requester was built in the [building nym](/docs/stable/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 :::
 
-If you have access to a server, you can run the Network Requester, which allows Nym users to make outbound network requests from your server.
+If you have access to a server, you can run the Network Requester, which allows Nym users to send outbound requests from their local machine through the mixnet to your server, which then makes the request on their behalf, shielding them from the backend infrastructure of this service. 
 
 ## Anatomy of a network requester service 
 
@@ -23,7 +23,7 @@ The `nym-network-requester` binary listens and sends responses to the `nym-clien
 
 ## Nym client 
 
-Before initalising your Network Requester, you must initalise and run an instance of the `nym-client` binary for it to listen to. This would have been built in the same `build` process that built the `network-requester`. 
+Before initalising your network requester, you must initalise and run an instance of the `nym-client` binary for it to use to communicate with the mixnet. This would have been built in the same `build` process that built the `network-requester`. 
 
 ### Initialising your nym client 
 
@@ -58,13 +58,13 @@ You can check that your client is initialised correctly by running the following
   <summary>console output</summary>
 
 
-          _ __  _   _ _ __ ___
+         _ __  _   _ _ __ ___
         | '_ \| | | | '_ \ _ \
         | | | | |_| | | | | | |
         |_| |_|\__, |_| |_| |_|
                 |___/
 
-                (client - version 1.1.6)
+                (client - version 1.1.7)
 
         
     2022-08-09T15:06:03.276Z INFO  nym_client::client > Starting nym client
@@ -82,7 +82,7 @@ Stop the running process with `CTRL-C`, and create a service file at `/etc/syste
 
 ```
 [Unit]
-Description=Nym Client (1.1.6)
+Description=Nym Client (1.1.7)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -227,13 +227,23 @@ curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:
 
 </details> 
 
-### Automating your network requester with systemd
+### Upgrading your network requester 
+:::caution
+If you are updating your network requester from `v1.1.6` to `v1.1.7` and have a custom `allowed.list` we recommend you make a copy of this file before upgrading. 
+:::
 
+You can upgrade your network requester by following these steps: 
+
+* stop your network requester service 
+* replace the old binary with the new binary 
+* restart your service 
+
+### Automating your network requester with systemd
 Stop the running process with `CTRL-C`, and create a service file for the requester as we did with our client instance previously at `/etc/systemd/system/nym-network-requester.service`:
 
 ```
 [Unit]
-Description=Nym Network Requester (1.1.6)
+Description=Nym Network Requester (1.1.7)
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -262,7 +272,6 @@ systemctl status nym-network-requester.service
 
 
 ### Configure your firewall
-
 Although your requester is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
 ```
@@ -287,57 +296,33 @@ sudo ufw status
 For more information about your requester's port configuration, check the [requester port reference table](#requester-port-reference) below.
 
 ## Using your network requester 
-
 :::caution
 Service Grant grantees should only whitelist a single application - edit your `allowed.list` accordingly!
 :::
 
-You can safely share the address of your running `nym-client` with however you want - if you would like to run a Network Requester for the whole Nym network, give it to us and we can even put it in the Nym documentation.
+You can safely share the address of your running `nym-client` with however you want. 
 
 Is this safe to do? If it was an open proxy, this would be unsafe, because any Nym user could make network requests to any system on the internet.
 
 To make things a bit less stressful for administrators, the Network Requester drops all incoming requests by default. In order for it to make requests, you need to add specific domains to the `allowed.list` file at `$HOME/.nym/service-providers/network-requester/allowed.list`.
 
-If you want, you can just use the domains in the default `allowed.list`, by running this command from the top-level `nym` code directory:
+### Supporting custom domains with your network requester
+It is easy to add new domains and services to your network requester - simply find out which endpoints (both URLs and raw IP addresses are supported) you need to whitelist, and then add these endpoints to your `allowed.list` as such: 
 
-```
-cp service-providers/network-requester/allowed.list.sample ~/.nym/service-providers/network-requester/allowed.list
-```
-
-Those URLs will let through requests for the Blockstream Green and Electrum cryptocurrency wallets, as well as the KeyBase chat client.
-
-:::caution
-If you change your `allowed.list`, make sure you restart the `nym-network-requester.service` to pick up the new allowed request list
-:::
-
-### Adding URLs for other clients
-
-It would suck if Nym was restricted to only three clients. How can we add support for a new application? It's fairly easy to do.
-
-Have a look in your nym-network-requester config directory:
-
-```
-ls $HOME/.nym/service-providers/network-requester/
-
-# returns: allowed.list  unknown.list
-```
-
-We already know that `allowed.list` is what lets requests go through. All unknown requests are logged to `unknown.list`. If you want to try using a new client type, just start the new application, point it at your local SOCKS5 proxy (configured to use your remote `nym-network-requester`), and keep copying URLs from `unknown.list` into `allowed.list` (it may take multiple tries until you get all of them, depending on the complexity of the application).
-
-If you add support for a new application, we'd love to hear about it: let us know or submit a commented pull request on `allowed.list.sample`. 
+* attempt to send traffic to your network requester from the new app (e.g. Telegram)
+* after a few attempted requests, check the content of `~/.nym/service-providers/network-requester/unknown.list`, which is where blocked URLs or IPs are collected by the running network requester 
+* add these URLs or IPs to your `allowed.list` and restart your network requester process 
+* your requests should now be forwarded to the specified endpoint by your network requester service. 
 
 :::caution
 If you are adding custom domains, please note that whilst they may appear in the logs of your network-requester as something like `api-0.core.keybaseapi.com:443`, you **only need** to include the main domain name, in this instance `keybaseapi.com`
 :::
 
 ### Running an open proxy
-
 If you *really* want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
-
 
 ## Ports
 ### Requester port reference
-
 All requester-specific port configuration can be found in `$HOME/.nym/clients/<YOUR_ID>/config/config.toml` & `$HOME/.nym/service-providers/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.
 
 | Default port | Use                       |
@@ -347,12 +332,9 @@ All requester-specific port configuration can be found in `$HOME/.nym/clients/<Y
 
 
 ## Testing your Network Requester
+1. Initialise a local socks5 client with the address of your NR as the --provider, following instructions [here](https://docs.nymtech.net/docs/stable/integrations/socks5-client)
 
-1. Add `nymtech.net` to your `allowed.list` (remember to restart you Network Requester). 
-
-2. Initialise a local socks5 client with the address of your NR as the --provider, following instructions [here](https://docs.nymtech.net/docs/stable/integrations/socks5-client)
-
-3. In another terminal window, run the following: 
+2. In another terminal window, run the following: 
 
 ```
 curl -x socks5h://localhost:1080 https://nymtech.net/.wellknown/connect/healthcheck.json 
