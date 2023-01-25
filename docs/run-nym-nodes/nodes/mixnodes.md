@@ -4,6 +4,10 @@ description: "Mix nodes accept Sphinx packets, shuffle packets together, and for
 hide_title: false
 title: Mix nodes 
 ---
+:::caution
+As of current, the current stable branch to work off regarding the Mixnode binary would be the `master` branch.
+The mixnode binary currently stands on version `release/v1.1.8` but the branch for the release has not been finalized yet. 
+:::
 
 :::note
 The Nym mix node binary was built in the [building nym](/docs/next/run-nym-nodes/build-nym/) section. If you haven't yet built Nym and want to run the code, go there first.
