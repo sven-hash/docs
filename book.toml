@@ -10,16 +10,21 @@ src = "src"
 # PREPROCESSORS #
 ################# 
 
-# NOTE for adding this in: delete the theme directory, uninstall mdbook-pagetoc, and then run mdbook build so it creates the theme directory again 
+# Note if changing these fields: 
+# - make sure you aren't running `mdbook serve` 
+# - change value of `turn-off = true` to `false`. This is set to `true` usually to avoid a known constant-reload bug with `mdbook serve` and this preprocessor
+# - delete `./theme/` dir 
+# - change the preprocessor values that you want to edit 
+# - run `mdbook build`: this will rebuild the `./theme` directory 
+# - change value of `turn-off` back to `true` 
 [preprocessor.theme]
 pagetoc        = true
 # some variables related (defined in theme/css/variables.css)
-# `content-max-width` + `pagetoc-width` = 95% seems the best
 pagetoc-width            = "13%"
 content-max-width        = "70%" # 82
 pagetoc-fontsize         = "14.5px"
 sidebar-width            = "300px"
-menu-bar-height          = "40px"   # memu-bar = the bar on the top
+menu-bar-height          = "40px" # memu-bar = the bar on the top
 page-padding             = "20px"
 mobile-content-max-width = "98%"
 
@@ -42,17 +47,11 @@ assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
 # variables preprocessor: import variables into files 
 # https://gitlab.com/tglman/mdbook-variables/
 [preprocessor.variables.variables]
-# Code prerequisites versions
+# code prerequisites versions
 minimum_rust_version = "1.66"
 # minimum_node_version = ""
-# Nym binary versions 
+# nym platform code most recent release 
 platform_release_version = "v1.1.6"
-sdk_version = ""
-# mixnet_contract_version = ""
-# vesting_contract_version = ""
-# wallet_version = ""
-# nym_connect_version = "" 
-# network_explorer_version = "" 
 
 [preprocessor.last-changed]
 command = "mdbook-last-changed"
