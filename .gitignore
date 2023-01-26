@@ -4,6 +4,8 @@ book/*
 theme/index.hbs
 theme/pagetoc.css
 theme/pagetoc.js
+theme/* 
+theme 
 
 # misc. files 
 todo.md
