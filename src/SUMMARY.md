@@ -46,6 +46,9 @@
     - [Vesting Contract](nyx/vesting-contract.md)
 - [RPC Nodes](nyx/rpc-node.md)
 
+# Coconut 
+- [Coconut](coconut.md)
+
 # Tools 
 - [NymCLI](tools/nym-cli.md)
 
