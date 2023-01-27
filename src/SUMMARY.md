@@ -45,6 +45,7 @@
     - [Mixnet Contract](nyx/mixnet-contract.md)
     - [Vesting Contract](nyx/vesting-contract.md)
 - [RPC Nodes](nyx/rpc-node.md)
+- [Ledger Live Support](nyx/ledger-live.md)
 
 # Coconut 
 - [Coconut](coconut.md)
