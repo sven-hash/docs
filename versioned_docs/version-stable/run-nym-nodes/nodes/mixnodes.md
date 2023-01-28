@@ -5,8 +5,7 @@ hide_title: false
 title: Mix nodes 
 ---
 :::caution
-As of current, the current stable branch to work off regarding the Mixnode binary would be the `master` branch.
-The mixnode binary currently stands on version `release/v1.1.8` but the branch for the release has not been finalized yet. 
+Do not update to anything past `v1.1.6` of the mixnode. We have received community reports of problems with later versions and are investigating. 
 :::
 
 :::note
