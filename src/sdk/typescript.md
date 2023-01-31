@@ -1,5 +1,8 @@
 # Typescript SDK
+
+>With the new release of [v1.1.8](https://github.com/nymtech/nym/tree/release/v1.1.8), the default setting for reply-SURBS is now enabled. This allows services such as Network Requesters to send larger files privately back to the user.
  
+
 The Nym Typescript SDK allows developers to start building browser-based Mixnet applications quickly, by simply importing the SDK into their code via NPM as they would any other Typescript library. 
 
 You can find the source code [here](https://github.com/nymtech/nym/tree/release/{{platform_release_version}}/sdk) and the library on NPM [here](https://www.npmjs.com/package/@nymproject/sdk). 
