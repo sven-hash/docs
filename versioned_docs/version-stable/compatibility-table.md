@@ -24,6 +24,7 @@ Whilst in general it recommended to be running the most recent version of any so
 
 | Platform release changelog                                                                       |
 | ------------------------------------------------------------------------------------------------ |
+| 1.1.8 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.8/CHANGELOG.md))             |
 | 1.1.7 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.7/CHANGELOG.md))             | 
 | 1.1.6 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.6/CHANGELOG.md))             | 
 | 1.1.5 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.5/CHANGELOG.md))             | 

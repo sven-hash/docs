@@ -45,7 +45,7 @@ cd nym
 git reset --hard # in case you made any changes on your branch
 git pull # in case you've checked it out before
 
-git checkout release/v1.1.7 # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
+git checkout release/v1.1.8 # checkout to the latest release branch: `develop` will most likely be incompatible with deployed public networks  
 
 cargo build --release # build your binaries with **mainnet** configuration
 NETWORK=sandbox cargo build --release # build your binaries with **sandbox** configuration 
