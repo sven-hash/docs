@@ -17,15 +17,18 @@ jobs:
           node-version: "16"
       - run: npm install
         continue-on-error: true
-      - run: npm run build
-        continue-on-error: true
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
+      - run: mdbook build
       - name: Deploy branch to CI www
         continue-on-error: true
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.CI_WWW_SSH_PRIVATE_KEY }}
           ARGS: "-rltgoDzvO --delete"
-          SOURCE: "build/"
+          SOURCE: "book/"
           REMOTE_HOST: ${{ secrets.CI_WWW_REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.CI_WWW_REMOTE_USER }}
           TARGET: ${{ secrets.CI_WWW_REMOTE_TARGET }}/docs-${{ env.GITHUB_REF_SLUG }}
