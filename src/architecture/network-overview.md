@@ -15,7 +15,7 @@ The most important thing to note is that these technologies ensure privacy at tw
 
 Here's an overview diagram of the different types of nodes making up the network: 
 
-![Nym Platform](../images/nym-platform-dark.png)
+![Nym Platform](../imagesym-platform-dark.png)
 
 Developers can think of the network as being comprised of **infrastructure nodes** and **clients** for interacting with this infrastructure via **P**rivacy-**e**nhanced **app**lications (PEApps). 
 
@@ -30,8 +30,8 @@ The mixnet - the different pieces of software that your traffic will pass throug
 
 * **Nyx Blockchain Validators** secure the network with proof-of-stake Sybil defenses, determine which nodes are included within the network, and work together to create Coconut threshold credentials which provide anonymous access to data and resources. They also produce blocks and secure the Nyx Blockchain. Initially, this chain was used only to house the CosmWasm smart contracts keeping track of Nym's network topology, token vesting contracts, and the `NYM` token itself. In recent months, we've decided to expand the role of Nyx and instead expand its role by making it an open smart contract platform for anyone to upload CosmWasm smart contracts to. Validators also provide privacy-enhanced credentials based on the testimony of a set of decentralized, blockchain-based issuing authorities. Nym validators use the [Coconut](https://arxiv.org/abs/1802.07344) [signature scheme](https://en.wikipedia.org/wiki/Digital_signature) to issue credentials. This allows privacy apps to generate anonymous resource claims through decentralised authorities, then use them with Service Providers.
 
-## Privacy-enhanced applications (PEAPPs) 
-PEAPPs use a Nym client to connect to the network in order to get the available Network Topology for traffic routing, and send/receive packets to other users and services. Clients, in order to send traffic through the mixnet, connect to gateways. Since applications may go online and offline, a client's gateway provides a sort of mailbox where apps can receive their messages.
+## Privacy-enhanced applications (PEApps) 
+PEApps use a Nym client to connect to the network in order to get the available Network Topology for traffic routing, and send/receive packets to other users and services. Clients, in order to send traffic through the mixnet, connect to gateways. Since applications may go online and offline, a client's gateway provides a sort of mailbox where apps can receive their messages.
 
 Nym clients connect to gateways. Messages are automatically piped to connected clients and deleted from the gateway's disk storage. If a client is offline when a message arrives, it will be stored for later retrieval. When the client connects, all messages will be delivered, and deleted from the gateway's disk. 
 

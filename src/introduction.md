@@ -11,7 +11,7 @@ If you are looking for information on grants and beta-release Nym apps, check ou
 **Network Architecture:**
 * [Network Overview](./architecture/network-overview.md)
 * [Mixnet Traffic Flow](./architecture/traffic-flow.md)
-* [Network Rewards](./architecture/network-rewards.md)
+<!-- * [Network Rewards](./architecture/network-rewards.md) -->
 
 **Node setup and usage guides:**
 * [Mix nodes](./nodes/mix-node-setup.md) 
