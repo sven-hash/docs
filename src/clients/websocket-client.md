@@ -22,17 +22,10 @@ You can check that your binaries are properly compiled with:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-<<<<<<< HEAD:src/clients/websocket-client.md
              (client - version {{platform_release_version}})
 
     
       nym-client {{platform_release_version}}
-=======
-             (client - version 1.1.7)
-
-    
-      nym-client 1.1.7
->>>>>>> master:docs/integrations/websocket-client.md
       Nymtech
       Implementation of the Nym Client
 
