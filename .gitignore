@@ -7,5 +7,27 @@ theme/pagetoc.js
 theme/* 
 theme 
 
-# misc. files 
+# -----------------------
+# Local Development Tools
+# -----------------------
+/node_modules
+/npm-debug.log
+
+# ---------------
+# Compiled assets
+# ---------------
+.sass-cache
+_site
+
+# ----------
+# Docusaurus
+# ----------
+.docusaurus
+build
+dist
+
+# ----------
+# Developing
+# ----------
 todo.md
+.vscode 

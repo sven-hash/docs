@@ -50,12 +50,27 @@ You can check that your binaries are properly compiled with:
  |_| |_|\__, |_| |_| |_|
         |___/
 
+<<<<<<< HEAD:src/nodes/gateway-setup.md
          (gateway - version {{platform_release_version}})
 
     
 nym-gateway {{platform_release_version}}
 Nymtech
 Implementation of the Nym Mixnet Gateway
+=======
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (gateway - version 1.1.7)
+
+    
+    nym-gateway 1.1.7
+    Nymtech
+    Implementation of the Nym Mixnet Gateway
+>>>>>>> master:docs/run-nym-nodes/nodes/gateways.md
 
 USAGE:
     nym-gateway [OPTIONS] <SUBCOMMAND>
@@ -110,7 +125,11 @@ To check available configuration options use:
  |_| |_|\__, |_| |_| |_|
         |___/
 
+<<<<<<< HEAD:src/nodes/gateway-setup.md
          (gateway - version {{platform_release_version}})
+=======
+             (gateway - version 1.1.7)
+>>>>>>> master:docs/run-nym-nodes/nodes/gateways.md
 
     
 nym-gateway-init 
@@ -331,7 +350,11 @@ Although it's not totally necessary, it's useful to have the gateway automatical
 
 ```ini
 [Unit]
+<<<<<<< HEAD:src/nodes/gateway-setup.md
 Description=Nym Gateway ({{platform_release_version}})
+=======
+Description=Nym Gateway (1.1.7)
+>>>>>>> master:docs/run-nym-nodes/nodes/gateways.md
 StartLimitInterval=350
 StartLimitBurst=10
 

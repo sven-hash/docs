@@ -1,4 +1,16 @@
+<<<<<<< HEAD:src/nodes/mix-node-setup.md
 # Mix Nodes
+=======
+---
+sidebar_label: "Mix nodes"
+description: "Mix nodes accept Sphinx packets, shuffle packets together, and forward them onwards, providing strong privacy for internet users."
+hide_title: false
+title: Mix nodes 
+---
+:::caution
+Do not update to anything past `v1.1.6` of the mixnode. We have received community reports of problems with later versions and are investigating. 
+:::
+>>>>>>> master:docs/run-nym-nodes/nodes/mixnodes.md
 
 > The Nym mix node binary was built in the [building nym](../binaries/building-nym.md) section. If you haven't yet built Nym and want to run the code, go there first.
 
@@ -59,6 +71,7 @@ Which should return a list of all avaliable commands.
  |_| |_|\__, |_| |_| |_|
         |___/
 
+<<<<<<< HEAD:src/nodes/mix-node-setup.md
          (mixnode - version {{platform_release_version}})
 
         
@@ -94,6 +107,51 @@ SUBCOMMANDS:
     Nymtech
 ```
 ~~~
+=======
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 1.1.7)
+
+        
+    nym-mixnode 1.1.7
+    Nymtech
+    Implementation of a Loopix-based Mixnode
+
+    USAGE:
+        nym-mixnode [OPTIONS] <SUBCOMMAND>
+
+    OPTIONS:
+            --config-env-file <CONFIG_ENV_FILE>
+                Path pointing to an env file that configures the mixnode
+
+        -h, --help
+                Print help information
+
+        -V, --version
+                Print version information
+
+    SUBCOMMANDS:
+        completions          Generate shell completions
+        describe             Describe your mixnode and tell people why they should delegate state to
+                                you
+        generate-fig-spec    Generate Fig specification
+        help                 Print this message or the help of the given subcommand(s)
+        init                 Initialise the mixnode
+        node-details         Show details of this mixnode
+        run                  Starts the mixnode
+        sign                 Sign text to prove ownership of this mixnode
+        upgrade              Try to upgrade the mixnode
+
+        nym-mixnode 1.1.7
+        Nymtech
+
+
+</details>
+>>>>>>> master:docs/run-nym-nodes/nodes/mixnodes.md
 
 You can also check the various arguments required for individual commands with:
 
@@ -117,7 +175,17 @@ To check available configuration options for initializing your node use:
  |_| |_|\__, |_| |_| |_|
         |___/
 
+<<<<<<< HEAD:src/nodes/mix-node-setup.md
          (mixnode - version {{platform_release_version}})
+=======
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (mixnode - version 1.1.7)
+>>>>>>> master:docs/run-nym-nodes/nodes/mixnodes.md
 
         
 nym-mixnode-init 
@@ -198,12 +266,21 @@ Starting mixnode winston-smithnode...
 To bond your mixnode you will need to install the Nym wallet, go to https://nymtech.net/get-involved and select the Download button.
 Select the correct version and install it to your machine. You will need to provide the following:
 
+<<<<<<< HEAD:src/nodes/mix-node-setup.md
 Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
 Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
 Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
 Host: 62.240.134.46 (bind address: 62.240.134.46)
 Version: {{platform_release_version}}
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
+=======
+    Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
+    Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
+    Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
+    Host: 62.240.134.46 (bind address: 62.240.134.46)
+    Version: 1.1.7
+    Mix Port: 1789, Verloc port: 1790, Http Port: 8000
+>>>>>>> master:docs/run-nym-nodes/nodes/mixnodes.md
 
 You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
 
@@ -269,12 +346,21 @@ You can always check the details of your mix node with the `node-details` comman
 ~~~admonish example collapsible=true title="Console output"
 ```
 
+<<<<<<< HEAD:src/nodes/mix-node-setup.md
 Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
 Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
 Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
 Host: 62.240.134.46 (bind address: 62.240.134.46)
 Version: {{platform_release_version}}
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
+=======
+    Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
+    Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
+    Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
+    Host: 62.240.134.46 (bind address: 62.240.134.46)
+    Version: 1.1.7
+    Mix Port: 1789, Verloc port: 1790, Http Port: 8000
+>>>>>>> master:docs/run-nym-nodes/nodes/mixnodes.md
 
 You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
 
@@ -312,7 +398,11 @@ It's useful to have the mix node automatically start at system boot time. Here's
 
 ```ini
 [Unit]
+<<<<<<< HEAD:src/nodes/mix-node-setup.md
 Description=Nym Mixnode ({{platform_release_version}})
+=======
+Description=Nym Mixnode (1.1.7)
+>>>>>>> master:docs/run-nym-nodes/nodes/mixnodes.md
 StartLimitInterval=350
 StartLimitBurst=10
 

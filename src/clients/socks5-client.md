@@ -33,10 +33,17 @@ You can check that your binaries are properly compiled with:
         |_| |_|\__, |_| |_| |_|
                 |___/
 
+<<<<<<< HEAD:src/clients/socks5-client.md
                 (socks5 proxy - version {{platform_release_version}})
 
     
         nym-socks5-client {{platform_release_version}}
+=======
+                (socks5 proxy - version 1.1.7)
+
+    
+        nym-socks5-client 1.1.7
+>>>>>>> master:docs/integrations/socks5-client.md
         Nymtech
         A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
 
