@@ -15,7 +15,9 @@ Whilst in general it recommended to be running the most recent version of any so
 > There are seperate changelogs for [`NymConnect`]() and the [`Desktop Wallet`](). The changelog referenced below is for the core platform code. 
 
 | Platform release changelog                                                                       |
-| ------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------------------------------------------------------
+| 1.1.8 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.8/CHANGELOG.md))             | 
+| 1.1.7 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.7/CHANGELOG.md))             | 
 | 1.1.6 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.6/CHANGELOG.md))             | 
 | 1.1.5 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.5/CHANGELOG.md))             | 
 | 1.1.4 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.4/CHANGELOG.md))             | 
