@@ -48,7 +48,7 @@ You can check that your binaries are properly compiled with:
           help                 Print this message or the help of the given subcommand(s)
           init                 Initialise a Nym client. Do this first!
           run                  Run the Nym client with provided configuration client optionally
-                                  overriding set parameters
+                               overriding set parameters
           upgrade              Try to upgrade the client
 
 
@@ -68,7 +68,7 @@ You can check the necessary parameters for the available commands by running:
 
 ### Initialising your client 
 
-Before you can use the client, you need to initalise a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node) make up an app's identity.
+Before you can use the client, you need to initalise a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node identity key) make up an app's identity.
 
 Initialising a new client instance can be done with the following command:
 
@@ -113,6 +113,13 @@ When you initalise a client instance, a configuration directory will be generate
 The `config.toml` file contains client configuration options, while the two `pem` files contain client key information.
 
 The generated files contain the client name, public/private keypairs, and gateway address. The name `<client_id>` in the example above is just a local identifier so that you can name your clients.
+
+#### Configuring your client for Docker 
+By default, the native client listens to host `127.0.0.1`. However this can be an issue if you wish to run a client in a Dockerized environment, where it can be convenenient to listen on a different host such as `0.0.0.0`. 
+
+You can set this via the `--host` flag during either the `init` or `run` commands. 
+
+Alternatively, a custom host can be set in the `config.toml` file under the `socket` section. If you do this, remember to restart your client process. 
 
 
 ### Running your client
