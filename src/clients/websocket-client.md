@@ -48,7 +48,7 @@ You can check that your binaries are properly compiled with:
           help                 Print this message or the help of the given subcommand(s)
           init                 Initialise a Nym client. Do this first!
           run                  Run the Nym client with provided configuration client optionally
-                                  overriding set parameters
+                               overriding set parameters
           upgrade              Try to upgrade the client
 
 
@@ -68,7 +68,7 @@ You can check the necessary parameters for the available commands by running:
 
 ### Initialising your client 
 
-Before you can use the client, you need to initalise a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node) make up an app's identity.
+Before you can use the client, you need to initalise a new instance of it. Each instance of the client has its own public/private keypair, and connects to its own gateway node. Taken together, these 3 things (public/private keypair + gateway node identity key) make up an app's identity.
 
 Initialising a new client instance can be done with the following command:
 
@@ -114,6 +114,13 @@ The `config.toml` file contains client configuration options, while the two `pem
 
 The generated files contain the client name, public/private keypairs, and gateway address. The name `<client_id>` in the example above is just a local identifier so that you can name your clients.
 
+#### Configuring your client for Docker 
+By default, the native client listens to host `127.0.0.1`. However this can be an issue if you wish to run a client in a Dockerized environment, where it can be convenenient to listen on a different host such as `0.0.0.0`. 
+
+You can set this via the `--host` flag during either the `init` or `run` commands. 
+
+Alternatively, a custom host can be set in the `config.toml` file under the `socket` section. If you do this, remember to restart your client process. 
+
 
 ### Running your client
 You can run the initalised client by doing this:
@@ -144,7 +151,7 @@ All of these code examples will do the following:
 
 By varying the message content, you can easily build sophisticated service provider apps. For example, instead of printing the response received from the mixnet, your service provider might take some action on behalf of the user - perhaps initiating a network request, a blockchain transaction, or writing to a local data store.
 
-> You can find an example of building both frontend and service provider code with the websocket client in the [Simple Service Provider Tutorial](FILL IN) in the Developer Portal. 
+> You can find an example of building both frontend and service provider code with the websocket client in the [Simple Service Provider Tutorial](https://nymtech.net/developers/tutorials/simple-service-provider.html) in the Developer Portal. 
 
 ### Message Types
 There are a small number of messages that your application sends up the websocket to interact with the native client, as follows.
