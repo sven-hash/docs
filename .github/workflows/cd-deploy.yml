@@ -48,10 +48,10 @@ jobs:
           REMOTE_USER: ${{ secrets.CD_WWW_REMOTE_USER }}
           TARGET: ${{ secrets.CD_WWW_REMOTE_TARGET }}/
           EXCLUDE: "/dist/, /node_modules/"
-      - name: Keybase - Node Install
+      - name: Matrix - Node Install
         run: npm install
         working-directory: .github/workflows/support-files
-      - name: Keybase - Send Notification
+      - name: Matrix - Send Notification
         env:
           NYM_NOTIFICATION_KIND: cd-docs
           NYM_PROJECT_NAME: "Docs CD"
@@ -59,10 +59,6 @@ jobs:
           NYM_CI_WWW_LOCATION: "${{ env.GITHUB_REF_SLUG }}"
           GIT_COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
           GIT_BRANCH: "${GITHUB_REF##*/}"
-          KEYBASE_NYMBOT_USERNAME: "${{ secrets.KEYBASE_NYMBOT_USERNAME }}"
-          KEYBASE_NYMBOT_PAPERKEY: "${{ secrets.KEYBASE_NYMBOT_PAPERKEY }}"
-          KEYBASE_NYMBOT_TEAM: "${{ secrets.KEYBASE_NYMBOT_TEAM }}"
-          KEYBASE_NYM_CHANNEL: "cd-docs"
           MATRIX_SERVER: "${{ secrets.MATRIX_SERVER }}"
           MATRIX_ROOM: "${{ secrets.MATRIX_ROOM }}"
           MATRIX_USER_ID: "${{ secrets.MATRIX_USER_ID }}"
