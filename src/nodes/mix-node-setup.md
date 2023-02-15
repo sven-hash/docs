@@ -425,21 +425,42 @@ Then reboot your server and restart your mixnode.
 
 ## Node Families
 
+### Create a Node Family
+
+Ssh into the vps of the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to be the head of family: 
+
+```
+./nym-mixnode sign --id mixnode --text APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E
+```
+
+This will return a signature which is going to be used below - in this example it is `3E8nRamHyeVhF7bbtL2vnPT6XFjseeX3t8SiaZUhhRXurA6Rd8ewAXJwBKkoMt3G4CCvAFi2CZMdYT4j58b5iYcF`
+
+The `--mnemonic` is going to be the mnemonic of the member wanting to be the head of family: 
+
+```
+/nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr  '{"create_family": {"signature": "3E8nRamHyeVhF7bbtL2vnPT6XFjseeX3t8SiaZUhhRXurA6Rd8ewAXJwBKkoMt3G4CCvAFi2CZMdYT4j58b5iYcF","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E","owner_signature":"<node owner signature>","label": "<node label>"}}' --mnemonic <mnemonic from node to be the head>
+```
+  
+To get the node owner signature, use `./nym-mixnode node-details --id <id>`
+
 ### Joining a Node Family 
 
-Ssh into the vps of the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to join the family: 
+On the mixnode of the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to join the family: 
 
 ```
-./nym-mixnode sign --id mixnode --text 4Yr4qmEHd9sgsuQ83191FR2hD88RfsbMmB4tzhhZWriz
+./nym-mixnode sign --id mixnode --text 4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR
 ```
 
-This will return a signature which is going to be used below - in this example it is `3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq`. 
+This will return a signature which is going to be used below - in this example it is `XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1`. 
 
-The `--from` is going to be the mnemonic of the member wanting to join the family: 
+The `--mnemonic` is going to be the mnemonic of the member wanting to join the family: 
 
 ```
-./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+./nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr '{"join_family": {"signature": "XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E","owner_signautre": "<owner signature from node to join>", "label":"<node to join label>"}}'  --mnemonic <mnemonic from node to join>
 ```
+
+To get the node owner signature, use `./nym-mixnode node-details --id <id>`
+
 
 ### Leaving a family 
 If wanting to leave, run the same initial command as above, followed by:
