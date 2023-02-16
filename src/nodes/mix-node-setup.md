@@ -464,8 +464,9 @@ To get the node owner signature, use `./nym-mixnode node-details --id <id>`
 
 ### Leaving a family 
 If wanting to leave, run the same initial command as above, followed by:
+
 ```
-./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"leave_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+./nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr '{"leave_family": {"signature": "XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E","owner_signautre": "<owner signature from node to leave>"}}'  --mnemonic <mnemon
 ```
 
 
