@@ -84,7 +84,7 @@ NYM_APP_NAME=nyxd
 ```
 # Sandbox
 BECH32_PREFIX=nymt
-WASMD_VERSION=v0.21.0
+WASMD_VERSION=v0.26.1
 NYM_APP_NAME=nymd
 ```
 
