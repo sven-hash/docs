@@ -427,7 +427,12 @@ Then reboot your server and restart your mixnode.
 
 ### Create a Node Family
 
-Ssh into the vps of the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to be the head of family: 
+You can use `nym-cli` or `nyxd`
+* `nym-cli` can be download on https://github.com/nymtech/nym/releases
+* `nyxd` have to be compiled
+
+
+On the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to be the head of family: 
 
 ```
 ./nym-mixnode sign --id mixnode --text APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E
@@ -437,8 +442,18 @@ This will return a signature which is going to be used below - in this example i
 
 The `--mnemonic` is going to be the mnemonic of the member wanting to be the head of family: 
 
+
+With `nym-cli`
+
 ```
 /nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr  '{"create_family": {"signature": "3E8nRamHyeVhF7bbtL2vnPT6XFjseeX3t8SiaZUhhRXurA6Rd8ewAXJwBKkoMt3G4CCvAFi2CZMdYT4j58b5iYcF","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E","owner_signature":"<node owner signature>","label": "<node label>"}}' --mnemonic <mnemonic from node to be the head>
+```
+
+
+With `nyxd`
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "3E8nRamHyeVhF7bbtL2vnPT6XFjseeX3t8SiaZUhhRXurA6Rd8ewAXJwBKkoMt3G4CCvAFi2CZMdYT4j58b5iYcF","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
 ```
   
 To get the node owner signature, use `./nym-mixnode node-details --id <id>`
@@ -455,9 +470,20 @@ This will return a signature which is going to be used below - in this example i
 
 The `--mnemonic` is going to be the mnemonic of the member wanting to join the family: 
 
+
+With `nym-cli`
+
 ```
 ./nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr '{"join_family": {"signature": "XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E","owner_signautre": "<owner signature from node to join>", "label":"<node to join label>"}}'  --mnemonic <mnemonic from node to join>
 ```
+
+
+With `nyxd`
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
 
 To get the node owner signature, use `./nym-mixnode node-details --id <id>`
 
@@ -465,9 +491,18 @@ To get the node owner signature, use `./nym-mixnode node-details --id <id>`
 ### Leaving a family 
 If wanting to leave, run the same initial command as above, followed by:
 
+With `nym-cli`
+
 ```
-./nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr '{"leave_family": {"signature": "XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E","owner_signautre": "<owner signature from node to leave>"}}'  --mnemonic <mnemon
+./nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr '{"leave_family": {"signature": "XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E","owner_signautre": "<owner signature from node to leave>"}}'  --mnemonic <mnemonic from node to leave>
 ```
+
+With `nyxd`
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "XHSHnm5rE6wja97GLbsNsdWNMFhQwFtBrfEBW1qwmz539QrZHZcdVKKKkwo6PJJ7SndBrQ6vBWFJtjynjdUC5M1","family_head": "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
 
 
 ## Checking that your node is mixing correctly
