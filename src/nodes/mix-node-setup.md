@@ -504,6 +504,43 @@ The code for exposed API endpoints can be found [here](https://github.com/nymtec
 ### Mix node related Validator API endpoints 
 Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
+#### Mix node Reward Estimation API endpoint
+
+The Reward Estimation API endpoint allows mix node operators to estimate the rewards they could earn for running a Nym mixnode with a specific `mix_id`. 
+
+> The `{mix_id}` can be found in the "Mix ID" column of the [Network Explorer](https://explorer.nymtech.net/network-components/mixnodes/active).
+
+The endpoint is a particularly common for mix node operators as it can provide an estimate of potential earnings based on factors such as the amount of traffic routed through the mixnode, the quality of the mix node's performance, and the overall demand for mix nodes in the network. This information can be useful for mix node operators in deciding whether or not to run a mix node and in optimizing its operations for maximum profitability.
+
+Using this API endpoint returns information about the Reward Estimation:
+
+```
+/status/mixnode/{mix_id}/reward-estimation
+```
+
+Query Response:
+
+```
+    "estimation": {
+        "total_node_reward": "942035.916721770541325331",
+        "operator": "161666.263307386408152071",
+        "delegates": "780369.65341438413317326",
+        "operating_cost": "54444.444444444444444443"
+    },
+```
+
+> The unit of value is measured in `uNYM`.
+
+- `estimated_total_node_reward` - An estimate of the total amount of rewards that a particular mix node can expect to receive during the current epoch. This value is calculated by the Nym Validator based on a number of factors, including the current state of the network, the number of mix nodes currently active in the network, and the amount of network traffic being processed by the mix node.
+
+- `estimated_operator_reward` - An estimate of the amount of rewards that a particular mix node operator can expect to receive. This value is calculated by the Nym Validator based on a number of factors, including the amount of traffic being processed by the mix node, the quality of service provided by the mix node, and the operator's stake in the network.
+
+- `estimated_delegators_reward` - An estimate of the amount of rewards that mix node delegators can expect to receive individually. This value is calculated by the Nym Validator based on a number of factors, including the amount of traffic being processed by the mix node, the quality of service provided by the mix node, and the delegator's stake in the network.
+
+- `estimated_node_profit` - An estimate of the profit that a particular mix node operator can expect to earn. This value is calculated by subtracting the mix node operator's `operating_costs` from their `estimated_operator_reward` for the current epoch.
+
+- `estimated_operator_cost` - An estimate of the total cost that a particular mix node operator can expect to incur for their participation. This value is calculated by the Nym Validator based on a number of factors, including the cost of running a mix node, such as server hosting fees, and other expenses associated with operating the mix node.
+
 ## Ports 
 All mix node-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mix node.
 
