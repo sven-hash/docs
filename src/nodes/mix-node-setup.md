@@ -501,13 +501,16 @@ The code for exposed API endpoints can be found [here](https://github.com/nymtec
 
 > You can get more detailed info by appending `?debug` to the URL, like so: `curl http://<NODE_IP_ADDRESS>:8000/stats?debug`
 
-### Mix node Reward Estimation API endpoint
+### Mix node related Validator API endpoints 
+Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
-The Reward Estimation API endpoint allows mix node operators to estimate the rewards they could earn for running a Nym mixnode with a specific `mix_id`.
+#### Mix node Reward Estimation API endpoint
+
+The Reward Estimation API endpoint allows mix node operators to estimate the rewards they could earn for running a Nym mixnode with a specific `mix_id`. 
 
 > The `{mix_id}` can be found in the "Mix ID" column of the [Network Explorer](https://explorer.nymtech.net/network-components/mixnodes/active).
 
-The endpoint can provide an estimate of potential earnings based on factors such as the amount of traffic routed through the mixnode, the quality of the mix node's performance, and the overall demand for mix nodes in the network. This information can be useful for mix node operators in deciding whether or not to run a mix node and in optimizing its operations for maximum profitability.
+The endpoint is a particularly common for mix node operators as it can provide an estimate of potential earnings based on factors such as the amount of traffic routed through the mixnode, the quality of the mix node's performance, and the overall demand for mix nodes in the network. This information can be useful for mix node operators in deciding whether or not to run a mix node and in optimizing its operations for maximum profitability.
 
 Using this API endpoint returns information about the Reward Estimation:
 
@@ -537,9 +540,6 @@ Query Response:
 - `estimated_node_profit` - An estimate of the profit that a particular mix node operator can expect to earn. This value is calculated by subtracting the mix node operator's `operating_costs` from their `estimated_operator_reward` for the current epoch.
 
 - `estimated_operator_cost` - An estimate of the total cost that a particular mix node operator can expect to incur for their participation. This value is calculated by the Nym Validator based on a number of factors, including the cost of running a mix node, such as server hosting fees, and other expenses associated with operating the mix node.
-
-### Mix node related Validator API endpoints 
-Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
 ## Ports 
 All mix node-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mix node.
