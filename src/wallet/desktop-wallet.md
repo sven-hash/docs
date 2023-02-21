@@ -157,17 +157,17 @@ Binary output directory structure
 ### Importing or creating account(s) when you have signed in with mnemonic
 To import or create a new account, first you need to create a password for your wallet:
 
-1. Log out of your wallet
-2. Click on “Sign in with mnemonic”
-3. On the next screen select “Create a password for your account”
-4. Sign in to the wallet with your new password
-5. Click on your account name, you can now create new accounts or import existing ones  
+1. Log out from the wallet
+2. Sign in using "Sign in with mnemonic" button
+3. On the next screen select “Create a password"
+4. Type in the mnemonic you want to create a password for and follow the next steps
+5. Sign back in the wallet using your new password
+6. Come back to this page to import or create new accounts
 
 ### Importing or creating account(s) when you have signed in with mnemonic but a password already exists on your machine
 To import or create a new account, you need to log in with your existing password or create a new password. 
 
 > Creating a new password will overwrite any old one stored on your machine. Make sure you have saved any mnemonics associated with the password before creating a new one.
-
 
 1. Log out
 2. Click on “Forgot password” 
