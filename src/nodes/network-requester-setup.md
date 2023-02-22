@@ -1,3 +1,28 @@
+
+```admonish caution
+The new of release of Nym version 1.1.10 is now out!
+```
+If you are running an existing network-requester registered with nym-connect, upgrading requires you move your old keys over to the new network-requester configuration. We suggest following these instructions carefully to ensure a smooth transition.
+Initiate the new network-requester:
+  ```
+  nym-network-requester init --id mynetworkrequester
+  ```
+Copy the old keys from your client to the network-requester configuration that was created above:
+  ```
+  cp -v ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
+  ```
+Edit the gateway configuration to match what you used on your client. Specifically, edit the configuration file at:
+  ```
+  ~/.nym/service-providers/network-requester/mynetworkrequester/config/config.toml
+  ```
+Ensure that the fields gateway_id, gateway_owner, gateway_listener in the new config match those in the old client config at:
+  ```
+  ~/.nym/clients/myoldclient/client/client.toml
+  ```
+If you have any questions or concerns, please do not hesitate to reach out to us via our communication channels.
+
+
+
 # Network Requesters
 
 > The Nym network requester was built in the [building nym](../binaries/building-nym.md) section. If you haven't yet built Nym and want to run the code on this page, go there first.

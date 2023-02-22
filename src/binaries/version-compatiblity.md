@@ -7,6 +7,7 @@ Whilst in general it recommended to be running the most recent version of any so
 
 | Core Platform | SDK           | Wallet         | NymConnect    | Network Explorer | Mixnet contract | Vesting contract |
 | ------------- | ------------- | -------------- | ------------- | ---------------- | --------------- | ---------------- |
+| 1.1.1 - 1.1.10| 1.1.4 - 1.1.6 | 1.1.0 - 1.1.10 | 1.1.1 - 1.1.10| 1.1.0 - 1.1.10   | 1.1.0 - 1.1.3   | 1.1.0  - 1.1.3   |
 | 1.1.1 - 1.1.9 | 1.1.4 - 1.1.6 | 1.1.0 - 1.1.8  | 1.1.1 - 1.1.9 | 1.1.0 - 1.1.2    | 1.1.0 - 1.1.3   | 1.1.0  - 1.1.3   |
 | 1.1.0 - 1.1.1 | 1.1.4         | 1.1.0          | 1.1.0 - 1.1.1 | 1.1.0            | 1.1.0           | 1.1.0            |
 | 1.1.0         | x             | 1.1.0          | 1.1.0         | 1.1.0            | 1.1.0           | 1.1.0            |
@@ -15,7 +16,8 @@ Whilst in general it recommended to be running the most recent version of any so
 
 | Platform release changelog                                                                       |
 | ------------------------------------------------------------------------------------------------ | 
-| 1.1.9 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.9/CHANGELOG.md))
+| 1.1.10 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.10/CHANGELOG.md))           |  
+| 1.1.9 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.9/CHANGELOG.md))             | 
 | 1.1.8 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.8/CHANGELOG.md))             | 
 | 1.1.7 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.7/CHANGELOG.md))             | 
 | 1.1.6 ([CHANGELOG](https://github.com/nymtech/nym/blob/release/v1.1.6/CHANGELOG.md))             | 
