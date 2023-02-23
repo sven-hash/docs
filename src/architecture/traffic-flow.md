@@ -74,7 +74,7 @@ Packet retransmission means that if a client sends 100 packets to a gateway, but
                                                                                                                                                                     
   +-------------------+                  +-------------------+                                                                                      
   | +---------------+ |                  |                   | Packet lost in transmission - no ack recieved!                                       
-  | |  Nym client   | |                  |                   |-------------X                                                                        
+  | |  Nym client   | |                  |                   |-----------------?                                                                       
   | +-------^-------+ |Send 100 packets  |                   |                                                                                      
   |         |         |----------------->|   Gateway your    |  Resend packet    +------------------+     etc...                                          
   |         |         |                  |   client is       |------------------>|                  |------------------>                                               
@@ -97,6 +97,5 @@ Luckily, SURBs allow for anonymous replies. A SURB is a layer encrypted set of S
 
 MultiSURBs were implemented in `v1.1.4`. Clients, when sending a message to another client, attach a bundle of SURBs which can be used by the receiver to construct large anonymous replies, such as files. If a reply is too large still (i.e. it would use more SURBs than sent with the original message), the receiver will use a SURB to ask the sender for more SURBs. 
 
-What this means in practice is that files can now be sent via anonymous replies. 
+What this means in practice is that files can now be sent via anonymous replies!  
 
-**MORE INFO HERE AS EXPLAINER OF BUCKETS ETC** 
