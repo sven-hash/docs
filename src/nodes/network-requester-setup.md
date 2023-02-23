@@ -41,7 +41,7 @@ The network-requester needs to be initialized before it can be run. This is requ
  ./nym-network-requester init --id example
 ```
 
-Now that we have initialized our requester, we can start it with the following command: 
+Now that we have initialized our network-requester, we can start it with the following command: 
 
 ```
  ./nym-network-requester run --id example
@@ -316,7 +316,8 @@ This command should return the following:
 
 ## Ports
 ### Requester port reference
-All requester-specific port configuration can be found in `$HOME/.nym/clients/<YOUR_ID>/config/config.toml` & `$HOME/.nym/service-providers/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.
+
+All network-requester-specific port configuration can be found in `$HOME/.nym/service-providers/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.
 
 | Default port | Use                       |
 |--------------|---------------------------|
