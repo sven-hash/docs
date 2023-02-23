@@ -4,30 +4,19 @@
 
 If you have access to a server, you can run the Network Requester, which allows Nym users to send outbound requests from their local machine through the mixnet to your server, which then makes the request on their behalf, shielding them from the backend infrastructure of this service.
 
-## Updating to version 1.1.10
+## Network Requester Whitelist
 
-The new of release of Nym version 1.1.10 is now out!
+The network requester is not an open proxy. It uses a file called `allowed.list` (in `~/.nym/service-providers/network-requester/`) as a whitelist for outbound requests. 
 
-In the previous version of the network-requester, users were required to run a nym-client along side it to function. Now, as of this recent update, the network-requester now has a nym-client embedded into the binary, so it can run standalone.
+Any request to a URL which is not on this list will be blocked.
 
-If you are running an existing network-requester registered with nym-connect, upgrading requires you move your old keys over to the new network-requester configuration. We suggest following these instructions carefully to ensure a smooth transition.
-Initiate the new network-requester:
-  ```
-  nym-network-requester init --id mynetworkrequester
-  ```
-Copy the old keys from your client to the network-requester configuration that was created above:
-  ```
-  cp -v ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
-  ```
-Edit the gateway configuration to match what you used on your client. Specifically, edit the configuration file at:
-  ```
-  ~/.nym/service-providers/network-requester/mynetworkrequester/config/config.toml
-  ```
-Ensure that the fields gateway_id, gateway_owner, gateway_listener in the new config match those in the old client config at:
-  ```
-  ~/.nym/clients/myoldclient/client/client.toml
-  ```
-If you have any questions or concerns, please do not hesitate to reach out to us via our communication channels.
+On startup, if this file is not present, the requester will grab the default whitelist from [here](https://nymtech.net/.wellknown/network-requester/standard-allowed-list.txt) automatically. 
+
+> This default whitelist is useful for knowing that the majority of network requesters are able to support certain apps 'out of the box'. 
+
+> Operators of a network requester are of course free to edit this file and add the URLs of services they wish to support to it. You can find instructions below on adding your own URLs or IPs to this list. 
+
+As of the latest version, the `nym-network-requester` no longer requires a separate `nym-client` instance for it to function. The `nym-network-requester` has its own `nym-client`embedded within the binary to connect to the mixnet, running as a single process. You'll find instructions in the next two sections on how to get it up and running.
 
 ## Network requester 
 ### Initializing and running your network requester (standard mode)
@@ -57,7 +46,7 @@ Expected output:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (nym-network-requester - version 1.1.10)
+             (nym-network-requester - version {{platform_release_version}})
 
     
 Initialising client...
@@ -68,7 +57,7 @@ Saved configuration file to "/Users/myusername/.nym/service-providers/network-re
 Using gateway: 3zd3wrCK8Dz5TXrcvk5dG5s9EEdf4Ck1v9VgBPMMFVkR
 Client configuration completed.
 
-Version: 1.1.10
+Version: {{platform_release_version}}
 ID: example
 Identity key: 3wqJJb1Xj9876KBPnGuSZnN5pCWH6id6wkzS2tL6eZEh
 Encryption: 4KfgDmFhwbzLBWcnSEGKgTxGwfJzGqofSVTJKiAcokNX
@@ -98,7 +87,7 @@ Expected output:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (nym-network-requester - version 1.1.10)
+             (nym-network-requester - version {{platform_release_version}})
 
     
 
@@ -172,20 +161,6 @@ Expected output:
       ]                            
 ```
 ~~~
-
-## Network Requester Whitelist
-
-The network requester is not an open proxy. It uses a file called `allowed.list` (in `~/.nym/service-providers/network-requester/`) as a whitelist for outbound requests. 
-
-Any request to a URL which is not on this list will be blocked.
-
-On startup, if this file is not present, the requester will grab the default whitelist from [here](https://nymtech.net/.wellknown/network-requester/standard-allowed-list.txt) automatically. 
-
-> This default whitelist is useful for knowing that the majority of network requesters are able to support certain apps 'out of the box'. 
-
-> Operators of a network requester are of course free to edit this file and add the URLs of services they wish to support to it. You can find instructions below on adding your own URLs or IPs to this list. 
-
-The `nym-network-requester` binary listens and sends responses via its embedded `nym-client`, which is how it connects to the mixnet. 
 
 ### Upgrading your network requester 
 :::caution
@@ -263,6 +238,31 @@ Service Grant grantees should only whitelist a single application - edit your `a
 Is this safe to do? If it was an open proxy, this would be unsafe, because any Nym user could make network requests to any system on the internet.
 
 To make things a bit less stressful for administrators, the Network Requester drops all incoming requests by default. In order for it to make requests, you need to add specific domains to the `allowed.list` file at `$HOME/.nym/service-providers/network-requester/allowed.list`.
+
+### Updating to version {{platform_release_version}}
+
+The new of release of Nym version {{platform_release_version}} is now out!
+
+In the previous version of the network-requester, users were required to run a nym-client along side it to function. Now, as of this recent update, the network-requester now has a nym-client embedded into the binary, so it can run standalone.
+
+If you are running an existing network-requester registered with nym-connect, upgrading requires you move your old keys over to the new network-requester configuration. We suggest following these instructions carefully to ensure a smooth transition.
+Initiate the new network-requester:
+  ```
+  nym-network-requester init --id mynetworkrequester
+  ```
+Copy the old keys from your client to the network-requester configuration that was created above:
+  ```
+  cp -v ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
+  ```
+Edit the gateway configuration to match what you used on your client. Specifically, edit the configuration file at:
+  ```
+  ~/.nym/service-providers/network-requester/mynetworkrequester/config/config.toml
+  ```
+Ensure that the fields gateway_id, gateway_owner, gateway_listener in the new config match those in the old client config at:
+  ```
+  ~/.nym/clients/myoldclient/client/client.toml
+  ```
+If you have any questions or concerns, please do not hesitate to reach out to us via our communication channels.
 
 ### Supporting custom domains with your network requester
 It is easy to add new domains and services to your network requester - simply find out which endpoints (both URLs and raw IP addresses are supported) you need to whitelist, and then add these endpoints to your `allowed.list` as such: 
