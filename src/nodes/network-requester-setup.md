@@ -39,7 +39,7 @@ Now that we have initialized our network-requester, we can start it with the fol
 Expected output: 
 
 ~~~admonish example collapsible=true title="Console output"
-
+```
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
@@ -80,7 +80,7 @@ Once an network-requester has been initialized, we can start it with the followi
 Expected output:
 
 ~~~admonish example collapsible=true title="Console output"
-
+```
       _ __  _   _ _ __ ___
      | '_ \| | | | '_ \ _ \
      | | | | |_| | | | | | |
@@ -96,6 +96,7 @@ THE NETWORK REQUESTER STATISTICS ARE ENABLED. IT WILL COLLECT AND SEND ANONYMIZE
 
 
  2023-02-23T12:08:18.296Z INFO  nym_network_requester::cli::run > Starting socks5 service provider
+ ```
 ~~~
 
 The `--enable-statistics` flag starts the node in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
