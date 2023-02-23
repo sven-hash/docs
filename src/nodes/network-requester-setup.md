@@ -79,7 +79,7 @@ The address of this client is: 3wqJJb1Xj9876KBPnGuSZnN5pCWH6id6wkzS2tL6eZEh.4Kfg
 ```
 ~~~
 
-When running the above commands, the `--help` command can be used to show a list of available parameters.
+When running the above commands, the `./nym-network-requester --help ` command can be used to show a list of available parameters.
 
 ### Running your network requester (stats mode)
 
