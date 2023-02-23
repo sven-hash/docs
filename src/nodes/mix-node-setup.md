@@ -451,7 +451,7 @@ You can use either `nym-cli` which can be downloaded from the [release page](htt
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (nym-mixnode - version 1.1.9)
+             (nym-mixnode - version {{platform_release_version}})
     
 Signing the text "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E" using your mixnode's Ed25519 identity key...
 The base58-encoded signature on 'APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E' is: 2ZuCFYU91pvEcgAj6EzU33oozazvsRAoxP7NQHFM6Xy6AkJrzgCZdnsnZYAmxFtqe8Su17KXwpTHQtkVmAnAiV4H
@@ -459,22 +459,22 @@ The base58-encoded signature on 'APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E' i
 ```
 ~~~
 
-The `--mnemonic` is going to be the mnemonic of the member wanting to be the head of family: 
+Using `nym-cli`:
 
-
-With `nym-cli`
+> `--mnemonic` is the mnemonic of the member wanting to be the head of family.
 
 ```
 /nym-cli cosmwasm execute <wallet-address> '{"create_family": {"signature": "<base58-encoded-signature>","family_head": "<text>","owner_signature":"<node owner signature>","label": "<node label>"}}' --mnemonic <mnemonic from node to be the head>
 ```
 
+Using `nyxd`:
 
-With `nyxd`
+> `--from` is mnemonic of the member wanting to join the family.
 
 ```
 ./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "<base58-encoded-signature>","family_head": "<text>"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
 ```
-  
+
 To get the node owner signature, use:
 
 `./nym-mixnode node-details --id <id>`
@@ -494,22 +494,18 @@ To get the node owner signature, use:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (nym-mixnode - version 1.1.9)
+             (nym-mixnode - version {{platform_release_version}})
 
     
 Signing the text "4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR" using your mixnode's Ed25519 identity key...
 The base58-encoded signature on '4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR' is: 4By7EQEMM8BAt6ptxJyeGqpoxHWxeRUhyJ4wMr2x3mXSQD9nvttkvd7tgP1uKu2ktJjB2bLzD1oaZ33d2Wv5eYWp
 ~~~
 
-The `--mnemonic` is going to be the mnemonic of the member wanting to join the family: 
-
-
 Using `nym-cli`:
 
 ```
 ./nym-cli cosmwasm execute <wallet-address> '{"join_family": {"signature": "<base58-encoded-signature>","family_head": "<text>","owner_signautre": "<owner signature from node to join>", "label":"<node to join label>"}}'  --mnemonic <mnemonic-from-node-to-join>
 ```
-
 
 Using `nyxd`:
 
