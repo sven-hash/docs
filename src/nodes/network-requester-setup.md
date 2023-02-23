@@ -317,11 +317,10 @@ This command should return the following:
 ## Ports
 ### Requester port reference
 
-All network-requester-specific port configuration can be found in `$HOME/.nym/service-providers/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.
+All network-requester-specific port configuration can be found in `$HOME/.nym/service-providers/network-requester/<YOUR_ID>/config/config.toml`. If you do edit any port configs, remember to restart your client and requester processes.
 
 | Default port | Use                       |
 |--------------|---------------------------|
-| 1789         | Listen for Mixnet traffic |
 | 9000         | Listen for Client traffic |
 
 
