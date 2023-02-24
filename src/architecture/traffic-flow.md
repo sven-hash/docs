@@ -18,8 +18,6 @@ At each 'hop' (i.e. as a packet is forwarded from one node in the sequence to an
 
 Traffic always travels through the nodes of the mixnet like such:
 
-<!--- ![Traffic Flow](../images/traffic-flow-dark.png) --->
-
 ```
                                                                                                        
        +----------+              +----------+             +----------+                 
@@ -30,9 +28,9 @@ Traffic always travels through the nodes of the mixnet like such:
             |                                                   |                      
             |                                                   |                      
             v                                                   v                      
-    +--------------+                                +-------------------------+        
-    | Your gateway |                                | Service / app's gateway |        
-    +--------------+                                +-------------------------+        
+    +--------------+                                   +-----------------+        
+    | Your gateway |                                   | Service gateway |        
+    +--------------+                                   +-----------------+        
             ^                                                    ^                     
             |                                                    |                     
             |                                                    |                     
@@ -49,9 +47,14 @@ Traffic always travels through the nodes of the mixnet like such:
   | | Your app code | |                                | | Service Code  | |           
   | +---------------+ |                                | +---------------+ |           
   +-------------------+                                +-------------------+           
-    Your Local Machine                                Service Provider Machine         
-                                                                                                       
+   Your Local Machine**                               Service Provider Machine**        
+
+
+** note that depending on the technical setup, the Nym client running on these machines may
+be either a seperate process or embedded in the same process as the app code via one of our SDKs. 
+
 ```
+
 
 From your Nym client, your encrypted traffic is sent to:
 * the gateway your client has registered with,  
