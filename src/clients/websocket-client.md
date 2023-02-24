@@ -180,17 +180,31 @@ In some applications, e.g. where people are chatting with friends who they know,
 }
 ```
 
-If that fits your security model, good. However, it may be the case that you want to send **anonymous replies using Single Use Reply Blocks (SURBs)**.
+If that fits your security model, good. However, it may be the case that you want to send **anonymous replies using Single Use Reply Blocks (SURBs)**. 
+
+You can read more about SURBs [here](../architecture/traffic-flow.md#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address. 
+
+Your client will send along a number of `replySurbs` to the recipient of the message. These are pre-addressed Sphinx packets that the recipient can write to, but not view the address. If the recipient is unable to fit the response data into the bucket of SURBs sent to it, it will use a SURB to request more SURBs be sent to it. 
 
 ```json
 {
-    "type": "send", 
+    "type": "sendAnonymous", 
     "message": "something you want to keep secret"
     "recipient": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
-    "withReplySurb": "true"
+    "replySurbs": 100 // however many reply SURBs to send along with your message
 }
 ```
-You can read more about SURBs [here](../architecture/traffic-flow.md#private-replies-using-surbs) but in short they are ways for the receiver of this message to anonymously reply to you - the sender - without them having to know your nym address. 
+
+Each bucket of replySURBs, when received as part of an incoming message, has a unique session identifier, which **only identifies the bucket of pre-addressed packets**. This is necessary to make sure that your app is replying to the correct people with the information meant for them! Constructing a reply with SURBs looks something like this (where `senderTag` was parsed from the incoming message)
+
+```json
+{
+    "type": "reply", 
+    "message": "reply you also want to keep secret", 
+    "senderTag": "the sender tag you parsed from the incoming message"
+}
+```
+
 
 #### Sending binary data
 You can also send bytes instead of JSON. For that you have to send a binary websocket frame containing a binary encoded
