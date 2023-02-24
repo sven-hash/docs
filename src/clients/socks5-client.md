@@ -4,7 +4,50 @@
 
 Many existing applications are able to use either the SOCKS4, SOCKS4A, or SOCKS5 proxy protocols. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
 
-![Socks5 Archuitecture](../images/nym-socks5-architecture-dark.png)
+```
+                                                                              External Systems:                                                                                                               
+                                                                                     +--------------------+                                                                   
+                                                                             |------>| Monero blockchain  |                                                                   
+                                                                             |       +--------------------+                                                                   
+                                                                             |       +--------------------+                                                                   
+                                                                             |------>|    Email server    |                                                                   
+                                                                             |       +--------------------+                                                                   
+                                                                             |       +--------------------+                                                                   
+                                                                             |------>|    RPC endpoint    |                                                                   
+                                                                             |       +--------------------+                                                                   
+                                                                             |       +--------------------+                                                                   
+                                                                             |------>|       Website      |                                                                   
+                                                                             |       +--------------------+                                                                   
+                                                                             |       +--------------------+                                                                   
+  +----------------------------------+                                       |------>|       etc...       |                                                                   
+  | Mixnet:                          |                                       |       +--------------------+                                                                   
+  |       * Gateway your client is   |                                       |                                                                                                
+  |       connected to               |          +--------------------+       |                                                                                                
+  |       * Mix nodes 1 -> 3         |<-------->| Network requester  |<------+                                                                                                
+  |       * Gateway that network     |          +--------------------+                                                                                                      
+  |       requester is connected to  |                                                                                                                                        
+  +----------------------------------+                                                                                                                                        
+           ^                                                                                                                                                                  
+           |                                                                                                                                                                  
+           |                                                                                                                                                                  
+           |                                                                                                                                                                  
+           |                                                                                                                                                                  
+           v                                                                                                                                                                  
+ +-------------------+                                                                                                                                                        
+ | +---------------+ |                                                                                                                                                        
+ | |  Nym client   | |                                                                                                                                                        
+ | +---------------+ |                                                                                                                                                        
+ |         ^         |                                                                                                                                                        
+ |         |         |                                                                                                                                                        
+ |         |         |                                                                                                                                                        
+ |         |         |                                                                                                                                                        
+ |         v         |                                                                                                                                                        
+ | +---------------+ |                                                                                                                                                        
+ | | Your app code | |                                                                                                                                                        
+ | +---------------+ |                                                                                                                                                        
+ +-------------------+                                                                                                                                                        
+  Your Local Machine   
+```
 
 There are 2 pieces of software that work together to send SOCKS traffic through the mixnet: the `nym-socks5-client`, and the `nym-network-requester`. 
 

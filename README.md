@@ -16,6 +16,9 @@ There are some variables that are shared across the entire docs site, such as th
 
 Variables are denoted in the `.md` files wrapped in `{{}}` (e.g `{{platform_release_version}}` is the most recent release), and are located in the `book.toml` file under the `[preprocessor.variables.variables]` heading. If you are changing something like the software release version, minimum code versions in prerequisites, etc, **check in here first!**
 
+## Diagrams 
+Most diagrams are simply ascii. Copies are kept in `/diagrams/` for ease of reproducability. Created using [textik](https://textik.com/#). 
+
 ### Updating platform version 
 
 When updating the version, make sure to change **both** the version in the `title` on line 2 of `book.toml`, as well as the `platform_release_version` variable in the same file. 

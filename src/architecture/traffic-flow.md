@@ -18,13 +18,49 @@ At each 'hop' (i.e. as a packet is forwarded from one node in the sequence to an
 
 Traffic always travels through the nodes of the mixnet like such:
 
-![Traffic Flow](../images/traffic-flow-dark.png)
+```
+                                                                               
+       +----------+              +----------+             +----------+                 
+       | Mix Node |<-----------> | Mix Node |<----------->| Mix Node |                 
+       | Layer 1  |              | Layer 2  |             | Layer 3  |                 
+       +----------+              +----------+             +----------+                 
+            ^                                                   ^                      
+            |                                                   |                      
+            |                                                   |                      
+            v                                                   v                      
+    +--------------+                                   +-----------------+        
+    | Your gateway |                                   | Service gateway |        
+    +--------------+                                   +-----------------+        
+            ^                                                    ^                     
+            |                                                    |                     
+            |                                                    |                     
+            v                                                    v                     
+  +-------------------+                                +-------------------+           
+  | +---------------+ |                                | +---------------+ |           
+  | |  Nym client   | |                                | |  Nym Client   | |           
+  | +---------------+ |                                | +---------------+ |           
+  |         ^         |                                |         ^         |           
+  |         |         |                                |         |         |           
+  |         |         |                                |         |         |           
+  |         v         |                                |         v         |           
+  | +---------------+ |                                | +---------------+ |           
+  | | Your app code | |                                | | Service Code  | |           
+  | +---------------+ |                                | +---------------+ |           
+  +-------------------+                                +-------------------+           
+   Your Local Machine**                               Service Provider Machine**        
+
+
+** note that depending on the technical setup, the Nym client running on these machines may
+be either a seperate process or embedded in the same process as the app code via one of our SDKs. 
+
+```
+
 
 From your Nym client, your encrypted traffic is sent to:
 * the gateway your client has registered with,  
-* a mix node on Layer 1 of the Mixnet, 
-* a mix node on Layer 2 of the Mixnet,
-* a mix node on Layer 3 of the Mixnet, 
+* a mix node on layer 1 of the Mixnet, 
+* a mix node on layer 2 of the Mixnet,
+* a mix node on layer 3 of the Mixnet, 
 * the recipient's gateway, which forwards it finally to...
 * the recipient's Nym client, which communicates with an application.  
 
@@ -32,13 +68,28 @@ From your Nym client, your encrypted traffic is sent to:
 
 Whatever is on the 'other side' of the mixnet from your client, all traffic will travel this way through the mixnet. If you are sending traffic to a service external to Nym (such as a chat application's servers) then your traffic will be sent from the recieving Nym client to an application that will proxy it 'out' of the mixnet to these servers, shielding your metadata from them. P2P (peer-to-peer) applications, unlike the majority of apps, might want to keep all of their traffic entirely 'within' the mixnet, as they don't have to necessarily make outbound network requests to application servers. They would simply have their local application code communicate with their Nym clients, and not forward traffic anywhere 'outside' of the mixnet. 
 
-## Package Retransmission 
-Nym clients now all also support packet _retransmission_. What this means is that if a client sends 100 packets to a gateway, but only receives an acknowledgement ('ack') for 95 of them, it will resend those 5 packets to the gateway again, to make sure that all packets are received.  
+## Acks & Package Retransmission
+Whenever a hop is completed, the recieving node will send back an acknowledgement ('ack') so that the sending node knows that the packet was recieved. If it does not recieve an ack after sending, it will resend the packet, as it assumes that the packet was dropped for some reason. This is done under the hood by the binaries themselves, and is never something that developers and node operators have to worry about dealing with themselves. 
 
-## Acks
-Whenever a hop is completed, the recieving node will send back an acknowledgement ('ack') so that the sending node knows that the packet was recieved. If it does not recieve an ack after sending, it will resend the packet, as it assumes that the packet was dropped for some reason. 
+Packet retransmission means that if a client sends 100 packets to a gateway, but only receives an acknowledgement ('ack') for 95 of them, it will resend those 5 packets to the gateway again, to make sure that all packets are received. All nodes in the mixnet support packet retransmission. 
 
-This is done 'under the hood' by the binaries themselves, and is never something that developers and node operators have to worry about dealing with themselves. 
+```                                                                                                                                                                    
+                                                                                                               
+  +-------------------+                  +-------------------+                                                
+  | +---------------+ |                  |                   | Packet lost in transmission - no ack recieved! 
+  | |  Nym client   | |                  |                   |-----------------?                              
+  | +-------^-------+ |Send 100 packets  |                   |                                                     
+  |         |         |----------------->|   Gateway your    |  Resend packet    +------------------+     etc...  
+  |         |         |                  |   client is       |------------------>|                  |------------------> 
+  |         |         |                  |   connected to    |                   | Mix node layer 1 |          
+  |         v         | Send 100 acks    |                   |<------------------|                  |         
+  | +---------------+ |<-----------------|                   |   Send ack        +------------------+        
+  | | Your app code | |                  |                   |                                              
+  | +---------------+ |                  |                   |                                             
+  +-------------------+                  +-------------------+                                            
+   Your Local Machine                                                                                    
+
+```                                                                                                                                                                    
 
 ## Private Replies using SURBs
 SURBs ('Single Use Reply Blocks') allow apps to reply to other apps anonymously.
@@ -49,6 +100,5 @@ Luckily, SURBs allow for anonymous replies. A SURB is a layer encrypted set of S
 
 MultiSURBs were implemented in `v1.1.4`. Clients, when sending a message to another client, attach a bundle of SURBs which can be used by the receiver to construct large anonymous replies, such as files. If a reply is too large still (i.e. it would use more SURBs than sent with the original message), the receiver will use a SURB to ask the sender for more SURBs. 
 
-What this means in practice is that files can now be sent via anonymous replies. 
+What this means in practice is that files can now be sent via anonymous replies!  
 
-> Please note that the `nym-socks5-client` currently **does not** have multiSURBs enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`
