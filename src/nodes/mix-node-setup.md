@@ -425,30 +425,119 @@ Then reboot your server and restart your mixnode.
 
 ## Node Families
 
+Node family involves setting up a group of mix nodes that work together to provide greater privacy and security for network communications. This is achieved by having the nodes in the family share information and routes, creating a decentralized network that makes it difficult for third parties to monitor or track communication traffic.
+
+### Create a Node Family
+
+To create a Node family, you will need to install and configure multiple mix nodes, and then use the CLI to link them together into a family. Once your Node family is up and running, you can use it to route your network traffic through a series of nodes, obscuring the original source and destination of the communication.
+
+You can use either `nym-cli` which can be downloaded from the [release page](https://github.com/nymtech/nym/releases) or compiling `nyxd`.
+
+
+`/path/to/the/release` and run the following on the family head to obtain the signature for the member:
+
+```
+./nym-mixnode sign --id winston-smithnode --text <text>
+```
+
+~~~admonish example collapsible=true title="Console output"
+```
+
+
+
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
+
+             (nym-mixnode - version {{platform_release_version}})
+    
+Signing the text "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E" using your mixnode's Ed25519 identity key...
+The base58-encoded signature on 'APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E' is: 2ZuCFYU91pvEcgAj6EzU33oozazvsRAoxP7NQHFM6Xy6AkJrzgCZdnsnZYAmxFtqe8Su17KXwpTHQtkVmAnAiV4H
+
+```
+~~~
+
+Using `nym-cli`:
+
+> `--mnemonic` is the mnemonic of the member wanting to be the head of family.
+
+```
+/nym-cli cosmwasm execute <wallet-address> '{"create_family": {"signature": "<base58-encoded-signature>","family_head": "<text>","owner_signature":"<node owner signature>","label": "<node label>"}}' --mnemonic <mnemonic from node to be the head>
+```
+
+Using `nyxd`:
+
+> `--from` is mnemonic of the member wanting to join the family.
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "<base58-encoded-signature>","family_head": "<text>"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
+To get the node owner signature, use:
+
+`./nym-mixnode node-details --id <id>`
+
 ### Joining a Node Family 
 
-Ssh into the vps of the family head and run the following command to obtain the signature for the member. The value is the **identity key** of the mix node which wants to join the family: 
+`/path/to/the/release` and run the following on the family head to obtain the signature for the member:
 
 ```
-./nym-mixnode sign --id mixnode --text 4Yr4qmEHd9sgsuQ83191FR2hD88RfsbMmB4tzhhZWriz
+./nym-mixnode sign --id mixnode --text <text>
 ```
 
-This will return a signature which is going to be used below - in this example it is `3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq`. 
+~~~admonish example collapsible=true title="Console output"
+      _ __  _   _ _ __ ___
+     | '_ \| | | | '_ \ _ \
+     | | | | |_| | | | | | |
+     |_| |_|\__, |_| |_| |_|
+            |___/
 
-The `--from` is going to be the mnemonic of the member wanting to join the family: 
+             (nym-mixnode - version {{platform_release_version}})
+
+    
+Signing the text "4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR" using your mixnode's Ed25519 identity key...
+The base58-encoded signature on '4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR' is: 4By7EQEMM8BAt6ptxJyeGqpoxHWxeRUhyJ4wMr2x3mXSQD9nvttkvd7tgP1uKu2ktJjB2bLzD1oaZ33d2Wv5eYWp
+~~~
+
+Using `nym-cli`:
 
 ```
-./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+./nym-cli cosmwasm execute <wallet-address> '{"join_family": {"signature": "<base58-encoded-signature>","family_head": "<text>","owner_signautre": "<owner signature from node to join>", "label":"<node to join label>"}}'  --mnemonic <mnemonic-from-node-to-join>
 ```
+
+Using `nyxd`:
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "<base58-encoded-signature>","family_head": "<text>"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
+
+To get the node owner signature, use:
+
+`./nym-mixnode node-details --id <id>`
+
 
 ### Leaving a family 
 If wanting to leave, run the same initial command as above, followed by:
+
+Using `nym-cli`:
+
 ```
-./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"leave_family": {"signature": "3SEjfNcJ5L3cXdvWCdiQNT5DkCFJ2TurK5xsYyEdHH324nAA3bWvKoXmkjU9Xbr9ZyemGDLJ4dmGEHWUwL1LCWKq","family_head": "8A3Pv7Y9xGZdhUYd7sMHKp5y3nn5P3aBDDnJLataYE2J"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+./nym-cli cosmwasm execute n17srjznxl9dvzdkpwpw24gg668wc73val88a6m5ajg6ankwvz9wtst0cznr '{"leave_family": {"signature": "<base58-encoded-signature>","family_head": "<text>","owner_signautre": "<owner signature from node to leave>"}}'  --mnemonic <mnemonic-from-node-to leave>
 ```
+
+Using `nyxd`:
+
+```
+./nyxd tx wasm execute ${MIXNET-CONTRACT} '{"join_family": {"signature": "<base58-encoded-signature>","family_head": "<text>"}}' --node ${VALIDATOR-ENDPOINT} --from mix1 --chain-id nyx --gas-prices 0.025unym --gas auto --gas-adjustment 1.3 -y -b block
+```
+
 
 
 ## Checking that your node is mixing correctly
+
 ### Network explorers
 Once you've started your mix node and it connects to the validator, your node will automatically show up in the 'Mix nodes' section of either the Nym Network Explorers:
 
