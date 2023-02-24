@@ -19,7 +19,7 @@ At each 'hop' (i.e. as a packet is forwarded from one node in the sequence to an
 Traffic always travels through the nodes of the mixnet like such:
 
 ```
-                                                                                                       
+                                                                               
        +----------+              +----------+             +----------+                 
        | Mix Node |<-----------> | Mix Node |<----------->| Mix Node |                 
        | Layer 1  |              | Layer 2  |             | Layer 3  |                 
@@ -74,20 +74,20 @@ Whenever a hop is completed, the recieving node will send back an acknowledgemen
 Packet retransmission means that if a client sends 100 packets to a gateway, but only receives an acknowledgement ('ack') for 95 of them, it will resend those 5 packets to the gateway again, to make sure that all packets are received. All nodes in the mixnet support packet retransmission. 
 
 ```                                                                                                                                                                    
-                                                                                                                                                                    
-  +-------------------+                  +-------------------+                                                                                      
-  | +---------------+ |                  |                   | Packet lost in transmission - no ack recieved!                                       
-  | |  Nym client   | |                  |                   |-----------------?                                                                       
-  | +-------^-------+ |Send 100 packets  |                   |                                                                                      
-  |         |         |----------------->|   Gateway your    |  Resend packet    +------------------+     etc...                                          
-  |         |         |                  |   client is       |------------------>|                  |------------------>                                               
-  |         |         |                  |   connected to    |                   | Mix node layer 1 |                                               
-  |         v         | Send 100 acks    |                   |<------------------|                  |                                               
-  | +---------------+ |<-----------------|                   |   Send ack        +------------------+                                               
-  | | Your app code | |                  |                   |                                                                                      
-  | +---------------+ |                  |                   |                                                                                      
-  +-------------------+                  +-------------------+                                                                                      
-   Your Local Machine                                                                                                                               
+                                                                                                               
+  +-------------------+                  +-------------------+                                                
+  | +---------------+ |                  |                   | Packet lost in transmission - no ack recieved! 
+  | |  Nym client   | |                  |                   |-----------------?                              
+  | +-------^-------+ |Send 100 packets  |                   |                                                     
+  |         |         |----------------->|   Gateway your    |  Resend packet    +------------------+     etc...  
+  |         |         |                  |   client is       |------------------>|                  |------------------> 
+  |         |         |                  |   connected to    |                   | Mix node layer 1 |          
+  |         v         | Send 100 acks    |                   |<------------------|                  |         
+  | +---------------+ |<-----------------|                   |   Send ack        +------------------+        
+  | | Your app code | |                  |                   |                                              
+  | +---------------+ |                  |                   |                                             
+  +-------------------+                  +-------------------+                                            
+   Your Local Machine                                                                                    
 
 ```                                                                                                                                                                    
 
