@@ -18,6 +18,12 @@ sudo apt update
 sudo apt install pkg-config build-essential libssl-dev curl jq git
 ```
 
+- (Mac OS X) `pkg-config` , `brew`, `openss1`, `protobuf`, `curl`, `git`
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 - `Rust & cargo >= {{minimum_rust_version}}`
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
