@@ -2,6 +2,13 @@
 
 > The Nym mix node binary was built in the [building nym](../binaries/building-nym.md) section. If you haven't yet built Nym and want to run the code, go there first.
 
+```admonish info
+The `nym-mixnode` binary is currently one point version ahead of the rest of the platform binaries due to a patch applied between releases: 
+
+* platform binaries version: {{platform_release_version}}
+* mix node binary version: {{mix_node_release_version}} 
+```
+
 ## Preliminary steps
 
 There are a couple of steps that need completing before starting to set up your mix node:
@@ -59,10 +66,10 @@ Which should return a list of all avaliable commands.
  |_| |_|\__, |_| |_| |_|
         |___/
 
-         (mixnode - version {{platform_release_version}})
+         (mixnode - version {{mix_node_release_version}})
 
         
-nym-mixnode {{platform_release_version}}
+nym-mixnode {{mix_node_release_version}}
 Nymtech
 Implementation of a Loopix-based Mixnode
 
@@ -90,7 +97,7 @@ SUBCOMMANDS:
     sign                 Sign text to prove ownership of this mixnode
     upgrade              Try to upgrade the mixnode
 
-    nym-mixnode {{platform_release_version}}
+    nym-mixnode {{mix_node_release_version}}
     Nymtech
 ```
 ~~~
@@ -117,7 +124,7 @@ To check available configuration options for initializing your node use:
  |_| |_|\__, |_| |_| |_|
         |___/
 
-         (mixnode - version {{platform_release_version}})
+         (mixnode - version {{mix_node_release_version}})
 
         
 nym-mixnode-init 
@@ -202,7 +209,7 @@ Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
 Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
 Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
 Host: 62.240.134.46 (bind address: 62.240.134.46)
-Version: {{platform_release_version}}
+Version: {{mix_node_release_version}}
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
 You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -273,7 +280,7 @@ Identity Key: GWrymUuLaxVHSs8iE7YW48MB81npnKjrVuJzJsGkeji6
 Sphinx Key: FU89ULkS4YYDXcm5jShhJvoit7H4jG4EXHxRKbS9cXSJ
 Owner Signature: Kd5StZtg5PsjLtWRJ5eQejuLHz3JUNzZrk6Jd4WVS5u9Q5bFt6DvuVzN7NbiX9WMZYpsYMJoegH3Bz94o6gsY6b
 Host: 62.240.134.46 (bind address: 62.240.134.46)
-Version: {{platform_release_version}}
+Version: {{mix_node_release_version}}
 Mix Port: 1789, Verloc port: 1790, Http Port: 8000
 
 You are bonding to wallet address: n1x42mm3gsdg808qu2n3ah4l4r9y7vfdvwkw8az6
@@ -312,7 +319,7 @@ It's useful to have the mix node automatically start at system boot time. Here's
 
 ```ini
 [Unit]
-Description=Nym Mixnode ({{platform_release_version}})
+Description=Nym Mixnode ({{mix_node_release_version}})
 StartLimitInterval=350
 StartLimitBurst=10
 
@@ -451,7 +458,7 @@ You can use either `nym-cli` which can be downloaded from the [release page](htt
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (nym-mixnode - version {{platform_release_version}})
+             (nym-mixnode - version {{mix_node_release_version}})
     
 Signing the text "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E" using your mixnode's Ed25519 identity key...
 The base58-encoded signature on 'APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E' is: 2ZuCFYU91pvEcgAj6EzU33oozazvsRAoxP7NQHFM6Xy6AkJrzgCZdnsnZYAmxFtqe8Su17KXwpTHQtkVmAnAiV4H
@@ -494,7 +501,7 @@ To get the node owner signature, use:
      |_| |_|\__, |_| |_| |_|
             |___/
 
-             (nym-mixnode - version {{platform_release_version}})
+             (nym-mixnode - version {{mix_node_release_version}})
 
     
 Signing the text "4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR" using your mixnode's Ed25519 identity key...
