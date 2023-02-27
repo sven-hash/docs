@@ -214,19 +214,6 @@ As a response the `native-client` will send a `ServerResponse` to be decoded.
 
 You can find examples of sending and receiving binary data in the Rust, Python and Go [code examples](https://github.com/nymtech/nym/tree/release/{{platform_release_version}}/clients/native/examples), and an example project from the Nym community [BTC-BC](https://github.com/sgeisler/btcbc-rs/): Bitcoin transaction transmission via Nym, a client and service provider written in Rust.
 
-#### Receiving messages
-When another PEAPP sends a message to you, all extraneous information is stripped and you just get the message. So if an app sends the following message:
-
-```json
-{
-  "type": "send",
-  "message": "2 + 2 = 4",
-  "recipient_address": "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
-}
-```
-
-The receiving user will get only `2 + 2 = 4`.
-
 #### Getting your own address
 Sometimes, when you start your app, it can be convenient to ask the native client to tell you what your own address is (from the saved configuration files). To do this, send:
 
@@ -241,7 +228,7 @@ You'll get back:
 ```json
 {
   "type": "selfAddress",
-  "address": "the-address"
+  "address": "the-address" // e.g. "71od3ZAupdCdxeFNg8sdonqfZTnZZy1E86WYKEjxD4kj@FWYoUrnKuXryysptnCZgUYRTauHq4FnEFu2QGn5LZWbm"
 }
 ```
 
