@@ -1,5 +1,5 @@
 [book]
-title = "Nym Docs v1.1.10"
+title = "Nym Docs v1.1.11"
 authors = ["Max Hampshire"]
 description = "Nym technical documentation"
 language = "en"
@@ -38,7 +38,7 @@ chapter-line-height       = "2em"
 section-line-height       = "1.5em"
 
 # if true, never read and touch the files in theme dir: this is used to stop the looping reload issue referred to in the readme
-turn-off = true
+turn-off = false 
 
 [preprocessor.admonish]
 command = "mdbook-admonish"
@@ -51,15 +51,14 @@ assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
 minimum_rust_version = "1.66"
 # minimum_node_version = ""
 # nym platform code most recent release 
-platform_release_version = "v1.1.10"
-mix_node_release_version = "v1.1.11"
+platform_release_version = "v1.1.11"
+mix_node_release_version = "v1.1.12"
 
 [preprocessor.last-changed]
 command = "mdbook-last-changed"
 renderer = ["html"]
 
 # more pre-processor plugins to look into from https://github.com/rust-lang/mdBook/wiki/Third-party-plugins & https://lib.rs/keywords/mdbook-preprocessor
-# mdbook-mermaid - use mermaid to make diagrams from text!
 # mdbook-i18n
 
 #########
