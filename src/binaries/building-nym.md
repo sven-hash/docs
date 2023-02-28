@@ -22,7 +22,6 @@ sudo apt install pkg-config build-essential libssl-dev curl jq git
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 - `Rust & cargo >= {{minimum_rust_version}}`
 
