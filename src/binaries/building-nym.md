@@ -20,9 +20,19 @@ sudo apt install pkg-config build-essential libssl-dev curl jq git
 
 - (Mac OS X) `pkg-config` , `brew`, `openss1`, `protobuf`, `curl`, `git`
 
+`curl` - required for transferring data over various protocols. It's used for downloading files or send requests to a server.
+
+`openssl` - used for encryption, decryption, and secure communication over the internet.
+
+`protobug` - for serialising and deserialising structured data in a fast and efficient way.
+
+Running the following command will download and run a shell script that installs Homebrew for Mac OS X:
+
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+`curl` is required for transferring data over various protocols. 
 - `Rust & cargo >= {{minimum_rust_version}}`
 
 We recommend using the [Rust shell script installer](https://www.rust-lang.org/tools/install). Installing cargo from your package manager (e.g. `apt`) is not recommended as the packaged versions are usually too old.
