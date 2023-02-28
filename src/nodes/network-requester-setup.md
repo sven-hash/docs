@@ -187,7 +187,7 @@ nym-network-requester init --id mynetworkrequester
 Copy the old keys from your client to the network-requester configuration that was created above:
   
 ```
-cp -v ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
+cp -vr ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
 ```
 
 Edit the gateway configuration to match what you used on your client. Specifically, edit the configuration file at:
@@ -214,7 +214,7 @@ StartLimitBurst=10
 User=nym # replace this with whatever user you wish 
 LimitNOFILE=65536
 # remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary 
-ExecStart=/home/nym/nym-network-requester run 
+ExecStart=/home/nym/nym-network-requester run --id <your_id>  
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
