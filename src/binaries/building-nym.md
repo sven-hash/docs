@@ -24,7 +24,7 @@ sudo apt install pkg-config build-essential libssl-dev curl jq git
 
 `openssl` - used for encryption, decryption, and secure communication over the internet.
 
-`protobug` - for serialising and deserialising structured data in a fast and efficient way.
+`protobuf` - for serialising and deserialising structured data in a fast and efficient way.
 
 Running the following command will download and run a shell script that installs Homebrew for Mac OS X:
 
