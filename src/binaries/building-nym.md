@@ -26,7 +26,7 @@ sudo apt install pkg-config build-essential libssl-dev curl jq git
 
 `protobuf` - for serialising and deserialising structured data in a fast and efficient way.
 
-Running the following command will download and run a shell script that installs Homebrew for Mac OS X:
+Running the following the script installs Homebrew and the above dependencies as well for Mac OS X:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
