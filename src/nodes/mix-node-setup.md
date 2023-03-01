@@ -187,7 +187,7 @@ You can bond your mix node via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details.
 
 #### Bond via the CLI (power users)
-If you want to bond your Gateway via the CLI, then check out the [Nym CLI](../tools/nym-cli.md) tool. 
+If you want to bond your mix node via the CLI, then check out the [Nym CLI](../tools/nym-cli.md) tool. 
 
 ### Running your mix node
 

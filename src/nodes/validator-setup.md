@@ -91,7 +91,7 @@ NYM_APP_NAME=nymd
 Then run this to clone, compile, and build your validator:
 
 ```
-git clone git@github.com:nymtech/nyxd.git
+git clone https://github.com/nymtech/nyxd.git
 cd nyxd
 git checkout ${WASMD_VERSION}
 mkdir build
