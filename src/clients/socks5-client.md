@@ -124,7 +124,9 @@ Before you can use the client, you need to initalise a new instance of it, which
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you can't find one from the community, you'll have to [run your own](../nodes/network-requester-setup.md). A nicer way of discovering public Service Providers is incoming, but at the moment just ask around in community channels and someone will give you an address to use. 
+The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you don't want to [run your own](../nodes/network-requester-setup.md) you can select one from [this list](https://harbourmaster.nymtech.net/). Since the nodes on this list are the infrastructure for [Nymconnect](https://nymtech.net/developers/quickstart/nymconnect-gui.html) they will support all apps on the [default whitelist](../nodes/network-requester-setup.md#network-requester-whitelist): Keybase, Telegram, Electrum, Blockstream Green, and Helios. 
+
+> We are currently working on an easier way for node operators to broadcast their Network Requesters and for users to discover them. Stay tuned. 
 
 <!-- ~~~admonish caution 
 Please note that the `nym-socks5-client` currently **does not** have [multiSURBs](/docs/next/architecture/traffic-flow#private-replies-using-surbs) enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`. This should be enabled in the next release once requesters have had time to update without interrupting network services. 
