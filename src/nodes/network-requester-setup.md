@@ -42,6 +42,7 @@ electrum.org
 # Helios Ethereum Client 
 alchemy.com
 lightclientdata.org
+p2pify.com
 
 # Telegram - these IPs have been copied from https://core.telegram.org/resources/cidr.txt as Telegram does 
 # not seem to route by domain as the other apps on this list do
