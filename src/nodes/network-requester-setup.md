@@ -237,7 +237,7 @@ Edit the gateway configuration to match what you used on your client. Specifical
 Ensure that the fields `gateway_id`, `gateway_owner`, `gateway_listener` in the new config match those in the old client config at:
   
 ```
-~/.nym/clients/myoldclient/client/client.toml  
+~/.nym/clients/myoldclient/config/config.toml  
 ```
 
 ## Automating your network requester with systemd
