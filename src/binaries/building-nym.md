@@ -18,7 +18,7 @@ sudo apt update
 sudo apt install pkg-config build-essential libssl-dev curl jq git
 ```
 
-- (Arch) `base-devel`
+- (Arch/Manjaro) `base-devel`
 
 ```
 pacman -S base-devel
