@@ -257,14 +257,38 @@ This information will be shown in the mixnode's page in the Network Explorer, an
 
 ### Upgrading your mix node 
 
+Upgrading your node is a two-step process:
+* Updating the binary and `config.toml` on your VPS 
+* Updating the node information in the [mixnet smart contract](../nyx/mixnet-contract.md). **This is the information that is present on the [mixnet explorer](https://explorer.nymtech.net)**. 
+
+#### Step 1: upgrading your binary 
+Follow these steps to upgrade your mix node binary and update its config file:
 * pause your mix node process 
 * replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
 * re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
+* check that the 
 * restart your mix node process with the new binary. 
 
-> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in the next release. 
+> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in a subsequent release. 
 
+#### Step 2: updating your node information in the smart contract 
+Follow these steps to update the information about your mix node which is publically avaliable from the [Nym API](https://validator.nymtech.net/api/swagger/index.html) and information displayed on the [mixnet explorer](https://explorer.nymtech.net). 
 
+You can either do this graphically via the Desktop Wallet, or the CLI. 
+
+#### Updating node information via the Desktop Wallet 
+* Navigate to the `Bonding` page and click the `Node Settings` link in the top right corner: 
+![Bonding page](../images/wallet-screenshots/bonding.png)
+
+* Update the fields in the `Node Settings` page and click `Submit changes to the blockchain`.
+![Node Settings Page](../images/wallet-screenshots/node_settings.png)
+
+#### Updating node information via the CLI 
+You can use either the `nyxd` binary or the `Nym-CLI` tool to update your node information from the command line. With `Nym-CLI`, this command looks like this: 
+```
+./nym-cli -c <config_file_with_mnemonic>  mixnet operators mixnode settings update-config --version <new_version>
+```
+You can read more about the Nym CLI tool [here](../tools/nym-cli.md). 
 ### Displaying mix node information
 
 You can always check the details of your mix node with the `node-details` command:
@@ -582,7 +606,7 @@ The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 -
 This will bind the mix node to the available host `10.126.5.7`, but announce the mix node's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
 ## Metrics / API endpoints
-The mix node binary exposes several API endpoints that can be pinged in order to gather information about the node, and the Validator API exposes numerous mix node related endpoints which provide network-wide information about mix nodes, the network topology (the list of avaliable mix nodes for packet routing), and information regarding uptime monitoring and rewarding history. 
+The mix node binary exposes several API endpoints that can be pinged in order to gather information about the node, and the Nym API (previously 'Validator API') exposes numerous mix node related endpoints which provide network-wide information about mix nodes, the network topology (the list of avaliable mix nodes for packet routing), and information regarding uptime monitoring and rewarding history. 
 
 ### Mix node API endpoints 
 Since the mix node binary exposes several API endpoints itself, you can ping these easily via curl: 
@@ -597,8 +621,8 @@ The code for exposed API endpoints can be found [here](https://github.com/nymtec
 
 > You can get more detailed info by appending `?debug` to the URL, like so: `curl http://<NODE_IP_ADDRESS>:8000/stats?debug`
 
-### Mix node related Validator API endpoints 
-Numerous endpoints are documented on the Validator API's [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
+### Mix node related Nym API (previously 'Validator API') endpoints 
+Numerous endpoints are documented on the Nym API (previously 'Validator API')'s [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
 
 #### Mix node Reward Estimation API endpoint
 
