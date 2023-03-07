@@ -1,58 +1,58 @@
-# Socks5 Client 
+# Socks5 Client
 
 > The Nym socks5 client was built in the [building nym](../binaries/building-nym.md) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 
 Many existing applications are able to use either the SOCKS4, SOCKS4A, or SOCKS5 proxy protocols. If you want to send such an application's traffic through the mixnet, you can use the `nym-socks5-client` to bounce network traffic through the Nym network, like this:
 
 ```
-                                                                              External Systems:                                                                                                               
-                                                                                     +--------------------+                                                                   
-                                                                             |------>| Monero blockchain  |                                                                   
-                                                                             |       +--------------------+                                                                   
-                                                                             |       +--------------------+                                                                   
-                                                                             |------>|    Email server    |                                                                   
-                                                                             |       +--------------------+                                                                   
-                                                                             |       +--------------------+                                                                   
-                                                                             |------>|    RPC endpoint    |                                                                   
-                                                                             |       +--------------------+                                                                   
-                                                                             |       +--------------------+                                                                   
-                                                                             |------>|       Website      |                                                                   
-                                                                             |       +--------------------+                                                                   
-                                                                             |       +--------------------+                                                                   
-  +----------------------------------+                                       |------>|       etc...       |                                                                   
-  | Mixnet:                          |                                       |       +--------------------+                                                                   
-  |       * Gateway your client is   |                                       |                                                                                                
-  |       connected to               |          +--------------------+       |                                                                                                
-  |       * Mix nodes 1 -> 3         |<-------->| Network requester  |<------+                                                                                                
-  |       * Gateway that network     |          +--------------------+                                                                                                      
-  |       requester is connected to  |                                                                                                                                        
-  +----------------------------------+                                                                                                                                        
-           ^                                                                                                                                                                  
-           |                                                                                                                                                                  
-           |                                                                                                                                                                  
-           |                                                                                                                                                                  
-           |                                                                                                                                                                  
-           v                                                                                                                                                                  
- +-------------------+                                                                                                                                                        
- | +---------------+ |                                                                                                                                                        
- | |  Nym client   | |                                                                                                                                                        
- | +---------------+ |                                                                                                                                                        
- |         ^         |                                                                                                                                                        
- |         |         |                                                                                                                                                        
- |         |         |                                                                                                                                                        
- |         |         |                                                                                                                                                        
- |         v         |                                                                                                                                                        
- | +---------------+ |                                                                                                                                                        
- | | Your app code | |                                                                                                                                                        
- | +---------------+ |                                                                                                                                                        
- +-------------------+                                                                                                                                                        
-  Your Local Machine   
+                                                                              External Systems:
+                                                                                     +--------------------+
+                                                                             |------>| Monero blockchain  |
+                                                                             |       +--------------------+
+                                                                             |       +--------------------+
+                                                                             |------>|    Email server    |
+                                                                             |       +--------------------+
+                                                                             |       +--------------------+
+                                                                             |------>|    RPC endpoint    |
+                                                                             |       +--------------------+
+                                                                             |       +--------------------+
+                                                                             |------>|       Website      |
+                                                                             |       +--------------------+
+                                                                             |       +--------------------+
+  +----------------------------------+                                       |------>|       etc...       |
+  | Mixnet:                          |                                       |       +--------------------+
+  |       * Gateway your client is   |                                       |
+  |       connected to               |          +--------------------+       |
+  |       * Mix nodes 1 -> 3         |<-------->| Network requester  |<------+
+  |       * Gateway that network     |          +--------------------+
+  |       requester is connected to  |
+  +----------------------------------+
+           ^
+           |
+           |
+           |
+           |
+           v
+ +-------------------+
+ | +---------------+ |
+ | |  Nym client   | |
+ | +---------------+ |
+ |         ^         |
+ |         |         |
+ |         |         |
+ |         |         |
+ |         v         |
+ | +---------------+ |
+ | | Your app code | |
+ | +---------------+ |
+ +-------------------+
+  Your Local Machine
 ```
 
-There are 2 pieces of software that work together to send SOCKS traffic through the mixnet: the `nym-socks5-client`, and the `nym-network-requester`. 
+There are 2 pieces of software that work together to send SOCKS traffic through the mixnet: the `nym-socks5-client`, and the `nym-network-requester`.
 
 The `nym-socks5-client` allows you to do the following from your local machine:
-* Take a TCP data stream from a application that can send traffic via SOCKS5. 
+* Take a TCP data stream from a application that can send traffic via SOCKS5.
 * Chop up the TCP stream into multiple Sphinx packets, assigning sequence numbers to them, while leaving the TCP connection open for more data
 * Send the Sphinx packets through the mixnet to a [network requester](../nodes/network-requester-setup.md). Packets are shuffled and mixed as they transit the mixnet.
 
@@ -78,7 +78,7 @@ You can check that your binaries are properly compiled with:
 
                 (socks5 proxy - version {{platform_release_version}})
 
-    
+
         nym-socks5-client {{platform_release_version}}
         Nymtech
         A SOCKS5 localhost proxy that converts incoming messages to Sphinx and sends them to a Nym address
@@ -105,13 +105,13 @@ You can check that your binaries are properly compiled with:
                              overriding set parameters
         upgrade              Try to upgrade the client
 
-    
+
 ```
 
 You can check the necessary parameters for the available commands by running:
 
 ```
-./nym-client <command> --help 
+./nym-client <command> --help
 ```
 
 ### Initialising a new client instance
@@ -124,29 +124,19 @@ Before you can use the client, you need to initalise a new instance of it, which
 
 The `--id` in the example above is a local identifier so that you can name your clients; it is **never** transmitted over the network.
 
-The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you don't want to [run your own](../nodes/network-requester-setup.md) you can select one from [this list](https://harbourmaster.nymtech.net/). Since the nodes on this list are the infrastructure for [Nymconnect](https://nymtech.net/developers/quickstart/nymconnect-gui.html) they will support all apps on the [default whitelist](../nodes/network-requester-setup.md#network-requester-whitelist): Keybase, Telegram, Electrum, Blockstream Green, and Helios. 
+The `--provider` field needs to be filled with the Nym address of a Network Requester that can make network requests on your behalf. If you don't want to [run your own](../nodes/network-requester-setup.md) you can select one from the [mixnet explorer](https://explorer.nymtech.net/network-components/service-providers) by copying its `Client ID` and using this as the value of the `--provider` flag. Alternatively, you could use [this list](https://harbourmaster.nymtech.net/).
 
-> We are currently working on an easier way for node operators to broadcast their Network Requesters and for users to discover them. Stay tuned. 
+Since the nodes on this list are the infrastructure for [Nymconnect](https://nymtech.net/developers/quickstart/nymconnect-gui.html) they will support all apps on the [default whitelist](../nodes/network-requester-setup.md#network-requester-whitelist): Keybase, Telegram, Electrum, Blockstream Green, and Helios.
 
-<!-- ~~~admonish caution 
-Please note that the `nym-socks5-client` currently **does not** have [multiSURBs](/docs/next/architecture/traffic-flow#private-replies-using-surbs) enabled by default to allow for a non-breaking network update, allowing network requesters to update to `v1.1.4`. This should be enabled in the next release once requesters have had time to update without interrupting network services. 
-
-If you **know** that your client is communicating with a network requester which is >= `v1.1.4` then `init` your `nym-socks5-client` binary with the `--use-anonymous-sender-tag` flag like so: 
-
-```
-./nym-socks5-client init --id <id> --provider <provider> --use-anonymous-sender-tag
-```
-~~~ -->
-
-#### Choosing a Gateway 
-By default - as in the example above - your client will choose a random gateway to connect to. 
+#### Choosing a Gateway
+By default - as in the example above - your client will choose a random gateway to connect to.
 
 However, there are several options for choosing a gateway, if you do not want one that is randomly assigned to your client:
-* If you wish to connect to a specific gateway, you can specify this with the `--gateway` flag when running `init`. 
-* You can also choose a gateway based on its location relative to your client. This can be done by appending the `--latency-based-selection` flag to your `init` command. This command means that to select a gateway, your client will: 
+* If you wish to connect to a specific gateway, you can specify this with the `--gateway` flag when running `init`.
+* You can also choose a gateway based on its location relative to your client. This can be done by appending the `--latency-based-selection` flag to your `init` command. This command means that to select a gateway, your client will:
 	* fetch a list of all availiable gateways
-	* send few ping messages to all of them, and measure response times. 
-	* create a weighted distribution to randomly choose one, favouring ones with lower latency. 
+	* send few ping messages to all of them, and measure response times.
+	* create a weighted distribution to randomly choose one, favouring ones with lower latency.
 
 > Note this doesn't mean that your client will pick the closest gateway to you, but it will be far more likely to connect to gateway with a 20ms ping rather than 200ms
 
@@ -160,7 +150,7 @@ You can run the initalised client by doing this:
 
 ~~~admonish example collapsible=true title="Console output"
 
-```    
+```
 2022-04-27T16:15:45.843Z INFO  nym_socks5_client::client > Starting nym client
 2022-04-27T16:15:45.889Z INFO  nym_socks5_client::client > Obtaining initial network topology
 2022-04-27T16:15:51.470Z INFO  nym_socks5_client::client > Starting topology refresher...
@@ -181,9 +171,9 @@ You can run the initalised client by doing this:
 
 ## Using your Socks5 Client
 
-After completing the steps above, your local Socks5 Client will be listening on `localhost:1080` ready to proxy traffic to the Network Requester set as the `--provider` when initialising. 
+After completing the steps above, your local Socks5 Client will be listening on `localhost:1080` ready to proxy traffic to the Network Requester set as the `--provider` when initialising.
 
-When trying to connect your app, generally the proxy settings are found in `settings->advanced` or `settings->connection`. 
+When trying to connect your app, generally the proxy settings are found in `settings->advanced` or `settings->connection`.
 
 Here is an example of setting the proxy connecting in Blockstream Green:
 
