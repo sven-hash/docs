@@ -5,8 +5,8 @@
 ```admonish info
 The `nym-mixnode` binary is currently one point version ahead of the rest of the platform binaries due to a patch applied between releases: 
 
-* platform binaries version: {{platform_release_version}}
-* mix node binary version: {{mix_node_release_version}} 
+* platform binaries version: `{{platform_release_version}}`
+* mix node binary version: `{{mix_node_release_version}}` 
 ```
 
 ## Preliminary steps
@@ -187,7 +187,7 @@ You can bond your mix node via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details.
 
 #### Bond via the CLI (power users)
-If you want to bond your Gateway via the CLI, then check out the [Nym CLI](../tools/nym-cli.md) tool. 
+If you want to bond your mix node via the CLI, then check out the [Nym CLI](../tools/nym-cli.md) tool. 
 
 ### Running your mix node
 

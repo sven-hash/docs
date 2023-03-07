@@ -26,12 +26,9 @@ The following code snippet shows the basic flow of initialising a client, subscr
 import { createNymMixnetClient } from '@nymproject/sdk';
 
 const main = async () => {
-  
-  // create your client
   const nym = await createNymMixnetClient();
 
-  // define which validator API you wish to ping to receive network topology on startup 
-  const validatorApiUrl = 'https://validator.nymtech.net/api';
+  const nymApiUrl = 'https://validator.nymtech.net/api';
 
   // show message payload content when received 
   nym.events.subscribeToTextMessageReceivedEvent((e) => {
@@ -41,13 +38,13 @@ const main = async () => {
   // start the client and connect to a gateway
   await nym.client.start({
     clientId: 'My awesome client',
-    validatorApiUrl,
+    nymApiUrl,
   });
 
   // send a message to yourself
   const payload = 'Hello mixnet';
   const recipient = nym.client.selfAddress();
-  nym.client.sendMessage({ payload, recipient });
+  nym.client.send({ payload, recipient });
   
 };
 ```

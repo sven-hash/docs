@@ -98,6 +98,18 @@ There is an optional `--gateway` flag that you can use if you want to use a spec
 
 Not passing this argument will randomly select a gateway for your client.
 
+#### Choosing a Gateway 
+By default - as in the example above - your client will choose a random gateway to connect to. 
+
+However, there are several options for choosing a gateway, if you do not want one that is randomly assigned to your client:
+* If you wish to connect to a specific gateway, you can specify this with the `--gateway` flag when running `init`. 
+* You can also choose a gateway based on its location relative to your client. This can be done by appending the `--latency-based-routing` flag to your `init` command. This command means that to select a gateway, your client will: 
+	* fetch a list of all availiable gateways
+	* send few ping messages to all of them, and measure response times. 
+	* create a weighted distribution to randomly choose one, favouring ones with lower latency. 
+
+> Note this doesn't mean that your client will pick the closest gateway to you, but it will be far more likely to connect to gateway with a 20ms ping rather than 200ms
+
 ### Configuring your client 
 When you initalise a client instance, a configuration directory will be generated and stored in `$HOME_DIR/.nym/clients/<client-name>/`.
 
