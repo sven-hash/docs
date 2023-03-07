@@ -3,10 +3,10 @@
 > The Nym mix node binary was built in the [building nym](../binaries/building-nym.md) section. If you haven't yet built Nym and want to run the code, go there first.
 
 ```admonish info
-The `nym-mixnode` binary is currently one point version ahead of the rest of the platform binaries due to a patch applied between releases: 
+The `nym-mixnode` binary is currently one point version ahead of the rest of the platform binaries due to a patch applied between releases:
 
 * platform binaries version: `{{platform_release_version}}`
-* mix node binary version: `{{mix_node_release_version}}` 
+* mix node binary version: `{{mix_node_release_version}}`
 ```
 
 ## Preliminary steps
@@ -42,9 +42,9 @@ For now, see the below rough specs:
 
 - Processors: 2 cores are fine. Get the fastest CPUs you can afford.
 - RAM: Memory requirements are very low - typically a mix node may use only a few hundred MB of RAM.
-- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files. 
+- Disks: The mixnodes require no disk space beyond a few bytes for the configuration files.
 
-## Mix node setup 
+## Mix node setup
 
 Now that you have built the codebase, set up your wallet, and have a VPS with the `nym-mixnode` binary, you can set up your mix node with the instructions below.
 
@@ -68,7 +68,7 @@ Which should return a list of all avaliable commands.
 
          (mixnode - version {{mix_node_release_version}})
 
-        
+
 nym-mixnode {{mix_node_release_version}}
 Nymtech
 Implementation of a Loopix-based Mixnode
@@ -126,8 +126,8 @@ To check available configuration options for initializing your node use:
 
          (mixnode - version {{mix_node_release_version}})
 
-        
-nym-mixnode-init 
+
+nym-mixnode-init
 Initialise the mixnode
 
 USAGE:
@@ -187,7 +187,7 @@ You can bond your mix node via the Desktop wallet.
 Open your wallet, and head to the `Bond` page, then select the node type and input your node details.
 
 #### Bond via the CLI (power users)
-If you want to bond your mix node via the CLI, then check out the [Nym CLI](../tools/nym-cli.md) tool. 
+If you want to bond your mix node via the CLI, then check out the [Nym CLI](../tools/nym-cli.md) tool.
 
 ### Running your mix node
 
@@ -255,40 +255,39 @@ This information will be shown in the mixnode's page in the Network Explorer, an
 > Remember to restart your mix node process in order for the new description to be propogated
 
 
-### Upgrading your mix node 
+### Upgrading your mix node
 
 Upgrading your node is a two-step process:
-* Updating the binary and `config.toml` on your VPS 
-* Updating the node information in the [mixnet smart contract](../nyx/mixnet-contract.md). **This is the information that is present on the [mixnet explorer](https://explorer.nymtech.net)**. 
+* Updating the binary and `config.toml` on your VPS
+* Updating the node information in the [mixnet smart contract](../nyx/mixnet-contract.md). **This is the information that is present on the [mixnet explorer](https://explorer.nymtech.net)**.
 
-#### Step 1: upgrading your binary 
+#### Step 1: upgrading your binary
 Follow these steps to upgrade your mix node binary and update its config file:
-* pause your mix node process 
+* pause your mix node process
 * replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
-* re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**. 
-* check that the 
-* restart your mix node process with the new binary. 
+* re-run `init` with the same values as you used initially. **This will just update the config file, it will not overwrite existing keys**.
+* restart your mix node process with the new binary.
 
-> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in a subsequent release. 
+> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in a subsequent release.
 
-#### Step 2: updating your node information in the smart contract 
-Follow these steps to update the information about your mix node which is publically avaliable from the [Nym API](https://validator.nymtech.net/api/swagger/index.html) and information displayed on the [mixnet explorer](https://explorer.nymtech.net). 
+#### Step 2: updating your node information in the smart contract
+Follow these steps to update the information about your mix node which is publically avaliable from the [Nym API](https://validator.nymtech.net/api/swagger/index.html) and information displayed on the [mixnet explorer](https://explorer.nymtech.net).
 
-You can either do this graphically via the Desktop Wallet, or the CLI. 
+You can either do this graphically via the Desktop Wallet, or the CLI.
 
-#### Updating node information via the Desktop Wallet 
-* Navigate to the `Bonding` page and click the `Node Settings` link in the top right corner: 
+#### Updating node information via the Desktop Wallet
+* Navigate to the `Bonding` page and click the `Node Settings` link in the top right corner:
 ![Bonding page](../images/wallet-screenshots/bonding.png)
 
 * Update the fields in the `Node Settings` page and click `Submit changes to the blockchain`.
 ![Node Settings Page](../images/wallet-screenshots/node_settings.png)
 
-#### Updating node information via the CLI 
-You can use either the `nyxd` binary or the `Nym-CLI` tool to update your node information from the command line. With `Nym-CLI`, this command looks like this: 
+#### Updating node information via the CLI
+You can use either the `nyxd` binary or the `Nym-CLI` tool to update your node information from the command line. With `Nym-CLI`, this command looks like this:
 ```
 ./nym-cli -c <config_file_with_mnemonic>  mixnet operators mixnode settings update-config --version <new_version>
 ```
-You can read more about the Nym CLI tool [here](../tools/nym-cli.md). 
+You can read more about the Nym CLI tool [here](../tools/nym-cli.md).
 ### Displaying mix node information
 
 You can always check the details of your mix node with the `node-details` command:
@@ -483,7 +482,7 @@ You can use either `nym-cli` which can be downloaded from the [release page](htt
             |___/
 
              (nym-mixnode - version {{mix_node_release_version}})
-    
+
 Signing the text "APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E" using your mixnode's Ed25519 identity key...
 The base58-encoded signature on 'APxUbCmGp4K9qDzvwVADJFNu8S3JV1AJBw7q6bS5KN9E' is: 2ZuCFYU91pvEcgAj6EzU33oozazvsRAoxP7NQHFM6Xy6AkJrzgCZdnsnZYAmxFtqe8Su17KXwpTHQtkVmAnAiV4H
 
@@ -510,7 +509,7 @@ To get the node owner signature, use:
 
 `./nym-mixnode node-details --id <id>`
 
-### Joining a Node Family 
+### Joining a Node Family
 
 `/path/to/the/release` and run the following on the family head to obtain the signature for the member:
 
@@ -527,7 +526,7 @@ To get the node owner signature, use:
 
              (nym-mixnode - version {{mix_node_release_version}})
 
-    
+
 Signing the text "4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR" using your mixnode's Ed25519 identity key...
 The base58-encoded signature on '4yRfauFzZnejJhG2FACTVQ7UnYEcFUYw3HzXrmuwLMaR' is: 4By7EQEMM8BAt6ptxJyeGqpoxHWxeRUhyJ4wMr2x3mXSQD9nvttkvd7tgP1uKu2ktJjB2bLzD1oaZ33d2Wv5eYWp
 ~~~
@@ -550,7 +549,7 @@ To get the node owner signature, use:
 `./nym-mixnode node-details --id <id>`
 
 
-### Leaving a family 
+### Leaving a family
 If wanting to leave, run the same initial command as above, followed by:
 
 Using `nym-cli`:
@@ -606,10 +605,10 @@ The right thing to do in this situation is `nym-mixnode init --host 10.126.5.7 -
 This will bind the mix node to the available host `10.126.5.7`, but announce the mix node's public IP to the directory server as `36.68.243.18`. It's up to you as a node operator to ensure that your public and private IPs match up properly.
 
 ## Metrics / API endpoints
-The mix node binary exposes several API endpoints that can be pinged in order to gather information about the node, and the Nym API (previously 'Validator API') exposes numerous mix node related endpoints which provide network-wide information about mix nodes, the network topology (the list of avaliable mix nodes for packet routing), and information regarding uptime monitoring and rewarding history. 
+The mix node binary exposes several API endpoints that can be pinged in order to gather information about the node, and the Nym API (previously 'Validator API') exposes numerous mix node related endpoints which provide network-wide information about mix nodes, the network topology (the list of avaliable mix nodes for packet routing), and information regarding uptime monitoring and rewarding history.
 
-### Mix node API endpoints 
-Since the mix node binary exposes several API endpoints itself, you can ping these easily via curl: 
+### Mix node API endpoints
+Since the mix node binary exposes several API endpoints itself, you can ping these easily via curl:
 
 | Endpoint             | Description                                                                           | Command                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
@@ -617,16 +616,16 @@ Since the mix node binary exposes several API endpoints itself, you can ping the
 | `/hardware`          | Returns the hardware information of the node                                          | `curl <NODE_IP_ADDRESS>:8000/hardware`                                                 |
 | `/verloc`            | Returns the verloc information of the node, updated every 12 hours                    | `curl <NODE_IP_ADDRESS>:8000/verloc`                                                   |
 
-The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/release/{{platform_release_version}}/mixnode/src/node/http). 
+The code for exposed API endpoints can be found [here](https://github.com/nymtech/nym/tree/release/{{platform_release_version}}/mixnode/src/node/http).
 
 > You can get more detailed info by appending `?debug` to the URL, like so: `curl http://<NODE_IP_ADDRESS>:8000/stats?debug`
 
-### Mix node related Nym API (previously 'Validator API') endpoints 
-Numerous endpoints are documented on the Nym API (previously 'Validator API')'s [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer. 
+### Mix node related Nym API (previously 'Validator API') endpoints
+Numerous endpoints are documented on the Nym API (previously 'Validator API')'s [Swagger Documentation](https://validator.nymtech.net/api/swagger/index.html). There you can also try out various requests from your broswer, and download the response from the API. Swagger will also show you what commands it is running, so that you can run these from an app or from your CLI if you prefer.
 
 #### Mix node Reward Estimation API endpoint
 
-The Reward Estimation API endpoint allows mix node operators to estimate the rewards they could earn for running a Nym mixnode with a specific `mix_id`. 
+The Reward Estimation API endpoint allows mix node operators to estimate the rewards they could earn for running a Nym mixnode with a specific `mix_id`.
 
 > The `{mix_id}` can be found in the "Mix ID" column of the [Network Explorer](https://explorer.nymtech.net/network-components/mixnodes/active).
 
@@ -661,7 +660,7 @@ Query Response:
 
 - `estimated_operator_cost` - An estimate of the total cost that a particular mix node operator can expect to incur for their participation. This value is calculated by the Nym Validator based on a number of factors, including the cost of running a mix node, such as server hosting fees, and other expenses associated with operating the mix node.
 
-## Ports 
+## Ports
 All mix node-specific port configuration can be found in `$HOME/.nym/mixnodes/<your-id>/config/config.toml`. If you do edit any port configs, remember to restart your mix node.
 
 ### Mix node port reference
