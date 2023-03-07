@@ -296,10 +296,11 @@ curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:
 ### Upgrading your gateway 
 * pause your gateway process 
 * replace the existing binary with the newest binary (which you can either compile yourself or grab from our [releases page](https://github.com/nymtech/nym/releases))
+* re-run `init` to pull in changes to `config.toml`. **`init` will never overwrite keys** so don't worry about your address changing.  
 * restart your gateway process with the new binary.
 * rebond your gateway, updating the version number.  
 
-> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in the next release. 
+> Do **not** use the `upgrade` command: there is a known error with the command that will be fixed in a subsequent release.  
 
 ## VPS Setup and Automation
 ### Configure your firewall
