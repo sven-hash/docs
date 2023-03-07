@@ -4,23 +4,22 @@
 
 If you have access to a server, you can run the network requester, which allows Nym users to send outbound requests from their local machine through the mixnet to a server, which then makes the request on their behalf, shielding them (and their metadata) from clearnet, untrusted and unknown infrastructure, such as email or message client servers.
 
-> As of `v1.1.10`, the network requester longer requires a separate nym client instance for it to function, as it has a client embedded within the binary running as a single process. 
-
+> As of `v1.1.10`, the network requester longer requires a separate nym client instance for it to function, as it has a client embedded within the binary running as a single process.
 ## Network Requester Whitelist
-The network requester is **not** an open proxy. It uses a file called `allowed.list` (located in `~/.nym/service-providers/network-requester/<network-requester-id>/`) as a whitelist for outbound requests. 
+The network requester is **not** an open proxy. It uses a file called `allowed.list` (located in `~/.nym/service-providers/network-requester/<network-requester-id>/`) as a whitelist for outbound requests.
 
 Any request to a URL which is not on this list will be blocked.
 
-On startup, if this file is not present, the requester will grab the default whitelist from [here](https://nymtech.net/.wellknown/network-requester/standard-allowed-list.txt) automatically. 
+On startup, if this file is not present, the requester will grab the default whitelist from [here](https://nymtech.net/.wellknown/network-requester/standard-allowed-list.txt) automatically.
 
-This default whitelist is useful for knowing that the majority of network requesters are able to support certain apps 'out of the box'. 
+This default whitelist is useful for knowing that the majority of network requesters are able to support certain apps 'out of the box'.
 
-**Operators of a network requester are of course free to edit this file and add the URLs of services they wish to support to it!** You can find instructions below on adding your own URLs or IPs to this list. 
+**Operators of a network requester are of course free to edit this file and add the URLs of services they wish to support to it!** You can find instructions below on adding your own URLs or IPs to this list.
 
-The domains and IPs on the default whitelist can be broken down by application as follows: 
+The domains and IPs on the default whitelist can be broken down by application as follows:
 
 ```
-# Keybase 
+# Keybase
 keybaseapi.com
 s3.amazonaws.com
 amazonaws.com
@@ -28,10 +27,10 @@ twitter.com
 keybase.io
 gist.githubusercontent.com
 
-# Used to for uptime healthcheck (see the section on testing your requester below for more) 
+# Used to for uptime healthcheck (see the section on testing your requester below for more)
 nymtech.net
 
-# Blockstream Green Bitcoin Wallet 
+# Blockstream Green Bitcoin Wallet
 blockstream.info
 blockstream.com
 greenaddress.it
@@ -39,12 +38,12 @@ greenaddress.it
 # Electrum Bitcoin Wallet
 electrum.org
 
-# Helios Ethereum Client 
+# Helios Ethereum Client
 alchemy.com
 lightclientdata.org
 p2pify.com
 
-# Telegram - these IPs have been copied from https://core.telegram.org/resources/cidr.txt as Telegram does 
+# Telegram - these IPs have been copied from https://core.telegram.org/resources/cidr.txt as Telegram does
 # not seem to route by domain as the other apps on this list do
 91.108.56.0/22
 91.108.4.0/22
@@ -62,6 +61,12 @@ p2pify.com
 2a0a:f280::/32
 ```
 
+## Network Requester Directory
+You can find a list of Network Requesters running the default whitelist [here](https://explorer.nymtech.net/network-components/service-providers). This list comprises of the NRs running as infrastructure for NymConnect.
+
+> We are currently working on a smart-contract based solution more in line with how Mix nodes and Gateways annouce themselves to the network.
+
+
 ## Initializing and running your network requester (standard mode)
 
 ```admonish caution
@@ -73,13 +78,13 @@ The network-requester needs to be initialized before it can be run. This is requ
  ./nym-network-requester init --id example
 ```
 
-Now that we have initialized our network-requester, we can start it with the following command: 
+Now that we have initialized our network-requester, we can start it with the following command:
 
 ```
  ./nym-network-requester run --id example
 ```
 
-Expected output: 
+Expected output:
 
 ~~~admonish example collapsible=true title="Console output"
 ```
@@ -91,7 +96,7 @@ Expected output:
 
              (nym-network-requester - version {{platform_release_version}})
 
-    
+
 Initialising client...
 Registering with new gateway
  2023-02-23T11:56:42.370Z INFO  gateway_client::client > the gateway is using exactly the same protocol version as we are. We're good to continue!
@@ -115,7 +120,7 @@ When running the above commands, the `./nym-network-requester --help ` command c
 
 ## Running your network requester (stats mode)
 
-Once an network-requester has been initialized, we can start it with the following command. 
+Once an network-requester has been initialized, we can start it with the following command.
 
 ```
  ./nym-network-requester run --id example --enable-statistics
@@ -132,7 +137,7 @@ Expected output:
 
              (nym-network-requester - version {{platform_release_version}})
 
-    
+
 
 
 THE NETWORK REQUESTER STATISTICS ARE ENABLED. IT WILL COLLECT AND SEND ANONYMIZED STATISTICS TO A CENTRAL SERVER. PLEASE QUIT IF YOU DON'T WANT THIS TO HAPPEN AND START WITHOUT THE enable-statistics FLAG .
@@ -142,9 +147,9 @@ THE NETWORK REQUESTER STATISTICS ARE ENABLED. IT WILL COLLECT AND SEND ANONYMIZE
  ```
 ~~~
 
-The `--enable-statistics` flag starts the node in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing. 
+The `--enable-statistics` flag starts the node in a mode which reports very minimal usage statistics - the amount of bytes sent to a service, and the number of requests - to a service we run, as part of the Nym Connect Beta testing.
 
-Use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date): 
+Use the following command to ping our stats service to see what it has recorded (remember to change the `'until'` date):
 
 ```
 curl -d '{"since":"2022-07-26T12:46:00.000000+00:00", "until":"2022-07-26T12:57:00.000000+00:00"}' -H "Content-Type: application/json" -X POST http://mainnet-stats.nymte.ch:8090/v1/all-statistics
@@ -202,18 +207,18 @@ Expected output:
               "timestamp":"2022-07-26 12:47:34.149270862"
             }
         }
-      ]                            
+      ]
 ```
 ~~~
 
-## Upgrading your network requester 
-You can upgrade your network requester by following these steps: 
+## Upgrading your network requester
+You can upgrade your network requester by following these steps:
 
-* stop your network requester service 
-* replace the old binary with the new binary 
-* restart your service using the commands in the previous section of the document 
+* stop your network requester service
+* replace the old binary with the new binary
+* restart your service using the commands in the previous section of the document
 
-### Upgrading to version 1.1.10  
+### Upgrading to version 1.1.10
 
 In the previous version of the network-requester, users were required to run a nym-client along side it to function. As of `v1.1.10`, the network-requester now has a nym client embedded into the binary, so it can run standalone.
 
@@ -225,7 +230,7 @@ nym-network-requester init --id mynetworkrequester
 ```
 
 Copy the old keys from your client to the network-requester configuration that was created above:
-  
+
 ```
 cp -vr ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
 ```
@@ -236,9 +241,9 @@ Edit the gateway configuration to match what you used on your client. Specifical
 ```
 
 Ensure that the fields `gateway_id`, `gateway_owner`, `gateway_listener` in the new config match those in the old client config at:
-  
+
 ```
-~/.nym/clients/myoldclient/config/config.toml  
+~/.nym/clients/myoldclient/config/config.toml
 ```
 
 ## Automating your network requester with systemd
@@ -251,10 +256,10 @@ StartLimitInterval=350
 StartLimitBurst=10
 
 [Service]
-User=nym # replace this with whatever user you wish 
+User=nym # replace this with whatever user you wish
 LimitNOFILE=65536
-# remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary 
-ExecStart=/home/nym/nym-network-requester run --id <your_id>  
+# remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary
+ExecStart=/home/nym/nym-network-requester run --id <your_id>
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
@@ -263,17 +268,17 @@ RestartSec=30
 WantedBy=multi-user.target
 ```
 
-Now enable and start your requester: 
+Now enable and start your requester:
 
 ```
 systemctl enable nym-network-requester.service
 systemctl start nym-network-requester.service
 
-# you can always check your requester has succesfully started with: 
+# you can always check your requester has succesfully started with:
 systemctl status nym-network-requester.service
 ```
 
-## VPS Setup 
+## VPS Setup
 ### Configure your firewall
 Although your requester is now ready to receive traffic, your server may not be - the following commands will allow you to set up a properly configured firewall using `ufw`:
 
@@ -298,7 +303,7 @@ sudo ufw status
 
 For more information about your requester's port configuration, check the [requester port reference table](./network-requester-setup.md#requester-port-reference) below.
 
-## Using your network requester 
+## Using your network requester
 ```admonish caution
 Service Grant grantees should only whitelist a single application - edit your `allowed.list` accordingly!
 ```
@@ -308,7 +313,7 @@ Is this safe to do? If it was an open proxy, this would be unsafe, because any N
 To make things a bit less stressful for administrators, the Network Requester drops all incoming requests by default. In order for it to make requests, you need to add specific domains to the `allowed.list` file at `$HOME/.nym/service-providers/network-requester/allowed.list`.
 
 ### Supporting custom domains with your network requester
-It is easy to add new domains and services to your network requester - simply find out which endpoints (both URLs and raw IP addresses are supported) you need to whitelist, and then add these endpoints to your `allowed.list` as such: 
+It is easy to add new domains and services to your network requester - simply find out which endpoints (both URLs and raw IP addresses are supported) you need to whitelist, and then add these endpoints to your `allowed.list` as such:
 
 ```
 cp service-providers/network-requester/allowed.list.sample ~/.nym/service-providers/network-requester/allowed.list
@@ -331,7 +336,7 @@ ls $HOME/.nym/service-providers/network-requester/
 
 We already know that `allowed.list` is what lets requests go through. All unknown requests are logged to `unknown.list`. If you want to try using a new client type, just start the new application, point it at your local SOCKS5 proxy (configured to use your remote `nym-network-requester`), and keep copying URLs from `unknown.list` into `allowed.list` (it may take multiple tries until you get all of them, depending on the complexity of the application).
 
-If you add support for a new application, we'd love to hear about it: let us know or submit a commented pull request on `allowed.list.sample`. 
+If you add support for a new application, we'd love to hear about it: let us know or submit a commented pull request on `allowed.list.sample`.
 
 > If you are adding custom domains, please note that whilst they may appear in the logs of your network-requester as something like `api-0.core.keybaseapi.com:443`, you **only need** to include the main domain name, in this instance `keybaseapi.com`
 
@@ -340,14 +345,14 @@ If you add support for a new application, we'd love to hear about it: let us kno
 If you *really* want to run an open proxy, perhaps for testing purposes for your own use or among a small group of trusted friends, it is possible to do so. You can disable network checks by passing the flag `--open-proxy` flag when you run it. If you run in this configuration, you do so at your own risk.
 
 ## Testing your network requester
-1. Add `nymtech.net` to your `allowed.list` (remember to restart your network requester). 
+1. Add `nymtech.net` to your `allowed.list` (remember to restart your network requester).
 
 2. Ensure that your network-requester is initialized and running.
 
-3. In another terminal window, run the following: 
+3. In another terminal window, run the following:
 
 ```
-curl -x socks5h://localhost:1080 https://nymtech.net/.wellknown/connect/healthcheck.json 
+curl -x socks5h://localhost:1080 https://nymtech.net/.wellknown/connect/healthcheck.json
 ```
 
 This command should return the following:
@@ -365,5 +370,3 @@ All network-requester-specific port configuration can be found in `$HOME/.nym/se
 | Default port | Use                       |
 |--------------|---------------------------|
 | 9000         | Listen for Client traffic |
-
-
