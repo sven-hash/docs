@@ -2,23 +2,67 @@
 
 > The Nym network requester was built in the [building nym](../binaries/building-nym.md) section. If you haven't yet built Nym and want to run the code on this page, go there first.
 
-If you have access to a server, you can run the network requester, which allows Nym users to send outbound requests from their local machine through the mixnet to your server, which then makes the request on their behalf, shielding them from the backend infrastructure of this service.
+If you have access to a server, you can run the network requester, which allows Nym users to send outbound requests from their local machine through the mixnet to a server, which then makes the request on their behalf, shielding them (and their metadata) from clearnet, untrusted and unknown infrastructure, such as email or message client servers.
 
-As of `v1.1.10`, the network requester longer requires a separate nym client instance for it to function, as it has a client embedded within the binary running as a single process. 
+> As of `v1.1.10`, the network requester longer requires a separate nym client instance for it to function, as it has a client embedded within the binary running as a single process. 
 
 ## Network Requester Whitelist
-The network requester is not an open proxy. It uses a file called `allowed.list` (in `~/.nym/service-providers/network-requester/`) as a whitelist for outbound requests. 
+The network requester is **not** an open proxy. It uses a file called `allowed.list` (located in `~/.nym/service-providers/network-requester/<network-requester-id>/`) as a whitelist for outbound requests. 
 
 Any request to a URL which is not on this list will be blocked.
 
 On startup, if this file is not present, the requester will grab the default whitelist from [here](https://nymtech.net/.wellknown/network-requester/standard-allowed-list.txt) automatically. 
 
-> This default whitelist is useful for knowing that the majority of network requesters are able to support certain apps 'out of the box'. 
+This default whitelist is useful for knowing that the majority of network requesters are able to support certain apps 'out of the box'. 
 
-> Operators of a network requester are of course free to edit this file and add the URLs of services they wish to support to it. You can find instructions below on adding your own URLs or IPs to this list. 
+**Operators of a network requester are of course free to edit this file and add the URLs of services they wish to support to it!** You can find instructions below on adding your own URLs or IPs to this list. 
 
-## Network requester 
-### Initializing and running your network requester (standard mode)
+The domains and IPs on the default whitelist can be broken down by application as follows: 
+
+```
+# Keybase 
+keybaseapi.com
+s3.amazonaws.com
+amazonaws.com
+twitter.com
+keybase.io
+gist.githubusercontent.com
+
+# Used to for uptime healthcheck (see the section on testing your requester below for more) 
+nymtech.net
+
+# Blockstream Green Bitcoin Wallet 
+blockstream.info
+blockstream.com
+greenaddress.it
+
+# Electrum Bitcoin Wallet
+electrum.org
+
+# Helios Ethereum Client 
+alchemy.com
+lightclientdata.org
+p2pify.com
+
+# Telegram - these IPs have been copied from https://core.telegram.org/resources/cidr.txt as Telegram does 
+# not seem to route by domain as the other apps on this list do
+91.108.56.0/22
+91.108.4.0/22
+91.108.8.0/22
+91.108.16.0/22
+91.108.12.0/22
+149.154.160.0/20
+91.105.192.0/23
+91.108.20.0/22
+185.76.151.0/24
+2001:b28:f23d::/48
+2001:b28:f23f::/48
+2001:67c:4e8::/48
+2001:b28:f23c::/48
+2a0a:f280::/32
+```
+
+## Initializing and running your network requester (standard mode)
 
 ```admonish caution
 If you are following these instructions to set up a requester as part of a Service Grant, **ignore these instructions and jump to the step [below](./network-requester-setup.md#running-your-network-requester-stats-mode)**
@@ -69,7 +113,7 @@ The address of this client is: 3wqJJb1Xj9876KBPnGuSZnN5pCWH6id6wkzS2tL6eZEh.4Kfg
 
 When running the above commands, the `./nym-network-requester --help ` command can be used to show a list of available parameters.
 
-### Running your network requester (stats mode)
+## Running your network requester (stats mode)
 
 Once an network-requester has been initialized, we can start it with the following command. 
 
@@ -162,18 +206,14 @@ Expected output:
 ```
 ~~~
 
-### Upgrading your network requester 
-```admonish caution 
-If you are updating your network requester from `v1.1.6` to `v1.1.7` and have a custom `allowed.list` we recommend you make a copy of this file before upgrading. 
-```
-
+## Upgrading your network requester 
 You can upgrade your network requester by following these steps: 
 
 * stop your network requester service 
 * replace the old binary with the new binary 
 * restart your service using the commands in the previous section of the document 
 
-#### Upgrading to version 1.1.10  
+### Upgrading to version 1.1.10  
 
 In the previous version of the network-requester, users were required to run a nym-client along side it to function. As of `v1.1.10`, the network-requester now has a nym client embedded into the binary, so it can run standalone.
 
@@ -187,7 +227,7 @@ nym-network-requester init --id mynetworkrequester
 Copy the old keys from your client to the network-requester configuration that was created above:
   
 ```
-cp -v ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
+cp -vr ~/.nym/clients/myoldclient/data/* ~/.nym/service-providers/network-requester/mynetworkrequester/data
 ```
 
 Edit the gateway configuration to match what you used on your client. Specifically, edit the configuration file at:
@@ -198,10 +238,10 @@ Edit the gateway configuration to match what you used on your client. Specifical
 Ensure that the fields `gateway_id`, `gateway_owner`, `gateway_listener` in the new config match those in the old client config at:
   
 ```
-~/.nym/clients/myoldclient/client/client.toml  
+~/.nym/clients/myoldclient/config/config.toml  
 ```
 
-### Automating your network requester with systemd
+## Automating your network requester with systemd
 Stop the running process with `CTRL-C`, and create a service file for the requester as we did with our client instance previously at `/etc/systemd/system/nym-network-requester.service`:
 
 ```ini
@@ -214,7 +254,7 @@ StartLimitBurst=10
 User=nym # replace this with whatever user you wish 
 LimitNOFILE=65536
 # remember to add the `--enable-statistics` flag if running as part of a service grant and check the path to your nym-network-requester binary 
-ExecStart=/home/nym/nym-network-requester run 
+ExecStart=/home/nym/nym-network-requester run --id <your_id>  
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
