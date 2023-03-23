@@ -49,7 +49,7 @@ You can redeem this now by running the nym-client, in enabled credentials mode:
 
 ```./nym-client --config-env-file <path-to>sandbox.env run --id <ID> --enabled-credentials-mode true```
 
-Run the network requester: 
+Run the network requester, can be downloaded [here](https://github.com/nymtech/nym/releases/download/nym-binaries-v1.1.9/nym-network-requester): 
 
  `./nym-network-requester run`
 
