@@ -43,7 +43,7 @@ Next, you init the nym-client with the enabled credentials mode set to true:
 
 Using the new credentials binary, purchase some credentials for the client. The recovery directory is a directory where the credentials will be temporarily stored in case the request fails.  
 
-```./credential --config-env-file <path-to>sandbox.env run --client-home-directory <path-to-the-client-config> --nyxd-url https://sandbox-validator1.nymtech.net --mnemonic “<mnemonic of the account created above>” --amount 50 --recovery-dir <a-path> ```
+```./credential --config-env-file <path-to>sandbox.env run --client-home-directory <path-to-the-client-config> --nyxd-url https://sandbox-validator1.nymtech.net --mnemonic "<mnemonic of the account created above>" --amount 50 --recovery-dir <a-path> ```
 
 You can redeem this now by running the nym-client, in enabled credentials mode:
 
@@ -59,7 +59,7 @@ Now time to init the socks5 client:
 
 Purchase credentials for this now too: 
 
-`./credential --config-env-file <path-to>sandbox.env run --client-home-directory <path-to-socks5-config> --nyxd-url https://sandbox-validator1.nymtech.net --mnemonic “<any valid sandbox mnemonic>” --amount 100 --recovery-dir <a-path>`
+`./credential --config-env-file <path-to>sandbox.env run --client-home-directory <path-to-socks5-config> --nyxd-url https://sandbox-validator1.nymtech.net --mnemonic "<any valid sandbox mnemonic>" --amount 100 --recovery-dir <a-path>`
 
 Run the socks5 client:
 
