@@ -70,7 +70,7 @@ NOTE
 You can check to see if credentials have been correctly purchased by installing sqlite, and proceeding to do the following:
 
 ```
-sqlite3  ~/.nym/socks5-clients/<ID>/data/db.sqlite 
+sqlite3  sqlite3  ~/.nym/socks5-clients/<ID>/data/credentials_database.db  
 select * from coconut_credentials;
 ```
 
