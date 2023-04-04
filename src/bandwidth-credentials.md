@@ -49,9 +49,11 @@ You can redeem this now by running the nym-client, in enabled credentials mode:
 
 ```./nym-client --config-env-file <path-to>sandbox.env run --id <ID> --enabled-credentials-mode true```
 
-Run the network requester, which can be built and initialised according to instructions [here](../src/nodes/network-requester-setup.md). Remember to `init` and `run` it using the `--config-env-file` flag so it runs on Sandbox as well.
+Run the network requester which can be downloaded [here](https://github.com/nymtech/nym/releases/download/nym-binaries-v1.1.9/nym-network-requester)
 
  `./nym-network-requester run`
+
+> You need to run this version for now, as the `nym-client` functionality was recently integrated into the `network-requester` binary but for the moment cannot support coconut credentials natively.
 
 Now time to init the socks5 client: 
 
